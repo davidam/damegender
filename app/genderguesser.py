@@ -24,28 +24,23 @@
 import csv
 import requests
 import json
+import gender_guesser.detector as gender
 
-# class Genderguesser(object):
-#     def list(self):
-#         d = gender.Detector()
-#         with open('partial.csv') as csvfile:
-#             genderguesserreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-#             next(genderguesserreader, None)
-#             genderguesserlist = []
-#             for row in genderguesserreader:
-#                 name = row[0]
-#                 name = name.replace('"', '')
-#                 name = name.capitalize()
-#                 print(d.get_gender(name))
-#                 genderguesserlist.append((name, d.get_gender(name)))
+class Genderguesser(object):
+    def list(self):
+        d = gender.Detector()
+        with open('files/partial.csv') as csvfile:
+            genderguesserreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(genderguesserreader, None)
+            genderguesserlist = []
+            for row in genderguesserreader:
+                name = row[0]
+                name = name.replace('"', '')
+                name = name.capitalize()
+                genderguesserlist.append((name, d.get_gender(name)))
+        return genderguesserlist
 # #        print(d.get_gender(name.capitalize()))
 
 # gg = Genderguesser()
-# d = gender.Detector()
-# genderguesserlist =  gg.list()
-
-# print(genderguesserlist)
-# print("Bob is", d.get_gender(u"Bob"))
-# print("Sally is", d.get_gender(u"Sally"))
-# print("Pauley is", d.get_gender(u"Pauley"))
-# print("Jamie is", d.get_gender(u"Jamie", u'great_britain'))
+# genderguesserlist = gg.list()
+# print(gg.list())
