@@ -24,6 +24,7 @@
 import nltk
 from nltk.corpus import names
 from pprint import pprint
+import csv
 
 class Sexmachine(object):
     def features(self, name):
@@ -42,3 +43,17 @@ class Sexmachine(object):
         train_set, test_set = featuresets[500:], featuresets[:500]
         classifier = nltk.NaiveBayesClassifier.train(train_set)
         return classifier.classify(self.features(name))
+
+    def list(self):
+        slist = []
+        with open('files/partial.csv') as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                name = row[0]
+                slist.append((name, self.guess(name)))
+        return slist
+
+
+# s = Sexmachine()
+# print(s.list())
