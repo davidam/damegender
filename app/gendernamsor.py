@@ -27,7 +27,7 @@ import json
 
 class Gendernamsor(object):
     def list(self):
-        with open('../files/partial.csv') as csvfile:
+        with open('files/partial.csv') as csvfile:
             namsorreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             next(namsorreader, None)
             namsorlist = []
@@ -42,5 +42,5 @@ class Gendernamsor(object):
                 namsorlist.append((d['firstName'], d['gender']))
         return namsorlist
 
-gn = Gendernamsor()
-print(gn.list())
+# gn = Gendernamsor()
+# print(gn.list())
