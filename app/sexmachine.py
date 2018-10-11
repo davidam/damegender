@@ -42,13 +42,3 @@ class Sexmachine(object):
         train_set, test_set = featuresets[500:], featuresets[:500]
         classifier = nltk.NaiveBayesClassifier.train(train_set)
         return classifier.classify(self.features(name))
-
-s = Sexmachine()
-print(s)
-f = s.features("David")
-print(f['has(a)'])
-print(f['count(i)'])
-print(f['count(v)'])
-print(f['last_letter'])
-print(f['first_letter'])
-print(s.guess("David"))
