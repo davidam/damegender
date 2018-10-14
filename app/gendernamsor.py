@@ -31,7 +31,6 @@ class Gendernamsor(object):
             namsorreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             next(namsorreader, None)
             namsorlist = []
-            namsororigins = []
             for row in namsorreader:
                 name = row[0]
                 surname = row[2]
