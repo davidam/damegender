@@ -57,11 +57,3 @@ class GenderGit(object):
         else:
             second = ""
         return second
-
-
-g = GenderGit()
-print(g.numCommits("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir"))
-print(g.removeMail("Santiago Dueñas <sduenas@bitergia.com>"))
-print(g.firstName("Santiago Dueñas"))
-print(g.secondName("Santiago Dueñas"))
-#print(g.secondName("Santiago Dueñas"))
