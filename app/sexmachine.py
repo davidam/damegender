@@ -28,7 +28,7 @@ from nltk.corpus import names
 import csv
 import nltk
 import re
-#from GenderGit import GenderGit
+from gendergit import GenderGit
 
 class Sexmachine(object):
     def features(self, name):
@@ -71,8 +71,28 @@ class Sexmachine(object):
                 slist.append((name, self.guess(name)))
         return slist
 
-    # def numFemales(self):
-    #     gg = GenderGit()
-    #     r = gg.repo("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir")
-    #     for user in repo.fetch():
-    #         print(user['data']['Author'])
+    def numFemales(self, url, directory):
+        gg = GenderGit()
+        r = gg.repo("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir")
+        count = 0
+        for user in r.fetch():
+            name = gg.removeMail(user['data']['Author'])
+            sm = self.guess(name)
+            if (sm == 'female'):
+                count = count + 1
+        return count
+
+    def numMales(self, url, directory):
+        gg = GenderGit()
+        r = gg.repo("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir")
+        count = 0
+        for user in r.fetch():
+            name = gg.removeMail(user['data']['Author'])
+            sm = self.guess(name)
+            if (sm == 'male'):
+                count = count + 1
+        return count
+
+# s = Sexmachine()
+# print(s.numFemales("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir"))
+# print(s.numMales("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir"))
