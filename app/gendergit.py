@@ -40,6 +40,28 @@ class GenderGit(object):
             result = re.sub(r'<.*@.*>', '', s)
         return result
 
+    def firstName(self, s):
+        result = ""
+        m = re.match("(\w+)", s)
+        if m:
+            first = m.group(1)
+        else:
+            first = ""
+        return first
+
+    def secondName(self, s):
+        result = ""
+        m = re.match("(\w+) (\w+)", s)
+        if m:
+            second = m.group(2)
+        else:
+            second = ""
+        return second
+
+
 g = GenderGit()
 print(g.numCommits("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir"))
 print(g.removeMail("Santiago Dueñas <sduenas@bitergia.com>"))
+print(g.firstName("Santiago Dueñas"))
+print(g.secondName("Santiago Dueñas"))
+#print(g.secondName("Santiago Dueñas"))
