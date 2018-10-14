@@ -31,11 +31,10 @@ class TddInPythonExample(unittest.TestCase):
         n = gg.numCommits("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir")
         self.assertTrue(1000 < n)
 
-    # TODO: Da problema de espacio en blanco al final del nombre
-    # def test_gendergit_removeMail_method_returns_correct_result(self):
-    #     gg = GenderGit()
-    #     nomail = gg.removeMail("Santiago Dueñas <sduenas@bitergia.com>")
-    #     self.assertEquals(nomail, "Santiago Dueñas")
+    def test_gendergit_removeMail_method_returns_correct_result(self):
+        gg = GenderGit()
+        nomail = gg.removeMail("Santiago Dueñas <sduenas@bitergia.com>")
+        self.assertEquals(nomail, "Santiago Dueñas")
 
     def test_gendergit_firstName_method_returns_correct_result(self):
         gg = GenderGit()

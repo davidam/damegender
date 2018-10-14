@@ -36,8 +36,8 @@ class GenderGit(object):
 
     def removeMail(self, s):
         result = ""
-        if re.search(r'<.*@.*>', s):
-            result = re.sub(r'<.*@.*>', '', s)
+        if re.search(r' ?<.*@.*>', s):
+            result = re.sub(r' ?<.*@.*>', '', s)
         return result
 
     def firstName(self, s):
