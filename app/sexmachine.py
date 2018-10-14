@@ -21,10 +21,14 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
-import nltk
-from nltk.corpus import names
 from pprint import pprint
+from perceval.backends.core.mbox import MBox
+from perceval.backends.core.git import Git
+from nltk.corpus import names
 import csv
+import nltk
+import re
+#from GenderGit import GenderGit
 
 class Sexmachine(object):
     def features(self, name):
@@ -36,13 +40,26 @@ class Sexmachine(object):
             features["has({})".format(letter)] = (letter in name.lower())
         return features
 
-    def guess(self, name):
+    # TODO: Reescribir el clasificador
+    def classifier(self):
         labeled_names = ([(name, 'male') for name in names.words('male.txt')] +
                          [(name, 'female') for name in names.words('female.txt')])
         featuresets = [(self.features(n), gender) for (n, gender) in labeled_names]
         train_set, test_set = featuresets[500:], featuresets[:500]
         classifier = nltk.NaiveBayesClassifier.train(train_set)
-        return classifier.classify(self.features(name))
+        return classifier
+#        return classifier.classify(self.features(name))
+
+    def guess(self, name):
+        guess = ''
+        if name in names.words('male.txt'):
+            guess = 'male'
+        elif name in names.words('female.txt'):
+            guess = 'female'
+        else:
+            classifier = self.classifier()
+            guess = classifier.classify(self.features(name))
+        return guess
 
     def list(self):
         slist = []
@@ -54,6 +71,8 @@ class Sexmachine(object):
                 slist.append((name, self.guess(name)))
         return slist
 
-
-# s = Sexmachine()
-# print(s.list())
+    # def numFemales(self):
+    #     gg = GenderGit()
+    #     r = gg.repo("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir")
+    #     for user in repo.fetch():
+    #         print(user['data']['Author'])
