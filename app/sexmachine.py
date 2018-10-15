@@ -28,7 +28,7 @@ from nltk.corpus import names
 import csv
 import nltk
 import re
-from gendergit import GenderGit
+from app.gendergit import GenderGit
 
 class Sexmachine(object):
     def features(self, name):
