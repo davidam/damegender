@@ -35,6 +35,11 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(f['last_letter'], 'd')
         self.assertEqual(f['first_letter'], 'd')
 
+    def test_sexmachine_listfeatures_method_returns_correct_result(self):
+        s = Sexmachine()
+        f = s.featuresint("David")
+        self.assertTrue(len(f) > 0)
+
     def test_sexmachine_guess_method_returns_correct_result(self):
         s = Sexmachine()
         self.assertEqual(s.guess("David"), 'male')
@@ -42,3 +47,20 @@ class TddInPythonExample(unittest.TestCase):
     def test_sexmachine_list_method_returns_correct_result(self):
         s = Sexmachine()
         self.assertEqual([('"pierre"', 'male'), ('"raul"', 'male'), ('"adriano"', 'female'), ('"ralf"', 'male'), ('"teppei"', 'male'), ('"guillermo"', 'male'), ('"catherine"', 'female'), ('"sabina"', 'female'), ('"ralf"', 'male'), ('"karl"', 'female'), ('"sushil"', 'male'), ('"clemens"', 'male'), ('"gregory"', 'male'), ('"lester"', 'male'), ('"claude"', 'male'), ('"martin"', 'female'), ('"vlad"', 'male'), ('"pasquale"', 'male'), ('"lourdes"', 'male'), ('"bruno"', 'male'), ('"thomas"', 'male')], s.list())
+
+    def test_sexmachine_featuresint_method_returns_correct_result(self):
+        s = Sexmachine()
+        dicc = s.featuresint("David")
+        self.assertEqual(chr(dicc['last_letter']), 'd')
+        self.assertEqual(chr(dicc['first_letter']), 'd')
+        self.assertEqual(dicc['count(a)'], 1)
+        self.assertEqual(dicc['count(b)'], 0)
+        self.assertEqual(dicc['count(c)'], 0)
+        self.assertEqual(dicc['count(d)'], 2)
+        self.assertEqual(dicc['count(e)'], 0)
+        self.assertEqual(dicc['count(f)'], 0)
+        self.assertEqual(dicc['count(h)'], 0)
+        self.assertEqual(dicc['count(i)'], 1)
+        self.assertEqual(dicc['count(v)'], 1)
+        self.assertTrue(dicc['count(a)'] > 0)
+        self.assertEqual(len(dicc.values()), 28)

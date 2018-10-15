@@ -40,6 +40,15 @@ class Sexmachine(object):
             features["has({})".format(letter)] = (letter in name.lower())
         return features
 
+    def featuresint(self, name):
+        features = {}
+        features["first_letter"] = ord(name[0].lower())
+        features["last_letter"] = ord(name[-1].lower())
+        for letter in 'abcdefghijklmnopqrstuvwxyz':
+            features["count({})".format(letter)] = name.lower().count(letter)
+        return features
+    #["count({})".format(letter)] = name.lower().count(letter)
+
     # TODO: Reescribir el clasificador
     def classifier(self):
         labeled_names = ([(name, 'male') for name in names.words('male.txt')] +
@@ -92,7 +101,3 @@ class Sexmachine(object):
             if (sm == 'male'):
                 count = count + 1
         return count
-
-# s = Sexmachine()
-# print(s.numFemales("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir"))
-# print(s.numMales("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir"))
