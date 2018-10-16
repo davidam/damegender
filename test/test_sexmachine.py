@@ -65,4 +65,6 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(dicc['count(a)'] > 0)
         self.assertTrue(dicc['vocals'], 2)
         self.assertTrue(dicc['consonants'], 3)
-        self.assertEqual(len(dicc.values()), 30)
+        self.assertEqual(dicc['first_letter_vocal'], False)
+        self.assertEqual(dicc['last_letter_vocal'], False)
+        self.assertEqual(len(dicc.values()), 32)
