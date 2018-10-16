@@ -70,8 +70,6 @@ class Sexmachine(object):
         train_set, test_set = featuresets[500:], featuresets[:500]
         classifier = nltk.NaiveBayesClassifier.train(train_set)
         return classifier
-#        return classifier.classify(self.features(name))
-
 
 
     def guess(self, name):
@@ -85,6 +83,7 @@ class Sexmachine(object):
             guess = classifier.classify(self.features(name))
         return guess
 
+    # TODO: renombrar a guess_list
     def list(self):
         slist = []
         with open('files/partial.csv') as csvfile:
@@ -102,8 +101,24 @@ class Sexmachine(object):
             next(sexreader, None)
             for row in sexreader:
                 name = row[0]
-                flist.append(self.featuresint(name))
+                flist.append(self.featuresint(name).values())
         return flist
+
+    def genderList(self):
+        glist = []
+        with open('files/partial.csv') as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                gender = row[4]
+                if (gender == 'f'):
+                    g = 0
+                elif (gender == 'm'):
+                    g = 1
+                else:
+                    g = 2
+                glist.append(g)
+        return glist
 
 
     def numFemales(self, url, directory):
