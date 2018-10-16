@@ -53,13 +53,13 @@ class Sexmachine(object):
         for letter in 'bcdfghjklmnpqrstvwxyz':
             featuresint["consonants"] = featuresint["consonants"] + 1
         if (chr(featuresint["first_letter"]) in 'aeiou'):
-            featuresint["first_letter_vocal"] = True
+            featuresint["first_letter_vocal"] = 1
         else:
-            featuresint["first_letter_vocal"] = False
+            featuresint["first_letter_vocal"] = 0
         if (chr(featuresint["last_letter"]) in 'aeiou'):
-            featuresint["last_letter_vocal"] = True
+            featuresint["last_letter_vocal"] = 1
         else:
-            featuresint["last_letter_vocal"] = False
+            featuresint["last_letter_vocal"] = 0
         return featuresint
 
     #["count({})".format(letter)] = name.lower().count(letter)
