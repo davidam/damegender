@@ -62,12 +62,6 @@ class Sexmachine(object):
             featuresint["last_letter_vocal"] = 0
         return featuresint
 
-    #["count({})".format(letter)] = name.lower().count(letter)
-    # número de vocales y consonantes
-    # vocales seguidas
-    # empieza por vocal o consonante
-    # k-fold
-
     # TODO: Reescribir el clasificador
     def classifier(self):
         labeled_names = ([(name, 'male') for name in names.words('male.txt')] +
@@ -77,6 +71,7 @@ class Sexmachine(object):
         classifier = nltk.NaiveBayesClassifier.train(train_set)
         return classifier
 #        return classifier.classify(self.features(name))
+
 
 
     def guess(self, name):
@@ -99,6 +94,17 @@ class Sexmachine(object):
                 name = row[0]
                 slist.append((name, self.guess(name)))
         return slist
+
+    def featuresList(self):
+        flist = []
+        with open('files/partial.csv') as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                name = row[0]
+                flist.append(self.featuresint(name))
+        return flist
+
 
     def numFemales(self, url, directory):
         gg = GenderGit()

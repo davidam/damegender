@@ -68,3 +68,9 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(dicc['first_letter_vocal'], 0)
         self.assertEqual(dicc['last_letter_vocal'], 0)
         self.assertEqual(len(dicc.values()), 32)
+
+    def test_sexmachine_featuresList_method_returns_correct_result(self):
+        s = Sexmachine()
+        fl = s.featuresList()
+        fo.close()
+        self.assertTrue(len(fl) > 20)
