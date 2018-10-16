@@ -72,5 +72,4 @@ class TddInPythonExample(unittest.TestCase):
     def test_sexmachine_featuresList_method_returns_correct_result(self):
         s = Sexmachine()
         fl = s.featuresList()
-        fo.close()
         self.assertTrue(len(fl) > 20)
