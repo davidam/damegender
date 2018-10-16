@@ -73,3 +73,9 @@ class TddInPythonExample(unittest.TestCase):
         s = Sexmachine()
         fl = s.featuresList()
         self.assertTrue(len(fl) > 20)
+
+    def test_sexmachine_genderList_method_returns_correct_result(self):
+        s = Sexmachine()
+        gl = s.genderList()
+        self.assertEqual(len(gl), 21)
+        # self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
