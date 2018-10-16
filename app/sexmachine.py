@@ -41,13 +41,24 @@ class Sexmachine(object):
         return features
 
     def featuresint(self, name):
-        features = {}
-        features["first_letter"] = ord(name[0].lower())
-        features["last_letter"] = ord(name[-1].lower())
+        featuresint = {}
+        featuresint["first_letter"] = ord(name[0].lower())
+        featuresint["last_letter"] = ord(name[-1].lower())
         for letter in 'abcdefghijklmnopqrstuvwxyz':
-            features["count({})".format(letter)] = name.lower().count(letter)
-        return features
+            featuresint["count({})".format(letter)] = name.lower().count(letter)
+        featuresint["vocals"] = 0
+        for letter in 'aeiou':
+            featuresint["vocals"] = featuresint["vocals"] + 1
+        featuresint["consonants"] = 0
+        for letter in 'bcdfghjklmnpqrstvwxyz':
+            featuresint["consonants"] = featuresint["consonants"] + 1
+        return featuresint
+
     #["count({})".format(letter)] = name.lower().count(letter)
+    # número de vocales y consonantes
+    # vocales seguidas
+    # empieza por vocal o consonante
+    # k-fold
 
     # TODO: Reescribir el clasificador
     def classifier(self):
@@ -58,6 +69,7 @@ class Sexmachine(object):
         classifier = nltk.NaiveBayesClassifier.train(train_set)
         return classifier
 #        return classifier.classify(self.features(name))
+
 
     def guess(self, name):
         guess = ''
