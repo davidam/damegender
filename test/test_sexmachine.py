@@ -35,9 +35,9 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(f['last_letter'], 'd')
         self.assertEqual(f['first_letter'], 'd')
 
-    def test_sexmachine_listfeatures_method_returns_correct_result(self):
+    def test_sexmachine_features_int_method_returns_correct_result(self):
         s = Sexmachine()
-        f = s.featuresint("David")
+        f = s.features_int("David")
         self.assertTrue(len(f) > 0)
 
     def test_sexmachine_guess_method_returns_correct_result(self):
@@ -48,9 +48,9 @@ class TddInPythonExample(unittest.TestCase):
         s = Sexmachine()
         self.assertEqual([('"pierre"', 'male'), ('"raul"', 'male'), ('"adriano"', 'female'), ('"ralf"', 'male'), ('"teppei"', 'male'), ('"guillermo"', 'male'), ('"catherine"', 'female'), ('"sabina"', 'female'), ('"ralf"', 'male'), ('"karl"', 'female'), ('"sushil"', 'male'), ('"clemens"', 'male'), ('"gregory"', 'male'), ('"lester"', 'male'), ('"claude"', 'male'), ('"martin"', 'female'), ('"vlad"', 'male'), ('"pasquale"', 'male'), ('"lourdes"', 'male'), ('"bruno"', 'male'), ('"thomas"', 'male')], s.list())
 
-    def test_sexmachine_featuresint_method_returns_correct_result(self):
+    def test_sexmachine_features_int_method_returns_correct_result(self):
         s = Sexmachine()
-        dicc = s.featuresint("David")
+        dicc = s.features_int("David")
         self.assertEqual(chr(dicc['last_letter']), 'd')
         self.assertEqual(chr(dicc['first_letter']), 'd')
         self.assertEqual(dicc['count(a)'], 1)
@@ -69,13 +69,13 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(dicc['last_letter_vocal'], 0)
         self.assertEqual(len(dicc.values()), 32)
 
-    def test_sexmachine_featuresList_method_returns_correct_result(self):
+    def test_sexmachine_features_list_method_returns_correct_result(self):
         s = Sexmachine()
-        fl = s.featuresList()
+        fl = s.features_list()
         self.assertTrue(len(fl) > 20)
 
-    def test_sexmachine_genderList_method_returns_correct_result(self):
+    def test_sexmachine_gender_list_method_returns_correct_result(self):
         s = Sexmachine()
-        gl = s.genderList()
+        gl = s.gender_list()
         self.assertEqual(len(gl), 21)
         # self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]

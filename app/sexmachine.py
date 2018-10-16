@@ -40,27 +40,27 @@ class Sexmachine(object):
             features["has({})".format(letter)] = (letter in name.lower())
         return features
 
-    def featuresint(self, name):
-        featuresint = {}
-        featuresint["first_letter"] = ord(name[0].lower())
-        featuresint["last_letter"] = ord(name[-1].lower())
+    def features_int(self, name):
+        features_int = {}
+        features_int["first_letter"] = ord(name[0].lower())
+        features_int["last_letter"] = ord(name[-1].lower())
         for letter in 'abcdefghijklmnopqrstuvwxyz':
-            featuresint["count({})".format(letter)] = name.lower().count(letter)
-        featuresint["vocals"] = 0
+            features_int["count({})".format(letter)] = name.lower().count(letter)
+        features_int["vocals"] = 0
         for letter in 'aeiou':
-            featuresint["vocals"] = featuresint["vocals"] + 1
-        featuresint["consonants"] = 0
+            features_int["vocals"] = features_int["vocals"] + 1
+        features_int["consonants"] = 0
         for letter in 'bcdfghjklmnpqrstvwxyz':
-            featuresint["consonants"] = featuresint["consonants"] + 1
-        if (chr(featuresint["first_letter"]) in 'aeiou'):
-            featuresint["first_letter_vocal"] = 1
+            features_int["consonants"] = features_int["consonants"] + 1
+        if (chr(features_int["first_letter"]) in 'aeiou'):
+            features_int["first_letter_vocal"] = 1
         else:
-            featuresint["first_letter_vocal"] = 0
-        if (chr(featuresint["last_letter"]) in 'aeiou'):
-            featuresint["last_letter_vocal"] = 1
+            features_int["first_letter_vocal"] = 0
+        if (chr(features_int["last_letter"]) in 'aeiou'):
+            features_int["last_letter_vocal"] = 1
         else:
-            featuresint["last_letter_vocal"] = 0
-        return featuresint
+            features_int["last_letter_vocal"] = 0
+        return features_int
 
     # TODO: Reescribir el clasificador
     def classifier(self):
@@ -70,7 +70,6 @@ class Sexmachine(object):
         train_set, test_set = featuresets[500:], featuresets[:500]
         classifier = nltk.NaiveBayesClassifier.train(train_set)
         return classifier
-
 
     def guess(self, name):
         guess = ''
@@ -94,17 +93,17 @@ class Sexmachine(object):
                 slist.append((name, self.guess(name)))
         return slist
 
-    def featuresList(self):
+    def features_list(self):
         flist = []
         with open('files/partial.csv') as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             next(sexreader, None)
             for row in sexreader:
                 name = row[0]
-                flist.append(self.featuresint(name).values())
+                flist.append(self.features_int(name).values())
         return flist
 
-    def genderList(self):
+    def gender_list(self):
         glist = []
         with open('files/partial.csv') as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -121,7 +120,7 @@ class Sexmachine(object):
         return glist
 
 
-    def numFemales(self, url, directory):
+    def num_females(self, url, directory):
         gg = GenderGit()
         r = gg.repo("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir")
         count = 0
@@ -132,7 +131,7 @@ class Sexmachine(object):
                 count = count + 1
         return count
 
-    def numMales(self, url, directory):
+    def num_males(self, url, directory):
         gg = GenderGit()
         r = gg.repo("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir")
         count = 0
