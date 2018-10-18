@@ -89,5 +89,16 @@ class TddInPythonExample(unittest.TestCase):
                  [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1,
                    0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0]]
         predicted= m.predict(array)
-        n = np.array([2, 2])
+        n = np.array([1, 1])
         self.assertTrue(np.array_equal(predicted, n))
+
+    # def test_sexmachine_multinomialNB_list_method_returns_correct_result(self):
+    #     s = Sexmachine()
+    #     m = s.multinomialNB()
+    #     array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0,
+    #                0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0],
+    #              [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1,
+    #                0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0]]
+    #     predicted= m.predict(array)
+    #     n = np.array([2, 2])
+    #     self.assertTrue(np.array_equal(predicted, n))
