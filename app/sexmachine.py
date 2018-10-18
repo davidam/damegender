@@ -28,7 +28,7 @@ from nltk.corpus import names
 import csv
 import nltk
 import re
-from app.gendergit import GenderGit
+#from app.gendergit import GenderGit
 import numpy as np
 from sklearn.naive_bayes import GaussianNB
 import pdb
@@ -119,7 +119,7 @@ class Sexmachine(object):
     def gender_list(self):
         glist = []
         with open('files/partial.csv') as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='"')
             next(sexreader, None)
             for row in sexreader:
                 gender = row[4]
@@ -153,14 +153,3 @@ class Sexmachine(object):
             if (sm == 'male'):
                 count = count + 1
         return count
-
-# s = Sexmachine()
-# m = s.gaussianNB()
-# array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0,
-#          0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0],
-#        [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1,
-#          0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0]]
-# predicted= m.predict(array)
-# print(predicted)
-# print(type(predicted))
-# # print(predicted)
