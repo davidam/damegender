@@ -29,6 +29,10 @@ import csv
 import nltk
 import re
 from app.gendergit import GenderGit
+import numpy as np
+from sklearn.naive_bayes import GaussianNB
+import pdb
+from pprint import pprint
 
 class Sexmachine(object):
     def features(self, name):
@@ -71,6 +75,15 @@ class Sexmachine(object):
         classifier = nltk.NaiveBayesClassifier.train(train_set)
         return classifier
 
+    def gaussianNB(self):
+        x = np.array(self.features_list())
+        y = np.array(self.gender_list())
+        #Create a Gaussian Classifier
+        model = GaussianNB()
+        # Train the model using the training sets
+        model.fit(x, y)
+        return model
+
     def guess(self, name):
         guess = ''
         if name in names.words('male.txt'):
@@ -100,7 +113,7 @@ class Sexmachine(object):
             next(sexreader, None)
             for row in sexreader:
                 name = row[0]
-                flist.append(self.features_int(name).values())
+                flist.append(list(self.features_int(name).values()))
         return flist
 
     def gender_list(self):
@@ -118,7 +131,6 @@ class Sexmachine(object):
                     g = 2
                 glist.append(g)
         return glist
-
 
     def num_females(self, url, directory):
         gg = GenderGit()
@@ -141,3 +153,14 @@ class Sexmachine(object):
             if (sm == 'male'):
                 count = count + 1
         return count
+
+# s = Sexmachine()
+# m = s.gaussianNB()
+# array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0,
+#          0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0],
+#        [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1,
+#          0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0]]
+# predicted= m.predict(array)
+# print(predicted)
+# print(type(predicted))
+# # print(predicted)
