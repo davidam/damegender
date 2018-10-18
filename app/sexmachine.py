@@ -31,6 +31,7 @@ import re
 #from app.gendergit import GenderGit
 import numpy as np
 from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import MultinomialNB
 import pdb
 from pprint import pprint
 
@@ -82,6 +83,13 @@ class Sexmachine(object):
         model = GaussianNB()
         # Train the model using the training sets
         model.fit(x, y)
+        return model
+
+    def multinomialNB(self):
+        X = np.array(self.features_list())
+        y = np.array(self.gender_list())
+        model = MultinomialNB()
+        model.fit(X, y)
         return model
 
     def guess(self, name):
@@ -153,3 +161,14 @@ class Sexmachine(object):
             if (sm == 'male'):
                 count = count + 1
         return count
+
+
+# s = Sexmachine()
+# m = s.multinomial_NB()
+# array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0,
+#            0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0],
+#          [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1,
+#            0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0]]
+# predicted= m.predict(array)
+# print(predicted)
+# n = np.array([1, 1])
