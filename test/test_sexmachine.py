@@ -22,6 +22,7 @@
 # Boston, MA 02110-1301 USA,
 
 import unittest
+import numpy as np
 from app.sexmachine import Sexmachine
 
 class TddInPythonExample(unittest.TestCase):
@@ -79,3 +80,14 @@ class TddInPythonExample(unittest.TestCase):
         gl = s.gender_list()
         self.assertEqual(len(gl), 21)
         # self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
+
+    def test_sexmachine_gaussianNB_list_method_returns_correct_result(self):
+        s = Sexmachine()
+        m = s.gaussianNB()
+        array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0,
+                   0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0],
+                 [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1,
+                   0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0]]
+        predicted= m.predict(array)
+        n = np.array([2, 2])
+        self.assertTrue(np.array_equal(predicted, n))
