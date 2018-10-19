@@ -1,3 +1,5 @@
+nltk
 perceval
 requests
 gender_guesser
+genderize
