@@ -1,19 +1,24 @@
 
 * Install
-
+** Installing Software
 #+BEGIN_SRC bash
 $ sudo apt-get install python3-nose-exclude
 $ git clone https://github.com/davidam/gender
 $ cd gender
 $ pip3 -r requirements.txt
 #+END_SRC
+** Obtaining an api key
+
+Currently you need an api key from https://store.genderize.io/documentation
+You must copy the api key in gender/files/genderapipass.txt
+
+** Configuring nltk
 
 #+BEGIN_SRC bash
 $ python3
 >>> import nltk
 >>> nltk.download('names')
 #+END_SRC
-
 
 * Check test
 
