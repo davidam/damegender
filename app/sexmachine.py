@@ -32,8 +32,10 @@ import re
 import numpy as np
 from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
+from sklearn import svm
 import pdb
 from pprint import pprint
+
 
 class Sexmachine(object):
     def features(self, name):
@@ -84,6 +86,13 @@ class Sexmachine(object):
         # Train the model using the training sets
         model.fit(x, y)
         return model
+
+    def svc(self):
+        X = np.array(self.features_list())
+        y = self.gender_list()
+        clf = svm.SVC()
+        clf.fit(X, y)
+        return clf
 
     def multinomialNB(self):
         X = np.array(self.features_list())
