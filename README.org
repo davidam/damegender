@@ -1,0 +1,14 @@
+
+* Install
+
+#+BEGIN_SRC bash
+$ git clone https://github.com/davidam/gender
+$ cd gender
+$ pip3 -r requirements.txt
+#+END_SRC
+
+* Check test
+
+#+BEGIN_SRC bash
+$ nosetest3 test
+#+END_SRC
