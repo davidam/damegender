@@ -2,10 +2,18 @@
 * Install
 
 #+BEGIN_SRC bash
+$ sudo apt-get install python3-nose-exclude
 $ git clone https://github.com/davidam/gender
 $ cd gender
 $ pip3 -r requirements.txt
 #+END_SRC
+
+#+BEGIN_SRC bash
+$ python3
+>>> import nltk
+>>> nltk.download('names')
+#+END_SRC
+
 
 * Check test
 
