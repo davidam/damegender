@@ -94,6 +94,12 @@ class Sexmachine(object):
         clf.fit(X, y)
         return clf
 
+    def sgd(self):
+        X = np.array(self.features_list())
+        y = self.gender_list()
+        clf = SGDClassifier(loss="log").fit(X,y)
+        return clf
+
     def multinomialNB(self):
         X = np.array(self.features_list())
         y = np.array(self.gender_list())
