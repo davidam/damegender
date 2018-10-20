@@ -78,8 +78,8 @@ class TddInPythonExample(unittest.TestCase):
     def test_sexmachine_gender_list_method_returns_correct_result(self):
         s = Sexmachine()
         gl = s.gender_list()
-        self.assertEqual(len(gl), 21)
-        # self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
+        self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
+#        self.assertEqual(len(gl), 21)
 
     def test_sexmachine_gaussianNB_list_method_returns_correct_result(self):
         s = Sexmachine()
