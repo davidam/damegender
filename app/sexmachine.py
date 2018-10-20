@@ -32,6 +32,8 @@ import re
 import numpy as np
 from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive_bayes import BernoulliNB
+from sklearn.linear_model import SGDClassifier
 from sklearn import svm
 import pdb
 from pprint import pprint
@@ -106,6 +108,14 @@ class Sexmachine(object):
         model = MultinomialNB()
         model.fit(X, y)
         return model
+
+    def bernoulliNB(self):
+        X = np.array(self.features_list())
+        y = np.array(self.gender_list())
+        model = BernouilliNB()
+        model.fit(X, y)
+        return model
+
 
     def guess(self, name):
         guess = ''
