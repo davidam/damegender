@@ -139,9 +139,13 @@ class Sexmachine(object):
                 slist.append((name, self.guess(name)))
         return slist
 
-    def features_list(self):
+    def features_list(self, all=False):
         flist = []
-        with open('files/partial.csv') as csvfile:
+        if all:
+            path = 'files/all.csv'
+        else:
+            path = 'files/partial.csv'
+        with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             next(sexreader, None)
             for row in sexreader:
