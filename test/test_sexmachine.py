@@ -53,6 +53,9 @@ class TddInPythonExample(unittest.TestCase):
     def test_sexmachine_guess_method_returns_correct_result(self):
         s = Sexmachine()
         self.assertEqual(s.guess("David"), 'male')
+        self.assertEqual(s.guess("Laura"), 'female')
+        self.assertEqual(s.guess("Nodiccionario"), 'male')
+        self.assertEqual(s.guess("Nadiccionaria"), 'female')
 
     def test_sexmachine_list_method_returns_correct_result(self):
         s = Sexmachine()
@@ -100,19 +103,19 @@ class TddInPythonExample(unittest.TestCase):
         gl = s.gender_list(all=True)
         self.assertTrue(len(gl) > 1000)
 
-    def test_sexmachine_svc_list_method_returns_correct_result(self):
-        s = Sexmachine()
-        m = s.svc()
-        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0]])
-        n = np.array([0])
-        self.assertTrue(np.array_equal(predicted, n))
+    # def test_sexmachine_svc_list_method_returns_correct_result(self):
+    #     s = Sexmachine()
+    #     m = s.svc()
+    #     predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0]])
+    #     n = np.array([0])
+    #     self.assertTrue(np.array_equal(predicted, n))
 
-    def test_sexmachine_sgd_list_method_returns_correct_result(self):
-        s = Sexmachine()
-        m = s.sgd()
-        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0]])
-        n = np.array([1])
-        self.assertTrue(np.array_equal(predicted, n))
+    # def test_sexmachine_sgd_list_method_returns_correct_result(self):
+    #     s = Sexmachine()
+    #     m = s.sgd()
+    #     predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0]])
+    #     n = np.array([1])
+    #     self.assertTrue(np.array_equal(predicted, n))
 
     # def test_sexmachine_gaussianNB_list_method_returns_correct_result(self):
     #     s = Sexmachine()
