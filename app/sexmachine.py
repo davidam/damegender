@@ -41,6 +41,7 @@ from pprint import pprint
 
 class Sexmachine(object):
     def features(self, name):
+    # features method created to check the nltk classifier
         features = {}
         features["first_letter"] = name[0].lower()
         features["last_letter"] = name[-1].lower()
@@ -50,6 +51,7 @@ class Sexmachine(object):
         return features
 
     def features_int(self, name):
+    # features method created to check the scikit classifiers
         features_int = {}
         features_int["first_letter"] = ord(name[0].lower())
         features_int["last_letter"] = ord(name[-1].lower())
@@ -73,6 +75,7 @@ class Sexmachine(object):
 
     # TODO: Reescribir el clasificador
     def classifier(self):
+    # NLTK bayesian classifier
         labeled_names = ([(name, 'male') for name in names.words('male.txt')] +
                          [(name, 'female') for name in names.words('female.txt')])
         featuresets = [(self.features(n), gender) for (n, gender) in labeled_names]
@@ -81,6 +84,7 @@ class Sexmachine(object):
         return classifier
 
     def svc(self):
+    # Scikit classifier
         X = np.array(self.features_list(all=True))
         y = self.gender_list(all=True)
         clf = svm.SVC()
@@ -88,12 +92,14 @@ class Sexmachine(object):
         return clf
 
     def sgd(self):
+    # Scikit classifier
         X = np.array(self.features_list(all=True))
         y = self.gender_list(all=True)
         clf = SGDClassifier(loss="log").fit(X,y)
         return clf
 
     def gaussianNB(self):
+    # Scikit bayesian classifier
         x = np.array(self.features_list(all=True))
         y = np.array(self.gender_list(all=True))
         #Create a Gaussian Classifier
@@ -103,6 +109,7 @@ class Sexmachine(object):
         return model
 
     def multinomialNB(self):
+    # Scikit bayesian classifier
         X = np.array(self.features_list(all=True))
         y = np.array(self.gender_list(all=True))
         model = MultinomialNB()
@@ -110,6 +117,7 @@ class Sexmachine(object):
         return model
 
     def bernoulliNB(self):
+    # Scikit bayesian classifier
         X = np.array(self.features_list(all=True))
         y = np.array(self.gender_list(all=True))
         model = BernouilliNB()
@@ -118,6 +126,7 @@ class Sexmachine(object):
 
 
     def guess(self, name):
+    # guess method to check names dictionary and nltk classifier
         guess = ''
         if name in names.words('male.txt'):
             guess = 'male'
@@ -174,6 +183,7 @@ class Sexmachine(object):
         return glist
 
     def num_females(self, url, directory):
+    # Extracting females with perceval
         gg = GenderGit()
         r = gg.repo("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir")
         count = 0
@@ -185,6 +195,7 @@ class Sexmachine(object):
         return count
 
     def num_males(self, url, directory):
+    # Extracting males with perceval
         gg = GenderGit()
         r = gg.repo("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir")
         count = 0
