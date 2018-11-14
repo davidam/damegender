@@ -29,6 +29,13 @@ import pdb
 
 class TddInPythonExample(unittest.TestCase):
 
+    def test_string2array_method_returns_correct_result(self):
+        array = "muchos    espacios en blanco"
+        s = Sexmachine()
+        arr = s.string2array(array)
+        self.assertEqual(["muchos", "espacios", "en", "blanco"], arr)
+
+
     def test_sexmachine_features_method_returns_correct_result(self):
         s = Sexmachine()
         f = s.features("David")
