@@ -62,9 +62,11 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(s.guess("Nadiccionaria", binary=True), 0)
 
 
-    def test_sexmachine_list_method_returns_correct_result(self):
+    def test_sexmachine_guess_list_method_returns_correct_result(self):
         s = Sexmachine()
-        self.assertEqual([('"pierre"', 'male'), ('"raul"', 'male'), ('"adriano"', 'female'), ('"ralf"', 'male'), ('"teppei"', 'male'), ('"guillermo"', 'male'), ('"catherine"', 'female'), ('"sabina"', 'female'), ('"ralf"', 'male'), ('"karl"', 'female'), ('"sushil"', 'male'), ('"clemens"', 'male'), ('"gregory"', 'male'), ('"lester"', 'male'), ('"claude"', 'male'), ('"martin"', 'female'), ('"vlad"', 'male'), ('"pasquale"', 'male'), ('"lourdes"', 'male'), ('"bruno"', 'male'), ('"thomas"', 'male')], s.guess_list())
+        self.assertEqual(['male', 'male', 'female', 'male', 'male', 'male', 'female', 'female', 'male', 'female', 'male', 'male', 'male', 'male', 'male', 'female', 'male', 'male', 'male', 'male', 'male'], s.guess_list(all=False, binary=False))
+        self.assertEqual([1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1], s.guess_list(all=False,binary=True))
+#        self.assertEqual([('"pierre"', 'male'), ('"raul"', 'male'), ('"adriano"', 'female'), ('"ralf"', 'male'), ('"teppei"', 'male'), ('"guillermo"', 'male'), ('"catherine"', 'female'), ('"sabina"', 'female'), ('"ralf"', 'male'), ('"karl"', 'female'), ('"sushil"', 'male'), ('"clemens"', 'male'), ('"gregory"', 'male'), ('"lester"', 'male'), ('"claude"', 'male'), ('"martin"', 'female'), ('"vlad"', 'male'), ('"pasquale"', 'male'), ('"lourdes"', 'male'), ('"bruno"', 'male'), ('"thomas"', 'male')], s.guess_list())
 
     def test_sexmachine_features_int_method_returns_correct_result(self):
         s = Sexmachine()
