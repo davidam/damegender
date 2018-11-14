@@ -132,16 +132,27 @@ class Sexmachine(object):
         model.fit(X, y)
         return model
 
-    def guess(self, name):
+    def guess(self, name, binary=False):
     # guess method to check names dictionary and nltk classifier
         guess = ''
         if name in names.words('male.txt'):
-            guess = 'male'
+            if binary:
+                guess = 1
+            else:
+                guess = 'male'
         elif name in names.words('female.txt'):
-            guess = 'female'
+            if binary:
+                guess = 0
+            else:
+                guess = 'female'
         else:
             classifier = self.classifier()
             guess = classifier.classify(self.features(name))
+            if binary:
+                if (guess=='male'):
+                    guess = 1
+                elif (guess=='female'):
+                    guess = 0
         return guess
 
     def guess_list(self, all=False):
