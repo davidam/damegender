@@ -40,6 +40,11 @@ from pprint import pprint
 
 
 class Sexmachine(object):
+
+    def string2array(self, string):
+        array = string.split(' ')
+        return array
+
     def features(self, name):
     # features method created to check the nltk classifier
         features = {}
