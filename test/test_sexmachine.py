@@ -24,6 +24,8 @@
 import unittest
 import numpy as np
 from app.sexmachine import Sexmachine
+import pdb
+
 
 class TddInPythonExample(unittest.TestCase):
 
@@ -75,36 +77,55 @@ class TddInPythonExample(unittest.TestCase):
         fl = s.features_list()
         self.assertTrue(len(fl) > 20)
 
+    def test_sexmachine_features_list_all_method_returns_correct_result(self):
+        s = Sexmachine()
+        fl = s.features_list(all=True)
+        self.assertTrue(len(fl) > 1000)
+
     def test_sexmachine_gender_list_method_returns_correct_result(self):
         s = Sexmachine()
         gl = s.gender_list()
         self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
         self.assertEqual(len(gl), 21)
 
-    def test_sexmachine_gaussianNB_list_method_returns_correct_result(self):
+    def test_sexmachine_gender_list_all_method_returns_correct_result(self):
         s = Sexmachine()
-        m = s.gaussianNB()
-        array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0,
-                   0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0],
-                 [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1,
-                   0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0]]
-        predicted= m.predict(array)
-        n = np.array([1, 1])
-        self.assertTrue(np.array_equal(predicted, n))
+        gl = s.gender_list(all=True)
+        self.assertTrue(len(gl) > 1000)
 
     def test_sexmachine_svc_list_method_returns_correct_result(self):
         s = Sexmachine()
         m = s.svc()
         predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0]])
-        self.assertTrue(predicted, [[1]])
-
-    def test_sexmachine_multinomialNB_list_method_returns_correct_result(self):
-        s = Sexmachine()
-        m = s.multinomialNB()
-        array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0,
-                   0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0],
-                 [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1,
-                   0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0]]
-        predicted= m.predict(array)
-        n = np.array([2, 2])
+        n = np.array([0])
         self.assertTrue(np.array_equal(predicted, n))
+
+    def test_sexmachine_sgd_list_method_returns_correct_result(self):
+        s = Sexmachine()
+        m = s.sgd()
+        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0]])
+        n = np.array([1])
+        self.assertTrue(np.array_equal(predicted, n))
+
+    # def test_sexmachine_gaussianNB_list_method_returns_correct_result(self):
+    #     s = Sexmachine()
+    #     m = s.gaussianNB()
+    #     array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0,
+    #                0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0],
+    #              [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1,
+    #                0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0]]
+    #     predicted= m.predict(array)
+    #     n = np.array([2, 2])
+    #     self.assertTrue(np.array_equal(predicted, n))
+
+
+    # def test_sexmachine_multinomialNB_list_method_returns_correct_result(self):
+    #     s = Sexmachine()
+    #     m = s.multinomialNB()
+    #     array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0,
+    #                0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0],
+    #              [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1,
+    #                0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0]]
+    #     predicted= m.predict(array)
+    #     n = np.array([2, 2])
+    #     self.assertTrue(np.array_equal(predicted, n))

@@ -22,8 +22,8 @@
 # Boston, MA 02110-1301 USA,
 
 from pprint import pprint
-from perceval.backends.core.mbox import MBox
-from perceval.backends.core.git import Git
+# from perceval.backends.core.mbox import MBox
+# from perceval.backends.core.git import Git
 from nltk.corpus import names
 import csv
 import nltk
@@ -80,38 +80,38 @@ class Sexmachine(object):
         classifier = nltk.NaiveBayesClassifier.train(train_set)
         return classifier
 
+    def svc(self):
+        X = np.array(self.features_list(all=True))
+        y = self.gender_list(all=True)
+        clf = svm.SVC()
+        clf.fit(X, y)
+        return clf
+
+    def sgd(self):
+        X = np.array(self.features_list(all=True))
+        y = self.gender_list(all=True)
+        clf = SGDClassifier(loss="log").fit(X,y)
+        return clf
+
     def gaussianNB(self):
-        x = np.array(self.features_list())
-        y = np.array(self.gender_list())
+        x = np.array(self.features_list(all=True))
+        y = np.array(self.gender_list(all=True))
         #Create a Gaussian Classifier
         model = GaussianNB()
         # Train the model using the training sets
         model.fit(x, y)
         return model
 
-    def svc(self):
-        X = np.array(self.features_list())
-        y = self.gender_list()
-        clf = svm.SVC()
-        clf.fit(X, y)
-        return clf
-
-    def sgd(self):
-        X = np.array(self.features_list())
-        y = self.gender_list()
-        clf = SGDClassifier(loss="log").fit(X,y)
-        return clf
-
     def multinomialNB(self):
-        X = np.array(self.features_list())
-        y = np.array(self.gender_list())
+        X = np.array(self.features_list(all=True))
+        y = np.array(self.gender_list(all=True))
         model = MultinomialNB()
         model.fit(X, y)
         return model
 
     def bernoulliNB(self):
-        X = np.array(self.features_list())
-        y = np.array(self.gender_list())
+        X = np.array(self.features_list(all=True))
+        y = np.array(self.gender_list(all=True))
         model = BernouilliNB()
         model.fit(X, y)
         return model
@@ -139,9 +139,13 @@ class Sexmachine(object):
                 slist.append((name, self.guess(name)))
         return slist
 
-    def features_list(self):
+    def features_list(self, all=False):
         flist = []
-        with open('files/partial.csv') as csvfile:
+        if all:
+            path = 'files/all.csv'
+        else:
+            path = 'files/partial.csv'
+        with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             next(sexreader, None)
             for row in sexreader:
@@ -149,9 +153,13 @@ class Sexmachine(object):
                 flist.append(list(self.features_int(name).values()))
         return flist
 
-    def gender_list(self):
+    def gender_list(self, all=False):
         glist = []
-        with open('files/partial.csv') as csvfile:
+        if all:
+            path = 'files/all.csv'
+        else:
+            path = 'files/partial.csv'
+        with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='"')
             next(sexreader, None)
             for row in sexreader:
@@ -186,14 +194,3 @@ class Sexmachine(object):
             if (sm == 'male'):
                 count = count + 1
         return count
-
-
-# s = Sexmachine()
-# m = s.multinomial_NB()
-# array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0,
-#            0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0],
-#          [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1,
-#            0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0]]
-# predicted= m.predict(array)
-# print(predicted)
-# n = np.array([1, 1])
