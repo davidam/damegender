@@ -1,0 +1,4 @@
+#+TODO: TODO(t) POSIBLE(p) POSSIBLE(p) FUTURE(f) | DONE(d!) CANCELED(c!)
+
+* TODO Hacer comparativa de clasificadores
+* TODO Crear la tarea de aprendizaje de dado el string de nombre descubrir nombre y apellidos si los hay
