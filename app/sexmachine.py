@@ -42,7 +42,10 @@ from pprint import pprint
 class Sexmachine(object):
 
     def string2array(self, string):
-        array = string.split(' ')
+        res = ""
+        if re.search(r' ', string):
+            res = re.sub(r' +', ' ', string)
+        array = res.split(' ')
         return array
 
     def features(self, name):
