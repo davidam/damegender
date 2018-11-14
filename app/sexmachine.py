@@ -35,6 +35,8 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.linear_model import SGDClassifier
 from sklearn import svm
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import confusion_matrix
 import pdb
 from pprint import pprint
 
@@ -172,6 +174,7 @@ class Sexmachine(object):
                     slist.append(self.guess(name, binary=False))
         return slist
 
+
     def features_list(self, all=False):
         flist = []
         if all:
@@ -229,3 +232,18 @@ class Sexmachine(object):
             if (sm == 'male'):
                 count = count + 1
         return count
+
+    def accuracy(self):
+        gl = self.gender_list(all=False)
+        sl = self.guess_list(all=False,binary=True)
+        return accuracy_score(gl, sl)
+
+    def confusion_matrix(self):
+        gl = self.gender_list(all=False)
+        sl = self.guess_list(all=False,binary=True)
+        return confusion_matrix(gl, sl)
+
+# s = Sexmachine()
+# gl = s.gender_list(all=False)
+# sl = s.guess_list(all=False,binary=True)
+# print(confusion_matrix(gl, sl))
