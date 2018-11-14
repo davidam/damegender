@@ -56,6 +56,11 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(s.guess("Laura"), 'female')
         self.assertEqual(s.guess("Nodiccionario"), 'male')
         self.assertEqual(s.guess("Nadiccionaria"), 'female')
+        self.assertEqual(s.guess("David", binary=True), 1)
+        self.assertEqual(s.guess("Laura", binary=True), 0)
+        self.assertEqual(s.guess("Nodiccionario", binary=True), 1)
+        self.assertEqual(s.guess("Nadiccionaria", binary=True), 0)
+
 
     def test_sexmachine_list_method_returns_correct_result(self):
         s = Sexmachine()
