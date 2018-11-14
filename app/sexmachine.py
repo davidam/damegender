@@ -132,7 +132,6 @@ class Sexmachine(object):
         model.fit(X, y)
         return model
 
-
     def guess(self, name):
     # guess method to check names dictionary and nltk classifier
         guess = ''
@@ -145,8 +144,7 @@ class Sexmachine(object):
             guess = classifier.classify(self.features(name))
         return guess
 
-    # TODO: renombrar a guess_list
-    def list(self):
+    def guess_list(self):
         slist = []
         with open('files/partial.csv') as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
