@@ -144,9 +144,13 @@ class Sexmachine(object):
             guess = classifier.classify(self.features(name))
         return guess
 
-    def guess_list(self):
+    def guess_list(self, all=False):
         slist = []
-        with open('files/partial.csv') as csvfile:
+        if all:
+            path = 'files/all.csv'
+        else:
+            path = 'files/partial.csv'
+        with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             next(sexreader, None)
             for row in sexreader:
