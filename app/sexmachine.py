@@ -155,7 +155,7 @@ class Sexmachine(object):
                     guess = 0
         return guess
 
-    def guess_list(self, all=False):
+    def guess_list(self, all=False, binary=False):
         slist = []
         if all:
             path = 'files/all.csv'
@@ -166,7 +166,10 @@ class Sexmachine(object):
             next(sexreader, None)
             for row in sexreader:
                 name = row[0]
-                slist.append((name, self.guess(name)))
+                if binary:
+                    slist.append(self.guess(name, binary=True))
+                else:
+                    slist.append(self.guess(name, binary=False))
         return slist
 
     def features_list(self, all=False):
