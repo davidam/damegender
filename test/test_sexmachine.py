@@ -114,10 +114,11 @@ class TddInPythonExample(unittest.TestCase):
         s = Sexmachine()
         self.assertTrue(s.accuracy() > 0.5)
 
-    # def test_sexmachine_confusion_matrix_method_returns_correct_result(self):
-    #     s = Sexmachine()
-    #     a = np.array([[2, 1, 0],[3, 13, 0],[0, 2, 0]])
-    #     self.assertEqual(np.array_equal(s.confusion_matrix(), a))
+    def test_sexmachine_confusion_matrix_method_returns_correct_result(self):
+        s = Sexmachine()
+        cm = s.confusion_matrix()
+        am = np.array([[2, 1, 0],[3, 13, 0],[0, 2, 0]])
+        self.assertTrue(np.array_equal(cm,am))
 
 
     # def test_sexmachine_svc_list_method_returns_correct_result(self):
