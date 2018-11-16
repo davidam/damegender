@@ -134,6 +134,19 @@ class Sexmachine(object):
         model.fit(X, y)
         return model
 
+    def guess_surname(self, string):
+    # A first version without ML
+        path = 'files/surnames.csv'
+        boolean = False
+        with open(path) as csvfile:
+            surnamereader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(surnamereader, None)
+            for row in surnamereader:
+                surname = row[0]
+                if (surname.lower() == string.lower()):
+                    boolean = True
+        return boolean
+
     def guess(self, name, binary=False):
     # guess method to check names dictionary and nltk classifier
         guess = ''
@@ -242,8 +255,3 @@ class Sexmachine(object):
         gl = self.gender_list(all=False)
         sl = self.guess_list(all=False,binary=True)
         return confusion_matrix(gl, sl)
-
-# s = Sexmachine()
-# gl = s.gender_list(all=False)
-# sl = s.guess_list(all=False,binary=True)
-# print(confusion_matrix(gl, sl))
