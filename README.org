@@ -5,7 +5,7 @@
 $ sudo apt-get install python3-nose-exclude
 $ git clone https://github.com/davidam/gender
 $ cd gender
-$ pip3 install -r requirements.txt 
+$ pip3 install -r requirements.txt
 #+END_SRC
 ** Obtaining an api key
 
@@ -24,4 +24,9 @@ $ python3
 
 #+BEGIN_SRC bash
 $ nosetest3 test
+#+END_SRC
+* Execute program
+
+#+BEGIN_SRC bash
+$ python3 main.py David
 #+END_SRC
