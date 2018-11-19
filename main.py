@@ -23,10 +23,10 @@
 
 from app.sexmachine import Sexmachine
 import sys
-
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("name", help="display the gender")
+args = parser.parse_args()
 if (len(sys.argv) > 1):
-    arg1 = sys.argv[1]
     s = Sexmachine()
-    print("The %s gender is %s" % (str(arg1), s.guess(arg1)))
-else:
-    print("You must introduce a name to execute this program")
+    print("%s's gender is %s" % (str(args.name), s.guess(args.name)))
