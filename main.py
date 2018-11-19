@@ -26,6 +26,7 @@ import sys
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
+parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 if (len(sys.argv) > 1):
     s = Sexmachine()
