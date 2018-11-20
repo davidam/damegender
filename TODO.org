@@ -74,9 +74,18 @@ Mirar python-examples/matplotlib/corr.py
   - State "DONE"       from "TODO"       [2018-11-19 lun 19:18]
 * TODO Escribir comando git2gender.py
   SCHEDULED: <2018-11-20 mar>
-Dada una url obtener número y porcentaje de hombres y mujeres El lío
-se establece con el tema de nombres, nombres compuestos y
-apellidos. Hay que reflexionar un poco más sobre este punto.
+Dada una url obtener número y porcentaje de hombres y mujeres
+** TODO Escribir método string2name
+Dada una cadena con espacios en blanco:
+1. Crea un array.
+2. Recorre el array hasta encontrar el primer nombre.
+2.1 Es nombre si no está en la lista de apellidos.
+3. Devuelve el primer nombre.
+
 * TODO Escribir comando gender2csv.py
   SCHEDULED: <2018-11-20 mar>
 Dado un fichero csv obtener número y porcentaje de hombres y mujeres
+* TODO Hay un problema con los acentos
+Probar
+$ python3 main.py Inés
+$ python3 main.py Ines
