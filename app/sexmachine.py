@@ -48,13 +48,6 @@ class Sexmachine(object):
         self.females = 0
         self.unknown = 0
 
-    def string2array(self, string):
-        res = ""
-        if re.search(r' ', string):
-            res = re.sub(r' +', ' ', string)
-        array = res.split(' ')
-        return array
-
     def features(self, name):
     # features method created to check the nltk classifier
         features = {}
@@ -87,7 +80,7 @@ class Sexmachine(object):
         else:
             features_int["last_letter_vocal"] = 0
         h = hyphen.Hyphenator('en_US')
-        features_int["syllables"] = h.syllables(name)
+        features_int["syllables"] = len(h.syllables(name))
         return features_int
 
     # TODO: Reescribir el clasificador
@@ -141,6 +134,13 @@ class Sexmachine(object):
         model.fit(X, y)
         return model
 
+    def string2array(self, string):
+        res = ""
+        if re.search(r' ', string):
+            res = re.sub(r' +', ' ', string)
+        array = res.split(' ')
+        return array
+
     def guess_surname(self, string):
     # A first version without ML
         path = 'files/surnames.csv'
@@ -153,6 +153,17 @@ class Sexmachine(object):
                 if (surname.lower() == string.lower()):
                     boolean = True
         return boolean
+
+    def string2gender(self, string):
+        arr = self.string2array(string)
+        name = ""
+        i = 0
+        features_int = self.features_int(string)
+        while ((name == "") and (len(arr) > i)):
+            if ((self.guess_surname(arr[i]) == False) and (features_int['syllables'] > 0)):
+                name = arr[i]
+            i = i + 1
+        return self.guess(name)
 
     def guess(self, name, binary=False):
     # guess method to check names dictionary and nltk classifier
