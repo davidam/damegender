@@ -37,8 +37,9 @@ from sklearn.linear_model import SGDClassifier
 from sklearn import svm
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
-import pdb
-from pprint import pprint
+# import pdb
+# from pprint import pprint
+import hyphen
 
 
 class Sexmachine(object):
@@ -85,6 +86,8 @@ class Sexmachine(object):
             features_int["last_letter_vocal"] = 1
         else:
             features_int["last_letter_vocal"] = 0
+        h = hyphen.Hyphenator('en_US')
+        features_int["syllables"] = h.syllables(name)
         return features_int
 
     # TODO: Reescribir el clasificador
@@ -234,6 +237,8 @@ class Sexmachine(object):
         self.males = count_males
         self.unknown = count_unknown
         return glist
+
+#    def git_gender_list(self, url, directory):
 
     def num_females(self, url, directory):
     # Extracting females with perceval
