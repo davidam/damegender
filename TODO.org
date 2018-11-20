@@ -4,7 +4,79 @@
 ** DONE Crear métodos de accuracy y confusion_matrix
    - State "DONE"       from "TODO"       [2018-11-15 jue 11:53]
 * TODO Estudiar las relaciones entre las variables escogidas
+Mirar python-examples/matplotlib/corr.py
 * TODO Crear la tarea de aprendizaje de dado el string de nombre descubrir nombre y apellidos si los hay
+** TODO Crear método guess_surname
 * DONE Hacer los test requeridos para string2array
   - State "DONE"       from "TODO"       [2018-11-15 jue 11:52]
 * TODO Meter en guess todos los clasificadores
+    def guess(self, name, classifier_type):
+    # guess method to check names dictionary and nltk classifier
+        guess = ''
+        if name in names.words('male.txt'):
+#            guess = 'male' # 1
+            guess = np.array([1])
+        elif name in names.words('female.txt'):
+#            guess = 'female' # 0
+            guess = np.array([0])
+        else:
+           if (classifier_type == 'gaussianNB'):
+               m = self.bernoulliNB()
+               guess = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0]])
+           elif (classifier_type == 'multinomialNB'):
+               m = self.multinomialNB()
+               guess = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0]])
+           elif (classifier_type == 'bernoulliNB'):
+               m = self.bernoulliNB()
+               guess = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0]])
+           else: # nltk default
+               classifier = self.classifier()
+               guess = classifier.classify(self.features(name))
+        return guess
+* TODO Hacer un accuracy y matriz de confusión para las apis
+** TODO Crear una clase abstracta gender
+*** TODO método guess con la cuestión de los diccionarios de nombres (ver herencia.py)
+
+** TODO Reescribir apis con guess y guess_list
++ [ ]
+
+* TODO Plantearse renombrarlo a damegender
+  SCHEDULED: <2018-11-16 vie>
+* TODO guess en Gendernamsor
+    # def guess(Gender, name, surname, binary=False):
+    # # guess method to check names dictionary and nltk classifier
+    #     guess = super(Gender, self).gender()
+    #     guess = ''
+    #     if name in names.words('male.txt'):
+    #         if binary:
+    #             guess = 1
+    #         else:
+    #             guess = 'male'
+    #     elif name in names.words('female.txt'):
+    #         if binary:
+    #             guess = 0
+    #         else:
+    #             guess = 'female'
+    #     else:
+    #         r = requests.get('https://api.namsor.com/onomastics/api/json/gender/'+ name +'/' + surname)
+    #         d = json.loads(r.text)
+    #         if binary:
+    #             if (d['gender']=='female'):
+    #                 guess = 0
+    #             elif (d['gender']=='male'):
+    #                 guess = 1
+    #             else:
+    #                 guess = 2
+    #         else:
+    #             guess = d['gender']
+    #     return guess
+* DONE Escribir comando para adivinar un nombre
+  - State "DONE"       from "TODO"       [2018-11-19 lun 19:18]
+* TODO Escribir comando git2gender.py
+  SCHEDULED: <2018-11-20 mar>
+Dada una url obtener número y porcentaje de hombres y mujeres El lío
+se establece con el tema de nombres, nombres compuestos y
+apellidos. Hay que reflexionar un poco más sobre este punto.
+* TODO Escribir comando gender2csv.py
+  SCHEDULED: <2018-11-20 mar>
+Dado un fichero csv obtener número y porcentaje de hombres y mujeres
