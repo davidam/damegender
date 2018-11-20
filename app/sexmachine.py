@@ -42,6 +42,10 @@ from pprint import pprint
 
 
 class Sexmachine(object):
+    def __init__(self):
+        self.males = 0
+        self.females = 0
+        self.unknown = 0
 
     def string2array(self, string):
         res = ""
@@ -211,15 +215,24 @@ class Sexmachine(object):
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='"')
             next(sexreader, None)
+            count_females = 0
+            count_males = 0
+            count_unknown = 0
             for row in sexreader:
                 gender = row[4]
                 if (gender == 'f'):
                     g = 0
+                    count_females = count_females + 1
                 elif (gender == 'm'):
                     g = 1
+                    count_males = count_males + 1
                 else:
                     g = 2
+                    count_unknown = count_unknown + 1
                 glist.append(g)
+        self.females = count_females
+        self.males = count_males
+        self.unknown = count_unknown
         return glist
 
     def num_females(self, url, directory):

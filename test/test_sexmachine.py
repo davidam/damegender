@@ -24,8 +24,6 @@
 import unittest
 import numpy as np
 from app.sexmachine import Sexmachine
-import pdb
-
 
 class TddInPythonExample(unittest.TestCase):
 
@@ -34,7 +32,6 @@ class TddInPythonExample(unittest.TestCase):
         s = Sexmachine()
         arr = s.string2array(array)
         self.assertEqual(["muchos", "espacios", "en", "blanco"], arr)
-
 
     def test_sexmachine_features_method_returns_correct_result(self):
         s = Sexmachine()
@@ -107,6 +104,9 @@ class TddInPythonExample(unittest.TestCase):
         gl = s.gender_list()
         self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
         self.assertEqual(len(gl), 21)
+        self.assertEqual(s.females, 3)
+        self.assertEqual(s.males, 16)
+        self.assertEqual(s.unknown, 2)
 
     def test_sexmachine_gender_list_all_method_returns_correct_result(self):
         s = Sexmachine()
