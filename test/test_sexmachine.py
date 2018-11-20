@@ -124,6 +124,13 @@ class TddInPythonExample(unittest.TestCase):
         am = np.array([[2, 1, 0],[3, 13, 0],[0, 2, 0]])
         self.assertTrue(np.array_equal(cm,am))
 
+    def test_sexmachine_string2gender_method_returns_correct_result(self):
+        s = Sexmachine()
+        gender1 = s.string2gender("Arroyo Menéndez, David")
+        gender2 = s.string2gender("xxxxx Laura")
+        self.assertTrue(gender1, 'male')
+        self.assertTrue(gender2, 'female')
+
 
     # def test_sexmachine_svc_list_method_returns_correct_result(self):
     #     s = Sexmachine()
