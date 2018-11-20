@@ -45,6 +45,7 @@ class TddInPythonExample(unittest.TestCase):
     def test_sexmachine_features_int_method_returns_correct_result(self):
         s = Sexmachine()
         f = s.features_int("David")
+        self.assertTrue(f['syllables'] == 2)
         self.assertTrue(len(f) > 0)
 
     def test_sexmachine_guess_method_returns_correct_result(self):
@@ -87,7 +88,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(dicc['consonants'], 3)
         self.assertEqual(dicc['first_letter_vocal'], 0)
         self.assertEqual(dicc['last_letter_vocal'], 0)
-        self.assertEqual(len(dicc.values()), 32)
+        self.assertTrue(len(dicc.values()) > 30)
 
     def test_sexmachine_features_list_method_returns_correct_result(self):
         s = Sexmachine()
