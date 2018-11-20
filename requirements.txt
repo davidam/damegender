@@ -5,3 +5,4 @@ gender_guesser
 genderize
 numpy
 scikit-learn
+pyhyphen
