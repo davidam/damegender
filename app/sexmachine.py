@@ -28,7 +28,7 @@ from nltk.corpus import names
 import csv
 import nltk
 import re
-#from app.gendergit import GenderGit
+import unidecode
 import numpy as np
 from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
@@ -136,6 +136,7 @@ class Sexmachine(object):
 
     def string2array(self, string):
         res = ""
+        string = unidecode.unidecode(string)
         if re.search(r' ', string):
             res = re.sub(r' +', ' ', string)
         array = res.split(' ')
@@ -168,6 +169,7 @@ class Sexmachine(object):
     def guess(self, name, binary=False):
     # guess method to check names dictionary and nltk classifier
         guess = ''
+        name = unidecode.unidecode(name)
         if name in names.words('male.txt'):
             if binary:
                 guess = 1
