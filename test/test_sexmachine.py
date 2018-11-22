@@ -33,6 +33,7 @@ class TddInPythonExample(unittest.TestCase):
         arr = s.string2array(array)
         self.assertEqual(["muchos", "espacios", "en", "blanco"], arr)
 
+
     def test_sexmachine_features_method_returns_correct_result(self):
         s = Sexmachine()
         f = s.features("David")
@@ -52,8 +53,10 @@ class TddInPythonExample(unittest.TestCase):
         s = Sexmachine()
         self.assertEqual(s.guess("David"), 'male')
         self.assertEqual(s.guess("Laura"), 'female')
-        self.assertEqual(s.guess("Nodiccionario"), 'male')
-        self.assertEqual(s.guess("Nadiccionaria"), 'female')
+        self.assertEqual(s.guess("Inés"), 'female') # Con acento
+        self.assertEqual(s.guess("Ines"), 'female') # Sin acento
+        self.assertEqual(s.guess("Nodiccionario"), 'male') # Sin estar en diccionario
+        self.assertEqual(s.guess("Nadiccionaria"), 'female') # En diccionario
         self.assertEqual(s.guess("David", binary=True), 1)
         self.assertEqual(s.guess("Laura", binary=True), 0)
         self.assertEqual(s.guess("Nodiccionario", binary=True), 1)
