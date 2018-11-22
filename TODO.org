@@ -6,7 +6,8 @@
 * TODO Estudiar las relaciones entre las variables escogidas
 Mirar python-examples/matplotlib/corr.py
 * TODO Crear la tarea de aprendizaje de dado el string de nombre descubrir nombre y apellidos si los hay
-** TODO Crear método guess_surname
+** DONE Crear método guess_surname
+   - State "DONE"       from "TODO"       [2018-11-22 jue 16:12]
 * DONE Hacer los test requeridos para string2array
   - State "DONE"       from "TODO"       [2018-11-15 jue 11:52]
 * TODO Meter en guess todos los clasificadores
@@ -72,8 +73,9 @@ Mirar python-examples/matplotlib/corr.py
     #     return guess
 * DONE Escribir comando para adivinar un nombre
   - State "DONE"       from "TODO"       [2018-11-19 lun 19:18]
-* TODO Escribir comando git2gender.py
+* DONE Escribir comando git2gender.py
   SCHEDULED: <2018-11-20 mar>
+  - State "DONE"       from "TODO"       [2018-11-22 jue 16:12]
 Dada una url obtener número y porcentaje de hombres y mujeres
 ** TODO Escribir método string2name
 Dada una cadena con espacios en blanco:
@@ -82,10 +84,22 @@ Dada una cadena con espacios en blanco:
 2.1 Es nombre si no está en la lista de apellidos.
 3. Devuelve el primer nombre.
 
-* TODO Escribir comando gender2csv.py
+* DONE Escribir comando gender2csv.py
   SCHEDULED: <2018-11-20 mar>
+  - State "DONE"       from "TODO"       [2018-11-22 jue 16:12]
 Dado un fichero csv obtener número y porcentaje de hombres y mujeres
-* TODO Hay un problema con los acentos
+* DONE Hay un problema con los acentos
+  - State "DONE"       from "TODO"       [2018-11-22 jue 08:30]
 Probar
 $ python3 main.py Inés
 $ python3 main.py Ines
+* TODO Hay un problema con los nombres que aparecen en male.txt y female.txt
+Probar
+$ python3 main.py Andrea
+Para esto lo mejor es devolver una probabilidad. Usar INE.es puede ser una opción.
+* DONE Meter en el requirements la dependencia de hyphenation
+  SCHEDULED: <2018-11-20 mar>
+  - State "DONE"       from "TODO"       [2018-11-22 jue 16:11]
+* DONE Reescribir num_males y num_females con el método list_commiters de GenderGit
+  SCHEDULED: <2018-11-22 jue>
+  - State "DONE"       from "TODO"       [2018-11-22 jue 16:10]
