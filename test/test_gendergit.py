@@ -45,3 +45,7 @@ class TddInPythonExample(unittest.TestCase):
         gg = GenderGit()
         second = gg.secondName("Santiago Dueñas")
         self.assertEquals(second, "Dueñas")
+
+    def test_gendergit_list_committers_method_returns_correct_result(self):
+        gg = GenderGit()
+        self.assertTrue(len(gg.list_committers("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir")) > 100)
