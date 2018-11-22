@@ -49,3 +49,8 @@ class TddInPythonExample(unittest.TestCase):
     def test_gendergit_list_committers_method_returns_correct_result(self):
         gg = GenderGit()
         self.assertTrue(len(gg.list_committers("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir")) > 100)
+
+
+    def test_gendergit_delete_duplicated_method_returns_correct_result(self):
+        gg = GenderGit()
+        self.assertEqual(gg.delete_duplicated([1, 2, 2, 1, 3]), [1, 2, 3])
