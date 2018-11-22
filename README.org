@@ -30,4 +30,5 @@ $ nosetest3 test
 #+BEGIN_SRC bash
 $ python3 main.py David
 $ python3 csv2gender.py files/partial.csv
+$ python3 git2gender.py https://github.com/chaoss/grimoirelab-perceval.git --directory="/tmp/clonedir"
 #+END_SRC
