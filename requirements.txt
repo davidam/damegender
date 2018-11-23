@@ -6,3 +6,4 @@ genderize
 numpy
 scikit-learn
 pyhyphen
+unidecode
