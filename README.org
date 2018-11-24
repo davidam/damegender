@@ -35,4 +35,5 @@ $ nosetests3 test/test_sexmachine.py:TddInPythonExample.test_string2array_method
 $ python3 main.py David
 $ python3 csv2gender.py files/partial.csv
 $ python3 git2gender.py https://github.com/chaoss/grimoirelab-perceval.git --directory="/tmp/clonedir"
+$ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
 #+END_SRC
