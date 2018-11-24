@@ -25,6 +25,7 @@ from perceval.backends.core.mbox import MBox
 from perceval.backends.core.git import Git
 import re
 
+
 class GenderGit(object):
 
     def numCommits(self, url, directory):
@@ -83,3 +84,11 @@ class GenderGit(object):
             committer = self.removeMail(user['data']['Author'])
             list_committers.append(committer)
         return list_committers
+
+    def list_mailers(self, url, directory="files"):
+        repo = MBox(uri=url, dirpath=directory)
+        count = 0
+        list_mailers = []
+        for message in repo.fetch():
+            list_mailers.append(message['data']['From'])
+        return list_mailers

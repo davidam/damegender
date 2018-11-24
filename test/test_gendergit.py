@@ -55,7 +55,10 @@ class TddInPythonExample(unittest.TestCase):
         n = gg.numMails("http://mail-archives.apache.org/mod_mbox/httpd-announce/")
         self.assertTrue(n >= 0)
 
-
     def test_gendergit_delete_duplicated_method_returns_correct_result(self):
         gg = GenderGit()
         self.assertEqual(gg.delete_duplicated([1, 2, 2, 1, 3]), [1, 2, 3])
+
+    def test_gendergit_list_mailers_method_returns_correct_result(self):
+        gg = GenderGit()
+        self.assertTrue(len(gg.list_mailers('http://mail-archives.apache.org/mod_mbox/httpd-announce/')) >= 0)
