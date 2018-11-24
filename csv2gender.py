@@ -30,7 +30,7 @@ parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 if (len(sys.argv) > 1):
     s = Sexmachine()
-#    print(s.gender_list())
+    s.gender_list()
     print("The number of males in %s is %s" % (str(args.file), str(s.males)))
     print("The number of females in %s is %s" % (str(args.file), str(s.males)))
     print("The number of gender not recognised in %s is %s" % (str(args.file), str(s.unknown)))
