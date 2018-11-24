@@ -21,9 +21,13 @@ $ python3
 #+END_SRC
 
 * Check test
-
+** All tests
 #+BEGIN_SRC bash
 $ nosetest3 test
+#+END_SRC
+** Single test
+#+BEGIN_SRC bash
+$ nosetests3 test/test_sexmachine.py:TddInPythonExample.test_string2array_method_returns_correct_result
 #+END_SRC
 * Execute program
 
