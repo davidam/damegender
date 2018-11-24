@@ -21,7 +21,7 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
-#from perceval.backends.core.mbox import MBox
+from perceval.backends.core.mbox import MBox
 from perceval.backends.core.git import Git
 import re
 
@@ -31,6 +31,13 @@ class GenderGit(object):
         repo = Git(uri=url, gitpath=directory)
         count = 0
         for commit in repo.fetch():
+            count += 1
+        return count
+
+    def numMails(self, url, directory="files"):
+        repo = MBox(uri=url, dirpath=directory)
+        count = 0
+        for message in repo.fetch():
             count += 1
         return count
 
