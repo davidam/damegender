@@ -1,6 +1,7 @@
 #+TODO: TODO(t) POSIBLE(p) POSSIBLE(p) FUTURE(f) | DONE(d!) CANCELED(c!)
 
 * TODO Hacer comparativa de clasificadores
+  SCHEDULED: <2018-11-23 vie>
 ** DONE Crear métodos de accuracy y confusion_matrix
    - State "DONE"       from "TODO"       [2018-11-15 jue 11:53]
 * TODO Estudiar las relaciones entre las variables escogidas
@@ -35,12 +36,11 @@ Mirar python-examples/matplotlib/corr.py
                guess = classifier.classify(self.features(name))
         return guess
 * TODO Hacer un accuracy y matriz de confusión para las apis
-** TODO Crear una clase abstracta gender
-*** TODO método guess con la cuestión de los diccionarios de nombres (ver herencia.py)
-
+** DONE Crear una clase abstracta gender
+   - State "DONE"       from "TODO"       [2018-11-22 jue 18:20]
+*** DONE método guess con la cuestión de los diccionarios de nombres (ver herencia.py)
+	- State "DONE"       from "TODO"       [2018-11-22 jue 18:20]
 ** TODO Reescribir apis con guess y guess_list
-+ [ ]
-
 * TODO Plantearse renombrarlo a damegender
   SCHEDULED: <2018-11-16 vie>
 * TODO guess en Gendernamsor
@@ -103,3 +103,13 @@ Para esto lo mejor es devolver una probabilidad. Usar INE.es puede ser una opci�
 * DONE Reescribir num_males y num_females con el método list_commiters de GenderGit
   SCHEDULED: <2018-11-22 jue>
   - State "DONE"       from "TODO"       [2018-11-22 jue 16:10]
+* TODO Escribir tests para main.py, csv2gender y git2gender
+  SCHEDULED: <2018-11-23 vie>
+* TODO Para csv2gender:
+  SCHEDULED: <2018-11-24 sáb>
+** en file deberías reconocer:
++ [ ] formato csv
++ [ ] tiene las rows importantes
+** en sexmachine
++ [ ] trabajar por path en vez de all y partial
++ [ ] detectar si el fichero existe
