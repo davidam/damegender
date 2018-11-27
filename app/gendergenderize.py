@@ -28,7 +28,7 @@ import json
 
 class Gendergenderize(object):
     def list(self):
-        with open('files/partial.csv') as csvfile:
+        with open('files/min.csv') as csvfile:
             genderizereader = csv.reader(csvfile, delimiter=',', quotechar='|')
             next(genderizereader, None)
             l = []
