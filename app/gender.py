@@ -22,9 +22,15 @@
 # Boston, MA 02110-1301 USA,
 
 from nltk.corpus import names
+import csv
 
 class Gender(object):
 # That's the root class in the heritage, apis classes and sexmachine is inheriting from gender
+    def __init__(self):
+        self.males = 0
+        self.females = 0
+        self.unknown = 0
+
     def guess(self, name, binary=False):
     # guess method to check names dictionary
         guess = ''
@@ -49,3 +55,28 @@ class Gender(object):
             else:
                 guess = 'unknown'
         return guess
+
+    def gender_list(self, path='files/partial.csv'):
+        glist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='"')
+            next(sexreader, None)
+            count_females = 0
+            count_males = 0
+            count_unknown = 0
+            for row in sexreader:
+                gender = row[4]
+                if (gender == 'f'):
+                    g = 0
+                    count_females = count_females + 1
+                elif (gender == 'm'):
+                    g = 1
+                    count_males = count_males + 1
+                else:
+                    g = 2
+                    count_unknown = count_unknown + 1
+                glist.append(g)
+        self.females = count_females
+        self.males = count_males
+        self.unknown = count_unknown
+        return glist

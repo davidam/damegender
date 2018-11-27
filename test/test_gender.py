@@ -26,7 +26,7 @@ from app.gender import Gender
 
 class TddInPythonExample(unittest.TestCase):
 
-    def test_gender_namsor_guess_method_returns_correct_result(self):
+    def test_gender_guess_method_returns_correct_result(self):
         g = Gender()
         r = Gender.guess(self, name="David", binary=True)
         self.assertEqual(r, 1)
@@ -37,4 +37,13 @@ class TddInPythonExample(unittest.TestCase):
         r = Gender.guess(self, name="Laura", binary=False)
         self.assertEqual(r, "female")
         r = Gender.guess(self, name="Andrea", binary=True)
-        self.assertEqual(r, 2)        
+        self.assertEqual(r, 2)
+
+    def test_sexmachine_gender_list_method_returns_correct_result(self):
+        g = Gender()
+        gl = g.gender_list()
+        self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
+        self.assertEqual(len(gl), 21)
+        self.assertEqual(g.females, 3)
+        self.assertEqual(g.males, 16)
+        self.assertEqual(g.unknown, 2)
