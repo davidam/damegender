@@ -26,6 +26,21 @@ from app.gender import Gender
 
 class TddInPythonExample(unittest.TestCase):
 
+    def test_gender_features_method_returns_correct_result(self):
+        g = Gender()
+        f = g.features("David")
+        self.assertEqual(f['has(a)'], True)
+        self.assertEqual(f['count(i)'], 1)
+        self.assertEqual(f['count(v)'], 1)
+        self.assertEqual(f['last_letter'], 'd')
+        self.assertEqual(f['first_letter'], 'd')
+
+    # def test_sexmachine_features_int_method_returns_correct_result(self):
+    #     g = Gender()
+    #     f = g.features_int("David")
+    #     self.assertTrue(f['syllables'] == 2)
+    #     self.assertTrue(len(f) > 0)
+
     def test_gender_guess_method_returns_correct_result(self):
         g = Gender()
         r = Gender.guess(self, name="David", binary=True)
@@ -39,7 +54,7 @@ class TddInPythonExample(unittest.TestCase):
         r = Gender.guess(self, name="Andrea", binary=True)
         self.assertEqual(r, 2)
 
-    def test_sexmachine_gender_list_method_returns_correct_result(self):
+    def test_gender_gender_list_method_returns_correct_result(self):
         g = Gender()
         gl = g.gender_list()
         self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
@@ -47,3 +62,13 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(g.females, 3)
         self.assertEqual(g.males, 16)
         self.assertEqual(g.unknown, 2)
+
+    def test_gender_features_list_method_returns_correct_result(self):
+        g = Gender()
+        fl = g.features_list()
+        self.assertTrue(len(fl) > 20)
+
+    # def test_gender_features_list_all_method_returns_correct_result(self):
+    #     g = Gender()
+    #     fl = g.features_list(path="files/all.csv")
+    #     self.assertTrue(len(fl) > 1000)
