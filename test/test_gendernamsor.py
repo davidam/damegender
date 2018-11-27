@@ -23,9 +23,19 @@
 
 import unittest
 from app.gendernamsor import Gendernamsor
+from app.gender import Gender
 
 class TddInPythonExample(unittest.TestCase):
 
-    def test_gender_namsor_list_method_returns_correct_result(self):
-        gn = Gendernamsor()
-        self.assertEqual([('pierre', 'male'), ('raul', 'male'), ('adriano', 'male'), ('ralf', 'male'), ('teppei', 'male'), ('guillermo', 'male'), ('catherine', 'female'), ('sabina', 'female'), ('ralf', 'male'), ('karl', 'male'), ('sushil', 'male'), ('clemens', 'male'), ('gregory', 'male'), ('lester', 'male'), ('claude', 'male'), ('martin', 'male'), ('vlad', 'male'), ('pasquale', 'male'), ('lourdes', 'female'), ('bruno', 'male'), ('thomas', 'male')], gn.list())
+
+    def test_gender_namsor_init_method_returns_correct_result(self):
+        g = Gendernamsor()
+        self.assertEqual(g.males, 0)
+        self.assertEqual(g.females, 0)
+        self.assertEqual(g.unknown, 0)
+
+    def test_gender_namsor_gender_guess_method_returns_correct_result(self):
+        g = Gendernamsor()
+        self.assertEqual(1, g.guess("David", "Arroyo", binary=True))
+        self.assertEqual(0, g.guess("Andrea", "Arroyo", binary=True))
+        self.assertEqual(0, g.guess("Asdf", "qwer", binary=True))

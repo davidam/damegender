@@ -24,22 +24,22 @@
 import csv
 import requests
 import json
+from app.gender import Gender
 
-class Gendernamsor(object):
-    def list(self):
-        with open('files/partial.csv') as csvfile:
-            namsorreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(namsorreader, None)
-            namsorlist = []
-            for row in namsorreader:
-                name = row[0]
-                surname = row[2]
-                name = name.replace('"', '')
-                surname = surname.replace('"', '')
-                r = requests.get('https://api.namsor.com/onomastics/api/json/gender/'+ name +'/' + surname)
-                d = json.loads(r.text)
-                namsorlist.append((d['firstName'], d['gender']))
-        return namsorlist
+class Gendernamsor(Gender):
 
-# gn = Gendernamsor()
-# print(gn.list())
+
+    def guess(self, name, surname, binary=False):
+    # guess method to check names dictionary
+        namsorlist = []
+        guess = super().guess(name, binary)
+        if ((guess == 'unknown') | (guess == 2)):
+            r = requests.get('https://api.namsor.com/onomastics/api/json/gender/'+ name +'/' + surname)
+            d = json.loads(r.text)
+            if ((d['gender'] == 'female') and binary):
+                guess = 0
+            elif ((d['gender'] == 'male') and binary):
+                guess = 1
+            elif (not(binary)):
+                guess = d['gender']
+        return guess
