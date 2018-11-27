@@ -49,5 +49,5 @@ if (len(sys.argv) > 1):
         else:
             unknowns = unknowns + 1
 
-    print("The number of males sending commits is %s" % males)
-    print("The number of females sending commits is %s" % females)
+    print("The number of males sending mails is %s" % males)
+    print("The number of females sending mails is %s" % females)
