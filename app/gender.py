@@ -28,7 +28,12 @@ class Gender(object):
     def guess(self, name, binary=False):
     # guess method to check names dictionary
         guess = ''
-        if name in names.words('male.txt'):
+        if (name in names.words('male.txt')) and (name in names.words('female.txt')):
+            if binary:
+                guess = 2
+            else:
+                guess = 'unknown'
+        elif name in names.words('male.txt'):
             if binary:
                 guess = 1
             else:
