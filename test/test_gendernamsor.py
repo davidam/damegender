@@ -28,19 +28,19 @@ from app.gender import Gender
 class TddInPythonExample(unittest.TestCase):
 
 
-    def test_gender_namsor_init_method_returns_correct_result(self):
+    def test_gendernamsor_init_method_returns_correct_result(self):
         g = Gendernamsor()
         self.assertEqual(g.males, 0)
         self.assertEqual(g.females, 0)
         self.assertEqual(g.unknown, 0)
 
-    def test_gender_namsor_gender_guess_method_returns_correct_result(self):
+    def test_gendernamsor_gender_guess_method_returns_correct_result(self):
         g = Gendernamsor()
         self.assertEqual(1, g.guess("David", "Arroyo", binary=True))
         self.assertEqual(0, g.guess("Andrea", "Arroyo", binary=True))
         self.assertEqual(0, g.guess("Asdf", "qwer", binary=True))
 
-    def test_gender_gender_list_method_returns_correct_result(self):
+    def test_gendernamsor_gender_list_method_returns_correct_result(self):
         g = Gendernamsor()
         gl = g.gender_list()
         self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
@@ -49,7 +49,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(g.males, 16)
         self.assertEqual(g.unknown, 2)
 
-    def test_gender_features_list_method_returns_correct_result(self):
+    def test_gendernamsor_features_list_method_returns_correct_result(self):
         g = Gendernamsor()
         fl = g.features_list()
         self.assertTrue(len(fl) > 20)
