@@ -50,6 +50,6 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(g.unknown, 2)
 
     def test_gender_features_list_method_returns_correct_result(self):
-        g = Gender()
+        g = Gendernamsor()
         fl = g.features_list()
         self.assertTrue(len(fl) > 20)
