@@ -24,6 +24,7 @@
 from nltk.corpus import names
 import csv
 import hyphen
+import unidecode
 
 class Gender(object):
 # That's the root class in the heritage, apis classes and sexmachine is inheriting from gender
@@ -71,6 +72,7 @@ class Gender(object):
     def guess(self, name, binary=False):
     # guess method to check names dictionary
         guess = ''
+        name = unidecode.unidecode(name)
         if (name in names.words('male.txt')) and (name in names.words('female.txt')):
             if binary:
                 guess = 2
