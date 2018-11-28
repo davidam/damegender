@@ -39,3 +39,12 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(1, g.guess("David", "Arroyo", binary=True))
         self.assertEqual(0, g.guess("Andrea", "Arroyo", binary=True))
         self.assertEqual(0, g.guess("Asdf", "qwer", binary=True))
+
+    def test_gender_gender_list_method_returns_correct_result(self):
+        g = Gendernamsor()
+        gl = g.gender_list()
+        self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
+        self.assertEqual(len(gl), 21)
+        self.assertEqual(g.females, 3)
+        self.assertEqual(g.males, 16)
+        self.assertEqual(g.unknown, 2)
