@@ -4,6 +4,9 @@
   SCHEDULED: <2018-11-23 vie>
 ** DONE Crear métodos de accuracy y confusion_matrix
    - State "DONE"       from "TODO"       [2018-11-15 jue 11:53]
+** TODO Escribir la clase gender genérica desde lo aprendido en la clase sexmachine
+Por ahora valdría con llegar a migrar los métodos necesarios hasta ejecutar accuracy y confusion matrix
+** TODO Reescribir todas las clases api heredando de gender
 * TODO Estudiar las relaciones entre las variables escogidas
 Mirar python-examples/matplotlib/corr.py
 * TODO Crear la tarea de aprendizaje de dado el string de nombre descubrir nombre y apellidos si los hay
@@ -11,7 +14,7 @@ Mirar python-examples/matplotlib/corr.py
    - State "DONE"       from "TODO"       [2018-11-22 jue 16:12]
 * DONE Hacer los test requeridos para string2array
   - State "DONE"       from "TODO"       [2018-11-15 jue 11:52]
-* TODO Meter en guess todos los clasificadores
+* FUTURE Meter en guess todos los clasificadores
     def guess(self, name, classifier_type):
     # guess method to check names dictionary and nltk classifier
         guess = ''
@@ -35,12 +38,6 @@ Mirar python-examples/matplotlib/corr.py
                classifier = self.classifier()
                guess = classifier.classify(self.features(name))
         return guess
-* TODO Hacer un accuracy y matriz de confusión para las apis
-** DONE Crear una clase abstracta gender
-   - State "DONE"       from "TODO"       [2018-11-22 jue 18:20]
-*** DONE método guess con la cuestión de los diccionarios de nombres (ver herencia.py)
-	- State "DONE"       from "TODO"       [2018-11-22 jue 18:20]
-** TODO Reescribir apis con guess y guess_list
 * TODO Plantearse renombrarlo a damegender
   SCHEDULED: <2018-11-16 vie>
 * TODO guess en Gendernamsor
@@ -103,8 +100,9 @@ Para esto lo mejor es devolver una probabilidad. Usar INE.es puede ser una opci�
 * DONE Reescribir num_males y num_females con el método list_commiters de GenderGit
   SCHEDULED: <2018-11-22 jue>
   - State "DONE"       from "TODO"       [2018-11-22 jue 16:10]
-* TODO Escribir tests para main.py, csv2gender y git2gender
+* DONE Escribir tests para main.py, csv2gender y git2gender
   SCHEDULED: <2018-11-23 vie>
+  - State "DONE"       from "TODO"       [2018-11-29 jue 09:48]
 * TODO Para csv2gender:
   SCHEDULED: <2018-11-24 sáb>
 ** en file deberías reconocer:
