@@ -125,7 +125,24 @@ class Gender(object):
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             next(sexreader, None)
+            features_list_file = open('files/features_list.csv','w')
             for row in sexreader:
                 name = row[0]
                 flist.append(list(self.features_int(name).values()))
+                features_list_file.write(str(list(self.features_int(name).values())))
         return flist
+
+    def features_list2csv(self):
+        fl = self.features_list()
+        f = open('files/features_list.csv', 'w')
+        for i in fl:
+            line = ""
+            count = 0
+            while (count < (len(i) -1)):
+                line = line + str(i[count]) + "; "
+                count = count + 1
+            f.write(line+str(i[count])+"\n")
+        f.close()
+
+g = Gender()
+g.features_list2csv()
