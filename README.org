@@ -1,4 +1,8 @@
 
+* Logo
+
+[[file:files/gender.png]]
+
 * Install
 ** Installing Software
 #+BEGIN_SRC bash
