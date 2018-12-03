@@ -1,5 +1,7 @@
 #+TODO: TODO(t) POSIBLE(p) POSSIBLE(p) FUTURE(f) | DONE(d!) CANCELED(c!)
 
+
+
 * TODO Hacer comparativa de clasificadores
   SCHEDULED: <2018-11-23 vie>
 ** DONE Crear métodos de accuracy y confusion_matrix
@@ -7,7 +9,8 @@
 ** TODO Escribir la clase gender genérica desde lo aprendido en la clase sexmachine
 Por ahora valdría con llegar a migrar los métodos necesarios hasta ejecutar accuracy y confusion matrix
 ** TODO Reescribir todas las clases api heredando de gender
-* TODO Estudiar las relaciones entre las variables escogidas
+* DONE Estudiar las relaciones entre las variables escogidas
+  - State "DONE"       from "TODO"       [2018-12-03 lun 15:58]
 Mirar python-examples/matplotlib/corr.py
 * TODO Crear la tarea de aprendizaje de dado el string de nombre descubrir nombre y apellidos si los hay
 ** DONE Crear método guess_surname
@@ -40,7 +43,8 @@ Mirar python-examples/matplotlib/corr.py
         return guess
 * TODO Plantearse renombrarlo a damegender
   SCHEDULED: <2018-11-16 vie>
-* TODO guess en Gendernamsor
+* DONE guess en Gendernamsor
+  - State "DONE"       from "TODO"       [2018-12-03 lun 15:58]
     # def guess(Gender, name, surname, binary=False):
     # # guess method to check names dictionary and nltk classifier
     #     guess = super(Gender, self).gender()
@@ -111,3 +115,8 @@ Para esto lo mejor es devolver una probabilidad. Usar INE.es puede ser una opci�
 ** en sexmachine
 + [ ] trabajar por path en vez de all y partial
 + [ ] detectar si el fichero existe
+* TODO Echar un vistazo a https://www.nameapi.org/en/developer/
+  SCHEDULED: <2018-11-30 vie>
+* DONE En csv
+  - State "DONE"       from "TODO"       [2018-12-03 lun 15:57]
+  first_letter; last_letter; a; b; c; d; e; f; g; h; i; j; k; l; m; n; o; p; q; r; s; t; u; v; w; x; y; z; vocals; consonants; first_letter_vocal; last_letter_vocal; syllables
