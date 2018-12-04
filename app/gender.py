@@ -143,6 +143,3 @@ class Gender(object):
                 count = count + 1
             f.write(line+str(i[count])+"\n")
         f.close()
-
-g = Gender()
-g.features_list2csv()
