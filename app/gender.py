@@ -135,6 +135,8 @@ class Gender(object):
     def features_list2csv(self):
         fl = self.features_list()
         f = open('files/features_list.csv', 'w')
+        first_line = ";first_letter; last_letter; a; b; c; d; e; f; g; h; i; j; k; l; m; n; o; p; q; r; s; t; u; v; w; x; y; z; vocals; consonants; first_letter; first_letter_vocal; last_letter_vocal; last_letter_consonant\n"
+        f.write(first_line)
         for i in fl:
             line = ""
             count = 0
