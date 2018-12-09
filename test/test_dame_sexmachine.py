@@ -23,7 +23,7 @@
 
 import unittest
 import numpy as np
-from app.sexmachine import Sexmachine
+from app.dame_sexmachine import Sexmachine
 
 class TddInPythonExample(unittest.TestCase):
 
