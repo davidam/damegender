@@ -27,20 +27,33 @@ import json
 import gender_guesser.detector as gender
 
 class Genderguesser(object):
-    def list(self):
+    def guess(self, name, binary=False):
+    # guess method to check names dictionary
+        genderguesserlist = []
         d = gender.Detector()
-        with open('files/partial.csv') as csvfile:
-            genderguesserreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(genderguesserreader, None)
-            genderguesserlist = []
-            for row in genderguesserreader:
-                name = row[0]
-                name = name.replace('"', '')
-                name = name.capitalize()
-                genderguesserlist.append((name, d.get_gender(name)))
-        return genderguesserlist
+        get = d.get_gender(name)
+        if ((get == 'female') and binary):
+            guess = 0
+        elif ((get == 'male') and binary):
+            guess = 1
+        elif (not(binary)):
+            guess = get
+        return guess
+    
+    # def list(self):
+    #     d = gender.Detector()
+    #     with open('files/partial.csv') as csvfile:
+    #         genderguesserreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    #         next(genderguesserreader, None)
+    #         genderguesserlist = []
+    #         for row in genderguesserreader:
+    #             name = row[0]
+    #             name = name.replace('"', '')
+    #             name = name.capitalize()
+    #             genderguesserlist.append((name, d.get_gender(name)))
+    #     return genderguesserlist
 # #        print(d.get_gender(name.capitalize()))
 
-# gg = Genderguesser()
-# genderguesserlist = gg.list()
+# dgg = Genderguesser()
+# print(dgg.guess("Sara", binary=False))
 # print(gg.list())
