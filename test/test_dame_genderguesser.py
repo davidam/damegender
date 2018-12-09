@@ -4,5 +4,8 @@ from app.dame_genderguesser import Genderguesser
 class TddInPythonExample(unittest.TestCase):
 
     def test_genderguesser_list_method_returns_correct_result(self):
-        gg = Genderguesser()
-        self.assertEqual([('Pierre', 'male'), ('Raul', 'male'), ('Adriano', 'male'), ('Ralf', 'male'), ('Teppei', 'male'), ('Guillermo', 'male'), ('Catherine', 'female'), ('Sabina', 'female'), ('Ralf', 'male'), ('Karl', 'male'), ('Sushil', 'mostly_male'), ('Clemens', 'male'), ('Gregory', 'male'), ('Lester', 'male'), ('Claude', 'mostly_male'), ('Martin', 'male'), ('Vlad', 'male'), ('Pasquale', 'male'), ('Lourdes', 'female'), ('Bruno', 'male'), ('Thomas', 'male')], gg.list())
+        dgg = Genderguesser()
+        self.assertEqual(dgg.guess("Sara", binary=False), "female")
+        self.assertEqual(dgg.guess("Sara", binary=True), 0)
+        self.assertEqual(dgg.guess("Laura", binary=False), "female")
+        self.assertEqual(dgg.guess("Laura", binary=True), 0)
