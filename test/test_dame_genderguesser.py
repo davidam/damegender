@@ -1,5 +1,5 @@
 import unittest
-from app.genderguesser import Genderguesser
+from app.dame_genderguesser import Genderguesser
 
 class TddInPythonExample(unittest.TestCase):
 
