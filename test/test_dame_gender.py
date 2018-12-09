@@ -22,7 +22,7 @@
 # Boston, MA 02110-1301 USA,
 
 import unittest
-from app.gender import Gender
+from app.dame_gender import Gender
 
 class TddInPythonExample(unittest.TestCase):
 
