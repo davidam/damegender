@@ -36,8 +36,15 @@ $ nosetests3 test/test_sexmachine.py:TddInPythonExample.test_string2array_method
 * Execute program
 
 #+BEGIN_SRC bash
+# Detect gender from a name
 $ python3 main.py David
+# Count gender from a csv example file
 $ python3 csv2gender.py files/partial.csv
+# Count gender from a git repository
 $ python3 git2gender.py https://github.com/chaoss/grimoirelab-perceval.git --directory="/tmp/clonedir"
+# Count gender from a mailing list
+$ cd files
+$ wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
+$ cd ..
 $ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
 #+END_SRC
