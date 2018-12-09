@@ -24,7 +24,7 @@
 import csv
 import requests
 import json
-from app.gender import Gender
+from app.dame_gender import Gender
 
 class Gendernamsor(Gender):
 
