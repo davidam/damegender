@@ -1,7 +1,9 @@
-
 * Logo
 
 [[file:files/gender.png]]
+
+* Name
+damegender is a gender detection tool coded by David Arroyo MEnéndez (DAME)
 
 * Install
 ** Installing Software
