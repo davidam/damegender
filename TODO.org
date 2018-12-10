@@ -41,8 +41,9 @@ Mirar python-examples/matplotlib/corr.py
                classifier = self.classifier()
                guess = classifier.classify(self.features(name))
         return guess
-* TODO Plantearse renombrarlo a damegender
+* DONE Plantearse renombrarlo a damegender
   SCHEDULED: <2018-11-16 vie>
+  - State "DONE"       from "TODO"       [2018-12-10 lun 12:55]
 * DONE guess en Gendernamsor
   - State "DONE"       from "TODO"       [2018-12-03 lun 15:58]
     # def guess(Gender, name, surname, binary=False):
