@@ -40,9 +40,9 @@ from sklearn.metrics import confusion_matrix
 # import pdb
 # from pprint import pprint
 import hyphen
+from app.dame_gender import Gender
 
-
-class Sexmachine(object):
+class Sexmachine(Gender):
     def __init__(self):
         self.males = 0
         self.females = 0
@@ -169,18 +169,8 @@ class Sexmachine(object):
     def guess(self, name, binary=False):
     # guess method to check names dictionary and nltk classifier
         guess = ''
-        name = unidecode.unidecode(name)
-        if name in names.words('male.txt'):
-            if binary:
-                guess = 1
-            else:
-                guess = 'male'
-        elif name in names.words('female.txt'):
-            if binary:
-                guess = 0
-            else:
-                guess = 'female'
-        else:
+        guess = super().guess(name, binary)
+        if ((guess == 'unknown') | (guess == 2)):
             classifier = self.classifier()
             guess = classifier.classify(self.features(name))
             if binary:
