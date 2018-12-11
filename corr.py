@@ -24,7 +24,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from app.gender import Gender
+from app.dame_gender import Gender
 
 g = Gender()
 g.features_list2csv()
