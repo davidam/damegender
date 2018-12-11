@@ -25,8 +25,9 @@ from genderize import Genderize
 import csv
 import requests
 import json
+from app.dame_gender import Gender
 
-class Gendergenderize(object):
+class Gendergenderize(Gender):
     def guess(self, name, binary=False):
     # guess method to check names dictionary
         namsorlist = []
@@ -39,18 +40,3 @@ class Gendergenderize(object):
         elif (not(binary)):
             guess = g
         return guess
-
-    def list(self):
-        with open('files/min.csv') as csvfile:
-            genderizereader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(genderizereader, None)
-            l = []
-            for row in genderizereader:
-                name = row[0]
-                name = name.replace('"', '')
-                l.append(name)
-        lgenderize = Genderize().get(l)
-        lgen = []
-        for elem in lgenderize:
-            lgen.append((elem['name'], elem['gender']))
-        return lgen
