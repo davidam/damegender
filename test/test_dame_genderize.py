@@ -29,3 +29,7 @@ class TddInPythonExample(unittest.TestCase):
     def test_gender_genderize_list_method_returns_correct_result(self):
         gg = Gendergenderize()
         self.assertEqual([('pierre', 'male'), ('raul', 'male'), ('adriano', 'male'), ('ralf', 'male')], gg.list())
+
+    def test_dame_genderize_guess_method_returns_correct_result(self):
+        gg = Gendergenderize()
+        self.assertEqual(gg.guess("David"), "male")
