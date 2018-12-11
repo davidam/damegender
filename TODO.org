@@ -1,7 +1,9 @@
 #+TODO: TODO(t) POSIBLE(p) POSSIBLE(p) FUTURE(f) | DONE(d!) CANCELED(c!)
 
 
-
+* DONE Reflexionar la manera de nombrar las clases
+  SCHEDULED: <2018-12-11 mar>
+  - State "DONE"       from "TODO"       [2018-12-11 mar 16:12]
 * TODO Hacer comparativa de clasificadores
   SCHEDULED: <2018-11-23 vie>
 ** DONE Crear métodos de accuracy y confusion_matrix
