@@ -26,7 +26,7 @@ from perceval.backends.core.git import Git
 import re
 
 
-class GenderGit(object):
+class DamePerceval(object):
 
     def numCommits(self, url, directory):
         repo = Git(uri=url, gitpath=directory)

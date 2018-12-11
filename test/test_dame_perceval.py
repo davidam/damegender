@@ -22,43 +22,43 @@
 # Boston, MA 02110-1301 USA,
 
 import unittest
-from app.dame_perceval import GenderGit
+from app.dame_perceval import DamePerceval
 
 class TddInPythonExample(unittest.TestCase):
 
-    def test_gendergit_numcommits_method_returns_correct_result(self):
-        gg = GenderGit()
+    def test_dame_perceval_numcommits_method_returns_correct_result(self):
+        gg = DamePerceval()
         n = gg.numCommits("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir")
         self.assertTrue(1000 < n)
 
-    def test_gendergit_removeMail_method_returns_correct_result(self):
-        gg = GenderGit()
+    def test_dame_perceval_removeMail_method_returns_correct_result(self):
+        gg = DamePerceval()
         nomail = gg.removeMail("Santiago Dueñas <sduenas@bitergia.com>")
         self.assertEquals(nomail, "Santiago Dueñas")
 
-    def test_gendergit_firstName_method_returns_correct_result(self):
-        gg = GenderGit()
+    def test_dame_perceval_firstName_method_returns_correct_result(self):
+        gg = DamePerceval()
         first = gg.firstName("Santiago Dueñas")
         self.assertEquals(first, "Santiago")
 
-    def test_gendergit_secondName_method_returns_correct_result(self):
-        gg = GenderGit()
+    def test_dame_perceval_secondName_method_returns_correct_result(self):
+        gg = DamePerceval()
         second = gg.secondName("Santiago Dueñas")
         self.assertEquals(second, "Dueñas")
 
-    def test_gendergit_list_committers_method_returns_correct_result(self):
-        gg = GenderGit()
+    def test_dame_perceval_list_committers_method_returns_correct_result(self):
+        gg = DamePerceval()
         self.assertTrue(len(gg.list_committers("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir")) > 100)
 
-    def test_gendergit_list_mailers_method_returns_correct_result(self):
-        gg = GenderGit()
+    def test_dame_perceval_list_mailers_method_returns_correct_result(self):
+        gg = DamePerceval()
         n = gg.numMails("http://mail-archives.apache.org/mod_mbox/httpd-announce/")
         self.assertTrue(n >= 0)
 
-    def test_gendergit_delete_duplicated_method_returns_correct_result(self):
-        gg = GenderGit()
+    def test_dame_perceval_delete_duplicated_method_returns_correct_result(self):
+        gg = DamePerceval()
         self.assertEqual(gg.delete_duplicated([1, 2, 2, 1, 3]), [1, 2, 3])
 
-    def test_gendergit_list_mailers_method_returns_correct_result(self):
-        gg = GenderGit()
+    def test_dame_perceval_list_mailers_method_returns_correct_result(self):
+        gg = DamePerceval()
         self.assertTrue(len(gg.list_mailers('http://mail-archives.apache.org/mod_mbox/httpd-announce/')) >= 0)
