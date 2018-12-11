@@ -135,13 +135,17 @@ class Gender(object):
     def features_list2csv(self):
         fl = self.features_list()
         f = open('files/features_list.csv', 'w')
-        first_line = ";first_letter; last_letter; a; b; c; d; e; f; g; h; i; j; k; l; m; n; o; p; q; r; s; t; u; v; w; x; y; z; vocals; consonants; first_letter; first_letter_vocal; last_letter_vocal; last_letter_consonant\n"
-        f.write(first_line)
+        first_line = "first_letter, last_letter, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, vocals, consonants, first_letter, first_letter_vocal, last_letter_vocal, last_letter_consonant"
+        f.write(first_line+"\n")
+        # second_line = "0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 2, 0, 2, 0, 1, 0, 0, 34, 21, 34, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0"
+        # f.write(second_line+"\n")
+        # third_line = "0, 1, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 2, 0, 2, 0, 1, 0, 0, 34, 21, 34, 0, 0, 0, 0, 0, 7, 0, 0, 5, 0, 0"
+        # f.write(third_line+"\n")
         for i in fl:
             line = ""
             count = 0
             while (count < (len(i) -1)):
-                line = line + str(i[count]) + "; "
+                line = line + str(i[count]) + ", "
                 count = count + 1
             f.write(line+str(i[count])+"\n")
         f.close()
