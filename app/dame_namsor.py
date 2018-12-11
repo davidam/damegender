@@ -26,7 +26,7 @@ import requests
 import json
 from app.dame_gender import Gender
 
-class Gendernamsor(Gender):
+class DameNamsor(Gender):
 
 
     def guess(self, name, surname, binary=False):
