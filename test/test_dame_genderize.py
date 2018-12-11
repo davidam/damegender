@@ -26,10 +26,15 @@ from app.dame_genderize import Gendergenderize
 
 class TddInPythonExample(unittest.TestCase):
 
-    def test_gender_genderize_list_method_returns_correct_result(self):
-        gg = Gendergenderize()
-        self.assertEqual([('pierre', 'male'), ('raul', 'male'), ('adriano', 'male'), ('ralf', 'male')], gg.list())
-
     def test_dame_genderize_guess_method_returns_correct_result(self):
         gg = Gendergenderize()
         self.assertEqual(gg.guess("David"), "male")
+
+    def test_dame_namsor_gender_list_method_returns_correct_result(self):
+        gg = Gendergenderize()
+        gl = gg.gender_list()
+        self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
+        self.assertEqual(len(gl), 21)
+        self.assertEqual(gg.females, 3)
+        self.assertEqual(gg.males, 16)
+        self.assertEqual(gg.unknown, 2)
