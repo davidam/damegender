@@ -27,6 +27,7 @@ import hyphen
 import unidecode
 import unicodedata
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import confusion_matrix
 
 
 class Gender(object):
@@ -152,6 +153,11 @@ class Gender(object):
         sl = self.guess_list(path, binary=True)
         return accuracy_score(gl, sl)
 
+    def confusion_matrix(self, path='files/partial.csv'):
+        gl = self.gender_list(path)
+        sl = self.guess_list(path,binary=True)
+        return confusion_matrix(gl, sl)
+
     def features_list(self, path='files/partial.csv'):
         flist = []
         with open(path) as csvfile:
@@ -179,7 +185,9 @@ class Gender(object):
         f.close()
 
 
-
-
 g = Gender()
-print(g.accuracy(path='files/partial.csv'))
+print(g.confusion_matrix())
+
+
+# g = Gender()
+# print(g.accuracy(path='files/partial.csv'))
