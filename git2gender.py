@@ -22,7 +22,7 @@
 # Boston, MA 02110-1301 USA,
 
 from app.dame_sexmachine import Sexmachine
-from app.dame_perceval import GenderGit
+from app.dame_perceval import DamePerceval
 import sys
 import argparse
 parser = argparse.ArgumentParser()
@@ -32,7 +32,7 @@ parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 if (len(sys.argv) > 1):
     s = Sexmachine()
-    gg = GenderGit()
+    gg = DamePerceval()
     l1 = gg.list_committers(args.url, args.directory)
     l2 = gg.delete_duplicated(l1)
 
