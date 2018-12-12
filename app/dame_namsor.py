@@ -24,6 +24,8 @@
 import csv
 import requests
 import json
+import numpy as np
+
 from app.dame_gender import Gender
 
 class DameNamsor(Gender):
@@ -32,8 +34,6 @@ class DameNamsor(Gender):
     def guess(self, name, surname, binary=False):
     # guess method to check names dictionary
         namsorlist = []
-        # guess = super().guess(name, binary)
-        # if ((guess == 'unknown') | (guess == 2)):
         r = requests.get('https://api.namsor.com/onomastics/api/json/gender/'+ name +'/' + surname)
         d = json.loads(r.text)
         if ((d['gender'] == 'female') and binary):
@@ -43,3 +43,20 @@ class DameNamsor(Gender):
         elif (not(binary)):
             guess = d['gender']
         return guess
+
+    def guess_list(self, path='files/partial.csv', binary=False):
+    # guess list method
+        slist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                name = row[0].title()
+                name = name.replace('\"','')
+                surname = row[0].title()
+                surname = surname.replace('\"','')
+                if binary:
+                    slist.append(self.guess(name, surname, binary=True))
+                else:
+                    slist.append(self.guess(name, surname, binary=False))
+        return slist
