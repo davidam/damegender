@@ -22,6 +22,7 @@
 # Boston, MA 02110-1301 USA,
 
 import unittest
+import numpy as np
 from app.dame_gender import Gender
 
 class TddInPythonExample(unittest.TestCase):
@@ -63,6 +64,14 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_gender_accuracy_method_returns_correct_result(self):
         g = Gender()
         self.assertTrue(g.accuracy(path="files/partial.csv") >= 0.5)
+
+    def test_dame_gender_confusion_matrix_method_returns_correct_result(self):
+        g = Gender()
+        cm = g.confusion_matrix(path="files/partial.csv")
+        print(cm)
+        am = np.array([[2, 0, 1],[0, 14, 2],[0, 0, 2]])
+        print(am)
+        self.assertTrue(np.array_equal(cm,am))
 
 
     # def test_gender_guess_list_method_returns_correct_result(self):
