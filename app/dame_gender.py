@@ -26,6 +26,8 @@ import csv
 import hyphen
 import unidecode
 import unicodedata
+import numpy as np
+
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 
@@ -185,9 +187,10 @@ class Gender(object):
         f.close()
 
 
-g = Gender()
-print(g.confusion_matrix())
-
+# g = Gender()
+# print(g.confusion_matrix())
+# am = np.array([[2, 1, 0],[0, 14, 2],[0, 0, 2]])
+# print(am)
 
 # g = Gender()
 # print(g.accuracy(path='files/partial.csv'))
