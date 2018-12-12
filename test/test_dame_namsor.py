@@ -24,7 +24,6 @@
 import unittest
 from app.dame_namsor import DameNamsor
 from app.dame_gender import Gender
-import numpy as np
 
 class TddInPythonExample(unittest.TestCase):
 
@@ -62,7 +61,7 @@ class TddInPythonExample(unittest.TestCase):
 
 
     def test_dame_gender_accuracy_method_returns_correct_result(self):
-        g = Gender()
+        g = DameNamsor()
         self.assertTrue(g.accuracy(path="files/partial.csv") >= 0.5)
 
 
