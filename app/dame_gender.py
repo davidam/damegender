@@ -103,25 +103,8 @@ class Gender(object):
                 guess = 'unknown'
         return guess
 
-    # def guess_list(self, all=False, binary=False):
-    #     slist = []
-    #     if all:
-    #         path = 'files/all.csv'
-    #     else:
-    #         path = 'files/partial.csv'
-    #     with open(path) as csvfile:
-    #         sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-    #         next(sexreader, None)
-    #         for row in sexreader:
-    #             name = row[0]
-    #             if binary:
-    #                 slist.append(self.guess(name, binary=True))
-    #             else:
-    #                 slist.append(self.guess(name, binary=False))
-    #     return slist
-
-
     def guess_list(self, path='files/partial.csv', binary=False):
+    # guess list method
         slist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -129,8 +112,6 @@ class Gender(object):
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"','')
-                gender = self.guess(name, binary=True)
-                gender = self.guess(name, binary=False)
                 if binary:
                     slist.append(self.guess(name, binary=True))
                 else:
@@ -139,6 +120,7 @@ class Gender(object):
 
 
     def gender_list(self, path='files/partial.csv'):
+    # counting males, females and unknown
         glist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='"')
