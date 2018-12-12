@@ -123,3 +123,7 @@ Para esto lo mejor es devolver una probabilidad. Usar INE.es puede ser una opci�
 * DONE En csv
   - State "DONE"       from "TODO"       [2018-12-03 lun 15:57]
   first_letter; last_letter; a; b; c; d; e; f; g; h; i; j; k; l; m; n; o; p; q; r; s; t; u; v; w; x; y; z; vocals; consonants; first_letter_vocal; last_letter_vocal; syllables
+* TODO Mejora corr.py para determinar si las variables son independientes
++ [ ] Separar variables categóricas y no categóricas
++ [ ] Crear una gráfica para variables categóricas
++ [ ] Crear una gráfica para variables no categóricas
