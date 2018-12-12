@@ -25,6 +25,7 @@ from nltk.corpus import names
 import csv
 import hyphen
 import unidecode
+import unicodedata
 
 class Gender(object):
 # That's the root class in the heritage, apis classes and sexmachine is inheriting from gender
@@ -68,11 +69,18 @@ class Gender(object):
         features_int["syllables"] = len(h.syllables(name))
         return features_int
 
+    def remove_accents(self, s):
+        aux = ""
+        for c in unicodedata.normalize('NFD', s):
+            if (unicodedata.category(c) != 'Mn'):
+                aux = aux + c
+        return aux
 
     def guess(self, name, binary=False):
     # guess method to check names dictionary
         guess = ''
-        name = unidecode.unidecode(name)
+        name = unidecode.unidecode(name).title()
+        name.replace(name,"")
         if (name in names.words('male.txt')) and (name in names.words('female.txt')):
             if binary:
                 guess = 2
@@ -94,6 +102,41 @@ class Gender(object):
             else:
                 guess = 'unknown'
         return guess
+
+    # def guess_list(self, all=False, binary=False):
+    #     slist = []
+    #     if all:
+    #         path = 'files/all.csv'
+    #     else:
+    #         path = 'files/partial.csv'
+    #     with open(path) as csvfile:
+    #         sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    #         next(sexreader, None)
+    #         for row in sexreader:
+    #             name = row[0]
+    #             if binary:
+    #                 slist.append(self.guess(name, binary=True))
+    #             else:
+    #                 slist.append(self.guess(name, binary=False))
+    #     return slist
+
+
+    def guess_list(self, path='files/partial.csv', binary=False):
+        slist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                name = row[0].title()
+                name = name.replace('\"','')
+                gender = self.guess(name, binary=True)
+                gender = self.guess(name, binary=False)
+                if binary:
+                    slist.append(self.guess(name, binary=True))
+                else:
+                    slist.append(self.guess(name, binary=False))
+        return slist
+
 
     def gender_list(self, path='files/partial.csv'):
         glist = []
@@ -137,10 +180,6 @@ class Gender(object):
         f = open('files/features_list.csv', 'w')
         first_line = "first_letter, last_letter, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, vocals, consonants, first_letter, first_letter_vocal, last_letter_vocal, last_letter_consonant"
         f.write(first_line+"\n")
-        # second_line = "0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 2, 0, 2, 0, 1, 0, 0, 34, 21, 34, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0"
-        # f.write(second_line+"\n")
-        # third_line = "0, 1, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 2, 0, 2, 0, 1, 0, 0, 34, 21, 34, 0, 0, 0, 0, 0, 7, 0, 0, 5, 0, 0"
-        # f.write(third_line+"\n")
         for i in fl:
             line = ""
             count = 0
@@ -149,3 +188,7 @@ class Gender(object):
                 count = count + 1
             f.write(line+str(i[count])+"\n")
         f.close()
+
+
+# g = Gender()
+# print(g.guess_list(path='files/partial.csv', binary=True))
