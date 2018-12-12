@@ -149,7 +149,7 @@ class Gender(object):
 
     def accuracy(self, path):
         gl = self.gender_list(path)
-        sl = self.guess_list(path, binary=False)
+        sl = self.guess_list(path, binary=True)
         return accuracy_score(gl, sl)
 
     def features_list(self, path='files/partial.csv'):
@@ -181,5 +181,5 @@ class Gender(object):
 
 
 
-# g = Gender()
-# print(g.accuracy(path='files/partial.csv'))
+g = Gender()
+print(g.accuracy(path='files/partial.csv'))

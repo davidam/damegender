@@ -62,7 +62,7 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_accuracy_method_returns_correct_result(self):
         g = Gender()
-        self.assertTrue(g.accuracy(path="files/partial.csv") >= 0)
+        self.assertTrue(g.accuracy(path="files/partial.csv") >= 0.5)
 
 
     # def test_gender_guess_list_method_returns_correct_result(self):
