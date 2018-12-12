@@ -26,6 +26,8 @@ import csv
 import hyphen
 import unidecode
 import unicodedata
+from sklearn.metrics import accuracy_score
+
 
 class Gender(object):
 # That's the root class in the heritage, apis classes and sexmachine is inheriting from gender
@@ -145,6 +147,11 @@ class Gender(object):
         self.unknown = count_unknown
         return glist
 
+    def accuracy(self, path):
+        gl = self.gender_list(path)
+        sl = self.guess_list(path, binary=False)
+        return accuracy_score(gl, sl)
+
     def features_list(self, path='files/partial.csv'):
         flist = []
         with open(path) as csvfile:
@@ -172,5 +179,7 @@ class Gender(object):
         f.close()
 
 
+
+
 # g = Gender()
-# print(g.guess_list(path='files/partial.csv', binary=True))
+# print(g.accuracy(path='files/partial.csv'))
