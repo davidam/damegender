@@ -24,6 +24,7 @@
 import unittest
 from app.dame_namsor import DameNamsor
 from app.dame_gender import Gender
+import numpy as np
 
 class TddInPythonExample(unittest.TestCase):
 
@@ -53,6 +54,17 @@ class TddInPythonExample(unittest.TestCase):
         g = DameNamsor()
         fl = g.features_list()
         self.assertTrue(len(fl) > 20)
+
+    def test_gender_guess_list_method_returns_correct_result(self):
+        g = Gender()
+        self.assertEqual(['male', 'male', 'unknown', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male', 'unknown', 'male', 'male', 'male', 'unknown', 'male', 'male', 'male', 'unknown', 'male', 'male'], g.guess_list(path="files/partial.csv", binary=False))
+        self.assertEqual([1, 1, 2, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1], g.guess_list(path="files/partial.csv",binary=True))
+
+
+    def test_dame_gender_accuracy_method_returns_correct_result(self):
+        g = Gender()
+        self.assertTrue(g.accuracy(path="files/partial.csv") >= 0.5)
+
 
     # def test_namsor_accuracy_method_returns_correct_result(self):
     #     s = DameNamsor()
