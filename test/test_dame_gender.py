@@ -54,6 +54,18 @@ class TddInPythonExample(unittest.TestCase):
         r = Gender.guess(self, name="Andrea", binary=True)
         self.assertEqual(r, 2)
 
+    def test_gender_guess_list_method_returns_correct_result(self):
+        g = Gender()
+        self.assertEqual(['male', 'male', 'unknown', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male', 'unknown', 'male', 'male', 'male', 'unknown', 'male', 'male', 'male', 'unknown', 'male', 'male'], g.guess_list(path="files/partial.csv", binary=False))
+        self.assertEqual([1, 1, 2, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1], g.guess_list(path="files/partial.csv",binary=True))
+
+    # def test_gender_guess_list_method_returns_correct_result(self):
+    #     g = Gender()
+    #     string = g.guess_list(path="files/partial.csv", binary=False)
+    #     self.assertEqual('thomas', g.remove_quotes(string))
+#        self.assertEqual([1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1], g.guess_list(path="file/partial.csv",binary=True))
+
+
     def test_gender_gender_list_method_returns_correct_result(self):
         g = Gender()
         gl = g.gender_list()
@@ -67,6 +79,12 @@ class TddInPythonExample(unittest.TestCase):
         g = Gender()
         fl = g.features_list()
         self.assertTrue(len(fl) > 20)
+
+    # def test_gender_remove_accents_method_returns_correct_result(self):
+    #     g = Gender()
+    #     ra = g.remove_accents("Inés")
+    #     self.assertTrue(ra, "Ines")
+
 
     # def test_gender_features_list_all_method_returns_correct_result(self):
     #     g = Gender()
