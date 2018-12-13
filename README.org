@@ -7,10 +7,10 @@ damegender is a gender detection tool coded by David Arroyo MEnéndez (DAME)
 
 * Install
 ** Installing Software
-#+BEGIN_SRC bash
+#+BEGIN_SRC sh
 $ sudo apt-get install python3-nose-exclude
-$ git clone https://github.com/davidam/gender
-$ cd gender
+$ git clone https://github.com/davidam/damegender
+$ cd damegender
 $ pip3 install -r requirements.txt
 #+END_SRC
 ** Obtaining an api key
@@ -20,7 +20,7 @@ You must copy the api key in gender/files/genderapipass.txt
 
 ** Configuring nltk
 
-#+BEGIN_SRC bash
+#+BEGIN_SRC sh
 $ python3
 >>> import nltk
 >>> nltk.download('names')
@@ -28,16 +28,16 @@ $ python3
 
 * Check test
 ** All tests
-#+BEGIN_SRC bash
+#+BEGIN_SRC sh
 $ nosetest3 test
 #+END_SRC
 ** Single test
-#+BEGIN_SRC bash
+#+BEGIN_SRC sh
 $ nosetests3 test/test_sexmachine.py:TddInPythonExample.test_string2array_method_returns_correct_result
 #+END_SRC
 * Execute program
 
-#+BEGIN_SRC bash
+#+BEGIN_SRC sh
 # Detect gender from a name
 $ python3 main.py David
 # Count gender from a csv example file
