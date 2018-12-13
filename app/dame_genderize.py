@@ -27,10 +27,10 @@ import requests
 import json
 from app.dame_gender import Gender
 
-class Gendergenderize(Gender):
+
+class DameGenderize(Gender):
     def guess(self, name, binary=False):
     # guess method to check names dictionary
-        namsorlist = []
         v = Genderize().get([name])
         g = v[0]['gender']
         if ((g == 'female') and binary):
