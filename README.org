@@ -49,4 +49,6 @@ $ cd files
 $ wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
 $ cd ..
 $ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
+# Use an api to detect the gender
+$ python3 api2gender.py David --api=genderguesser
 #+END_SRC
