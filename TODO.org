@@ -5,7 +5,6 @@
   SCHEDULED: <2018-12-11 mar>
   - State "DONE"       from "TODO"       [2018-12-11 mar 16:12]
 * TODO Hacer comparativa de clasificadores
-  SCHEDULED: <2018-11-23 vie>
 ** DONE Crear métodos de accuracy y confusion_matrix
    - State "DONE"       from "TODO"       [2018-11-15 jue 11:53]
 ** TODO Escribir la clase gender genérica desde lo aprendido en la clase sexmachine
@@ -111,7 +110,6 @@ Para esto lo mejor es devolver una probabilidad. Usar INE.es puede ser una opci�
   SCHEDULED: <2018-11-23 vie>
   - State "DONE"       from "TODO"       [2018-11-29 jue 09:48]
 * TODO Para csv2gender:
-  SCHEDULED: <2018-11-24 sáb>
 ** en file deberías reconocer:
 + [ ] formato csv
 + [ ] tiene las rows importantes
@@ -119,7 +117,6 @@ Para esto lo mejor es devolver una probabilidad. Usar INE.es puede ser una opci�
 + [ ] trabajar por path en vez de all y partial
 + [ ] detectar si el fichero existe
 * TODO Echar un vistazo a https://www.nameapi.org/en/developer/
-  SCHEDULED: <2018-11-30 vie>
 * DONE En csv
   - State "DONE"       from "TODO"       [2018-12-03 lun 15:57]
   first_letter; last_letter; a; b; c; d; e; f; g; h; i; j; k; l; m; n; o; p; q; r; s; t; u; v; w; x; y; z; vocals; consonants; first_letter_vocal; last_letter_vocal; syllables
@@ -128,8 +125,6 @@ Para esto lo mejor es devolver una probabilidad. Usar INE.es puede ser una opci�
 + [ ] Crear una gráfica para variables categóricas
 + [ ] Crear una gráfica para variables no categóricas
 * TODO Lanzar los accuracy para determinar la mejor herramienta de género
-  SCHEDULED: <2018-12-13 jue>
-* TODO Escribir api2gender.py dada una api y un nombre, extraer el género y la probabilidad si la da la api
+* DONE Escribir api2gender.py dada una api y un nombre, extraer el género y la probabilidad si la da la api
   SCHEDULED: <2018-12-13 jue>
 * TODO Reemplazar DameSexmachine heredando de Gender
-  SCHEDULED: <2018-12-13 jue>
