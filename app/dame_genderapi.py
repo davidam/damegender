@@ -24,8 +24,17 @@
 import csv
 import requests
 import json
+from app.dame_gender import Gender
 
-class Genderapi(object):
+
+class DameGenderApi(Gender):
+    def guess(self, name):
+        fichero = open("files/genderapipass.txt", "r+")
+        contenido = fichero.readline()
+        r = requests.get('https://gender-api.com/get?name='+name+'&key='+contenido)
+        j = json.loads(r.text)
+        return j['gender']
+
     def list(self):
         fichero = open("files/genderapipass.txt", "r+")
         contenido = fichero.readline()
@@ -43,5 +52,5 @@ class Genderapi(object):
 
 # [('pierre', 'male'), ('raul', 'male'), ('adriano', 'male'), ('ralf', 'male'), ('teppei', 'male'), ('guillermo', 'male'), ('catherine', 'female'), ('sabina', 'female'), ('ralf', 'male'), ('karl', 'male'), ('sushil', 'male'), ('clemens', 'male'), ('gregory', 'male'), ('lester', 'male'), ('claude', 'male'), ('martin', 'male'), ('vlad', 'male'), ('pasquale', 'male'), ('lourdes', 'female'), ('bruno', 'male'), ('thomas', 'male')]
 
-g = Genderapi()
-print(g.list())
+# g = Genderapi()
+# print(g.guess("David"))
