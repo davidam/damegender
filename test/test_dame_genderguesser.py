@@ -17,3 +17,4 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_genderguesser_accuracy_method_returns_correct_result(self):
         dgg = DameGenderGuesser()
         self.assertTrue(dgg.accuracy(path="files/partial.csv") >= 0.5)
+#        self.assertTrue(dgg.accuracy(path="files/all.csv") >= 0.5) # Comment assert, too much time
