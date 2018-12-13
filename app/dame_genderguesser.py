@@ -56,7 +56,3 @@ class DameGenderGuesser(Gender):
     #             genderguesserlist.append((name, d.get_gender(name)))
     #     return genderguesserlist
 # #        print(d.get_gender(name.capitalize()))
-
-# dgg = DameGenderGuesser()
-# print(dgg.guess("Sara", binary=False))
-# print(gg.list())
