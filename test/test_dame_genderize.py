@@ -22,19 +22,24 @@
 # Boston, MA 02110-1301 USA,
 
 import unittest
-from app.dame_genderize import Gendergenderize
+from app.dame_genderize import DameGenderize
 
 class TddInPythonExample(unittest.TestCase):
 
     def test_dame_genderize_guess_method_returns_correct_result(self):
-        gg = Gendergenderize()
+        gg = DameGenderize()
         self.assertEqual(gg.guess("David"), "male")
 
-    def test_dame_namsor_gender_list_method_returns_correct_result(self):
-        gg = Gendergenderize()
+    def test_dame_genderize_gender_list_method_returns_correct_result(self):
+        gg = DameGenderize()
         gl = gg.gender_list()
         self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
         self.assertEqual(len(gl), 21)
         self.assertEqual(gg.females, 3)
         self.assertEqual(gg.males, 16)
         self.assertEqual(gg.unknown, 2)
+
+
+    # def test_dame_genderize_accuracy_method_returns_correct_result(self):
+    #     g = DameGenderize()
+    #     self.assertTrue(g.accuracy(path="files/partial.csv") >= 0.5)
