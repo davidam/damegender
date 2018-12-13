@@ -108,6 +108,18 @@ class Gender(object):
                 guess = 'unknown'
         return guess
 
+    def csv2names(self, path='files/partial.csv'):
+    # make a list from a csv file
+        csvlist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                name = row[0].title()
+                name = name.replace('\"','')
+                csvlist.append(name)
+        return csvlist
+
     def guess_list(self, path='files/partial.csv', binary=False):
     # guess list method
         slist = []
