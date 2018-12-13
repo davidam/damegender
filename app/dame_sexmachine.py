@@ -42,7 +42,7 @@ from sklearn.metrics import confusion_matrix
 import hyphen
 from app.dame_gender import Gender
 
-class Sexmachine(Gender):
+class DameSexmachine(Gender):
     def __init__(self):
         self.males = 0
         self.females = 0
