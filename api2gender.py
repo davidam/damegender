@@ -22,6 +22,7 @@
 # Boston, MA 02110-1301 USA,
 
 from app.dame_genderguesser import DameGenderGuesser
+from app.dame_genderapi import DameGenderApi
 from app.dame_genderize import DameGenderize
 from app.dame_namsor import DameNamsor
 import sys
@@ -39,7 +40,8 @@ if (len(sys.argv) > 1):
         dgg = DameGenderGuesser()
         print(dgg.guess(args.name))
     elif (args.api == "genderapi"):
-        print("")
+        dga = DameGenderApi()
+        print(dga.guess(args.name))
     elif (args.api == "genderize"):
         dg = DameGenderize()
         print(dg.guess(args.name))
