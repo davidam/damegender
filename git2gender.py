@@ -21,7 +21,7 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
-from app.dame_sexmachine import Sexmachine
+from app.dame_sexmachine import DameSexmachine
 from app.dame_perceval import DamePerceval
 import sys
 import argparse
@@ -31,7 +31,7 @@ parser.add_argument('--directory')
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 if (len(sys.argv) > 1):
-    s = Sexmachine()
+    s = DameSexmachine()
     gg = DamePerceval()
     l1 = gg.list_committers(args.url, args.directory)
     l2 = gg.delete_duplicated(l1)

@@ -21,7 +21,7 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
-from app.dame_sexmachine import Sexmachine
+from app.dame_sexmachine import DameSexmachine
 import sys
 import argparse
 parser = argparse.ArgumentParser()
@@ -29,7 +29,7 @@ parser.add_argument("file", help="csv file")
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 if (len(sys.argv) > 1):
-    s = Sexmachine()
+    s = DameSexmachine()
     if (args.file == 'files/partial.csv'):
         s.gender_list()
     elif (args.file == 'files/all.csv'):

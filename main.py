@@ -21,7 +21,7 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
-from app.dame_sexmachine import Sexmachine
+from app.dame_sexmachine import DameSexmachine
 import sys
 import argparse
 parser = argparse.ArgumentParser()
@@ -29,5 +29,5 @@ parser.add_argument("name", help="display the gender")
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 if (len(sys.argv) > 1):
-    s = Sexmachine()
+    s = DameSexmachine()
     print("%s's gender is %s" % (str(args.name), s.guess(args.name)))
