@@ -118,7 +118,7 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_sexmachine_accuracy_method_returns_correct_result(self):
         s = DameSexmachine()
-        self.assertTrue(s.accuracy() > 0.5)
+        self.assertTrue(s.accuracy(path="files/partial.csv") > 0.5)
 
     # def test_sexmachine_confusion_matrix_method_returns_correct_result(self):
     #     s = DameSexmachine()
