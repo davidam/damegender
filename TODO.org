@@ -125,6 +125,13 @@ Para esto lo mejor es devolver una probabilidad. Usar INE.es puede ser una opci�
 + [ ] Crear una gráfica para variables categóricas
 + [ ] Crear una gráfica para variables no categóricas
 * TODO Lanzar los accuracy para determinar la mejor herramienta de género
++ [X] sexmachine
++ [X] namsor
++ [ ] genderguesser
++ [ ] genderapi
++ [ ] genderize
 * DONE Escribir api2gender.py dada una api y un nombre, extraer el género y la probabilidad si la da la api
   SCHEDULED: <2018-12-13 jue>
-* TODO Reemplazar DameSexmachine heredando de Gender
+* DONE Reemplazar DameSexmachine heredando de Gender
+  - State "DONE"       from "TODO"       [2018-12-14 vie 21:18]
+* TODO Usar pickle para los algoritmos de scikit, ayudará a que ejecutar tests no sea un infierno
