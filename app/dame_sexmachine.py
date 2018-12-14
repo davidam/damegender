@@ -180,66 +180,67 @@ class DameSexmachine(Gender):
                     guess = 0
         return guess
 
-    def guess_list(self, all=False, binary=False):
-        slist = []
-        if all:
-            path = 'files/all.csv'
-        else:
-            path = 'files/partial.csv'
-        with open(path) as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(sexreader, None)
-            for row in sexreader:
-                name = row[0]
-                if binary:
-                    slist.append(self.guess(name, binary=True))
-                else:
-                    slist.append(self.guess(name, binary=False))
-        return slist
+    # Obsolete method using gender for it
+    # def guess_list(self, all=False, binary=False):
+    #     slist = []
+    #     if all:
+    #         path = 'files/all.csv'
+    #     else:
+    #         path = 'files/partial.csv'
+    #     with open(path) as csvfile:
+    #         sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    #         next(sexreader, None)
+    #         for row in sexreader:
+    #             name = row[0]
+    #             if binary:
+    #                 slist.append(self.guess(name, binary=True))
+    #             else:
+    #                 slist.append(self.guess(name, binary=False))
+    #     return slist
 
 
-    def features_list(self, all=False):
-        flist = []
-        if all:
-            path = 'files/all.csv'
-        else:
-            path = 'files/partial.csv'
-        with open(path) as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(sexreader, None)
-            for row in sexreader:
-                name = row[0]
-                flist.append(list(self.features_int(name).values()))
-        return flist
+    # def features_list(self, all=False):
+    #     flist = []
+    #     if all:
+    #         path = 'files/all.csv'
+    #     else:
+    #         path = 'files/partial.csv'
+    #     with open(path) as csvfile:
+    #         sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    #         next(sexreader, None)
+    #         for row in sexreader:
+    #             name = row[0]
+    #             flist.append(list(self.features_int(name).values()))
+    #     return flist
 
-    def gender_list(self, all=False):
-        glist = []
-        if all:
-            path = 'files/all.csv'
-        else:
-            path = 'files/partial.csv'
-        with open(path) as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=',', quotechar='"')
-            next(sexreader, None)
-            count_females = 0
-            count_males = 0
-            count_unknown = 0
-            for row in sexreader:
-                gender = row[4]
-                if (gender == 'f'):
-                    g = 0
-                    count_females = count_females + 1
-                elif (gender == 'm'):
-                    g = 1
-                    count_males = count_males + 1
-                else:
-                    g = 2
-                    count_unknown = count_unknown + 1
-                glist.append(g)
-        self.females = count_females
-        self.males = count_males
-        self.unknown = count_unknown
-        return glist
+    # def gender_list(self, all=False):
+    #     glist = []
+    #     if all:
+    #         path = 'files/all.csv'
+    #     else:
+    #         path = 'files/partial.csv'
+    #     with open(path) as csvfile:
+    #         sexreader = csv.reader(csvfile, delimiter=',', quotechar='"')
+    #         next(sexreader, None)
+    #         count_females = 0
+    #         count_males = 0
+    #         count_unknown = 0
+    #         for row in sexreader:
+    #             gender = row[4]
+    #             if (gender == 'f'):
+    #                 g = 0
+    #                 count_females = count_females + 1
+    #             elif (gender == 'm'):
+    #                 g = 1
+    #                 count_males = count_males + 1
+    #             else:
+    #                 g = 2
+    #                 count_unknown = count_unknown + 1
+    #             glist.append(g)
+    #     self.females = count_females
+    #     self.males = count_males
+    #     self.unknown = count_unknown
+    #     return glist
 
 #    def git_gender_list(self, url, directory):
 
@@ -268,11 +269,11 @@ class DameSexmachine(Gender):
         return count
 
     def accuracy(self):
-        gl = self.gender_list(all=False)
-        sl = self.guess_list(all=False,binary=True)
+        gl = self.gender_list(path="files/partial.csv")
+        sl = self.guess_list(path="files/partial.csv",binary=True)
         return accuracy_score(gl, sl)
 
     def confusion_matrix(self):
-        gl = self.gender_list(all=False)
-        sl = self.guess_list(all=False,binary=True)
+        gl = self.gender_list(path="files/partial.csv")
+        sl = self.guess_list(path="files/partial.csv",binary=True)
         return confusion_matrix(gl, sl)
