@@ -30,5 +30,6 @@ dn = DameNamsor()
 namsor_accuracy = dn.accuracy(path="files/partial.csv")
 print("Namsor accuracy: %s" % namsor_accuracy)
 
-
-
+ds = DameSexmachine()
+sexmachine_accuracy = ds.accuracy()
+print("Sexmachine accuracy: %s" % sexmachine_accuracy)
