@@ -40,6 +40,7 @@ from sklearn.metrics import confusion_matrix
 # import pdb
 # from pprint import pprint
 import hyphen
+import pickle
 from app.dame_gender import Gender
 
 class DameSexmachine(Gender):
@@ -95,43 +96,53 @@ class DameSexmachine(Gender):
 
     def svc(self):
     # Scikit classifier
-        X = np.array(self.features_list(all=True))
-        y = self.gender_list(all=True)
+        X = np.array(self.features_list(path="files/all.csv"))
+        y = self.gender_list(path="files/all.csv")
         clf = svm.SVC()
         clf.fit(X, y)
+        filename = 'files/svc_model.sav'
+        pickle.dump(clf, open(filename, 'wb'))
         return clf
 
     def sgd(self):
     # Scikit classifier
-        X = np.array(self.features_list(all=True))
-        y = self.gender_list(all=True)
+        X = np.array(self.features_list(path="files/all.csv"))
+        y = self.gender_list("files/all.csv")
         clf = SGDClassifier(loss="log").fit(X,y)
+        filename = 'files/sgd_model.sav'
+        pickle.dump(clf, open(filename, 'wb'))
         return clf
 
     def gaussianNB(self):
     # Scikit bayesian classifier
-        x = np.array(self.features_list(all=True))
-        y = np.array(self.gender_list(all=True))
+        x = np.array(self.features_list(path="files/all.csv"))
+        y = np.array(self.gender_list(path="files/all.csv"))
         #Create a Gaussian Classifier
         model = GaussianNB()
         # Train the model using the training sets
         model.fit(x, y)
+        filename = 'files/gaussianNB_model.sav'
+        pickle.dump(model, open(filename, 'wb'))
         return model
 
     def multinomialNB(self):
     # Scikit bayesian classifier
-        X = np.array(self.features_list(all=True))
-        y = np.array(self.gender_list(all=True))
+        X = np.array(self.features_list(path="files/all.csv"))
+        y = np.array(self.gender_list(path="files/all.csv"))
         model = MultinomialNB()
         model.fit(X, y)
+        filename = 'files/multinomialNB_model.sav'
+        pickle.dump(model, open(filename, 'wb'))
         return model
 
     def bernoulliNB(self):
     # Scikit bayesian classifier
-        X = np.array(self.features_list(all=True))
-        y = np.array(self.gender_list(all=True))
+        X = np.array(self.features_list(path="files/all.csv"))
+        y = np.array(self.gender_list(path="files/all.csv"))
         model = BernouilliNB()
         model.fit(X, y)
+        filename = 'files/bernoulliNB_model.sav'
+        pickle.dump(model, open(filename, 'wb'))
         return model
 
     def string2array(self, string):
@@ -198,7 +209,7 @@ class DameSexmachine(Gender):
     #                 slist.append(self.guess(name, binary=False))
     #     return slist
 
-
+    # deprecated using Gender
     # def features_list(self, all=False):
     #     flist = []
     #     if all:
@@ -213,6 +224,7 @@ class DameSexmachine(Gender):
     #             flist.append(list(self.features_int(name).values()))
     #     return flist
 
+    # deprecated using Gender
     # def gender_list(self, all=False):
     #     glist = []
     #     if all:
@@ -268,12 +280,14 @@ class DameSexmachine(Gender):
                 count = count + 1
         return count
 
-    def accuracy(self):
-        gl = self.gender_list(path="files/partial.csv")
-        sl = self.guess_list(path="files/partial.csv",binary=True)
-        return accuracy_score(gl, sl)
+    # deprecated using Gender
+    # def accuracy(self, path):
+    #     gl = self.gender_list(path="files/partial.csv")
+    #     sl = self.guess_list(path="files/partial.csv",binary=True)
+    #     return accuracy_score(gl, sl)
 
-    def confusion_matrix(self):
-        gl = self.gender_list(path="files/partial.csv")
-        sl = self.guess_list(path="files/partial.csv",binary=True)
-        return confusion_matrix(gl, sl)
+    # deprecated using Gender
+    # def confusion_matrix(self):
+    #     gl = self.gender_list(path="files/partial.csv")
+    #     sl = self.guess_list(path="files/partial.csv",binary=True)
+    #     return confusion_matrix(gl, sl)
