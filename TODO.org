@@ -7,9 +7,11 @@
 * TODO Hacer comparativa de clasificadores
 ** DONE Crear métodos de accuracy y confusion_matrix
    - State "DONE"       from "TODO"       [2018-11-15 jue 11:53]
-** TODO Escribir la clase gender genérica desde lo aprendido en la clase sexmachine
+** DONE Escribir la clase gender genérica desde lo aprendido en la clase sexmachine
+   - State "DONE"       from "TODO"       [2018-12-14 vie 21:21]
 Por ahora valdría con llegar a migrar los métodos necesarios hasta ejecutar accuracy y confusion matrix
 ** TODO Reescribir todas las clases api heredando de gender
+** TODO Crear los accuracy de los clasificadores, compararlos entre ellos y con las apis
 * DONE Estudiar las relaciones entre las variables escogidas
   - State "DONE"       from "TODO"       [2018-12-03 lun 15:58]
 Mirar python-examples/matplotlib/corr.py
@@ -18,7 +20,8 @@ Mirar python-examples/matplotlib/corr.py
    - State "DONE"       from "TODO"       [2018-11-22 jue 16:12]
 * DONE Hacer los test requeridos para string2array
   - State "DONE"       from "TODO"       [2018-11-15 jue 11:52]
-* FUTURE Meter en guess todos los clasificadores
+* DONE Meter en guess todos los clasificadores
+  - State "DONE"       from "FUTURE"     [2018-12-14 vie 21:21]
     def guess(self, name, classifier_type):
     # guess method to check names dictionary and nltk classifier
         guess = ''
