@@ -29,7 +29,7 @@ import sys
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('name', help="Name to be detected")
-parser.add_argument('--surname', help="Surname needed in namsor")
+parser.add_argument('--surname', help="Surname is required in namsor")
 parser.add_argument("--api", help="apis avalaible are: genderguesser, genderapi, genderize and namsor")
 parser.add_argument('--version', action='version', version='0.1')
 
