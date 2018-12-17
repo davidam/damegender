@@ -44,15 +44,15 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_guess_method_returns_correct_result(self):
         g = Gender()
-        r = Gender.guess(self, name="David", binary=True)
+        r = g.guess(name="David", binary=True)
         self.assertEqual(r, 1)
-        r = Gender.guess(self, name="David", binary=False)
+        r = g.guess(name="David", binary=False)
         self.assertEqual(r, "male")
-        r = Gender.guess(self, name="Laura", binary=True)
+        r = g.guess(name="Laura", binary=True)
         self.assertEqual(r, 0)
-        r = Gender.guess(self, name="Laura", binary=False)
+        r = g.guess(name="Laura", binary=False)
         self.assertEqual(r, "female")
-        r = Gender.guess(self, name="Andrea", binary=True)
+        r = g.guess(name="Andrea", binary=True)
         self.assertEqual(r, 2)
 
     def test_dame_gender_csv2names_method_returns_correct_result(self):
