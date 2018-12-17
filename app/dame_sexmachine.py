@@ -139,7 +139,7 @@ class DameSexmachine(Gender):
     # Scikit bayesian classifier
         X = np.array(self.features_list(path="files/all.csv"))
         y = np.array(self.gender_list(path="files/all.csv"))
-        model = BernouilliNB()
+        model = BernoulliNB()
         model.fit(X, y)
         filename = 'files/bernoulliNB_model.sav'
         pickle.dump(model, open(filename, 'wb'))
