@@ -28,29 +28,21 @@ from app.dame_gender import Gender
 
 
 class DameGenderApi(Gender):
-    def guess(self, name):
+    def guess(self, name, binary):
         fichero = open("files/genderapipass.txt", "r+")
         contenido = fichero.readline()
         r = requests.get('https://gender-api.com/get?name='+name+'&key='+contenido)
         j = json.loads(r.text)
-        return j['gender']
-
-    def list(self):
-        fichero = open("files/genderapipass.txt", "r+")
-        contenido = fichero.readline()
-        with open('files/partial.csv') as csvfile:
-            genderapireader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(genderapireader, None)
-            genderapilist = []
-            for row in genderapireader:
-                name = row[0]
-                name = name.replace('"', '')
-                r = requests.get('https://gender-api.com/get?name='+name+'&key='+contenido)
-                j = json.loads(r.text)
-                genderapilist.append((j['name'], j['gender']))
-        return genderapilist
-
-# [('pierre', 'male'), ('raul', 'male'), ('adriano', 'male'), ('ralf', 'male'), ('teppei', 'male'), ('guillermo', 'male'), ('catherine', 'female'), ('sabina', 'female'), ('ralf', 'male'), ('karl', 'male'), ('sushil', 'male'), ('clemens', 'male'), ('gregory', 'male'), ('lester', 'male'), ('claude', 'male'), ('martin', 'male'), ('vlad', 'male'), ('pasquale', 'male'), ('lourdes', 'female'), ('bruno', 'male'), ('thomas', 'male')]
-
-# g = Genderapi()
-# print(g.guess("David"))
+        guess = j['gender']
+        if (guess == 'male'):
+            if binary:
+                guess = 1
+        elif (guess == 'female'):
+            if binary:
+                guess = 0
+        else:
+            if binary:
+                guess = 2
+            else:
+                guess = 'unknown'
+        return guess
