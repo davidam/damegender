@@ -27,6 +27,9 @@ from app.dame_namsor import DameNamsor
 from app.dame_genderguesser import DameGenderGuesser
 from app.dame_genderapi import DameGenderApi
 
+print("A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.")
+print("If the classifier is nice, the diagonal is high because there are true positives")
+
 dn = DameNamsor()
 namsor_confusion_matrix = dn.confusion_matrix(path="files/partial.csv")
 print("Namsor confusion matrix:\n %s" % namsor_confusion_matrix)
