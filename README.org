@@ -76,4 +76,6 @@ Sexmachine confusion matrix:
 
 # To deploy a graph about correlation between variables
 $ python3 corr.py
+# To create the pickle models in files directory
+$ python3 damemodels.py
 #+END_SRC
