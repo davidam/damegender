@@ -28,7 +28,7 @@ from app.dame_gender import Gender
 
 
 class DameGenderApi(Gender):
-    def guess(self, name, binary):
+    def guess(self, name, binary=False):
         fichero = open("files/genderapipass.txt", "r+")
         contenido = fichero.readline()
         r = requests.get('https://gender-api.com/get?name='+name+'&key='+contenido)
