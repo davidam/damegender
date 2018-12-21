@@ -33,7 +33,7 @@ $ nosetest3 test
 #+END_SRC
 ** Single test
 #+BEGIN_SRC sh
-$ nosetests3 test/test_sexmachine.py:TddInPythonExample.test_string2array_method_returns_correct_result
+$ nosetests3 test/test_dame_sexmachine.py:TddInPythonExample.test_string2array_method_returns_correct_result
 #+END_SRC
 * Execute program
 
@@ -51,4 +51,9 @@ $ cd ..
 $ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
 # Use an api to detect the gender
 $ python3 api2gender.py David --api=genderguesser
+# To measure success
+$ python3 accuracy.py
+$ python3 confusion.py
+# To deploy a graph about correlation between variables
+$ python3 corr.py
 #+END_SRC
