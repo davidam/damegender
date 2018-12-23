@@ -24,6 +24,8 @@
 import unittest
 import numpy as np
 import pickle
+import os.path
+
 from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
@@ -31,6 +33,8 @@ from sklearn.linear_model import SGDClassifier
 from sklearn import svm
 
 from app.dame_sexmachine import DameSexmachine
+
+
 
 class TddInPythonExample(unittest.TestCase):
 
@@ -140,13 +144,24 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(gender1, 'male')
         self.assertTrue(gender2, 'female')
 
-
-    # def test_sexmachine_svc_list_method_returns_correct_result(self):
+    # def test_sexmachine_sgd_method_returns_correct_result(self):
     #     s = DameSexmachine()
-    #     m = s.svc()
-    #     predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0]])
-    #     n = np.array([0])
-    #     self.assertTrue(np.array_equal(predicted, n))
+    #     m = s.sgd()
+    #     self.assertTrue(os.path.isfile("files/sgd_model.sav"))
+
+    def test_sexmachine_sgd_load_method_returns_correct_result(self):
+        s = DameSexmachine()
+        m = s.sgd_load()
+        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1]])
+        n = np.array([1])
+        self.assertEqual(n, predicted)
+
+    def test_sexmachine_svc_load_method_returns_correct_result(self):
+        s = DameSexmachine()
+        m = s.svc_load()
+        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1]])
+        n = np.array([0])
+        self.assertTrue(np.array_equal(predicted, n))
 
     # def test_sexmachine_sgd_list_method_returns_correct_result(self):
     #     s = DameSexmachine()
@@ -155,7 +170,7 @@ class TddInPythonExample(unittest.TestCase):
     #     n = np.array([1])
     #     self.assertTrue(np.array_equal(predicted, n))
 
-#     def test_sexmachine_gaussianNB_list_method_returns_correct_result(self):
+#     def test_sexmachine_gaussianNB_load_method_returns_correct_result(self):
 #         s = DameSexmachine()
 #         pkl_file = open('files/gaussianNB_model.sav', 'rb')
 #         m = pickle.load(pkl_file)
