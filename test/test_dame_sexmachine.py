@@ -23,11 +23,18 @@
 
 import unittest
 import numpy as np
+import pickle
+from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive_bayes import BernoulliNB
+from sklearn.linear_model import SGDClassifier
+from sklearn import svm
+
 from app.dame_sexmachine import DameSexmachine
 
 class TddInPythonExample(unittest.TestCase):
 
-    def test_strierng2array_method_returns_correct_result(self):
+    def test_string2array_method_returns_correct_result(self):
         array = "muchos    espacios en blanco"
         s = DameSexmachine()
         arr = s.string2array(array)
@@ -68,8 +75,8 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_sexmachine_guess_list_method_returns_correct_result(self):
         g = DameSexmachine()
-        self.assertEqual(['male', 'male', 'female', 'male', 'female', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'female', 'male', 'male', 'male', 'male', 'male', 'male'], g.guess_list(path="files/partial.csv", binary=False))
-        self.assertEqual([1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1], g.guess_list(path="files/partial.csv",binary=True))
+        self.assertEqual(['male', 'male', 'male', 'male', 'female', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'female', 'male', 'male', 'male', 'female', 'male', 'male'], g.guess_list(path="files/partial.csv", binary=False))
+        self.assertEqual([1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1], g.guess_list(path="files/partial.csv",binary=True))
 
     def test_sexmachine_features_int_method_returns_correct_result(self):
         s = DameSexmachine()
@@ -120,11 +127,11 @@ class TddInPythonExample(unittest.TestCase):
         s = DameSexmachine()
         self.assertTrue(s.accuracy(path="files/partial.csv") > 0.5)
 
-    # def test_sexmachine_confusion_matrix_method_returns_correct_result(self):
-    #     s = DameSexmachine()
-    #     cm = s.confusion_matrix()
-    #     am = np.array([[2, 1, 0],[3, 13, 0],[0, 2, 0]])
-    #     self.assertTrue(np.array_equal(cm,am))
+    def test_sexmachine_confusion_matrix_method_returns_correct_result(self):
+        s = DameSexmachine()
+        cm = s.confusion_matrix()
+        am = np.array([[3, 0, 0],[1, 15, 0],[1, 1, 0]])
+        self.assertTrue(np.array_equal(cm,am))
 
     def test_sexmachine_string2gender_method_returns_correct_result(self):
         s = DameSexmachine()
@@ -148,16 +155,18 @@ class TddInPythonExample(unittest.TestCase):
     #     n = np.array([1])
     #     self.assertTrue(np.array_equal(predicted, n))
 
-    # def test_sexmachine_gaussianNB_list_method_returns_correct_result(self):
-    #     s = DameSexmachine()
-    #     m = s.gaussianNB()
-    #     array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0,
-    #                0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0],
-    #              [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1,
-    #                0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0]]
-    #     predicted= m.predict(array)
-    #     n = np.array([2, 2])
-    #     self.assertTrue(np.array_equal(predicted, n))
+#     def test_sexmachine_gaussianNB_list_method_returns_correct_result(self):
+#         s = DameSexmachine()
+#         pkl_file = open('files/gaussianNB_model.sav', 'rb')
+#         m = pickle.load(pkl_file)
+# #        m = s.gaussianNB()
+#         array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0,
+#                    0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0],
+#                  [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1,
+#                    0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0]]
+#         predicted= m.predict(array)
+#         n = np.array([2, 2])
+#         self.assertTrue(np.array_equal(predicted, n))
 
 
     # def test_sexmachine_multinomialNB_list_method_returns_correct_result(self):
