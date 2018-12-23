@@ -42,6 +42,16 @@ class TddInPythonExample(unittest.TestCase):
     #     self.assertTrue(f['syllables'] == 2)
     #     self.assertTrue(len(f) > 0)
 
+    def test_dame_gender_males_list_method_returns_correct_result(self):
+        g = Gender()
+        m = g.males_list()
+        self.assertTrue("Adrian" in m)
+
+    def test_dame_gender_females_list_method_returns_correct_result(self):
+        g = Gender()
+        f = g.females_list()
+        self.assertTrue("Eva" in f)
+
     def test_dame_gender_guess_method_returns_correct_result(self):
         g = Gender()
         r = g.guess(name="David", binary=True)

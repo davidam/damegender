@@ -22,12 +22,14 @@
 # Boston, MA 02110-1301 USA,
 
 from nltk.corpus import names
+import nltk
 import csv
 import hyphen
 import unidecode
 import unicodedata
 import numpy as np
 
+from collections import OrderedDict
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 
@@ -80,6 +82,18 @@ class Gender(object):
             if (unicodedata.category(c) != 'Mn'):
                 aux = aux + c
         return aux
+
+    def males_list(self):
+        my_corpus = nltk.corpus.PlaintextCorpusReader('/home/davidam/git/damegender/files/names_es', '.*\.txt')
+        m = names.words('male.txt') + my_corpus.sents('masculinos.txt')[1]
+        m = list(OrderedDict.fromkeys(m))
+        return m
+
+    def females_list(self):
+        my_corpus = nltk.corpus.PlaintextCorpusReader('/home/davidam/git/damegender/files/names_es', '.*\.txt')
+        f = names.words('female.txt') + my_corpus.sents('femeninos.txt')[1]
+        f = list(OrderedDict.fromkeys(f))
+        return f
 
     def guess(self, name, binary=False):
     # guess method to check names dictionary
