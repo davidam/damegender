@@ -72,8 +72,8 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_guess_list_method_returns_correct_result(self):
         g = Gender()
-        self.assertEqual(['male', 'male', 'unknown', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male', 'unknown', 'male', 'male', 'male', 'unknown', 'male', 'male', 'male', 'unknown', 'male', 'male'], g.guess_list(path="files/partial.csv", binary=False))
-        self.assertEqual([1, 1, 2, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1], g.guess_list(path="files/partial.csv",binary=True))
+        self.assertEqual(['unknown', 'male', 'male', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'unknown', 'male', 'male', 'male', 'female', 'male', 'unknown'], g.guess_list(path="files/partial.csv", binary=False))
+        self.assertEqual([2, 1, 1, 1, 2, 1, 0, 0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 2], g.guess_list(path="files/partial.csv",binary=True))
 
 
     def test_dame_gender_accuracy_method_returns_correct_result(self):
@@ -84,10 +84,8 @@ class TddInPythonExample(unittest.TestCase):
         g = Gender()
         cm = g.confusion_matrix(path="files/partial.csv")
         print(cm)
-        am = np.array([[2, 0, 1],[0, 14, 2],[0, 0, 2]])
-        print(am)
+        am = np.array([[3, 0, 0],[0, 13, 3],[0, 1, 1]])
         self.assertTrue(np.array_equal(cm,am))
-
 
     # def test_gender_guess_list_method_returns_correct_result(self):
     #     g = Gender()
