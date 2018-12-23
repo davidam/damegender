@@ -100,17 +100,19 @@ class Gender(object):
         guess = ''
         name = unidecode.unidecode(name).title()
         name.replace(name,"")
-        if (name in names.words('male.txt')) and (name in names.words('female.txt')):
+        m = self.males_list()
+        f = self.females_list()
+        if (name in m) and (name in f):
             if binary:
                 guess = 2
             else:
                 guess = 'unknown'
-        elif name in names.words('male.txt'):
+        elif name in m:
             if binary:
                 guess = 1
             else:
                 guess = 'male'
-        elif name in names.words('female.txt'):
+        elif name in f:
             if binary:
                 guess = 0
             else:
