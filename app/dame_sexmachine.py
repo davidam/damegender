@@ -104,6 +104,12 @@ class DameSexmachine(Gender):
         pickle.dump(clf, open(filename, 'wb'))
         return clf
 
+    def svc_load(self):
+        pkl_file = open('files/svc_model.sav', 'rb')
+        clf = pickle.load(pkl_file)
+        pkl_file.close()
+        return clf
+
     def sgd(self):
     # Scikit classifier
         X = np.array(self.features_list(path="files/all.csv"))
@@ -111,6 +117,12 @@ class DameSexmachine(Gender):
         clf = SGDClassifier(loss="log").fit(X,y)
         filename = 'files/sgd_model.sav'
         pickle.dump(clf, open(filename, 'wb'))
+        return clf
+
+    def sgd_load(self):
+        pkl_file = open('files/sgd_model.sav', 'rb')
+        clf = pickle.load(pkl_file)
+        pkl_file.close()
         return clf
 
     def gaussianNB(self):
@@ -124,6 +136,12 @@ class DameSexmachine(Gender):
         filename = 'files/gaussianNB_model.sav'
         pickle.dump(model, open(filename, 'wb'))
         return model
+
+    def gaussianNB_load(self):
+        pkl_file = open('files/gaussianNB_model.sav', 'rb')
+        clf = pickle.load(pkl_file)
+        pkl_file.close()
+        return clf
 
     def multinomialNB(self):
     # Scikit bayesian classifier
