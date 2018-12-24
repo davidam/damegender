@@ -99,7 +99,7 @@ Dado un fichero csv obtener número y porcentaje de hombres y mujeres
 Probar
 $ python3 main.py Inés
 $ python3 main.py Ines
-* TODO Hay un problema con los nombres que aparecen en male.txt y female.txt
+* FUTURE Hay un problema con los nombres que aparecen en male.txt y female.txt
 Probar
 $ python3 main.py Andrea
 Para esto lo mejor es devolver una probabilidad. Usar INE.es puede ser una opción.
@@ -184,8 +184,9 @@ class DameGenderApi(Gender):
 
 * DONE males_list and females_list
   - State "DONE"       from "TODO"       [2018-12-23 dom 17:33]
-* TODO Guess
+* DONE Guess
   SCHEDULED: <2018-12-24 lun>
+  - State "DONE"       from "TODO"       [2018-12-23 dom 19:24]
     def guess(self, name, binary=False):
     # guess method to check names dictionary
         guess = ''
@@ -214,3 +215,21 @@ class DameGenderApi(Gender):
             else:
                 guess = 'unknown'
         return guess
+* TODO A comentar
+Baby name guesser usa google para determinar si alguien es chico o chica
+Supongo que podría ser el número de resultados en Google "name female", "name male"
+* DONE Para main.py
+  - State "DONE"       from "TODO"       [2018-12-24 lun 12:59]
+if (len(sys.argv) > 1):
+    if (args.ml):
+        s = DameSexmachine()
+        m = s.sgd_load()
+        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1]])
+        sex = ""
+        if predicted:
+            sex = "male"
+        else:
+            sex = "female"
+        print("%s gender is %s" % (str(args.name), sex))
+    else:
+        print("%s gender is %s" % (str(args.name), s.guess(args.name)))
