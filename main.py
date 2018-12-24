@@ -36,6 +36,11 @@ if (len(sys.argv) > 1):
             m = s.sgd_load()
         elif (args.ml == "svc"):
             m = s.svc_load()
+        elif (args.ml == "multinomialNB"):
+            m = s.multinomialNB_load()
+        elif (args.ml == "bernoulliNB"):
+            m = s.bernoulliNB_load()
+
         fi = list(s.features_int(args.name).values())
         fi = [fi]
         predicted = m.predict(fi)
