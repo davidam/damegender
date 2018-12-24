@@ -153,6 +153,12 @@ class DameSexmachine(Gender):
         pickle.dump(model, open(filename, 'wb'))
         return model
 
+    def multinomialNB_load(self):
+        pkl_file = open('files/multinomialNB_model.sav', 'rb')
+        clf = pickle.load(pkl_file)
+        pkl_file.close()
+        return clf
+
     def bernoulliNB(self):
     # Scikit bayesian classifier
         X = np.array(self.features_list(path="files/all.csv"))
