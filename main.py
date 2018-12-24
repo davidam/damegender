@@ -26,8 +26,25 @@ import sys
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
+parser.add_argument('--ml')
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 if (len(sys.argv) > 1):
-    s = DameSexmachine()
-    print("%s's gender is %s" % (str(args.name), s.guess(args.name)))
+    if (args.ml):
+        s = DameSexmachine()
+        if (args.ml == "sgd"):
+            m = s.sgd_load()
+        elif (args.ml == "svc"):
+            m = s.svc_load()
+        fi = list(s.features_int(args.name).values())
+        fi = [fi]
+        predicted = m.predict(fi)
+        sex = ""
+        if predicted:
+            sex = "male"
+        else:
+            sex = "female"
+        print("%s gender is %s" % (str(args.name), sex))
+    else:
+        s = DameSexmachine()
+        print("%s's gender is %s" % (str(args.name), s.guess(args.name)))
