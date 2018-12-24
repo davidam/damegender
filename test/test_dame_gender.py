@@ -45,6 +45,8 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(features_int["consonants"] == 2)
         self.assertTrue(features_int["first_letter_vocal"] == 0)
         self.assertTrue(features_int["last_letter_vocal"] == 0)
+        self.assertTrue(features_int["first_letter_consonant"] == 1)
+        self.assertTrue(features_int["last_letter_consonant"] == 1)
         #self.assertTrue(features_int["syllables"] == 2)
         self.assertTrue(features_int["last_letter_a"] == 0)
         self.assertTrue(len(features_int) > 0)
