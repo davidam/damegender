@@ -36,11 +36,18 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(f['last_letter'], 'd')
         self.assertEqual(f['first_letter'], 'd')
 
-    # def test_sexmachine_features_int_method_returns_correct_result(self):
-    #     g = Gender()
-    #     f = g.features_int("David")
-    #     self.assertTrue(f['syllables'] == 2)
-    #     self.assertTrue(len(f) > 0)
+    def test_sexmachine_features_int_method_returns_correct_result(self):
+        g = Gender()
+        features_int = g.features_int("David")
+        self.assertTrue(features_int["first_letter"] == 100)
+        self.assertTrue(features_int["last_letter"] == 100)
+        self.assertTrue(features_int["vocals"] == 2)
+        self.assertTrue(features_int["consonants"] == 2)
+        self.assertTrue(features_int["first_letter_vocal"] == 0)
+        self.assertTrue(features_int["last_letter_vocal"] == 0)
+        #self.assertTrue(features_int["syllables"] == 2)
+        self.assertTrue(features_int["last_letter_a"] == 0)
+        self.assertTrue(len(features_int) > 0)
 
     def test_dame_gender_males_list_method_returns_correct_result(self):
         g = Gender()
