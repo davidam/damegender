@@ -30,7 +30,6 @@ from app.dame_gender import Gender
 
 class DameNamsor(Gender):
 
-
     def guess(self, name, surname, binary=False):
     # guess method to check names dictionary
         namsorlist = []
@@ -53,7 +52,7 @@ class DameNamsor(Gender):
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"','')
-                surname = row[0].title()
+                surname = row[2].title()
                 surname = surname.replace('\"','')
                 if binary:
                     slist.append(self.guess(name, surname, binary=True))
