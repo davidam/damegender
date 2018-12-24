@@ -163,7 +163,6 @@ class TddInPythonExample(unittest.TestCase):
         n = np.array([0])
         self.assertTrue(np.array_equal(predicted, n))
 
-
     def test_sexmachine_multinomialNB_load_method_returns_correct_result(self):
         s = DameSexmachine()
         m = s.multinomialNB_load()
@@ -173,4 +172,11 @@ class TddInPythonExample(unittest.TestCase):
                    0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0, 1]]
         predicted= m.predict(array)
         n = np.array([0, 0])
+        self.assertTrue(np.array_equal(predicted, n))
+
+    def test_sexmachine_bernoulliNB_load_method_returns_correct_result(self):
+        s = DameSexmachine()
+        m = s.bernoulliNB_load()
+        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1]])
+        n = np.array([2])
         self.assertTrue(np.array_equal(predicted, n))
