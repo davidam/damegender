@@ -169,6 +169,12 @@ class DameSexmachine(Gender):
         pickle.dump(model, open(filename, 'wb'))
         return model
 
+    def bernoulliNB_load(self):
+        pkl_file = open('files/bernoulliNB_model.sav', 'rb')
+        clf = pickle.load(pkl_file)
+        pkl_file.close()
+        return clf
+
     def string2array(self, string):
         res = ""
         string = unidecode.unidecode(string)
