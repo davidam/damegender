@@ -41,6 +41,9 @@ $ nosetests3 test/test_dame_sexmachine.py:TddInPythonExample.test_string2array_m
 # Detect gender from a name
 $ python3 main.py David
 male
+# Detect gender from a name only using machine learning (experimental way)
+$ python3 main.py David --ml=multinomialNB
+male
 # Count gender from a csv example file
 $ python3 csv2gender.py files/partial.csv
 The number of males in files/partial.csv is 16
