@@ -82,6 +82,10 @@ class DameSexmachine(Gender):
             features_int["last_letter_vocal"] = 0
         h = hyphen.Hyphenator('en_US')
         features_int["syllables"] = len(h.syllables(name))
+        if (ord(name[-1].lower()) == "a"):
+            features_int["last_letter_a"] = 1
+        else:
+            features_int["last_letter_a"] = 0
         return features_int
 
     # TODO: Reescribir el clasificador
