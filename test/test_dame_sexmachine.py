@@ -163,34 +163,14 @@ class TddInPythonExample(unittest.TestCase):
         n = np.array([0])
         self.assertTrue(np.array_equal(predicted, n))
 
-    # def test_sexmachine_sgd_list_method_returns_correct_result(self):
-    #     s = DameSexmachine()
-    #     m = s.sgd()
-    #     predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0]])
-    #     n = np.array([1])
-    #     self.assertTrue(np.array_equal(predicted, n))
 
-#     def test_sexmachine_gaussianNB_load_method_returns_correct_result(self):
-#         s = DameSexmachine()
-#         pkl_file = open('files/gaussianNB_model.sav', 'rb')
-#         m = pickle.load(pkl_file)
-# #        m = s.gaussianNB()
-#         array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0,
-#                    0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0],
-#                  [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1,
-#                    0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0]]
-#         predicted= m.predict(array)
-#         n = np.array([2, 2])
-#         self.assertTrue(np.array_equal(predicted, n))
-
-
-    # def test_sexmachine_multinomialNB_list_method_returns_correct_result(self):
-    #     s = DameSexmachine()
-    #     m = s.multinomialNB()
-    #     array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0,
-    #                0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0],
-    #              [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1,
-    #                0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0]]
-    #     predicted= m.predict(array)
-    #     n = np.array([2, 2])
-    #     self.assertTrue(np.array_equal(predicted, n))
+    def test_sexmachine_multinomialNB_load_method_returns_correct_result(self):
+        s = DameSexmachine()
+        m = s.multinomialNB_load()
+        array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0,
+                   0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 0],
+                 [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1,
+                   0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0, 1]]
+        predicted= m.predict(array)
+        n = np.array([0, 0])
+        self.assertTrue(np.array_equal(predicted, n))
