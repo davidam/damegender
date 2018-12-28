@@ -117,6 +117,16 @@ class TddInPythonExample(unittest.TestCase):
         fl = g.features_list()
         self.assertTrue(len(fl) > 20)
 
+    def test_dame_gender_features_list_categorical_method_returns_correct_result(self):
+        g = Gender()
+        flc = g.features_list_categorical()
+        self.assertEqual(len(flc[0]), 6)
+        
+    def test_dame_gender_features_list_no_categorical_method_returns_correct_result(self):
+        g = Gender()
+        flnc = g.features_list_no_categorical()
+        self.assertTrue(len(flnc[0]) > 25)
+        
     # def test_gender_remove_accents_method_returns_correct_result(self):
     #     g = Gender()
     #     ra = g.remove_accents("Inés")

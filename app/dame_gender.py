@@ -216,6 +216,27 @@ class Gender(object):
                 features_list_file.write(str(list(self.features_int(name).values())))
         return flist
 
+    def features_list_categorical(self, path='files/partial.csv'):
+        flist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                name = row[0]
+                flist.append([self.features_int(name)["first_letter"], self.features_int(name)["last_letter"], self.features_int(name)["last_letter_a"], self.features_int(name)["first_letter_vocal"], self.features_int(name)["last_letter_vocal"], self.features_int(name)["last_letter_consonant"]])
+        return flist
+                                                                                                            
+    def features_list_no_categorical(self, path='files/partial.csv'):
+        flist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                name = row[0]
+                l = list([self.features_int(name)["count(a)"], self.features_int(name)["count(b)"], self.features_int(name)["count(c)"], self.features_int(name)["count(d)"], self.features_int(name)["count(e)"], self.features_int(name)["count(f)"], self.features_int(name)["count(g)"], self.features_int(name)["count(h)"], self.features_int(name)["count(i)"], self.features_int(name)["count(j)"], self.features_int(name)["count(h)"], self.features_int(name)["count(i)"], self.features_int(name)["count(j)"], self.features_int(name)["count(k)"], self.features_int(name)["count(l)"], self.features_int(name)["count(m)"], self.features_int(name)["count(n)"], self.features_int(name)["count(o)"], self.features_int(name)["count(p)"], self.features_int(name)["count(q)"], self.features_int(name)["count(r)"], self.features_int(name)["count(s)"], self.features_int(name)["count(t)"], self.features_int(name)["count(u)"], self.features_int(name)["count(w)"], self.features_int(name)["count(x)"], self.features_int(name)["count(y)"], self.features_int(name)["count(z)"], self.features_int(name)["vocals"], self.features_int(name)["consonants"]])
+                flist.append(l)
+        return flist
+
     def features_list2csv(self):
         fl = self.features_list()
         f = open('files/features_list.csv', 'w')
