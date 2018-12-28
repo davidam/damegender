@@ -36,11 +36,20 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(f['last_letter'], 'd')
         self.assertEqual(f['first_letter'], 'd')
 
-    # def test_sexmachine_features_int_method_returns_correct_result(self):
-    #     g = Gender()
-    #     f = g.features_int("David")
-    #     self.assertTrue(f['syllables'] == 2)
-    #     self.assertTrue(len(f) > 0)
+    def test_dame_gender_features_int_method_returns_correct_result(self):
+        g = Gender()
+        features_int = g.features_int("David")
+        self.assertTrue(features_int["first_letter"] == 100)
+        self.assertTrue(features_int["last_letter"] == 100)
+        self.assertTrue(features_int["vocals"] == 2)
+        self.assertTrue(features_int["consonants"] == 2)
+        self.assertTrue(features_int["first_letter_vocal"] == 0)
+        self.assertTrue(features_int["last_letter_vocal"] == 0)
+        self.assertTrue(features_int["first_letter_consonant"] == 1)
+        self.assertTrue(features_int["last_letter_consonant"] == 1)
+        #self.assertTrue(features_int["syllables"] == 2)
+        self.assertTrue(features_int["last_letter_a"] == 0)
+        self.assertTrue(len(features_int) > 0)
 
     def test_dame_gender_males_list_method_returns_correct_result(self):
         g = Gender()
@@ -83,7 +92,7 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_gender_confusion_matrix_method_returns_correct_result(self):
         g = Gender()
         cm = g.confusion_matrix(path="files/partial.csv")
-        print(cm)
+#        print(cm)
         am = np.array([[3, 0, 0],[0, 13, 3],[0, 1, 1]])
         self.assertTrue(np.array_equal(cm,am))
 
@@ -107,6 +116,13 @@ class TddInPythonExample(unittest.TestCase):
         g = Gender()
         fl = g.features_list()
         self.assertTrue(len(fl) > 20)
+
+    def test_dame_gender_features_list_categorical_method_returns_correct_result(self):
+        g = Gender()
+        flc = g.features_list_categorical()
+        self.assertEqual(len(flc[0]), 6)
+
+
 
     # def test_gender_remove_accents_method_returns_correct_result(self):
     #     g = Gender()
