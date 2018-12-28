@@ -59,21 +59,37 @@ class Gender(object):
         for letter in 'abcdefghijklmnopqrstuvwxyz':
             features_int["count({})".format(letter)] = name.lower().count(letter)
         features_int["vocals"] = 0
-        for letter in 'aeiou':
-            features_int["vocals"] = features_int["vocals"] + 1
+        for letter1 in 'aeiou':
+            for letter2 in name:
+                if (letter1 == letter2):
+                    features_int["vocals"] = features_int["vocals"] + 1
         features_int["consonants"] = 0
-        for letter in 'bcdfghjklmnpqrstvwxyz':
-            features_int["consonants"] = features_int["consonants"] + 1
-        if (chr(features_int["first_letter"]) in 'aeiou'):
+        for letter1 in 'bcdfghjklmnpqrstvwxyz':
+            for letter2 in name:
+                if (letter1 == letter2):
+                    features_int["consonants"] = features_int["consonants"] + 1
+        if (name[0].lower() in 'aeiou'):
             features_int["first_letter_vocal"] = 1
         else:
             features_int["first_letter_vocal"] = 0
-        if (chr(features_int["last_letter"]) in 'aeiou'):
+        if (name[0].lower() in 'bcdfghjklmnpqrstvwxyz'):
+            features_int["first_letter_consonant"] = 1
+        else:
+            features_int["first_letter_consonant"] = 0
+        if (name[-1].lower() in 'aeiou'):
             features_int["last_letter_vocal"] = 1
         else:
             features_int["last_letter_vocal"] = 0
-        h = hyphen.Hyphenator('en_US')
-        features_int["syllables"] = len(h.syllables(name))
+        if (name[-1].lower() in 'bcdfghjklmnpqrstvwxyz'):
+            features_int["last_letter_consonant"] = 1
+        else:
+            features_int["last_letter_consonant"] = 0
+        # h = hyphen.Hyphenator('en_US')
+        # features_int["syllables"] = len(h.syllables(name))
+        if (name[-1].lower() == "a"):
+            features_int["last_letter_a"] = 1
+        else:
+            features_int["last_letter_a"] = 0
         return features_int
 
     def remove_accents(self, s):
@@ -193,17 +209,25 @@ class Gender(object):
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             next(sexreader, None)
-            features_list_file = open('files/features_list.csv','w')
             for row in sexreader:
                 name = row[0]
                 flist.append(list(self.features_int(name).values()))
-                features_list_file.write(str(list(self.features_int(name).values())))
+        return flist
+
+    def features_list_categorical(self, path='files/partial.csv'):
+        flist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                name = row[0]
+                flist.append([self.features_int(name)["first_letter"], self.features_int(name)["last_letter"], self.features_int(name)["last_letter_a"], self.features_int(name)["first_letter_vocal"], self.features_int(name)["last_letter_vocal"], self.features_int(name)["last_letter_consonant"]])
         return flist
 
     def features_list2csv(self):
         fl = self.features_list()
         f = open('files/features_list.csv', 'w')
-        first_line = "first_letter, last_letter, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, vocals, consonants, first_letter, first_letter_vocal, last_letter_vocal, last_letter_consonant"
+        first_line = "first_letter, last_letter, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, vocals, consonants, first_letter, first_letter_vocal, last_letter_vocal, last_letter_consonant, last_letter_a"
         f.write(first_line+"\n")
         for i in fl:
             line = ""
