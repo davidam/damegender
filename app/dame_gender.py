@@ -225,7 +225,7 @@ class Gender(object):
                 name = row[0]
                 flist.append([self.features_int(name)["first_letter"], self.features_int(name)["last_letter"], self.features_int(name)["last_letter_a"], self.features_int(name)["first_letter_vocal"], self.features_int(name)["last_letter_vocal"], self.features_int(name)["last_letter_consonant"]])
         return flist
-                                                                                                            
+
     def features_list_no_categorical(self, path='files/partial.csv'):
         flist = []
         with open(path) as csvfile:
@@ -237,10 +237,19 @@ class Gender(object):
                 flist.append(l)
         return flist
 
-    def features_list2csv(self):
-        fl = self.features_list()
-        f = open('files/features_list.csv', 'w')
-        first_line = "first_letter, last_letter, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, vocals, consonants, first_letter, first_letter_vocal, last_letter_vocal, last_letter_consonant, last_letter_a"
+    def features_list2csv(self, csv=""):
+        if (csv == 'categorical'):
+            fl = self.features_list_categorical()
+            first_line = "first_letter, last_letter, last_letter_a, first_letter_vocal, last_letter_vocal, last_letter_consonant"
+            f = open('files/features_list_cat.csv', 'w')
+        elif (csv == 'nocategorical'):
+            fl = self.features_list_no_categorical()
+            first_line = "a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, x, y, z, vocals, consonants"
+            f = open('files/features_list_no_cat.csv', 'w')
+        else:
+            fl = self.features_list()
+            first_line = "first_letter, last_letter, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, vocals, consonants, first_letter, first_letter_vocal, last_letter_vocal, last_letter_consonant, last_letter_a"
+            f = open('files/features_list.csv', 'w')
         f.write(first_line+"\n")
         for i in fl:
             line = ""

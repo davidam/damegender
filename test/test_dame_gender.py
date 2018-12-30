@@ -23,6 +23,7 @@
 
 import unittest
 import numpy as np
+import os
 from app.dame_gender import Gender
 
 class TddInPythonExample(unittest.TestCase):
@@ -121,12 +122,22 @@ class TddInPythonExample(unittest.TestCase):
         g = Gender()
         flc = g.features_list_categorical()
         self.assertEqual(len(flc[0]), 6)
-        
+
     def test_dame_gender_features_list_no_categorical_method_returns_correct_result(self):
         g = Gender()
         flnc = g.features_list_no_categorical()
         self.assertTrue(len(flnc[0]) > 25)
-        
+
+    def test_dame_gender_features_list2csv_method_returns_correct_result(self):
+        # TODO: You can write asserts to verify the first line
+        g = Gender()
+        csv1 = g.features_list2csv()
+        csv2 = g.features_list2csv(csv="categorical")
+        csv3 = g.features_list2csv(csv="nocategorical")
+        self.assertTrue(os.path.isfile("files/features_list.csv"))
+        self.assertTrue(os.path.isfile("files/features_list_cat.csv"))
+        self.assertTrue(os.path.isfile("files/features_list_no_cat.csv"))
+
     # def test_gender_remove_accents_method_returns_correct_result(self):
     #     g = Gender()
     #     ra = g.remove_accents("Inés")
