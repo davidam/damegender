@@ -30,14 +30,14 @@ class TddInPythonExample(unittest.TestCase):
         gg = DameGenderize()
         self.assertEqual(gg.guess("David"), "male")
 
-    # def test_dame_genderize_gender_list_method_returns_correct_result(self):
-    #     gg = DameGenderize()
-    #     gl = gg.gender_list()
-    #     self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
-    #     self.assertEqual(len(gl), 21)
-    #     self.assertEqual(gg.females, 3)
-    #     self.assertEqual(gg.males, 16)
-    #     self.assertEqual(gg.unknown, 2)
+    def test_dame_genderize_gender_list_method_returns_correct_result(self):
+        gg = DameGenderize()
+        gl = gg.gender_list()
+        self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
+        self.assertEqual(len(gl), 21)
+        self.assertEqual(gg.females, 3)
+        self.assertEqual(gg.males, 16)
+        self.assertEqual(gg.unknown, 2)
 
     # def test_dame_genderize_guess_list_method_returns_correct_result(self):
     #     g = DameGenderize()
