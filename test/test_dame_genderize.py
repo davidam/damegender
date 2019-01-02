@@ -39,6 +39,12 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(gg.males, 16)
         self.assertEqual(gg.unknown, 2)
 
+    def test_dame_gender_guess_list_method_returns_correct_result(self):
+        gg = DameGenderize()
+
+        self.assertEqual(['male', 'male', 'male', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male'], gg.guess_list(path="files/partial.csv", binary=False))
+        self.assertEqual([1, 1, 1, 1, 2, 1, 0, 0, 1, 1], gg.guess_list(path="files/partial.csv",binary=True))
+
     # def test_dame_genderize_guess_list_method_returns_correct_result(self):
     #     g = DameGenderize()
     #     self.assertEqual(['male', 'male', 'unknown', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male', 'unknown', 'male', 'male', 'male', 'unknown', 'male', 'male', 'male', 'unknown', 'male', 'male'], g.guess_list(path="files/partial.csv", binary=False))
