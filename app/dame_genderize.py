@@ -40,3 +40,32 @@ class DameGenderize(Gender):
         elif (not(binary)):
             guess = g
         return guess
+
+    def guess_list(self, path='files/partial.csv', binary=False):
+    # guess list method
+        slist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            i = 0
+#            string = ""
+            listnames = list()
+            for row in sexreader:
+                name = row[0].title()
+                name = name.replace('\"','')
+                listnames.append(name)
+        jsonlist = Genderize().get(listnames)
+        for item in jsonlist:
+            if ((item['gender'] == None) & binary):
+                slist.append(2)
+            elif ((item['gender'] == None) & (not binary)):
+                slist.append("unknown")
+            elif ((item['gender'] == "male") & binary):
+                slist.append(1)
+            elif ((item['gender'] == "male") & (not binary) ):
+                slist.append("male")
+            elif ((item['gender'] == "female") & binary):
+                slist.append(0)
+            elif ((item['gender'] == "female") & (not binary) ):
+                slist.append("female")
+        return slist
