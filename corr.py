@@ -33,9 +33,13 @@ args = parser.parse_args()
 g = Gender()
 
 if (args.csv == 'nocategorical'):
-    g.features_list_categorical()
+    g.features_list_no_categorical()
     g.features_list2csv(csv="nocategorical")
     data = pd.read_csv('files/features_list_no_cat.csv', index_col=0)
+elif (args.csv == 'categorical'):
+    g.features_list_categorical()
+    g.features_list2csv(csv="categorical")
+    data = pd.read_csv('files/features_list_cat.csv', index_col=0)
 else:
     g.features_list2csv()
     data = pd.read_csv('files/features_list.csv', index_col=0)
