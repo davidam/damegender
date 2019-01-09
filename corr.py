@@ -25,11 +25,23 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from app.dame_gender import Gender
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--csv')
+args = parser.parse_args()
 
 g = Gender()
-g.features_list2csv()
 
-data = pd.read_csv('files/features_list.csv', index_col=0)
+if (args.csv == 'nocategorical'):
+    g.features_list_categorical()
+    g.features_list2csv(csv="nocategorical")
+    data = pd.read_csv('files/features_list_no_cat.csv', index_col=0)
+else:
+    g.features_list2csv()
+    data = pd.read_csv('files/features_list.csv', index_col=0)
+
+#data = pd.read_csv('files/features_list_cat.csv', index_col=0)
+#data = pd.read_csv('files/features_list.csv', index_col=0)
 corr = data.corr()
 fig = plt.figure()
 ax = fig.add_subplot(111)
