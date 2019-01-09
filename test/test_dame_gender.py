@@ -122,7 +122,7 @@ class TddInPythonExample(unittest.TestCase):
         g = Gender()
         flc = g.features_list_categorical('files/partial.csv')
         self.assertEqual(len(flc[0]), 6)
-        self.assertEqual(flc[0], ["pierre","paul","grivel","pierre paul grivel","m","zbmath"])
+        self.assertEqual(flc[0], [112, 101, 0, 0, 1, 0])
 
     def test_dame_gender_features_list_no_categorical_method_returns_correct_result(self):
         g = Gender()
@@ -139,14 +139,3 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(os.path.isfile("files/features_list.csv"))
         self.assertTrue(os.path.isfile("files/features_list_cat.csv"))
         self.assertTrue(os.path.isfile("files/features_list_no_cat.csv"))
-
-    # def test_gender_remove_accents_method_returns_correct_result(self):
-    #     g = Gender()
-    #     ra = g.remove_accents("Inés")
-    #     self.assertTrue(ra, "Ines")
-
-
-    # def test_gender_features_list_all_method_returns_correct_result(self):
-    #     g = Gender()
-    #     fl = g.features_list(path="files/all.csv")
-    #     self.assertTrue(len(fl) > 1000)
