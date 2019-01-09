@@ -120,13 +120,15 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_features_list_categorical_method_returns_correct_result(self):
         g = Gender()
-        flc = g.features_list_categorical()
+        flc = g.features_list_categorical('files/partial.csv')
         self.assertEqual(len(flc[0]), 6)
+        self.assertEqual(flc[0], ["pierre","paul","grivel","pierre paul grivel","m","zbmath"])
 
     def test_dame_gender_features_list_no_categorical_method_returns_correct_result(self):
         g = Gender()
-        flnc = g.features_list_no_categorical()
+        flnc = g.features_list_no_categorical('files/partial.csv')
         self.assertTrue(len(flnc[0]) > 25)
+        self.assertTrue(flnc[0], [0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3])
 
     def test_dame_gender_features_list2csv_method_returns_correct_result(self):
         # TODO: You can write asserts to verify the first line
