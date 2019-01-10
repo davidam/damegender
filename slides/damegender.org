@@ -1,0 +1,73 @@
+#+TITLE: Damegender: Gender detection tool
+#+AUTHOR: David Arroyo Menéndez
+#+OPTIONS: H:2 toc:nil num:t
+#+LATEX_CLASS: beamer
+#+LATEX_CLASS_OPTIONS: [presentation]
+#+BEAMER_THEME: Madrid
+#+COLUMNS: %45ITEM %10BEAMER_ENV(Env) %10BEAMER_ACT(Act) %4BEAMER_COL(Col) %8BEAMER_OPT(Opt)
+
+* Summary
+** Damegender from the commands
+#+BEGIN_SRC bash
+# Detect gender from a name
+$ python3 main.py David
+male
+# Count gender from a csv example file
+$ python3 csv2gender.py files/partial.csv
+The number of males in files/partial.csv is 16
+The number of females in files/partial.csv is 3
+The number of gender not recognised in files/partial.csv is 2
+# Count gender from a git repository
+$ python3 git2gender.py https://github.com/chaoss/grimoirelab-perceval.git --directory="/tmp/clonedir"
+The number of males sending commits is 15
+The number of females sending commits is 7
+#+END_SRC
+
+**** This will be formatted as a beamer note                       :B_note:
+     :PROPERTIES:
+     :BEAMER_env: note
+     :END:
+
+** Damegender from the commands (II) 
+
+#+BEGIN_SRC bash
+# Count gender from a mailing list
+$ cd files
+$ wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
+$ cd ..
+$ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
+# Use an api to detect the gender
+$ python3 api2gender.py David --api=genderguesser
+male
+# To measure success
+$ python3 accuracy.py
+Namsor accuracy: 0.9047619047619048
+Sexmachine accuracy: 0.7619047619047619
+#+END_SRC
+
+
+** Damegender from the commands (III)
+
+#+BEGIN_SRC bash
+$ python3 confusion.py
+A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are true positives
+Namsor confusion matrix:
+ [[ 3  0  0]
+ [ 0 16  0]
+ [ 0  2  0]]
+Sexmachine confusion matrix:
+ [[ 2  1  0]
+ [ 2 14  0]
+ [ 1  1  0]]
+
+# To deploy a graph about correlation between variables
+$ python3 corr.py
+# To create the pickle models in files directory
+$ python3 damemodels.py
+#+END_SRC
+
+** Damegender classes and methods
+
+file:../files/dame_gender.png
+
