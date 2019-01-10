@@ -7,7 +7,7 @@
 #+COLUMNS: %45ITEM %10BEAMER_ENV(Env) %10BEAMER_ACT(Act) %4BEAMER_COL(Col) %8BEAMER_OPT(Opt)
 
 * Summary
-** Damegender from the commands
+** Damegender from the commands (I)
 #+BEGIN_SRC bash
 # Detect gender from a name
 $ python3 main.py David
@@ -28,7 +28,7 @@ The number of females sending commits is 7
      :BEAMER_env: note
      :END:
 
-** Damegender from the commands (II) 
+** Damegender from the commands (II)
 
 #+BEGIN_SRC bash
 # Count gender from a mailing list
@@ -44,7 +44,6 @@ $ python3 accuracy.py
 Namsor accuracy: 0.9047619047619048
 Sexmachine accuracy: 0.7619047619047619
 #+END_SRC
-
 
 ** Damegender from the commands (III)
 
@@ -67,7 +66,10 @@ $ python3 corr.py
 $ python3 damemodels.py
 #+END_SRC
 
-** Damegender classes and methods
+** Damegender classes and methods (I)
 
 file:../files/dame_gender.png
 
+** Damegender classes and methods (II)
+
+file:../files/dame_sexmachine.png
