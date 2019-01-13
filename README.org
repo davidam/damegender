@@ -64,7 +64,8 @@ male
 # To measure success
 $ python3 accuracy.py
 Namsor accuracy: 0.9047619047619048
-Sexmachine accuracy: 0.7619047619047619
+Genderize accuracy: 0.9523809523809523
+Sexmachine accuracy: 0.8571428571428571
 $ python3 confusion.py
 A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
 If the classifier is nice, the diagonal is high because there are true positives
@@ -83,5 +84,4 @@ $ python3 corr.py --csv="categorical"
 $ python3 corr.py --csv="nocategorical"
 # To create the pickle models in files directory
 $ python3 damemodels.py
-
 #+END_SRC
