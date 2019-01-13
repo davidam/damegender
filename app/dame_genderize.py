@@ -26,6 +26,8 @@ import csv
 import requests
 import json
 from app.dame_gender import Gender
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import confusion_matrix
 
 
 class DameGenderize(Gender):
@@ -54,18 +56,29 @@ class DameGenderize(Gender):
                 name = row[0].title()
                 name = name.replace('\"','')
                 listnames.append(name)
-        jsonlist = Genderize().get(listnames)
-        for item in jsonlist:
-            if ((item['gender'] == None) & binary):
-                slist.append(2)
-            elif ((item['gender'] == None) & (not binary)):
-                slist.append("unknown")
-            elif ((item['gender'] == "male") & binary):
-                slist.append(1)
-            elif ((item['gender'] == "male") & (not binary) ):
-                slist.append("male")
-            elif ((item['gender'] == "female") & binary):
-                slist.append(0)
-            elif ((item['gender'] == "female") & (not binary) ):
-                slist.append("female")
+#        print("len listnames:"+str(len(listnames)))
+        new = []
+        for i in range(0, len(listnames), 10): # We must split the list in different lists with size 10
+            new.append(listnames[i : i+10])
+        for i in new:
+            jsonlist = Genderize().get(i)
+#            print("len jsonlist:"+str(len(jsonlist)))
+            for item in jsonlist:
+                if ((item['gender'] == None) & binary):
+                    slist.append(2)
+                elif ((item['gender'] == None) & (not binary)):
+                    slist.append("unknown")
+                elif ((item['gender'] == "male") & binary):
+                    slist.append(1)
+                elif ((item['gender'] == "male") & (not binary) ):
+                    slist.append("male")
+                elif ((item['gender'] == "female") & binary):
+                    slist.append(0)
+                elif ((item['gender'] == "female") & (not binary) ):
+                    slist.append("female")
         return slist
+
+    def accuracy(self, path):
+        gl = self.gender_list(path)
+        sl = self.guess_list(path, binary=True)
+        return accuracy_score(gl, sl)
