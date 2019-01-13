@@ -77,8 +77,3 @@ class DameGenderize(Gender):
                 elif ((item['gender'] == "female") & (not binary) ):
                     slist.append("female")
         return slist
-
-    def accuracy(self, path):
-        gl = self.gender_list(path)
-        sl = self.guess_list(path, binary=True)
-        return accuracy_score(gl, sl)
