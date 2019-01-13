@@ -66,6 +66,22 @@ $ python3 corr.py
 $ python3 damemodels.py
 #+END_SRC
 
+** Damegender as an exercise to practice NLTK and Perceval
+
+#+BEGIN_SRC bash
+~/git/python-examples/nlp/nltk: (dev) $ python3 sexmachine.py
+What's your name?: David
+What's my name?: Elena
+David is male and Elena is female. Enjoy!.
+The classifier has an accuracy: 0.052
+Most Informative Features
+             last_letter = 'a'            female : male   =     35.5 : 1.0
+             last_letter = 'k'              male : female =     34.1 : 1.0
+             last_letter = 'f'              male : female =     15.9 : 1.0
+             last_letter = 'p'              male : female =     13.5 : 1.0
+             last_letter = 'v'              male : female =     12.7 : 1.0
+#+END_SRC
+
 ** Damegender classes and methods (I)
 
 file:../files/dame_gender.png
@@ -73,3 +89,11 @@ file:../files/dame_gender.png
 ** Damegender classes and methods (II)
 
 file:../files/dame_sexmachine.png
+
+** Damegender and the bussiness
++ In CMS: wordpress, drupal, joomla
++ In dictionaries: google translate, babylon, gnu dict, ...
++ Enciclopedias: wikipedia,  ...
+--
++ A good technical project has a good bussiness project and an interfaz for end users.
++ A Free Software license and community can be a good point.
