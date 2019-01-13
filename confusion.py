@@ -26,6 +26,7 @@ from app.dame_sexmachine import DameSexmachine
 from app.dame_namsor import DameNamsor
 from app.dame_genderguesser import DameGenderGuesser
 from app.dame_genderapi import DameGenderApi
+from app.dame_genderize import DameGenderize
 
 print("A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.")
 print("If the classifier is nice, the diagonal is high because there are true positives")
@@ -33,6 +34,11 @@ print("If the classifier is nice, the diagonal is high because there are true po
 dn = DameNamsor()
 namsor_confusion_matrix = dn.confusion_matrix(path="files/partial.csv")
 print("Namsor confusion matrix:\n %s" % namsor_confusion_matrix)
+
+dg = DameGenderize()
+genderize_confusion_matrix = dg.confusion_matrix(path="files/partial.csv")
+print("Genderize confusion matrix:\n %s" % genderize_confusion_matrix)
+
 
 ds = DameSexmachine()
 sexmachine_confusion_matrix = ds.confusion_matrix(path="files/partial.csv")
