@@ -24,11 +24,20 @@
 from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
 from app.dame_namsor import DameNamsor
-from app.dame_genderguesser import DameGenderGuesser
+from app.dame_genderize import DameGenderize
 
 dn = DameNamsor()
 namsor_accuracy = dn.accuracy(path="files/partial.csv")
 print("Namsor accuracy: %s" % namsor_accuracy)
+
+dg = DameGenderize()
+
+gl = dg.gender_list(path="files/partial.csv")
+sl = dg.guess_list(path="files/partial.csv", binary=True)
+
+genderize_accuracy = dg.accuracy(path="files/partial.csv")
+print("Genderize accuracy: %s" % genderize_accuracy)
+
 
 ds = DameSexmachine()
 sexmachine_accuracy = ds.accuracy(path="files/partial.csv")
