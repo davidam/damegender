@@ -162,10 +162,7 @@ class Gender(object):
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"','')
-                if binary:
-                    slist.append(self.guess(name, binary=True))
-                else:
-                    slist.append(self.guess(name, binary=False))
+                slist.append(self.guess(name, binary))
         return slist
 
     def gender_list(self, path='files/partial.csv'):
