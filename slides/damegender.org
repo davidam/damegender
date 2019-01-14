@@ -97,3 +97,6 @@ file:../files/dame_sexmachine.png
 --
 + A good technical project has a good bussiness project and an interfaz for end users.
 + A Free Software license and community can be a good point.
+** Comparison and benchmark of name-to-gender inference services
+
+file:../files/comparison-tables.png
