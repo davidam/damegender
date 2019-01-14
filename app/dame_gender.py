@@ -100,13 +100,13 @@ class Gender(object):
         return aux
 
     def males_list(self):
-        my_corpus = nltk.corpus.PlaintextCorpusReader('/home/davidam/git/damegender/files/names_es', '.*\.txt')
+        my_corpus = nltk.corpus.PlaintextCorpusReader('files/names_es', '.*\.txt')
         m = names.words('male.txt') + my_corpus.sents('masculinos.txt')[1]
         m = list(OrderedDict.fromkeys(m))
         return m
 
     def females_list(self):
-        my_corpus = nltk.corpus.PlaintextCorpusReader('/home/davidam/git/damegender/files/names_es', '.*\.txt')
+        my_corpus = nltk.corpus.PlaintextCorpusReader('files/names_es', '.*\.txt')
         f = names.words('female.txt') + my_corpus.sents('femeninos.txt')[1]
         f = list(OrderedDict.fromkeys(f))
         return f
