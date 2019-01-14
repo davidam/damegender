@@ -33,9 +33,9 @@ class DameGenderGuesser(Gender):
         genderguesserlist = []
         d = gender.Detector()
         get = d.get_gender(name)
-        if ((get == 'female') and binary):
+        if (((get == 'female') or (get == 'mostly_female')) and binary):
             guess = 0
-        elif ((get == 'male') and binary):
+        elif (((get == 'male') or (get == 'mostly_male')) and binary):
             guess = 1
         elif ((get == 'unknown') and binary):
             guess = 2
