@@ -191,10 +191,28 @@ class Gender(object):
         self.unknown = count_unknown
         return glist
 
+    def accuracy_score_dame(self, v1, v2):
+        if (len(v1) == len(v2)):
+            success = 0
+            fails = 0
+            for i in range(0, len(v1)):
+                if (v1[i] == v2[i]):
+                    success = success + 1
+                else:
+                    fails = fails + 1
+            if (fails == 0):
+                accuracy = 1
+            else:
+                accuracy = success / len(v1)
+        else:
+            accuracy = 0
+            print("Both vectors must have the same length")
+        return accuracy
+
     def accuracy(self, path):
         gl = self.gender_list(path)
         sl = self.guess_list(path, binary=True)
-        return accuracy_score(gl, sl)
+        return self.accuracy_score_dame(gl, sl)
 
     def confusion_matrix(self, path='files/partial.csv'):
         gl = self.gender_list(path)
