@@ -26,16 +26,19 @@ from app.dame_sexmachine import DameSexmachine
 from app.dame_namsor import DameNamsor
 from app.dame_genderize import DameGenderize
 from app.dame_genderguesser import DameGenderGuesser
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--csv', default="files/min.csv")
+args = parser.parse_args()
+print(args.csv)
 
-# g = Gender()
-# print(g.accuracy(path="files/min.csv"))
 
 
 dn = DameNamsor()
 print("################### Namsor!!")
-gl = dn.gender_list(path="files/min.csv")
+gl = dn.gender_list(path=args.csv)
 print("Gender list: " + str(gl))
-sl = dn.guess_list(path="files/min.csv", binary=True)
+sl = dn.guess_list(path=args.csv, binary=True)
 print("Guess list:  " +str(sl))
 
 namsor_accuracy = dn.accuracy_score_dame(gl, sl)
@@ -46,9 +49,9 @@ print("Namsor accuracy: %s" % namsor_accuracy)
 
 dg = DameGenderize()
 print("################### Genderize!!")
-gl = dg.gender_list(path="files/min.csv")
+gl = dg.gender_list(path=args.csv)
 print("Gender list: " + str(gl))
-sl = dg.guess_list(path="files/min.csv", binary=True)
+sl = dg.guess_list(path=args.csv, binary=True)
 print("Guess list:  " +str(gl))
 
 genderize_accuracy = dg.accuracy_score_dame(gl,sl)
@@ -56,20 +59,20 @@ print("Genderize accuracy: %s" % genderize_accuracy)
 
 dgg = DameGenderGuesser()
 print("################### GenderGuesser!!")
-gl = dgg.gender_list(path="files/min.csv")
+gl = dgg.gender_list(path=args.csv)
 print("Gender list: " + str(gl))
-sl = dgg.guess_list(path="files/min.csv", binary=True)
+sl = dgg.guess_list(path=args.csv, binary=True)
 print("Guess list:  " +str(gl))
 
-genderguesser_accuracy = dgg.accuracy(path="files/min.csv")
+genderguesser_accuracy = dgg.accuracy(path=args.csv)
 print("GenderGuesser accuracy: %s" % genderguesser_accuracy)
 
 ds = DameSexmachine()
 print("################### Sexmachine!!")
-gl = ds.gender_list(path="files/min.csv")
+gl = ds.gender_list(path=args.csv)
 print("Gender list: " + str(gl))
-sl = ds.guess_list(path="files/min.csv", binary=True)
+sl = ds.guess_list(path=args.csv, binary=True)
 print("Guess list:  " +str(gl))
 
-sexmachine_accuracy = ds.accuracy(path="files/min.csv")
+sexmachine_accuracy = ds.accuracy(path=args.csv)
 print("Sexmachine accuracy: %s" % sexmachine_accuracy)
