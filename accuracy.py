@@ -25,20 +25,51 @@ from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
 from app.dame_namsor import DameNamsor
 from app.dame_genderize import DameGenderize
+from app.dame_genderguesser import DameGenderGuesser
+
+# g = Gender()
+# print(g.accuracy(path="files/min.csv"))
+
 
 dn = DameNamsor()
-namsor_accuracy = dn.accuracy(path="files/partial.csv")
+print("################### Namsor!!")
+gl = dn.gender_list(path="files/min.csv")
+print("Gender list: " + str(gl))
+sl = dn.guess_list(path="files/min.csv", binary=True)
+print("Guess list:  " +str(sl))
+
+namsor_accuracy = dn.accuracy_score_dame(gl, sl)
+#print(dn.accuracy_score_dame([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 1, 1]))
+#namsor_accuracy = dn.accuracy_score_dame([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
+print(namsor_accuracy)
 print("Namsor accuracy: %s" % namsor_accuracy)
 
 dg = DameGenderize()
+print("################### Genderize!!")
+gl = dg.gender_list(path="files/min.csv")
+print("Gender list: " + str(gl))
+sl = dg.guess_list(path="files/min.csv", binary=True)
+print("Guess list:  " +str(gl))
 
-gl = dg.gender_list(path="files/partial.csv")
-sl = dg.guess_list(path="files/partial.csv", binary=True)
-
-genderize_accuracy = dg.accuracy(path="files/partial.csv")
+genderize_accuracy = dg.accuracy_score_dame(gl,sl)
 print("Genderize accuracy: %s" % genderize_accuracy)
 
+dgg = DameGenderGuesser()
+print("################### GenderGuesser!!")
+gl = dgg.gender_list(path="files/min.csv")
+print("Gender list: " + str(gl))
+sl = dgg.guess_list(path="files/min.csv", binary=True)
+print("Guess list:  " +str(gl))
+
+genderguesser_accuracy = dgg.accuracy(path="files/min.csv")
+print("GenderGuesser accuracy: %s" % genderguesser_accuracy)
 
 ds = DameSexmachine()
-sexmachine_accuracy = ds.accuracy(path="files/partial.csv")
+print("################### Sexmachine!!")
+gl = ds.gender_list(path="files/min.csv")
+print("Gender list: " + str(gl))
+sl = ds.guess_list(path="files/min.csv", binary=True)
+print("Guess list:  " +str(gl))
+
+sexmachine_accuracy = ds.accuracy(path="files/min.csv")
 print("Sexmachine accuracy: %s" % sexmachine_accuracy)
