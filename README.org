@@ -61,6 +61,14 @@ $ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce
 # Use an api to detect the gender
 $ python3 api2gender.py David --api=genderguesser
 male
+# Give me informative features
+$ python3 infofeatures.py
+Females with last letter a: 0.4705246078961601
+Males with last letter a: 0.048672566371681415
+Females with last letter consonant: 0.2735841767750908
+Males with last letter consonant: 0.6355328972681801
+Females with last letter vocal: 0.7262612995441552
+Males with last letter vocal: 0.3640823393612928
 # To measure success
 $ python3 accuracy.py
 Namsor accuracy: 0.9047619047619048
