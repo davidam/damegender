@@ -70,10 +70,25 @@ Males with last letter consonant: 0.6355328972681801
 Females with last letter vocal: 0.7262612995441552
 Males with last letter vocal: 0.3640823393612928
 # To measure success
-$ python3 accuracy.py
-Namsor accuracy: 0.9047619047619048
-Genderize accuracy: 0.9523809523809523
-Sexmachine accuracy: 0.8571428571428571
+$ python3 accuracy.py --csv=files/min.csv
+files/min.csv
+################### Namsor!!
+Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
+Guess list:  [1, 1, 1, 1, 1, 1, 0, 0]
+0.875
+Namsor accuracy: 0.875
+################### Genderize!!
+Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
+Guess list:  [1, 1, 1, 1, 2, 1, 0, 0]
+Genderize accuracy: 1
+################### GenderGuesser!!
+Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
+Guess list:  [1, 1, 1, 1, 2, 1, 0, 0]
+GenderGuesser accuracy: 0.875
+################### Sexmachine!!
+Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
+Guess list:  [1, 1, 1, 1, 2, 1, 0, 0]
+Sexmachine accuracy: 0.875
 $ python3 confusion.py
 A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
 If the classifier is nice, the diagonal is high because there are true positives
