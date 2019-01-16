@@ -24,6 +24,7 @@ from app.dame_gender import Gender
 
 g = Gender()
 
+print("---------------------------------------------------------------")
 females = 0
 for i in g.females_list():
     if (g.features_int(i)["last_letter_a"] == 1):
@@ -37,7 +38,7 @@ for i in g.males_list():
         males = males + 1
 print("Males with last letter a: %s " % (males/ len(g.males_list())))
 #print(len(g.males_list()))
-
+print("---------------------------------------------------------------")
 females = 0
 for i in g.females_list():
     if (g.features_int(i)["last_letter_consonant"] == 1):
@@ -49,7 +50,7 @@ for i in g.males_list():
     if (g.features_int(i)["last_letter_consonant"] == 1):
         males = males + 1
 print("Males with last letter consonant: %s" % (males/ len(g.males_list())))
-
+print("---------------------------------------------------------------")
 females = 0
 for i in g.females_list():
     if (g.features_int(i)["last_letter_vocal"] == 1):
@@ -61,7 +62,7 @@ for i in g.males_list():
     if (g.features_int(i)["last_letter_vocal"] == 1):
         males = males + 1
 print("Males with last letter vocal: %s" % (males/ len(g.males_list())))
-
+print("---------------------------------------------------------------")
 # females = 0
 # for i in g.females_list():
 #     if (g.features_int(i)["first_letter_vocal"] == 1):
