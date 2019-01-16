@@ -208,6 +208,25 @@ file:../files/dame_gender.png
 
 file:../files/dame_sexmachine.png
 
+** Comparison and benchmark of name-to-gender inference services (I)
+
+file:../files/comparison-tables.png
+
+** Comparison and benchmark of name-to-gender inference services (I)
+
+|                                        |                 |
+| Database size                          | damegender      |
+| Regular data updates                   | yes, developing |
+| Handles unstructured full name strings | yes             |
+| Handles surnames                       | yes             |
+| Handles non-Latin alphabets            | no              |
+| Implicit geo-localization              | no              |
+| Assingment type                        | probabilistic   |
+| Free parameters                        | ml              |
+| Free license                           | yes             |
+| API                                    | future          |
+| free requests limited                  | unlimited       |
+
 ** Damegender and the bussiness
 + In CMS: wordpress, drupal, joomla
 + In dictionaries: google translate, babylon, gnu dict, ...
@@ -215,14 +234,12 @@ file:../files/dame_sexmachine.png
 --
 + A good technical project has a good bussiness project and an interfaz for end users.
 + A Free Software license and community can be a good point.
-** Comparison and benchmark of name-to-gender inference services (I)
-
-file:../files/comparison-tables.png
 
 ** Comparison and benchmark of name-to-gender inference services (II): Assembling data
 
 + zbMath: names from articles, labeled by humans using university websites, Wikipedia articles, etc.
-+ genderizeR:
++ genderizeR: from full names searching in Internet biographies, personal data, etc.
 + PubMed: six highest JCR
-+ WoS:
-file:../files/comparison-tables.png
++ WoS: from 2008 to 2012 included in Science Citation Index Expanded,
+  the Social Sciences Citation Index, and the Arts and Humanities
+  Citation Index
