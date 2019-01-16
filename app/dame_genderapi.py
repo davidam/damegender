@@ -59,7 +59,7 @@ class DameGenderApi(Gender):
             else:
                 string = string + n
             count = count + 1
-        r = requests.get('https://gender-api.com/get?name=David;Sara'+string+'&multi=true&key='+contenido)
+        r = requests.get('https://gender-api.com/get?name='+string+'&multi=true&key='+contenido)
         d = json.loads(r.text)
         slist = []
         for item in d['result']:
