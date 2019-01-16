@@ -26,7 +26,6 @@ import requests
 import json
 from app.dame_gender import Gender
 
-
 class DameGenderApi(Gender):
     def guess(self, name, binary=False):
         fichero = open("files/genderapipass.txt", "r+")
@@ -46,3 +45,34 @@ class DameGenderApi(Gender):
             else:
                 guess = 'unknown'
         return guess
+
+    def guess_list(self, path="files/partial.csv", binary=False):
+        fichero = open("files/genderapipass.txt", "r+")
+        contenido = fichero.readline()
+        string = ""
+        names = self.csv2names(path)
+#        print(names)
+        count = 1
+        for n in names:
+            if (len(names) > count):
+                string = string + n + ";"
+            else:
+                string = string + n
+            count = count + 1
+        r = requests.get('https://gender-api.com/get?name=David;Sara'+string+'&multi=true&key='+contenido)
+        d = json.loads(r.text)
+        slist = []
+        for item in d['result']:
+            if ((item['gender'] == None) & binary):
+                slist.append(2)
+            elif ((item['gender'] == None) & (not binary)):
+                slist.append("unknown")
+            elif ((item['gender'] == "male") & binary):
+                slist.append(1)
+            elif ((item['gender'] == "male") & (not binary)):
+                slist.append("male")
+            elif ((item['gender'] == "female") & binary):
+                slist.append(0)
+            elif ((item['gender'] == "female") & (not binary)):
+                slist.append("female")
+        return slist
