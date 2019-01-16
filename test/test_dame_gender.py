@@ -145,6 +145,6 @@ class TddInPythonExample(unittest.TestCase):
        score1 = g.accuracy_score_dame([1, 1], [1, 1])
        self.assertEqual(score1, 1)
        score2 = g.accuracy_score_dame([1, 1, 1, 0], [1, 1, 2, 0])
-       self.assertEqual(score2, 0.25)
+       self.assertEqual(score2, 0.75)
        score3 = g.accuracy_score_dame([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
        self.assertEqual(score3, 1)
