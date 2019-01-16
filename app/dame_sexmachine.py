@@ -22,8 +22,6 @@
 # Boston, MA 02110-1301 USA,
 
 from pprint import pprint
-# from perceval.backends.core.mbox import MBox
-# from perceval.backends.core.git import Git
 from nltk.corpus import names
 import csv
 import nltk
@@ -37,8 +35,6 @@ from sklearn.linear_model import SGDClassifier
 from sklearn import svm
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
-# import pdb
-# from pprint import pprint
 import hyphen
 import pickle
 from app.dame_gender import Gender
@@ -201,6 +197,7 @@ class DameSexmachine(Gender):
         return boolean
 
     def string2gender(self, string):
+    # TODO: Podríamos tener en cuenta el tratamiento de cadenas basura antes del nombre
         arr = self.string2array(string)
         name = ""
         i = 0
@@ -225,71 +222,6 @@ class DameSexmachine(Gender):
                     guess = 0
         return guess
 
-    # Obsolete method using gender for it
-    # def guess_list(self, all=False, binary=False):
-    #     slist = []
-    #     if all:
-    #         path = 'files/all.csv'
-    #     else:
-    #         path = 'files/partial.csv'
-    #     with open(path) as csvfile:
-    #         sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-    #         next(sexreader, None)
-    #         for row in sexreader:
-    #             name = row[0]
-    #             if binary:
-    #                 slist.append(self.guess(name, binary=True))
-    #             else:
-    #                 slist.append(self.guess(name, binary=False))
-    #     return slist
-
-    # deprecated using Gender
-    # def features_list(self, all=False):
-    #     flist = []
-    #     if all:
-    #         path = 'files/all.csv'
-    #     else:
-    #         path = 'files/partial.csv'
-    #     with open(path) as csvfile:
-    #         sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-    #         next(sexreader, None)
-    #         for row in sexreader:
-    #             name = row[0]
-    #             flist.append(list(self.features_int(name).values()))
-    #     return flist
-
-    # deprecated using Gender
-    # def gender_list(self, all=False):
-    #     glist = []
-    #     if all:
-    #         path = 'files/all.csv'
-    #     else:
-    #         path = 'files/partial.csv'
-    #     with open(path) as csvfile:
-    #         sexreader = csv.reader(csvfile, delimiter=',', quotechar='"')
-    #         next(sexreader, None)
-    #         count_females = 0
-    #         count_males = 0
-    #         count_unknown = 0
-    #         for row in sexreader:
-    #             gender = row[4]
-    #             if (gender == 'f'):
-    #                 g = 0
-    #                 count_females = count_females + 1
-    #             elif (gender == 'm'):
-    #                 g = 1
-    #                 count_males = count_males + 1
-    #             else:
-    #                 g = 2
-    #                 count_unknown = count_unknown + 1
-    #             glist.append(g)
-    #     self.females = count_females
-    #     self.males = count_males
-    #     self.unknown = count_unknown
-    #     return glist
-
-#    def git_gender_list(self, url, directory):
-
     def num_females(self, url, directory):
     # Extracting females with perceval
         gg = GenderGit()
@@ -313,15 +245,3 @@ class DameSexmachine(Gender):
             if (sm == 'male'):
                 count = count + 1
         return count
-
-    # deprecated using Gender
-    # def accuracy(self, path):
-    #     gl = self.gender_list(path="files/partial.csv")
-    #     sl = self.guess_list(path="files/partial.csv",binary=True)
-    #     return accuracy_score(gl, sl)
-
-    # deprecated using Gender
-    # def confusion_matrix(self):
-    #     gl = self.gender_list(path="files/partial.csv")
-    #     sl = self.guess_list(path="files/partial.csv",binary=True)
-    #     return confusion_matrix(gl, sl)
