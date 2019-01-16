@@ -82,6 +82,124 @@ Most Informative Features
              last_letter = 'v'              male : female =     12.7 : 1.0
 #+END_SRC
 
+** Damegender choosing features
+
+#+BEGIN_SRC bash
+$ python3 infofeatures.py
+---------------------------------------------------------------
+Females with last letter a: 0.4705246078961601
+Males with last letter a: 0.048672566371681415
+---------------------------------------------------------------
+Females with last letter consonant: 0.2735841767750908
+Males with last letter consonant: 0.6355328972681801
+---------------------------------------------------------------
+Females with last letter vocal: 0.7262612995441552
+Males with last letter vocal: 0.3640823393612928
+---------------------------------------------------------------
+#+END_SRC
+
+** Damegender coding features
+
+#+BEGIN_SRC python
+    def features_int(self, name):
+    # features method created to check the scikit classifiers
+        features_int = {}
+        features_int["first_letter"] = ord(name[0].lower())
+        features_int["last_letter"] = ord(name[-1].lower())
+        for letter in 'abcdefghijklmnopqrstuvwxyz':
+            features_int["count({})".format(letter)] = name.lower().count(letter)
+        features_int["vocals"] = 0
+        for letter1 in 'aeiou':
+            for letter2 in name:
+                if (letter1 == letter2):
+                    features_int["vocals"] = features_int["vocals"] + 1
+        features_int["consonants"] = 0
+        for letter1 in 'bcdfghjklmnpqrstvwxyz':
+            for letter2 in name:
+                if (letter1 == letter2):
+                    features_int["consonants"] = features_int["consonants"] + 1
+        if (name[0].lower() in 'aeiou'):
+            features_int["first_letter_vocal"] = 1
+        else:
+            features_int["first_letter_vocal"] = 0
+        if (name[0].lower() in 'bcdfghjklmnpqrstvwxyz'):
+            features_int["first_letter_consonant"] = 1
+        else:
+            features_int["first_letter_consonant"] = 0
+        if (name[-1].lower() in 'aeiou'):
+            features_int["last_letter_vocal"] = 1
+        else:
+            features_int["last_letter_vocal"] = 0
+        if (name[-1].lower() in 'bcdfghjklmnpqrstvwxyz'):
+            features_int["last_letter_consonant"] = 1
+        else:
+            features_int["last_letter_consonant"] = 0
+        # h = hyphen.Hyphenator('en_US')
+        # features_int["syllables"] = len(h.syllables(name))
+        if (name[-1].lower() == "a"):
+            features_int["last_letter_a"] = 1
+        else:
+            features_int["last_letter_a"] = 0
+        return features_int
+#+END_SRC
+
+** Damegender the nltk standard model
+
+#+BEGIN_SRC python
+    def classifier(self):
+        labeled_names = ([(name, 'male') for name in names.words('male.txt')] +
+                         [(name, 'female') for name in names.words('female.txt')])
+        featuresets = [(self.features(n), gender) for (n, gender) in labeled_names]
+        train_set, test_set = featuresets[500:], featuresets[:500]
+        classifier = nltk.NaiveBayesClassifier.train(train_set)
+        return classifier
+
+    def guess(self, name, binary=False):
+        guess = ''
+        guess = super().guess(name, binary)
+        if ((guess == 'unknown') | (guess == 2)):
+            classifier = self.classifier()
+            guess = classifier.classify(self.features(name))
+            if binary:
+                if (guess=='male'):
+                    guess = 1
+                elif (guess=='female'):
+                    guess = 0
+        return guess
+#+END_SRC
+
+
+** Damegender building a ML model (scikit)
+
+#+BEGIN_SRC python
+    def sgd(self):
+    # Scikit classifier
+        X = np.array(self.features_list(path="files/all.csv"))
+        y = self.gender_list("files/all.csv")
+        clf = SGDClassifier(loss="log").fit(X,y)
+        filename = 'files/sgd_model.sav'
+        pickle.dump(clf, open(filename, 'wb'))
+        return clf
+
+    def sgd_load(self):
+        pkl_file = open('files/sgd_model.sav', 'rb')
+        clf = pickle.load(pkl_file)
+        pkl_file.close()
+        return clf
+#+END_SRC
+
+** Damegender using a ML model (scikit)
+
+#+BEGIN_SRC bash
+$ cat main.py
+#+END_SRC
+
+** Damegender and perceval from string to gender
+
+1. removeMail
+2. string2array
+3. string2gender (taking into account surnames and prefixes)
+
 ** Damegender classes and methods (I)
 
 file:../files/dame_gender.png
@@ -97,6 +215,14 @@ file:../files/dame_sexmachine.png
 --
 + A good technical project has a good bussiness project and an interfaz for end users.
 + A Free Software license and community can be a good point.
-** Comparison and benchmark of name-to-gender inference services
+** Comparison and benchmark of name-to-gender inference services (I)
 
+file:../files/comparison-tables.png
+
+** Comparison and benchmark of name-to-gender inference services (II): Assembling data
+
++ zbMath: names from articles, labeled by humans using university websites, Wikipedia articles, etc.
++ genderizeR:
++ PubMed: six highest JCR
++ WoS:
 file:../files/comparison-tables.png
