@@ -28,7 +28,8 @@ import hyphen
 import unidecode
 import unicodedata
 import numpy as np
-
+import os
+import re
 from collections import OrderedDict
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
@@ -40,6 +41,14 @@ class Gender(object):
         self.males = 0
         self.females = 0
         self.unknown = 0
+
+    def in_dict(self, name):
+        f = os.popen('dict '+name)
+        in_dict = False
+        for line in f:
+            if (re.match(r'[0-9]+ definitions found', line)):
+                in_dict = True
+        return in_dict
 
     def features(self, name):
     # features method created to check the nltk classifier

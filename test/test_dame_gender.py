@@ -28,6 +28,11 @@ from app.dame_gender import Gender
 
 class TddInPythonExample(unittest.TestCase):
 
+    def test_dame_gender_in_dict_method_returns_correct_result(self):
+        g = Gender()
+        self.assertEqual(g.in_dict("Table"), True)
+        self.assertEqual(g.in_dict("Mesa"), True)
+
     def test_dame_gender_features_method_returns_correct_result(self):
         g = Gender()
         f = g.features("David")
