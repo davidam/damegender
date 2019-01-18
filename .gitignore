@@ -8,7 +8,8 @@
 # Genderapi
 
 files/genderapipass.txt
+files/nameapipass.txt
 files/features_list.csv
 files/features_list_cat.csv
 files/features_list_no_cat.csv
-
+files/damegender.tex
