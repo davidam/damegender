@@ -8,7 +8,7 @@ damegender is a gender detection tool coded by David Arroyo MEnéndez (DAME)
 * Install
 ** Installing Software
 #+BEGIN_SRC sh
-$ sudo apt-get install python3-nose-exclude
+$ sudo apt-get install python3-nose-exclude dict dict-freedict-eng-spa dict-freedict-spa-eng dictd
 $ git clone https://github.com/davidam/damegender
 $ cd damegender
 $ pip3 install -r requirements.txt
