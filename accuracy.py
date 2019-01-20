@@ -26,6 +26,8 @@ from app.dame_sexmachine import DameSexmachine
 from app.dame_namsor import DameNamsor
 from app.dame_genderize import DameGenderize
 from app.dame_genderguesser import DameGenderGuesser
+from app.dame_genderapi import DameGenderApi
+
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', default="files/min.csv")
@@ -76,3 +78,9 @@ print("Guess list:  " +str(sl))
 
 sexmachine_accuracy = ds.accuracy_score_dame(gl,sl)
 print("Sexmachine accuracy: %s" % sexmachine_accuracy)
+
+
+dga = DameGenderApi()
+print("################### GenderApi!!")
+gl = dga.gender_list(path=args.csv)
+print("Gender list: " + str(gl))
