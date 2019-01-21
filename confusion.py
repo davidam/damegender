@@ -31,26 +31,46 @@ from app.dame_genderize import DameGenderize
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', default="files/min.csv")
+parser.add_argument('--api', default="all")
 args = parser.parse_args()
-print(args.csv)
+#print(args.csv)
 
 
 print("A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.")
 print("If the classifier is nice, the diagonal is high because there are true positives")
 
-dn = DameNamsor()
-namsor_confusion_matrix = dn.confusion_matrix(path=args.csv)
-print("Namsor confusion matrix:\n %s" % namsor_confusion_matrix)
+if (args.api == "all"):
+    dn = DameNamsor()
+    namsor_confusion_matrix = dn.confusion_matrix(path=args.csv)
+    print("Namsor confusion matrix:\n %s" % namsor_confusion_matrix)
 
-dg = DameGenderize()
-genderize_confusion_matrix = dg.confusion_matrix(path=args.csv)
-print("Genderize confusion matrix:\n %s" % genderize_confusion_matrix)
+    dg = DameGenderize()
+    genderize_confusion_matrix = dg.confusion_matrix(path=args.csv)
+    print("Genderize confusion matrix:\n %s" % genderize_confusion_matrix)
 
-dgg = DameGenderGuesser()
-genderguesser_confusion_matrix = dgg.confusion_matrix(path=args.csv)
-print("Gender Guesser confusion matrix:\n %s" % genderguesser_confusion_matrix)
+    dgg = DameGenderGuesser()
+    genderguesser_confusion_matrix = dgg.confusion_matrix(path=args.csv)
+    print("Gender Guesser confusion matrix:\n %s" % genderguesser_confusion_matrix)
 
-ds = DameSexmachine()
-sexmachine_confusion_matrix = ds.confusion_matrix(path=args.csv)
-print("Sexmachine confusion matrix:\n %s" % sexmachine_confusion_matrix)
+    ds = DameSexmachine()
+    sexmachine_confusion_matrix = ds.confusion_matrix(path=args.csv)
+    print("Sexmachine confusion matrix:\n %s" % sexmachine_confusion_matrix)
+elif (args.api == "namsor"):
+    dn = DameNamsor()
+    namsor_confusion_matrix = dn.confusion_matrix(path=args.csv)
+    print("Namsor confusion matrix:\n %s" % namsor_confusion_matrix)
 
+elif (args.api == "genderize"):
+    dg = DameGenderize()
+    genderize_confusion_matrix = dg.confusion_matrix(path=args.csv)
+    print("Genderize confusion matrix:\n %s" % genderize_confusion_matrix)
+
+elif (args.api == "genderguesser"):
+    dgg = DameGenderGuesser()
+    genderguesser_confusion_matrix = dgg.confusion_matrix(path=args.csv)
+    print("Gender Guesser confusion matrix:\n %s" % genderguesser_confusion_matrix)
+
+elif (args.api == "sexmachine"):
+    ds = DameSexmachine()
+    sexmachine_confusion_matrix = ds.confusion_matrix(path=args.csv)
+    print("Sexmachine confusion matrix:\n %s" % sexmachine_confusion_matrix)
