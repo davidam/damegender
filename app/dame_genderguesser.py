@@ -37,7 +37,7 @@ class DameGenderGuesser(Gender):
             guess = 0
         elif (((get == 'male') or (get == 'mostly_male')) and binary):
             guess = 1
-        elif ((get == 'unknown') and binary):
+        elif (((get == 'unknown') or (get == 'andy')) and binary):
             guess = 2
         else:
             guess = get
