@@ -29,7 +29,6 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male', 'female', 'female', 'male', 'male'], dgg.guess_list(path="files/partial.csv", binary=False)[0:10])
         self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1], dgg.guess_list(path="files/partial.csv",binary=True)[0:10])
 
-#     def test_dame_genderguesser_accuracy_method_returns_correct_result(self):
-#         dgg = DameGenderGuesser()
-# #        self.assertTrue(dgg.accuracy(path="files/partial.csv") >= 0.5)
-#         self.assertTrue(dgg.accuracy(path="files/all.csv") >= 0.5) # Comment assert, too much time
+    def test_dame_genderguesser_accuracy_method_returns_correct_result(self):
+        dgg = DameGenderGuesser()
+        self.assertTrue(dgg.accuracy(path="files/partial.csv") >= 0.5)
