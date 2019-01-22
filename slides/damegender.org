@@ -120,7 +120,6 @@ file:../files/confusion-generic.png
 
 #+BEGIN_SRC
     def malemale(self, truevector, guessvector):
-    # TODO: take care with length of vectors
         i = 0
         count =0
         maxi = len(truevector)
@@ -130,6 +129,50 @@ file:../files/confusion-generic.png
             i = i +1
         return count
 #+END_SRC
+
+** Confusion (III): Matrices
+
+file:../files/confusion-matrices.png
+
+** Confusion (IV): damegender
+
+#+BEGIN_SRC
+ $ python3 confusion.py
+A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are true positives
+Namsor confusion matrix:
+ [[2 0 0]
+ [0 5 0]
+ [0 1 0]]
+Genderize confusion matrix:
+ [[2 0 0]
+ [0 5 0]
+ [0 0 1]]
+Gender Guesser confusion matrix:
+ [[2 0 0]
+ [0 5 0]
+ [0 1 0]]
+Sexmachine confusion matrix:
+ [[2 0 0]
+ [0 5 0]
+ [1 0 0]]
+#+END_SRC
+
+** Errors
+
+file:../files/errors.png
+
+** Weighted Error
+
+file:../files/weighted-error.png
+
+** Distributions
+
+file:../files/distributions.png
+
+** Benchmark
+
+file:../files/benchmark.png
 
 
 ** Damegender from the commands (I)
@@ -225,7 +268,7 @@ Males with last letter vocal: 0.3640823393612928
 
 ** Damegender coding features
 
-#+BEGIN_SRC python
+#+BEGIN_SRC
     def features_int(self, name):
     # features method created to check the scikit classifiers
         features_int = {}
@@ -270,7 +313,7 @@ Males with last letter vocal: 0.3640823393612928
 
 ** Damegender the nltk standard model
 
-#+BEGIN_SRC python
+#+BEGIN_SRC
     def classifier(self):
         labeled_names = ([(name, 'male') for name in names.words('male.txt')] +
                          [(name, 'female') for name in names.words('female.txt')])
@@ -296,7 +339,7 @@ Males with last letter vocal: 0.3640823393612928
 
 ** Damegender building a ML model (scikit)
 
-#+BEGIN_SRC python
+#+BEGIN_SRC
     def sgd(self):
     # Scikit classifier
         X = np.array(self.features_list(path="files/all.csv"))
