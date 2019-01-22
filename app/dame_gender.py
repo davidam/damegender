@@ -201,8 +201,46 @@ class Gender(object):
         self.unknown = count_unknown
         return glist
 
+    def femalefemale(self, truevector, guessvector):
+        i = 0
+        count =0
+        if (len(truevector) >= len(guessvector)):
+            maxi = len(guessvector)
+        else:
+            maxi = len(truevector)
+        while (i < maxi):
+            if ((truevector[i]==0) and (guessvector[i]==0)):
+                count = count + 1
+            i = i +1
+        return count
+
+    def femalemale(self, truevector, guessvector):
+        i = 0
+        count =0
+        if (len(truevector) >= len(guessvector)):
+            maxi = len(guessvector)
+        else:
+            maxi = len(truevector)
+        while (i < maxi):
+            if ((truevector[i]==0) and (guessvector[i]==1)):
+                count = count + 1
+            i = i +1
+        return count
+
+    def malefemale(self, truevector, guessvector):
+        i = 0
+        count =0
+        if (len(truevector) >= len(guessvector)):
+            maxi = len(guessvector)
+        else:
+            maxi = len(truevector)
+        while (i < maxi):
+            if ((truevector[i]==1) and (guessvector[i]==0)):
+                count = count + 1
+            i = i +1
+        return count
+
     def malemale(self, truevector, guessvector):
-    # TODO: take care with length of vectors
         i = 0
         count =0
         if (len(truevector) >= len(guessvector)):
@@ -214,6 +252,7 @@ class Gender(object):
                 count = count + 1
             i = i +1
         return count
+
 
     def accuracy_score_dame(self, v1, v2):
         if (len(v1) == len(v2)):
