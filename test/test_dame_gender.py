@@ -42,7 +42,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(f['last_letter'], 'd')
         self.assertEqual(f['first_letter'], 'd')
 
-    def test_sexmachine_features_int_method_returns_correct_result(self):
+    def test_dame_gender_features_int_method_returns_correct_result(self):
         g = Gender()
         features_int = g.features_int("David")
         self.assertTrue(features_int["first_letter"] == 100)
@@ -153,3 +153,9 @@ class TddInPythonExample(unittest.TestCase):
        self.assertEqual(score2, 0.75)
        score3 = g.accuracy_score_dame([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
        self.assertEqual(score3, 1)
+
+    def test_dame_gender_malemale_method_returns_correct_result(self):
+        g = Gender()
+        v1 = [1, 0, 1, 1]
+        v2 = [1, 1, 1, 0]
+        self.assertEqual(g.malemale(v1, v2), 2)

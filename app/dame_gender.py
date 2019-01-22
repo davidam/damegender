@@ -44,6 +44,7 @@ class Gender(object):
 
     def in_dict(self, name):
         f = os.popen('dict '+name)
+#        f = subprocess.call(str(name), shell=True)
         in_dict = False
         for line in f:
             if (re.match(r'[0-9]+ definitions found', line)):
@@ -199,6 +200,17 @@ class Gender(object):
         self.males = count_males
         self.unknown = count_unknown
         return glist
+
+    def malemale(self, truevector, guessvector):
+    # TODO: take care with length of vectors
+        i = 0
+        count =0
+        maxi = len(truevector)
+        while (i < maxi):
+            if ((truevector[i]==1) and (guessvector[i]==1)):
+                count = count + 1
+            i = i +1
+        return count
 
     def accuracy_score_dame(self, v1, v2):
         if (len(v1) == len(v2)):
