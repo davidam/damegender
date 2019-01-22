@@ -1,4 +1,4 @@
-#+TITLE: Damegender: Gender detection tool
+#+TITLE: Reproducing Comparison and benchmark of name-to-gender inference services
 #+AUTHOR: David Arroyo Menéndez
 #+OPTIONS: H:2 toc:nil num:t
 #+LATEX_CLASS: beamer
@@ -7,6 +7,113 @@
 #+COLUMNS: %45ITEM %10BEAMER_ENV(Env) %10BEAMER_ACT(Act) %4BEAMER_COL(Col) %8BEAMER_OPT(Opt)
 
 * Summary
+** Abstract
+
++ Authors: Lucía Santamaría (Amazon) and Helena Mihaljević (University
+  of Applied Sciences)
+
++ Compare and benchmark five name-to-gender inference services by
+  applying them to the classification of a test data set consisting of
+  7,076 manually labeled names.
+
++ The compiled names are analyzed and characterized according to their
+  geographical and cultural origin.
+
++ We define a series of performance metrics to quantify various types
+  of classification errors, and define a parameter tuning procedure to
+  search for optimal values of the services’ free parameters.
+
+** Comparison and benchmark of name-to-gender inference services (I)
+
+file:../files/comparison-tables.png
+
+** Comparison and benchmark of name-to-gender inference services (I)
+
+|                                        |                 |
+| Database size                          | damegender      |
+| Regular data updates                   | yes, developing |
+| Handles unstructured full name strings | yes             |
+| Handles surnames                       | yes             |
+| Handles non-Latin alphabets            | no              |
+| Implicit geo-localization              | no              |
+| Assingment type                        | probabilistic   |
+| Free parameters                        | ml              |
+| Free license                           | yes             |
+| API                                    | future          |
+| free requests limited                  | unlimited       |
+
+** Comparison and benchmark of name-to-gender inference services (II): Assembling data
+
++ zbMath: names from articles, labeled by humans using university websites, Wikipedia articles, etc.
++ genderizeR: from full names searching in Internet biographies, personal data, etc.
++ PubMed: six highest JCR
++ WoS: from 2008 to 2012 included in Science Citation Index Expanded,
+  the Social Sciences Citation Index, and the Arts and Humanities
+  Citation Index
+
+** Origin of the names (I)
+
+file:../files/geographical-origins-example.png
+
+** Origin of the names (II)
+
+file:../files/comparison-geographical.png
+
+** Retrieval of gender assignments
+
+#+BEGIN_SRC bash
+$ python3 api2gender.py David --api=genderguesser
+male
+#+END_SRC
+
+** Performance metrics (I): accuracy method
+
+#+BEGIN_SRC python
+    def accuracy_score_dame(self, v1, v2):
+        if (len(v1) == len(v2)):
+            success = 0
+            fails = 0
+            for i in range(0, len(v1)):
+                if (v1[i] == v2[i]):
+                    success = success + 1
+                else:
+                    fails = fails + 1
+            if (fails == 0):
+                accuracy = 1
+            else:
+                accuracy = success / len(v1)
+        else:
+            accuracy = 0
+            print("Both vectors must have the same length")
+        return accuracy
+#+END_SRC
+
+** Performance metrics (II): executing accuracy.py
+
+#+BEGIN_SRC bash
+$ python3 accuracy.py --csv=files/min.csv
+files/min.csv
+################### Namsor!!
+Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
+Guess list:  [1, 1, 1, 1, 1, 1, 0, 0]
+0.875
+Namsor accuracy: 0.875
+################### Genderize!!
+Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
+Guess list:  [1, 1, 1, 1, 2, 1, 0, 0]
+Genderize accuracy: 1
+################### GenderGuesser!!
+Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
+Guess list:  [1, 1, 1, 1, 2, 1, 0, 0]
+GenderGuesser accuracy: 0.875
+################### Sexmachine!!
+Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
+Guess list:  [1, 1, 1, 1, 2, 1, 0, 0]
+Sexmachine accuracy: 0.875
+#+END_SRC
+
+
+
 ** Damegender from the commands (I)
 #+BEGIN_SRC bash
 # Detect gender from a name
@@ -208,25 +315,6 @@ file:../files/dame_gender.png
 
 file:../files/dame_sexmachine.png
 
-** Comparison and benchmark of name-to-gender inference services (I)
-
-file:../files/comparison-tables.png
-
-** Comparison and benchmark of name-to-gender inference services (I)
-
-|                                        |                 |
-| Database size                          | damegender      |
-| Regular data updates                   | yes, developing |
-| Handles unstructured full name strings | yes             |
-| Handles surnames                       | yes             |
-| Handles non-Latin alphabets            | no              |
-| Implicit geo-localization              | no              |
-| Assingment type                        | probabilistic   |
-| Free parameters                        | ml              |
-| Free license                           | yes             |
-| API                                    | future          |
-| free requests limited                  | unlimited       |
-
 ** Damegender and the bussiness
 + In CMS: wordpress, drupal, joomla
 + In dictionaries: google translate, babylon, gnu dict, ...
@@ -234,12 +322,3 @@ file:../files/comparison-tables.png
 --
 + A good technical project has a good bussiness project and an interfaz for end users.
 + A Free Software license and community can be a good point.
-
-** Comparison and benchmark of name-to-gender inference services (II): Assembling data
-
-+ zbMath: names from articles, labeled by humans using university websites, Wikipedia articles, etc.
-+ genderizeR: from full names searching in Internet biographies, personal data, etc.
-+ PubMed: six highest JCR
-+ WoS: from 2008 to 2012 included in Science Citation Index Expanded,
-  the Social Sciences Citation Index, and the Arts and Humanities
-  Citation Index
