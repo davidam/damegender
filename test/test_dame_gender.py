@@ -159,3 +159,6 @@ class TddInPythonExample(unittest.TestCase):
         v1 = [1, 0, 1, 1]
         v2 = [1, 1, 1, 0]
         self.assertEqual(g.malemale(v1, v2), 2)
+        vv1 = [1, 0, 1, 1, 1]
+        vv2 = [1, 1, 1, 0]
+        self.assertEqual(g.malemale(vv2, vv1), 2)

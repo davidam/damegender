@@ -205,7 +205,10 @@ class Gender(object):
     # TODO: take care with length of vectors
         i = 0
         count =0
-        maxi = len(truevector)
+        if (len(truevector) >= len(guessvector)):
+            maxi = len(guessvector)
+        else:
+            maxi = len(truevector)
         while (i < maxi):
             if ((truevector[i]==1) and (guessvector[i]==1)):
                 count = count + 1
