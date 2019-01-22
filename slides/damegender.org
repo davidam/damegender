@@ -61,14 +61,14 @@ file:../files/comparison-geographical.png
 
 ** Retrieval of gender assignments
 
-#+BEGIN_SRC bash
+#+BEGIN_SRC
 $ python3 api2gender.py David --api=genderguesser
 male
 #+END_SRC
 
 ** Performance metrics (I): accuracy method
 
-#+BEGIN_SRC python
+#+BEGIN_SRC
     def accuracy_score_dame(self, v1, v2):
         if (len(v1) == len(v2)):
             success = 0
@@ -90,7 +90,7 @@ male
 
 ** Performance metrics (II): executing accuracy.py
 
-#+BEGIN_SRC bash
+#+BEGIN_SRC
 $ python3 accuracy.py --csv=files/min.csv
 files/min.csv
 ################### Namsor!!
@@ -112,10 +112,28 @@ Guess list:  [1, 1, 1, 1, 2, 1, 0, 0]
 Sexmachine accuracy: 0.875
 #+END_SRC
 
+** Confusion (I): table
+
+file:../files/confusion-generic.png
+
+** Confusion (II): male male
+
+#+BEGIN_SRC
+    def malemale(self, truevector, guessvector):
+    # TODO: take care with length of vectors
+        i = 0
+        count =0
+        maxi = len(truevector)
+        while (i < maxi):
+            if ((truevector[i]==1) and (guessvector[i]==1)):
+                count = count + 1
+            i = i +1
+        return count
+#+END_SRC
 
 
 ** Damegender from the commands (I)
-#+BEGIN_SRC bash
+#+BEGIN_SRC
 # Detect gender from a name
 $ python3 main.py David
 male
@@ -137,7 +155,7 @@ The number of females sending commits is 7
 
 ** Damegender from the commands (II)
 
-#+BEGIN_SRC bash
+#+BEGIN_SRC
 # Count gender from a mailing list
 $ cd files
 $ wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
@@ -154,7 +172,7 @@ Sexmachine accuracy: 0.7619047619047619
 
 ** Damegender from the commands (III)
 
-#+BEGIN_SRC bash
+#+BEGIN_SRC
 $ python3 confusion.py
 A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
 If the classifier is nice, the diagonal is high because there are true positives
@@ -175,7 +193,7 @@ $ python3 damemodels.py
 
 ** Damegender as an exercise to practice NLTK and Perceval
 
-#+BEGIN_SRC bash
+#+BEGIN_SRC
 ~/git/python-examples/nlp/nltk: (dev) $ python3 sexmachine.py
 What's your name?: David
 What's my name?: Elena
@@ -191,7 +209,7 @@ Most Informative Features
 
 ** Damegender choosing features
 
-#+BEGIN_SRC bash
+#+BEGIN_SRC
 $ python3 infofeatures.py
 ---------------------------------------------------------------
 Females with last letter a: 0.4705246078961601
@@ -297,7 +315,7 @@ Males with last letter vocal: 0.3640823393612928
 
 ** Damegender using a ML model (scikit)
 
-#+BEGIN_SRC bash
+#+BEGIN_SRC
 $ cat main.py
 #+END_SRC
 
