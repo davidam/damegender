@@ -214,6 +214,16 @@ class Gender(object):
             i = i +1
         return count
 
+    def errorCoded(self, truevector, guessvector):
+        femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
+        femalemale = self.count_true2guess(truevector, guessvector, 0, 1)
+        femaleundefined = self.count_true2guess(truevector, guessvector, 0, 2)
+        malefemale = self.count_true2guess(truevector, guessvector, 1, 0)
+        malemale = self.count_true2guess(truevector, guessvector, 1, 1)
+        maleundefined = self.count_true2guess(truevector, guessvector, 1, 2)
+        result = (femalemale + malefemale + maleundefined + femaleundefined) / (malemale + femalemale + malefemale + femalefemale + maleundefined + femaleundefined)
+        return result
+
     def accuracy_score_dame(self, v1, v2):
         if (len(v1) == len(v2)):
             success = 0
