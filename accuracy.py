@@ -144,3 +144,7 @@ elif (args.api == "nameapi"):
     print("################### Nameapi!!")
     gl = dna.gender_list(path=args.csv)
     print("Gender list: " + str(gl))
+    sl = dna.guess_list(path=args.csv, binary=True)
+    print("Guess list:  " +str(sl))
+    nameapi_accuracy = ds.accuracy_score_dame(gl,sl)
+    print("Nameapi accuracy: %s" % nameapi_accuracy)
