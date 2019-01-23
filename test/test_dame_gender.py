@@ -170,3 +170,33 @@ class TddInPythonExample(unittest.TestCase):
         v1 = [1, 0, 1, 1]
         v2 = [1, 1, 1, 0]
         self.assertEqual(g.error_coded(v1, v2), 0.5)
+
+    def test_dame_gender_error_coded_without_na_method_returns_correct_result(self):
+        g = Gender()
+        v1 = [1, 0, 1, 1]
+        v2 = [1, 1, 1, 0]
+        self.assertEqual(g.error_coded(v1, v2), 0.5)
+
+    def test_dame_gender_error_coded_without_na_method_returns_correct_result(self):
+        g = Gender()
+        v1 = [1, 0, 1, 1, 1]
+        v2 = [1, 1, 1, 0, 1]
+        self.assertEqual(g.error_coded(v1, v2), 0.4)
+
+    def test_dame_gender_na_coded_method_returns_correct_result(self):
+        g = Gender()
+        v1 = [0, 1, 1, 1]
+        v2 = [2, 0, 1, 1]
+        self.assertEqual(g.na_coded(v1, v2), 0.25)
+
+    def test_dame_gender_error_gender_bias_method_returns_correct_result(self):
+        g = Gender()
+        v1 = [0, 1, 1, 1]
+        v2 = [0, 0, 1, 1]
+        self.assertEqual(g.error_gender_bias(v1, v2), 0.25)
+
+    # def test_dame_gender_weighted_error_method_returns_correct_result(self):
+    #     g = Gender()
+    #     v1 = [1, 0, 1, 1, 1]
+    #     v2 = [1, 1, 0, 1, 1]
+    #     self.assertEqual(g.weighted_error(v1, v2, 2), 0.4)
