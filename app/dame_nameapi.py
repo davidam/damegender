@@ -88,3 +88,17 @@ class DameNameapi(Gender):
             print("Network error:", e)
 
         return guess
+
+    def guess_list(self, path='files/partial.csv', binary=False):
+    # guess list method
+        slist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                name = row[0].title()
+                name = name.replace('\"','')
+                surname = row[2].title()
+                surname = surname.replace('\"','')
+                slist.append(self.guess(name, surname, binary))
+        return slist
