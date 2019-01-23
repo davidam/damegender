@@ -164,3 +164,9 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(g.count_true2guess(vv2, vv1, 1, 1), 2) # malemale
         self.assertEqual(g.count_true2guess(vv2, vv1, 0, 1), 1) # femalemale
         self.assertEqual(g.count_true2guess(vv2, vv1, 1, 0), 1) # malefemale
+
+    def test_dame_gender_error_coded_method_returns_correct_result(self):
+        g = Gender()
+        v1 = [1, 0, 1, 1]
+        v2 = [1, 1, 1, 0]
+        self.assertEqual(g.error_coded(v1, v2), 0.5)
