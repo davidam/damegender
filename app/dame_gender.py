@@ -214,15 +214,16 @@ class Gender(object):
             i = i +1
         return count
 
-    def errorCoded(self, truevector, guessvector):
-        self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
-        self.femalemale = self.count_true2guess(truevector, guessvector, 0, 1)
-        self.femaleundefined = self.count_true2guess(truevector, guessvector, 0, 2)
-        self.malefemale = self.count_true2guess(truevector, guessvector, 1, 0)
-        self.malemale = self.count_true2guess(truevector, guessvector, 1, 1)
-        self.maleundefined = self.count_true2guess(truevector, guessvector, 1, 2)
-        result = (self.femalemale + self.malefemale + self.maleundefined + self.femaleundefined) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale + self.maleundefined + self.femaleundefined)
-        return result
+    def error_coded(self, truevector, guessvector):
+       result = 0
+       self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
+       self.femalemale = self.count_true2guess(truevector, guessvector, 0, 1)
+       self.femaleundefined = self.count_true2guess(truevector, guessvector, 0, 2)
+       self.malefemale = self.count_true2guess(truevector, guessvector, 1, 0)
+       self.malemale = self.count_true2guess(truevector, guessvector, 1, 1)
+       self.maleundefined = self.count_true2guess(truevector, guessvector, 1, 2)
+       result = (self.femalemale + self.malefemale + self.maleundefined + self.femaleundefined) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale + self.maleundefined + self.femaleundefined)
+       return result
 
     def errorCodedWithoutNA(self, truevector, guessvector):
         self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
