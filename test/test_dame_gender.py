@@ -154,11 +154,13 @@ class TddInPythonExample(unittest.TestCase):
        score3 = g.accuracy_score_dame([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
        self.assertEqual(score3, 1)
 
-    def test_dame_gender_malemale_method_returns_correct_result(self):
+    def test_dame_gender_count_true2guess_method_returns_correct_result(self):
         g = Gender()
         v1 = [1, 0, 1, 1]
         v2 = [1, 1, 1, 0]
-        self.assertEqual(g.malemale(v1, v2), 2)
+        self.assertEqual(g.count_true2guess(v1, v2, 1, 1), 2)
         vv1 = [1, 0, 1, 1, 1]
         vv2 = [1, 1, 1, 0]
-        self.assertEqual(g.malemale(vv2, vv1), 2)
+        self.assertEqual(g.count_true2guess(vv2, vv1, 1, 1), 2) # malemale
+        self.assertEqual(g.count_true2guess(vv2, vv1, 0, 1), 1) # femalemale
+        self.assertEqual(g.count_true2guess(vv2, vv1, 1, 0), 1) # malefemale
