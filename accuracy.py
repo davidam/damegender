@@ -27,6 +27,7 @@ from app.dame_namsor import DameNamsor
 from app.dame_genderize import DameGenderize
 from app.dame_genderguesser import DameGenderGuesser
 from app.dame_genderapi import DameGenderApi
+from app.dame_nameapi import DameNameapi
 
 import argparse
 parser = argparse.ArgumentParser()
@@ -84,6 +85,16 @@ if (args.api == "all"):
     print("################### GenderApi!!")
     gl = dga.gender_list(path=args.csv)
     print("Gender list: " + str(gl))
+
+    dna = DameNameapi()
+    print("################### Nameapi!!")
+    gl = dna.gender_list(path=args.csv)
+    print("Gender list: " + str(gl))
+    sl = dna.guess_list(path=args.csv, binary=True)
+    print("Guess list:  " +str(sl))
+    nameapi_accuracy = ds.accuracy_score_dame(gl,sl)
+    print("Nameapi accuracy: %s" % nameapi_accuracy)
+
 elif (args.api == "namsor"):
     dn = DameNamsor()
     print("################### Namsor!!")
@@ -127,4 +138,9 @@ elif (args.api == "genderapi"):
     dga = DameGenderApi()
     print("################### GenderApi!!")
     gl = dga.gender_list(path=args.csv)
+    print("Gender list: " + str(gl))
+elif (args.api == "nameapi"):
+    dna = DameNameapi()
+    print("################### Nameapi!!")
+    gl = dna.gender_list(path=args.csv)
     print("Gender list: " + str(gl))
