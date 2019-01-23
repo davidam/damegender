@@ -27,6 +27,7 @@ from app.dame_namsor import DameNamsor
 from app.dame_genderguesser import DameGenderGuesser
 from app.dame_genderapi import DameGenderApi
 from app.dame_genderize import DameGenderize
+from app.dame_nameapi import DameNameapi
 
 import argparse
 parser = argparse.ArgumentParser()
@@ -55,6 +56,11 @@ if (args.api == "all"):
     ds = DameSexmachine()
     sexmachine_confusion_matrix = ds.confusion_matrix(path=args.csv)
     print("Sexmachine confusion matrix:\n %s" % sexmachine_confusion_matrix)
+
+    dna = DameNameapi()
+    nameapi_confusion_matrix = dna.confusion_matrix(path=args.csv)
+    print("Nameapi confusion matrix:\n %s" % nameapi_confusion_matrix)
+
 elif (args.api == "namsor"):
     dn = DameNamsor()
     namsor_confusion_matrix = dn.confusion_matrix(path=args.csv)
@@ -74,3 +80,8 @@ elif (args.api == "sexmachine"):
     ds = DameSexmachine()
     sexmachine_confusion_matrix = ds.confusion_matrix(path=args.csv)
     print("Sexmachine confusion matrix:\n %s" % sexmachine_confusion_matrix)
+
+elif (args.api == "nameapi"):
+    dna = DameNameapi()
+    nameapi_confusion_matrix = dna.confusion_matrix(path=args.csv)
+    print("Nameapi confusion matrix:\n %s" % nameapi_confusion_matrix)
