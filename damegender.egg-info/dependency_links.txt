@@ -1,0 +1,11 @@
+nltk
+perceval
+requests
+gender_guesser
+genderize
+numpy
+scikit-learn
+pyhyphen
+unidecode
+pandas
+matplotlib

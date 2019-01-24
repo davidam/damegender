@@ -33,26 +33,12 @@ class DameGenderGuesser(Gender):
         genderguesserlist = []
         d = gender.Detector()
         get = d.get_gender(name)
-        guess = 2
-        if ((get == 'female') and binary):
+        if (((get == 'female') or (get == 'mostly_female')) and binary):
             guess = 0
-        elif ((get == 'male') and binary):
+        elif (((get == 'male') or (get == 'mostly_male')) and binary):
             guess = 1
-        elif (not(binary)):
+        elif (((get == 'unknown') or (get == 'andy')) and binary):
+            guess = 2
+        else:
             guess = get
         return guess
-
-
-    # def list(self):
-    #     d = gender.Detector()
-    #     with open('files/partial.csv') as csvfile:
-    #         genderguesserreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-    #         next(genderguesserreader, None)
-    #         genderguesserlist = []
-    #         for row in genderguesserreader:
-    #             name = row[0]
-    #             name = name.replace('"', '')
-    #             name = name.capitalize()
-    #             genderguesserlist.append((name, d.get_gender(name)))
-    #     return genderguesserlist
-# #        print(d.get_gender(name.capitalize()))

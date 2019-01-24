@@ -39,7 +39,9 @@ class DameNamsor(Gender):
             guess = 0
         elif ((d['gender'] == 'male') and binary):
             guess = 1
-        elif (not(binary)):
+        elif ((d['gender'] == 'unknown') and binary):
+            guess = 2
+        else:
             guess = d['gender']
         return guess
 
@@ -54,8 +56,5 @@ class DameNamsor(Gender):
                 name = name.replace('\"','')
                 surname = row[2].title()
                 surname = surname.replace('\"','')
-                if binary:
-                    slist.append(self.guess(name, surname, binary=True))
-                else:
-                    slist.append(self.guess(name, surname, binary=False))
+                slist.append(self.guess(name, surname, binary))
         return slist

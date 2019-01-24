@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+
 # Copyright (C) 2018  David Arroyo Menéndez
 
 # Author: David Arroyo Menéndez <davidam@gnu.org>
@@ -137,6 +138,13 @@ class TddInPythonExample(unittest.TestCase):
         am = np.array([[3, 0, 0],[1, 15, 0],[1, 1, 0]])
         self.assertTrue(np.array_equal(cm,am))
 
+    def test_dame_sexmachine_confusion_matrix_dame_method_returns_correct_result(self):
+        g = DameSexmachine()
+        cm = g.confusion_matrix_dame(path="files/min.csv")
+        am = [[5, 0, 0], [0, 2, 0]]
+        self.assertEqual(cm,am)
+
+
     def test_sexmachine_string2gender_method_returns_correct_result(self):
         s = DameSexmachine()
         gender1 = s.string2gender("Arroyo Menéndez, David")
@@ -152,31 +160,31 @@ class TddInPythonExample(unittest.TestCase):
     def test_sexmachine_sgd_load_method_returns_correct_result(self):
         s = DameSexmachine()
         m = s.sgd_load()
-        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1]])
-        n = np.array([1])
+        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1, 0]])
+        n = np.array([2])
         self.assertEqual(n, predicted)
 
     def test_sexmachine_svc_load_method_returns_correct_result(self):
         s = DameSexmachine()
         m = s.svc_load()
-        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1]])
-        n = np.array([0])
+        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1, 0]])
+        n = np.array([1])
         self.assertTrue(np.array_equal(predicted, n))
 
     def test_sexmachine_multinomialNB_load_method_returns_correct_result(self):
         s = DameSexmachine()
         m = s.multinomialNB_load()
-        array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0,
+        array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,
                    0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 0],
-                 [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1,
+                 [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1, 0,
                    0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0, 1]]
         predicted= m.predict(array)
-        n = np.array([0, 0])
+        n = np.array([1, 1])
         self.assertTrue(np.array_equal(predicted, n))
 
     def test_sexmachine_bernoulliNB_load_method_returns_correct_result(self):
         s = DameSexmachine()
         m = s.bernoulliNB_load()
-        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1]])
+        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1, 0]])
         n = np.array([2])
         self.assertTrue(np.array_equal(predicted, n))

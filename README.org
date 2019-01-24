@@ -8,7 +8,7 @@ damegender is a gender detection tool coded by David Arroyo MEnéndez (DAME)
 * Install
 ** Installing Software
 #+BEGIN_SRC sh
-$ sudo apt-get install python3-nose-exclude
+$ sudo apt-get install python3-nose-exclude dict dict-freedict-eng-spa dict-freedict-spa-eng dictd
 $ git clone https://github.com/davidam/damegender
 $ cd damegender
 $ pip3 install -r requirements.txt
@@ -41,6 +41,9 @@ $ nosetests3 test/test_dame_sexmachine.py:TddInPythonExample.test_string2array_m
 # Detect gender from a name
 $ python3 main.py David
 male
+# Detect gender from a name only using machine learning (experimental way)
+$ python3 main.py David --ml=multinomialNB
+male
 # Count gender from a csv example file
 $ python3 csv2gender.py files/partial.csv
 The number of males in files/partial.csv is 16
@@ -58,10 +61,34 @@ $ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce
 # Use an api to detect the gender
 $ python3 api2gender.py David --api=genderguesser
 male
+# Give me informative features
+$ python3 infofeatures.py
+Females with last letter a: 0.4705246078961601
+Males with last letter a: 0.048672566371681415
+Females with last letter consonant: 0.2735841767750908
+Males with last letter consonant: 0.6355328972681801
+Females with last letter vocal: 0.7262612995441552
+Males with last letter vocal: 0.3640823393612928
 # To measure success
-$ python3 accuracy.py
-Namsor accuracy: 0.9047619047619048
-Sexmachine accuracy: 0.7619047619047619
+$ python3 accuracy.py --csv=files/min.csv
+files/min.csv
+################### Namsor!!
+Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
+Guess list:  [1, 1, 1, 1, 1, 1, 0, 0]
+0.875
+Namsor accuracy: 0.875
+################### Genderize!!
+Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
+Guess list:  [1, 1, 1, 1, 2, 1, 0, 0]
+Genderize accuracy: 1
+################### GenderGuesser!!
+Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
+Guess list:  [1, 1, 1, 1, 2, 1, 0, 0]
+GenderGuesser accuracy: 0.875
+################### Sexmachine!!
+Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
+Guess list:  [1, 1, 1, 1, 2, 1, 0, 0]
+Sexmachine accuracy: 0.875
 $ python3 confusion.py
 A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
 If the classifier is nice, the diagonal is high because there are true positives
@@ -76,6 +103,8 @@ Sexmachine confusion matrix:
 
 # To deploy a graph about correlation between variables
 $ python3 corr.py
+$ python3 corr.py --csv="categorical"
+$ python3 corr.py --csv="nocategorical"
 # To create the pickle models in files directory
 $ python3 damemodels.py
 #+END_SRC

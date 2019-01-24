@@ -24,12 +24,127 @@
 from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
 from app.dame_namsor import DameNamsor
+from app.dame_genderize import DameGenderize
 from app.dame_genderguesser import DameGenderGuesser
+from app.dame_genderapi import DameGenderApi
+from app.dame_nameapi import DameNameapi
 
-dn = DameNamsor()
-namsor_accuracy = dn.accuracy(path="files/partial.csv")
-print("Namsor accuracy: %s" % namsor_accuracy)
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--csv', default="files/min.csv")
+parser.add_argument('--api', default="all")
+args = parser.parse_args()
+print(args.csv)
 
-ds = DameSexmachine()
-sexmachine_accuracy = ds.accuracy(path="files/partial.csv")
-print("Sexmachine accuracy: %s" % sexmachine_accuracy)
+if (args.api == "all"):
+
+    dn = DameNamsor()
+    print("################### Namsor!!")
+    gl = dn.gender_list(path=args.csv)
+    print("Gender list: " + str(gl))
+    sl = dn.guess_list(path=args.csv, binary=True)
+    print("Guess list:  " +str(sl))
+
+    namsor_accuracy = dn.accuracy_score_dame(gl, sl)
+    #print(dn.accuracy_score_dame([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 1, 1]))
+    #namsor_accuracy = dn.accuracy_score_dame([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
+
+    print("Namsor accuracy: %s" % namsor_accuracy)
+
+    dg = DameGenderize()
+    print("################### Genderize!!")
+    gl = dg.gender_list(path=args.csv)
+    print("Gender list: " + str(gl))
+    sl = dg.guess_list(path=args.csv, binary=True)
+    print("Guess list:  " +str(gl))
+
+    genderize_accuracy = dg.accuracy_score_dame(gl,sl)
+    print("Genderize accuracy: %s" % genderize_accuracy)
+
+    dgg = DameGenderGuesser()
+    print("################### GenderGuesser!!")
+    gl = dgg.gender_list(path=args.csv)
+    print("Gender list: " + str(gl))
+    sl = dgg.guess_list(path=args.csv, binary=True)
+    print("Guess list:  " +str(sl))
+
+    genderguesser_accuracy = dgg.accuracy_score_dame(gl,sl)
+    print("GenderGuesser accuracy: %s" % genderguesser_accuracy)
+
+    ds = DameSexmachine()
+    print("################### Sexmachine!!")
+    gl = ds.gender_list(path=args.csv)
+    print("Gender list: " + str(gl))
+    sl = ds.guess_list(path=args.csv, binary=True)
+    print("Guess list:  " +str(sl))
+
+    sexmachine_accuracy = ds.accuracy_score_dame(gl,sl)
+    print("Sexmachine accuracy: %s" % sexmachine_accuracy)
+
+    dga = DameGenderApi()
+    print("################### GenderApi!!")
+    gl = dga.gender_list(path=args.csv)
+    print("Gender list: " + str(gl))
+
+    dna = DameNameapi()
+    print("################### Nameapi!!")
+    gl = dna.gender_list(path=args.csv)
+    print("Gender list: " + str(gl))
+    sl = dna.guess_list(path=args.csv, binary=True)
+    print("Guess list:  " +str(sl))
+    nameapi_accuracy = ds.accuracy_score_dame(gl,sl)
+    print("Nameapi accuracy: %s" % nameapi_accuracy)
+
+elif (args.api == "namsor"):
+    dn = DameNamsor()
+    print("################### Namsor!!")
+    gl = dn.gender_list(path=args.csv)
+    print("Gender list: " + str(gl))
+    sl = dn.guess_list(path=args.csv, binary=True)
+    print("Guess list:  " +str(sl))
+    namsor_accuracy = dn.accuracy_score_dame(gl, sl)
+    print("Namsor accuracy: %s" % namsor_accuracy)
+
+elif (args.api == "genderize"):
+    dg = DameGenderize()
+    print("################### Genderize!!")
+    gl = dg.gender_list(path=args.csv)
+    print("Gender list: " + str(gl))
+    sl = dg.guess_list(path=args.csv, binary=True)
+    print("Guess list:  " +str(gl))
+    genderize_accuracy = dg.accuracy_score_dame(gl, sl)
+    print("Genderize accuracy: %s" % genderize_accuracy)
+
+elif (args.api == "genderguesser"):
+    dgg = DameGenderGuesser()
+    print("################### GenderGuesser!!")
+    gl = dgg.gender_list(path=args.csv)
+    print("Gender list: " + str(gl))
+    sl = dgg.guess_list(path=args.csv, binary=True)
+    print("Guess list:  " +str(sl))
+    genderguesser_accuracy = dgg.accuracy_score_dame(gl,sl)
+    print("GenderGuesser accuracy: %s" % genderguesser_accuracy)
+elif (args.api == "sexmachine"):
+    ds = DameSexmachine()
+    print("################### Sexmachine!!")
+    gl = ds.gender_list(path=args.csv)
+    print("Gender list: " + str(gl))
+    sl = ds.guess_list(path=args.csv, binary=True)
+    print("Guess list:  " +str(sl))
+
+    sexmachine_accuracy = ds.accuracy_score_dame(gl,sl)
+    print("Sexmachine accuracy: %s" % sexmachine_accuracy)
+elif (args.api == "genderapi"):
+    dga = DameGenderApi()
+    print("################### GenderApi!!")
+    gl = dga.gender_list(path=args.csv)
+    print("Gender list: " + str(gl))
+elif (args.api == "nameapi"):
+    dna = DameNameapi()
+    print("################### Nameapi!!")
+    gl = dna.gender_list(path=args.csv)
+    print("Gender list: " + str(gl))
+    sl = dna.guess_list(path=args.csv, binary=True)
+    print("Guess list:  " +str(sl))
+    nameapi_accuracy = ds.accuracy_score_dame(gl,sl)
+    print("Nameapi accuracy: %s" % nameapi_accuracy)

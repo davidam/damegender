@@ -23,9 +23,15 @@
 
 import unittest
 import numpy as np
+import os
 from app.dame_gender import Gender
 
 class TddInPythonExample(unittest.TestCase):
+
+    def test_dame_gender_in_dict_method_returns_correct_result(self):
+        g = Gender()
+        self.assertEqual(g.in_dict("Table"), True)
+        self.assertEqual(g.in_dict("Mesa"), True)
 
     def test_dame_gender_features_method_returns_correct_result(self):
         g = Gender()
@@ -85,14 +91,14 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual([2, 1, 1, 1, 2, 1, 0, 0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 2], g.guess_list(path="files/partial.csv",binary=True))
 
 
-    def test_dame_gender_accuracy_method_returns_correct_result(self):
-        g = Gender()
-        self.assertTrue(g.accuracy(path="files/partial.csv") >= 0.5)
+    # def test_dame_gender_accuracy_method_returns_correct_result(self):
+    #     g = Gender()
+    #     self.assertTrue(g.accuracy(path="files/partial.csv") >= 0.5)
 
     def test_dame_gender_confusion_matrix_method_returns_correct_result(self):
         g = Gender()
         cm = g.confusion_matrix(path="files/partial.csv")
-#        print(cm)
+        print(cm)
         am = np.array([[3, 0, 0],[0, 13, 3],[0, 1, 1]])
         self.assertTrue(np.array_equal(cm,am))
 
@@ -119,18 +125,78 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_features_list_categorical_method_returns_correct_result(self):
         g = Gender()
-        flc = g.features_list_categorical()
+        flc = g.features_list_categorical('files/partial.csv')
         self.assertEqual(len(flc[0]), 6)
+        self.assertEqual(flc[0], [112, 101, 0, 0, 1, 0])
 
+    def test_dame_gender_features_list_no_categorical_method_returns_correct_result(self):
+        g = Gender()
+        flnc = g.features_list_no_categorical('files/partial.csv')
+        self.assertTrue(len(flnc[0]) > 25)
+        self.assertTrue(flnc[0], [0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3])
 
+    def test_dame_gender_features_list2csv_method_returns_correct_result(self):
+        # TODO: You can write asserts to verify the first line
+        g = Gender()
+        csv1 = g.features_list2csv()
+        csv2 = g.features_list2csv(csv="categorical")
+        csv3 = g.features_list2csv(csv="nocategorical")
+        self.assertTrue(os.path.isfile("files/features_list.csv"))
+        self.assertTrue(os.path.isfile("files/features_list_cat.csv"))
+        self.assertTrue(os.path.isfile("files/features_list_no_cat.csv"))
 
-    # def test_gender_remove_accents_method_returns_correct_result(self):
+    def test_dame_gender_dame_accuracy_score_method_returns_correct_result(self):
+       g = Gender()
+       score1 = g.accuracy_score_dame([1, 1], [1, 1])
+       self.assertEqual(score1, 1)
+       score2 = g.accuracy_score_dame([1, 1, 1, 0], [1, 1, 2, 0])
+       self.assertEqual(score2, 0.75)
+       score3 = g.accuracy_score_dame([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
+       self.assertEqual(score3, 1)
+
+    def test_dame_gender_count_true2guess_method_returns_correct_result(self):
+        g = Gender()
+        v1 = [1, 0, 1, 1]
+        v2 = [1, 1, 1, 0]
+        self.assertEqual(g.count_true2guess(v1, v2, 1, 1), 2)
+        vv1 = [1, 0, 1, 1, 1]
+        vv2 = [1, 1, 1, 0]
+        self.assertEqual(g.count_true2guess(vv2, vv1, 1, 1), 2) # malemale
+        self.assertEqual(g.count_true2guess(vv2, vv1, 0, 1), 1) # femalemale
+        self.assertEqual(g.count_true2guess(vv2, vv1, 1, 0), 1) # malefemale
+
+    def test_dame_gender_error_coded_method_returns_correct_result(self):
+        g = Gender()
+        v1 = [1, 0, 1, 1]
+        v2 = [1, 1, 1, 0]
+        self.assertEqual(g.error_coded(v1, v2), 0.5)
+
+    def test_dame_gender_error_coded_without_na_method_returns_correct_result(self):
+        g = Gender()
+        v1 = [1, 0, 1, 1]
+        v2 = [1, 1, 1, 0]
+        self.assertEqual(g.error_coded(v1, v2), 0.5)
+
+    def test_dame_gender_error_coded_without_na_method_returns_correct_result(self):
+        g = Gender()
+        v1 = [1, 0, 1, 1, 1]
+        v2 = [1, 1, 1, 0, 1]
+        self.assertEqual(g.error_coded(v1, v2), 0.4)
+
+    def test_dame_gender_na_coded_method_returns_correct_result(self):
+        g = Gender()
+        v1 = [0, 1, 1, 1]
+        v2 = [2, 0, 1, 1]
+        self.assertEqual(g.na_coded(v1, v2), 0.25)
+
+    def test_dame_gender_error_gender_bias_method_returns_correct_result(self):
+        g = Gender()
+        v1 = [0, 1, 1, 1]
+        v2 = [0, 0, 1, 1]
+        self.assertEqual(g.error_gender_bias(v1, v2), 0.25)
+
+    # def test_dame_gender_weighted_error_method_returns_correct_result(self):
     #     g = Gender()
-    #     ra = g.remove_accents("Inés")
-    #     self.assertTrue(ra, "Ines")
-
-
-    # def test_gender_features_list_all_method_returns_correct_result(self):
-    #     g = Gender()
-    #     fl = g.features_list(path="files/all.csv")
-    #     self.assertTrue(len(fl) > 1000)
+    #     v1 = [1, 0, 1, 1, 1]
+    #     v2 = [1, 1, 0, 1, 1]
+    #     self.assertEqual(g.weighted_error(v1, v2, 2), 0.4)
