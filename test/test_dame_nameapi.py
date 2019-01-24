@@ -22,8 +22,9 @@
 # Boston, MA 02110-1301 USA,
 
 import unittest
-from app.dame_nameapi import DameNameapi
+
 from app.dame_gender import Gender
+from app.dame_nameapi import DameNameapi
 
 class TddInPythonExample(unittest.TestCase):
 
@@ -54,6 +55,6 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(len(fl) > 20)
 
     def test_dame_nameapi_guess_list_method_returns_correct_result(self):
-        g = Gender()
-        self.assertEqual(['unknown', 'male', 'male', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'unknown', 'male', 'male', 'male', 'female', 'male', 'unknown'], g.guess_list(path="files/partial.csv", binary=False))
-        self.assertEqual([2, 1, 1, 1, 2, 1, 0, 0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 2], g.guess_list(path="files/partial.csv",binary=True))
+        g = DameNameapi()
+        self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'neutral', 'male', 'male', 'male', 'female', 'male', 'male'], g.guess_list(path="files/partial.csv", binary=False))
+        self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 1], g.guess_list(path="files/partial.csv",binary=True))
