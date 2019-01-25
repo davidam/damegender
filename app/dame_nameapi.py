@@ -25,7 +25,7 @@ import csv
 import requests
 import json
 import numpy as np
-import request
+import requests
 from app.dame_gender import Gender
 
 class DameNameapi(Gender):
