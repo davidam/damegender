@@ -6,6 +6,7 @@
 #+BEAMER_THEME: Madrid
 #+COLUMNS: %45ITEM %10BEAMER_ENV(Env) %10BEAMER_ACT(Act) %4BEAMER_COL(Col) %8BEAMER_OPT(Opt)
 
+
 * Summary
 ** Abstract
 
@@ -23,6 +24,9 @@
   of classification errors, and define a parameter tuning procedure to
   search for optimal values of the services’ free parameters.
 
+** Download source and article to a make a good tracing
++ https://peerj.com/articles/cs-156/
++ git clone https://github.com/davidam/damegender.git
 ** Comparison and benchmark of name-to-gender inference services (I)
 
 file:../files/comparison-tables.png
@@ -30,14 +34,14 @@ file:../files/comparison-tables.png
 ** Comparison and benchmark of name-to-gender inference services (I)
 
 |                                        |                 |
-| Database size                          | damegender      |
+| Database size                          | various         |
 | Regular data updates                   | yes, developing |
 | Handles unstructured full name strings | yes             |
 | Handles surnames                       | yes             |
 | Handles non-Latin alphabets            | no              |
 | Implicit geo-localization              | no              |
-| Assingment type                        | probabilistic   |
-| Free parameters                        | ml              |
+| Assingment type                        | binary          |
+| Free parameters                        | -               |
 | Free license                           | yes             |
 | API                                    | future          |
 | free requests limited                  | unlimited       |
@@ -346,7 +350,6 @@ Males with last letter vocal: 0.3640823393612928
                     guess = 0
         return guess
 #+END_SRC
-
 
 ** Damegender building a ML model (scikit)
 
