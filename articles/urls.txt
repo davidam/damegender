@@ -1,4 +1,4 @@
 
-+ https://ac.els-cdn.com/S1742287611000247/1-s2.0-S1742287611000247-main.pdf
-+ https://arxiv.org/pdf/1603.04322.pdf
++ https://www.sciencedirect.com/science/article/pii/S1742287611000247
++ https://arxiv.org/abs/1603.04322
 + https://peerj.com/articles/cs-156/
