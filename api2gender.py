@@ -25,6 +25,7 @@ from app.dame_genderguesser import DameGenderGuesser
 from app.dame_genderapi import DameGenderApi
 from app.dame_genderize import DameGenderize
 from app.dame_namsor import DameNamsor
+from app.dame_nameapi import DameNameapi
 import sys
 import argparse
 parser = argparse.ArgumentParser()
@@ -47,4 +48,10 @@ if (len(sys.argv) > 1):
         print(dg.guess(args.name))
     elif (args.api == "namsor"):
         dn = DameNamsor()
-        print(dn.guess(args.name, args.surname))
+        print(dn.guess(str(args.name), str(args.surname)))
+    # elif (args.api == "nameapi"):
+    #     if (args.surname != ""):
+    #         dn = DameNameapi()
+    #         print(dn.guess(str(args.name), str(args.surname)))
+    #     else:
+    #         print("In nameapi, you must provide a surname")
