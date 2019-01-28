@@ -322,12 +322,10 @@ class Gender(object):
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             next(sexreader, None)
-            features_list_file = open('files/features_list.csv','w')
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"','')
                 flist.append(list(self.features_int(name).values()))
-                features_list_file.write(str(list(self.features_int(name).values())))
         return flist
 
     def features_list_categorical(self, path='files/partial.csv'):
