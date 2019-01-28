@@ -25,7 +25,6 @@ from app.dame_genderguesser import DameGenderGuesser
 from app.dame_genderapi import DameGenderApi
 from app.dame_genderize import DameGenderize
 from app.dame_namsor import DameNamsor
-from app.dame_nameapi import DameNameapi
 import sys
 import argparse
 parser = argparse.ArgumentParser()
@@ -36,7 +35,7 @@ parser.add_argument('--version', action='version', version='0.1')
 
 args = parser.parse_args()
 if (len(sys.argv) > 1):
-    
+
     if (args.api == "genderguesser"):
         dgg = DameGenderGuesser()
         print(dgg.guess(args.name))
@@ -49,9 +48,39 @@ if (len(sys.argv) > 1):
     elif (args.api == "namsor"):
         dn = DameNamsor()
         print(dn.guess(str(args.name), str(args.surname)))
-    # elif (args.api == "nameapi"):
-    #     if (args.surname != ""):
-    #         dn = DameNameapi()
-    #         print(dn.guess(str(args.name), str(args.surname)))
-    #     else:
-    #         print("In nameapi, you must provide a surname")
+    elif (args.api == "nameapi"):
+        if (args.surname != ""):
+            dn = DameNameapi()
+            print(dn.guess(str(args.name), str(args.surname)))
+        else:
+            print("In nameapi, you must provide a surname")
+
+    elif (args.api == "average"):
+        r = 0
+        count = 0
+        dgg = DameGenderGuesser()
+        guess1 = dgg.guess(args.name, binary="True")
+#        print(guess1)
+        if (guess1 != 2):
+            r = r + guess1
+            count = count +1
+        dga = DameGenderApi()
+        guess2 = dga.guess(args.name, binary="True")
+        if (guess2 != 2):
+            r = r + guess2
+            count = count +1
+#        print(guess2)
+        dg = DameGenderize()
+        guess3 = dg.guess(args.name, binary="True")
+        if (guess3 != 2):
+            r = r + guess3
+            count = count +1
+#        print(guess3)
+        dn = DameNamsor()
+        guess4 = dn.guess(str(args.name), str(args.surname), binary="True")
+        if (guess4 != 2):
+            r = r + guess4
+            count = count +1
+#        print(guess4)
+        average = r / count
+        print(str(average))
