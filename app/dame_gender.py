@@ -33,6 +33,7 @@ import re
 from collections import OrderedDict
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
+from sklearn.decomposition import PCA
 
 
 class Gender(object):
@@ -294,7 +295,7 @@ class Gender(object):
         sl = self.guess_list(path,binary=True)
         return confusion_matrix(gl, sl)
 
-    def confusion_matrix_dame(self, path='files/partial.csv'):
+    def print_confusion_matrix_dame(self, path='files/partial.csv'):
         truevector = self.gender_list(path)
         guessvector = self.guess_list(path,binary=True)
         self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
@@ -303,19 +304,9 @@ class Gender(object):
         self.malefemale = self.count_true2guess(truevector, guessvector, 1, 0)
         self.malemale = self.count_true2guess(truevector, guessvector, 1, 1)
         self.maleundefined = self.count_true2guess(truevector, guessvector, 1, 2)
-        matrix = [[self.malemale, self.malefemale, self.maleundefined],
-                  [self.femalemale, self.femalefemale, self.femaleundefined]]
-        return matrix
-
-    def confusion_matrix_dame_str(self, path='files/partial.csv'):
-        matrix = self.confusion_matrix_dame(path)
-        string = ""
-        for i in matrix:
-            for j in i:
-                string = string + str(j) +" "
-            string = string + "\n "
-        return string
-
+        print("[[ %s, %s, %s]" % (self.femalefemale, self.femalemale, self.femaleundefined))
+        print(" [ %s, %s, %s]]\n" % (self.malefemale, self.malemale, self.maleundefined))
+        return ""
 
     def features_list(self, path='files/partial.csv'):
         flist = []
@@ -374,6 +365,13 @@ class Gender(object):
                 count = count + 1
             f.write(line+str(i[count])+"\n")
         f.close()
+
+    def pca(self, path='files/partial.csv'):
+        X = np.array(self.features_list())
+        pca = PCA(n_components=2)
+        return pca.fit(X)
+
+
 
 
 # g = Gender()
