@@ -50,46 +50,48 @@ print("If the classifier is nice, the diagonal is high because there are true po
 
 if (args.api == "all"):
     dn = DameNamsor()
-    namsor_confusion_matrix = dn.print_confusion_matrix_dame(path=args.csv)
-    print("Namsor confusion matrix:\n %s" % namsor_confusion_matrix)
+    print("Namsor confusion matrix:\n %s")    
+    dn.print_confusion_matrix_dame(path=args.csv)
 
     dg = DameGenderize()
-    genderize_confusion_matrix = dg.print_confusion_matrix_dame(path=args.csv)
-    print("Genderize confusion matrix:\n %s" % genderize_confusion_matrix)
-
+    print("Genderize confusion matrix:\n")
+    dg.print_confusion_matrix_dame(path=args.csv)
+    
     dgg = DameGenderGuesser()
-    genderguesser_confusion_matrix = dgg.print_confusion_matrix_dame(path=args.csv)
     print("Gender Guesser confusion matrix:\n %s" % genderguesser_confusion_matrix)
+    dgg.print_confusion_matrix_dame(path=args.csv)
 
     ds = DameSexmachine()
-    sexmachine_confusion_matrix = ds.print_confusion_matrix_dame(path=args.csv)
-    print("Sexmachine confusion matrix:\n %s" % sexmachine_confusion_matrix)
+    print("Sexmachine confusion matrix:\n")
+    ds.print_confusion_matrix_dame(path=args.csv)
 
     dna = DameNameapi()
-    nameapi_confusion_matrix = dna.print_confusion_matrix_dame(path=args.csv)
-    print("Nameapi confusion matrix:\n %s" % nameapi_confusion_matrix)
+    print("Nameapi confusion matrix:\n")
+    dna.print_confusion_matrix_dame(path=args.csv)
+
 
 elif (args.api == "namsor"):
     dn = DameNamsor()
-    namsor_confusion_matrix = dn.print_confusion_matrix_dame(path=args.csv)
-    print("Namsor confusion matrix:\n %s" % namsor_confusion_matrix)
+    print("Namsor confusion matrix:\n %s")    
+    dn.print_confusion_matrix_dame(path=args.csv)
 
 elif (args.api == "genderize"):
     dg = DameGenderize()
-    genderize_confusion_matrix = dg.print_confusion_matrix_dame(path=args.csv)
-    print("Genderize confusion matrix:\n %s" % genderize_confusion_matrix)
-
+    print("Genderize confusion matrix:\n")
+    dg.print_confusion_matrix_dame(path=args.csv)
+    
 elif (args.api == "genderguesser"):
     dgg = DameGenderGuesser()
-    genderguesser_confusion_matrix = dgg.print_confusion_matrix_dame(path=args.csv)
     print("Gender Guesser confusion matrix:\n %s" % genderguesser_confusion_matrix)
+    dgg.print_confusion_matrix_dame(path=args.csv)
 
 elif (args.api == "sexmachine"):
     ds = DameSexmachine()
-    sexmachine_confusion_matrix = ds.print_confusion_matrix_dame(path=args.csv)
-    print("Sexmachine confusion matrix:\n %s" % sexmachine_confusion_matrix)
+    print("Sexmachine confusion matrix:\n")
+    ds.print_confusion_matrix_dame(path=args.csv)
 
 elif (args.api == "nameapi"):
     dna = DameNameapi()
-    nameapi_confusion_matrix = dna.print_confusion_matrix_dame(path=args.csv)
-    print("Nameapi confusion matrix:\n %s" % nameapi_confusion_matri)
+    print("Nameapi confusion matrix:\n")
+    dna.print_confusion_matrix_dame(path=args.csv)
+
