@@ -29,6 +29,11 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_genderize_guess_method_returns_correct_result(self):
         gg = DameGenderize()
         self.assertEqual(gg.guess("David"), "male")
+        self.assertEqual(gg.guess("David", binary=True), 1)
+
+    def test_dame_genderize_guess_file_method_returns_correct_result(self):
+        gg = DameGenderize()
+        self.assertEqual(gg.guess("David", binary=True, apifile="files/genderizepass.txt"), 1)
 
     def test_dame_genderize_gender_list_method_returns_correct_result(self):
         gg = DameGenderize()
@@ -44,8 +49,15 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(['male', 'male', 'male', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male'], gg.guess_list(path="files/partial.csv", binary=False)[0:10])
         self.assertEqual([1, 1, 1, 1, 2, 1, 0, 0, 1, 1], gg.guess_list(path="files/partial.csv",binary=True)[0:10])
 
-    def test_dame_genderize_confusion_matrix_dame_method_returns_correct_result(self):
-        g = DameGenderize()
-        cm = g.confusion_matrix_dame(path="files/min.csv")
-        am = [[5, 0, 0], [0, 2, 0]]
-        self.assertEqual(cm,am)
+    def test_dame_genderize_guess_list_method_returns_correct_result(self):
+        gg = DameGenderize()
+        self.assertEqual(['male', 'male', 'male', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male'], gg.guess_list(path="files/partial.csv", binary=False, apifile="files/genderizepass.txt")[0:10])
+        self.assertEqual([1, 1, 1, 1, 2, 1, 0, 0, 1, 1], gg.guess_list(path="files/partial.csv",binary=True, apifile="files/genderizepass.txt")[0:10])
+
+
+
+    # def test_dame_genderize_confusion_matrix_dame_method_returns_correct_result(self):
+    #     g = DameGenderize()
+    #     cm = g.confusion_matrix_dame(path="files/min.csv")
+    #     am = [[5, 0, 0], [0, 2, 0]]
+    #     self.assertEqual(cm,am)
