@@ -50,13 +50,13 @@ print("If the classifier is nice, the diagonal is high because there are true po
 
 if (args.api == "all"):
     dn = DameNamsor()
-    print("Namsor confusion matrix:\n %s")    
+    print("Namsor confusion matrix:\n %s")
     dn.print_confusion_matrix_dame(path=args.csv)
 
     dg = DameGenderize()
     print("Genderize confusion matrix:\n")
     dg.print_confusion_matrix_dame(path=args.csv)
-    
+
     dgg = DameGenderGuesser()
     print("Gender Guesser confusion matrix:\n %s" % genderguesser_confusion_matrix)
     dgg.print_confusion_matrix_dame(path=args.csv)
@@ -72,14 +72,14 @@ if (args.api == "all"):
 
 elif (args.api == "namsor"):
     dn = DameNamsor()
-    print("Namsor confusion matrix:\n %s")    
+    print("Namsor confusion matrix:\n %s")
     dn.print_confusion_matrix_dame(path=args.csv)
 
 elif (args.api == "genderize"):
     dg = DameGenderize()
     print("Genderize confusion matrix:\n")
-    dg.print_confusion_matrix_dame(path=args.csv)
-    
+    dg.print_confusion_matrix_dame(path=args.csv, apifile="files/genderizepass.txt")
+
 elif (args.api == "genderguesser"):
     dgg = DameGenderGuesser()
     print("Gender Guesser confusion matrix:\n %s" % genderguesser_confusion_matrix)
@@ -94,4 +94,3 @@ elif (args.api == "nameapi"):
     dna = DameNameapi()
     print("Nameapi confusion matrix:\n")
     dna.print_confusion_matrix_dame(path=args.csv)
-
