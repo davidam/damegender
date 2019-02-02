@@ -49,7 +49,10 @@ class DameGenderApi(Gender):
                 else:
                     guess = 'unknown'
         else:
-            guess = 'unknown'
+            if binary:
+                guess = 2
+            else:
+                guess = 'unknown'
         return guess
 
     def guess_list(self, path="files/partial.csv", binary=False):
