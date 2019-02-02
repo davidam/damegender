@@ -138,11 +138,11 @@ class TddInPythonExample(unittest.TestCase):
         am = np.array([[3, 0, 0],[1, 15, 0],[1, 1, 0]])
         self.assertTrue(np.array_equal(cm,am))
 
-    def test_dame_sexmachine_confusion_matrix_dame_method_returns_correct_result(self):
-        g = DameSexmachine()
-        cm = g.confusion_matrix_dame(path="files/min.csv")
-        am = [[5, 0, 0], [0, 2, 0]]
-        self.assertEqual(cm,am)
+    # def test_dame_sexmachine_confusion_matrix_dame_method_returns_correct_result(self):
+    #     g = DameSexmachine()
+    #     cm = g.confusion_matrix_dame(path="files/min.csv")
+    #     am = [[5, 0, 0], [0, 2, 0]]
+    #     self.assertEqual(cm,am)
 
 
     def test_sexmachine_string2gender_method_returns_correct_result(self):
