@@ -59,11 +59,11 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'female', 'male', 'male'], g.guess_list(path="files/partial.csv", binary=False))
         self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1], g.guess_list(path="files/partial.csv",binary=True))
 
-    def test_dame_gender_confusion_matrix_dame_method_returns_correct_result(self):
-        g = Gender()
-        cm = g.confusion_matrix_dame(path="files/min.csv")
-        am = [[4, 0, 1], [0, 2, 0]]
-        self.assertEqual(cm,am)
+    # def test_dame_gender_confusion_matrix_dame_method_returns_correct_result(self):
+    #     g = Gender()
+    #     cm = g.confusion_matrix_dame(path="files/min.csv")
+    #     am = [[4, 0, 1], [0, 2, 0]]
+    #     self.assertEqual(cm,am)
 
     # def test_dame_namsor_accuracy_method_returns_correct_result(self):
     #     g = DameNamsor()
