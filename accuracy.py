@@ -46,6 +46,7 @@ if (args.api == "all"):
     print("Guess list:  " +str(sl))
 
     namsor_accuracy = dn.accuracy_score_dame(gl, sl)
+
     #print(dn.accuracy_score_dame([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 1, 1]))
     #namsor_accuracy = dn.accuracy_score_dame([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
 
@@ -92,7 +93,7 @@ if (args.api == "all"):
     print("Gender list: " + str(gl))
     sl = dna.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
-    nameapi_accuracy = ds.accuracy_score_dame(gl,sl)
+    nameapi_accuracy = dna.accuracy_score_dame(gl,sl)
     print("Nameapi accuracy: %s" % nameapi_accuracy)
 
 elif (args.api == "namsor"):
@@ -109,6 +110,7 @@ elif (args.api == "genderize"):
     dg = DameGenderize()
     print("################### Genderize!!")
     gl = dg.gender_list(path=args.csv)
+
     print("Gender list: " + str(gl))
     sl = dg.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(gl))
@@ -124,6 +126,7 @@ elif (args.api == "genderguesser"):
     print("Guess list:  " +str(sl))
     genderguesser_accuracy = dgg.accuracy_score_dame(gl,sl)
     print("GenderGuesser accuracy: %s" % genderguesser_accuracy)
+
 elif (args.api == "sexmachine"):
     ds = DameSexmachine()
     print("################### Sexmachine!!")
@@ -131,14 +134,19 @@ elif (args.api == "sexmachine"):
     print("Gender list: " + str(gl))
     sl = ds.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
-
     sexmachine_accuracy = ds.accuracy_score_dame(gl,sl)
     print("Sexmachine accuracy: %s" % sexmachine_accuracy)
+
 elif (args.api == "genderapi"):
     dga = DameGenderApi()
     print("################### GenderApi!!")
     gl = dga.gender_list(path=args.csv)
     print("Gender list: " + str(gl))
+    sl = dga.guess_list(path=args.csv, binary=True)
+    print("Guess list:  " +str(sl))
+    genderapi_accuracy = dga.accuracy_score_dame(gl,sl)
+    print("Genderapi accuracy: %s" % genderapi_accuracy)
+
 elif (args.api == "nameapi"):
     dna = DameNameapi()
     print("################### Nameapi!!")
@@ -146,5 +154,5 @@ elif (args.api == "nameapi"):
     print("Gender list: " + str(gl))
     sl = dna.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
-    nameapi_accuracy = ds.accuracy_score_dame(gl,sl)
+    nameapi_accuracy = dna.accuracy_score_dame(gl,sl)
     print("Nameapi accuracy: %s" % nameapi_accuracy)
