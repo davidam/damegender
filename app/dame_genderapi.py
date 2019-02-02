@@ -28,22 +28,27 @@ from app.dame_gender import Gender
 
 class DameGenderApi(Gender):
     def guess(self, name, binary=False):
-        fichero = open("files/genderapipass.txt", "r+")
-        contenido = fichero.readline()
-        r = requests.get('https://gender-api.com/get?name='+name+'&key='+contenido)
-        j = json.loads(r.text)
-        guess = j['gender']
-        if (guess == 'male'):
-            if binary:
-                guess = 1
-        elif (guess == 'female'):
-            if binary:
-                guess = 0
-        else:
-            if binary:
-                guess = 2
+        config = configparser.RawConfigParser()
+        config.read('config.cfg')
+        if (config['DEFAULT']['genderapi'] == 'yes'):
+            fichero = open("files/genderapipass.txt", "r+")
+            contenido = fichero.readline()
+            r = requests.get('https://gender-api.com/get?name='+name+'&key='+contenido)
+            j = json.loads(r.text)
+            guess = j['gender']
+            if (guess == 'male'):
+                if binary:
+                    guess = 1
+            elif (guess == 'female'):
+                if binary:
+                    guess = 0
             else:
-                guess = 'unknown'
+                if binary:
+                    guess = 2
+                else:
+                    guess = 'unknown'
+        else:
+            guess = 'unknown'
         return guess
 
     def guess_list(self, path="files/partial.csv", binary=False):
