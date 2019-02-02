@@ -25,7 +25,7 @@ import configparser
 config = configparser.ConfigParser()
 
 genderapi_p = input("Do you have a genderapi key: (Y|N) ")
-if (genderapi_p == "Y"):
+if (genderapi_p.upper() == "Y"):
    config['DEFAULT']['genderapi'] = 'yes'
    genderapi_key = str(input("Introduce your genderapi key: "))
    fo = open("files/genderapipass.txt", "w")
@@ -35,7 +35,7 @@ else:
    config['DEFAULT']['genderapi'] = 'no'
 
 genderize_p = input("Do you have a genderize key: (Y|N) ")
-if (genderize_p == "Y"):
+if (genderize_p.upper() == "Y"):
    config['DEFAULT']['genderize'] = 'yes'
    genderize_key = input("Introduce your genderize key: ")
    fo = open("files/genderizepass.txt", "w")
@@ -45,7 +45,7 @@ else:
    config['DEFAULT']['genderize'] = 'no'
 
 nameapi_p = input("Do you have a nameapi key: (Y|N) ")
-if (nameapi_p == "Y"):
+if (nameapi_p.upper() == "Y"):
    config['DEFAULT']['nameapi'] = 'yes'
    nameapi_key = input("Introduce your nameapi key: ")
    fo = open("files/nameapipass.txt", "w")
