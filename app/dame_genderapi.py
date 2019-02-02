@@ -24,6 +24,7 @@
 import csv
 import requests
 import json
+import configparser
 from app.dame_gender import Gender
 
 class DameGenderApi(Gender):
