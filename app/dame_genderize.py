@@ -25,17 +25,22 @@ from genderize import Genderize
 import csv
 import requests
 import json
+import configparser
 from app.dame_gender import Gender
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 
 
 class DameGenderize(Gender):
+    def __init__(self):
+        self.config = configparser.RawConfigParser()
+        self.config.read('config.cfg')
+
     def guess(self, name, binary=False, apifile=""):
     # guess method to check names dictionary
-        if (apifile==""):
+        if (self.config['DEFAULT']['genderize'] == 'no'):
             v = Genderize().get([name])
-        else:
+        elif (self.config['DEFAULT']['genderize'] == 'yes'):
             fichero = open(apifile, "r+")
             apikey = fichero.readline().rstrip()
             v = Genderize(
@@ -50,7 +55,7 @@ class DameGenderize(Gender):
             guess = g
         return guess
 
-    def guess_list(self, path='files/partial.csv', binary=False, apifile=""):
+    def guess_list(self, path='files/partial.csv', binary=False):
     # guess list method
         slist = []
         with open(path) as csvfile:
@@ -68,10 +73,10 @@ class DameGenderize(Gender):
         for i in range(0, len(listnames), 10): # We must split the list in different lists with size 10
             new.append(listnames[i : i+10])
         for i in new:
-            if (apifile == ""):
+            if (self.config['DEFAULT']['genderize'] == 'no'):
                 jsonlist = Genderize().get(i)
-            else:
-                fichero = open(apifile, "r+")
+            elif (self.config['DEFAULT']['genderize'] == 'yes'):
+                fichero = open("files/genderizepass.txt", "r+")
                 apikey = fichero.readline().rstrip()
                 jsonlist = Genderize(user_agent='GenderizeDocs/0.0', api_key=apikey).get(i)
             for item in jsonlist:
@@ -88,3 +93,5 @@ class DameGenderize(Gender):
                 elif ((item['gender'] == "female") & (not binary) ):
                     slist.append("female")
         return slist
+
+
