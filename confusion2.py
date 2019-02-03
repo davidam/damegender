@@ -78,7 +78,7 @@ elif (args.api == "namsor"):
 elif (args.api == "genderize"):
     dg = DameGenderize()
     print("Genderize confusion matrix:\n")
-    dg.print_confusion_matrix_dame(path=args.csv, apifile="files/genderizepass.txt")
+    dg.print_confusion_matrix_dame(path=args.csv)
 
 elif (args.api == "genderguesser"):
     dgg = DameGenderGuesser()
