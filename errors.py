@@ -32,7 +32,7 @@ from app.dame_nameapi import DameNameapi
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', default="files/min.csv")
-parser.add_argument('--api', default="all")
+parser.add_argument('--api', default="sexmachine")
 args = parser.parse_args()
 #print(args.csv)
 
@@ -52,6 +52,33 @@ if (args.api == "sexmachine"):
     print("+ The na coded: %s" %  naCoded)
     egb = dn.error_gender_bias(gl1, gl2)
     print("+ The error gender bias: %s" %  egb)
+elif (args.api == "genderize"):
+    dn = DameGenderize()
+    print("Genderize with %s has: " % args.csv)
+    gl1 = dn.gender_list(path=args.csv)
+    gl2 = dn.guess_list(path=args.csv, binary=True)
+    ec = dn.error_coded(gl1, gl2)
+    print("+ The error code: %s" % ec)
+    ecwa = dn.error_coded_without_na(gl1, gl2)
+    print("+ The error code without na: %s" %  ecwa)
+    naCoded = dn.na_coded(gl1, gl2)
+    print("+ The na coded: %s" %  naCoded)
+    egb = dn.error_gender_bias(gl1, gl2)
+    print("+ The error gender bias: %s" %  egb)
+elif (args.api == "genderguesser"):
+    dn = DameGenderGuesser()
+    print("Gender Guesser with %s has: " % args.csv)
+    gl1 = dn.gender_list(path=args.csv)
+    gl2 = dn.guess_list(path=args.csv, binary=True)
+    ec = dn.error_coded(gl1, gl2)
+    print("+ The error code: %s" % ec)
+    ecwa = dn.error_coded_without_na(gl1, gl2)
+    print("+ The error code without na: %s" %  ecwa)
+    naCoded = dn.na_coded(gl1, gl2)
+    print("+ The na coded: %s" %  naCoded)
+    egb = dn.error_gender_bias(gl1, gl2)
+    print("+ The error gender bias: %s" %  egb)
+
 elif (args.api == "nameapi"):
     dn = DameNameapi()
     print("Nameapi with %s has: " % args.csv)
