@@ -1,11 +1,13 @@
-Metadata-Version: 1.0
+Metadata-Version: 1.1
 Name: damegender
-Version: 0.1
+Version: 0.1.2
 Summary: Gender Detection Tool by David Arroyo MEnéndez
 Home-page: http://github.com/davidam/damegender
 Author: David Arroyo Menéndez
-Author-email: d.arroyome@alumnos.urjc.es
+Author-email: davidam@gnu.org
 License: GPLv3
-Description-Content-Type: UNKNOWN
 Description: UNKNOWN
 Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GPLv3 License
+Classifier: Operating System :: OS Independent
