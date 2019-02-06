@@ -24,6 +24,7 @@
 from app.dame_sexmachine import DameSexmachine
 import sys
 import argparse
+
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml')
@@ -32,22 +33,20 @@ args = parser.parse_args()
 if (len(sys.argv) > 1):
     if (args.ml):
         s = DameSexmachine()
+        #print(s.guess("Palabra", binary=True, ml="svc"))
+        if (args.ml == "nltk"):
+            guess = s.guess(args.name, binary=True, ml="nltk")
         if (args.ml == "sgd"):
-            m = s.sgd_load()
+            guess = s.guess(args.name, binary=True, ml="sgd")
         elif (args.ml == "svc"):
-            m = s.svc_load()
+            guess = s.guess(args.name, binary=True, ml="svc")
         elif (args.ml == "multinomialNB"):
-            m = s.multinomialNB_load()
+            guess = s.guess(args.name, binary=True, ml="multinomialNB")
         elif (args.ml == "bernoulliNB"):
-            m = s.bernoulliNB_load()
-
-        fi = list(s.features_int(args.name).values())
-        fi = [fi]
-        predicted = m.predict(fi)
-        sex = ""
-        if predicted:
+            guess = s.guess(args.name, binary=True, ml="bernoulliNB")
+        if (guess == 1):
             sex = "male"
-        else:
+        elif (guess == 0):
             sex = "female"
         print("%s gender is %s" % (str(args.name), sex))
     else:
