@@ -66,6 +66,9 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(s.guess("David"), 'male')
         self.assertEqual(s.guess("David", binary=True, ml="svc"), 1)
         self.assertEqual(s.guess("David", binary=True, ml="sgd"), 1)
+        self.assertEqual(s.guess("David", binary=True, ml="gaussianNB"), 1)
+        self.assertEqual(s.guess("David", binary=True, ml="multinomialNB"), 1)
+        self.assertEqual(s.guess("David", binary=True, ml="bernoulliNB"), 1)
         self.assertEqual(s.guess("Laura"), 'female')
         self.assertEqual(s.guess("Inés"), 'female') # Con acento
         self.assertEqual(s.guess("Ines"), 'female') # Sin acento

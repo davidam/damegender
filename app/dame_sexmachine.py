@@ -214,15 +214,23 @@ class DameSexmachine(Gender):
         guess = super().guess(name, binary)
         if ((guess == 'unknown') | (guess == 2)):
             classifier = self.classifier()
+            s = DameSexmachine()
             if (ml == "nltk"):
                 guess = classifier.classify(self.features(name))
             elif (ml == "svc"):
-                s = DameSexmachine()
                 m = s.svc_load()
                 guess = m.predict(self.features_int(name))
             elif (ml == "sgd"):
-                s = DameSexmachine()
                 m = s.sgd_load()
+                guess = m.predict(self.features_int(name))
+            elif (ml == "gaussianNB"):
+                m = s.gaussianNB_load()
+                guess = m.predict(self.features_int(name))
+            elif (ml == "multinomialNB"):
+                m = s.multinomialNB_load()
+                guess = m.predict(self.features_int(name))
+            elif (ml == "bernoulliNB"):
+                m = s.bernoulliNB_load()
                 guess = m.predict(self.features_int(name))
             if binary:
                 if (guess=='female'):
