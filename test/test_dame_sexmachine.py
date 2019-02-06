@@ -64,6 +64,8 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_sexmachine_guess_method_returns_correct_result(self):
         s = DameSexmachine()
         self.assertEqual(s.guess("David"), 'male')
+        self.assertEqual(s.guess("David", binary=True, ml="svc"), 1)
+        self.assertEqual(s.guess("David", binary=True, ml="sgd"), 1)
         self.assertEqual(s.guess("Laura"), 'female')
         self.assertEqual(s.guess("Inés"), 'female') # Con acento
         self.assertEqual(s.guess("Ines"), 'female') # Sin acento
@@ -103,6 +105,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(dicc['first_letter_vocal'], 0)
         self.assertEqual(dicc['last_letter_vocal'], 0)
         self.assertTrue(len(dicc.values()) > 30)
+
 
     def test_sexmachine_features_list_method_returns_correct_result(self):
         s = DameSexmachine()

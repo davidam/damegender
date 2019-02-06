@@ -208,18 +208,36 @@ class DameSexmachine(Gender):
             i = i + 1
         return self.guess(name)
 
-    def guess(self, name, binary=False):
+    def guess(self, name, binary=False, ml="nltk"):
     # guess method to check names dictionary and nltk classifier
         guess = ''
         guess = super().guess(name, binary)
         if ((guess == 'unknown') | (guess == 2)):
             classifier = self.classifier()
-            guess = classifier.classify(self.features(name))
+            if (ml == "nltk"):
+                guess = classifier.classify(self.features(name))
+            elif (ml == "svc"):
+                s = DameSexmachine()
+                m = s.svc_load()
+                guess = m.predict(self.features_int(name))
+            elif (ml == "sgd"):
+                s = DameSexmachine()
+                m = s.sgd_load()
+                guess = m.predict(self.features_int(name))
             if binary:
-                if (guess=='male'):
-                    guess = 1
-                elif (guess=='female'):
+                if (guess=='female'):
                     guess = 0
+                elif (guess=='male'):
+                    guess = 1
+                elif (guess=='unkwnon'):
+                    guess = 2
+            else:
+                if (guess==0):
+                    guess = 'female'
+                elif (guess==1):
+                    guess = 'male'
+                elif (guess==2):
+                    guess = 'unknown'
         return guess
 
     def num_females(self, url, directory):
