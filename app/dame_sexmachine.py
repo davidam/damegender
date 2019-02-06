@@ -212,26 +212,33 @@ class DameSexmachine(Gender):
     # guess method to check names dictionary and nltk classifier
         guess = ''
         guess = super().guess(name, binary)
+        vector = self.features_int(name)
         if ((guess == 'unknown') | (guess == 2)):
             classifier = self.classifier()
             s = DameSexmachine()
+            vector = list(s.features_int(name).values())
             if (ml == "nltk"):
                 guess = classifier.classify(self.features(name))
             elif (ml == "svc"):
                 m = s.svc_load()
-                guess = m.predict(self.features_int(name))
+                predicted = m.predict([vector])
+                guess = predicted[0]
             elif (ml == "sgd"):
                 m = s.sgd_load()
-                guess = m.predict(self.features_int(name))
+                predicted = m.predict([vector])
+                guess = predicted[0]
             elif (ml == "gaussianNB"):
                 m = s.gaussianNB_load()
-                guess = m.predict(self.features_int(name))
+                predicted = m.predict([vector])
+                guess = predicted[0]
             elif (ml == "multinomialNB"):
                 m = s.multinomialNB_load()
-                guess = m.predict(self.features_int(name))
+                predicted = m.predict([vector])
+                guess = predicted[0]
             elif (ml == "bernoulliNB"):
                 m = s.bernoulliNB_load()
-                guess = m.predict(self.features_int(name))
+                predicted = m.predict([vector])
+                guess = predicted[0]
             if binary:
                 if (guess=='female'):
                     guess = 0
