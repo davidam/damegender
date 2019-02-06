@@ -71,6 +71,8 @@ class TddInPythonExample(unittest.TestCase):
         g = Gender()
         r = g.guess(name="David", binary=True)
         self.assertEqual(r, 1)
+        r = g.guess(name="Andrea", binary=True)
+        self.assertEqual(r, 2)
         r = g.guess(name="David", binary=False)
         self.assertEqual(r, "male")
         r = g.guess(name="Laura", binary=True)
