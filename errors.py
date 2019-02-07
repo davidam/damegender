@@ -32,7 +32,7 @@ from app.dame_nameapi import DameNameapi
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', default="files/min.csv")
-parser.add_argument('--api', default="sexmachine")
+parser.add_argument('--api', default="sexmachine", choices=['namsor', 'genderize', 'genderguesser', 'genderapi', 'nameapi'])
 args = parser.parse_args()
 #print(args.csv)
 
