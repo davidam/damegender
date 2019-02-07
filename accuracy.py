@@ -32,9 +32,9 @@ from app.dame_nameapi import DameNameapi
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', default="files/min.csv")
-parser.add_argument('--api', default="all")
+parser.add_argument('--api', default="damegender", choices=['namsor', 'genderize', 'genderguesser', 'damegender', 'genderapi', 'nameapi'])
+parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
 args = parser.parse_args()
-print(args.csv)
 
 if (args.api == "all"):
 
@@ -73,7 +73,7 @@ if (args.api == "all"):
     print("GenderGuesser accuracy: %s" % genderguesser_accuracy)
 
     ds = DameSexmachine()
-    print("################### Sexmachine!!")
+    print("################### Dame Gender!!")
     gl = ds.gender_list(path=args.csv)
     print("Gender list: " + str(gl))
     sl = ds.guess_list(path=args.csv, binary=True)
@@ -84,7 +84,7 @@ if (args.api == "all"):
 
     dga = DameGenderApi()
     print("################### GenderApi!!")
-    gl = dga.gender_list(path=args.csv)
+    gl = dga.gender_list(pat=args.csv)
     print("Gender list: " + str(gl))
 
     dna = DameNameapi()
@@ -127,15 +127,68 @@ elif (args.api == "genderguesser"):
     genderguesser_accuracy = dgg.accuracy_score_dame(gl,sl)
     print("GenderGuesser accuracy: %s" % genderguesser_accuracy)
 
-elif (args.api == "sexmachine"):
-    ds = DameSexmachine()
-    print("################### Sexmachine!!")
-    gl = ds.gender_list(path=args.csv)
-    print("Gender list: " + str(gl))
-    sl = ds.guess_list(path=args.csv, binary=True)
-    print("Guess list:  " +str(sl))
-    sexmachine_accuracy = ds.accuracy_score_dame(gl,sl)
-    print("Sexmachine accuracy: %s" % sexmachine_accuracy)
+elif (args.api == "damegender"):
+
+    # ds = DameSexmachine()
+    # print("################### Dame Gender!!")
+    # gl = ds.gender_list(path=args.csv)
+    # print("Gender list: " + str(gl))
+    # sl = ds.guess_list(path=args.csv, binary=True)
+    # print("Guess list:  " +str(sl))
+    # sexmachine_accuracy = ds.accuracy_score_dame(gl,sl)
+    # print("Sexmachine accuracy: %s" % sexmachine_accuracy)
+
+    if (args.ml == "nltk"):
+        ds = DameSexmachine()
+        print("################### NLTK!!")
+        gl1 = ds.gender_list(path=args.csv)
+        print("Gender list: " + str(gl1))
+        gl2 = ds.guess_list(path=args.csv, binary=True)
+        print("Guess list:  " +str(gl2))
+        nltk_accuracy = ds.accuracy_score_dame(gl1, gl2)
+        print("Dame Gender accuracy: %s" % nltk_accuracy)
+
+    elif (args.ml == "svc"):
+        ds = DameSexmachine()
+        print("################### Support Vector Machines!!")
+        gl1 = ds.gender_list(path=args.csv)
+        print("Gender list: " + str(gl1))
+        gl2 = ds.guess_list(path=args.csv, binary=True, ml="svc")
+        print("Guess list:  " +str(gl2))
+        svc_accuracy = ds.accuracy_score_dame(gl1, gl2)
+        print("Support Vector Machines accuracy: %s" % svc_accuracy)
+
+    elif (args.ml == "sgd"):
+        ds = DameSexmachine()
+        print("################### Stochastic Gradient Descent!!")
+        gl1 = ds.gender_list(path=args.csv)
+        print("Gender list: " + str(gl1))
+        gl2 = ds.guess_list(path=args.csv, binary=True, ml="sgd")
+        print("Guess list:  " +str(gl2))
+        sgd_accuracy = ds.accuracy_score_dame(gl1, gl2)
+        print("Stochastic Gradient Descendent accuracy: %s" % sgd_accuracy)
+
+    elif (args.ml == "gaussianNB"):
+        ds = DameSexmachine()
+        print("################### Gaussian Naive Bayes!!")
+        gl1 = ds.gender_list(path=args.csv)
+        print("Gender list: " + str(gl1))
+        gl2 = ds.guess_list(path=args.csv, binary=True, ml="gaussianNB")
+        print("Guess list:  " +str(gl2))
+        gaussianNB_accuracy = ds.accuracy_score_dame(gl1, gl2)
+        print("Gaussian Naive Bayes accuracy: %s" % gaussianNB_accuracy)
+
+    elif (args.ml == "multinomialNB"):
+        ds = DameSexmachine()
+        print("################### Multinomial Naive Bayes!!")
+        gl1 = ds.gender_list(path=args.csv)
+        print("Gender list: " + str(gl1))
+        gl2 = ds.guess_list(path=args.csv, binary=True, ml="multinomialNB")
+        print("Guess list:  " +str(gl2))
+        multinomialNB_accuracy = ds.accuracy_score_dame(gl1, gl2)
+        print("Multinomial Naive Bayes accuracy: %s" % multinomialNB_accuracy)
+
+
 
 elif (args.api == "genderapi"):
     dga = DameGenderApi()
