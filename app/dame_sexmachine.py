@@ -255,6 +255,18 @@ class DameSexmachine(Gender):
                     guess = 'unknown'
         return guess
 
+    def guess_list(self, path='files/partial.csv', binary=False, ml="nltk"):
+    # guess list method
+        slist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                name = row[0].title()
+                name = name.replace('\"','')
+                slist.append(self.guess(name, binary, ml=ml))
+        return slist
+
     def num_females(self, url, directory):
     # Extracting females with perceval
         gg = GenderGit()

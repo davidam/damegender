@@ -139,6 +139,11 @@ class TddInPythonExample(unittest.TestCase):
         gl = s.gender_list(path="files/all.csv")
         self.assertTrue(len(gl) > 1000)
 
+    def test_dame_gender_guess_list_method_returns_correct_result(self):
+        ds = DameSexmachine()
+        self.assertEqual(['male', 'male', 'male', 'male', 'female', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'female', 'male', 'male', 'male', 'female', 'male', 'male'], ds.guess_list(path="files/partial.csv", binary=False))
+        self.assertEqual([1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1], ds.guess_list(path="files/partial.csv", binary=True, ml="nltk"))
+
     def test_sexmachine_accuracy_method_returns_correct_result(self):
         s = DameSexmachine()
         self.assertTrue(s.accuracy(path="files/partial.csv") > 0.5)
