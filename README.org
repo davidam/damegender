@@ -5,6 +5,14 @@
 * Name
 damegender is a gender detection tool coded by David Arroyo MEnéndez (DAME)
 
+* Why?
++ If you want determine gender gap in free software projects or mailing lists.
++ If you don't know the gender about a name in spanish or english (current status).
++ If you want research with statistics about why a name is related with males or females.
+
+DAMe Gender is for you!
+
+
 * Install
 ** Installing Software
 #+BEGIN_SRC sh
@@ -15,8 +23,16 @@ $ pip3 install -r requirements.txt
 #+END_SRC
 ** Obtaining an api key
 
-Currently you need an api key from https://store.genderize.io/documentation
-You must copy the api key in gender/files/genderapipass.txt
+Currently you can need an api key from:
++ https://store.genderize.io/documentation
++ https://gender-api.com
++ https://www.nameapi.org/
+
+You can execute:
+#+BEGIN_SRC
+$ python3 apikeyadd.py
+#+END_SRC
+To configure your api key
 
 ** Configuring nltk
 
