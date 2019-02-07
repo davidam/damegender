@@ -147,7 +147,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(os.path.isfile("files/features_list_cat.csv"))
         self.assertTrue(os.path.isfile("files/features_list_no_cat.csv"))
 
-    def test_dame_gender_dame_accuracy_score_method_returns_correct_result(self):
+    def test_dame_gender_dame_accuracy_score_dame_method_returns_correct_result(self):
        g = Gender()
        score1 = g.accuracy_score_dame([1, 1], [1, 1])
        self.assertEqual(score1, 1)
@@ -155,6 +155,8 @@ class TddInPythonExample(unittest.TestCase):
        self.assertEqual(score2, 0.75)
        score3 = g.accuracy_score_dame([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
        self.assertEqual(score3, 1)
+       score4 = g.accuracy_score_dame([1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1], [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
+       self.assertEqual(score4, 1)
 
     def test_dame_gender_count_true2guess_method_returns_correct_result(self):
         g = Gender()
