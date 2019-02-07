@@ -92,6 +92,8 @@ class TddInPythonExample(unittest.TestCase):
         g = DameSexmachine()
         self.assertEqual(['male', 'male', 'male', 'male', 'female', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'female', 'male', 'male', 'male', 'female', 'male', 'male'], g.guess_list(path="files/partial.csv", binary=False))
         self.assertEqual([1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1], g.guess_list(path="files/partial.csv",binary=True))
+        self.assertEqual([1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1], g.guess_list(path="files/partial.csv",binary=True, ml="nltk"))
+        self.assertEqual([0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0], g.guess_list(path="files/partial.csv",binary=True, ml="sgd"))
 
     def test_sexmachine_features_int_method_returns_correct_result(self):
         s = DameSexmachine()
