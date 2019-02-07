@@ -47,6 +47,16 @@ if (args.ml == "nltk"):
     nltk_accuracy = ds.accuracy_score_dame(gl1, gl2)
     print("Dame Gender accuracy: %s" % nltk_accuracy)
 
+elif (args.ml == "svc"):
+    ds = DameSexmachine()
+    print("################### Support Vector Machines!!")
+    gl1 = ds.gender_list(path=args.csv)
+    print("Gender list: " + str(gl1))
+    gl2 = ds.guess_list(path=args.csv, binary=True, ml="svc")
+    print("Guess list:  " +str(gl2))
+    svc_accuracy = ds.accuracy_score_dame(gl1, gl2)
+    print("Support Vector Machines accuracy: %s" % svc_accuracy)
+
 elif (args.ml == "sgd"):
     ds = DameSexmachine()
     print("################### Stochastic Gradient Descent!!")
