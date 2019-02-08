@@ -55,6 +55,19 @@ class DameGenderize(Gender):
             guess = g
         return guess
 
+    def prob(self, name, binary=False, apifile=""):
+    # guess method to check names dictionary
+        if (self.config['DEFAULT']['genderize'] == 'no'):
+            v = Genderize().get([name])
+        elif (self.config['DEFAULT']['genderize'] == 'yes'):
+            fichero = open(apifile, "r+")
+            apikey = fichero.readline().rstrip()
+            v = Genderize(
+                user_agent='GenderizeDocs/0.0',
+                api_key=apikey).get([name])
+        prob = v[0]['probability']
+        return prob
+
     def guess_list(self, path='files/partial.csv', binary=False):
     # guess list method
         slist = []
@@ -93,5 +106,3 @@ class DameGenderize(Gender):
                 elif ((item['gender'] == "female") & (not binary) ):
                     slist.append("female")
         return slist
-
-
