@@ -117,6 +117,14 @@ Sexmachine confusion matrix:
  [ 2 14  0]
  [ 1  1  0]]
 
+# To analyze errors guessing names from a csv
+$ python3 errors.py --csv="files/all.csv" --api="genderguesser"
+Gender Guesser with files/all.csv has:
++ The error code: 0.22564457518601835
++ The error code without na: 0.026539047204698716
++ The na coded: 0.20453365634192766
++ The error gender bias: 0.0026103980857080703
+
 # To deploy a graph about correlation between variables
 $ python3 corr.py
 $ python3 corr.py --csv="categorical"
