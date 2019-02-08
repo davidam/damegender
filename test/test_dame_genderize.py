@@ -31,6 +31,10 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(gg.guess("David"), "male")
         self.assertEqual(gg.guess("David", binary=True), 1)
 
+    def test_dame_genderize_prob_method_returns_correct_result(self):
+        gg = DameGenderize()
+        self.assertEqual(gg.prob("David", binary=True), 1.0)
+
     def test_dame_genderize_guess_file_method_returns_correct_result(self):
         gg = DameGenderize()
         self.assertEqual(gg.guess("David", binary=True), 1)
