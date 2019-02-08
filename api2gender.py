@@ -32,11 +32,14 @@ parser = argparse.ArgumentParser()
 parser.add_argument('name', help="Name to be detected")
 parser.add_argument('--surname', help="Surname is required in namsor")
 parser.add_argument("--api", choices=['namsor', 'genderize', 'genderguesser', 'genderapi', 'nameapi'])
+parser.add_argument('--prob', default="yes", choices=['yes', 'no'])
 parser.add_argument('--version', action='version', version='0.1')
 
 args = parser.parse_args()
-if (len(sys.argv) > 1):
 
+
+
+if (len(sys.argv) > 1):
     if (args.api == "genderguesser"):
         dgg = DameGenderGuesser()
         print(dgg.guess(args.name))
@@ -46,6 +49,7 @@ if (len(sys.argv) > 1):
     elif (args.api == "genderize"):
         dg = DameGenderize()
         print(dg.guess(args.name))
+        print(dg.prob(args.name))
     elif (args.api == "namsor"):
         dn = DameNamsor()
         print(dn.guess(str(args.name), str(args.surname)))
