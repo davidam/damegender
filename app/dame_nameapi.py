@@ -31,13 +31,15 @@ from app.dame_gender import Gender
 
 class DameNameapi(Gender):
 
-    def guess(self, name, surname, binary=False):
+    def get(self, name, surname, binary=False):
     # guess method to check names dictionary
         nameapilist = []
         config = configparser.RawConfigParser()
         config.read('config.cfg')
+        guess = ""
+        confidence = ""
         if (config['DEFAULT']['nameapi'] == 'yes'):
-            fichero = open("files/nameapipass.txt", "r+")
+            fichero = open('files/nameapipass.txt', "r+")
             contenido = fichero.readline().rstrip()
             #print(contenido)
 
@@ -62,7 +64,8 @@ class DameNameapi(Gender):
                             }
                         ]
                     },
-                    "gender": "UNKNOWN"
+                    "gender": "UNKNOWN",
+                    "confidence": "UNKNOW"
                 }
             }
 
@@ -79,6 +82,7 @@ class DameNameapi(Gender):
                 # Decode JSON response into a Python dict:
                 resp_dict = resp.json()
                 guess = resp_dict['matches'][0]['parsedPerson']['gender']['gender'].lower()
+                confidence = resp_dict['matches'][0]['parsedPerson']['gender']['confidence']
                 if (binary == True):
                     if (guess == 'female'):
                         guess = 0
@@ -95,7 +99,15 @@ class DameNameapi(Gender):
                 guess = 2
             else:
                 guess = "unknown"
-        return guess
+        return [guess, confidence]
+
+    def guess(self, name, surname, binary=False):
+        v = self.get(name, surname, binary)
+        return v[0]
+
+    def confidence(self, name, surname, binary=False):
+        v = self.get(name, surname, binary)
+        return v[1]
 
     def guess_list(self, path='files/partial.csv', binary=False):
     # guess list method
