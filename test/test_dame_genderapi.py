@@ -34,8 +34,10 @@ class TddInPythonExample(unittest.TestCase):
         config = configparser.RawConfigParser()
         config.read('config.cfg')
         if (config['DEFAULT']['genderapi'] == 'yes'):
-            v = dga.get("Diana", binary=False)
-            self.assertEqual(v, ["female", 93])
+            v = dga.get("Diana")
+            self.assertEqual(v[0], "female")
+            self.assertTrue(v[1] > 90)
+            self.assertEqual(len(v), 2)
 
     def test_dame_genderapi_guess_method_returns_correct_result(self):
         dga = DameGenderApi()
@@ -44,18 +46,18 @@ class TddInPythonExample(unittest.TestCase):
         if (config['DEFAULT']['genderapi'] == 'yes'):
             g = dga.guess("Sara", binary=False)
             self.assertEqual(g, "female")
+            g = dga.guess("Paula", binary=False)
+            self.assertEqual(g, "female")
             g = dga.guess("Sara", binary=True)
             self.assertEqual(g, 0)
 
-    def test_dame_genderapi_guess_method_returns_correct_result(self):
+    def test_dame_genderapi_accuracy_method_returns_correct_result(self):
         dga = DameGenderApi()
         config = configparser.RawConfigParser()
         config.read('config.cfg')
         if (config['DEFAULT']['genderapi'] == 'yes'):
-            g = dga.accuracy("Sara")
-            self.assertEqual(g, "female")
-            g = dga.guess("Sara", binary=True)
-            self.assertEqual(g, 0)
+            acc = dga.accuracy("Diana")
+            self.assertTrue(acc > 90)
 
 
     def test_dame_genderapi_guess_list_method_returns_correct_result(self):
