@@ -22,7 +22,6 @@
 # Boston, MA 02110-1301 USA,
 
 import unittest
-import configparser
 from app.dame_genderapi import DameGenderApi
 
 
