@@ -27,37 +27,42 @@ from app.dame_genderize import DameGenderize
 class TddInPythonExample(unittest.TestCase):
 
     def test_dame_genderize_guess_method_returns_correct_result(self):
-        gg = DameGenderize()
-        self.assertEqual(gg.guess("David"), "male")
-        self.assertEqual(gg.guess("David", binary=True), 1)
+        dg = DameGenderize()
+        if (dg.config['DEFAULT']['genderize'] == 'yes'):
+            self.assertEqual(dg.guess("David"), "male")
+            self.assertEqual(dg.guess("David", binary=True), 1)
 
     def test_dame_genderize_prob_method_returns_correct_result(self):
-        gg = DameGenderize()
-        self.assertEqual(gg.prob("David", binary=True), 1.0)
+        dg = DameGenderize()
+        if (dg.config['DEFAULT']['genderize'] == 'yes'):
+            self.assertEqual(dg.prob("David", binary=True), 1.0)
 
     def test_dame_genderize_guess_file_method_returns_correct_result(self):
-        gg = DameGenderize()
-        self.assertEqual(gg.guess("David", binary=True), 1)
+        dg = DameGenderize()
+        if (dg.config['DEFAULT']['genderize'] == 'yes'):
+            self.assertEqual(dg.guess("David", binary=True), 1)
 
     def test_dame_genderize_gender_list_method_returns_correct_result(self):
-        gg = DameGenderize()
-        gl = gg.gender_list()
-        self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
-        self.assertEqual(len(gl), 21)
-        self.assertEqual(gg.females, 3)
-        self.assertEqual(gg.males, 16)
-        self.assertEqual(gg.unknown, 2)
+        dg = DameGenderize()
+        if (dg.config['DEFAULT']['genderize'] == 'yes'):
+            gl = dg.gender_list()
+            self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
+            self.assertEqual(len(gl), 21)
+            self.assertEqual(dg.females, 3)
+            self.assertEqual(dg.males, 16)
+            self.assertEqual(dg.unknown, 2)
 
     def test_dame_genderize_guess_list_method_returns_correct_result(self):
-        gg = DameGenderize()
-        self.assertEqual(['male', 'male', 'male', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male'], gg.guess_list(path="files/partial.csv", binary=False)[0:10])
-        self.assertEqual([1, 1, 1, 1, 2, 1, 0, 0, 1, 1], gg.guess_list(path="files/partial.csv",binary=True)[0:10])
+        dg = DameGenderize()
+        if (dg.config['DEFAULT']['genderize'] == 'yes'):
+            self.assertEqual(['male', 'male', 'male', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male'], dg.guess_list(path="files/partial.csv", binary=False)[0:10])
+            self.assertEqual([1, 1, 1, 1, 2, 1, 0, 0, 1, 1], dg.guess_list(path="files/partial.csv",binary=True)[0:10])
 
     def test_dame_genderize_guess_list_method_returns_correct_result(self):
-        gg = DameGenderize()
-        self.assertEqual(['male', 'male', 'male', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male'], gg.guess_list(path="files/partial.csv", binary=False)[0:10])
-        self.assertEqual([1, 1, 1, 1, 2, 1, 0, 0, 1, 1], gg.guess_list(path="files/partial.csv",binary=True)[0:10])
-
+        dg = DameGenderize()
+        if (dg.config['DEFAULT']['genderize'] == 'yes'):
+            self.assertEqual(['male', 'male', 'male', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male'], dg.guess_list(path="files/partial.csv", binary=False)[0:10])
+            self.assertEqual([1, 1, 1, 1, 2, 1, 0, 0, 1, 1], dg.guess_list(path="files/partial.csv",binary=True)[0:10])
 
 
     # def test_dame_genderize_confusion_matrix_dame_method_returns_correct_result(self):
