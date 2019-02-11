@@ -28,6 +28,7 @@ import hyphen
 import unidecode
 import unicodedata
 import numpy as np
+import configparser
 import os
 import re
 from collections import OrderedDict
@@ -39,6 +40,8 @@ from sklearn.decomposition import PCA
 class Gender(object):
 # That's the root class in the heritage, apis classes and sexmachine is inheriting from gender
     def __init__(self):
+        self.config = configparser.RawConfigParser()
+        self.config.read('config.cfg')
         self.males = 0
         self.females = 0
         self.unknown = 0
