@@ -34,12 +34,10 @@ class DameNameapi(Gender):
     def get(self, name, surname, binary=False):
     # guess method to check names dictionary
         nameapilist = []
-        config = configparser.RawConfigParser()
-        config.read('config.cfg')
         guess = ""
         confidence = ""
-        if (config['DEFAULT']['nameapi'] == 'yes'):
-            fichero = open('files/nameapipass.txt', "r+")
+        if (self.config['DEFAULT']['nameapi'] == 'yes'):
+            fichero = open(self.config['DEFAULT']['nameapifile'], "r+")
             contenido = fichero.readline().rstrip()
             #print(contenido)
 
