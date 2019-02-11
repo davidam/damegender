@@ -29,6 +29,14 @@ from app.dame_genderapi import DameGenderApi
 class TddInPythonExample(unittest.TestCase):
 
 
+    def test_dame_genderapi_get_method_returns_correct_result(self):
+        dga = DameGenderApi()
+        config = configparser.RawConfigParser()
+        config.read('config.cfg')
+        if (config['DEFAULT']['genderapi'] == 'yes'):
+            v = dga.get("Diana", binary=False)
+            self.assertEqual(v, ["female", 93])
+
     def test_dame_genderapi_guess_method_returns_correct_result(self):
         dga = DameGenderApi()
         config = configparser.RawConfigParser()
@@ -38,6 +46,17 @@ class TddInPythonExample(unittest.TestCase):
             self.assertEqual(g, "female")
             g = dga.guess("Sara", binary=True)
             self.assertEqual(g, 0)
+
+    def test_dame_genderapi_guess_method_returns_correct_result(self):
+        dga = DameGenderApi()
+        config = configparser.RawConfigParser()
+        config.read('config.cfg')
+        if (config['DEFAULT']['genderapi'] == 'yes'):
+            g = dga.accuracy("Sara")
+            self.assertEqual(g, "female")
+            g = dga.guess("Sara", binary=True)
+            self.assertEqual(g, 0)
+
 
     def test_dame_genderapi_guess_list_method_returns_correct_result(self):
         dga = DameGenderApi()
