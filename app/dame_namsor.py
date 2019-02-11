@@ -30,20 +30,31 @@ from app.dame_gender import Gender
 
 class DameNamsor(Gender):
 
-    def guess(self, name, surname, binary=False):
-    # guess method to check names dictionary
+    def get(self, name, surname, binary=False):
+    # obtaining data from namsor
         namsorlist = []
         r = requests.get('https://api.namsor.com/onomastics/api/json/gender/'+ name +'/' + surname)
         d = json.loads(r.text)
-        if ((d['gender'] == 'female') and binary):
+        v = [d['gender'], d['scale']]
+        return v
+
+    def guess(self, name, surname, binary=False):
+    # guess method to check names dictionary
+        v = self.get(name, surname)
+        if ((v[0] == 'female') and binary):
             guess = 0
-        elif ((d['gender'] == 'male') and binary):
+        elif ((v[0] == 'male') and binary):
             guess = 1
-        elif ((d['gender'] == 'unknown') and binary):
+        elif ((v[0] == 'unknown') and binary):
             guess = 2
         else:
-            guess = d['gender']
+            guess = v[0]
         return guess
+
+    def scale(self, name, surname):
+    # scale is a probability measure
+        v = self.get(name, surname)
+        return v[1]
 
     def guess_list(self, path='files/partial.csv', binary=False):
     # guess list method
