@@ -24,14 +24,12 @@
 import csv
 import requests
 import json
-import configparser
 from app.dame_gender import Gender
 
 class DameGenderApi(Gender):
+
     def get(self, name):
-        config = configparser.RawConfigParser()
-        config.read('config.cfg')
-        if (config['DEFAULT']['genderapi'] == 'yes'):
+        if (self.config['DEFAULT']['genderapi'] == 'yes'):
             fichero = open("files/genderapipass.txt", "r+")
             contenido = fichero.readline()
             r = requests.get('https://gender-api.com/get?name='+name+'&key='+contenido)
@@ -41,7 +39,7 @@ class DameGenderApi(Gender):
 
     def guess(self, name, binary=False):
         v = self.get(name)
-        if (config['DEFAULT']['genderapi'] == 'yes'):
+        if (self.config['DEFAULT']['genderapi'] == 'yes'):
             guess = v[0]
             if (guess == 'male'):
                 if binary:
