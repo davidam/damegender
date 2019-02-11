@@ -25,12 +25,13 @@ from app.dame_genderguesser import DameGenderGuesser
 from app.dame_genderapi import DameGenderApi
 from app.dame_genderize import DameGenderize
 from app.dame_namsor import DameNamsor
+from app.dame_nameapi import DameNameapi
 from app.dame_all import DameAll
 import sys
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('name', help="Name to be detected")
-parser.add_argument('--surname', help="Surname is required in namsor")
+parser.add_argument('--surname', help="Surname to be detected")
 parser.add_argument("--api", choices=['namsor', 'genderize', 'genderguesser', 'genderapi', 'nameapi'])
 #parser.add_argument('--prob', default="yes", choices=['yes', 'no'])
 parser.add_argument('--version', action='version', version='0.1')
@@ -54,11 +55,9 @@ if (len(sys.argv) > 1):
         print(dn.guess(str(args.name), str(args.surname)))
         print("scale: " + str(dn.scale(str(args.name), str(args.surname))))
     elif (args.api == "nameapi"):
-        if (args.surname != ""):
-            dn = DameNameapi()
-            print(dn.guess(str(args.name), str(args.surname)))
-        else:
-            print("In nameapi, you must provide a surname")
+        dn = DameNameapi()
+        print(dn.guess(str(args.name), str(args.surname)))
+        print("confidence: " + str(dn.confidence(str(args.name), str(args.surname))))
     elif (args.api == "average"):
         da = DameAll()
         average = da.average(args.name, args.surname)
