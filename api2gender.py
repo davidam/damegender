@@ -32,12 +32,10 @@ parser = argparse.ArgumentParser()
 parser.add_argument('name', help="Name to be detected")
 parser.add_argument('--surname', help="Surname is required in namsor")
 parser.add_argument("--api", choices=['namsor', 'genderize', 'genderguesser', 'genderapi', 'nameapi'])
-parser.add_argument('--prob', default="yes", choices=['yes', 'no'])
+#parser.add_argument('--prob', default="yes", choices=['yes', 'no'])
 parser.add_argument('--version', action='version', version='0.1')
 
 args = parser.parse_args()
-
-
 
 if (len(sys.argv) > 1):
     if (args.api == "genderguesser"):
@@ -45,15 +43,16 @@ if (len(sys.argv) > 1):
         print(dgg.guess(args.name))
     elif (args.api == "genderapi"):
         dga = DameGenderApi()
-        print(dga.guess(args.name))
+        print(dga.guess(args.name, binary=False))
+        print("accuracy: " + str(dga.accuracy(args.name)))
     elif (args.api == "genderize"):
         dg = DameGenderize()
         print(dg.guess(args.name))
-        print(dg.prob(args.name))
+        print("probability: " + str(dg.prob(args.name)))
     elif (args.api == "namsor"):
         dn = DameNamsor()
         print(dn.guess(str(args.name), str(args.surname)))
-        print(dn.scale(str(args.name), str(args.surname)))
+        print("scale: " + str(dn.scale(str(args.name), str(args.surname))))
     elif (args.api == "nameapi"):
         if (args.surname != ""):
             dn = DameNameapi()
@@ -63,4 +62,4 @@ if (len(sys.argv) > 1):
     elif (args.api == "average"):
         da = DameAll()
         average = da.average(args.name, args.surname)
-        print(str(average))
+        print("average: " + str(average))
