@@ -53,6 +53,7 @@ if (len(sys.argv) > 1):
     elif (args.api == "namsor"):
         dn = DameNamsor()
         print(dn.guess(str(args.name), str(args.surname)))
+        print(dn.scale(str(args.name), str(args.surname)))
     elif (args.api == "nameapi"):
         if (args.surname != ""):
             dn = DameNameapi()
