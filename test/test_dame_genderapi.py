@@ -31,9 +31,7 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_genderapi_get_method_returns_correct_result(self):
         dga = DameGenderApi()
-        config = configparser.RawConfigParser()
-        config.read('config.cfg')
-        if (config['DEFAULT']['genderapi'] == 'yes'):
+        if (dga.config['DEFAULT']['genderapi'] == 'yes'):
             v = dga.get("Diana")
             self.assertEqual(v[0], "female")
             self.assertTrue(v[1] > 90)
@@ -41,9 +39,7 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_genderapi_guess_method_returns_correct_result(self):
         dga = DameGenderApi()
-        config = configparser.RawConfigParser()
-        config.read('config.cfg')
-        if (config['DEFAULT']['genderapi'] == 'yes'):
+        if (dga.config['DEFAULT']['genderapi'] == 'yes'):
             g = dga.guess("Sara", binary=False)
             self.assertEqual(g, "female")
             g = dga.guess("Paula", binary=False)
@@ -53,18 +49,14 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_genderapi_accuracy_method_returns_correct_result(self):
         dga = DameGenderApi()
-        config = configparser.RawConfigParser()
-        config.read('config.cfg')
-        if (config['DEFAULT']['genderapi'] == 'yes'):
+        if (dga.config['DEFAULT']['genderapi'] == 'yes'):
             acc = dga.accuracy("Diana")
             self.assertTrue(acc > 90)
 
 
     def test_dame_genderapi_guess_list_method_returns_correct_result(self):
         dga = DameGenderApi()
-        config = configparser.RawConfigParser()
-        config.read('config.cfg')
-        if (config['DEFAULT']['genderapi'] == 'yes'):
+        if (dga.config['DEFAULT']['genderapi'] == 'yes'):
             self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'female', 'male', 'male'], dga.guess_list(path="files/partial.csv", binary=False))
             self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1], dga.guess_list(path="files/partial.csv",binary=True))
 
