@@ -32,16 +32,13 @@ from sklearn.metrics import confusion_matrix
 
 
 class DameGenderize(Gender):
-    def __init__(self):
-        self.config = configparser.RawConfigParser()
-        self.config.read('config.cfg')
 
-    def guess(self, name, binary=False, apifile=""):
+    def guess(self, name, binary=False):
     # guess method to check names dictionary
         if (self.config['DEFAULT']['genderize'] == 'no'):
             v = Genderize().get([name])
         elif (self.config['DEFAULT']['genderize'] == 'yes'):
-            fichero = open(apifile, "r+")
+            fichero = open(self.config['DEFAULT']['genderizefile'], "r+")
             apikey = fichero.readline().rstrip()
             v = Genderize(
                 user_agent='GenderizeDocs/0.0',
@@ -55,12 +52,12 @@ class DameGenderize(Gender):
             guess = g
         return guess
 
-    def prob(self, name, binary=False, apifile=""):
+    def prob(self, name, binary=False):
     # guess method to check names dictionary
         if (self.config['DEFAULT']['genderize'] == 'no'):
             v = Genderize().get([name])
         elif (self.config['DEFAULT']['genderize'] == 'yes'):
-            fichero = open(apifile, "r+")
+            fichero = open(self.config['DEFAULT']['genderizefile'], "r+")
             apikey = fichero.readline().rstrip()
             v = Genderize(
                 user_agent='GenderizeDocs/0.0',
