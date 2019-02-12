@@ -193,11 +193,21 @@ class TddInPythonExample(unittest.TestCase):
         v2 = [2, 0, 1, 1]
         self.assertEqual(g.na_coded(v1, v2), 0.25)
 
+    def test_dame_gender_ine_frec_method_returns_correct_result(self):
+        g = Gender()
+        ines = g.ine_frec("INES")
+        self.assertEqual(ines['females'], 61337)
+        self.assertEqual(ines['males'], 0)
+        bea = g.ine_frec("BEATRIZ")
+        self.assertTrue(bea['females'] > 10)
+
+
     def test_dame_gender_error_gender_bias_method_returns_correct_result(self):
         g = Gender()
         v1 = [0, 1, 1, 1]
         v2 = [0, 0, 1, 1]
         self.assertEqual(g.error_gender_bias(v1, v2), 0.25)
+
 
     # def test_dame_gender_weighted_error_method_returns_correct_result(self):
     #     g = Gender()
