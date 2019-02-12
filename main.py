@@ -28,11 +28,12 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
+parser.add_argument('--ine', default="yes", choices=['yes', 'no'])
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 if (len(sys.argv) > 1):
+    s = DameSexmachine()
     if (args.ml):
-        s = DameSexmachine()
         #print(s.guess("Palabra", binary=True, ml="svc"))
         if (args.ml == "nltk"):
             guess = s.guess(args.name, binary=True, ml="nltk")
@@ -50,5 +51,6 @@ if (len(sys.argv) > 1):
             sex = "female"
         print("%s gender is %s" % (str(args.name), sex))
     else:
-        s = DameSexmachine()
         print("%s's gender is %s" % (str(args.name), s.guess(args.name)))
+    print("%s males for %s from INE.es" % (s.ine_frec(args.name)['males'], args.name))
+    print("%s females for %s from INE.es" % (s.ine_frec(args.name)['females'], args.name))
