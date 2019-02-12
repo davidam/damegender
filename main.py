@@ -28,7 +28,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
-parser.add_argument('--ine', default="yes", choices=['yes', 'no'])
+parser.add_argument('--ine', default="no", choices=['yes', 'no'])
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 if (len(sys.argv) > 1):
@@ -52,5 +52,6 @@ if (len(sys.argv) > 1):
         print("%s gender is %s" % (str(args.name), sex))
     else:
         print("%s's gender is %s" % (str(args.name), s.guess(args.name)))
-    print("%s males for %s from INE.es" % (s.ine_frec(args.name)['males'], args.name))
-    print("%s females for %s from INE.es" % (s.ine_frec(args.name)['females'], args.name))
+    if (args.ine == "yes"):
+        print("%s males for %s from INE.es" % (s.ine_frec(args.name)['males'], args.name))
+        print("%s females for %s from INE.es" % (s.ine_frec(args.name)['females'], args.name))
