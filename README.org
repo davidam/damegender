@@ -59,6 +59,11 @@ $ nosetests3 test/test_dame_sexmachine.py:TddInPythonExample.test_string2array_m
 # Detect gender from a name
 $ python3 main.py David
 male
+$ python main.py David --ine="yes"
+david gender is male
+363.559  males for david from INE.es
+0 females for david from INE.es
+
 # Detect gender from a name only using machine learning (experimental way)
 $ python3 main.py David --ml=multinomialNB
 male
