@@ -31,11 +31,12 @@ import numpy as np
 import configparser
 import os
 import re
+import sys
 from collections import OrderedDict
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 from sklearn.decomposition import PCA
-
+from app.dame_utils import DameUtils
 
 class Gender(object):
 # That's the root class in the heritage, apis classes and sexmachine is inheriting from gender
@@ -370,20 +371,22 @@ class Gender(object):
         f.close()
 
     def ine_frec(self, name):
+        du = DameUtils()
+        name = du.drop_accents(name)
         file_males = open('files/names_es/masculinos_original.csv', 'r')
         inereader_males = csv.reader(file_males, delimiter=',', quotechar='|')
         males = 0
         for row in inereader_males:
-            if (row[1].lower() == name):
+            if ((len(row)>1) and (row[1].lower() == name.lower())):
                 males = row[2]
-                males = "{0:.2f}".format(males)
+                males = du.drop_dots(males)
         file_females = open('files/names_es/femeninos_original.csv', 'r')
         inereader_females = csv.reader(file_females, delimiter=',', quotechar='|')
         females = 0
         for row in inereader_females:
-            if (row[1].lower() == name.lower()):
+            if ((len(row) > 1) and (row[1].lower() == name.lower())):
                 females = row[2]
-                females = "{0:.2f}".format(females)
+                females = du.drop_dots(females)
         ine_dicc = {"females": females, "males": males}
         return ine_dicc
 
