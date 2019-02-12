@@ -21,6 +21,8 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+import unicodedata
+
 class DameUtils():
     def split(self, arr, size):
         arrs = []
@@ -30,3 +32,10 @@ class DameUtils():
             arr = arr[size:]
         arrs.append(arr)
         return arrs
+
+    def drop_dots(self, s):
+        aux = ""
+        for c in unicodedata.normalize('NFD', str(s)):
+            if (c != '.'):
+                aux = aux + c
+        return aux

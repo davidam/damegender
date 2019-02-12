@@ -24,10 +24,13 @@
 import unittest
 from app.dame_utils import DameUtils
 
-
 class TddInPythonExample(unittest.TestCase):
     def test_split_method_returns_correct_result(self):
         u = DameUtils()
         x= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
         sp = u.split(x, 5)
         self.assertEqual(sp, [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13]])
+
+    def test_drop_dots_method_returns_correct_result(self):
+        u = DameUtils()
+        self.assertEqual(1212, int(u.drop_dots(12.12)))
