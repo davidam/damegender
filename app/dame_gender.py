@@ -369,6 +369,24 @@ class Gender(object):
             f.write(line+str(i[count])+"\n")
         f.close()
 
+    def ine_frec(self, name):
+        file_males = open('files/names_es/masculinos_original.csv', 'r')
+        inereader_males = csv.reader(file_males, delimiter=',', quotechar='|')
+        males = 0
+        for row in inereader_males:
+            if (row[1].lower() == name):
+                males = row[2]
+                males = "{0:.2f}".format(males)
+        file_females = open('files/names_es/femeninos_original.csv', 'r')
+        inereader_females = csv.reader(file_females, delimiter=',', quotechar='|')
+        females = 0
+        for row in inereader_females:
+            if (row[1].lower() == name.lower()):
+                females = row[2]
+                females = "{0:.2f}".format(females)
+        ine_dicc = {"females": females, "males": males}
+        return ine_dicc
+
     def pca(self, path='files/partial.csv'):
         X = np.array(self.features_list())
         pca = PCA(n_components=2)
