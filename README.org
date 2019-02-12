@@ -82,8 +82,9 @@ $ wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
 $ cd ..
 $ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
 # Use an api to detect the gender
-$ python3 api2gender.py David --api=genderguesser
-male
+$ python3 api2gender.py Leticia --api=namsor
+female
+scale: 0.99
 # Give me informative features
 $ python3 infofeatures.py
 Females with last letter a: 0.4705246078961601
