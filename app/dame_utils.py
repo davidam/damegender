@@ -39,3 +39,6 @@ class DameUtils():
             if (c != '.'):
                 aux = aux + c
         return aux
+
+    def drop_accents(self, s):
+        return ''.join((c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn'))
