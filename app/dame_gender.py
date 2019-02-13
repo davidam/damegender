@@ -219,6 +219,16 @@ class Gender(object):
             i = i +1
         return count
 
+    def recall(self, truevector, guessvector):
+        result = 0
+        self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
+        self.femalemale = self.count_true2guess(truevector, guessvector, 0, 1)
+        self.femaleundefined = self.count_true2guess(truevector, guessvector, 0, 2)
+        self.malefemale = self.count_true2guess(truevector, guessvector, 1, 0)
+        self.malemale = self.count_true2guess(truevector, guessvector, 1, 1)
+        self.maleundefined = self.count_true2guess(truevector, guessvector, 1, 2)
+        result = (self.femalefemale + self.malemale ) / (self.femalefemale + self.malemale + self.femalemale + self.malefemale)
+
     def error_coded(self, truevector, guessvector):
         result = 0
         self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
