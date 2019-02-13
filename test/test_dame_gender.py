@@ -196,10 +196,10 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_gender_ine_frec_method_returns_correct_result(self):
         g = Gender()
         ines = g.ine_frec("INES")
-        self.assertEqual(ines['females'], 61337)
-        self.assertEqual(ines['males'], 0)
+        self.assertEqual(int(ines['females']), 61337)
+        self.assertEqual(int(ines['males']), 0)
         bea = g.ine_frec("BEATRIZ")
-        self.assertTrue(bea['females'] > 10)
+        self.assertTrue(int(bea['females']) > 10)
 
 
     def test_dame_gender_error_gender_bias_method_returns_correct_result(self):
