@@ -400,9 +400,9 @@ class Gender(object):
         ine_dicc = {"females": females, "males": males}
         return ine_dicc
 
-    def pca(self, path='files/partial.csv'):
+    def pca(self, path='files/partial.csv', n=2):
         X = np.array(self.features_list())
-        pca = PCA(n_components=2)
+        pca = PCA(n_components=n)
         return pca.fit(X)
 
 
