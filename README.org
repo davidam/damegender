@@ -14,7 +14,6 @@ damegender is a gender detection tool coded by David Arroyo MEnéndez (DAME)
 
 DAMe Gender is for you!
 
-
 * Install
 ** Installing Software
 #+BEGIN_SRC sh
@@ -140,3 +139,103 @@ $ python3 corr.py --csv="nocategorical"
 # To create the pickle models in files directory
 $ python3 damemodels.py
 #+END_SRC
+* Statistics for damegender
+Some theory could be useful to understand some commands
+** Errors and Confusion Matrix
+Guessing the sex, we have an true idea (example: female) and we obtain
+a result, the guessed result (example: female). We have written
+count_true2guess to make statistics variables about it.
+
+So, recall is about true positives:
+
+(self.femalefemale + self.malemale ) / (self.femalefemale + self.malemale + self.femalemale + self.malefemale)
+
+Error coded is about the true is different than the guessed:
+
+(self.femalemale + self.malefemale + self.maleundefined + self.femaleundefined) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale + self.maleundefined + self.femaleundefined)
+
+Error coded without na is about the true is different than the guessed, but without undefined results.
+
+(self.maleundefined + self.femaleundefined) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale + self.maleundefined + self.femaleundefined)
+
+Error gender bias is to understand if the error is bigger guessing males than females or viceversa.
+
+(self.malefemale - self.femalemale) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale)
+
+The weighted error is about the true is different than the guessed, but giving a weight to the guessed as undefined.
+
+(self.femalemale + self.malefemale + w * (self.maleundefined + self.femaleundefined)) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale + w * (self.maleundefined + self.femaleundefined))
+
+The confusion matrix creates a matrix between the true and the guess. If you have this confusion matrix:
+
+[[ 2, 0, 0]
+ [ 0, 5, 0]]
+
+It means, I have 2 females true and I've guessed 2 females and I've 5 males true and I've guessed 5 males. I don't have errors in my classifier.
+
+** PCA
+*** Concepts
+The dispersion measures between 1 variables are: variance, standard
+deviation, ...
+
+file:files/variance.png
+
+If you have 2 variables, you can write a formula so similar to variance.
+
+file:files/covariance.png
+
+If you have 3 variables or more, you can write a covariance matrix.
+
+file:files/matrix-covariance.png
+
+In essence, an eigenvector v of a linear transformation T is a
+non-zero vector that, when T is applied to it, does not change
+direction. Applying T to the eigenvector only scales the eigenvector
+by the scalar value λ, called an eigenvalue.
+
+file:files/eigenvector.png
+
+A feature vector is constructed taking the eigenvectors that you want
+to keep from the list of eigenvectors.
+
+The new dataset take the transpose of the vector and multiply it on
+the left of the original data set, transposed.
+
+#+BEGIN_SRC
+FinalData = RowFeatureVector x RowDataAdjust
+#+END_SRC
+
+*** Choosing components
+
+We can choose components with:
+
+#+BEGIN_SRC
+import numpy as np
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import MinMaxScaler
+import matplotlib.pyplot as plt
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--csv')
+args = parser.parse_args()
+
+#filepath = 'files/features_list.csv' #your path here
+data = np.genfromtxt(args.csv, delimiter=',', dtype='float64')
+
+scaler = MinMaxScaler(feature_range=[0, 1])
+data_rescaled = scaler.fit_transform(data[1:, 0:8])
+
+#Fitting the PCA algorithm with our Data
+pca = PCA().fit(data_rescaled)
+#Plotting the Cumulative Summation of the Explained Variance
+plt.figure()
+plt.plot(np.cumsum(pca.explained_variance_ratio_))
+plt.xlabel('Number of Components')
+plt.ylabel('Variance (%)') #for each component
+plt.title('Dataset Explained Variance')
+plt.show()
+#+END_SRC
+
+file:files/pca-number-components.png
+
+Taking a look to the image. We can choose 6 components.
