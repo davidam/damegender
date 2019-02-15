@@ -146,10 +146,29 @@ Guessing the sex, we have an true idea (example: female) and we obtain
 a result, the guessed result (example: female). We have written
 count_true2guess to make statistics variables about it.
 
-So, *recall* is about true positives:
+In confusion matrix litherature, we can find this vocabulary for true and guess:
+
+| True positive  | False Positive |
+|----------------+----------------|
+| False negative | True Negative  |
+
+*Precision* is about true positives between true positives plus false positives
 
 #+BEGIN_SRC
-(self.femalefemale + self.malemale ) / (self.femalefemale + self.malemale + self.femalemale + self.malefemale)
+(self.femalefemale + self.malemale ) / (self.femalefemale + self.malemale + self.femalemale)
+#+END_SRC
+
+*Recall* is about true positives between true positives plus false negatives.
+
+#+BEGIN_SRC
+(self.femalefemale + self.malemale ) / (self.femalefemale + self.malemale + self.malefemale)
+#+END_SRC
+
+The *F1 score* is the harmonic mean of precision and recall taking
+both metrics into account in the following equation:
+
+#+BEGIN_SRC
+2 * ((precision * recall) / (precision + recall))
 #+END_SRC
 
 *Error coded* is about the true is different than the guessed:
