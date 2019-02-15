@@ -168,10 +168,18 @@ The weighted error is about the true is different than the guessed, but giving a
 
 The confusion matrix creates a matrix between the true and the guess. If you have this confusion matrix:
 
+#+BEGIN_SRC
 [[ 2, 0, 0]
  [ 0, 5, 0]]
-
+#+END_SRC
 It means, I have 2 females true and I've guessed 2 females and I've 5 males true and I've guessed 5 males. I don't have errors in my classifier.
+
+#+BEGIN_SRC
+ [[ 2  1  0]
+ [ 2 14  0]
+#+END_SRC
+
+It means, I have 2 females true and I've guessed 2 females and I've 14 males true and I've guessed 14 males. 1 female was considered male, 2 males was considered female.
 
 ** PCA
 *** Concepts
