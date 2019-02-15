@@ -219,7 +219,30 @@ class Gender(object):
             i = i +1
         return count
 
+    def femalefemale(self, truevector, guessvector):
+        return self.count_true2guess(truevector, guessvector, 0, 0)
+
+    def femalemale(self, truevector, guessvector):
+        return self.count_true2guess(truevector, guessvector, 0, 1)
+
+    def femaleundefined(self, truevector, guessvector):
+        return self.count_true2guess(truevector, guessvector, 0, 2)
+
+    def malefemale(self, truevector, guessvector):
+        return self.count_true2guess(truevector, guessvector, 1, 0)
+
+    def malemale(self, truevector, guessvector):
+        return self.count_true2guess(truevector, guessvector, 1, 1)
+
+    def maleundefined(self, truevector, guessvector):
+        return self.count_true2guess(truevector, guessvector, 1, 2)
+
     def recall(self, truevector, guessvector):
+        result = 0
+        result = (self.femalefemale() + self.malemale() ) / (self.femalefemale() + self.malemale() + self.femalemale())
+        return result
+
+    def precision(self, truevector, guessvector):
         result = 0
         self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
         self.femalemale = self.count_true2guess(truevector, guessvector, 0, 1)
@@ -227,7 +250,12 @@ class Gender(object):
         self.malefemale = self.count_true2guess(truevector, guessvector, 1, 0)
         self.malemale = self.count_true2guess(truevector, guessvector, 1, 1)
         self.maleundefined = self.count_true2guess(truevector, guessvector, 1, 2)
-        result = (self.femalefemale + self.malemale ) / (self.femalefemale + self.malemale + self.femalemale + self.malefemale)
+        result = (self.femalefemale + self.malemale ) / (self.femalefemale + self.malemale + self.malefemale)
+
+    def f1score(self, truevector, guessvector):
+        result = 0
+        result = 2 * ((self.precision(truevector, guessvector) * self.recall(truevector, guessvector)) / self.precision(truevector, guessvector) + self.recall(truevector, guessvector))
+        return result
 
     def error_coded(self, truevector, guessvector):
         result = 0
