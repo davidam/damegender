@@ -219,66 +219,58 @@ class Gender(object):
             i = i +1
         return count
 
+    def femalefemale(self, truevector, guessvector):
+        return self.count_true2guess(truevector, guessvector, 0, 0)
+
+    def femalemale(self, truevector, guessvector):
+        return self.count_true2guess(truevector, guessvector, 0, 1)
+
+    def femaleundefined(self, truevector, guessvector):
+        return self.count_true2guess(truevector, guessvector, 0, 2)
+
+    def malefemale(self, truevector, guessvector):
+        return self.count_true2guess(truevector, guessvector, 1, 0)
+
+    def malemale(self, truevector, guessvector):
+        return self.count_true2guess(truevector, guessvector, 1, 1)
+
+    def maleundefined(self, truevector, guessvector):
+        return self.count_true2guess(truevector, guessvector, 1, 2)
+
     def recall(self, truevector, guessvector):
         result = 0
-        self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
-        self.femalemale = self.count_true2guess(truevector, guessvector, 0, 1)
-        self.femaleundefined = self.count_true2guess(truevector, guessvector, 0, 2)
-        self.malefemale = self.count_true2guess(truevector, guessvector, 1, 0)
-        self.malemale = self.count_true2guess(truevector, guessvector, 1, 1)
-        self.maleundefined = self.count_true2guess(truevector, guessvector, 1, 2)
-        result = (self.femalefemale + self.malemale ) / (self.femalefemale + self.malemale + self.femalemale + self.malefemale)
+        result = (self.femalefemale(truevector, guessvector) + self.malemale(truevector, guessvector) ) / (self.femalefemale(truevector, guessvector) + self.malemale(truevector, guessvector) + self.femalemale(truevector, guessvector))
+        return result
+
+    def precision(self, truevector, guessvector):
+        result = 0
+        result = (self.femalefemale(truevector, guessvector) + self.malemale(truevector, guessvector) ) / (self.femalefemale(truevector, guessvector) + self.malemale(truevector, guessvector) + self.malefemale(truevector, guessvector))
+
+    def f1score(self, truevector, guessvector):
+        result = 0
+        result = 2 * ((self.precision(truevector, guessvector) * self.recall(truevector, guessvector)) / self.precision(truevector, guessvector) + self.recall(truevector, guessvector))
+        return result
 
     def error_coded(self, truevector, guessvector):
         result = 0
-        self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
-        self.femalemale = self.count_true2guess(truevector, guessvector, 0, 1)
-        self.femaleundefined = self.count_true2guess(truevector, guessvector, 0, 2)
-        self.malefemale = self.count_true2guess(truevector, guessvector, 1, 0)
-        self.malemale = self.count_true2guess(truevector, guessvector, 1, 1)
-        self.maleundefined = self.count_true2guess(truevector, guessvector, 1, 2)
-        result = (self.femalemale + self.malefemale + self.maleundefined + self.femaleundefined) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale + self.maleundefined + self.femaleundefined)
+        result = (self.femalemale(truevector, guessvector) + self.malefemale(truevector, guessvector) + self.maleundefined(truevector, guessvector) + self.femaleundefined(truevector, guessvector)) / (self.malemale(truevector, guessvector) + self.femalemale(truevector, guessvector) + self.malefemale(truevector, guessvector) + self.femalefemale(truevector, guessvector) + self.maleundefined(truevector, guessvector) + self.femaleundefined(truevector, guessvector))
         return result
 
     def error_coded_without_na(self, truevector, guessvector):
         result = 0
-        self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
-        self.femalemale = self.count_true2guess(truevector, guessvector, 0, 1)
-        self.femaleundefined = self.count_true2guess(truevector, guessvector, 0, 2)
-        self.malefemale = self.count_true2guess(truevector, guessvector, 1, 0)
-        self.malemale = self.count_true2guess(truevector, guessvector, 1, 1)
-        self.maleundefined = self.count_true2guess(truevector, guessvector, 1, 2)
-        result = (self.femalemale + self.malefemale) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale)
+        result = (self.femalemale(truevector, guessvector) + self.malefemale(truevector, guessvector)) / (self.malemale(truevector, guessvector) + self.femalemale(truevector, guessvector) + self.malefemale(truevector, guessvector) + self.femalefemale(truevector, guessvector))
         return result
 
     def na_coded(self, truevector, guessvector):
-        self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
-        self.femalemale = self.count_true2guess(truevector, guessvector, 0, 1)
-        self.femaleundefined = self.count_true2guess(truevector, guessvector, 0, 2)
-        self.malefemale = self.count_true2guess(truevector, guessvector, 1, 0)
-        self.malemale = self.count_true2guess(truevector, guessvector, 1, 1)
-        self.maleundefined = self.count_true2guess(truevector, guessvector, 1, 2)
-        result = (self.maleundefined + self.femaleundefined) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale + self.maleundefined + self.femaleundefined)
+        result = (self.maleundefined(truevector, guessvector) + self.femaleundefined(truevector, guessvector)) / (self.malemale(truevector, guessvector) + self.femalemale(truevector, guessvector) + self.malefemale(truevector, guessvector) + self.femalefemale(truevector, guessvector) + self.maleundefined(truevector, guessvector) + self.femaleundefined(truevector, guessvector))
         return result
 
     def error_gender_bias(self, truevector, guessvector):
-        self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
-        self.femalemale = self.count_true2guess(truevector, guessvector, 0, 1)
-        self.femaleundefined = self.count_true2guess(truevector, guessvector, 0, 2)
-        self.malefemale = self.count_true2guess(truevector, guessvector, 1, 0)
-        self.malemale = self.count_true2guess(truevector, guessvector, 1, 1)
-        self.maleundefined = self.count_true2guess(truevector, guessvector, 1, 2)
-        result = (self.malefemale - self.femalemale) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale)
+        result = (self.malefemale(truevector, guessvector) - self.femalemale(truevector, guessvector)) / (self.malemale(truevector, guessvector) + self.femalemale(truevector, guessvector) + self.malefemale(truevector, guessvector) + self.femalefemale(truevector, guessvector))
         return result
 
     def weighted_error(self, truevector, guessvector, w):
-        self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
-        self.femalemale = self.count_true2guess(truevector, guessvector, 0, 1)
-        self.femaleundefined = self.count_true2guess(truevector, guessvector, 0, 2)
-        self.malefemale = self.count_true2guess(truevector, guessvector, 1, 0)
-        self.malemale = self.count_true2guess(truevector, guessvector, 1, 1)
-        self.maleundefined = self.count_true2guess(truevector, guessvector, 1, 2)
-        result = (self.femalemale + self.malefemale + w * (self.maleundefined + self.femaleundefined)) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale + w * (self.maleundefined + self.femaleundefined))
+        result = (self.femalemale(truevector, guessvector) + self.malefemale(truevector, guessvector) + w * (self.maleundefined(truevector, guessvector) + self.femaleundefined(truevector, guessvector))) / (self.malemale(truevector, guessvector) + self.femalemale(truevector, guessvector) + self.malefemale(truevector, guessvector) + self.femalefemale(truevector, guessvector) + w * (self.maleundefined(truevector, guessvector) + self.femaleundefined(truevector, guessvector)))
         return result
 
     def accuracy_score_dame(self, v1, v2):
@@ -400,9 +392,9 @@ class Gender(object):
         ine_dicc = {"females": females, "males": males}
         return ine_dicc
 
-    def pca(self, path='files/partial.csv'):
+    def pca(self, path='files/partial.csv', n=2):
         X = np.array(self.features_list())
-        pca = PCA(n_components=2)
+        pca = PCA(n_components=n)
         return pca.fit(X)
 
 

@@ -50,7 +50,7 @@ print("If the classifier is nice, the diagonal is high because there are true po
 
 if (args.api == "all"):
     dn = DameNamsor()
-    print("Namsor confusion matrix:\n %s")
+    print("Namsor confusion matrix:\n")
     dn.print_confusion_matrix_dame(path=args.csv)
 
     dg = DameGenderize()
@@ -58,7 +58,7 @@ if (args.api == "all"):
     dg.print_confusion_matrix_dame(path=args.csv)
 
     dgg = DameGenderGuesser()
-    print("Gender Guesser confusion matrix:\n %s" % genderguesser_confusion_matrix)
+    print("Gender Guesser confusion matrix:\n")
     dgg.print_confusion_matrix_dame(path=args.csv)
 
     ds = DameSexmachine()
