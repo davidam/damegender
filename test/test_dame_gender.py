@@ -67,6 +67,22 @@ class TddInPythonExample(unittest.TestCase):
         f = g.females_list()
         self.assertTrue("Eva" in f)
 
+    def test_dame_gender_name2gender_in_dataset_method_returns_correct_result(self):
+        g = Gender()
+        guess = g.name2gender_in_dataset("David", dataset='files/names_es')
+        self.assertTrue(guess, 1)
+        guess = g.name2gender_in_dataset("David", dataset='files/all.csv')
+        self.assertTrue(guess, 1)
+        guess = g.name2gender_in_dataset("David", dataset='files/yob2017.csv')
+        self.assertTrue(guess, 1)
+        guess = g.name2gender_in_dataset("Laura", dataset='files/names_es')
+        self.assertTrue(guess, 0)
+        guess = g.name2gender_in_dataset("Laura", dataset='files/all.csv')
+        self.assertTrue(guess, 0)
+        guess = g.name2gender_in_dataset("Laura", dataset='files/yob2017.csv')
+        self.assertTrue(guess, 0)
+
+
     def test_dame_gender_guess_method_returns_correct_result(self):
         g = Gender()
         r = g.guess(name="David", binary=True)
