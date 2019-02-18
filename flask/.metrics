@@ -1,0 +1,220 @@
+{
+    "files": {
+        "app.py": {
+            "comments": 50,
+            "language": "Python",
+            "mccabe": 24,
+            "positions": [
+                {
+                    "end": 141,
+                    "methods": [
+                        {
+                            "end": 83,
+                            "name": "html_content",
+                            "start": 72,
+                            "type": "Function"
+                        },
+                        {
+                            "end": 93,
+                            "name": "save",
+                            "start": 84,
+                            "type": "Function"
+                        },
+                        {
+                            "end": 111,
+                            "name": "update_search_index",
+                            "start": 94,
+                            "type": "Function"
+                        },
+                        {
+                            "end": 115,
+                            "name": "public",
+                            "start": 112,
+                            "type": "Function"
+                        },
+                        {
+                            "end": 119,
+                            "name": "drafts",
+                            "start": 116,
+                            "type": "Function"
+                        },
+                        {
+                            "end": 141,
+                            "name": "search",
+                            "start": 120,
+                            "type": "Function"
+                        }
+                    ],
+                    "name": "Entry",
+                    "start": 64,
+                    "type": "Class"
+                },
+                {
+                    "end": 148,
+                    "name": "FTSEntry",
+                    "start": 142,
+                    "type": "Class"
+                },
+                {
+                    "end": 157,
+                    "methods": [
+                        {
+                            "end": 157,
+                            "name": "inner",
+                            "start": 151,
+                            "type": "Function"
+                        }
+                    ],
+                    "name": "login_required",
+                    "start": 149,
+                    "type": "Function"
+                },
+                {
+                    "end": 173,
+                    "name": "login",
+                    "start": 158,
+                    "type": "Function"
+                },
+                {
+                    "end": 180,
+                    "name": "logout",
+                    "start": 174,
+                    "type": "Function"
+                },
+                {
+                    "end": 197,
+                    "name": "index",
+                    "start": 181,
+                    "type": "Function"
+                },
+                {
+                    "end": 223,
+                    "name": "_create_or_edit",
+                    "start": 198,
+                    "type": "Function"
+                },
+                {
+                    "end": 228,
+                    "name": "create",
+                    "start": 224,
+                    "type": "Function"
+                },
+                {
+                    "end": 233,
+                    "name": "drafts",
+                    "start": 229,
+                    "type": "Function"
+                },
+                {
+                    "end": 243,
+                    "name": "detail",
+                    "start": 234,
+                    "type": "Function"
+                },
+                {
+                    "end": 248,
+                    "name": "edit",
+                    "start": 244,
+                    "type": "Function"
+                },
+                {
+                    "end": 261,
+                    "name": "clean_querystring",
+                    "start": 249,
+                    "type": "Function"
+                },
+                {
+                    "end": 264,
+                    "name": "not_found",
+                    "start": 262,
+                    "type": "Function"
+                },
+                {
+                    "end": 270,
+                    "name": "main",
+                    "start": 265,
+                    "type": "Function"
+                }
+            ],
+            "ratio_comment_to_code": 0.27,
+            "sloc": 185
+        },
+        "blog.sql": {
+            "comments": 0,
+            "language": "Transact-SQL",
+            "mccabe": 0,
+            "positions": [
+                {
+                    "end": 0,
+                    "name": "TABLE",
+                    "start": 1,
+                    "type": "Class"
+                },
+                {
+                    "end": 0,
+                    "name": "VARCHAR",
+                    "start": 1,
+                    "type": "Class"
+                },
+                {
+                    "end": 0,
+                    "name": "VARCHAR",
+                    "start": 1,
+                    "type": "Class"
+                },
+                {
+                    "end": 0,
+                    "name": "TEXT",
+                    "start": 1,
+                    "type": "Class"
+                },
+                {
+                    "end": 0,
+                    "name": "DATETIME",
+                    "start": 1,
+                    "type": "Class"
+                },
+                {
+                    "end": 0,
+                    "name": "TABLE",
+                    "start": 1,
+                    "type": "Class"
+                },
+                {
+                    "end": 0,
+                    "name": "TABLE",
+                    "start": 1,
+                    "type": "Class"
+                },
+                {
+                    "end": 0,
+                    "name": "TABLE",
+                    "start": 1,
+                    "type": "Class"
+                },
+                {
+                    "end": 0,
+                    "name": "TABLE",
+                    "start": 1,
+                    "type": "Class"
+                },
+                {
+                    "end": 0,
+                    "name": "TABLE",
+                    "start": 1,
+                    "type": "Class"
+                }
+            ],
+            "ratio_comment_to_code": 0.0,
+            "sloc": 15
+        },
+        "requirements.txt": {
+            "comments": 0,
+            "language": "Text only",
+            "mccabe": 0,
+            "positions": [],
+            "ratio_comment_to_code": 0.0,
+            "sloc": 0
+        }
+    }
+}
