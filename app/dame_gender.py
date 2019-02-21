@@ -426,6 +426,18 @@ class Gender(object):
                 flist.append(l)
         return flist
 
+    def features_list_no_letters(self, path='files/partial.csv'):
+        flist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                name = row[0].title()
+                name = name.replace('\"','')
+                l = list([self.features_int(name)["first_letter"], self.features_int(name)["last_letter"], self.features_int(name)["last_letter_a"], self.features_int(name)["first_letter_vocal"], self.features_int(name)["last_letter_vocal"], self.features_int(name)["last_letter_consonant"]])
+                flist.append(l)
+        return flist
+
     def features_list2csv(self, path, categorical="both"):
         if (categorical=="categorical"):
             fl = self.features_list_categorical(path)
@@ -435,6 +447,10 @@ class Gender(object):
             fl = self.features_list_no_categorical(path)
             first_line = "a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, x, y, z, vocals, consonants"
             f = open('files/features_list_no_cat.csv', 'w')
+        elif (categorical=="noletters"):
+            fl = self.features_list_no_letters(path)
+            first_line = "first_letter, last_letter, vocals, consonants, first_letter, first_letter_vocal, last_letter_vocal, last_letter_consonant, last_letter_a"
+            f = open('files/features_list_no_letters.csv', 'w')
         else:
             fl = self.features_list(path)
             first_line = "first_letter, last_letter, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, vocals, consonants, first_letter, first_letter_vocal, last_letter_vocal, last_letter_consonant, last_letter_a"

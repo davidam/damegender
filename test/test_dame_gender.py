@@ -162,6 +162,12 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(len(flnc[0]) > 25)
         self.assertTrue(flnc[0], [0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3])
 
+    def test_dame_gender_features_list_no_letters_method_returns_correct_result(self):
+        g = Gender()
+        flnl = g.features_list_no_letters('files/partial.csv')
+        self.assertTrue(len(flnl[0]) > 5)
+        self.assertEqual(flnl[0], [112, 101, 0, 0, 1, 0])
+
     def test_dame_gender_features_list2csv_method_returns_correct_result(self):
         # TODO: You can write asserts to verify the first line
         g = Gender()
