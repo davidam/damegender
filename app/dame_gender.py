@@ -179,10 +179,12 @@ class Gender(object):
                     datasetname = row[0].title()
                     guess = row[4]
                     guess = guess.replace('\"','')
-                    if (guess == 'm'):
-                        guess = 1
-                    elif (guess == 'f'):
+                    if (guess == 'f'):
                         guess = 0
+                    elif (guess == 'm'):
+                        guess = 1
+                    elif (guess == 'u'):
+                        guess = 2
                     genderlist.append(guess)
         if (dataset == "files/yob2017.txt"):
             with open(dataset) as csvfile:
