@@ -136,6 +136,11 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(g.males, 16)
         self.assertEqual(g.unknown, 2)
 
+    def test_dame_gender_dataset2gendelist_method_returns_correct_result(self):
+        g = Gender()
+        gl = g.dataset2genderlist(dataset="files/all.csv")
+        self.assertEqual(gl[0:4], [1, 1, 1, 1])
+
     def test_dame_gender_features_list_method_returns_correct_result(self):
         g = Gender()
         fl = g.features_list()

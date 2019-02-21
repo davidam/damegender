@@ -169,6 +169,36 @@ class Gender(object):
                             guess = 0
         return guess
 
+    def dataset2genderlist(self, dataset=''):
+        genderlist = []
+        if (dataset == "files/all.csv"):
+            with open(dataset) as csvfile:
+                sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+                next(sexreader, None)
+                for row in sexreader:
+                    datasetname = row[0].title()
+                    guess = row[4]
+                    guess = guess.replace('\"','')
+                    if (guess == 'm'):
+                        guess = 1
+                    elif (guess == 'f'):
+                        guess = 0
+                    genderlist.append(guess)
+        if (dataset == "files/yob2017.txt"):
+            with open(dataset) as csvfile:
+                sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+                next(sexreader, None)
+                for row in sexreader:
+                    datasetname = row[0].title()
+                    guess = row[1]
+                    guess = guess.replace('\"','')
+                    if (guess == 'M'):
+                        guess = 1
+                    elif (guess == 'F'):
+                        guess = 0
+                    genderlist.append(guess)
+        return genderlist
+
     def guess(self, name, binary=False):
     # guess method to check names dictionary
         guess = ''
