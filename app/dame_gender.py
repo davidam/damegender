@@ -126,6 +126,79 @@ class Gender(object):
         f = list(OrderedDict.fromkeys(f))
         return f
 
+    def name2gender_in_dataset(self, name, dataset=''):
+        guess = 2
+        if (dataset == "names_es"):
+            with open(dataset+"/"+"femeninos.txt") as csvfile:
+                sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+                next(sexreader, None)
+                for row in sexreader:
+                    datasetname = row.title()
+                    if (datasetname == name):
+                        guess = 0
+            with open(dataset+"/"+"masculinos.txt") as csvfile:
+                sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+                next(sexreader, None)
+                for row in sexreader:
+                    datasetname = row.title()
+                    if (datasetname == name):
+                        guess = 1
+        if (dataset == "files/all.csv"):
+            with open(dataset) as csvfile:
+                sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+                next(sexreader, None)
+                for row in sexreader:
+                    datasetname = row[0].title()
+                    if (datasetname == name):
+                        guess = row[4]
+                        if (guess == 'm'):
+                            guess = 1
+                        elif (guess == 'f'):
+                            guess = 0
+        if (dataset == "files/yob2017.txt"):
+            with open(dataset) as csvfile:
+                sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+                next(sexreader, None)
+                for row in sexreader:
+                    datasetname = row[0].title()
+                    if (datasetname == name):
+                        guess = row[1]
+                        if (guess == 'M'):
+                            guess = 1
+                        elif (guess == 'F'):
+                            guess = 0
+        return guess
+
+    def dataset2genderlist(self, dataset=''):
+        genderlist = []
+        if (dataset == "files/all.csv"):
+            with open(dataset) as csvfile:
+                sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+                next(sexreader, None)
+                for row in sexreader:
+                    datasetname = row[0].title()
+                    guess = row[4]
+                    guess = guess.replace('\"','')
+                    if (guess == 'm'):
+                        guess = 1
+                    elif (guess == 'f'):
+                        guess = 0
+                    genderlist.append(guess)
+        if (dataset == "files/yob2017.txt"):
+            with open(dataset) as csvfile:
+                sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+                next(sexreader, None)
+                for row in sexreader:
+                    datasetname = row[0].title()
+                    guess = row[1]
+                    guess = guess.replace('\"','')
+                    if (guess == 'M'):
+                        guess = 1
+                    elif (guess == 'F'):
+                        guess = 0
+                    genderlist.append(guess)
+        return genderlist
+
     def guess(self, name, binary=False):
     # guess method to check names dictionary
         guess = ''
@@ -314,7 +387,7 @@ class Gender(object):
         print(" [ %s, %s, %s]]\n" % (self.malefemale, self.malemale, self.maleundefined))
         return ""
 
-    def features_list(self, path='files/partial.csv'):
+    def features_list(self, path='files/partial.csv', sexdataset=''):
         flist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
