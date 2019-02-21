@@ -35,7 +35,7 @@ g = Gender()
 g.features_list2csv(categorical="both", path="files/all.csv")
 features = "files/features_list.csv"
 
-print("STEP1: N COMPONENTS + 1 TARGET")
+#print("STEP1: N COMPONENTS + 1 TARGET")
 
 x = pd.read_csv(features)
 print(x.columns)
@@ -45,9 +45,15 @@ print(y)
 
 # load dataset
 
+# adding target
+target = pd.DataFrame(data = y, columns = ['target component'])
+finalDf = x.join(target)
+
+
 # normalize data
 from sklearn import preprocessing
-data_scaled = pd.DataFrame(preprocessing.scale(x),columns = x.columns)
+data_scaled = pd.DataFrame(preprocessing.scale(finalDf), columns = finalDf.columns)
+
 
 # PCA
 pca = PCA(n_components=6)
