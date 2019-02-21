@@ -276,3 +276,54 @@ plt.show()
 [[file:files/pca-number-components.png]]
 
 Taking a look to the image. We can choose 6 components.
+
+*** Load Dataset
+
+We choose the file all.csv to generate features and a list to determine gender (male or female)
+
+#+BEGIN_SRC lisp
+from pprint import pprint
+import pandas as pd
+import matplotlib.pyplot as plt
+from app.dame_sexmachine import DameSexmachine
+from app.dame_gender import Gender
+
+## LOAD DATASET
+g = Gender()
+g.features_list2csv(categorical="both", path="files/all.csv")
+features = "files/features_list.csv"
+
+print("STEP1: N COMPONENTS + 1 TARGET")
+
+x = pd.read_csv(features)
+print(x.columns)
+
+y = g.dataset2genderlist(dataset="files/all.csv")
+print(y)
+#+END_SRC
+
+*** Standarize the data
+
+#+BEGIN_SRC
+print("STEP2: STANDARIZE THE DATA")
+from sklearn.preprocessing import StandardScaler
+# Standardizing the features
+x = StandardScaler().fit_transform(x)
+#+END_SRC
+
+*** Pca Projection to N Dimensions
+
+Finally, we create the pca transform with 6 dimensions and we add the target component.
+
+#+BEGIN_SRC
+from sklearn.decomposition import PCA
+pca = PCA(n_components=6)
+principalComponents = pca.fit_transform(x)
+print("STEP3: PCA PROJECTION")
+pprint(principalComponents)
+principalDf = pd.DataFrame(data = principalComponents, columns = ['principal component 1', 'principal component 2', 'principal component 3', 'principal component 4', 'principal component 5', 'principal component 6'])
+
+target = pd.DataFrame(data = y, columns = ['target component'])
+
+print(principalDf.join(target))
+#+END_SRC
