@@ -81,6 +81,8 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(guess, 0)
         guess = g.name2gender_in_dataset("Laura", dataset='files/yob2017.csv')
         self.assertTrue(guess, 0)
+        guess = g.name2gender_in_dataset("Teppei", dataset='files/yob2017.csv')
+        self.assertTrue(guess, 2)
 
 
     def test_dame_gender_guess_method_returns_correct_result(self):

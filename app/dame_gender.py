@@ -151,10 +151,12 @@ class Gender(object):
                     datasetname = row[0].title()
                     if (datasetname == name):
                         guess = row[4]
-                        if (guess == 'm'):
-                            guess = 1
-                        elif (guess == 'f'):
+                        if (guess == 'f'):
                             guess = 0
+                        elif (guess == 'm'):
+                            guess = 1
+                        elif (guess == 'u'):
+                            guess = 2
         if (dataset == "files/yob2017.txt"):
             with open(dataset) as csvfile:
                 sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
