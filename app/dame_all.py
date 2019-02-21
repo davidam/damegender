@@ -34,6 +34,7 @@ class DameAll(Gender):
     def average(self, name, surname):
         r = 0
         count = 0
+        avg = 0
         dgg = DameGenderGuesser()
         guess1 = int(dgg.guess(name, binary="True"))
 #        print(guess1)
