@@ -140,6 +140,8 @@ class TddInPythonExample(unittest.TestCase):
         g = Gender()
         gl = g.dataset2genderlist(dataset="files/all.csv")
         self.assertEqual(gl[0:4], [1, 1, 1, 1])
+        gl2 = g.dataset2genderlist(dataset="files/yob2017.txt")
+        self.assertEqual(gl2[0:4], [0, 0, 0, 0])
 
     def test_dame_gender_features_list_method_returns_correct_result(self):
         g = Gender()
