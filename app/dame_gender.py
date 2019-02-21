@@ -422,17 +422,17 @@ class Gender(object):
                 flist.append(l)
         return flist
 
-    def features_list2csv(self, csv=""):
-        if (csv == 'categorical'):
-            fl = self.features_list_categorical()
+    def features_list2csv(self, path, categorical="both"):
+        if (categorical=="categorical"):
+            fl = self.features_list_categorical(path)
             first_line = "first_letter, last_letter, last_letter_a, first_letter_vocal, last_letter_vocal, last_letter_consonant"
-            f = open('files/features_list_cat.csv', 'w')
-        elif (csv == 'nocategorical'):
-            fl = self.features_list_no_categorical()
+            f = open('files/features_list_cat.csv'  , 'w')
+        elif (categorical=="nocategorical"):
+            fl = self.features_list_no_categorical(path)
             first_line = "a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, x, y, z, vocals, consonants"
             f = open('files/features_list_no_cat.csv', 'w')
         else:
-            fl = self.features_list()
+            fl = self.features_list(path)
             first_line = "first_letter, last_letter, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, vocals, consonants, first_letter, first_letter_vocal, last_letter_vocal, last_letter_consonant, last_letter_a"
             f = open('files/features_list.csv', 'w')
         f.write(first_line+"\n")

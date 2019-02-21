@@ -163,9 +163,9 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_gender_features_list2csv_method_returns_correct_result(self):
         # TODO: You can write asserts to verify the first line
         g = Gender()
-        csv1 = g.features_list2csv()
-        csv2 = g.features_list2csv(csv="categorical")
-        csv3 = g.features_list2csv(csv="nocategorical")
+        csv1 = g.features_list2csv(path="files/min.csv")
+        csv2 = g.features_list2csv(path="files/min.csv", categorical="categorical")
+        csv3 = g.features_list2csv(path="files/min.csv", categorical="nocategorical")
         self.assertTrue(os.path.isfile("files/features_list.csv"))
         self.assertTrue(os.path.isfile("files/features_list_cat.csv"))
         self.assertTrue(os.path.isfile("files/features_list_no_cat.csv"))
