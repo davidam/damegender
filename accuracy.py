@@ -28,6 +28,7 @@ from app.dame_genderize import DameGenderize
 from app.dame_genderguesser import DameGenderGuesser
 from app.dame_genderapi import DameGenderApi
 from app.dame_nameapi import DameNameapi
+from app.dame_customsearch import DameCustomsearch
 
 import argparse
 parser = argparse.ArgumentParser()
@@ -128,13 +129,13 @@ elif (args.api == "genderguesser"):
     print("GenderGuesser accuracy: %s" % genderguesser_accuracy)
 
 elif (args.api == "customsearch"):
-    dgg = DameGenderGuesser()
+    dc = DameCustomsearch()
     print("################### Google Custom Search!!")
-    gl = dgg.gender_list(path=args.csv)
+    gl = dc.gender_list(path=args.csv)
     print("Gender list: " + str(gl))
-    sl = dgg.guess_list(path=args.csv, binary=True)
+    sl = dc.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
-    customsearch_accuracy = dgg.accuracy_score_dame(gl,sl)
+    customsearch_accuracy = dc.accuracy_score_dame(gl,sl)
     print("Google Custom Search: %s" % customsearch_accuracy)
 
 
