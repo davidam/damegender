@@ -29,11 +29,12 @@ __author__ = 'davidam@gnu.org (David Arroyo Menéndez)'
 
 import pprint
 import argparse
-from googleapiclient.discovery import build
+from app.dame_customsearch import DameCustomsearch
+
+# from googleapiclient.discovery import build
 
 parser = argparse.ArgumentParser()
 parser.add_argument('name', help="Name to be detected")
-#parser.add_argument('--gender', help="Male, female")
 args = parser.parse_args()
 
 
@@ -41,24 +42,10 @@ def main():
   # Build a service object for interacting with the API. Visit
   # the Google APIs Console <http://code.google.com/apis/console>
   # to get an API key for your own application.
-  filekey = open("apikey.txt", "r+")
-  content = filekey.readline().rstrip()
-
-  service = build("customsearch", "v1",
-                  developerKey=content)
-
-  res1 = service.cse().list(
-      q=args.name+'+male',
-#      cx='013315504628135767172:d6shbtxu-uo',
-      cx='012930223948444503025:jc1-uqxxhcs',
-    ).execute()
-  print("Google results of %s as male: %s" % (args.name, res1['searchInformation']['totalResults']))
-  res2 = service.cse().list(
-      q=args.name+'+female',
-#      cx='013315504628135767172:d6shbtxu-uo',
-      cx='012930223948444503025:jc1-uqxxhcs',
-    ).execute()
-  print("Google results of %s as female: %s" % (args.name, res2['searchInformation']['totalResults']))
+  g = DameCustomsearch()
+  d = g.get(args.name, binary=True)
+  print("Google results of %s as male: %s" % (args.name, d["rmale"]))
+  print("Google results of %s as female: %s" % (args.name, d["rfemale"]))
 
 if __name__ == '__main__':
   main()
