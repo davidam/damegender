@@ -465,25 +465,39 @@ class Gender(object):
             f.write(line+str(i[count])+"\n")
         f.close()
 
-    def ine_frec(self, name):
-        du = DameUtils()
-        name = du.drop_accents(name)
-        file_males = open('files/names_es/masculinos_original.csv', 'r')
-        inereader_males = csv.reader(file_males, delimiter=',', quotechar='|')
-        males = 0
-        for row in inereader_males:
-            if ((len(row)>1) and (row[1].lower() == name.lower())):
-                males = row[2]
-                males = du.drop_dots(males)
-        file_females = open('files/names_es/femeninos_original.csv', 'r')
-        inereader_females = csv.reader(file_females, delimiter=',', quotechar='|')
-        females = 0
-        for row in inereader_females:
-            if ((len(row) > 1) and (row[1].lower() == name.lower())):
-                females = row[2]
-                females = du.drop_dots(females)
-        ine_dicc = {"females": females, "males": males}
-        return ine_dicc
+    def name_frec(self, name, dataset='ine'):
+        if (dataset == 'ine'):
+            du = DameUtils()
+            name = du.drop_accents(name)
+            file_males = open('files/names_es/masculinos_original.csv', 'r')
+            inereader_males = csv.reader(file_males, delimiter=',', quotechar='|')
+            males = 0
+            for row in inereader_males:
+                if ((len(row)>1) and (row[1].lower() == name.lower())):
+                    males = row[2]
+                    males = du.drop_dots(males)
+            file_females = open('files/names_es/femeninos_original.csv', 'r')
+            inereader_females = csv.reader(file_females, delimiter=',', quotechar='|')
+            females = 0
+            for row in inereader_females:
+                if ((len(row) > 1) and (row[1].lower() == name.lower())):
+                    females = row[2]
+                    females = du.drop_dots(females)
+            dicc = {"females": females, "males": males}
+        elif (dataset == 'uscensus'):
+            du = DameUtils()
+            usfile = open('files/yob2017.txt', 'r')
+            usreader = csv.reader(usfile, delimiter=',', quotechar='|')
+            males = 0
+            females = 0
+            for row in usreader:
+                if ((len(row) > 1) and (row[0].lower() == name.lower())):
+                    if (row[1] == 'F'):
+                        females = row[2]
+                    elif (row[1] == 'M'):
+                        males = row[2]
+            dicc = {"females": females, "males": males}
+        return dicc
 
     def pca(self, path='files/partial.csv', n=2):
         X = np.array(self.features_list())

@@ -138,7 +138,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(g.males, 16)
         self.assertEqual(g.unknown, 2)
 
-    def test_dame_gender_dataset2gendelist_method_returns_correct_result(self):
+    def test_dame_gender_dataset2genderlist_method_returns_correct_result(self):
         g = Gender()
         gl = g.dataset2genderlist(dataset="files/all.csv")
         self.assertEqual(gl[0:4], [1, 1, 1, 1])
@@ -224,13 +224,28 @@ class TddInPythonExample(unittest.TestCase):
         v2 = [2, 0, 1, 1]
         self.assertEqual(g.na_coded(v1, v2), 0.25)
 
-    def test_dame_gender_ine_frec_method_returns_correct_result(self):
+    # def test_dame_gender_ine_frec_method_returns_correct_result(self):
+    #     g = Gender()
+    #     ines = g.ine_frec("INES")
+    #     self.assertEqual(int(ines['females']), 61337)
+    #     self.assertEqual(int(ines['males']), 0)
+    #     bea = g.ine_frec("BEATRIZ")
+    #     self.assertTrue(int(bea['females']) > 10)
+
+
+    def test_dame_gender_name_frec_method_returns_correct_result(self):
         g = Gender()
-        ines = g.ine_frec("INES")
-        self.assertEqual(int(ines['females']), 61337)
-        self.assertEqual(int(ines['males']), 0)
-        bea = g.ine_frec("BEATRIZ")
-        self.assertTrue(int(bea['females']) > 10)
+        frec1 = g.name_frec("INES", dataset='ine')
+        self.assertEqual(int(frec1['females']), 61337)
+        self.assertEqual(int(frec1['males']), 0)
+        frec2 = g.name_frec("BEATRIZ", dataset='ine')
+        self.assertTrue(int(frec2['females']) > 10)
+        frec3 = g.name_frec("ALMUDENA", dataset='ine')
+        self.assertTrue(int(frec2['females']) > 10)
+        frec4 = g.name_frec("JULIA", dataset='uscensus')
+        self.assertTrue(int(frec2['females']) > 10)
+        frec5 = g.name_frec("ELISABETH", dataset='uscensus')
+        self.assertTrue(int(frec2['females']) > 10)
 
 
     def test_dame_gender_error_gender_bias_method_returns_correct_result(self):
