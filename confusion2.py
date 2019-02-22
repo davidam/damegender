@@ -28,6 +28,7 @@ from app.dame_genderguesser import DameGenderGuesser
 from app.dame_genderapi import DameGenderApi
 from app.dame_genderize import DameGenderize
 from app.dame_nameapi import DameNameapi
+from app.dame_customsearch import DameCustomsearch
 
 import argparse
 parser = argparse.ArgumentParser()
@@ -94,3 +95,8 @@ elif (args.api == "nameapi"):
     dna = DameNameapi()
     print("Nameapi confusion matrix:\n")
     dna.print_confusion_matrix_dame(path=args.csv)
+
+elif (args.api == "customsearch"):
+    dc = DameCustomsearch()
+    print("Google Custom Search confusion matrix:\n")
+    dc.print_confusion_matrix_dame(path=args.csv)
