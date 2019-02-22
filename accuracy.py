@@ -32,7 +32,7 @@ from app.dame_nameapi import DameNameapi
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', default="files/min.csv")
-parser.add_argument('--api', default="damegender", choices=['namsor', 'genderize', 'genderguesser', 'damegender', 'genderapi', 'nameapi'])
+parser.add_argument('--api', default="damegender", choices=['customsearch', 'namsor', 'genderize', 'genderguesser', 'damegender', 'genderapi', 'nameapi'])
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
 args = parser.parse_args()
 
@@ -126,6 +126,17 @@ elif (args.api == "genderguesser"):
     print("Guess list:  " +str(sl))
     genderguesser_accuracy = dgg.accuracy_score_dame(gl,sl)
     print("GenderGuesser accuracy: %s" % genderguesser_accuracy)
+
+elif (args.api == "customsearch"):
+    dgg = DameGenderGuesser()
+    print("################### Google Custom Search!!")
+    gl = dgg.gender_list(path=args.csv)
+    print("Gender list: " + str(gl))
+    sl = dgg.guess_list(path=args.csv, binary=True)
+    print("Guess list:  " +str(sl))
+    customsearch_accuracy = dgg.accuracy_score_dame(gl,sl)
+    print("Google Custom Search: %s" % customsearch_accuracy)
+
 
 elif (args.api == "damegender"):
 
