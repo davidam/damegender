@@ -30,16 +30,18 @@ class DameCustomsearch(Gender):
 
     def get(self, name, binary=True):
         filekey = open("files/customsearchapikey.txt", "r+")
+        cxfilekey = open("files/cxapikey.txt", "r+")
         content = filekey.readline().rstrip()
+        cxcontent = cxfilekey.readline().rstrip()
         service = build("customsearch", "v1",
                   developerKey=content)
         res1 = service.cse().list(
             q=name+'+male',
-            cx='012930223948444503025:jc1-uqxxhcs',
+            cx=cxcontent,
         ).execute()
         res2 = service.cse().list(
             q=name+'+female',
-            cx='012930223948444503025:jc1-uqxxhcs',
+            cx=cxcontent,
         ).execute()
         rmale = res1['searchInformation']['totalResults']
         rfemale = res2['searchInformation']['totalResults']
