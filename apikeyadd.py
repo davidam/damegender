@@ -54,6 +54,21 @@ if (nameapi_p.upper() == "Y"):
 else:
    config['DEFAULT']['nameapi'] = 'no'
 
+customsearch_p = input("Do you have a custom search google key: (Y|N) ")
+if (customsearch_p.upper() == "Y"):
+   config['DEFAULT']['customsearch'] = 'yes'
+   customsearchapikey = input("Introduce your custom search google api key: ")
+   customsearchcxkey = input("Introduce your custom search google cx key: ")
+   fo1 = open("files/customsearchapikey.txt", "w")
+   fo2 = open("files/customsearchcxkey.txt", "w")
+   fo1.write(customsearchapikey)
+   fo2.write(customsearchcxkey)
+   fo1.close()
+   fo2.close()
+else:
+   config['DEFAULT']['customsearch'] = 'no'
+
+
 with open('config.cfg', 'w') as configfile:
    config.write(configfile)
 
