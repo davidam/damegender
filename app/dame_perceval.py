@@ -35,7 +35,7 @@ class DamePerceval(object):
             count += 1
         return count
 
-    def numMails(self, url, directory="files"):
+    def numMails(self, url, directory="files/mbox"):
         repo = MBox(uri=url, dirpath=directory)
         count = 0
         for message in repo.fetch():
@@ -85,7 +85,7 @@ class DamePerceval(object):
             list_committers.append(committer)
         return list_committers
 
-    def list_mailers(self, url, directory="files"):
+    def list_mailers(self, url, directory="files/mbox"):
         repo = MBox(uri=url, dirpath=directory)
         count = 0
         list_mailers = []
