@@ -41,7 +41,7 @@ elif (args.csv == 'categorical'):
     g.features_list2csv(csv="categorical")
     data = pd.read_csv('files/features_list_cat.csv', index_col=0)
 else:
-    g.features_list2csv("files/names//all.csv")
+    g.features_list2csv("files/names/all.csv")
     data = pd.read_csv('files/features_list.csv', index_col=0)
 
 #data = pd.read_csv('files/features_list_cat.csv', index_col=0)
