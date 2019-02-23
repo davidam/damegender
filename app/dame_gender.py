@@ -107,13 +107,6 @@ class Gender(object):
             features_int["last_letter_a"] = 0
         return features_int
 
-    def remove_accents(self, s):
-        aux = ""
-        for c in unicodedata.normalize('NFD', s):
-            if (unicodedata.category(c) != 'Mn'):
-                aux = aux + c
-        return aux
-
     def males_list(self):
         my_corpus = nltk.corpus.PlaintextCorpusReader('files/names/names_es', '.*\.txt')
         m = names.words('male.txt') + my_corpus.sents('masculinos.txt')[1]
