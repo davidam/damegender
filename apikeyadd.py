@@ -28,7 +28,7 @@ genderapi_p = input("Do you have a genderapi key: (Y|N) ")
 if (genderapi_p.upper() == "Y"):
    config['DEFAULT']['genderapi'] = 'yes'
    genderapi_key = str(input("Introduce your genderapi key: "))
-   fo = open("files/genderapipass.txt", "w")
+   fo = open("files/apikeys/genderapipass.txt", "w")
    fo.write(genderapi_key)
    fo.close()
 else:
@@ -38,7 +38,7 @@ genderize_p = input("Do you have a genderize key: (Y|N) ")
 if (genderize_p.upper() == "Y"):
    config['DEFAULT']['genderize'] = 'yes'
    genderize_key = input("Introduce your genderize key: ")
-   fo = open("files/genderizepass.txt", "w")
+   fo = open("files/apikeys/genderizepass.txt", "w")
    fo.write(genderize_key)
    fo.close()
 else:
@@ -48,7 +48,7 @@ nameapi_p = input("Do you have a nameapi key: (Y|N) ")
 if (nameapi_p.upper() == "Y"):
    config['DEFAULT']['nameapi'] = 'yes'
    nameapi_key = input("Introduce your nameapi key: ")
-   fo = open("files/nameapipass.txt", "w")
+   fo = open("files/apikeys/nameapipass.txt", "w")
    fo.write(nameapi_key)
    fo.close()
 else:
@@ -59,8 +59,8 @@ if (customsearch_p.upper() == "Y"):
    config['DEFAULT']['customsearch'] = 'yes'
    customsearchapikey = input("Introduce your custom search google api key: ")
    customsearchcxkey = input("Introduce your custom search google cx key: ")
-   fo1 = open("files/customsearchapikey.txt", "w")
-   fo2 = open("files/customsearchcxkey.txt", "w")
+   fo1 = open("files/apikeys/customsearchapikey.txt", "w")
+   fo2 = open("files/apikeys/customsearchcxkey.txt", "w")
    fo1.write(customsearchapikey)
    fo2.write(customsearchcxkey)
    fo1.close()
