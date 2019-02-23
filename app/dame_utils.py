@@ -40,5 +40,12 @@ class DameUtils():
                 aux = aux + c
         return aux
 
+    def drop_white_space(self, s):
+        aux = ""
+        for c in unicodedata.normalize('NFD', str(s)):
+            if (c != ' '):
+                aux = aux + c
+        return aux
+
     def drop_accents(self, s):
         return ''.join((c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn'))

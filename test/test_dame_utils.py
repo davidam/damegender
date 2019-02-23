@@ -38,3 +38,8 @@ class TddInPythonExample(unittest.TestCase):
     def test_drop_accents_method_returns_correct_result(self):
         u = DameUtils()
         self.assertEqual("Ines", u.drop_accents("Inés"))
+
+    def test_drop_white_space_method_returns_correct_result(self):
+        u = DameUtils()
+        self.assertEqual("In", u.drop_white_space("In "))
+        self.assertEqual("Ines", u.drop_accents(u.drop_white_space("Inés ")))
