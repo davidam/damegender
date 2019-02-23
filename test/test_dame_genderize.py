@@ -55,14 +55,14 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_genderize_guess_list_method_returns_correct_result(self):
         dg = DameGenderize()
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
-            self.assertEqual(['male', 'male', 'male', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male'], dg.guess_list(path="files/partial.csv", binary=False)[0:10])
-            self.assertEqual([1, 1, 1, 1, 2, 1, 0, 0, 1, 1], dg.guess_list(path="files/partial.csv",binary=True)[0:10])
+            self.assertEqual(['male', 'male', 'male', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male'], dg.guess_list(path="files/names/partial.csv", binary=False)[0:10])
+            self.assertEqual([1, 1, 1, 1, 2, 1, 0, 0, 1, 1], dg.guess_list(path="files/names/partial.csv",binary=True)[0:10])
 
     def test_dame_genderize_guess_list_method_returns_correct_result(self):
         dg = DameGenderize()
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
-            self.assertEqual(['male', 'male', 'male', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male'], dg.guess_list(path="files/partial.csv", binary=False)[0:10])
-            self.assertEqual([1, 1, 1, 1, 2, 1, 0, 0, 1, 1], dg.guess_list(path="files/partial.csv",binary=True)[0:10])
+            self.assertEqual(['male', 'male', 'male', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male'], dg.guess_list(path="files/names/partial.csv", binary=False)[0:10])
+            self.assertEqual([1, 1, 1, 1, 2, 1, 0, 0, 1, 1], dg.guess_list(path="files/names/partial.csv",binary=True)[0:10])
 
 
     # def test_dame_genderize_confusion_matrix_dame_method_returns_correct_result(self):
