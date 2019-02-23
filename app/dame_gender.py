@@ -504,16 +504,21 @@ class Gender(object):
             reader_males = csv.reader(file_males, delimiter=',', quotechar='|')
             males = 0
             for row in reader_males:
-                if ((len(row)>1) and (row[1].lower() == name.lower())):
-                    males = row[2]
-                    males = du.drop_dots(males)
+                if (len(row)>1):
+                    ukname = du.drop_accents(du.drop_white_space(row[1])).lower()
+                    if (ukname == name.lower()):
+                        ukname = du.drop_accents(du.drop_white_space(row[1])).lower()
+                        males = row[2]
+                        males = du.drop_dots(males)
             file_females = open('files/names/2017girlsnames-uk.csv', 'r')
             reader_females = csv.reader(file_females, delimiter=',', quotechar='|')
             females = 0
             for row in reader_females:
-                if ((len(row) > 1) and (row[1].lower() == name.lower())):
-                    females = row[2]
-                    females = du.drop_dots(females)
+                if (len(row) > 1):
+                    ukname = du.drop_accents(du.drop_white_space(row[1])).lower()
+                    if (ukname == name.lower()):
+                        females = row[2]
+                        females = du.drop_dots(females)
             dicc = {"females": females, "males": males}
 
         return dicc
