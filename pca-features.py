@@ -32,7 +32,7 @@ from app.dame_gender import Gender
 
 ## LOAD DATASET
 g = Gender()
-g.features_list2csv(categorical="both", path="files/all.csv")
+g.features_list2csv(categorical="both", path="files/names/all.csv")
 features = "files/features_list.csv"
 
 #print("STEP1: N COMPONENTS + 1 TARGET")
@@ -40,7 +40,7 @@ features = "files/features_list.csv"
 x = pd.read_csv(features)
 print(x.columns)
 
-y = g.dataset2genderlist(dataset="files/all.csv")
+y = g.dataset2genderlist(dataset="files/names/all.csv")
 print(y)
 
 # load dataset
