@@ -64,5 +64,5 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_nameapi_guess_list_method_returns_correct_result(self):
         g = DameNameapi()
         if (g.config['DEFAULT']['nameapi'] == 'yes'):
-            self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'neutral', 'male', 'male', 'male', 'female', 'male', 'male'], g.guess_list(path="files/partial.csv", binary=False))
-            self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 1], g.guess_list(path="files/partial.csv",binary=True))
+            self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'neutral', 'male', 'male', 'male', 'female', 'male', 'male'], g.guess_list(path="files/names/partial.csv", binary=False))
+            self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 1], g.guess_list(path="files/names/partial.csv",binary=True))

@@ -107,7 +107,7 @@ class DameNameapi(Gender):
         v = self.get(name, surname, binary)
         return v[1]
 
-    def guess_list(self, path='files/partial.csv', binary=False):
+    def guess_list(self, path='files/names/partial.csv', binary=False):
     # guess list method
         slist = []
         with open(path) as csvfile:
