@@ -29,8 +29,8 @@ from app.dame_gender import Gender
 class DameCustomsearch(Gender):
 
     def get(self, name, binary=True):
-        filekey = open("files/customsearchapikey.txt", "r+")
-        cxfilekey = open("files/customsearchcxkey.txt", "r+")
+        filekey = open("files/apikeys/customsearchapikey.txt", "r+")
+        cxfilekey = open("files/apikeys/customsearchcxkey.txt", "r+")
         content = filekey.readline().rstrip()
         cxcontent = cxfilekey.readline().rstrip()
         service = build("customsearch", "v1",

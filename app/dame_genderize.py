@@ -65,7 +65,7 @@ class DameGenderize(Gender):
         prob = v[0]['probability']
         return prob
 
-    def guess_list(self, path='files/partial.csv', binary=False):
+    def guess_list(self, path='files/names/partial.csv', binary=False):
     # guess list method
         slist = []
         with open(path) as csvfile:
@@ -86,7 +86,7 @@ class DameGenderize(Gender):
             if (self.config['DEFAULT']['genderize'] == 'no'):
                 jsonlist = Genderize().get(i)
             elif (self.config['DEFAULT']['genderize'] == 'yes'):
-                fichero = open("files/genderizepass.txt", "r+")
+                fichero = open("files/apikeys/genderizepass.txt", "r+")
                 apikey = fichero.readline().rstrip()
                 jsonlist = Genderize(user_agent='GenderizeDocs/0.0', api_key=apikey).get(i)
             for item in jsonlist:

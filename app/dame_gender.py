@@ -115,13 +115,13 @@ class Gender(object):
         return aux
 
     def males_list(self):
-        my_corpus = nltk.corpus.PlaintextCorpusReader('files/names_es', '.*\.txt')
+        my_corpus = nltk.corpus.PlaintextCorpusReader('files/names/names_es', '.*\.txt')
         m = names.words('male.txt') + my_corpus.sents('masculinos.txt')[1]
         m = list(OrderedDict.fromkeys(m))
         return m
 
     def females_list(self):
-        my_corpus = nltk.corpus.PlaintextCorpusReader('files/names_es', '.*\.txt')
+        my_corpus = nltk.corpus.PlaintextCorpusReader('files/names/names_es', '.*\.txt')
         f = names.words('female.txt') + my_corpus.sents('femeninos.txt')[1]
         f = list(OrderedDict.fromkeys(f))
         return f
@@ -143,7 +143,7 @@ class Gender(object):
                     datasetname = row.title()
                     if (datasetname == name):
                         guess = 1
-        if (dataset == "files/all.csv"):
+        if (dataset == "files/names/all.csv"):
             with open(dataset) as csvfile:
                 sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
                 next(sexreader, None)
@@ -157,7 +157,7 @@ class Gender(object):
                             guess = 1
                         elif (guess == 'u'):
                             guess = 2
-        if (dataset == "files/yob2017.txt"):
+        if (dataset == "files/names/yob2017.txt"):
             with open(dataset) as csvfile:
                 sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
                 next(sexreader, None)
@@ -173,7 +173,7 @@ class Gender(object):
 
     def dataset2genderlist(self, dataset=''):
         genderlist = []
-        if (dataset == "files/all.csv"):
+        if (dataset == "files/names/all.csv"):
             with open(dataset) as csvfile:
                 sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
                 next(sexreader, None)
@@ -188,7 +188,7 @@ class Gender(object):
                     elif (guess == 'u'):
                         guess = 2
                     genderlist.append(guess)
-        if (dataset == "files/yob2017.txt"):
+        if (dataset == "files/names/yob2017.txt"):
             with open(dataset) as csvfile:
                 sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
                 next(sexreader, None)
@@ -232,7 +232,7 @@ class Gender(object):
                 guess = 'unknown'
         return guess
 
-    def csv2names(self, path='files/partial.csv'):
+    def csv2names(self, path='files/names/partial.csv'):
     # make a list from a csv file
         csvlist = []
         with open(path) as csvfile:
@@ -245,7 +245,7 @@ class Gender(object):
         return csvlist
 
 
-    def guess_list(self, path='files/partial.csv', binary=False):
+    def guess_list(self, path='files/names/partial.csv', binary=False):
     # guess list method
         slist = []
         with open(path) as csvfile:
@@ -257,7 +257,7 @@ class Gender(object):
                 slist.append(self.guess(name, binary))
         return slist
 
-    def gender_list(self, path='files/partial.csv'):
+    def gender_list(self, path='files/names/partial.csv'):
     # counting males, females and unknown
         glist = []
         with open(path) as csvfile:
@@ -373,12 +373,12 @@ class Gender(object):
         sl = self.guess_list(path, binary=True)
         return self.accuracy_score_dame(gl, sl)
 
-    def confusion_matrix(self, path='files/partial.csv'):
+    def confusion_matrix(self, path='files/names/partial.csv'):
         gl = self.gender_list(path)
         sl = self.guess_list(path,binary=True)
         return confusion_matrix(gl, sl)
 
-    def print_confusion_matrix_dame(self, path='files/partial.csv'):
+    def print_confusion_matrix_dame(self, path='files/names/partial.csv'):
         truevector = self.gender_list(path)
         guessvector = self.guess_list(path,binary=True)
         self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
@@ -391,7 +391,7 @@ class Gender(object):
         print(" [ %s, %s, %s]]\n" % (self.malefemale, self.malemale, self.maleundefined))
         return ""
 
-    def features_list(self, path='files/partial.csv', sexdataset=''):
+    def features_list(self, path='files/names/partial.csv', sexdataset=''):
         flist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -402,7 +402,7 @@ class Gender(object):
                 flist.append(list(self.features_int(name).values()))
         return flist
 
-    def features_list_categorical(self, path='files/partial.csv'):
+    def features_list_categorical(self, path='files/names/partial.csv'):
         flist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -414,7 +414,7 @@ class Gender(object):
                 flist.append(l)
         return flist
 
-    def features_list_no_categorical(self, path='files/partial.csv'):
+    def features_list_no_categorical(self, path='files/names/partial.csv'):
         flist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
