@@ -28,9 +28,10 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
-parser.add_argument('--total', default="ine", choices=['ine', 'uscensus'])
+parser.add_argument('--total', default="ine", choices=['ine', 'uscensus', 'ukcensus'])
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
+
 if (len(sys.argv) > 1):
     s = DameSexmachine()
     if (args.ml):
@@ -58,3 +59,6 @@ if (len(sys.argv) > 1):
     elif (args.total == "uscensus"):
         print("%s males for %s from US Census (2017)" % (s.name_frec(args.name, dataset=args.total)['males'], args.name))
         print("%s females for %s from US Census (2017)" % (s.name_frec(args.name, dataset=args.total)['females'], args.name))
+    elif (args.total == "ukcensus"):
+        print("%s males for %s from UK Census (2017)" % (s.name_frec(args.name, dataset=args.total)['males'], args.name))
+        print("%s females for %s from UK Census (2017)" % (s.name_frec(args.name, dataset=args.total)['females'], args.name))
