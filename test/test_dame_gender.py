@@ -69,19 +69,19 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_name2gender_in_dataset_method_returns_correct_result(self):
         g = Gender()
-        guess = g.name2gender_in_dataset("David", dataset='files/names_es')
+        guess = g.name2gender_in_dataset("David", dataset='files/names/names_es')
         self.assertTrue(guess, 1)
-        guess = g.name2gender_in_dataset("David", dataset='files/all.csv')
+        guess = g.name2gender_in_dataset("David", dataset='files/names/all.csv')
         self.assertTrue(guess, 1)
-        guess = g.name2gender_in_dataset("David", dataset='files/yob2017.csv')
+        guess = g.name2gender_in_dataset("David", dataset='files/names/yob2017.csv')
         self.assertTrue(guess, 1)
-        guess = g.name2gender_in_dataset("Laura", dataset='files/names_es')
+        guess = g.name2gender_in_dataset("Laura", dataset='files/names/names_es')
         self.assertTrue(guess, 0)
-        guess = g.name2gender_in_dataset("Laura", dataset='files/all.csv')
+        guess = g.name2gender_in_dataset("Laura", dataset='files/names/all.csv')
         self.assertTrue(guess, 0)
-        guess = g.name2gender_in_dataset("Laura", dataset='files/yob2017.csv')
+        guess = g.name2gender_in_dataset("Laura", dataset='files/names/yob2017.csv')
         self.assertTrue(guess, 0)
-        guess = g.name2gender_in_dataset("Teppei", dataset='files/yob2017.csv')
+        guess = g.name2gender_in_dataset("Teppei", dataset='files/names/yob2017.csv')
         self.assertTrue(guess, 2)
 
 
@@ -102,29 +102,29 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_csv2names_method_returns_correct_result(self):
         g = Gender()
-        names = g.csv2names(path='files/partial.csv')
+        names = g.csv2names(path='files/names/partial.csv')
         self.assertTrue(len(names) > 10)
 
     def test_dame_gender_guess_list_method_returns_correct_result(self):
         g = Gender()
-        self.assertEqual(['unknown', 'male', 'male', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'unknown', 'male', 'male', 'male', 'female', 'male', 'unknown'], g.guess_list(path="files/partial.csv", binary=False))
-        self.assertEqual([2, 1, 1, 1, 2, 1, 0, 0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 2], g.guess_list(path="files/partial.csv",binary=True))
+        self.assertEqual(['unknown', 'male', 'male', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'unknown', 'male', 'male', 'male', 'female', 'male', 'unknown'], g.guess_list(path="files/names/partial.csv", binary=False))
+        self.assertEqual([2, 1, 1, 1, 2, 1, 0, 0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 2], g.guess_list(path="files/names/partial.csv",binary=True))
 
 
     # def test_dame_gender_accuracy_method_returns_correct_result(self):
     #     g = Gender()
-    #     self.assertTrue(g.accuracy(path="files/partial.csv") >= 0.5)
+    #     self.assertTrue(g.accuracy(path="files/names/partial.csv") >= 0.5)
 
     def test_dame_gender_confusion_matrix_method_returns_correct_result(self):
         g = Gender()
-        cm = g.confusion_matrix(path="files/partial.csv")
+        cm = g.confusion_matrix(path="files/names/partial.csv")
         print(cm)
         am = np.array([[3, 0, 0],[0, 13, 3],[0, 1, 1]])
         self.assertTrue(np.array_equal(cm,am))
 
     # def test_gender_guess_list_method_returns_correct_result(self):
     #     g = Gender()
-    #     string = g.guess_list(path="files/partial.csv", binary=False)
+    #     string = g.guess_list(path="files/names/partial.csv", binary=False)
     #     self.assertEqual('thomas', g.remove_quotes(string))
 #        self.assertEqual([1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1], g.guess_list(path="file/partial.csv",binary=True))
 
@@ -140,9 +140,9 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_dataset2genderlist_method_returns_correct_result(self):
         g = Gender()
-        gl = g.dataset2genderlist(dataset="files/all.csv")
+        gl = g.dataset2genderlist(dataset="files/names/all.csv")
         self.assertEqual(gl[0:4], [1, 1, 1, 1])
-        gl2 = g.dataset2genderlist(dataset="files/yob2017.txt")
+        gl2 = g.dataset2genderlist(dataset="files/names/yob2017.txt")
         self.assertEqual(gl2[0:4], [0, 0, 0, 0])
 
     def test_dame_gender_features_list_method_returns_correct_result(self):
@@ -152,28 +152,28 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_features_list_categorical_method_returns_correct_result(self):
         g = Gender()
-        flc = g.features_list_categorical('files/partial.csv')
+        flc = g.features_list_categorical('files/names/partial.csv')
         self.assertEqual(len(flc[0]), 6)
         self.assertEqual(flc[0], [112, 101, 0, 0, 1, 0])
 
     def test_dame_gender_features_list_no_categorical_method_returns_correct_result(self):
         g = Gender()
-        flnc = g.features_list_no_categorical('files/partial.csv')
+        flnc = g.features_list_no_categorical('files/names/partial.csv')
         self.assertTrue(len(flnc[0]) > 25)
         self.assertTrue(flnc[0], [0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3])
 
     def test_dame_gender_features_list_no_letters_method_returns_correct_result(self):
         g = Gender()
-        flnl = g.features_list_no_letters('files/partial.csv')
+        flnl = g.features_list_no_letters('files/names/partial.csv')
         self.assertTrue(len(flnl[0]) > 5)
         self.assertEqual(flnl[0], [112, 101, 0, 0, 1, 0])
 
     def test_dame_gender_features_list2csv_method_returns_correct_result(self):
         # TODO: You can write asserts to verify the first line
         g = Gender()
-        csv1 = g.features_list2csv(path="files/min.csv")
-        csv2 = g.features_list2csv(path="files/min.csv", categorical="categorical")
-        csv3 = g.features_list2csv(path="files/min.csv", categorical="nocategorical")
+        csv1 = g.features_list2csv(path="files/names/min.csv")
+        csv2 = g.features_list2csv(path="files/names/min.csv", categorical="categorical")
+        csv3 = g.features_list2csv(path="files/names/min.csv", categorical="nocategorical")
         self.assertTrue(os.path.isfile("files/features_list.csv"))
         self.assertTrue(os.path.isfile("files/features_list_cat.csv"))
         self.assertTrue(os.path.isfile("files/features_list_no_cat.csv"))

@@ -426,7 +426,7 @@ class Gender(object):
                 flist.append(l)
         return flist
 
-    def features_list_no_letters(self, path='files/partial.csv'):
+    def features_list_no_letters(self, path='files/names/partial.csv'):
         flist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -469,14 +469,14 @@ class Gender(object):
         if (dataset == 'ine'):
             du = DameUtils()
             name = du.drop_accents(name)
-            file_males = open('files/names_es/masculinos_original.csv', 'r')
+            file_males = open('files/names/names_es/masculinos_original.csv', 'r')
             inereader_males = csv.reader(file_males, delimiter=',', quotechar='|')
             males = 0
             for row in inereader_males:
                 if ((len(row)>1) and (row[1].lower() == name.lower())):
                     males = row[2]
                     males = du.drop_dots(males)
-            file_females = open('files/names_es/femeninos_original.csv', 'r')
+            file_females = open('files/names/names_es/femeninos_original.csv', 'r')
             inereader_females = csv.reader(file_females, delimiter=',', quotechar='|')
             females = 0
             for row in inereader_females:
@@ -486,7 +486,7 @@ class Gender(object):
             dicc = {"females": females, "males": males}
         elif (dataset == 'uscensus'):
             du = DameUtils()
-            usfile = open('files/yob2017.txt', 'r')
+            usfile = open('files/names/yob2017.txt', 'r')
             usreader = csv.reader(usfile, delimiter=',', quotechar='|')
             males = 0
             females = 0
@@ -499,7 +499,7 @@ class Gender(object):
             dicc = {"females": females, "males": males}
         return dicc
 
-    def pca(self, path='files/partial.csv', n=2):
+    def pca(self, path='files/names/partial.csv', n=2):
         X = np.array(self.features_list())
         pca = PCA(n_components=n)
         return pca.fit(X)
