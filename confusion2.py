@@ -32,7 +32,7 @@ from app.dame_customsearch import DameCustomsearch
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--csv', default="files/min.csv")
+parser.add_argument('--csv', default="files/names/min.csv")
 parser.add_argument('--api', default="all")
 args = parser.parse_args()
 #print(args.csv)
@@ -47,7 +47,7 @@ print("If the classifier is nice, the diagonal is high because there are true po
 # gl2 = g.guess_list(path=args.csv, binary=True)
 # print(gl2)
 
-# g.print_confusion_matrix_dame(path='files/partial.csv')
+# g.print_confusion_matrix_dame(path='files/names/partial.csv')
 
 if (args.api == "all"):
     dn = DameNamsor()
