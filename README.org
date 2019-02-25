@@ -83,6 +83,8 @@ $ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce
 $ python3 api2gender.py Leticia --api=namsor
 female
 scale: 0.99
+# Google popularity for a name
+$ python3 gendergoogle.py Leticia
 # Give me informative features
 $ python3 infofeatures.py
 Females with last letter a: 0.4705246078961601
@@ -138,6 +140,7 @@ $ python3 corr.py --csv="nocategorical"
 # To create the pickle models in files directory
 $ python3 damemodels.py
 # Experiments to determine features with weight
+$ python3 pca-components.py --csv="files/features_list.csv"
 $ python3 pca-features.py
 #+END_SRC
 * Statistics for damegender
