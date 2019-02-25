@@ -1,6 +1,6 @@
 * Logo
 
-[[file:files/gender.png]]
+[[file:files/images/gender.png]]
 
 * Name
 damegender is a gender detection tool coded by David Arroyo MEnéndez (DAME)
@@ -66,16 +66,16 @@ david gender is male
 $ python3 main.py David --ml=multinomialNB
 male
 # Count gender from a csv example file
-$ python3 csv2gender.py files/partial.csv
-The number of males in files/partial.csv is 16
-The number of females in files/partial.csv is 3
-The number of gender not recognised in files/partial.csv is 2
+$ python3 csv2gender.py files/names/partial.csv
+The number of males in files/names/partial.csv is 16
+The number of females in files/names/partial.csv is 3
+The number of gender not recognised in files/names/partial.csv is 2
 # Count gender from a git repository
 $ python3 git2gender.py https://github.com/chaoss/grimoirelab-perceval.git --directory="/tmp/clonedir"
 The number of males sending commits is 15
 The number of females sending commits is 7
 # Count gender from a mailing list
-$ cd files
+$ cd files/mbox
 $ wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
 $ cd ..
 $ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
@@ -85,6 +85,8 @@ female
 scale: 0.99
 # Google popularity for a name
 $ python3 gendergoogle.py Leticia
+Google results of Leticia as male: 42300
+Google results of Leticia as female: 63400
 # Give me informative features
 $ python3 infofeatures.py
 Females with last letter a: 0.4705246078961601
@@ -94,8 +96,8 @@ Males with last letter consonant: 0.6355328972681801
 Females with last letter vocal: 0.7262612995441552
 Males with last letter vocal: 0.3640823393612928
 # To measure success
-$ python3 accuracy.py --csv=files/min.csv
-files/min.csv
+$ python3 accuracy.py --csv=files/names/min.csv
+files/names/min.csv
 ################### Namsor!!
 Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
 Guess list:  [1, 1, 1, 1, 1, 1, 0, 0]
@@ -126,8 +128,8 @@ Sexmachine confusion matrix:
  [ 1  1  0]]
 
 # To analyze errors guessing names from a csv
-$ python3 errors.py --csv="files/all.csv" --api="genderguesser"
-Gender Guesser with files/all.csv has:
+$ python3 errors.py --csv="files/names/all.csv" --api="genderguesser"
+Gender Guesser with files/names/all.csv has:
 + The error code: 0.22564457518601835
 + The error code without na: 0.026539047204698716
 + The na coded: 0.20453365634192766
@@ -140,8 +142,8 @@ $ python3 corr.py --csv="nocategorical"
 # To create the pickle models in files directory
 $ python3 damemodels.py
 # Experiments to determine features with weight
-$ python3 pca-components.py --csv="files/features_list.csv"
-$ python3 pca-features.py
+$ python3 pca-components.py --csv="files/features_list.csv" # To determine number of components
+$ python3 pca-features.py                                   # To understand the weight between variables for a target
 #+END_SRC
 * Statistics for damegender
 Some theory could be useful to understand some commands
@@ -219,22 +221,22 @@ It means, I have 2 females true and I've guessed 2 females and I've 14 males tru
 The dispersion measures between 1 variables are: variance, standard
 deviation, ...
 
-[[file:files/variance.png]]
+[[file:files/images/variance.png]]
 
 If you have 2 variables, you can write a formula so similar to variance.
 
-[[file:files/covariance.png]]
+[[file:files/images/covariance.png]]
 
 If you have 3 variables or more, you can write a covariance matrix.
 
-[[file:files/matrix-covariance.png]]
+[[file:files/images/matrix-covariance.png]]
 
 In essence, an eigenvector v of a linear transformation T is a
 non-zero vector that, when T is applied to it, does not change
 direction. Applying T to the eigenvector only scales the eigenvector
 by the scalar value λ, called an eigenvalue.
 
-[[file:files/eigenvector.png]]
+[[file:files/images/eigenvector.png]]
 
 A feature vector is constructed taking the eigenvectors that you want
 to keep from the list of eigenvectors.
@@ -302,7 +304,7 @@ plt.title('Dataset Explained Variance')
 plt.show()
 #+END_SRC
 
-[[file:files/pca-number-components.png]]
+[[file:files/images/pca-number-components.png]]
 
 Taking a look to the image. We can choose 6 components.
 
@@ -319,7 +321,7 @@ from app.dame_gender import Gender
 
 ## LOAD DATASET
 g = Gender()
-g.features_list2csv(categorical="both", path="files/all.csv")
+g.features_list2csv(categorical="both", path="files/names/all.csv")
 features = "files/features_list.csv"
 
 print("STEP1: N COMPONENTS + 1 TARGET")
@@ -327,7 +329,7 @@ print("STEP1: N COMPONENTS + 1 TARGET")
 x = pd.read_csv(features)
 print(x.columns)
 
-y = g.dataset2genderlist(dataset="files/all.csv")
+y = g.dataset2genderlist(dataset="files/names/all.csv")
 print(y)
 #+END_SRC
 
