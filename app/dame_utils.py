@@ -22,6 +22,7 @@
 # Boston, MA 02110-1301 USA,
 
 import unicodedata
+import re
 
 class DameUtils():
     def split(self, arr, size):
@@ -49,3 +50,23 @@ class DameUtils():
 
     def drop_accents(self, s):
         return ''.join((c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn'))
+
+    def delete_duplicated(self, l):
+        if (len(l) == 0):
+            return l
+        else:
+            rest = []
+            for i in l:
+                if (i != l[0]):
+                    rest = rest + [i]
+        return [l[0]] + self.delete_duplicated(rest)
+
+    def clean_list(self, l):
+        if (len(l) == 0):
+            print([])
+        else:
+            aux = []
+            for i in l:
+                if ((i != "") and (not(re.search(r' ?.*@.*\..*', i)))):
+                    aux = aux + [i]
+        return aux

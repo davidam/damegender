@@ -43,3 +43,11 @@ class TddInPythonExample(unittest.TestCase):
         u = DameUtils()
         self.assertEqual("In", u.drop_white_space("In "))
         self.assertEqual("Ines", u.drop_accents(u.drop_white_space("Inés ")))
+
+    def test_dame_utils_delete_duplicated_method_returns_correct_result(self):
+        du = DameUtils()
+        self.assertEqual(du.delete_duplicated([1, 2, 2, 1, 3]), [1, 2, 3])
+
+    def test_dame_utils_clean_list_method_returns_correct_result(self):
+        du = DameUtils()
+        self.assertEqual(du.clean_list(['', 'H. Peter Anvin', 'hiranotaka@zng.info', 'Ram Yalamanchili', 'Ferenc Wagner']), ['H. Peter Anvin', 'Ram Yalamanchili', 'Ferenc Wagner'])

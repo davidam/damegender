@@ -66,16 +66,6 @@ class DamePerceval(object):
             second = ""
         return second
 
-    def delete_duplicated(self, l):
-        if (len(l) == 0):
-            return l
-        else:
-            rest = []
-            for i in l:
-                if (i != l[0]):
-                    rest = rest + [i]
-        return [l[0]] + self.delete_duplicated(rest)
-
     def list_committers(self, url, directory):
     # Return the list containing the strings from a git repository related to the users ordered by commit including repeated users to allow count gender contributions.
         repo = Git(uri=url, gitpath=directory)
