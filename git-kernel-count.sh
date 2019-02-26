@@ -17,14 +17,15 @@
 
 # You should have received a copy of the GNU General Public License
 # along with GNU Emacs; see the file COPYING.  If not, write to
-# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
+# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
 #read file
+
 
 i=0
 while IFS='' read -r line || [[ -n "$line" ]]; do
     printf "##### %s ######\n" "$line"
     python3 git2gender.py $line --directory="/tmp/clonedir$i"
-    i=i+1
-done < git3.txt
+	i=`expr $i + 1`
+done < files/kernelgits.txt
