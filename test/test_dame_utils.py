@@ -44,6 +44,11 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual("In", u.drop_white_space("In "))
         self.assertEqual("Ines", u.drop_accents(u.drop_white_space("Inés ")))
 
+    def test_drop_quotes_method_returns_correct_result(self):
+        u = DameUtils()
+        self.assertEqual('Hola Mexico', u.drop_quotes('Hola "Mexico'))
+        self.assertEqual("Hola Mexico", u.drop_quotes("Hola' 'Mexico"))
+
     def test_dame_utils_delete_duplicated_method_returns_correct_result(self):
         du = DameUtils()
         self.assertEqual(du.delete_duplicated([1, 2, 2, 1, 3]), [1, 2, 3])

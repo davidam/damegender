@@ -41,6 +41,13 @@ class DameUtils():
                 aux = aux + c
         return aux
 
+    def drop_quotes(self, s):
+        aux = ""
+        for c in unicodedata.normalize('NFD', str(s)):
+            if ((c != '"') and (c != "'")):
+                aux = aux + c
+        return aux
+
     def drop_white_space(self, s):
         aux = ""
         for c in unicodedata.normalize('NFD', str(s)):
