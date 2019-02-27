@@ -156,6 +156,11 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(len(flc[0]), 6)
         self.assertEqual(flc[0], [112, 101, 0, 0, 1, 0])
 
+    def test_dame_gender_features_list_noundefined_method_returns_correct_result(self):
+        g = Gender()
+        flnu = g.features_list_no_undefined('files/names/allnoundefined.csv')
+        self.assertTrue(len(flnu) > 5000)
+
     def test_dame_gender_features_list_no_categorical_method_returns_correct_result(self):
         g = Gender()
         flnc = g.features_list_no_categorical('files/names/partial.csv')
