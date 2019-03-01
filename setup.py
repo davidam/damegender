@@ -28,7 +28,7 @@ from setuptools import setup
 #         return f.read()
 
 setup(name='damegender',
-      version='0.0.9',
+      version='0.0.16',
       description='Gender Detection Tool by David Arroyo MEnéndez',
       long_description='Gender Detection Tool by David Arroyo MEnéndez',
       classifiers=[
@@ -41,9 +41,9 @@ setup(name='damegender',
       author='David Arroyo Menéndez',
       author_email='davidam@gnu.org',
       license='GPLv3',
-      packages=['damegender', 'damegender.app', 'damegender.test'],
+      packages=['damegender', 'damegender.app', 'damegender.test', 'damegender.files'],
       package_dir={'damegender': 'src/damegender', 'damegender.app': 'src/damegender/app', 'damegender.test': 'src/damegender/test', 'damegender.files': 'src/damegender/files'},
-      package_data={'damegender.files': ['files/*']},
+      package_data={'damegender.files': ['files/*csv']},
       install_requires=[
           'markdown',
           'nltk',
