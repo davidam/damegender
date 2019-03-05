@@ -21,14 +21,16 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+
 from setuptools import setup
 
 # def readme():
 #     with open('README.org') as f:
 #         return f.read()
 
+
 setup(name='damegender',
-      version='0.0.16',
+      version='0.0.24',
       description='Gender Detection Tool by David Arroyo MEnéndez',
       long_description='Gender Detection Tool by David Arroyo MEnéndez',
       classifiers=[
@@ -43,7 +45,8 @@ setup(name='damegender',
       license='GPLv3',
       packages=['damegender', 'damegender.app', 'damegender.test', 'damegender.files'],
       package_dir={'damegender': 'src/damegender', 'damegender.app': 'src/damegender/app', 'damegender.test': 'src/damegender/test', 'damegender.files': 'src/damegender/files'},
-      package_data={'damegender.files': ['files/*csv']},
+      data_files=[('damegender', ['src/damegender/files/features_list.csv', 'src/damegender/files/features_list_cat.csv', 'src/damegender/files/features_list_no_cat.csv', 'src/damegender/files/names/all.csv', 'src/damegender/files/names/partial.csv', 'src/damegender/files/names/names_es/femeninos_original.csv', 'src/damegender/files/names/names_es/masculinos_original.csv', 'src/damegender/files/names/names_es/masculinos.txt', 'src/damegender/files/names/names_es/femeninos.txt'])],
+#      data_files=[('damegender', ['src/damegender/files/*csv', 'src/damegender/files/datamodels/*', 'src/damegender/files/images/*', 'src/damegender/files/names/*', 'src/damegender/files/names/names_es/*'])],
       install_requires=[
           'markdown',
           'nltk',
