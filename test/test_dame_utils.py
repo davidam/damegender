@@ -22,6 +22,7 @@
 # Boston, MA 02110-1301 USA,
 
 import unittest
+import os
 from app.dame_utils import DameUtils
 
 class TddInPythonExample(unittest.TestCase):
@@ -59,4 +60,5 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_utils_files_one_level_method_returns_correct_result(self):
         du = DameUtils()
-        self.assertTrue(len(du.files_one_level('/home/davidam/git/damegender/files/')) > 10)
+        cwd = os.getcwd()
+        self.assertTrue(len(du.files_one_level(cwd + '/files/')) > 10)
