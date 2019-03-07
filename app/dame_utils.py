@@ -23,6 +23,7 @@
 
 import unicodedata
 import re
+import os
 
 class DameUtils():
     def split(self, arr, size):
@@ -77,3 +78,11 @@ class DameUtils():
                 if ((i != "") and (not(re.search(r' ?.*@.*\..*', i)))):
                     aux = aux + [i]
         return aux
+
+    def files_one_level(self, directory):
+        f = os.popen('find '+ directory )
+        l = []
+        for line in f:
+            fields = line.strip().split()
+            l.append(fields[0])
+        return l

@@ -56,3 +56,7 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_utils_clean_list_method_returns_correct_result(self):
         du = DameUtils()
         self.assertEqual(du.clean_list(['', 'H. Peter Anvin', 'hiranotaka@zng.info', 'Ram Yalamanchili', 'Ferenc Wagner']), ['H. Peter Anvin', 'Ram Yalamanchili', 'Ferenc Wagner'])
+
+    def test_dame_utils_files_one_level_method_returns_correct_result(self):
+        du = DameUtils()
+        self.assertTrue(len(du.files_one_level('/home/davidam/git/damegender/files/')) > 10)
