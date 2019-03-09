@@ -99,6 +99,7 @@ class DameUtils():
         l = []
         for line in f:
             fields = line.strip().split()
-            l.append(self.drop_pwd(fields[0]))
+            if not(os.path.isdir(fields[0])):
+                l.append(self.drop_pwd(fields[0]))
         return l
         
