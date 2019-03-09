@@ -64,8 +64,8 @@ class DameUtils():
         result = ""
         if re.search(cwd, s):
             result = re.sub(cwd+'/', '', s)
-        return result
-
+        return result        
+    
     def delete_duplicated(self, l):
         if (len(l) == 0):
             return l
@@ -93,3 +93,12 @@ class DameUtils():
             fields = line.strip().split()
             l.append(fields[0])
         return l
+
+    def files_one_level_drop_pwd(self, directory):
+        f = os.popen('find '+ directory)
+        l = []
+        for line in f:
+            fields = line.strip().split()
+            l.append(self.drop_pwd(fields[0]))
+        return l
+        
