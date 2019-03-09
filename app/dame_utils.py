@@ -59,6 +59,13 @@ class DameUtils():
     def drop_accents(self, s):
         return ''.join((c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn'))
 
+    def drop_pwd(self, s):
+        cwd = os.getcwd()
+        result = ""
+        if re.search(cwd, s):
+            result = re.sub(cwd+'/', '', s)
+        return result
+
     def delete_duplicated(self, l):
         if (len(l) == 0):
             return l
