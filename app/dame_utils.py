@@ -26,6 +26,9 @@ import re
 import os
 
 class DameUtils():
+    def is_not_blank(self, s):
+        return bool(s and s.strip())
+
     def split(self, arr, size):
         arrs = []
         while len(arr) > size:
@@ -64,8 +67,8 @@ class DameUtils():
         result = ""
         if re.search(cwd, s):
             result = re.sub(cwd+'/', '', s)
-        return result        
-    
+        return result
+
     def delete_duplicated(self, l):
         if (len(l) == 0):
             return l
@@ -102,4 +105,3 @@ class DameUtils():
             if not(os.path.isdir(fields[0])):
                 l.append(self.drop_pwd(fields[0]))
         return l
-        
