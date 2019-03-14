@@ -1,0 +1,731 @@
+#+TODO: TODO(t) POSIBLE(p) POSSIBLE(p) GOING(g) FUTURE(f) | DONE(d!) CANCELED(c!)
+
+
+* TODO gsoc applications open March 25, 2019 at 19:00
+  SCHEDULED: <2019-03-25 lun 19:00>
+* DONE Reflexionar la manera de nombrar las clases
+  SCHEDULED: <2018-12-11 mar>
+  - State "DONE"       from "TODO"       [2018-12-11 mar 16:12]
+* DONE Hacer comparativa de clasificadores
+  - State "DONE"       from "TODO"       [2019-02-17 dom 17:09]
+** DONE Crear métodos de accuracy y confusion_matrix
+   - State "DONE"       from "TODO"       [2018-11-15 jue 11:53]
+** DONE Escribir la clase gender genérica desde lo aprendido en la clase sexmachine
+   - State "DONE"       from "TODO"       [2018-12-14 vie 21:21]
+Por ahora valdría con llegar a migrar los métodos necesarios hasta ejecutar accuracy y confusion matrix
+** DONE Reescribir todas las clases api heredando de gender
+   - State "DONE"       from "TODO"       [2019-01-18 vie 13:16]
+** DONE Crear los accuracy de los clasificadores, compararlos entre ellos y con las apis
+   - State "DONE"       from "TODO"       [2019-02-17 dom 17:09]
+* DONE Estudiar las relaciones entre las variables escogidas
+  - State "DONE"       from "TODO"       [2018-12-03 lun 15:58]
+Mirar python-examples/matplotlib/corr.py
+* FUTURE Crear la tarea de aprendizaje de dado el string de nombre descubrir nombre y apellidos si los hay
+** DONE Crear método guess_surname
+   - State "DONE"       from "TODO"       [2018-11-22 jue 16:12]
+* DONE Hacer los test requeridos para string2array
+  - State "DONE"       from "TODO"       [2018-11-15 jue 11:52]
+* DONE Meter en guess todos los clasificadores
+  - State "DONE"       from "FUTURE"     [2018-12-14 vie 21:21]
+    def guess(self, name, classifier_type):
+    # guess method to check names dictionary and nltk classifier
+        guess = ''
+        if name in names.words('male.txt'):
+#            guess = 'male' # 1
+            guess = np.array([1])
+        elif name in names.words('female.txt'):
+#            guess = 'female' # 0
+            guess = np.array([0])
+        else:
+           if (classifier_type == 'gaussianNB'):
+               m = self.bernoulliNB()
+               guess = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0]])
+           elif (classifier_type == 'multinomialNB'):
+               m = self.multinomialNB()
+               guess = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0]])
+           elif (classifier_type == 'bernoulliNB'):
+               m = self.bernoulliNB()
+               guess = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0]])
+           else: # nltk default
+               classifier = self.classifier()
+               guess = classifier.classify(self.features(name))
+        return guess
+* DONE Plantearse renombrarlo a damegender
+  SCHEDULED: <2018-11-16 vie>
+  - State "DONE"       from "TODO"       [2018-12-10 lun 12:55]
+* DONE guess en Gendernamsor
+  - State "DONE"       from "TODO"       [2018-12-03 lun 15:58]
+    # def guess(Gender, name, surname, binary=False):
+    # # guess method to check names dictionary and nltk classifier
+    #     guess = super(Gender, self).gender()
+    #     guess = ''
+    #     if name in names.words('male.txt'):
+    #         if binary:
+    #             guess = 1
+    #         else:
+    #             guess = 'male'
+    #     elif name in names.words('female.txt'):
+    #         if binary:
+    #             guess = 0
+    #         else:
+    #             guess = 'female'
+    #     else:
+    #         r = requests.get('https://api.namsor.com/onomastics/api/json/gender/'+ name +'/' + surname)
+    #         d = json.loads(r.text)
+    #         if binary:
+    #             if (d['gender']=='female'):
+    #                 guess = 0
+    #             elif (d['gender']=='male'):
+    #                 guess = 1
+    #             else:
+    #                 guess = 2
+    #         else:
+    #             guess = d['gender']
+    #     return guess
+* DONE Escribir comando para adivinar un nombre
+  - State "DONE"       from "TODO"       [2018-11-19 lun 19:18]
+* DONE Escribir comando git2gender.py
+  SCHEDULED: <2018-11-20 mar>
+  - State "DONE"       from "TODO"       [2018-11-22 jue 16:12]
+Dada una url obtener número y porcentaje de hombres y mujeres
+** TODO Escribir método string2name
+Dada una cadena con espacios en blanco:
+1. Crea un array.
+2. Recorre el array hasta encontrar el primer nombre.
+2.1 Es nombre si no está en la lista de apellidos.
+3. Devuelve el primer nombre.
+
+* DONE Escribir comando gender2csv.py
+  SCHEDULED: <2018-11-20 mar>
+  - State "DONE"       from "TODO"       [2018-11-22 jue 16:12]
+Dado un fichero csv obtener número y porcentaje de hombres y mujeres
+* DONE Hay un problema con los acentos
+  - State "DONE"       from "TODO"       [2018-11-22 jue 08:30]
+Probar
+$ python3 main.py Inés
+$ python3 main.py Ines
+* FUTURE Hay un problema con los nombres que aparecen en male.txt y female.txt
+Probar
+$ python3 main.py Andrea
+Para esto lo mejor es devolver una probabilidad. Usar INE.es puede ser una opción.
+* DONE Meter en el requirements la dependencia de hyphenation
+  SCHEDULED: <2018-11-20 mar>
+  - State "DONE"       from "TODO"       [2018-11-22 jue 16:11]
+* DONE Reescribir num_males y num_females con el método list_commiters de GenderGit
+  SCHEDULED: <2018-11-22 jue>
+  - State "DONE"       from "TODO"       [2018-11-22 jue 16:10]
+* DONE Escribir tests para main.py, csv2gender y git2gender
+  SCHEDULED: <2018-11-23 vie>
+  - State "DONE"       from "TODO"       [2018-11-29 jue 09:48]
+* FUTURE Para csv2gender:
+** en file deberías reconocer:
++ [ ] formato csv
++ [ ] tiene las rows importantes
+** en sexmachine
++ [ ] trabajar por path en vez de all y partial
++ [ ] detectar si el fichero existe
+* DONE Echar un vistazo a https://www.nameapi.org/en/developer/
+  - State "DONE"       from "TODO"       [2019-01-23 mié 16:00]
+* DONE En csv
+  - State "DONE"       from "TODO"       [2018-12-03 lun 15:57]
+  first_letter; last_letter; a; b; c; d; e; f; g; h; i; j; k; l; m; n; o; p; q; r; s; t; u; v; w; x; y; z; vocals; consonants; first_letter_vocal; last_letter_vocal; syllables
+_* TODO Mejora corr.py para determinar si las variables son independientes
++ [X] Separar variables categóricas y no categóricas
++ [ ] Crear una gráfica para variables categóricas
++ [ ] Crear una gráfica para variables no categóricas
+* DONE Lanzar los accuracy para determinar la mejor herramienta de género
+  - State "DONE"       from "TODO"       [2019-02-17 dom 17:08]
++ [X] sexmachine
++ [X] namsor
++ [ ] genderguesser
++ [ ] genderapi
++ [ ] genderize
+
+Hay un problema que accuracy parece que usa el guess padre y no la instancia, ya que devuelve el mismo resultado en todos
+* DONE Para mejorar accuracy es bueno incluir en male.txt y female.txt los nombres de ine.es
+  SCHEDULED: <2018-12-22 sáb>
+  - State "DONE"       from "TODO"       [2019-01-04 vie 20:21]
+* DONE Escribir api2gender.py dada una api y un nombre, extraer el género y la probabilidad si la da la api
+  SCHEDULED: <2018-12-13 jue>
+* DONE Reemplazar DameSexmachine heredando de Gender
+  - State "DONE"       from "TODO"       [2018-12-14 vie 21:18]
+* DONE Usar pickle para los algoritmos de scikit, ayudará a que ejecutar tests no sea un infierno
+  - State "DONE"       from "TODO"       [2019-01-02 mié 20:26]
++ [X] damemodels.py
++ [X] hacer tests usando pickle
+
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# Copyright (C) 2018  David Arroyo Menéndez
+
+# Author: David Arroyo Menéndez <davidam@gnu.org>
+# Maintainer: David Arroyo Menéndez <davidam@gnu.org>
+
+# This file is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3, or (at your option)
+# any later version.
+
+# This file is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with GNU Emacs; see the file COPYING.  If not, write to
+# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+# Boston, MA 02110-1301 USA,
+
+import csv
+import requests
+import json
+from app.dame_gender import Gender
+
+
+class DameGenderApi(Gender):
+    def guess(self, name):
+        fichero = open("files/genderapipass.txt", "r+")
+        contenido = fichero.readline()
+        r = requests.get('https://gender-api.com/get?name='+name+'&key='+contenido)
+        j = json.loads(r.text)
+        return j['gender']
+
+* DONE males_list and females_list
+  - State "DONE"       from "TODO"       [2018-12-23 dom 17:33]
+* DONE Guess
+  SCHEDULED: <2018-12-24 lun>
+  - State "DONE"       from "TODO"       [2018-12-23 dom 19:24]
+    def guess(self, name, binary=False):
+    # guess method to check names dictionary
+        guess = ''
+        name = unidecode.unidecode(name).title()
+        name.replace(name,"")
+        m = self.males_list()
+        f = self.females_list()
+        if (name in m) and (name in f):
+            if binary:
+                guess = 2
+            else:
+                guess = 'unknown'
+        elif name in m:
+            if binary:
+                guess = 1
+            else:
+                guess = 'male'
+        elif name in f:
+            if binary:
+                guess = 0
+            else:
+                guess = 'female'
+        else:
+            if binary:
+                guess = 2
+            else:
+                guess = 'unknown'
+        return guess
+* DONE A comentar
+  - State "DONE"       from "TODO"       [2019-01-23 mié 15:57]
+** Cambiar foto
++ [ ] http://miportal.urjc.es/portal/page/portal/gp_uxxiportal_academico/pg_mis_datos_personales
++ [ ] https://soporte.urjc.es/servicedesk/customer/portal/2/URJC-46086
++ [ ] Ir a Escuela Internacional de Docotorado
+** package
+** Generar inercia para ingresar dinero con coherencia de ganar dinero con los objetivos del doctorado
+Escogimos como primer productividad, lo hemos hablado a urjc así, tenemos que mejorar en este aspecto
+** Problemas de no pagar APIs con all.csv:
++ [ ] GenderAPI: your request volume is exhausted but your server is still making requests.
++ [ ] Genderize: Request limit too low to process request
++ [ ] Genderguesser: tener en cuenta el caso andy 'andy', 1, 2, 0, 1, 1, 1]
+** Baby name guesser usa google para determinar si alguien es chico o chica
+Supongo que podría ser el número de resultados en Google "name female", "name male"
+** infofeatures.py
+** Charla Bitergia
++ [ ] Contenidos
++ [ ] Posibilidad de comentarlo en GAPLEN
+** NLTK en Medialab
+** CLEF and ICSE
+** Beca e INEM
+** Revisión de métodos en clases
+** Variables categóricas y no categóricas
+** Estadística facultad de mates
+* DONE Para main.py
+  - State "DONE"       from "TODO"       [2018-12-24 lun 12:59]
+if (len(sys.argv) > 1):
+    if (args.ml):
+        s = DameSexmachine()
+        m = s.sgd_load()
+        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1]])
+        sex = ""
+        if predicted:
+            sex = "male"
+        else:
+            sex = "female"
+        print("%s gender is %s" % (str(args.name), sex))
+    else:
+        print("%s gender is %s" % (str(args.name), s.guess(args.name)))
+* DONE Charla en Bitergia
+  SCHEDULED: <2019-01-25 vie 11:00>
+  - State "DONE"       from "TODO"       [2019-02-14 jue 18:28]
+Title: damegender: a gender detection tool
+Summary:
+Nowadays, there are different api gender detection tool in the current state damegender is providing a way to use some of these apis and it's providing another way to know if a string is a name of a male or a female. Although, the dictionary is so important, we can discuss about features to detect the gender and machine learning algorithms to improve the software.
+api google python
+* DONE accuracy is buggy, you can write your own version
+  SCHEDULED: <2019-01-15 mar>
+  - State "DONE"       from "TODO"       [2019-01-16 mié 16:39]
+* DONE dada una feature contar apariciones en aciertos y apariciones en fallos
+  - State "DONE"       from "TODO"       [2019-02-17 dom 17:08]
+* DONE escribir guess_list en genderapi
+  SCHEDULED: <2019-01-15 mar>
+  - State "DONE"       from "TODO"       [2019-01-16 mié 16:39]
+GET https://gender-api.com/get?name=lisa;jess;thomas&multi=true&key=<your private server key>
+* DONE hay métodos comentados y etiquetados como obsoletos, ir eliminando
+  - State "DONE"       from "TODO"       [2019-01-18 vie 10:41]
+* DONE comprobar métodos que puedan estar en varias clases están con una adecuada herencia, DRY!
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:35]
+** DONE guess_surname
+   - State "DONE"       from "TODO"       [2019-02-17 dom 16:35]
+** DONE string2array
+   - State "DONE"       from "TODO"       [2019-02-17 dom 16:35]
+** DONE string2gender
+   - State "DONE"       from "TODO"       [2019-02-17 dom 16:35]
+* DONE https://en.wikipedia.org/wiki/Precision_and_recall
+  SCHEDULED: <2019-01-16 mié>
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:34]
+Escribir el código de todas las posibilidades que se dan.
+* TODO Introducir la feature all_syllables. Esto vendría bien para decidir si es o no un nombre
+* DONE Introducir la feature in_dict. Esto vendría bien para decidir si es o no un nombre
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:36]
+python-examples/shell/eng2spa.py
+davidam@libresoft ~/git/python-examples/shell: (dev) $ python3 spa2eng.py David | grep "No definitions"
+No definitions found for "David"
+davidam@libresoft ~/git/python-examples/shell: (dev) $ python3 spa2eng.py Tabla | grep "No definitions"
+davidam@libresoft ~/git/python-examples/shell: (dev) $
+* TODO Pensar en una o varias features other_apis
+* TODO En los detectores de género que den los mismos resultados preguntar si ya es el mismo software
+* DONE Empezar Artículo
+  - State "DONE"       from "TODO"       [2019-03-13 mié 17:55]
+** DONE Elección features
+   - State "DONE"       from "TODO"       [2019-03-13 mié 17:55]
++ [X] Last letter a
++ [X] Last letter consonant
++ [X] Last letter vocal
++ [X] Other apis. Ver api2gender.py --api="average" David
++ [X] Google. Ver main2.py y gendergoogle.py
+** DONE guess method and ml
+   - State "DONE"       from "TODO"       [2019-02-17 dom 17:10]
+** DONE Resultados $ python3 accuracy.py --csv="files/all.csv"
+   - State "DONE"       from "TODO"       [2019-02-17 dom 17:10]
+*** DONE Namsor
+	- State "DONE"       from "TODO"       [2019-02-17 dom 17:09]
+0.7539570378745054
+*** DONE Genderguesser
+	- State "DONE"       from "TODO"       [2019-02-17 dom 17:09]
+0.6902204635387225
+*** DONE Genderize
+	- State "DONE"       from "TODO"       [2019-02-17 dom 17:09]
+Genderize accuracy: 0.715375918598078
+*** DONE Genderapi
+	- State "DONE"       from "TODO"       [2019-02-17 dom 17:09]
+Necesitamos licencia para lanzarlo
+*** DONE Sexmachine
+	- State "DONE"       from "TODO"       [2019-02-17 dom 17:09]
+Sexmachine accuracy: 0.6677501413227812
+*** DONE Nameapi
+	- State "DONE"       from "TODO"       [2019-02-17 dom 17:10]
+	Necesitamos licencia para lanzarlo
+* DONE Resulados $ python3 confusion.py --csv="files/all.csv"
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:56]
+** DONE Namsor
+   - State "DONE"       from "TODO"       [2019-02-17 dom 16:56]
+** DONE Genderguesser
+   - State "DONE"       from "TODO"       [2019-02-17 dom 16:56]
+davidam@libresoft ~/git/damegender: (dev) $ python3 confusion.py --api="genderguesser" --csv="files/all.csv"
+A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are true positives
+Gender Guesser confusion matrix:
+ [[1519   55  394]
+ [  68 2956  787]
+ [ 257  630  410]]
+** DONE Sexmachine
+   - State "DONE"       from "TODO"       [2019-02-17 dom 16:56]
+ $ python3 confusion.py --api="sexmachine" --csv="files/all.csv"
+A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are true positives
+Sexmachine confusion matrix:
+ [[1692  276    0]
+ [ 778 3033    0]
+ [ 589  708    0]]
+
+* TODO Probar el average de api2gender
+  SCHEDULED: <2019-01-28 lun>
+* DONE Entrada http://t3chfest2019.eventbrite.es
+  SCHEDULED: <2019-01-28 lun 10:30>
+  - State "DONE"       from "TODO"       [2019-02-14 jue 18:26]
+* TODO T3chfest
+  SCHEDULED: <2019-03-14 jue>
+* DONE Crear argumento api para accuracy y confusion
+  SCHEDULED: <2019-01-21 lun>
+  - State "DONE"       from "TODO"       [2019-01-23 mié 15:55]
+* DONE Reescribir confusion2, confusion matrix como en el artículo pag 17
+  SCHEDULED: <2019-01-23 mié>
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:36]
+** Namsor
+ $ python3 confusion2.py --csv="files/all.csv" --api="namsor"
+A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are true positives
+[[ 1686, 78, 204]
+ [ 139, 3326, 346]]
+
+* DONE Comenzar a escribir artículo
+  SCHEDULED: <2019-01-24 jue>
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:37]
+* DONE Tratar de comentar la negación a la beca
+  SCHEDULED: <2019-01-24 jue>
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:37]
+* DONE A comentar
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:44]
+** DONE Gsoc, registro, perceval, scikit o nltk
+   - State "DONE"       from "TODO"       [2019-02-17 dom 16:37]
+** DONE Nameapi
+   - State "DONE"       from "TODO"       [2019-02-17 dom 16:37]
+** CANCELED Enseñar a usar el org-agenda
+   - State "CANCELED"   from "TODO"       [2019-02-17 dom 16:38]
+** DONE Ordenar el código
+   - State "DONE"       from "TODO"       [2019-02-17 dom 16:38]
++ [X] accuracy-ml
++ [X] confusion y confusion2
+** DONE Goals artículo
+   - State "DONE"       from "TODO"       [2019-02-17 dom 16:38]
+*** DONE Elección de features (análisis multivariante)
+	- State "DONE"       from "TODO"       [2019-02-17 dom 16:38]
+*** DONE ML
+	- State "DONE"       from "TODO"       [2019-02-17 dom 16:38]
+** DONE Ver tarea artículo
+   - State "DONE"       from "TODO"       [2019-02-17 dom 16:38]
+** DONE Artículos a leer
+   - State "DONE"       from "TODO"       [2019-02-17 dom 16:39]
++ [X] Artículos de Alexander para estado del arte
++ [X] https://www.sciencedirect.com/science/article/pii/S1742287611000247
+given a short text document, can we identify if the author is a man or a woman?
++ [X] https://arxiv.org/pdf/1603.04322.pdf
+Es muy parecido al artículo de "Comparison and benchmark of name-to-gender inference services".
++ [X] https://peerj.com/articles/cs-156/
++ [X] https://dl.acm.org/citation.cfm?id=3274357
+** TODO 20 Years of Open Source—Impact on Software Engineering Practice: Call for Papers
+https://publications.computer.org/software-magazine/2018/07/25/20-years-open-source-impact-software-engineering-practice-call-papers/
+* DONE Nameapi
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:39]
+- ['unknown',
++ ['male',
+   'male',
+   'male',
+   'male',
+-  'unknown',
++  'male',
+   'male',
+   'female',
+   'female',
+   'male',
+   'male',
+   'male',
+   'male',
+   'male',
+   'male',
+-  'unknown',
++  'neutral',
+   'male',
+   'male',
+   'male',
+   'female',
+   'male',
+-  'unknown']
++  'male']
+* DONE Artículo
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:40]
+** Introduction
+*** State of Art
+* DONE Escribir accuracy de machine learning methods
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:40]
+* DONE Escribir confusion de machine learning methods
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:40]
+* GOING Elección de features
+** TODO Sentido Común (infofeatures.py)
+Se descarta el estudio de la primera letra (ver infofeatures.py)
++ [ ] last_letter_a
++ [ ] last_letter_consonant
++ [ ] last_letter_vocal
+** TODO Escribir un pca para determinar las 5 letras más determinantes en la elección de género (pueden ocurrir una o varias veces en el nombre)
+** TODO Escribir un pca para determinar las 5 letras más determinantes en la elección de género al final del nombre (como última letra)
+* GOING Escribir un pca
+** TODO Pensar el dataset (puntos a tener en cuenta)
+*** Retirar undefined??
+Podemos retirar el undefined para pca, o recodificar de manera que 0 (female), 1 (undefined) y 2 (male)
+*** Variables no continuas
+Si son categórisscas de blanco/negro se codifican de manera 0 o 1.
+Si son categóricas del estilo mueble (silla, mesa, nevera, sillón, etc.) se retiran.
+** DONE Escribir un fichero para sacar el gráfico que nos muestre el número de componentes principales
+   SCHEDULED: <2019-02-21 jue>
+   - State "DONE"       from "TODO"       [2019-02-21 jue 12:34]
+** DONE Escribir un fichero que nos de el dataframe con los compoentes principales
+   SCHEDULED: <2019-02-21 jue>
+   - State "DONE"       from "TODO"       [2019-02-21 jue 12:35]
+** TODO Visualizar el dataset para entender qué features correlacionan según los componentes principales
+   SCHEDULED: <2019-02-21 jue>
+* DONE En dame_sexmachine.py  es necesario reescribir guess para aplicar Machine Learning
+  SCHEDULED: <2019-01-25 vie>
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:44]
+* DONE En este momento features_list.csv está fallando reescribir desde los tests
+  SCHEDULED: <2019-01-25 vie>
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:44]
+* DONE Escribir probabilidad de cada api/método
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:43]
+** namsor
+{"scale":-0.9926328311688487,"gender":"male","firstName":"John","lastName":"Smith","id":"1424023766605"}
+* TODO Escribir método average_in_apis
+  SCHEDULED: <2019-01-28 lun>
+* TODO Lectura papers
+  SCHEDULED: <2019-02-18 lun 9:00>
+Laboratorios III
+Segunda Planta
+* DONE En api2gender
+  SCHEDULED: <2019-01-28 lun>
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:42]
+    elif (args.api == "average"):
+        dgg = DameGenderGuesser()
+        guess1 = dgg.guess(args.name)
+        dga = DameGenderApi()
+        guess2 = dga.guess(args.name)
+        dg = DameGenderize()
+        guess3 = dg.guess(args.name)
+        dn = DameNamsor()
+        guess4 = dn.guess(args.name, args.surname)
+        average = guess1 + guess2 + guess3 + guess4 / 4
+        print(average)
+*
+* POSIBLE Escribir dame_flask.py
+* TODO Escribir un mensaje con el tema de las api key, url de compra
+  SCHEDULED: <2019-02-17 dom>
+* DONE A comentar
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:41]
++ [X] Estadísitica
+* DONE Crear bibtex
+  SCHEDULED: <2019-01-30 mié>
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:41]
+* DONE Meter en artículo el manejo de surnames
+  SCHEDULED: <2019-01-30 mié>
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:41]
+* DONE Errors
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:45]
+** Sexmachine
+$ python3 errors.py --csv="files/all.csv" --api="sexmachine"
+Sexmachine with files/all.csv has:
++ The error code: 0.18238449558747188
++ The error code without na: 0.18238449558747188
++ The na coded: 0.0
++ The error gender bias: 0.0868662398338813
+** Genderize
+$ python3 errors.py --api="genderize" --csv="files/all.csv"
+Genderize with files/all.csv has:
++ The error code: 0.15227548018688356
++ The error code without na: 0.060774539877300617
++ The na coded: 0.09742169925592663
++ The error gender bias: 0.032016871165644174
+** Genderguesser
+$ python3 errors.py --csv="files/all.csv" --api="genderguesser"
+Gender Guesser with files/all.csv has:
++ The error code: 0.22564457518601835
++ The error code without na: 0.026539047204698716
++ The na coded: 0.20453365634192766
++ The error gender bias: 0.0026103980857080703
+
+* DONE Crear paquete https://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/quickstart.html
+  SCHEDULED: <2019-02-01 vie>
+  - State "DONE"       from "TODO"       [2019-03-13 mié 17:56]
+* DONE Escribir apikey.py para introducir claves de apis en files y dejar configurado el fichero de configuración
+  SCHEDULED: <2019-02-04 lun>
+  - State "DONE"       from "TODO"       [2019-03-13 mié 17:56]
+* DONE Para publicar paquete en pip
+  - State "DONE"       from "TODO"       [2019-03-13 mié 17:56]
+$ python3 setup.py register sdist bdist upload
+$ twine upload --skip-existing dist/*
+* DONE guess_list
+  SCHEDULED: <2019-02-02 sáb>
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:47]
+    def guess_list(self, path="files/partial.csv", binary=False):
+        fichero = open("files/genderapipass.txt", "r+")
+        contenido = fichero.readline()
+        string = ""
+        names = self.csv2names(path)
+#        print(names)
+        count = 1
+        u = DameUtils()
+        names = u.split(names, 99)
+        res = []
+        for listnames in names:
+            for n in listnames:
+                if (len(listnames) > count):
+                    string = string + n + ";"
+                else:
+                    string = string + n
+                count = count + 1
+            string = 'https://gender-api.com/get?name='+string+'&multi=true&key='+contenido
+            r = requests.get(string)
+            string = ''
+            d = json.loads(r.text)
+            slist = []
+            for item in d['result']:
+                if ((item['gender'] == None) & binary):
+                    slist.append(2)
+                elif ((item['gender'] == None) & (not binary)):
+                    slist.append("unknown")
+                elif ((item['gender'] == "male") & binary):
+                    slist.append(1)
+                elif ((item['gender'] == "male") & (not binary)):
+                    slist.append("male")
+                elif ((item['gender'] == "female") & binary):
+                    slist.append(0)
+                elif ((item['gender'] == "female") & (not binary)):
+                    slist.append("female")
+            res.extend(slist)
+        return res
+* DONE en guess nameapi y fichero de configuración
+  - State "DONE"       from "TODO"       [2019-03-13 mié 17:58]
+    def guess(self, name, binary=False):
+        config = configparser.RawConfigParser()
+        config.read('config.cfg')
+        if (config['DEFAULT']['genderapi'] == 'yes'):
+            fichero = open("files/genderapipass.txt", "r+")
+            contenido = fichero.readline()
+            r = requests.get('https://gender-api.com/get?name='+name+'&key='+contenido)
+            j = json.loads(r.text)
+            guess = j['gender']
+            if (guess == 'male'):
+                if binary:
+                    guess = 1
+            elif (guess == 'female'):
+                if binary:
+                    guess = 0
+            else:
+                if binary:
+                    guess = 2
+                else:
+                    guess = 'unknown'
+        else:
+            guess = 'unknown'
+        return guess
+* TODO Comprar libro 100 Problemas resueltos de Estadística Multivariante
+  SCHEDULED: <2019-02-17 dom>
+Autoras: Amparo Baíllo          Aurea Grané
+Editorial: Delta Publicaciones
+* DONE En errors.py tener en cuenta el fichero de configuración de apis
+  SCHEDULED: <2019-02-17 dom>
+  - State "DONE"       from "TODO"       [2019-02-21 jue 12:34]
+* DONE Funcionalidad probabilidad. El comando para ejecutar es api2gender.py
+  SCHEDULED: <2019-02-11 lun>
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:50]
++ [X] genderapi, accuracy
++ [X] genderize, prob
++ [X] nameapi, confidence
++ [X] namsor, scale
+* POSIBLE pickle dump nltk
+https://pythonprogramming.net/pickle-classifier-save-nltk-tutorial/
+save_classifier = open("naivebayes.pickle","wb")
+pickle.dump(classifier, save_classifier)
+save_classifier.close()
+* TODO Leer https://plot.ly/ipython-notebooks/principal-component-analysis/
+  SCHEDULED: <2019-02-13 mié>
+* DONE Hacer el trabajo de scale, probability, average, etc. para el artículo
+  SCHEDULED: <2019-02-12 mar>
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:47]
+* DONE Y Combinator
+  SCHEDULED: <2019-03-24 dom>
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:52]
+* DONE F1 and precision
+  - State "DONE"       from "TODO"       [2019-02-18 lun 09:17]
+F1 = 2 * (precision * recall) / (precision + recall)
+* DONE En features_list añadir argumento dataset como opcional y añadir una columna gender
+  SCHEDULED: <2019-02-18 lun>
+  - State "DONE"       from "TODO"       [2019-02-17 dom 16:55]
+* TODO Revisar que están todas las apis bien hechos los experimentos
+  SCHEDULED: <2019-02-18 lun>
+* DONE Probar lo de pillar una api key de google
+  SCHEDULED: <2019-02-18 lun>
+  - State "DONE"       from "TODO"       [2019-03-13 mié 17:59]
+* DONE Para la Beatriz
+  - State "DONE"       from "TODO"       [2019-02-18 lun 09:43]
+Emacs sabe que eras la más bella
+Por eso con IA Madrid me cierra la puerta
+El sur las abre en Mayo
+Trataré de escapar de la capital del reino
+Para verte efectivamente con mi caballo.
+
+References:
++ https://www.opensouthcode.org/conferences/opensouthcode2019
++ https://orgmode.org/worg/org-tutorials/org-effectiveness.html
++
+* TODO Flask
+  SCHEDULED: <2019-02-18 lun>
+https://medium.com/ymedialabs-innovation/deploy-flask-app-with-nginx-using-gunicorn-and-supervisor-d7a93aa07c18
+* DONE Ejecutar script accuracy para nameapi
+  - State "DONE"       from "TODO"       [2019-03-13 mié 18:01]
+Nameapi accuracy: 0.18329564725833805
+* DONE Organizar en carpetas (census, images, sav, apikeys) la carpeta files
+  SCHEDULED: <2019-02-23 sáb>
+  - State "DONE"       from "TODO"       [2019-03-13 mié 18:00]
++ [X] dame_customsearch.py
++ [X] dame_genderapi.py
++ [X] dame_genderize.py
++ [X] dame_gender.py
++ [X] dame_genderguesser.py
++ [X] dame_nameapi.py
++ [X] dame_namsor.py
++ [X] dame_perceval.py
++ [X] dame_sexmachine.py
++ [X] test_dame_genderapi.py
++ [X] test_dame_genderguesser.py
++ [X] test_dame_genderize.py
++ [X] test_dame_gender.py
++ [X] test_dame_nameapi.py
++ [X] test_dame_namsor.py
++ [X] test_dame_sexmachine.py
++ [X] accuracy.py
++ [X] apikeyadd.py
++ [X] confusion2.py
++ [X] confusion.py
++ [X] corr.py
++ [ ] csv2gender.py
++ [X] damemodels.py
++ [X] errors.py
++ [ ] pca-features2.py
++ [X] pca-features.py
+
+* POSIBLE Escribir dame_photo
+En https://api.github.com/users/davidam aparece el campo avatar_url y ahí:
+wget -c https://avatars2.githubusercontent.com/u/1023217
+* TODO dataset2genderlist
+  SCHEDULED: <2019-02-23 sáb>
+1. Dar 2 argumentos datasetfile y census (es, uk, usa, ...)
+2. Si existe datasetfile aplica datasetfile, sino aplica census
+* TODO Escribir damegender con un fichero main.py y el __init__.py
+* TODO En pca-features tener en consideración nombres 0 o 1
+  SCHEDULED: <2019-02-24 dom>
+* TODO Escribir la desviación típica en la elección de male or female
+  SCHEDULED: <2019-02-24 dom>
+* TODO Urls dando problemas en lo del kernel
+  SCHEDULED: <2019-02-26 mar>
++ [ ] https://git.kernel.org/pub/scm/boot/syslinux/syslinux.git/
++ [ ] https://git.kernel.org/pub/scm/devel/pahole/pahole.git/
++ [ ] https://git.kernel.org/pub/scm/docs/man-pages/man-pages.git/
+
+['', 'H. Peter Anvin', 'Murali Krishnan Ganapathy', 'Kenneth Fyfe', 'Tim Deegan', 'Curtis Doty', 'Erwan Velu', 'Arne Georg Gleditsch', 'erwan', 'hiranotaka@zng.info', 'Ram Yalamanchili', 'Ferenc Wagner', 'Luciano Rocha', 'Otavio Salvador', 'Duane Voth', 'Gerald Britton', 'Bernard Li', 'Geert Stappers', 'Jeffrey Hutzelman', 'Bruce Robson', 'Erwan', 'Sebastian Herbszt', 'Maciej W. Rozycki', 'Sergey Vlasov', 'Stefan Bucur', 'Murali Ganapathy', 'Stefan Hajnoczi', 'Remi Lefevre', 'Dag Wieers', 'Ralf Ertzinger', 'Olivier Korn', 'Gene Cumm', 'Vicente Jimenez Aguilar', 'Michael Brown', 'Pierre-Alexandre Meyer', 'Shao Miller', 'Omair Eschkenazi', 'Christophe Fergeau', 'Daniel Baumann', 'Steffen Winterfeldt', 'Pascal Terjan', 'Liu Aleaxander', 'Gilles Espinasse', 'Miller, Shao', 'profkhaos', 'Aleaxander', 'Gert Hulselmans', 'root', 'Kim Mik', 'Alek Du', 'Yuanhan Liu', 'Du, Alek', 'Michal Soltys', 'P. J. Pandit', 'Paul Bolle', 'Thomas Bächler', 'George David', 'Alexey Zaytsev', 'Marcel Ritter', 'Laurent Licour', 'Feng Tang', 'feng.tang@intel.com', 'Matt Fleming', 'Don Hiatt', 'Arwin Vosselman', 'P J P', 'Colin Watson', 'Ahmed S. Darwish', 'Rich Mahn', 'Paulo Alcantara', 'Jim Cromie', 'Yi Yang', 'Matthew Garrett', 'Henri Roosen', 'Jean-Christian de Rivaz', 'Timm Gleason', 'Alexander E. Patrakov', 'Micah Gersten', 'Andre Ericson', 'Thierry Reding', 'Chandramouli Narayanan', 'Hung-chi Lihn', 'Frediano Ziglio', 'Vanush "Misha" Paturyan', 'Kenneth J. Davis', 'Chen Baozi', 'Ruben Kerkhof', 'Peter Jones', 'Felipe Pena', 'chandramouli narayanan', 'Eric W. Biederman', 'Josh Triplett', 'Raphael S.Carvalho', 'Raphael S. Carvalho', 'Russel Santillanes', 'James Buren', 'Celelibi', 'Thomas Schmitt', 'Sylvain Gault', 'Magnus Granberg', 'Andy Alex', 'Ferenc Wágner', 'Serj Kalichev', 'Kai Kang', 'Lubomir Rintel', 'Chanho Park', 'MartinS', 'Martin Str|mberg', 'Philippe Coval', 'Dany St-Amant', 'Robert Yang', 'Ady', 'Scot Doyle', 'Jonathan Boeing', 'Andrew J. Schorr', 'Patrick Masotta', 'Robert', 'Oliver Wagner', 'Thomas Letan', 'Imran Zaman', 'Alex', 'Nicolas Cornu', 'Nicolas Cornu via Syslinux', 'Khem Raj', 'Olivier Brunel', 'Pete Batard', 'Mike Frysinger', 'Bruno Levert']
+* TODO setup.py
+  SCHEDULED: <2019-02-28 jue>
+https://docs.python.org/2/distutils/setupscript.html
+* TODO Plantearse separar dame_gender.py a dame_statistics.py
+  SCHEDULED: <2019-03-04 lun>
+* TODO remove_if_contains_init
+  SCHEDULED: <2019-03-09 sáb>
+* TODO Aprender a hacer comandos
+  SCHEDULED: <2019-03-09 sáb>

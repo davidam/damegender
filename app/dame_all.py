@@ -34,29 +34,32 @@ class DameAll(Gender):
     def average(self, name, surname):
         r = 0
         count = 0
+        avg = 0
         dgg = DameGenderGuesser()
         guess1 = int(dgg.guess(name, binary="True"))
 #        print(guess1)
         if (guess1 != 2):
             r = r + guess1
             count = count +1
-        dga = DameGenderApi()
-        guess2 = int(dga.guess(name, binary="True"))
-        if (guess2 != 2):
-            r = r + guess2
-            count = count +1
+        if (self.config['DEFAULT']['genderapi'] == 'yes'):            
+            dga = DameGenderApi()
+            guess2 = int(dga.guess(name, binary="True"))
+            if (guess2 != 2):
+                r = r + guess2
+                count = count +1
 #        print(guess2)
-        dg = DameGenderize()
-        guess3 = int(dg.guess(name, binary="True"))
-        if (guess3 != 2):
-            r = r + guess3
-            count = count +1
+        if (self.config['DEFAULT']['genderize'] == 'yes'):            
+            dg = DameGenderize()
+            guess3 = int(dg.guess(name, binary="True"))
+            if (guess3 != 2):
+                r = r + guess3
+                count = count +1
 #        print(guess3)
-        dn = DameNamsor()
-        guess4 = int(dn.guess(str(name), str(surname), binary="True"))
-        if (guess4 != 2):
-            r = r + guess4
-            count = count +1
-#        print(guess4)
+        if (self.config['DEFAULT']['namsor'] == 'yes'):            
+            dn = DameNamsor()
+            guess4 = int(dn.guess(str(name), str(surname), binary="True"))
+            if (guess4 != 2):
+                r = r + guess4
+                count = count +1
         avg = r / count
         return avg

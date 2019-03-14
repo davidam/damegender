@@ -22,9 +22,16 @@
 # Boston, MA 02110-1301 USA,
 
 import unittest
+import os
 from app.dame_utils import DameUtils
 
 class TddInPythonExample(unittest.TestCase):
+
+    def test_is_not_blank_method_returns_correct_result(self):
+        du = DameUtils()
+        self.assertEqual(du.is_not_blank("  "), False)
+        self.assertEqual(du.is_not_blank("ok"), True)
+
     def test_split_method_returns_correct_result(self):
         u = DameUtils()
         x= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
@@ -38,3 +45,30 @@ class TddInPythonExample(unittest.TestCase):
     def test_drop_accents_method_returns_correct_result(self):
         u = DameUtils()
         self.assertEqual("Ines", u.drop_accents("Inés"))
+
+    def test_drop_white_space_method_returns_correct_result(self):
+        u = DameUtils()
+        self.assertEqual("In", u.drop_white_space("In "))
+        self.assertEqual("Ines", u.drop_accents(u.drop_white_space("Inés ")))
+
+    def test_drop_quotes_method_returns_correct_result(self):
+        u = DameUtils()
+        self.assertEqual('Hola Mexico', u.drop_quotes('Hola "Mexico'))
+        self.assertEqual("Hola Mexico", u.drop_quotes("Hola' 'Mexico"))
+
+    def test_dame_utils_delete_duplicated_method_returns_correct_result(self):
+        du = DameUtils()
+        self.assertEqual(du.delete_duplicated([1, 2, 2, 1, 3]), [1, 2, 3])
+
+    def test_dame_utils_clean_list_method_returns_correct_result(self):
+        du = DameUtils()
+        self.assertEqual(du.clean_list(['', 'H. Peter Anvin', 'hiranotaka@zng.info', 'Ram Yalamanchili', 'Ferenc Wagner']), ['H. Peter Anvin', 'Ram Yalamanchili', 'Ferenc Wagner'])
+
+    def test_dame_utils_files_one_level_method_returns_correct_result(self):
+        du = DameUtils()
+        cwd = os.getcwd()
+        self.assertTrue(len(du.files_one_level(cwd + '/files/')) > 10)
+
+    def test_dame_utils_drop_pwd_method_returns_correct_result(self):
+        du = DameUtils()
+        self.assertEqual(du.drop_pwd("/home/davidam/git/damegender/files/kernelgits.txt"), "files/kernelgits.txt")

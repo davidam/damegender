@@ -96,81 +96,81 @@ class DameSexmachine(Gender):
 
     def svc(self):
     # Scikit classifier
-        X = np.array(self.features_list(path="files/all.csv"))
-        y = self.gender_list(path="files/all.csv")
+        X = np.array(self.features_list(path="files/names/all.csv"))
+        y = self.gender_list(path="files/names/all.csv")
         clf = svm.SVC()
         clf.fit(X, y)
-        filename = 'files/svc_model.sav'
+        filename = 'files/datamodels/svc_model.sav'
         pickle.dump(clf, open(filename, 'wb'))
         return clf
 
     def svc_load(self):
-        pkl_file = open('files/svc_model.sav', 'rb')
+        pkl_file = open('files/datamodels/svc_model.sav', 'rb')
         clf = pickle.load(pkl_file)
         pkl_file.close()
         return clf
 
     def sgd(self):
     # Scikit classifier
-        X = np.array(self.features_list(path="files/all.csv"))
-        y = self.gender_list("files/all.csv")
+        X = np.array(self.features_list(path="files/names/all.csv"))
+        y = self.gender_list("files/names/all.csv")
         clf = SGDClassifier(loss="log").fit(X,y)
-        filename = 'files/sgd_model.sav'
+        filename = 'files/datamodels/sgd_model.sav'
         pickle.dump(clf, open(filename, 'wb'))
         return clf
 
     def sgd_load(self):
-        pkl_file = open('files/sgd_model.sav', 'rb')
+        pkl_file = open('files/datamodels/sgd_model.sav', 'rb')
         clf = pickle.load(pkl_file)
         pkl_file.close()
         return clf
 
     def gaussianNB(self):
     # Scikit bayesian classifier
-        x = np.array(self.features_list(path="files/all.csv"))
-        y = np.array(self.gender_list(path="files/all.csv"))
+        x = np.array(self.features_list(path="files/names/all.csv"))
+        y = np.array(self.gender_list(path="files/names/all.csv"))
         #Create a Gaussian Classifier
         model = GaussianNB()
         # Train the model using the training sets
         model.fit(x, y)
-        filename = 'files/gaussianNB_model.sav'
+        filename = 'files/datamodels/gaussianNB_model.sav'
         pickle.dump(model, open(filename, 'wb'))
         return model
 
     def gaussianNB_load(self):
-        pkl_file = open('files/gaussianNB_model.sav', 'rb')
+        pkl_file = open('files/datamodels/gaussianNB_model.sav', 'rb')
         clf = pickle.load(pkl_file)
         pkl_file.close()
         return clf
 
     def multinomialNB(self):
     # Scikit bayesian classifier
-        X = np.array(self.features_list(path="files/all.csv"))
-        y = np.array(self.gender_list(path="files/all.csv"))
+        X = np.array(self.features_list(path="files/names/all.csv"))
+        y = np.array(self.gender_list(path="files/names/all.csv"))
         model = MultinomialNB()
         model.fit(X, y)
-        filename = 'files/multinomialNB_model.sav'
+        filename = 'files/datamodels/multinomialNB_model.sav'
         pickle.dump(model, open(filename, 'wb'))
         return model
 
     def multinomialNB_load(self):
-        pkl_file = open('files/multinomialNB_model.sav', 'rb')
+        pkl_file = open('files/datamodels/multinomialNB_model.sav', 'rb')
         clf = pickle.load(pkl_file)
         pkl_file.close()
         return clf
 
     def bernoulliNB(self):
     # Scikit bayesian classifier
-        X = np.array(self.features_list(path="files/all.csv"))
-        y = np.array(self.gender_list(path="files/all.csv"))
+        X = np.array(self.features_list(path="files/names/all.csv"))
+        y = np.array(self.gender_list(path="files/names/all.csv"))
         model = BernoulliNB()
         model.fit(X, y)
-        filename = 'files/bernoulliNB_model.sav'
+        filename = 'files/datamodels/bernoulliNB_model.sav'
         pickle.dump(model, open(filename, 'wb'))
         return model
 
     def bernoulliNB_load(self):
-        pkl_file = open('files/bernoulliNB_model.sav', 'rb')
+        pkl_file = open('files/datamodels/bernoulliNB_model.sav', 'rb')
         clf = pickle.load(pkl_file)
         pkl_file.close()
         return clf
@@ -185,7 +185,7 @@ class DameSexmachine(Gender):
 
     def guess_surname(self, string):
     # A first version without ML
-        path = 'files/surnames.csv'
+        path = 'files/names/surnames.csv'
         boolean = False
         with open(path) as csvfile:
             surnamereader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -255,7 +255,7 @@ class DameSexmachine(Gender):
                     guess = 'unknown'
         return guess
 
-    def guess_list(self, path='files/partial.csv', binary=False, ml="nltk"):
+    def guess_list(self, path='files/names/partial.csv', binary=False, ml="nltk"):
     # guess list method
         slist = []
         with open(path) as csvfile:

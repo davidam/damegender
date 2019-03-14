@@ -56,8 +56,8 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_genderapi_guess_list_method_returns_correct_result(self):
         dga = DameGenderApi()
         if (dga.config['DEFAULT']['genderapi'] == 'yes'):
-            self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'female', 'male', 'male'], dga.guess_list(path="files/partial.csv", binary=False))
-            self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1], dga.guess_list(path="files/partial.csv",binary=True))
+            self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'female', 'male', 'male'], dga.guess_list(path="files/names/partial.csv", binary=False))
+            self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1], dga.guess_list(path="files/names/partial.csv",binary=True))
 
     # def test_dame_genderapi_confusion_matrix_dame_method_returns_correct_result(self):
     #     dga = DameGenderApi()

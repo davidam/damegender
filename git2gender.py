@@ -23,6 +23,7 @@
 
 from app.dame_sexmachine import DameSexmachine
 from app.dame_perceval import DamePerceval
+from app.dame_utils import DameUtils
 import sys
 import argparse
 parser = argparse.ArgumentParser()
@@ -31,16 +32,18 @@ parser.add_argument('--directory')
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 if (len(sys.argv) > 1):
-    s = DameSexmachine()
-    gg = DamePerceval()
-    l1 = gg.list_committers(args.url, args.directory)
-    l2 = gg.delete_duplicated(l1)
+    ds = DameSexmachine()
+    du = DameUtils()
+    dp = DamePerceval()
+    l1 = dp.list_committers(args.url, args.directory)
+    l2 = du.delete_duplicated(l1)
+    l3 = du.clean_list(l2)
 
     females = 0
     males = 0
     unknowns = 0
-    for g in l2:
-        sm = s.guess(g, binary=True)
+    for g in l3:
+        sm = ds.guess(g, binary=True)
         if (sm == 0):
             females = females + 1
         elif (sm == 1):

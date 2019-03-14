@@ -31,17 +31,17 @@ from app.dame_nameapi import DameNameapi
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--csv', default="files/min.csv")
-parser.add_argument('--api', default="sexmachine", choices=['namsor', 'genderize', 'genderguesser', 'genderapi', 'nameapi'])
+parser.add_argument('--csv', default="files/names/min.csv")
+parser.add_argument('--api', default="damegender", choices=['damegender', 'namsor', 'genderize', 'genderguesser', 'genderapi', 'nameapi'])
 args = parser.parse_args()
 #print(args.csv)
 
 
 
 
-if (args.api == "sexmachine"):
+if (args.api == "damegender"):
     dn = DameSexmachine()
-    print("Sexmachine with %s has: " % args.csv)
+    print("Damegender with %s has: " % args.csv)
     gl1 = dn.gender_list(path=args.csv)
     gl2 = dn.guess_list(path=args.csv, binary=True)
     ec = dn.error_coded(gl1, gl2)

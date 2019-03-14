@@ -28,9 +28,10 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
-parser.add_argument('--ine', default="no", choices=['yes', 'no'])
+parser.add_argument('--total', default="ine", choices=['ine', 'uscensus', 'ukcensus', 'all'])
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
+
 if (len(sys.argv) > 1):
     s = DameSexmachine()
     if (args.ml):
@@ -52,6 +53,22 @@ if (len(sys.argv) > 1):
         print("%s gender is %s" % (str(args.name), sex))
     else:
         print("%s's gender is %s" % (str(args.name), s.guess(args.name)))
-    if (args.ine == "yes"):
-        print("%s males for %s from INE.es" % (s.ine_frec(args.name)['males'], args.name))
-        print("%s females for %s from INE.es" % (s.ine_frec(args.name)['females'], args.name))
+    if (args.total == "ine"):
+        print("%s males for %s from INE.es" % (s.name_frec(args.name, dataset=args.total)['males'], args.name))
+        print("%s females for %s from INE.es" % (s.name_frec(args.name, dataset=args.total)['females'], args.name))
+    elif (args.total == "uscensus"):
+        print("%s males for %s from US Census (2017)" % (s.name_frec(args.name, dataset=args.total)['males'], args.name))
+        print("%s females for %s from US Census (2017)" % (s.name_frec(args.name, dataset=args.total)['females'], args.name))
+    elif (args.total == "ukcensus"):
+        print("%s males for %s from UK Census (2017)" % (s.name_frec(args.name, dataset=args.total)['males'], args.name))
+        print("%s females for %s from UK Census (2017)" % (s.name_frec(args.name, dataset=args.total)['females'], args.name))
+    elif (args.total == "all"):
+        males1 = s.name_frec(args.name, dataset="ine")['males']
+        males2 = s.name_frec(args.name, dataset="uscensus")['males']
+        males3 = s.name_frec(args.name, dataset="ukcensus")['males']
+        males = int(males1) + int(males2) + int(males3)
+        females1 = s.name_frec(args.name, dataset="ine")['females']
+        females2 = s.name_frec(args.name, dataset="uscensus")['females']
+        females3 = s.name_frec(args.name, dataset="ukcensus")['females']
+        females = int(females1) + int(females2) + int(females3)
+        print("%s males and %s females from all census (INE + Uk census + USA census)" % (males, females))

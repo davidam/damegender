@@ -28,10 +28,11 @@ from app.dame_genderguesser import DameGenderGuesser
 from app.dame_genderapi import DameGenderApi
 from app.dame_genderize import DameGenderize
 from app.dame_nameapi import DameNameapi
+from app.dame_customsearch import DameCustomsearch
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--csv', default="files/min.csv")
+parser.add_argument('--csv', default="files/names/min.csv")
 parser.add_argument('--api', default="all")
 args = parser.parse_args()
 #print(args.csv)
@@ -46,7 +47,7 @@ print("If the classifier is nice, the diagonal is high because there are true po
 # gl2 = g.guess_list(path=args.csv, binary=True)
 # print(gl2)
 
-# g.print_confusion_matrix_dame(path='files/partial.csv')
+# g.print_confusion_matrix_dame(path='files/names/partial.csv')
 
 if (args.api == "all"):
     dn = DameNamsor()
@@ -94,3 +95,8 @@ elif (args.api == "nameapi"):
     dna = DameNameapi()
     print("Nameapi confusion matrix:\n")
     dna.print_confusion_matrix_dame(path=args.csv)
+
+elif (args.api == "customsearch"):
+    dc = DameCustomsearch()
+    print("Google Custom Search confusion matrix:\n")
+    dc.print_confusion_matrix_dame(path=args.csv)

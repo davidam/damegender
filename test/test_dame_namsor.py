@@ -37,6 +37,7 @@ class TddInPythonExample(unittest.TestCase):
         g = DameNamsor()
         self.assertEqual(['male', -1.0], g.get("David", "Arroyo", binary=False))
         self.assertEqual(['male', -1.0], g.get("David", "Arroyo", binary=True))
+        self.assertEqual(['female', 1.0], g.get("Karen", "Arroyo", binary=True))
 
     def test_dame_namsor_scale_method_returns_correct_result(self):
         g = DameNamsor()
@@ -64,10 +65,10 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_namsor_guess_list_method_returns_correct_result(self):
         g = DameNamsor()
-        self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'female', 'male', 'male'], g.guess_list(path="files/partial.csv", binary=False))
-        self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1], g.guess_list(path="files/partial.csv",binary=True))
+        self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'female', 'male', 'male'], g.guess_list(path="files/names/partial.csv", binary=False))
+        self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1], g.guess_list(path="files/names/partial.csv",binary=True))
 
-    def test_dame_gender_accuracy_score_dame_method_returns_correct_result(self):
+    def test_dame_namsor_accuracy_score_dame_method_returns_correct_result(self):
        g = DameNamsor()
        score1 = g.accuracy_score_dame([1, 1], [1, 1])
        self.assertEqual(score1, 1)

@@ -32,4 +32,4 @@ s.sgd()
 s.multinomialNB()
 s.bernoulliNB()
 
-print("This process has finished. You have the models in files/*.sav")
+print("This process has finished. You have the models in files/datamodels/*.sav")

@@ -1,0 +1,1771 @@
+From ASB0KcNC/Tw+kiobADfV9wA==_1103299326490_zoG0oL6cEeSQ+tSuUo65hg==@in.constantcontact.com  Thu Jun  8 09:36:01 2017
+Return-Path: <ASB0KcNC/Tw+kiobADfV9wA==_1103299326490_zoG0oL6cEeSQ+tSuUo65hg==@in.constantcontact.com>
+X-Original-To: apmail-httpd-announce-archive@www.apache.org
+Delivered-To: apmail-httpd-announce-archive@www.apache.org
+Received: from mail.apache.org (hermes.apache.org [140.211.11.3])
+	by minotaur.apache.org (Postfix) with SMTP id 535DB19433
+	for <apmail-httpd-announce-archive@www.apache.org>; Thu,  8 Jun 2017 09:36:01 +0000 (UTC)
+Received: (qmail 55783 invoked by uid 500); 8 Jun 2017 09:36:01 -0000
+Delivered-To: apmail-httpd-announce-archive@httpd.apache.org
+Received: (qmail 55777 invoked by uid 99); 8 Jun 2017 09:36:01 -0000
+Received: from pnap-us-west-generic-nat.apache.org (HELO spamd1-us-west.apache.org) (209.188.14.142)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Thu, 08 Jun 2017 09:36:01 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by spamd1-us-west.apache.org (ASF Mail Server at spamd1-us-west.apache.org) with ESMTP id D5960C6A0E
+	for <announce-archive@httpd.apache.org>; Thu,  8 Jun 2017 09:36:00 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at spamd1-us-west.apache.org
+X-Spam-Flag: NO
+X-Spam-Score: -0.474
+X-Spam-Level:
+X-Spam-Status: No, score=-0.474 tagged_above=-999 required=6.31
+	tests=[DKIM_SIGNED=0.1, DKIM_VALID=-0.1,
+	HEADER_FROM_DIFFERENT_DOMAINS=1, HTML_FONT_LOW_CONTRAST=0.001,
+	HTML_IMAGE_RATIO_04=0.61, HTML_MESSAGE=2, KAM_INFOUSMEBIZ=0.75,
+	RCVD_IN_DNSWL_NONE=-0.0001, RCVD_IN_IADB_LISTED=-0.38,
+	RCVD_IN_IADB_OPTIN=-2.057, RCVD_IN_IADB_RDNS=-0.167,
+	RCVD_IN_IADB_SPF=-0.001, RCVD_IN_IADB_VOUCHED=-2.2,
+	RCVD_IN_MSPIKE_H3=-0.01, RCVD_IN_MSPIKE_WL=-0.01, SPF_PASS=-0.001,
+	T_RP_MATCHES_RCVD=-0.01, URIBL_BLOCKED=0.001] autolearn=disabled
+Authentication-Results: spamd1-us-west.apache.org (amavisd-new);
+	dkim=pass (1024-bit key) header.d=auth.ccsend.com
+Received: from mx1-lw-eu.apache.org ([10.40.0.8])
+	by localhost (spamd1-us-west.apache.org [10.40.0.7]) (amavisd-new, port 10024)
+	with ESMTP id Q-Ac7CURd7D1 for <announce-archive@httpd.apache.org>;
+	Thu,  8 Jun 2017 09:35:56 +0000 (UTC)
+Received: from ccm170.constantcontact.com (ccm170.constantcontact.com [208.75.123.170])
+	by mx1-lw-eu.apache.org (ASF Mail Server at mx1-lw-eu.apache.org) with ESMTPS id 1FDB75FB71
+	for <announce-archive@httpd.apache.org>; Thu,  8 Jun 2017 09:35:56 +0000 (UTC)
+Received: from [10.252.0.106] ([10.252.0.106:55377] helo=p2-jbsvcs5199.ad.prodcc.net)
+	by 10.249.242.10 (envelope-from <ASB0KcNC/Tw+kiobADfV9wA==_1103299326490_zoG0oL6cEeSQ+tSuUo65hg==@in.constantcontact.com>)
+	(ecelerity 4.2.1.52273 r(Core:4.2.1.11)) with ESMTP
+	id 9F/7B-29209-A7A19395; Thu, 08 Jun 2017 05:35:54 -0400
+DKIM-Signature: v=1; q=dns/txt; a=rsa-sha256; c=relaxed/relaxed; s=1000073432; d=auth.ccsend.com; h=date:mime-version:subject:X-Feedback-ID:message-id:from:reply-to:list-unsubscribe:list-unsubscribe-post:to; bh=9sP3SQe14XfO1/pvM1PQi1mT1wNL/Rpf+3huGE1GAA4=; b=cOXvwQa8aSZaEIS3Yq62Kn1AsYE95pVwbch+/NH4C48gUn0Z3CUkund2OEI8qsZc+dDMEEMda3BUL+EjXM76uwi/BZopXAWk4ZK4w6LMFqzk8ilK7lY9r7zZafYG6QXM91Mk4un++re0D31VgAEmHaQgscF1SUY7VCbfiz04bRg=
+Message-ID: <1128138677276.1103299326490.1546345285.0.150533JL.1002@scheduler.constantcontact.com>
+Date: Thu, 8 Jun 2017 05:35:54 -0400 (EDT)
+From: "SimpaticoTech.it OFFERTE" <web.info@simpaticotech.it>
+Reply-To: web.info@simpaticotech.it
+To: announce-archive@httpd.apache.org
+Subject: iPhone 195 Euro - Cassa Trolley 95W DJ Karaoke - Super Offerte
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_424455548_1815881094.1496914554968"
+List-Unsubscribe: <https://visitor.constantcontact.com/do?p=un&m=001ppwvHtrFNf1h59YxsVHM6Q%3D%3D&se=001UIvxZCGpjWvM4PB5bakA0g%3D%3D&t=001EkZLEx15CcE%3D&llr=9qmh7qdab>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Campaign-Activity-ID: 481d0a70-d0bf-4f0f-a48a-86c00df57dc0
+X-Channel-ID: ce81b4a0-be9c-11e4-90fa-d4ae528eb986
+X-Mailer: Roving Constant Contact 2012 (http://www.constantcontact.com)
+X-Return-Path-Hint: ASB0KcNC/Tw+kiobADfV9wA==_1103299326490_zoG0oL6cEeSQ+tSuUo65hg==@in.constantcontact.com
+X-Roving-Campaignid: 1128138677276
+X-Roving-Id: 1103299326490.1546345285
+X-Feedback-ID: ce81b4a0-be9c-11e4-90fa-d4ae528eb986:481d0a70-d0bf-4f0f-a48a-86c00df57dc0:1103299326490:CTCT
+X-CTCT-ID: cd9eceb0-be9c-11e4-8f99-d4ae528eb986
+
+------=_Part_424455548_1815881094.1496914554968
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Non vedi il contenuto di questa Email?
+Clicca Qu=C3=AC
+http://campaign.r20.constantcontact.com/render?m=3D1103299326490&ca=3D481d0=
+a70-d0bf-4f0f-a48a-86c00df57dc0
+Greetings!
+
+Inotra questa email
+http://ui.constantcontact.com/sa/fwtf.jsp?llr=3D9qmh7qdab&m=3D1103299326490=
+&ea=3Dbroadcast%40simpaticotech.it&a=3D1128138677276
+
+
+
+
+
+Questa mail =C3=A8 stata inviata a announce-archive@httpd.apache.org,
+da parte di web.info@simpaticotech.it
+
+Aggiorna profilo/indirizzo e-mail
+https://visitor.constantcontact.com/do?p=3Doo&m=3D001ppwvHtrFNf1h59YxsVHM6Q=
+%3D%3D&ch=3Dce81b4a0-be9c-11e4-90fa-d4ae528eb986&ca=3D481d0a70-d0bf-4f0f-a4=
+8a-86c00df57dc0
+
+
+Rimozione istantanea con SafeUnsubscribe(TM)
+https://visitor.constantcontact.com/do?p=3Dun&m=3D001ppwvHtrFNf1h59YxsVHM6Q=
+%3D%3D&ch=3Dce81b4a0-be9c-11e4-90fa-d4ae528eb986&ca=3D481d0a70-d0bf-4f0f-a4=
+8a-86c00df57dc0
+
+
+Informativa sulla privacy:
+http://ui.constantcontact.com/roving/it/CCPrivacyPolicy.jsp
+
+
+
+
+
+Online Marketing by
+Constant Contact(R)
+www.constantcontact.com
+
+
+
+Simpatico Network srl | Via Volta 7 | BUCCINASCO | 20090 | Italy
+
+
+
+
+
+
+
+
+
+------=_Part_424455548_1815881094.1496914554968
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<head >
+<STYLE>
+ .headerTop { background-color:#CC66; border-top:0px solid #000000; border-=
+bottom:1px solid #FFFFFF; text-align:center; }
+ .adminText { font-size:10px; color:#996600; line-height:200%; font-family:=
+verdana; text-decoration:none; }
+ .headerBar { background-color:#FFFFFF; border-top:0px solid #333333; borde=
+r-bottom:10px solid #FFFFFF; }
+ .title { font-size:20px; font-weight:bold; color:#CC6600; font-family:aria=
+l; line-height:110%; }
+ .subTitle { font-size:11px; font-weight:normal; color:#666666; font-style:=
+italic; font-family:arial; }
+ .defaultText { font-size:12px; color:#000000; line-height:150%; font-famil=
+y:trebuchet ms; }
+ .footerRow { background-color:#FFFFCC; border-top:10px solid #FFFFFF; }
+ .footerText { font-size:10px; color:#996600; line-height:100%; font-family=
+:verdana; }
+ a { color:#FF6600; color:#FF6600; color:#FF6600; }
+</STYLE>
+
+
+
+<title></title>
+
+
+
+</head><body bgcolor=3D"#efe4ef" leftmargin=3D"0" marginheight=3D"0" margin=
+width=3D"0" offset=3D"0" topmargin=3D"0" ><center><table bgcolor=3D"#ffffff=
+" id=3D"VWPLINK" width=3D"595"><tr><td style=3D"font-size: 8pt; font-family=
+: Verdana, Arial, Helvetica, sans-serif; color: #000000;" width=3D"100%">No=
+n vedi il contenuto di questa Email?
+<a href=3D"http://campaign.r20.constantcontact.com/render?m=3D1103299326490=
+&ca=3D481d0a70-d0bf-4f0f-a48a-86c00df57dc0" track=3D"off">Clicca Qu=C3=AC
+</a></td></tr></table></center><img alt=3D" " height=3D"1" src=3D"http://r2=
+0.rs6.net/on.jsp?a=3D1103299326490&r=3D3&c=3Dcd9eceb0-be9c-11e4-8f99-d4ae52=
+8eb986&d=3D1128138677276&ch=3Dce81b4a0-be9c-11e4-90fa-d4ae528eb986&ca=3D481=
+d0a70-d0bf-4f0f-a48a-86c00df57dc0&o=3Dhttps://imgssl.constantcontact.com/ui=
+/images1/s.gif" width=3D"1"/>
+
+
+
+<div align=3D"center">
+
+<table width=3D"805" cellpadding=3D"10" cellspacing=3D"0" class=3D"backgrou=
+ndTable" bgcolor=3D'#ffCC00' height=3D"2131" >
+<tr>
+<td width=3D"783" height=3D"2129"align=3D"center" valign=3D"top" >
+
+
+<div align=3D"center" style=3D"height: 1426; text-align: center; color: #30=
+C; font-size: large; font-weight: bold;">
+  <center>
+
+
+<table cellpadding=3D"20" cellspacing=3D"0" bgcolor=3D"#FFFFFF" height=3D"2=
+48" width=3D"746">
+  <tr>
+    <td height=3D"129"><div align=3D"center">
+      <center>
+        <table border=3D"0" cellpadding=3D"0">
+          <tr>
+            <td><a alt=3D"http://bit.ly/Syjfwl" href=3D"http://r20.rs6.net/=
+tn.jsp?f=3D001CAmwcHfygQxGTam14_8RMIlxDosz1metLZXQobAP2I050YY5U5oBjF31NZx-S=
+NLyCAa6hbIePcC8N007avj4hekmw6DU_-DryiCa-SEbYhiZpj10KPkbqFS5ZHvecEE0l39A1zBs=
+GOLH4XZKxhCKmpTZjVn1e0-FV_9S8_DZQaA=3D&c=3Dwe6DFo9eFQWrWVOiPjPz7dGIZ4Tg-WCw=
+6kBc_6i3T4AHBLzHg2A6lw=3D=3D&ch=3D7Uv6naWTkqIZJ5USOxARYDFw2iUtRz7NgGi1NZnDE=
+J2COcywAhIMmQ=3D=3D">
+            =20
+              <img src=3D"http://www.simpaticotech.it/image_my/logo.png" al=
+t=3D"SimpaticoTech" BORDER=3D0 usemap=3D"#FPMap0"  /></a></td>
+            <td><a alt=3D"http://bit.ly/UvNQg9" href=3D"http://r20.rs6.net/=
+tn.jsp?f=3D001CAmwcHfygQxGTam14_8RMIlxDosz1metLZXQobAP2I050YY5U5oBjF31NZx-S=
+NLyI2qqUEoDfd3boRHCPkEUOnOgpU6dPi7dnsEkFpHL9KdExE62GZ5eCqnoGvs4kgYNsjj-gTAJ=
+k1LVBFavkPHHUv3pDOMzRvgoym7RXGuJJU0=3D&c=3Dwe6DFo9eFQWrWVOiPjPz7dGIZ4Tg-WCw=
+6kBc_6i3T4AHBLzHg2A6lw=3D=3D&ch=3D7Uv6naWTkqIZJ5USOxARYDFw2iUtRz7NgGi1NZnDE=
+J2COcywAhIMmQ=3D=3D" target=3D"_blank"><img src=3D"http://bit.ly/1dzAp9f" a=
+lt=3D"SimpaticoTech con Microsoft" border=3D"0" width=3D"150" height=3D"85"=
+></a></td>
+          </tr>
+        </table>
+      </center>
+    </div></td>
+  </tr>
+
+
+<tr>
+  <td bgcolor=3D"#E2E4EF" width=3D"704" height=3D"117">
+    <div align=3D"center">
+      <table border=3D"0" width=3D"100%" height=3D"78">
+        <tr>
+          <td bgcolor=3D"#000000" height=3D"34">
+            <h2 align=3D"center"><b><font color=3D"#FFFFFF">PC &amp; Notebo=
+ok Ricondizionati Certificati</font></b></h2>
+              </td>
+          </tr>
+         <tr>
+          <td bgcolor=3D"#ffffff" height=3D"34"><div align=3D"center">
+            <h3><span class=3D"headerBar"><strong>iPhone 5S 16Gb Oro A7 WiF=
+i Bluetooth 4G Gold iOS 10</strong></span><strong><font color=3D"#3118db"><=
+br>
+              <font color=3D"#008000">PRONTA CONSEGNA</font>
+              </font><font color=3D"#FF0000">
+                Invece di <del>242 </del></font>Costa solo  <font color=3D"=
+#008000"><u>195,00</u>
+                  Euro</font><font color=3D"#000000">  ORDINA SUBITO</font>=
+</strong></h3>
+          </div></td>
+        </tr>
+        <tr>
+          <td height=3D"36" bgcolor=3D"#FFFFFF">
+            <div align=3D"center">
+              <table border=3D"0">
+                <tr>
+                  <td><a alt=3D"https://www.simpaticotech.it/lista.php?id_c=
+ategoria=3D102&id_sub_categoria=3D3867&agente=3DMAILING" href=3D"http://r20=
+.rs6.net/tn.jsp?f=3D001CAmwcHfygQxGTam14_8RMIlxDosz1metLZXQobAP2I050YY5U5oB=
+jFudrRVFMDtQLTLq86RT-4YR3vHcN7tPzCV6cuY93D0v6Wxs_FLNCqOWs_jGZvv9U7zohjIvFDg=
+HTlP36vjj5FRduch--ufeW0i11yyX8i_0X_lBHe_HlDA7ZsoMe8mnHO_FDaGQ32P--Oboa8DA2w=
+lK56i8kP-1JMUfrt5Cw-bdkYc95K7oQQgl1ATRT0z3arIPm6bW-K8hACq32g2xZzKzSZjTyGxsW=
+Q=3D=3D&c=3Dwe6DFo9eFQWrWVOiPjPz7dGIZ4Tg-WCw6kBc_6i3T4AHBLzHg2A6lw=3D=3D&ch=
+=3D7Uv6naWTkqIZJ5USOxARYDFw2iUtRz7NgGi1NZnDEJ2COcywAhIMmQ=3D=3D"><img src=
+=3D"http://www.simpaticotech.it/img/upload/2320023_medium.jpg" alt=3D"" wid=
+th=3D"400" height=3D"400" border=3D"0"></a></td>
+                 =20
+                 =20
+                  </tr>
+                </table>
+              </div>
+            </td>
+        </tr>
+        <tr>
+          <td bgcolor=3D"#ffffff" height=3D"34"><div align=3D"center">
+            <h3><strong>Cassa Audio Trolley 90 watt Mediacom (M-TRSP90) Blu=
+etooth Karaoke DJ<font color=3D"#3118db"><br>
+              <font color=3D"#008000">PRONTA CONSEGNA</font>
+              </font><font color=3D"#FF0000">
+                Invece di<del> 172 </del></font>Costa solo  <font color=3D"=
+#008000"><u>123,00</u>
+                  Euro</font><font color=3D"#000000">  ORDINA SUBITO</font>=
+</strong></h3>
+          </div></td>
+        </tr>
+        <tr>
+          <td height=3D"36" bgcolor=3D"#FFFFFF">
+            <div align=3D"center">
+              <table border=3D"0">
+                <tr>
+                  <td><a alt=3D"https://www.simpaticotech.it/lista.php?id_c=
+ategoria=3D153&agente=3DMAILING" href=3D"http://r20.rs6.net/tn.jsp?f=3D001C=
+AmwcHfygQxGTam14_8RMIlxDosz1metLZXQobAP2I050YY5U5oBjKpO4kulz-AbX8XamM5AgxIs=
+BYmzXnFGrz5MXZXO6RWUJRywsv01mrYA4t-7rKnhNlvMvgxtX_NDIoXbHJgqPMqVwBSCmxfH94E=
+4CdfaNtdfWpFlD-JHpUu6ycK_13eB3rDipDWT49hLKsGCXzeXU359Xj8ooHdZJaCYS7rWHQjK7m=
+LXtJj8tcPVF-5T_esh4A=3D=3D&c=3Dwe6DFo9eFQWrWVOiPjPz7dGIZ4Tg-WCw6kBc_6i3T4AH=
+BLzHg2A6lw=3D=3D&ch=3D7Uv6naWTkqIZJ5USOxARYDFw2iUtRz7NgGi1NZnDEJ2COcywAhIMm=
+Q=3D=3D"><img src=3D"http://www.simpaticotech.it/img/upload/3108064_medium.=
+jpg" alt=3D"" width=3D"400" height=3D"400" border=3D"0"></a></td>
+                 =20
+                  </tr>
+                </table>
+              </div>
+            </td>
+        </tr>
+     =20
+      <tr>
+          <td bgcolor=3D"#ffffff" height=3D"34"><div align=3D"center">
+            <h3><strong>HP EliteDesk 800 G1 SFF Core i5-4570T 3.2GHz 8Gb 50=
+0Gb Windows 10 Professional<font color=3D"#3118db"><br>
+              <font color=3D"#008000">PRONTA CONSEGNA</font>
+              </font><font color=3D"#FF0000">
+                Invece di <del>862 </del></font>Costa solo  <font color=3D"=
+#008000"><u>349,00</u>
+                  Euro</font><font color=3D"#000000">  ORDINA SUBITO</font>=
+</strong></h3>
+          </div></td>
+        </tr>
+        <tr>
+          <td height=3D"36" bgcolor=3D"#FFFFFF">
+            <div align=3D"center">
+              <table border=3D"0">
+                <tr>
+                  <td><a alt=3D"https://www.simpaticotech.it/prodotto.php?i=
+d_prodotto=3D3106014&agente=3DMAILING" href=3D"http://r20.rs6.net/tn.jsp?f=
+=3D001CAmwcHfygQxGTam14_8RMIlxDosz1metLZXQobAP2I050YY5U5oBjPe8dLcmzjn4CyMrc=
+0YkEUxxrn8Pobp-4zSh4VHMxYnH5fm5hAEjtBLgMxnaVHxFiO95Wm94TpnAZq62HSZTR214pLzB=
+A4i_LdpNN7ZOO22i7hZVv4ELF-hieKkkPeZ7c5FnrGC_FoQyLc_Q052BmFO9Op8WcaG_1TkO6oS=
+Mbz8WTwm93Vv_7wkGHIkH_RKwMM9evr1TePjH&c=3Dwe6DFo9eFQWrWVOiPjPz7dGIZ4Tg-WCw6=
+kBc_6i3T4AHBLzHg2A6lw=3D=3D&ch=3D7Uv6naWTkqIZJ5USOxARYDFw2iUtRz7NgGi1NZnDEJ=
+2COcywAhIMmQ=3D=3D"><img src=3D"http://www.simpaticotech.it/img/upload/3106=
+014_medium.jpg" alt=3D"" width=3D"400" height=3D"400" border=3D"0"></a></td=
+>
+                 =20
+                  </tr>
+                </table>
+              </div>
+            </td>
+        </tr>
+       =20
+         <tr>
+          <td bgcolor=3D"#ffffff" height=3D"34">
+            <h3 align=3D"center"><strong>Workstation Lenovo ThinkStation E3=
+1 Xeon E3-1240 3.4GHz 16Gb 500Gb DVDRW Nvidia Quadro K2000 2Gb Win 10 Pro<f=
+ont color=3D"#3118db"><br>
+              <font color=3D"#008000">PRONTA CONSEGNA</font>
+              </font><font color=3D"#FF0000">
+                Invece di<del> 1422 </del></font>Costa solo  <font color=3D=
+"#008000"><u>630,00</u>
+                  Euro</font><font color=3D"#000000">  ORDINA SUBITO</font>=
+</strong> </h3>
+            </td>
+        </tr>
+        <tr>
+          <td height=3D"36" bgcolor=3D"#FFFFFF">
+            <div align=3D"center">
+              <table border=3D"0">
+                <tr>
+                  <td><a alt=3D"https://www.simpaticotech.it/lista.php?id_c=
+ategoria=3D137&agente=3DMAILING" href=3D"http://r20.rs6.net/tn.jsp?f=3D001C=
+AmwcHfygQxGTam14_8RMIlxDosz1metLZXQobAP2I050YY5U5oBjPe8dLcmzjn43IbFG6cBFt-J=
+RGzK9Y8W2e_wYFEqgXmges0aH81TRz_rVyID7E_jESFx7QzRApDS4DS9WwBi2JzDkKcf7dUWJvz=
+5QNipNnPmRNhk5GsvclVAFrgEFghr6PI0aN7DDaXHZVLYi9HPR2tHTFfx7D6H_Ay-nmynVcPa0H=
+heGPEGtZUUnSkl-T65tA=3D=3D&c=3Dwe6DFo9eFQWrWVOiPjPz7dGIZ4Tg-WCw6kBc_6i3T4AH=
+BLzHg2A6lw=3D=3D&ch=3D7Uv6naWTkqIZJ5USOxARYDFw2iUtRz7NgGi1NZnDEJ2COcywAhIMm=
+Q=3D=3D"><img src=3D"http://www.simpaticotech.it/img/upload/3059472_medium.=
+jpg" alt=3D"" width=3D"400" height=3D"400" border=3D"0"></a></td>
+                 =20
+                  </tr>
+                </table>
+              </div>
+            </td>
+        </tr>
+       =20
+        </table>
+      </div></td>
+</tr>
+          </table>
+          <table>
+          </table>
+        </div>
+      </td>
+</tr>
+
+</table>
+<table cellpadding=3D"20" cellspacing=3D"0" bgcolor=3D"#FFFFFF" width=3D"73=
+5">
+ =20
+  <tr>
+      <td bgcolor=3D"#dcc223" width=3D"663" height=3D"337"><p align=3D"cent=
+er">&nbsp;</p>
+        <p align=3D"center"><a alt=3D"http://on.fb.me/V82GWv" href=3D"http:=
+//r20.rs6.net/tn.jsp?f=3D001CAmwcHfygQxGTam14_8RMIlxDosz1metLZXQobAP2I050YY=
+5U5oBjF31NZx-SNLyDkxjKbRNjTvT9rKHDp0XD4OD6LDuKpOl_ebFDWr1NMWlZYSY40thm-1fRG=
+eOX9HDEZb7eSfXAF0SsLdyhr0UmGVgZ_TkL5iCFatERNROhv4=3D&c=3Dwe6DFo9eFQWrWVOiPj=
+Pz7dGIZ4Tg-WCw6kBc_6i3T4AHBLzHg2A6lw=3D=3D&ch=3D7Uv6naWTkqIZJ5USOxARYDFw2iU=
+tRz7NgGi1NZnDEJ2COcywAhIMmQ=3D=3D" rel=3D"Guarda il Video" target=3D"_blank=
+" title=3D""><img src=3D"http://bit.ly/W8cEuw" alt=3D"" width=3D"600" heigh=
+t=3D"134" border=3D"0"></a></p>
+        <p align=3D"center">&nbsp;</p>
+<p>
+          <!-- area unsub -->
+          <FONT=20
+style=3D"FONT-SIZE: 7pt; COLOR: #808080; FONT-FAMILY: Verdana; TEXT-DECORAT=
+ION: none">La  =20
+            presente newsletter &egrave; da considerarsi una comunicazione =
+commerciale. Ai sensi  =20
+            dell'art. 13 del Decreto legislativo 30 giugno 2003, n. 196 (Co=
+dice della  =20
+            Privacy) La informiamo che i Suoi dati personali sono utilizzat=
+i da Simpatico =20
+            Network srl  =20
+            per finalita' promozionali e pubblicitarie e, in particolare, p=
+er l'invio della  =20
+            nostra newsletter. Il conferimento dei Suoi dati personali, per=
+ le indicate
+            finalita', &egrave; una Sua facolta', ma ha il diritto di oppor=
+Si alla prosecuzione del  =20
+            trattamento in qualsiasi momento, provvedendo alla cancellazion=
+e dei dati da Lei  =20
+            forniti. Lei &egrave; titolare dei diritti di cui all'art. 7 de=
+l Codice della Privacy.  =20
+            Il trattamento si svolge, con l'ausilio di mezzi elettronici, n=
+el rispetto delle  =20
+            modalita' che il Codice della Privacy pone a Sua garanzia e, in=
+ generale,  =20
+            tutelando i Suoi diritti, liberta' fondamentali e dignita', con=
+ particolare  =20
+            riferimento alla riservatezza e all'identita' personale. Il tra=
+ttamento si  =20
+            svolgera' per il periodo da Te consentito e cessera' a seguito =
+ =20
+            dell'intervenuta cancellazione dei Suoi dati personali, a Te i =
+consentita in  =20
+            qualsiasi momento. I dati personali da Te forniti non sono comu=
+nicati a soggetti  =20
+            terzi. Simpatico Network srl ha adottato le misure di sicurezza=
+ per il trattamento dei Suoi  =20
+            dati personali previste dagli artt. 33 ss. del Codice della Pri=
+vacy e dal  =20
+            Disciplinare Tecnico di cui All'allegato B) del medesimo. Simpa=
+tico Network srl si impegna,
+            altresi', ad adeguare le suddette misure in modo conforme a qua=
+nto stabilito  =20
+            dalle successive modifiche legislative, nonch&eacute; in relazi=
+one all'evoluzione  =20
+            tecnica del settore e all'esperienza maturata. Simpatico Networ=
+k srl, con sede  =20
+            operativa in Buccinasco (MI), Via Volta 7 &egrave; la titolare =
+del trattamento , e a  =20
+            lei competono le decisioni in ordine alle finalita' ed alle mod=
+alita' del  =20
+      trattamento dei dati personali.</FONT>        =20
+      <p align=3D"center"> <img src=3D"http://bit.ly/VMUthm" alt=3D"Pagamen=
+ti con carta di credito" title=3D"" />     =20
+      <p align=3D"center"><FONT=20
+style=3D"FONT-SIZE: 8pt; COLOR: #808080; FONT-FAMILY: Verdana; TEXT-DECORAT=
+ION: none">Offerte=20
+          valide fino ad esaurimento scorte ( tutti i prezzi sono IVA inclu=
+sa) </FONT>
+      <p align=3D"center"><font size=3D"3"><b>Noi rispettiamo la tua privac=
+y, per
+      non ricevere pi&ugrave; le nostre email chiedi la calazione&nbsp;</b>=
+</font> </td>
+</tr>
+
+</table>
+</div>
+<p>&nbsp;</p>
+
+<br />
+<table bgcolor=3D"#ffffff" padding=3D"0" width=3D"100%" ><tr align=3D"cente=
+r" ><td ><table bgcolor=3D"#ffffff" id=3D"footerContainer" width=3D"595" ><=
+tr ><td colspan=3D"2" ><font face=3D"tahoma,sans-serif" size=3D"1" ><b ><a =
+href=3D"http://ui.constantcontact.com/sa/fwtf.jsp?llr=3D9qmh7qdab&m=3D11032=
+99326490&ea=3Dbroadcast%40simpaticotech.it&a=3D1128138677276" style=3D"colo=
+r: #0000ff;" target=3D"_blank">Inotra questa email</a></b></font><br />
+<br />
+</td></tr>
+<tr ><td ><FooterContent ><a href=3D"https://visitor.constantcontact.com/do=
+?p=3Dun&m=3D001ppwvHtrFNf1h59YxsVHM6Q%3D%3D&ch=3Dce81b4a0-be9c-11e4-90fa-d4=
+ae528eb986&ca=3D481d0a70-d0bf-4f0f-a48a-86c00df57dc0" target=3D"_blank"><im=
+g border=3D"0" src=3D"http://img.constantcontact.com/letters/images/SafeUns=
+ubscribe_Footer_Logo_New.png"/></a><br /></FooterContent></td><td align=3D"=
+right" ><font face=3D"tahoma,sans-serif" size=3D"1" ><FooterLogo ><a href=
+=3D"http://www.constantcontact.com/index.jsp?cc=3Dcustom01"><img border=3D"=
+0" src=3D"http://img.constantcontact.com/letters/images/CC_Footer_Logo_New.=
+png"/></a></FooterLogo></font>
+</td>
+</tr><tr ><td colspan=3D"2" ><font face=3D"tahoma,sans-serif" size=3D"1" ><=
+FooterContent ><div >Questa mail &#232; stata inviata a announce-archive@ht=
+tpd.apache.org, da parte di <a href=3D"mailto:web.info@simpaticotech.it" st=
+yle=3D"color:#0000ff;">web.info@simpaticotech.it</a> <span style=3D"color: =
+#bababa;" > | </span> &nbsp;  </div>
+<div ><a href=3D"https://visitor.constantcontact.com/do?p=3Doo&m=3D001ppwvH=
+trFNf1h59YxsVHM6Q%3D%3D&ch=3Dce81b4a0-be9c-11e4-90fa-d4ae528eb986&ca=3D481d=
+0a70-d0bf-4f0f-a48a-86c00df57dc0" style=3D"color:#0000ff;" target=3D"_blank=
+">Aggiorna profilo/indirizzo e-mail</a> <span style=3D"color: #bababa;" >|<=
+/span> Rimozione istantanea con <a href=3D"https://visitor.constantcontact.=
+com/do?p=3Dun&m=3D001ppwvHtrFNf1h59YxsVHM6Q%3D%3D&ch=3Dce81b4a0-be9c-11e4-9=
+0fa-d4ae528eb986&ca=3D481d0a70-d0bf-4f0f-a48a-86c00df57dc0" style=3D"color:=
+#0000ff;" target=3D"_blank">SafeUnsubscribe</a>&trade;  <span style=3D"colo=
+r: #bababa;" >|</span>  <a href=3D"http://ui.constantcontact.com/roving/it/=
+CCPrivacyPolicy.jsp" style=3D"color:#0000ff;" target=3D"_blank">Informativa=
+ sulla privacy</a>.</div></FooterContent></font>
+</td>
+</tr>
+<tr ><td colspan=3D"2" ><font face=3D"tahoma,sans-serif" size=3D"1" ><br />=
+Simpatico Network srl | Via Volta 7 | BUCCINASCO | 20090 | Italy</font>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br />
+</body>
+
+
+
+
+------=_Part_424455548_1815881094.1496914554968--
+
+From announce-return-172-apmail-httpd-announce-archive=httpd.apache.org@httpd.apache.org  Mon Jun 19 13:04:47 2017
+Return-Path: <announce-return-172-apmail-httpd-announce-archive=httpd.apache.org@httpd.apache.org>
+X-Original-To: apmail-httpd-announce-archive@www.apache.org
+Delivered-To: apmail-httpd-announce-archive@www.apache.org
+Received: from mail.apache.org (hermes.apache.org [140.211.11.3])
+	by minotaur.apache.org (Postfix) with SMTP id B36C819ACD
+	for <apmail-httpd-announce-archive@www.apache.org>; Mon, 19 Jun 2017 13:04:47 +0000 (UTC)
+Received: (qmail 36057 invoked by uid 500); 19 Jun 2017 13:03:47 -0000
+Delivered-To: apmail-httpd-announce-archive@httpd.apache.org
+Received: (qmail 35992 invoked by uid 500); 19 Jun 2017 13:03:47 -0000
+Mailing-List: contact announce-help@httpd.apache.org; run by ezmlm
+Precedence: bulk
+list-help: <mailto:announce-help@httpd.apache.org>
+list-unsubscribe: <mailto:announce-unsubscribe@httpd.apache.org>
+List-Post: <mailto:announce@httpd.apache.org>
+List-Id: <announce.httpd.apache.org>
+Delivered-To: mailing list announce@httpd.apache.org
+Delivered-To: moderator for announce@httpd.apache.org
+Received: (qmail 35187 invoked by uid 99); 19 Jun 2017 13:02:59 -0000
+X-Virus-Scanned: Debian amavisd-new at spamd1-us-west.apache.org
+X-Spam-Flag: NO
+X-Spam-Score: -0.028
+X-Spam-Level:
+X-Spam-Status: No, score=-0.028 tagged_above=-999 required=6.31
+	tests=[RCVD_IN_DNSWL_NONE=-0.0001, RCVD_IN_MSPIKE_H2=-1,
+	SPF_SOFTFAIL=0.972] autolearn=disabled
+From: Jim Jagielski <jim@apache.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0 (Mac OS X Mail 10.3 \(3273\))
+Subject: [ANNOUNCE] Apache HTTP Server 2.4.26 Released
+Message-Id: <7E0E49E5-4A82-4D74-B950-1268AC79432B@apache.org>
+Date: Mon, 19 Jun 2017 09:02:52 -0400
+To: announce@httpd.apache.org
+X-Mailer: Apple Mail (2.3273)
+X-CMAE-Envelope: MS4wfLz7wSr6rxM41e94JZ8B4RmokyinUV4Kcw2PFIupzZArWyE6xnZOJ8GQdIl4IxsnRta8auplye6m0KWmpFHJF6bv3ZjCQV8CUoGgyLPwUt9yI2YibUcl
+ GnvVw6LJJWpfpEq81xtQtozkobAiFVSkl25LBshiLj/ZceN51EblWgzP
+
+                Apache HTTP Server 2.4.26 Released
+
+   June 19, 2017
+
+   The Apache Software Foundation and the Apache HTTP Server Project
+   are pleased to announce the release of version 2.4.26 of the Apache
+   HTTP Server ("Apache").  This version of Apache is our latest GA
+   release of the new generation 2.4.x branch of Apache HTTPD and
+   represents fifteen years of innovation by the project, and is
+   recommended over all previous releases. This release of Apache is
+   a security, feature, and bug fix release.
+
+   We consider this release to be the best version of Apache available, and
+   encourage users of all prior versions to upgrade.
+
+   Apache HTTP Server 2.4.26 is available for download from:
+
+     http://httpd.apache.org/download.cgi
+
+   Apache 2.4 offers numerous enhancements, improvements, and performance
+   boosts over the 2.2 codebase.  For an overview of new features
+   introduced since 2.4 please see:
+
+     http://httpd.apache.org/docs/trunk/new_features_2_4.html
+
+   Please see the CHANGES_2.4 file, linked from the download page, for a
+   full list of changes. A condensed list, CHANGES_2.4.26 includes only
+   those changes introduced since the prior 2.4 release.  A summary of all 
+   of the security vulnerabilities addressed in this and earlier releases 
+   is available:
+
+     http://httpd.apache.org/security/vulnerabilities_24.html
+
+   This release requires the Apache Portable Runtime (APR), minimum
+   version 1.5.x, and APR-Util, minimum version 1.5.x. Some features may
+   require the 1.6.x version of both APR and APR-Util. The APR libraries
+   must be upgraded for all features of httpd to operate correctly.
+
+   This release builds on and extends the Apache 2.2 API.  Modules written
+   for Apache 2.2 will need to be recompiled in order to run with Apache
+   2.4, and require minimal or no source code changes.
+
+     http://svn.apache.org/repos/asf/httpd/httpd/trunk/VERSIONING
+
+   When upgrading or installing this version of Apache, please bear in mind
+   that if you intend to use Apache with one of the threaded MPMs (other
+   than the Prefork MPM), you must ensure that any modules you will be
+   using (and the libraries they depend on) are thread-safe.
+
+   Please note that Apache Web Server Project will only provide maintenance
+   releases of the 2.2.x flavor through June of 2017, and will provide some
+   security patches beyond this date through at least December of 2017.
+   Minimal maintenance patches of 2.2.x are expected throughout this period,
+   and users are strongly encouraged to promptly complete their transitions
+   to the the 2.4.x flavor of httpd to benefit from a much larger assortment
+   of minor security and bug fixes as well as new features.
+
+
+From announce-return-173-apmail-httpd-announce-archive=httpd.apache.org@httpd.apache.org  Mon Jun 19 22:51:13 2017
+Return-Path: <announce-return-173-apmail-httpd-announce-archive=httpd.apache.org@httpd.apache.org>
+X-Original-To: apmail-httpd-announce-archive@www.apache.org
+Delivered-To: apmail-httpd-announce-archive@www.apache.org
+Received: from mail.apache.org (hermes.apache.org [140.211.11.3])
+	by minotaur.apache.org (Postfix) with SMTP id BE2A319617
+	for <apmail-httpd-announce-archive@www.apache.org>; Mon, 19 Jun 2017 22:51:13 +0000 (UTC)
+Received: (qmail 4191 invoked by uid 500); 19 Jun 2017 22:50:22 -0000
+Delivered-To: apmail-httpd-announce-archive@httpd.apache.org
+Received: (qmail 4130 invoked by uid 500); 19 Jun 2017 22:50:22 -0000
+Mailing-List: contact announce-help@httpd.apache.org; run by ezmlm
+Precedence: bulk
+list-help: <mailto:announce-help@httpd.apache.org>
+list-unsubscribe: <mailto:announce-unsubscribe@httpd.apache.org>
+List-Post: <mailto:announce@httpd.apache.org>
+List-Id: <announce.httpd.apache.org>
+Delivered-To: mailing list announce@httpd.apache.org
+Delivered-To: moderator for announce@httpd.apache.org
+Received: (qmail 1286 invoked by uid 99); 19 Jun 2017 22:48:35 -0000
+From: Jacob Champion <jchampion@apache.org>
+Subject: [SECURITY] CVE-2017-3167: ap_get_basic_auth_pw authentication bypass
+To: announce@httpd.apache.org
+Message-ID: <a3df4303-6b2d-ce8b-e351-2fe58e3c300a@apache.org>
+Date: Mon, 19 Jun 2017 15:48:33 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
+ Thunderbird/52.1.1
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+
+CVE-2017-3167: ap_get_basic_auth_pw authentication bypass
+
+Severity: Important
+
+Vendor: The Apache Software Foundation
+
+Versions Affected:
+httpd 2.2.0 to 2.2.32
+httpd 2.4.0 to 2.4.25
+
+Description:
+Use of the ap_get_basic_auth_pw() by third-party modules outside of the
+authentication phase may lead to authentication requirements being
+bypassed.
+
+Mitigation:
+2.2.x users should either apply the patch available at
+https://www.apache.org/dist/httpd/patches/apply_to_2.2.32/CVE-2017-3167.patch
+or upgrade in the future to 2.2.33, which is currently unreleased.
+
+2.4.x users should upgrade to 2.4.26.
+
+Third-party module writers SHOULD use ap_get_basic_auth_components(),
+available in 2.2.33 and 2.4.26, instead of ap_get_basic_auth_pw().
+Modules which call the legacy ap_get_basic_auth_pw() during the
+authentication phase MUST either immediately authenticate the user after
+the call, or else stop the request immediately with an error response,
+to avoid incorrectly authenticating the current request.
+
+Credit:
+The Apache HTTP Server security team would like to thank Emmanuel
+Dreyfus for reporting this issue.
+
+References:
+https://httpd.apache.org/security_report.html
+
+From announce-return-174-apmail-httpd-announce-archive=httpd.apache.org@httpd.apache.org  Mon Jun 19 22:52:13 2017
+Return-Path: <announce-return-174-apmail-httpd-announce-archive=httpd.apache.org@httpd.apache.org>
+X-Original-To: apmail-httpd-announce-archive@www.apache.org
+Delivered-To: apmail-httpd-announce-archive@www.apache.org
+Received: from mail.apache.org (hermes.apache.org [140.211.11.3])
+	by minotaur.apache.org (Postfix) with SMTP id 0CEC619618
+	for <apmail-httpd-announce-archive@www.apache.org>; Mon, 19 Jun 2017 22:52:13 +0000 (UTC)
+Received: (qmail 9831 invoked by uid 500); 19 Jun 2017 22:50:37 -0000
+Delivered-To: apmail-httpd-announce-archive@httpd.apache.org
+Received: (qmail 9697 invoked by uid 500); 19 Jun 2017 22:50:36 -0000
+Mailing-List: contact announce-help@httpd.apache.org; run by ezmlm
+Precedence: bulk
+list-help: <mailto:announce-help@httpd.apache.org>
+list-unsubscribe: <mailto:announce-unsubscribe@httpd.apache.org>
+List-Post: <mailto:announce@httpd.apache.org>
+List-Id: <announce.httpd.apache.org>
+Delivered-To: mailing list announce@httpd.apache.org
+Delivered-To: moderator for announce@httpd.apache.org
+Received: (qmail 1343 invoked by uid 99); 19 Jun 2017 22:48:40 -0000
+From: Jacob Champion <jchampion@apache.org>
+Subject: [SECURITY] CVE-2017-3169: mod_ssl null pointer dereference
+To: announce@httpd.apache.org
+Message-ID: <175d0fef-8a27-6b29-6989-f107e53528d6@apache.org>
+Date: Mon, 19 Jun 2017 15:48:40 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
+ Thunderbird/52.1.1
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+
+CVE-2017-3169: mod_ssl null pointer dereference
+
+Severity: Important
+
+Vendor: The Apache Software Foundation
+
+Versions Affected:
+httpd 2.2.0 to 2.2.32
+httpd 2.4.0 to 2.4.25
+
+Description:
+mod_ssl may dereference a NULL pointer when third-party modules call
+ap_hook_process_connection() during an HTTP request to an HTTPS port.
+
+Mitigation:
+2.2.x users should either apply the patch available at
+https://www.apache.org/dist/httpd/patches/apply_to_2.2.32/CVE-2017-3169.patch
+or upgrade in the future to 2.2.33, which is currently unreleased.
+
+2.4.x users should upgrade to 2.4.26.
+
+Credit:
+The Apache HTTP Server security team would like to thank Vasileios
+Panopoulos and AdNovum Informatik AG for reporting this issue.
+
+References:
+https://httpd.apache.org/security_report.html
+
+From announce-return-175-apmail-httpd-announce-archive=httpd.apache.org@httpd.apache.org  Mon Jun 19 22:53:10 2017
+Return-Path: <announce-return-175-apmail-httpd-announce-archive=httpd.apache.org@httpd.apache.org>
+X-Original-To: apmail-httpd-announce-archive@www.apache.org
+Delivered-To: apmail-httpd-announce-archive@www.apache.org
+Received: from mail.apache.org (hermes.apache.org [140.211.11.3])
+	by minotaur.apache.org (Postfix) with SMTP id 625451961A
+	for <apmail-httpd-announce-archive@www.apache.org>; Mon, 19 Jun 2017 22:53:10 +0000 (UTC)
+Received: (qmail 13753 invoked by uid 500); 19 Jun 2017 22:50:48 -0000
+Delivered-To: apmail-httpd-announce-archive@httpd.apache.org
+Received: (qmail 13680 invoked by uid 500); 19 Jun 2017 22:50:48 -0000
+Mailing-List: contact announce-help@httpd.apache.org; run by ezmlm
+Precedence: bulk
+list-help: <mailto:announce-help@httpd.apache.org>
+list-unsubscribe: <mailto:announce-unsubscribe@httpd.apache.org>
+List-Post: <mailto:announce@httpd.apache.org>
+List-Id: <announce.httpd.apache.org>
+Delivered-To: mailing list announce@httpd.apache.org
+Delivered-To: moderator for announce@httpd.apache.org
+Received: (qmail 1431 invoked by uid 99); 19 Jun 2017 22:48:48 -0000
+From: Jacob Champion <jchampion@apache.org>
+Subject: [SECURITY] CVE-2017-7659: mod_http2 null pointer dereference
+To: announce@httpd.apache.org
+Message-ID: <3a0d488a-cc2e-29a3-432a-329b6a8c17a9@apache.org>
+Date: Mon, 19 Jun 2017 15:48:47 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
+ Thunderbird/52.1.1
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 8bit
+
+CVE-2017-7659: mod_http2 null pointer dereference
+
+Severity: Important
+
+Vendor: The Apache Software Foundation
+
+Versions Affected:
+httpd 2.4.24 (unreleased)
+httpd 2.4.25
+
+Description:
+A maliciously constructed HTTP/2 request could cause mod_http2 to
+dereference a NULL pointer and crash the server process.
+
+Mitigation:
+2.4.25 users of mod_http2 should upgrade to 2.4.26.
+
+Credit:
+The Apache HTTP Server security team would like to thank Robert Święcki
+for reporting this issue.
+
+References:
+https://httpd.apache.org/security_report.html
+
+
+From announce-return-176-apmail-httpd-announce-archive=httpd.apache.org@httpd.apache.org  Mon Jun 19 22:54:11 2017
+Return-Path: <announce-return-176-apmail-httpd-announce-archive=httpd.apache.org@httpd.apache.org>
+X-Original-To: apmail-httpd-announce-archive@www.apache.org
+Delivered-To: apmail-httpd-announce-archive@www.apache.org
+Received: from mail.apache.org (hermes.apache.org [140.211.11.3])
+	by minotaur.apache.org (Postfix) with SMTP id E055F1961D
+	for <apmail-httpd-announce-archive@www.apache.org>; Mon, 19 Jun 2017 22:54:10 +0000 (UTC)
+Received: (qmail 16642 invoked by uid 500); 19 Jun 2017 22:50:56 -0000
+Delivered-To: apmail-httpd-announce-archive@httpd.apache.org
+Received: (qmail 16474 invoked by uid 500); 19 Jun 2017 22:50:56 -0000
+Mailing-List: contact announce-help@httpd.apache.org; run by ezmlm
+Precedence: bulk
+list-help: <mailto:announce-help@httpd.apache.org>
+list-unsubscribe: <mailto:announce-unsubscribe@httpd.apache.org>
+List-Post: <mailto:announce@httpd.apache.org>
+List-Id: <announce.httpd.apache.org>
+Delivered-To: mailing list announce@httpd.apache.org
+Delivered-To: moderator for announce@httpd.apache.org
+Received: (qmail 1483 invoked by uid 99); 19 Jun 2017 22:48:54 -0000
+From: Jacob Champion <jchampion@apache.org>
+Subject: [SECURITY] CVE-2017-7668: ap_find_token buffer overread
+To: announce@httpd.apache.org
+Message-ID: <ba874a8b-db7b-8c17-31c0-221bcd6dddab@apache.org>
+Date: Mon, 19 Jun 2017 15:48:54 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
+ Thunderbird/52.1.1
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 8bit
+
+CVE-2017-7668: ap_find_token buffer overread
+
+Severity: Important
+
+Vendor: The Apache Software Foundation
+
+Versions Affected:
+httpd 2.2.32
+httpd 2.4.24 (unreleased)
+httpd 2.4.25
+
+Description:
+The HTTP strict parsing changes added in 2.2.32 and 2.4.24 introduced a
+bug in token list parsing, which allows ap_find_token() to search past
+the end of its input string. By maliciously crafting a sequence of
+request headers, an attacker may be able to cause a segmentation fault,
+or to force ap_find_token() to return an incorrect value.
+
+Mitigation:
+2.2.32 users should either apply the patch available at
+https://www.apache.org/dist/httpd/patches/apply_to_2.2.32/CVE-2017-7668.patch
+or upgrade in the future to 2.2.33, which is currently unreleased.
+
+2.4.25 users should upgrade to 2.4.26.
+
+Credit:
+The Apache HTTP Server security team would like to thank Javier Jiménez
+(javijmor@gmail.com) for reporting this issue.
+
+References:
+https://httpd.apache.org/security_report.html
+
+From announce-return-177-apmail-httpd-announce-archive=httpd.apache.org@httpd.apache.org  Mon Jun 19 22:55:10 2017
+Return-Path: <announce-return-177-apmail-httpd-announce-archive=httpd.apache.org@httpd.apache.org>
+X-Original-To: apmail-httpd-announce-archive@www.apache.org
+Delivered-To: apmail-httpd-announce-archive@www.apache.org
+Received: from mail.apache.org (hermes.apache.org [140.211.11.3])
+	by minotaur.apache.org (Postfix) with SMTP id 1108E19626
+	for <apmail-httpd-announce-archive@www.apache.org>; Mon, 19 Jun 2017 22:55:10 +0000 (UTC)
+Received: (qmail 21198 invoked by uid 500); 19 Jun 2017 22:51:09 -0000
+Delivered-To: apmail-httpd-announce-archive@httpd.apache.org
+Received: (qmail 21126 invoked by uid 500); 19 Jun 2017 22:51:09 -0000
+Mailing-List: contact announce-help@httpd.apache.org; run by ezmlm
+Precedence: bulk
+list-help: <mailto:announce-help@httpd.apache.org>
+list-unsubscribe: <mailto:announce-unsubscribe@httpd.apache.org>
+List-Post: <mailto:announce@httpd.apache.org>
+List-Id: <announce.httpd.apache.org>
+Delivered-To: mailing list announce@httpd.apache.org
+Delivered-To: moderator for announce@httpd.apache.org
+Received: (qmail 1559 invoked by uid 99); 19 Jun 2017 22:49:00 -0000
+From: Jacob Champion <jchampion@apache.org>
+Subject: [SECURITY] CVE-2017-7679: mod_mime buffer overread
+To: announce@httpd.apache.org
+Message-ID: <5a93ae92-16dd-08e8-b11c-453085379965@apache.org>
+Date: Mon, 19 Jun 2017 15:48:59 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
+ Thunderbird/52.1.1
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 8bit
+
+CVE-2017-7679: mod_mime buffer overread
+
+Severity: Important
+
+Vendor: The Apache Software Foundation
+
+Versions Affected:
+httpd 2.2.0 to 2.2.32
+httpd 2.4.0 to 2.4.25
+
+Description:
+mod_mime can read one byte past the end of a buffer when sending a
+malicious Content-Type response header.
+
+Mitigation:
+2.2.x users should either apply the patch available at
+https://www.apache.org/dist/httpd/patches/apply_to_2.2.32/CVE-2017-7679.patch
+or upgrade in the future to 2.2.33, which is currently unreleased.
+
+2.4.x users should upgrade to 2.4.26.
+
+Credit:
+The Apache HTTP Server security team would like to thank ChenQin and
+Hanno Böck for reporting this issue.
+
+References:
+https://httpd.apache.org/security_report.html
+
+From hellen.serviceweb@hotmail.com  Wed Jun 21 16:18:02 2017
+Return-Path: <hellen.serviceweb@hotmail.com>
+X-Original-To: apmail-httpd-announce-archive@www.apache.org
+Delivered-To: apmail-httpd-announce-archive@www.apache.org
+Received: from mail.apache.org (hermes.apache.org [140.211.11.3])
+	by minotaur.apache.org (Postfix) with SMTP id 6E8141A934
+	for <apmail-httpd-announce-archive@www.apache.org>; Wed, 21 Jun 2017 16:18:02 +0000 (UTC)
+Received: (qmail 31134 invoked by uid 500); 21 Jun 2017 16:18:02 -0000
+Delivered-To: apmail-httpd-announce-archive@httpd.apache.org
+Received: (qmail 31131 invoked by uid 99); 21 Jun 2017 16:18:02 -0000
+Received: from pnap-us-west-generic-nat.apache.org (HELO spamd1-us-west.apache.org) (209.188.14.142)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 21 Jun 2017 16:18:02 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by spamd1-us-west.apache.org (ASF Mail Server at spamd1-us-west.apache.org) with ESMTP id EA445CEEAD
+	for <announce-archive@httpd.apache.org>; Wed, 21 Jun 2017 16:18:01 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at spamd1-us-west.apache.org
+X-Spam-Flag: NO
+X-Spam-Score: 3.065
+X-Spam-Level: ***
+X-Spam-Status: No, score=3.065 tagged_above=-999 required=6.31
+	tests=[DKIM_SIGNED=0.1, DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1,
+	FORGED_HOTMAIL_RCVD2=1.187, HTML_MESSAGE=2,
+	RCVD_IN_DNSWL_NONE=-0.0001, RCVD_IN_MSPIKE_H3=-0.01,
+	RCVD_IN_MSPIKE_WL=-0.01, SPF_HELO_PASS=-0.001, SPF_PASS=-0.001]
+	autolearn=disabled
+Authentication-Results: spamd1-us-west.apache.org (amavisd-new);
+	dkim=pass (2048-bit key) header.d=hotmail.com
+Received: from mx1-lw-eu.apache.org ([10.40.0.8])
+	by localhost (spamd1-us-west.apache.org [10.40.0.7]) (amavisd-new, port 10024)
+	with ESMTP id SKgi12RvRxL0 for <announce-archive@httpd.apache.org>;
+	Wed, 21 Jun 2017 16:18:00 +0000 (UTC)
+Received: from APC01-PU1-obe.outbound.protection.outlook.com (mail-oln040092254054.outbound.protection.outlook.com [40.92.254.54])
+	by mx1-lw-eu.apache.org (ASF Mail Server at mx1-lw-eu.apache.org) with ESMTPS id 2E2F65F6BE
+	for <announce-archive@httpd.apache.org>; Wed, 21 Jun 2017 16:17:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1; h=From:Date:Subject:Message-ID:Content-Type:MIME-Version;
+ bh=wQhfRtCzPKdlALScl+Mvn146OZvNjjzL8URDyvdjVKs=;
+ b=k0cxPS8LeEQAn7+/Zs2wnxBq2CdUj/97joNUSh2FevZ64AZyIfiFSiWZ4T3bwAJ/d6sqKkqupmo0mf0sWmoQwMIM24Ea6yEonTD29F6p8LxmqIDw2IGKUh6hBITOd+QsOAKTaTvFlfa5ssA4fhhu/3ykyOGA3y+dqb52gBtrTjst+RMKkaC51UxdVx/qtSvuT9AvxRXF9q0m0DwP12tRz6T96FxbKU+DSfKQGsS7E6GQmFhwnrb2l4+PFw0rMdnTJRuxnvnlfJhjaaPFiOA/QdLkUYhDJo/AE7cKau3Lpm8SqH30cJUTl0ct5npIFg4egaLeyzQDCH3VzHA2Yos8oA==
+Received: from SG2APC01FT005.eop-APC01.prod.protection.outlook.com
+ (10.152.250.58) by SG2APC01HT181.eop-APC01.prod.protection.outlook.com
+ (10.152.251.194) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384) id 15.1.1157.12; Wed, 21
+ Jun 2017 16:17:39 +0000
+Received: from PN1PR01MB0639.INDPRD01.PROD.OUTLOOK.COM (10.152.250.54) by
+ SG2APC01FT005.mail.protection.outlook.com (10.152.250.147) with Microsoft
+ SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1075.5 via
+ Frontend Transport; Wed, 21 Jun 2017 16:17:34 +0000
+Received: from PN1PR01MB0639.INDPRD01.PROD.OUTLOOK.COM ([10.174.145.13]) by
+ PN1PR01MB0639.INDPRD01.PROD.OUTLOOK.COM ([10.174.145.13]) with mapi id
+ 15.01.1178.023; Wed, 21 Jun 2017 16:17:34 +0000
+From: Riya Singh <hellen.serviceweb@hotmail.com>
+To: "allin.anup@gmail.com" <allin.anup@gmail.com>
+Subject: Magento Service At Lowest Cost
+Thread-Topic: Magento Service At Lowest Cost
+Thread-Index: AQHS6qnfEVz5aHj96kW+uuY29Bju9Q==
+Date: Wed, 21 Jun 2017 16:17:34 +0000
+Message-ID: <PN1PR01MB063945297A85DD78D55A0496EADA0@PN1PR01MB0639.INDPRD01.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none header.from=hotmail.com;
+x-incomingtopheadermarker: OriginalChecksum:ADC393751DADB57421E0D8EE1347E67C2D126A005BE1B0BB685B39EE2B82D404;UpperCasedChecksum:2A45FE236B5EB613749A9BEC6AFC4156154DD5B8DFC501BD4FD4B9724004107B;SizeAsReceived:9551;Count:42
+x-tmn: [Y8el6eoEwj52UmfMaZP7egrhj0PounpZ]
+x-ms-publictraffictype: Email
+x-microsoft-exchange-diagnostics: 1;SG2APC01HT181;7:KDVKOR6qfjdcL91RF1eilMbCZ+zx3v9p8nzcXUAfpRUyyzK9jpFFBWiQnKP/SSDWlB79/yki23wNbtc99o4xTXWLOFr6RBVddoZx7NuCM8BkYK3qkAj3m4HWRCzgPUMO6Gt3Lo2AbbAsJ9g5pZ1BDqTf3ShwuMzH78aR64FNGF8SckLzYHCJHr7gLuiOnufOl61E6w9GrRC0KN9DL2iDD/INdtZyGJJ4Fi+MPus3JFAVYIOnFlXWn3wezj3oRK0zK7Ioez8aBnlQcHdYcpWG6po8hus9XsFzAqrXq/Ppa17yR8XT10fZD/+aSxuyf73agNWwylKcj+A2Xvlf2OVp2roIVmWX5rCDUTmcZdccaAcEf1DfBI91KJmqA1k5e06cXY8iKamPt02vQ8D6xNrw17Q8Lgu4PrZvLEE6t/sNtZkL8nVMD8GOgyXjlVuri0DmfE1aTfuR+ionNHtZbY7Yu0nnSROkyVCnEL1memHcZQOSv5X+N2GnpablAxwCjTrSNStin4ShAapTI2qgWGlTU3lg4izlaZRLcQCAYvpIJ/xaTK9yrhLzg8yJ3WQ8ilbLAECgY0vRhouwvF5+AwysbIS12OfU44JYVDHCxwCGzRyBZzaFm+sq/ng3XVsNnLEVqTgPQVenF4vq05r4qfrWcbDHQwb6yGHK6JfW9kUz9Xv+Nevc/aAchJ67C1WGXsaU9S9J0mmIWWlcanOwvTeOMUHE19QYmqUYomIc6aBron3LDJZjOJjLULFv4JoANmgVWFNyTcMjTm9c34naAGORUQ==
+x-incomingheadercount: 42
+x-eopattributedmessage: 0
+x-forefront-antispam-report: EFV:NLI;SFV:NSPM;SFS:(7070007)(98901004);DIR:OUT;SFP:1901;SCL:1;SRVR:SG2APC01HT181;H:PN1PR01MB0639.INDPRD01.PROD.OUTLOOK.COM;FPR:;SPF:None;LANG:en;
+x-ms-traffictypediagnostic: SG2APC01HT181:
+x-ms-office365-filtering-correlation-id: 43aa7777-86cb-4834-bcb6-08d4b8c106bb
+x-microsoft-antispam: UriScan:;BCL:0;PCL:0;RULEID:(22001)(201702061074)(5061506573)(5061507331)(1603103135)(2017031320274)(2017031324274)(2017031323274)(201702181274)(2017031322274)(1603101448)(1601125374)(1701031045);SRVR:SG2APC01HT181;
+x-ms-exchange-slblob-mailprops: dDsUU7XmuONV0oIrGEgOxpwsbK51eXtHUz1K2FlQOlggV295SMAkNQ+ltJYyCM47ekdRG8qisLqjm67yd3EtXHzxR9fPLHjM/sefp9/nykMezplB7c55jJLurcuQhNCiOZNF/2fbO5uQn0uil9FHTaysNvt77jsOvzBvNYvkC1jXkdtc1yINk6cDOz53pVGCUzXOIElkpM+F64JmDfrGmyCm+yw25HKDVrQeHXXafpP9WKWWMtrVp9eQaDn54Q2rqSY67eapyPgMnxF1eV+IQZuuNQxWjFKMiQ56wIArSqlTBtY4wScvMH9NnyZWiV0N8WHmwQfIz/LSMElO+K+sJ+9ajdS5gUT0nkTbZ/ryIH5IzMDC/6xvgCLRhngbR2Ek/eJHnqKypUwVdnAjbtnVwXQ9f6GR3uZdngobcY5+I4ZPSmS3jWENF0XOijNBZDzMhSPYIuA6827/yTY8yHj3mW5Sr6CEdanvZNyherP7Pn+A3CZAkCBZ6GKIDK7y5+eNUTRDe1LOoiI3mdyT9Zp5IKw3QSiLIHbZD4gZHdyezCZVlGy6i9ujZMXyoYUo7KiqGNggWblX1vUgp3zuX86EWjtRG2Y71ank91O+k6ESZgI=
+x-exchange-antispam-report-cfa-test: BCL:0;PCL:0;RULEID:(100000700101)(100105000095)(100000701101)(100105300095)(100000702101)(100105100095)(444000031);SRVR:SG2APC01HT181;BCL:0;PCL:0;RULEID:(100000800101)(100110000095)(100000801101)(100110300095)(100000802101)(100110100095)(100000803101)(100110400095)(100000804101)(100110200095)(100000805101)(100110500095);SRVR:SG2APC01HT181;
+x-forefront-prvs: 0345CFD558
+spamdiagnosticoutput: 1:99
+spamdiagnosticmetadata: NSPM
+Content-Type: multipart/alternative;
+	boundary="_000_PN1PR01MB063945297A85DD78D55A0496EADA0PN1PR01MB0639INDP_"
+MIME-Version: 1.0
+X-OriginatorOrg: hotmail.com
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Jun 2017 16:17:34.6154
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Internet
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2APC01HT181
+
+--_000_PN1PR01MB063945297A85DD78D55A0496EADA0PN1PR01MB0639INDP_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+I found your website through my own efforts on Google.
+I am Riya Singh, Business Development Executive of India=92s best Magento e=
+commerce Company. Our firm has delivered more than 500 Magento Store design=
+ and Development assignments till now as we are backed by an experienced by=
+ 50+ Magento Certified Professionals. As a team, we have exclusively excell=
+ed our proficiency in development of Magento store with advanced features s=
+uch as Ajax based Pagination, Review, Automated Integration for Magento Sto=
+re with Google shopping, Q and A module and many others.
+
+Our services are not only restricted to only Magento store development but =
+we also offer outstanding results when it comes to advanced Level of custom=
+ization of Magento Stores. Our offered services are well-known in this doma=
+in to generate optimum number of sales from Magento ecommerce stores as we =
+specifically keep in mind SEO factor while customizing Magento Store. We en=
+sure to make your Magento Store responsive for Mobile user-friendliness.
+
+Our 3-tier quality check system ensures quality-based professional services=
+, always!
+
+We offer following Services for Magento Stores:
+
+l  Design
+l  Development
+l  Re-Designing
+l  Re-Development
+l  Advanced features Development and Integration
+l  Detailed testing as per the Google Guidelines for 100% SEO compatibility
+
+May I know if you find any of these above-mentioned services suitable for y=
+our Magento store? Please reply to this mail. Based on your response, I wil=
+l schedule one of our Expert Magento Store Consultant for initiating furthe=
+r professional communications with you.
+For your reference, our per man hourly charge is US$ 15/Hr.
+Looking forward to your positive response.
+
+Regards,
+Riya Singh
+Business Development Executive
+
+
+--_000_PN1PR01MB063945297A85DD78D55A0496EADA0PN1PR01MB0639INDP_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+<style type=3D"text/css" style=3D"display:none;"><!-- P {margin-top:0;margi=
+n-bottom:0;} --></style>
+</head>
+<body dir=3D"ltr">
+<div id=3D"divtagdefaultwrapper" style=3D"font-size:12pt;color:#000000;font=
+-family:Calibri,Helvetica,sans-serif;" dir=3D"ltr">
+<p></p>
+<div>
+<p class=3D"MsoNormal"><span style=3D"background:white">Hello,</span><br>
+<span style=3D"font-variant-ligatures: normal;font-variant-caps: normal;=0A=
+orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;=0A=
+text-decoration-style: initial;text-decoration-color: initial;word-spacing:=
+=0A=
+0px">I found your website through my own
+ efforts on Google.<br>
+I am Riya Singh, Business Development Executive of India=92s best Magento e=
+commerce Company. Our firm has delivered more than 500 Magento Store design=
+ and Development assignments till now as we are backed by an experienced by=
+ 50&#43; Magento Certified Professionals.
+ As a team, we have exclusively excelled our proficiency in development of =
+Magento store with advanced features such as Ajax based Pagination, Review,=
+ Automated Integration for Magento Store with Google shopping, Q and A modu=
+le and many others.<br>
+&nbsp;<br>
+Our services are not only restricted to only Magento store development but =
+we also offer outstanding results when it comes to advanced Level of custom=
+ization of Magento Stores. Our offered services are well-known in this doma=
+in to generate optimum number of
+ sales from Magento ecommerce stores as we specifically keep in mind SEO fa=
+ctor while customizing Magento Store. We ensure to make your Magento Store =
+responsive for Mobile user-friendliness.<br>
+&nbsp;<br>
+</span>Our 3-tier quality check system ensures quality-based professional s=
+ervices, always!<span style=3D"background:white"><br>
+&nbsp;<br>
+We offer following Services for Magento Stores:<br>
+&nbsp;<br>
+l&nbsp; Design<br>
+l&nbsp; Development<br>
+l&nbsp; Re-Designing<br>
+l&nbsp; Re-Development<br>
+l&nbsp; Advanced features Development and Integration<br>
+l&nbsp; Detailed testing as per the Google Guidelines for 100% SEO compatib=
+ility<br>
+&nbsp;<br>
+May I know if you find any of these above-mentioned services suitable for y=
+our Magento store? Please reply to this mail. Based on your response, I wil=
+l schedule one of our Expert Magento Store Consultant for initiating furthe=
+r professional communications with
+ you.<br>
+For your reference, our per man hourly charge is US$ 15/Hr.<br>
+Looking forward to your positive response.<br>
+&nbsp;<br>
+Regards,<br>
+Riya Singh<br>
+Business Development Executive</span></p>
+</div>
+<br>
+<p></p>
+</div>
+</body>
+</html>
+
+--_000_PN1PR01MB063945297A85DD78D55A0496EADA0PN1PR01MB0639INDP_--
+
+From balaranpillai@gmail.com  Tue Jun 27 02:52:59 2017
+Return-Path: <balaranpillai@gmail.com>
+X-Original-To: apmail-httpd-announce-archive@www.apache.org
+Delivered-To: apmail-httpd-announce-archive@www.apache.org
+Received: from mail.apache.org (hermes.apache.org [140.211.11.3])
+	by minotaur.apache.org (Postfix) with SMTP id 208A31A643
+	for <apmail-httpd-announce-archive@www.apache.org>; Tue, 27 Jun 2017 02:52:59 +0000 (UTC)
+Received: (qmail 23968 invoked by uid 500); 27 Jun 2017 02:52:59 -0000
+Delivered-To: apmail-httpd-announce-archive@httpd.apache.org
+Received: (qmail 23965 invoked by uid 99); 27 Jun 2017 02:52:59 -0000
+Received: from pnap-us-west-generic-nat.apache.org (HELO spamd3-us-west.apache.org) (209.188.14.142)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Tue, 27 Jun 2017 02:52:59 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by spamd3-us-west.apache.org (ASF Mail Server at spamd3-us-west.apache.org) with ESMTP id A28B019204D
+	for <announce-archive@httpd.apache.org>; Tue, 27 Jun 2017 02:52:58 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at spamd3-us-west.apache.org
+X-Spam-Flag: NO
+X-Spam-Score: 4.017
+X-Spam-Level: ****
+X-Spam-Status: No, score=4.017 tagged_above=-999 required=6.31
+	tests=[DKIM_SIGNED=0.1, DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1,
+	HK_SCAM_N2=0.001, HTML_MESSAGE=2, LOTS_OF_MONEY=0.001,
+	MONEY_FRAUD_8=0.001, RCVD_IN_DNSWL_NONE=-0.0001,
+	RCVD_IN_MSPIKE_H3=-0.01, RCVD_IN_MSPIKE_WL=-0.01,
+	RCVD_IN_SORBS_SPAM=0.5, SPF_PASS=-0.001, SUBJ_ALL_CAPS=1.625,
+	T_MONEY_PERCENT=0.01] autolearn=disabled
+Authentication-Results: spamd3-us-west.apache.org (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from mx1-lw-us.apache.org ([10.40.0.8])
+	by localhost (spamd3-us-west.apache.org [10.40.0.10]) (amavisd-new, port 10024)
+	with ESMTP id x8sg4qcaNeJa for <announce-archive@httpd.apache.org>;
+	Tue, 27 Jun 2017 02:52:57 +0000 (UTC)
+Received: from mail-it0-f66.google.com (mail-it0-f66.google.com [209.85.214.66])
+	by mx1-lw-us.apache.org (ASF Mail Server at mx1-lw-us.apache.org) with ESMTPS id 710F05F3A1
+	for <announce-archive@httpd.apache.org>; Tue, 27 Jun 2017 02:52:57 +0000 (UTC)
+Received: by mail-it0-f66.google.com with SMTP id y134so1724322itc.1
+        for <announce-archive@httpd.apache.org>; Mon, 26 Jun 2017 19:52:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:reply-to:from:date:message-id:subject:to;
+        bh=aHAqj1j2X1V3gxYmGRz4iZmLPvMKeGJdlTtb0dO7ztY=;
+        b=UnVplB4aKViE8CI90ZwbfuPM41Oeq4Yi3/7qePCAf47OP9+GaM+EiaEaPYAXFvonno
+         QboQIqrfYNVA4DZUsueS6fFmX7PRaLa0x2BPoIXVjcYuYRSRzYC2loe0dDRLVSYDLHj4
+         sihS5YogAY9V6P8izf3/kIxhdMW8uQDOJvyEM+SohhtGnB2zh+YBw4Lv0q+C1d2KThOE
+         zQNzvvH1raoH8kL2CZU8ldBrqG+plVCytn2gPPL0fYSfatq6BiZtLf9tQmWPlsDXPHOW
+         sRewGCFPc8pv91Pes/RMmOlNyo5ssAo5v99FQWIVkHlMh1qqiXBkvNWFLp0DF6jtkfT1
+         huhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:reply-to:from:date:message-id
+         :subject:to;
+        bh=aHAqj1j2X1V3gxYmGRz4iZmLPvMKeGJdlTtb0dO7ztY=;
+        b=PdwZ9u3rlJgrjt3iN9RHOONaCnZmjS9b5B6e67ZQjjDoFslXmoeaeb+9fxOUB6qgw9
+         zzOdW75F3aFIf0f9CN2bbua9InnnFOfHfJomQ21/76/OZFysAJiSLVIk9M0gxhxQiy7/
+         z/zqSM4LFiambPjcWEqjSxhj0RLTzBd8kIGaqgPt85NoV4G1XQUxTzmineJWa0v53MXY
+         EJ+Q+PHPEOevZNhvPiw61Qm+VbkAtWNKihopDeGtehpqJHA0xw1ie8gMv5BlA2iiD7kX
+         JauK6b6JIdTRZ133eJqrIfL1je3QBVoz3ROWw1x7YwXULPoeLEG/PmQroIUMozNAATr5
+         qD9A==
+X-Gm-Message-State: AKS2vOyqEhfczSxWIqK2X2BjSfNrzP7vpE23BI7wFGeokC7ZNuWNsf32
+	wF8f+jK8iZ6nOzOjvdjxWgKou/Mxvg==
+X-Received: by 10.36.146.133 with SMTP id l127mr1447407itd.102.1498531971958;
+ Mon, 26 Jun 2017 19:52:51 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.79.142.84 with HTTP; Mon, 26 Jun 2017 19:52:47 -0700 (PDT)
+Reply-To: dennis.xavier@outlook.com
+From: DENNIS BIN XAVIER <balaranpillai@gmail.com>
+Date: Mon, 26 Jun 2017 22:52:47 -0400
+Message-ID: <CANT8SNwKJpBaJC75Ed6hsq12HN8AQEAj-xmrvHwpDgprQreyEg@mail.gmail.com>
+Subject: REPLY URGENTLY,
+To: undisclosed-recipients:;
+Content-Type: multipart/mixed; boundary="94eb2c097140dfaf9b0552e82913"
+
+--94eb2c097140dfaf9b0552e82913
+Content-Type: multipart/alternative; boundary="94eb2c097140dfaf970552e82911"
+
+--94eb2c097140dfaf970552e82911
+Content-Type: text/plain; charset="UTF-8"
+
+
+
+--94eb2c097140dfaf970552e82911
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr"><br></div>
+
+--94eb2c097140dfaf970552e82911--
+--94eb2c097140dfaf9b0552e82913
+Content-Type: text/plain; charset="US-ASCII"; name="FROM BARRISTER DENNIS BIN XAVIER.txt"
+Content-Disposition: attachment; 
+	filename="FROM BARRISTER DENNIS BIN XAVIER.txt"
+Content-Transfer-Encoding: base64
+X-Attachment-Id: f_j4ez8mh50
+
+R29vZCBEYXkhDQoNCkkgYW0gc29ycnkgZm9yIGNvbnRhY3RpbmcgeW91IHRocm91Z2ggdGhpcyBt
+ZWRpdW0gd2l0aG91dCBhIHByZXZpb3VzIG5vdGljZSwgSSBhbSBCYXJyaXN0ZXIgRGVubmlzIEJp
+biBYYXZpZXIsIGEgbGVnYWwgcHJhY3RpdGlvbmVyIHdpdGggWEFWSUVSICYgQ08gQVNTT0NJQVRJ
+T04sIEt1YWxhIEx1bXB1ciBNYWxheXNpYSAuIEkgc2F3IHlvdXIgY29udGFjdCBhbmQgcHJvZmls
+ZSBhbmQgZGVjaWRlZCB0aGF0IHlvdSBjb3VsZCBjby1vcGVyYXRlIHdpdGggbWUgaW4gdGhpcyBw
+cm9wb3NpdGlvbi4NCiANCkkgaGF2ZSBhIGNsaWVudCwgd2hvIGRpZWQgYXMgYSByZXN1bHQgb2Yg
+aGVhcnQtcmVsYXRlZCBjb25kaXRpb24gb24gdGhlIDIwdGggRGVjZW1iZXIsIDIwMTQuIEhpcyBo
+ZWFydCBjb25kaXRpb24gd2FzIGR1ZSB0byB0aGUgZGVhdGggb2YgYWxsIHRoZSBtZW1iZXJzIG9m
+IGhpcyBmYW1pbHkgaW4gdGhlIChNYWxheXNpYSBBaXJsaW5lcyBGbGlnaHQgTUgxNykgcGxhbmUg
+Y3Jhc2ggb24gdGhlIDE3dGggSnVseSAyMDE0IGluIGVhc3Rlcm4gVWtyYWluZSwgY2xvc2UgdG8g
+dGhlIGJvcmRlciB3aXRoIFJ1c3NpYSBlbiByb3V0ZSBmcm9tIEFtc3RlcmRhbSB0byBLdWFsYSBM
+dW1wdXIuDQoNCkkgY29udGFjdGVkIHlvdSB0byBhc3Npc3QgaW4gZ2V0dGluZyB0aGUgZnVuZHMg
+bGVmdCBiZWhpbmQgYnkgbXkgY2xpZW50IGJlZm9yZSBpdCBpcyBjb25maXNjYXRlZCBvciBkZWNs
+YXJlZCB1bnNlcnZpY2VhYmxlIGJ5IHRoZSBiYW5rIHdoZXJlIHRoaXMgZGVwb3NpdCB2YWx1ZWQg
+YXQgU2V2ZW4gTWlsbGlvbiBGaXZlIEh1bmRyZWQgVGhvdXNhbmQgVW5pdGVkIFN0YXRlcyBEb2xs
+YXJzLiBUaGUgYmFuayBoYXMgaXNzdWVkIG1lIGEgbm90aWNlIHRvIGNvbnRhY3QgdGhlIG5leHQg
+b2Yga2luLCBvciB0aGUgYWNjb3VudCB3aWxsIGJlIGNvbmZpc2NhdGVkLg0KDQpIZSBzZWN1cmVk
+IGEgY29udHJhY3Qgb2YgU2V2ZW4gTWlsbGlvbiBGaXZlIEh1bmRyZWQgVGhvdXNhbmQgVW5pdGVk
+IFN0YXRlcyBEb2xsYXJzIGZyb20gdGhlIEtpbmdkb20gb2YgQmFocmFpbiBpbiAyMDE0LCBmb2xs
+b3dpbmcgd2hpY2ggd2FzIHN1Y2Nlc3NmdWxseSBleGVjdXRlZCB0aGUgY29udHJhY3QgYmVmb3Ig
+aGUgbG9zdCBoaXMgbGlmZS4NCg0KTXkgcHJvcG9zaXRpb24gdG8geW91IGlzIHRvIHNlZWsgeW91
+ciBjb25zZW50IHRvIHByZXNlbnQgeW91IGFzIHRoZSBuZXh0LW9mLWtpbiBhbmQgYmVuZWZpY2lh
+cnkgb2YgbXkgbGF0ZSBjbGllbnQsIHNpbmNlIGJvdGggb2YgeW91IGhhdmUgdGhlIHNhbWUgbGFz
+dCBuYW1lLCBzbyB0aGF0IHRoZSBwcm9jZWVkcyBvZiB0aGlzIGFjY291bnQgY2FuIGJlIHBhaWQg
+dG8geW91IHRoZXJlYWZ0ZXIgd2UgY2FuIHNoYXJlIHRoZSBhbW91bnQgb24gYSBtdXR1YWxseSBh
+Z3JlZWQtdXBvbiBwZXJjZW50YWdlIG9mIDUwJSB0byBtZSBhbmQgNTAlIHRvIHlvdXIga2luZCBz
+ZWxmLg0KDQpBbGwgdGhlIGxlZ2FsIGRvY3VtZW50cyB0byBiYWNrIHVwIHlvdXIgY2xhaW0gYXMg
+bXkgbGF0ZSBjbGllbnQncyBuZXh0LW9mLWtpbiB3aWxsIGJlIHByb3ZpZGVkLiBBbGwgSSByZXF1
+aXJlIGlzIHlvdXIgaG9uZXN0IGNvLW9wZXJhdGlvbiB0byBlbmFibGUgdXMgc2VlIHRoaXMgdHJh
+bnNhY3Rpb24gdGhyb3VnaC4NCg0KVGhpcyB3aWxsIGJlIGV4ZWN1dGVkIHVuZGVyIGEgbGVnaXRp
+bWF0ZSBhcnJhbmdlbWVudCB0aGF0IHdpbGwgcHJvdGVjdCB5b3UgZnJvbSBhbnkgYnJlYWNoIG9m
+IGxhdy4gSSBtdXN0IHVzZSB0aGlzIG9wcG9ydHVuaXR5IHRvIGltcGxvcmUgeW91IHRvIGV4ZXJj
+aXNlIHRoZSB1dG1vc3QgaW5kdWxnZW5jZSB0byBrZWVwIHRoaXMgbWF0dGVyIGV4dHJhb3JkaW5h
+cnkgY29uZmlkZW50aWFsLCB3aGF0ZXZlciBpcyB5b3VyIGRlY2lzaW9uLCB3aGlsZSBJIGF3YWl0
+IHlvdXIgcHJvbXB0IHJlc3BvbnNlLiBJIHdpbGwgbGlrZSB5b3UgdG8gYWNrbm93bGVkZ2UgdGhl
+IHJlY2VpcHQgb2YgdGhpcyBlLW1haWw7IGFzIHNvb24gYXMgcG9zc2libGUgdG8gaW5kaWNhdGUg
+eW91ciBpbnRlcmVzdA0KLg0KQmVzdCBSZWdhcmRzLA0KQmFycmlzdGVyIERlbm5pcyBCaW4gWGF2
+aWVyKE0uRVNRKQ==
+--94eb2c097140dfaf9b0552e82913--
+
+From AawtYbnIFR2mPnToyPKctfw==_1103299326490_zoG0oL6cEeSQ+tSuUo65hg==@in.constantcontact.com  Wed Jun 28 14:24:03 2017
+Return-Path: <AawtYbnIFR2mPnToyPKctfw==_1103299326490_zoG0oL6cEeSQ+tSuUo65hg==@in.constantcontact.com>
+X-Original-To: apmail-httpd-announce-archive@www.apache.org
+Delivered-To: apmail-httpd-announce-archive@www.apache.org
+Received: from mail.apache.org (hermes.apache.org [140.211.11.3])
+	by minotaur.apache.org (Postfix) with SMTP id D1E371A659
+	for <apmail-httpd-announce-archive@www.apache.org>; Wed, 28 Jun 2017 14:24:03 +0000 (UTC)
+Received: (qmail 72680 invoked by uid 500); 28 Jun 2017 14:24:03 -0000
+Delivered-To: apmail-httpd-announce-archive@httpd.apache.org
+Received: (qmail 72677 invoked by uid 99); 28 Jun 2017 14:24:03 -0000
+Received: from pnap-us-west-generic-nat.apache.org (HELO spamd1-us-west.apache.org) (209.188.14.142)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Wed, 28 Jun 2017 14:24:03 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by spamd1-us-west.apache.org (ASF Mail Server at spamd1-us-west.apache.org) with ESMTP id 46CE3C14E1
+	for <announce-archive@httpd.apache.org>; Wed, 28 Jun 2017 14:24:03 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at spamd1-us-west.apache.org
+X-Spam-Flag: NO
+X-Spam-Score: 3.804
+X-Spam-Level: ***
+X-Spam-Status: No, score=3.804 tagged_above=-999 required=6.31
+	tests=[DKIM_SIGNED=0.1, DKIM_VALID=-0.1, HTML_IMAGE_RATIO_08=0.001,
+	HTML_MESSAGE=2, KAM_INFOUSMEBIZ=0.75, RCVD_IN_DNSWL_NONE=-0.0001,
+	RCVD_IN_MSPIKE_H3=-0.01, RCVD_IN_MSPIKE_WL=-0.01, SPF_PASS=-0.001,
+	T_RP_MATCHES_RCVD=-0.01, URIBL_GREY=1.084] autolearn=disabled
+Authentication-Results: spamd1-us-west.apache.org (amavisd-new);
+	dkim=pass (1024-bit key) header.d=auth.ccsend.com
+Received: from mx1-lw-us.apache.org ([10.40.0.8])
+	by localhost (spamd1-us-west.apache.org [10.40.0.7]) (amavisd-new, port 10024)
+	with ESMTP id aVEdGHTIcMTg for <announce-archive@httpd.apache.org>;
+	Wed, 28 Jun 2017 14:24:01 +0000 (UTC)
+Received: from ccm166.constantcontact.com (ccm166.constantcontact.com [208.75.123.166])
+	by mx1-lw-us.apache.org (ASF Mail Server at mx1-lw-us.apache.org) with ESMTPS id DD8B25F2AE
+	for <announce-archive@httpd.apache.org>; Wed, 28 Jun 2017 14:24:00 +0000 (UTC)
+Received: from [10.252.0.102] ([10.252.0.102:60045] helo=p2-jbsvcs5295.ad.prodcc.net)
+	by 10.249.241.10 (envelope-from <AawtYbnIFR2mPnToyPKctfw==_1103299326490_zoG0oL6cEeSQ+tSuUo65hg==@in.constantcontact.com>)
+	(ecelerity 4.2.1.52273 r(Core:4.2.1.11)) with ESMTP
+	id E0/EF-07236-00CB3595; Wed, 28 Jun 2017 10:24:00 -0400
+DKIM-Signature: v=1; q=dns/txt; a=rsa-sha256; c=relaxed/relaxed; s=1000073432; d=auth.ccsend.com; h=date:mime-version:subject:X-Feedback-ID:message-id:from:reply-to:list-unsubscribe:list-unsubscribe-post:to; bh=wrCpNfdmjhtCPIpjbD2a5NfPhwYmkHh1e4hc2lI1QP0=; b=NCf2E2RXgdnm9mYmsdreVck+mjhGI0dQJH8ZDfPI0J3FfwU8DRF2pyr2pR/HqQRhv3kM1OexQN/cdNAbIVA4EjWylVU17Bd8OBplOI2SGgNCh6DuV1oHQgcmSPLJSL2CdbFSrRskdxImKhkQN9gVmqGyju8BUggqc6TZp+LxzhE=
+Message-ID: <1128283894479.1103299326490.1546345285.0.161022JL.1002@scheduler.constantcontact.com>
+Date: Wed, 28 Jun 2017 10:24:00 -0400 (EDT)
+From: Simpatico Network srl <web.info@simpaticotech.it>
+Reply-To: web.info@simpaticotech.it
+To: announce-archive@httpd.apache.org
+Subject: Preside! SDGA - PC Ricondizionati Economici per le scuole
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_791413702_1295919466.1498659840326"
+List-Unsubscribe: <https://visitor.constantcontact.com/do?p=un&m=001ppwvHtrFNf1h59YxsVHM6Q%3D%3D&se=001UIvxZCGpjWvM4PB5bakA0g%3D%3D&t=001EkZLEx15CcE%3D&llr=9qmh7qdab>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Campaign-Activity-ID: 6b0b586e-7205-4769-8f9d-3a323ca72d7f
+X-Channel-ID: ce81b4a0-be9c-11e4-90fa-d4ae528eb986
+X-Mailer: Roving Constant Contact 2012 (http://www.constantcontact.com)
+X-Return-Path-Hint: AawtYbnIFR2mPnToyPKctfw==_1103299326490_zoG0oL6cEeSQ+tSuUo65hg==@in.constantcontact.com
+X-Roving-Campaignid: 1128283894479
+X-Roving-Id: 1103299326490.1546345285
+X-Feedback-ID: ce81b4a0-be9c-11e4-90fa-d4ae528eb986:6b0b586e-7205-4769-8f9d-3a323ca72d7f:1103299326490:CTCT
+X-CTCT-ID: cd9eceb0-be9c-11e4-8f99-d4ae528eb986
+
+------=_Part_791413702_1295919466.1498659840326
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Cant' see? Non vedi questa email?
+Click here
+http://campaign.r20.constantcontact.com/render?m=3D1103299326490&ca=3D6b0b5=
+86e-7205-4769-8f9d-3a323ca72d7f
+Greetings!
+
+Inotra questa email
+http://ui.constantcontact.com/sa/fwtf.jsp?llr=3D9qmh7qdab&m=3D1103299326490=
+&ea=3Dbroadcast%40simpaticotech.it&a=3D1128283894479
+
+
+
+
+
+Questa mail =C3=A8 stata inviata a announce-archive@httpd.apache.org,
+da parte di web.info@simpaticotech.it
+
+Aggiorna profilo/indirizzo e-mail
+https://visitor.constantcontact.com/do?p=3Doo&m=3D001ppwvHtrFNf1h59YxsVHM6Q=
+%3D%3D&ch=3Dce81b4a0-be9c-11e4-90fa-d4ae528eb986&ca=3D6b0b586e-7205-4769-8f=
+9d-3a323ca72d7f
+
+
+Rimozione istantanea con SafeUnsubscribe(TM)
+https://visitor.constantcontact.com/do?p=3Dun&m=3D001ppwvHtrFNf1h59YxsVHM6Q=
+%3D%3D&ch=3Dce81b4a0-be9c-11e4-90fa-d4ae528eb986&ca=3D6b0b586e-7205-4769-8f=
+9d-3a323ca72d7f
+
+
+Informativa sulla privacy:
+http://ui.constantcontact.com/roving/it/CCPrivacyPolicy.jsp
+
+
+
+
+
+Online Marketing by
+Constant Contact(R)
+www.constantcontact.com
+
+
+
+Simpatico Network srl | Via Volta 7 | BUCCINASCO | 20090 | Italy
+
+
+
+
+
+
+
+
+
+------=_Part_791413702_1295919466.1498659840326
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<head >
+<STYLE>
+ .headerTop { background-color:#FFCC66; border-top:0px solid #000000; borde=
+r-bottom:1px solid #FFFFFF; text-align:center; }
+ .adminText { font-size:10px; color:#996600; line-height:200%; font-family:=
+verdana; text-decoration:none; }
+ .headerBar { background-color:#FFFFFF; border-top:0px solid #333333; borde=
+r-bottom:10px solid #FFFFFF; }
+ .title { font-size:20px; font-weight:bold; color:#CC6600; font-family:aria=
+l; line-height:110%; }
+ .subTitle { font-size:11px; font-weight:normal; color:#666666; font-style:=
+italic; font-family:arial; }
+ td { font-size:12px; color:#000000; line-height:150%; font-family:trebuche=
+t ms; }
+ .sideColumn { background-color:#FFFFFF; border-left:1px dashed #CCCCCC; te=
+xt-align:left; }
+ .sideColumnText { font-size:11px; font-weight:normal; color:#999999; font-=
+family:arial; line-height:150%; }
+ .sideColumnTitle { font-size:15px; font-weight:bold; color:#333333; font-f=
+amily:arial; line-height:150%; }
+ .footerRow { background-color:#FFFFCC; border-top:9px solid #FFFFFF; }
+ .footerText { font-size:10px; color:#996600; line-height:100%; font-family=
+:verdana; }
+ a { color:#FF6600; color:#FF6600; color:#FF6600; }
+</STYLE>
+
+
+
+<title></title>
+
+
+
+</head><body leftmargin=3D"0" marginheight=3D"0" marginwidth=3D"0" offset=
+=3D"0" topmargin=3D"0" ><center><table bgcolor=3D"#ffffff" id=3D"VWPLINK" w=
+idth=3D"595"><tr><td style=3D"font-size: 8pt; font-family: Verdana, Arial, =
+Helvetica, sans-serif; color: #000000;" width=3D"100%">Cant' see? Non vedi =
+questa email?
+<a href=3D"http://campaign.r20.constantcontact.com/render?m=3D1103299326490=
+&ca=3D6b0b586e-7205-4769-8f9d-3a323ca72d7f" track=3D"off">Click here
+</a></td></tr></table></center><img alt=3D" " height=3D"1" src=3D"http://r2=
+0.rs6.net/on.jsp?a=3D1103299326490&r=3D3&c=3Dcd9eceb0-be9c-11e4-8f99-d4ae52=
+8eb986&d=3D1128283894479&ch=3Dce81b4a0-be9c-11e4-90fa-d4ae528eb986&ca=3D6b0=
+b586e-7205-4769-8f9d-3a323ca72d7f&o=3Dhttps://imgssl.constantcontact.com/ui=
+/images1/s.gif" width=3D"1"/>
+
+
+
+<table width=3D"107%" cellpadding=3D"10" cellspacing=3D"0" bgcolor=3D'#5337=
+11' height=3D"250" >
+<tr>
+<td valign=3D"top" align=3D"center" height=3D"230">
+
+<table cellpadding=3D"20" cellspacing=3D"0" bgcolor=3D"#FFFFFF" width=3D"95=
+1" height=3D"2884">
+<tr>
+=09<td width=3D"909" height=3D"129">
+      <div align=3D"center">
+        <center>
+        <table border=3D"0" cellpadding=3D"0">
+          <tr>
+            <td><a alt=3D"http://bit.ly/Syjfwl" href=3D"http://r20.rs6.net/=
+tn.jsp?f=3D001DYX9DLRsyL-trGPFqyPbkDfZghB3AZT5qaxOtCLjLGBGOKFY_KpdxHzqctXkM=
+eb9_I6E7sja37Kg9YJLjjJJ-4pVkhPMB7UGRfYBM_0qPEPzhcZ7PsCrVUcQWTekakVOivlvEGkl=
+l_5LIvnaZ3xk6s_PATYOSvzzcGATT1Bv7YY=3D&c=3DCHOWdQRRc7TTavPiiLYDTIowzQvrL5NR=
+z0XfqyWtWKYpeHqCRrdqiA=3D=3D&ch=3DrY75zAHXclRNXmuWPicv7phkU5EpajOsQFfQubfZP=
+iKAZRJgoMxUnA=3D=3D"><font face=3D"Tw Cen MT"><map name=3D"FPMap0">
+              <area href=3D"http://on.fb.me/V82GWv" shape=3D"rect" coords=
+=3D"613, 0, 651, 41">
+              <area href=3D"http://bit.ly/iFcMxX" shape=3D"rect" coords=3D"=
+659, 4, 690, 38">
+              <area href=3D"http://bit.ly/Syjfwl" shape=3D"rect" coords=3D"=
+395, 49, 536, 85">
+              <area href=3D"http://bit.ly/Syjfwl" shape=3D"rect" coords=3D"=
+10, 3, 379, 84"></map><img src=3D"http://www.simpaticotech.it/img/logomail.=
+jpg" alt=3D"SimpaticoTech" BORDER=3D0 usemap=3D"#FPMap0" width=3D"750" heig=
+ht=3D"112" /></font></a></td>
+            <td>
+      <a alt=3D"http://bit.ly/UvNQg9" href=3D"http://r20.rs6.net/tn.jsp?f=
+=3D001DYX9DLRsyL-trGPFqyPbkDfZghB3AZT5qaxOtCLjLGBGOKFY_KpdxHzqctXkMeb9p25Nh=
+bD6K_aNAEISwL4mMRF9mTSH2GJyyvRLSGBNn0WAtOuP3osEmp-hTWOsQKjGa012tdhg-LAwNACK=
+NOnCXyt9IM74dVqJcm5v290-KE0=3D&c=3DCHOWdQRRc7TTavPiiLYDTIowzQvrL5NRz0XfqyWt=
+WKYpeHqCRrdqiA=3D=3D&ch=3DrY75zAHXclRNXmuWPicv7phkU5EpajOsQFfQubfZPiKAZRJgo=
+MxUnA=3D=3D" target=3D"_blank"><font face=3D"Tw Cen MT"><img src=3D"http://=
+bit.ly/1dzAp9f" alt=3D"SimpaticoTech con Microsoft" border=3D"0" width=3D"1=
+50" height=3D"85"></font></a>
+            </td>
+          </tr>
+        </table>
+        </center>
+      </div>
+    </td>
+</tr>
+<tr>
+  <td height=3D"56" align=3D"center" bgcolor=3D"#FFFFFF"><h3><font size=3D"=
+4"><strong><font color=3D"#FF0000">Tantissimie scuole e universit&agrave; h=
+anno scelto di usare PC Ricondizionati per contenere i costi senza rinuncia=
+re alle prestazioni</font></strong></font><font size=3D"4"><strong><font co=
+lor=3D"#FF0000"><br>
+    </font></strong>Potenti ed         economici, con Windows 7 o 10 Profes=
+sional installato e pronto all'uso&nbsp; a         partire da <font color=
+=3D"#008000">80,00 Euro</font></font></h3>
+<h3><font color=3D"#008000" face=3D"Tw Cen MT" size=3D"5">&nbsp;Tutti i nos=
+tri PC </font><font color=3D"#FF0000" face=3D"Tw Cen MT" size=3D"5">sono do=
+tati di Antivirus McAfee gi&agrave; installato e con           codice di at=
+tivazione a titolo gratuito per 1 Anno e software per Backup e Recovery &qu=
+ot;Acronis a titolo gratuito&quot;</font></h3></td>
+</tr>
+<tr>
+=09<td height=3D"56" align=3D"center" bgcolor=3D"#FFFFFF" width=3D"909"><p>=
+<a alt=3D"http://www.simpaticotech.it/" href=3D"http://r20.rs6.net/tn.jsp?f=
+=3D001DYX9DLRsyL-trGPFqyPbkDfZghB3AZT5qaxOtCLjLGBGOKFY_KpdxJbo_JZ27KF2raxu1=
+xVVHhBhkYptrdxZEcoXKSL7mgN9lzgl4OOH77LTq1lQ-IUAcjHMWihhOGwqMSQaeKT-JbWfgKKF=
+qAQzRcJyadM_lAb0Hn8liUCqKtABf35bz7wt-w=3D=3D&c=3DCHOWdQRRc7TTavPiiLYDTIowzQ=
+vrL5NRz0XfqyWtWKYpeHqCRrdqiA=3D=3D&ch=3DrY75zAHXclRNXmuWPicv7phkU5EpajOsQFf=
+QubfZPiKAZRJgoMxUnA=3D=3D"><img border=3D"0" src=3D"http://www.simpaticotec=
+h.it/load/bigimage/win10.jpg" ></a><a alt=3D"http://www.simpaticotech.it/pc=
+-per-scuola.php" href=3D"http://r20.rs6.net/tn.jsp?f=3D001DYX9DLRsyL-trGPFq=
+yPbkDfZghB3AZT5qaxOtCLjLGBGOKFY_KpdxMRF44OrlqmhGXqHV238CemrSMREsp1iYpJn9jGa=
+d2VSMRkaSgZfz_hqLcSGMpMm7p5J3HVo__bI90YJe_dhY8VvQCQHQnOW4u6t_IYed2QaU7CdbUU=
+LiCIB6C0ZBjnhVubMnOAY4zZgDNftrxG9nao=3D&c=3DCHOWdQRRc7TTavPiiLYDTIowzQvrL5N=
+Rz0XfqyWtWKYpeHqCRrdqiA=3D=3D&ch=3DrY75zAHXclRNXmuWPicv7phkU5EpajOsQFfQubfZ=
+PiKAZRJgoMxUnA=3D=3D"></a>
+=09  </p>
+    </td>
+</tr>
+<tr>
+=09<td height=3D"120" align=3D"center" bgcolor=3D"#FFFFFF" width=3D"909">
+      <h3><strong><font size=3D"3"><a alt=3D"http://bit.ly/UvNQg9" href=3D"=
+http://r20.rs6.net/tn.jsp?f=3D001DYX9DLRsyL-trGPFqyPbkDfZghB3AZT5qaxOtCLjLG=
+BGOKFY_KpdxHzqctXkMeb9p25NhbD6K_aNAEISwL4mMRF9mTSH2GJyyvRLSGBNn0WAtOuP3osEm=
+p-hTWOsQKjGa012tdhg-LAwNACKNOnCXyt9IM74dVqJcm5v290-KE0=3D&c=3DCHOWdQRRc7TTa=
+vPiiLYDTIowzQvrL5NRz0XfqyWtWKYpeHqCRrdqiA=3D=3D&ch=3DrY75zAHXclRNXmuWPicv7p=
+hkU5EpajOsQFfQubfZPiKAZRJgoMxUnA=3D=3D"><img title=3D"Microsoft Authorized =
+refurbisher" src=3D"http://www.simpaticotech.it/microsoft/logo_scheda_10.jp=
+g" alt=3D"Microsoft Authorized refurbisher"></a></font></strong></h3></td>
+</tr>
+<tr>
+=09<td height=3D"28" align=3D"center" bgcolor=3D"#ECECFF" width=3D"909">
+      <p align=3D"left"><b><font size=3D"4" face=3D"Tw Cen MT">Cerca questi=
+ codici che trovi sul portale MEPA:</font></b></p>
+      <table width=3D"900" cellpadding=3D"0" cellspacing=3D"0">
+        <col width=3D"103">
+        <col width=3D"804">
+        <col width=3D"64">
+        <tr>
+          <td width=3D"98"><strong>Codice    MEPA</strong></td>
+          <td width=3D"686"><strong>DESCRIZIONE</strong></td>
+          <td width=3D"114"><strong>PREZZO&nbsp;</strong></td>
+        </tr>
+        <tr>
+          <td>1909775-EDU</td>
+          <td>PC    Lenovo ThinkCenter M91p SFF Core i5-2400 3.1GHz 4Gb Ram=
+ 500Gb DVDRW Windows    7 Professional SFF</td>
+          <td>170</td>
+        </tr>
+        <tr>
+          <td>1912000-EDU</td>
+          <td>PC    Lenovo ThinkCenter M81p Core i5-2400 3.1GHz 4Gb Ram 250=
+Gb DVDRW Windows 7    Professional SFF</td>
+          <td>140</td>
+        </tr>
+        <tr>
+          <td>2416277-EDU</td>
+          <td>PC    HP Compaq 8200 Elite Core i5-2400 3.1GHz 4Gb Ram 250Gb =
+DVD-RW SFF Windows 7    Professional</td>
+          <td>170</td>
+        </tr>
+        <tr>
+          <td>3059472-EDU</td>
+          <td>Workstation Lenovo ThinkStation E31 Xeon    E3-1240 3.4GHz 16=
+Gb 500Gb DVDRW Nvidia Quadro K2000 2Gb Win 7 Professional</td>
+          <td>499</td>
+        </tr>
+        <tr>
+          <td>3108318-EDU</td>
+          <td>PC Fujitsu Esprimo E9900 Core i3-530 2.95GHz    4Gb Ram 250Gb=
+ no ODD Windows 7 Professional</td>
+          <td>120</td>
+        </tr>
+        <tr>
+          <td>1272683</td>
+          <td>Monitor    LCD 22 Pollici Acer V223WABD LCD 1680x1050 VGA</td=
+>
+          <td>60</td>
+        </tr>
+        <tr>
+          <td>2221420</td>
+          <td>MONITOR    AOC LCD LED 21.5 WIDE E2270SWN 5ms 0.248 FHD 1920x=
+1080 600:1 BLACK VGA Vesa    Fino:23/06</td>
+          <td>80</td>
+        </tr>
+        <tr>
+          <td>2433308</td>
+          <td>MONITOR    ACER LCD LED 23 WIDE G236HLBDB HD 1920x1080 1000:1=
+ BLACK VGA DVI-HDMI    Fino:30/06</td>
+          <td>107</td>
+        </tr>
+        <tr>
+          <td>LCD20GEN</td>
+          <td>MONITOR LCD 20&quot; 16:9/4:3 MARCA DI    QUALITA' IN BASE AL=
+LA DISPONIBILITA' DEL MOMENTO</td>
+          <td>40</td>
+        </tr>
+      </table>
+      <p class=3D"MsoNormal" align=3D"left">&nbsp;</p>
+      <p class=3D"MsoNormal" align=3D"left"><b><font color=3D"#FF0000" size=
+=3D"4">Visita il
+      nostro catalogo completo sul portale MEPA nome azienda: &quot;Simpati=
+co
+      Network srl&quot; P.IVA 13221010153</font></b></p>
+      <p class=3D"MsoNormal" align=3D"left"><font color=3D"#008000" size=3D=
+"4" face=3D"Tw Cen MT">Disponibili
+      anche Monitor, Notebook, Server e Workstation</font></p>
+      <p class=3D"MsoNormal" align=3D"left"><font size=3D"4" face=3D"Tw Cen=
+ MT"><b><span style=3D"color:red"><o:p>
+      </o:p>
+      </span></b><i>Scrivi a questa e-mail lasciando i vostri
+      recapiti e sarete contattati da un nostro esperto per fare un'offerta
+      personalizzata. email: <a href=3D"mailto:scuola@simpaticotech.it">scu=
+ola@simpaticotech.it</a>
+      Tel.&nbsp; 895-5698707 9:00-13:00 e 14:00-18:00</i></font></td>
+</tr>
+
+
+<tr>
+=09<td height=3D"28" align=3D"center" bgcolor=3D"#FFFFFF" width=3D"909"><fo=
+nt size=3D"3" face=3D"Tw Cen MT">Grazie
+      all'accordo con Microsoft la nostra azienda =C3=A8 unica in Italia a =
+diventare
+      &quot;Microsoft Authorized Refurbisher&quot; questo significa che pos=
+siamo
+      rivendere dei computer usati e ricondizionati installando nuovi siste=
+mi
+      operativi Windows 7 con licenza d'uso originale e immagine sul
+      hard disk come se fosse un PC nuovo.</font>
+      <p><span itemprop=3D"description"><strong><font size=3D"3" face=3D"Tw=
+ Cen MT"><a alt=3D"http://bit.ly/UvNQg9" href=3D"http://r20.rs6.net/tn.jsp?=
+f=3D001DYX9DLRsyL-trGPFqyPbkDfZghB3AZT5qaxOtCLjLGBGOKFY_KpdxHzqctXkMeb9p25N=
+hbD6K_aNAEISwL4mMRF9mTSH2GJyyvRLSGBNn0WAtOuP3osEmp-hTWOsQKjGa012tdhg-LAwNAC=
+KNOnCXyt9IM74dVqJcm5v290-KE0=3D&c=3DCHOWdQRRc7TTavPiiLYDTIowzQvrL5NRz0XfqyW=
+tWKYpeHqCRrdqiA=3D=3D&ch=3DrY75zAHXclRNXmuWPicv7phkU5EpajOsQFfQubfZPiKAZRJg=
+oMxUnA=3D=3D"><img title=3D"Microsoft Authorized refurbisher" src=3D"http:/=
+/www.simpaticotech.it/microsoft/logo_scheda.jpg" alt=3D"Microsoft Authorize=
+d refurbisher" width=3D"400" height=3D"206"></a></font></strong>
+            </span>
+      </p>
+      <p><a alt=3D"http://www.simpaticotech.it/" href=3D"http://r20.rs6.net=
+/tn.jsp?f=3D001DYX9DLRsyL-trGPFqyPbkDfZghB3AZT5qaxOtCLjLGBGOKFY_KpdxJbo_JZ2=
+7KF2raxu1xVVHhBhkYptrdxZEcoXKSL7mgN9lzgl4OOH77LTq1lQ-IUAcjHMWihhOGwqMSQaeKT=
+-JbWfgKKFqAQzRcJyadM_lAb0Hn8liUCqKtABf35bz7wt-w=3D=3D&c=3DCHOWdQRRc7TTavPii=
+LYDTIowzQvrL5NRz0XfqyWtWKYpeHqCRrdqiA=3D=3D&ch=3DrY75zAHXclRNXmuWPicv7phkU5=
+EpajOsQFfQubfZPiKAZRJgoMxUnA=3D=3D"><font face=3D"Tw Cen MT"><img border=3D=
+"0" src=3D"http://www.simpaticotech.it/mail/xp_shock.jpg" width=3D"800" hei=
+ght=3D"533"></font></a>
+      </p>
+      <p><font size=3D"3" face=3D"Tw Cen MT">Se state ancora usando dei com=
+puter con Windows XP
+      questo comporta un grosso rischio per la vostra struttura perch=C3=A8=
+ dal 8 aprile 2014 il supporto tecnico per
+    Windows&nbsp;XP non =C3=A8 pi=C3=B9 disponibile, inclusi gli aggiorname=
+nti
+    automatici per la sicurezza che ti aiutano a proteggere il tuo PC. Inol=
+tre, poich=C3=A9 il
+    numero di produttori hardware e software che continuano a ottimizzare l=
+e
+    loro soluzioni per le versioni pi=C3=B9 recenti di Windows =C3=A8 in co=
+stante
+    aumento, sempre pi=C3=B9 app e dispositivi non funzioneranno con Window=
+s&nbsp;XP.</font></p>
+    </td>
+</tr>
+
+
+<tr>
+=09<td height=3D"28" align=3D"center" bgcolor=3D"#ECECFF" width=3D"909">
+      <h1><b><font face=3D"Tw Cen MT">SIAMO PRESENTI SUL MEPA E EMETTIAMO F=
+ATTURA ELETTRONICA</font></b></h1>
+    </td>
+</tr>
+
+
+<tr>
+<td style=3D"background-color: #FFFFCC; border-top: 10px solid #FFFFFF" val=
+ign=3D"top" height=3D"503" width=3D"909">
+
+=09=09<p align=3D"center"><font face=3D"Tw Cen MT">"tutti i loghi e i march=
+i sono propriet&agrave; delle relative case produttrici"<br />
+        =C2=A9 Copyright 2000-2016 SIMPATICOTECH.IT, All rights reserved</f=
+ont></p> =20
+        <p align=3D"center"><font style=3D"font-size: 8pt; color: #808080; =
+text-decoration: none" face=3D"Tw Cen MT">Ricevi
+        questa email perch=C3=A8 il tuo indirizzo email risulta iscritto al=
+la nostra
+        mailing list. Se cos=C3=AC non fosse ci scusiamo!</font>
+        <p align=3D"center"><font size=3D"3" face=3D"Tw Cen MT"><b>Noi risp=
+ettiamo la tua privacy, per
+        non ricevere pi=C3=B9 le nostre email clicca sotto</b></font>
+        <p><font face=3D"Tw Cen MT"><!-- area unsub --><FONT=20
+style=3D"FONT-SIZE: 7pt; COLOR: #808080; FONT-FAMILY: Verdana; TEXT-DECORAT=
+ION: none">La  =20
+presente newsletter =C3=A8 da considerarsi una comunicazione commerciale. A=
+i sensi  =20
+dell'art. 13 del Decreto legislativo 30 giugno 2003, n. 196 (Codice della  =
+=20
+Privacy) La informiamo che i Suoi dati personali sono utilizzati da Simpati=
+co =20
+  Network srl  =20
+per finalita' promozionali e pubblicitarie e, in particolare, per l'invio d=
+ella  =20
+nostra newsletter. Il conferimento dei Suoi dati personali, per le indicate
+        finalita', =C3=A8 una Sua facolta', ma ha il diritto di opporSi all=
+a prosecuzione del  =20
+trattamento in qualsiasi momento, provvedendo alla cancellazione dei dati d=
+a Lei  =20
+forniti. Lei =C3=A8 titolare dei diritti di cui all'art. 7 del Codice della=
+ Privacy.  =20
+Il trattamento si svolge, con l'ausilio di mezzi elettronici, nel rispetto =
+delle  =20
+modalita' che il Codice della Privacy pone a Sua garanzia e, in generale,  =
+=20
+tutelando i Suoi diritti, liberta' fondamentali e dignita', con particolare=
+  =20
+riferimento alla riservatezza e all'identita' personale. Il trattamento si =
+ =20
+svolgera' per il periodo da Te consentito e cessera' a seguito  =20
+dell'intervenuta cancellazione dei Suoi dati personali, a Te i consentita i=
+n  =20
+qualsiasi momento. I dati personali da Te forniti non sono comunicati a sog=
+getti  =20
+terzi. Simpatico Network srl ha adottato le misure di sicurezza per il trat=
+tamento dei Suoi  =20
+dati personali previste dagli artt. 33 ss. del Codice della Privacy e dal  =
+=20
+Disciplinare Tecnico di cui All'allegato B) del medesimo. Simpatico Network=
+ srl si impegna,
+        altresi', ad adeguare le suddette misure in modo conforme a quanto =
+stabilito  =20
+dalle successive modifiche legislative, nonch=C3=A9 in relazione all'evoluz=
+ione  =20
+tecnica del settore e all'esperienza maturata. Simpatico Network srl, con s=
+ede  =20
+operativa in Buccinasco (MI), Via Enrico Fermi 10/6 =C3=A8 la titolare del =
+trattamento , e a  =20
+lei competono le decisioni in ordine alle finalita' ed alle modalita' del  =
+=20
+trattamento dei dati personali.</FONT> =20
+
+        </font> =20
+
+</td>
+</tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+<br />
+<table bgcolor=3D"#ffffff" padding=3D"0" width=3D"100%" ><tr align=3D"cente=
+r" ><td ><table bgcolor=3D"#ffffff" id=3D"footerContainer" width=3D"595" ><=
+tr ><td colspan=3D"2" ><font face=3D"tahoma,sans-serif" size=3D"1" ><b ><a =
+href=3D"http://ui.constantcontact.com/sa/fwtf.jsp?llr=3D9qmh7qdab&m=3D11032=
+99326490&ea=3Dbroadcast%40simpaticotech.it&a=3D1128283894479" style=3D"colo=
+r: #0000ff;" target=3D"_blank">Inotra questa email</a></b></font><br />
+<br />
+</td></tr>
+<tr ><td ><FooterContent ><a href=3D"https://visitor.constantcontact.com/do=
+?p=3Dun&m=3D001ppwvHtrFNf1h59YxsVHM6Q%3D%3D&ch=3Dce81b4a0-be9c-11e4-90fa-d4=
+ae528eb986&ca=3D6b0b586e-7205-4769-8f9d-3a323ca72d7f" target=3D"_blank"><im=
+g border=3D"0" src=3D"http://img.constantcontact.com/letters/images/SafeUns=
+ubscribe_Footer_Logo_New.png"/></a><br /></FooterContent></td><td align=3D"=
+right" ><font face=3D"tahoma,sans-serif" size=3D"1" ><FooterLogo ><a href=
+=3D"http://www.constantcontact.com/index.jsp?cc=3Dcustom01"><img border=3D"=
+0" src=3D"http://img.constantcontact.com/letters/images/CC_Footer_Logo_New.=
+png"/></a></FooterLogo></font>
+</td>
+</tr><tr ><td colspan=3D"2" ><font face=3D"tahoma,sans-serif" size=3D"1" ><=
+FooterContent ><div >Questa mail &#232; stata inviata a announce-archive@ht=
+tpd.apache.org, da parte di <a href=3D"mailto:web.info@simpaticotech.it" st=
+yle=3D"color:#0000ff;">web.info@simpaticotech.it</a> <span style=3D"color: =
+#bababa;" > | </span> &nbsp;  </div>
+<div ><a href=3D"https://visitor.constantcontact.com/do?p=3Doo&m=3D001ppwvH=
+trFNf1h59YxsVHM6Q%3D%3D&ch=3Dce81b4a0-be9c-11e4-90fa-d4ae528eb986&ca=3D6b0b=
+586e-7205-4769-8f9d-3a323ca72d7f" style=3D"color:#0000ff;" target=3D"_blank=
+">Aggiorna profilo/indirizzo e-mail</a> <span style=3D"color: #bababa;" >|<=
+/span> Rimozione istantanea con <a href=3D"https://visitor.constantcontact.=
+com/do?p=3Dun&m=3D001ppwvHtrFNf1h59YxsVHM6Q%3D%3D&ch=3Dce81b4a0-be9c-11e4-9=
+0fa-d4ae528eb986&ca=3D6b0b586e-7205-4769-8f9d-3a323ca72d7f" style=3D"color:=
+#0000ff;" target=3D"_blank">SafeUnsubscribe</a>&trade;  <span style=3D"colo=
+r: #bababa;" >|</span>  <a href=3D"http://ui.constantcontact.com/roving/it/=
+CCPrivacyPolicy.jsp" style=3D"color:#0000ff;" target=3D"_blank">Informativa=
+ sulla privacy</a>.</div></FooterContent></font>
+</td>
+</tr>
+<tr ><td colspan=3D"2" ><font face=3D"tahoma,sans-serif" size=3D"1" ><br />=
+Simpatico Network srl | Via Volta 7 | BUCCINASCO | 20090 | Italy</font>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br />
+</body>
+
+
+
+
+------=_Part_791413702_1295919466.1498659840326--
+

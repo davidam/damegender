@@ -30,7 +30,7 @@ class DameGenderApi(Gender):
 
     def get(self, name):
         if (self.config['DEFAULT']['genderapi'] == 'yes'):
-            fichero = open("files/genderapipass.txt", "r+")
+            fichero = open("files/apikeys/genderapipass.txt", "r+")
             contenido = fichero.readline()
             r = requests.get('https://gender-api.com/get?name='+name+'&key='+contenido)
             j = json.loads(r.text)
@@ -63,8 +63,8 @@ class DameGenderApi(Gender):
         v = self.get(name)
         return v[1]
 
-    def guess_list(self, path="files/partial.csv", binary=False):
-        fichero = open("files/genderapipass.txt", "r+")
+    def guess_list(self, path="files/names/partial.csv", binary=False):
+        fichero = open("files/apikeys/genderapipass.txt", "r+")
         contenido = fichero.readline()
         string = ""
         names = self.csv2names(path)
