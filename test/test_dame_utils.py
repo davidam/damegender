@@ -26,6 +26,12 @@ import os
 from app.dame_utils import DameUtils
 
 class TddInPythonExample(unittest.TestCase):
+
+    def test_is_not_blank_method_returns_correct_result(self):
+        du = DameUtils()
+        self.assertEqual(du.is_not_blank("  "), False)
+        self.assertEqual(du.is_not_blank("ok"), True)
+
     def test_split_method_returns_correct_result(self):
         u = DameUtils()
         x= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
@@ -62,3 +68,7 @@ class TddInPythonExample(unittest.TestCase):
         du = DameUtils()
         cwd = os.getcwd()
         self.assertTrue(len(du.files_one_level(cwd + '/files/')) > 10)
+
+    def test_dame_utils_drop_pwd_method_returns_correct_result(self):
+        du = DameUtils()
+        self.assertEqual(du.drop_pwd("/home/davidam/git/damegender/files/kernelgits.txt"), "files/kernelgits.txt")
