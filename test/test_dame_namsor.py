@@ -37,6 +37,7 @@ class TddInPythonExample(unittest.TestCase):
         g = DameNamsor()
         self.assertEqual(['male', -1.0], g.get("David", "Arroyo", binary=False))
         self.assertEqual(['male', -1.0], g.get("David", "Arroyo", binary=True))
+        self.assertEqual(['female', 1.0], g.get("Karen", "Arroyo", binary=True))
 
     def test_dame_namsor_scale_method_returns_correct_result(self):
         g = DameNamsor()
