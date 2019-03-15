@@ -29,6 +29,13 @@ class DameUtils():
     def is_not_blank(self, s):
         return bool(s and s.strip())
 
+    def represents_int(self, s):
+        try:
+            int(s)
+            return True
+        except ValueError:
+            return False
+
     def split(self, arr, size):
         arrs = []
         while len(arr) > size:

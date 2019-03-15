@@ -32,6 +32,11 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(du.is_not_blank("  "), False)
         self.assertEqual(du.is_not_blank("ok"), True)
 
+    def test_represents_int_method_returns_correct_result(self):
+        du = DameUtils()
+        self.assertEqual(du.represents_int("23"), True)
+        self.assertEqual(du.represents_int("ok"), False)
+
     def test_split_method_returns_correct_result(self):
         u = DameUtils()
         x= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
