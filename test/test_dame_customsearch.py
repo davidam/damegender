@@ -25,9 +25,12 @@ import unittest
 from googleapiclient.discovery import build
 from app.dame_gender import Gender
 from app.dame_customsearch import DameCustomsearch
+from app.dame_customsearch import DameCustomsearch
 
 class TddInPythonExample(unittest.TestCase):
 
     def test_dame_customsearch_method_returns_correct_result(self):
-        g = DameCustomsearch()
-        self.assertEqual(1, g.guess("David", binary=True))
+        dc = DameCustomsearch()        
+        if (dc.config['DEFAULT']['customsearch'] == 'yes'):
+            dc = DameCustomsearch()
+            self.assertEqual(1, dc.guess("David", binary=True))
