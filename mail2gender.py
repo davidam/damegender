@@ -23,6 +23,7 @@
 
 from app.dame_sexmachine import DameSexmachine
 from app.dame_perceval import DamePerceval
+from app.dame_utils import DameUtils
 import sys
 import argparse
 parser = argparse.ArgumentParser()
@@ -33,8 +34,9 @@ args = parser.parse_args()
 if (len(sys.argv) > 1):
     s = DameSexmachine()
     gg = DamePerceval()
+    du = DameUtils()
     l = gg.list_mailers(args.url)
-    l = gg.delete_duplicated(l)
+    l = du.delete_duplicated(l)
 
     females = 0
     males = 0
