@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2018  David Arroyo Menéndez
@@ -166,7 +166,7 @@ class Gender(object):
 
     def dataset2genderlist(self, dataset=''):
         genderlist = []
-        if (dataset == "files/names/all.csv"):
+        if ((dataset == "files/names/all.csv") or (dataset == "files/names/allnoundefined.csv")):
             with open(dataset) as csvfile:
                 sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
                 next(sexreader, None)

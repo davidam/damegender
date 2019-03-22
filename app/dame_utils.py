@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2019  David Arroyo Menéndez
@@ -26,6 +26,16 @@ import re
 import os
 
 class DameUtils():
+    def is_not_blank(self, s):
+        return bool(s and s.strip())
+
+    def represents_int(self, s):
+        try:
+            int(s)
+            return True
+        except ValueError:
+            return False
+
     def split(self, arr, size):
         arrs = []
         while len(arr) > size:
@@ -59,6 +69,13 @@ class DameUtils():
     def drop_accents(self, s):
         return ''.join((c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn'))
 
+    def drop_pwd(self, s):
+        cwd = os.getcwd()
+        result = ""
+        if re.search(cwd, s):
+            result = re.sub(cwd+'/', '', s)
+        return result
+
     def delete_duplicated(self, l):
         if (len(l) == 0):
             return l
@@ -85,4 +102,13 @@ class DameUtils():
         for line in f:
             fields = line.strip().split()
             l.append(fields[0])
+        return l
+
+    def files_one_level_drop_pwd(self, directory):
+        f = os.popen('find '+ directory)
+        l = []
+        for line in f:
+            fields = line.strip().split()
+            if not(os.path.isdir(fields[0])):
+                l.append(self.drop_pwd(fields[0]))
         return l

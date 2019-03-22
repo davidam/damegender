@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2019  David Arroyo Menéndez
@@ -26,6 +26,17 @@ import os
 from app.dame_utils import DameUtils
 
 class TddInPythonExample(unittest.TestCase):
+
+    def test_is_not_blank_method_returns_correct_result(self):
+        du = DameUtils()
+        self.assertEqual(du.is_not_blank("  "), False)
+        self.assertEqual(du.is_not_blank("ok"), True)
+
+    def test_represents_int_method_returns_correct_result(self):
+        du = DameUtils()
+        self.assertEqual(du.represents_int("23"), True)
+        self.assertEqual(du.represents_int("ok"), False)
+
     def test_split_method_returns_correct_result(self):
         u = DameUtils()
         x= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
@@ -62,3 +73,13 @@ class TddInPythonExample(unittest.TestCase):
         du = DameUtils()
         cwd = os.getcwd()
         self.assertTrue(len(du.files_one_level(cwd + '/files/')) > 10)
+
+    def test_dame_utils_drop_pwd_method_returns_correct_result(self):
+        du = DameUtils()
+        self.assertEqual(du.drop_pwd("/home/davidam/git/damegender/files/kernelgits.txt"), "files/kernelgits.txt")
+
+
+    def test_dame_utils_files_one_level_drop_pwd_method_returns_correct_result(self):
+        du = DameUtils()
+        cwd = os.getcwd()
+        self.assertEqual(du.files_one_level_drop_pwd(cwd+"/src/damegender/files/datamodels"), ['src/damegender/files/datamodels/sgd_model.sav', 'src/damegender/files/datamodels/svc_model.sav', 'src/damegender/files/datamodels/gaussianNB_model.sav', 'src/damegender/files/datamodels/multinomialNB_model.sav', 'src/damegender/files/datamodels/bernoulliNB_model.sav'])

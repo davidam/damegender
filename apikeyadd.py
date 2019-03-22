@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2019  David Arroyo Menéndez
@@ -54,6 +54,17 @@ if (nameapi_p.upper() == "Y"):
 else:
    config['DEFAULT']['nameapi'] = 'no'
 
+namsor_p = input("Do you have a namsor api key: (Y|N) ")
+if (namsor_p.upper() == "Y"):
+   config['DEFAULT']['namsor'] = 'yes'
+   namsor_key = input("Introduce your namsor api key: ")
+   fo = open("files/apikeys/namsorpass.txt", "w")
+   fo.write(namsor_key)
+   fo.close()
+else:
+   config['DEFAULT']['namsor'] = 'no'
+
+   
 customsearch_p = input("Do you have a custom search google key: (Y|N) ")
 if (customsearch_p.upper() == "Y"):
    config['DEFAULT']['customsearch'] = 'yes'

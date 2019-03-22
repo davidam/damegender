@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2018  David Arroyo Menéndez
@@ -27,16 +27,19 @@ from app.dame_genderize import DameGenderize
 from app.dame_namsor import DameNamsor
 from app.dame_nameapi import DameNameapi
 from app.dame_all import DameAll
+from app.dame_utils import DameUtils
 import sys
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('name', help="Name to be detected")
+parser.add_argument('name',  help="Name to be detected")
 parser.add_argument('--surname', help="Surname to be detected")
-parser.add_argument("--api", choices=['namsor', 'genderize', 'genderguesser', 'genderapi', 'nameapi'])
+parser.add_argument("--api", choices=['namsor', 'genderize', 'genderguesser', 'genderapi', 'nameapi'], required=True)
 #parser.add_argument('--prob', default="yes", choices=['yes', 'no'])
 parser.add_argument('--version', action='version', version='0.1')
 
 args = parser.parse_args()
+
+du = DameUtils()
 
 if (len(sys.argv) > 1):
     if (args.api == "genderguesser"):
@@ -52,8 +55,11 @@ if (len(sys.argv) > 1):
         print("probability: " + str(dg.prob(args.name)))
     elif (args.api == "namsor"):
         dn = DameNamsor()
-        print(dn.guess(str(args.name), str(args.surname)))
-        print("scale: " + str(dn.scale(str(args.name), str(args.surname))))
+        if (du.is_not_blank(args.surname)):
+            print(dn.guess(str(args.name), str(args.surname)))
+            print("scale: " + str(dn.scale(str(args.name), str(args.surname))))
+        else:
+            print("Surname is required in namsor api")
     elif (args.api == "nameapi"):
         dn = DameNameapi()
         print(dn.guess(str(args.name), str(args.surname)))
