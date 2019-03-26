@@ -1,6 +1,6 @@
 * Logo
 
-[[file:files/images/gender.png]]
+[[file:files/images/hetero.png]]
 
 * Name
 damegender is a gender detection tool coded by David Arroyo MEnéndez (DAME)
@@ -109,7 +109,7 @@ Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
 Guess list:  [1, 1, 1, 1, 0, 1, 0, 0]
 Dame Gender accuracy: 0.875
 
-$ python3 accuracy.py --api="genderize" --csv=files/names/min.csv 
+$ python3 accuracy.py --api="genderize" --csv=files/names/min.csv
 ################### Genderize!!
 Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
 Guess list:  [1, 1, 1, 1, 2, 1, 0, 0]
