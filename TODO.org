@@ -735,3 +735,7 @@ https://docs.python.org/2/distutils/setupscript.html
 * DONE Aprender a hacer comandos
   SCHEDULED: <2019-03-09 sáb>
   - State "DONE"       from "TODO"       [2019-03-22 vie 22:54]
+pip3 install dametowel
+* TODO Escribir average_weighted
+Dado un nombre, tenemos la frecuencia del nombre y la población en
+tres datasets, crear la media ponderada.
