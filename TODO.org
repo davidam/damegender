@@ -485,8 +485,9 @@ Si son categóricas del estilo mueble (silla, mesa, nevera, sillón, etc.) se re
 {"scale":-0.9926328311688487,"gender":"male","firstName":"John","lastName":"Smith","id":"1424023766605"}
 * TODO Escribir método average_in_apis
   SCHEDULED: <2019-01-28 lun>
-* TODO Lectura papers
+* DONE Lectura papers
   SCHEDULED: <2019-02-18 lun 9:00>
+  - State "DONE"       from "TODO"       [2019-03-22 vie 22:52]
 Laboratorios III
 Segunda Planta
 * DONE En api2gender
@@ -505,8 +506,9 @@ Segunda Planta
         print(average)
 *
 * POSIBLE Escribir dame_flask.py
-* TODO Escribir un mensaje con el tema de las api key, url de compra
+* DONE Escribir un mensaje con el tema de las api key, url de compra
   SCHEDULED: <2019-02-17 dom>
+  - State "DONE"       from "TODO"       [2019-03-22 vie 22:53]
 * DONE A comentar
   - State "DONE"       from "TODO"       [2019-02-17 dom 16:41]
 + [X] Estadísitica
@@ -704,8 +706,9 @@ Nameapi accuracy: 0.18329564725833805
 * POSIBLE Escribir dame_photo
 En https://api.github.com/users/davidam aparece el campo avatar_url y ahí:
 wget -c https://avatars2.githubusercontent.com/u/1023217
-* TODO dataset2genderlist
+* DONE dataset2genderlist
   SCHEDULED: <2019-02-23 sáb>
+  - State "DONE"       from "TODO"       [2019-03-22 vie 22:53]
 1. Dar 2 argumentos datasetfile y census (es, uk, usa, ...)
 2. Si existe datasetfile aplica datasetfile, sino aplica census
 * TODO Escribir damegender con un fichero main.py y el __init__.py
@@ -713,19 +716,26 @@ wget -c https://avatars2.githubusercontent.com/u/1023217
   SCHEDULED: <2019-02-24 dom>
 * TODO Escribir la desviación típica en la elección de male or female
   SCHEDULED: <2019-02-24 dom>
-* TODO Urls dando problemas en lo del kernel
+* DONE Urls dando problemas en lo del kernel
   SCHEDULED: <2019-02-26 mar>
+  - State "DONE"       from "TODO"       [2019-03-22 vie 22:54]
 + [ ] https://git.kernel.org/pub/scm/boot/syslinux/syslinux.git/
 + [ ] https://git.kernel.org/pub/scm/devel/pahole/pahole.git/
 + [ ] https://git.kernel.org/pub/scm/docs/man-pages/man-pages.git/
 
 ['', 'H. Peter Anvin', 'Murali Krishnan Ganapathy', 'Kenneth Fyfe', 'Tim Deegan', 'Curtis Doty', 'Erwan Velu', 'Arne Georg Gleditsch', 'erwan', 'hiranotaka@zng.info', 'Ram Yalamanchili', 'Ferenc Wagner', 'Luciano Rocha', 'Otavio Salvador', 'Duane Voth', 'Gerald Britton', 'Bernard Li', 'Geert Stappers', 'Jeffrey Hutzelman', 'Bruce Robson', 'Erwan', 'Sebastian Herbszt', 'Maciej W. Rozycki', 'Sergey Vlasov', 'Stefan Bucur', 'Murali Ganapathy', 'Stefan Hajnoczi', 'Remi Lefevre', 'Dag Wieers', 'Ralf Ertzinger', 'Olivier Korn', 'Gene Cumm', 'Vicente Jimenez Aguilar', 'Michael Brown', 'Pierre-Alexandre Meyer', 'Shao Miller', 'Omair Eschkenazi', 'Christophe Fergeau', 'Daniel Baumann', 'Steffen Winterfeldt', 'Pascal Terjan', 'Liu Aleaxander', 'Gilles Espinasse', 'Miller, Shao', 'profkhaos', 'Aleaxander', 'Gert Hulselmans', 'root', 'Kim Mik', 'Alek Du', 'Yuanhan Liu', 'Du, Alek', 'Michal Soltys', 'P. J. Pandit', 'Paul Bolle', 'Thomas Bächler', 'George David', 'Alexey Zaytsev', 'Marcel Ritter', 'Laurent Licour', 'Feng Tang', 'feng.tang@intel.com', 'Matt Fleming', 'Don Hiatt', 'Arwin Vosselman', 'P J P', 'Colin Watson', 'Ahmed S. Darwish', 'Rich Mahn', 'Paulo Alcantara', 'Jim Cromie', 'Yi Yang', 'Matthew Garrett', 'Henri Roosen', 'Jean-Christian de Rivaz', 'Timm Gleason', 'Alexander E. Patrakov', 'Micah Gersten', 'Andre Ericson', 'Thierry Reding', 'Chandramouli Narayanan', 'Hung-chi Lihn', 'Frediano Ziglio', 'Vanush "Misha" Paturyan', 'Kenneth J. Davis', 'Chen Baozi', 'Ruben Kerkhof', 'Peter Jones', 'Felipe Pena', 'chandramouli narayanan', 'Eric W. Biederman', 'Josh Triplett', 'Raphael S.Carvalho', 'Raphael S. Carvalho', 'Russel Santillanes', 'James Buren', 'Celelibi', 'Thomas Schmitt', 'Sylvain Gault', 'Magnus Granberg', 'Andy Alex', 'Ferenc Wágner', 'Serj Kalichev', 'Kai Kang', 'Lubomir Rintel', 'Chanho Park', 'MartinS', 'Martin Str|mberg', 'Philippe Coval', 'Dany St-Amant', 'Robert Yang', 'Ady', 'Scot Doyle', 'Jonathan Boeing', 'Andrew J. Schorr', 'Patrick Masotta', 'Robert', 'Oliver Wagner', 'Thomas Letan', 'Imran Zaman', 'Alex', 'Nicolas Cornu', 'Nicolas Cornu via Syslinux', 'Khem Raj', 'Olivier Brunel', 'Pete Batard', 'Mike Frysinger', 'Bruno Levert']
-* TODO setup.py
+* DONE setup.py
   SCHEDULED: <2019-02-28 jue>
+  - State "DONE"       from "TODO"       [2019-03-22 vie 22:53]
 https://docs.python.org/2/distutils/setupscript.html
 * TODO Plantearse separar dame_gender.py a dame_statistics.py
   SCHEDULED: <2019-03-04 lun>
 * TODO remove_if_contains_init
   SCHEDULED: <2019-03-09 sáb>
-* TODO Aprender a hacer comandos
+* DONE Aprender a hacer comandos
   SCHEDULED: <2019-03-09 sáb>
+  - State "DONE"       from "TODO"       [2019-03-22 vie 22:54]
+pip3 install dametowel
+* TODO Escribir average_weighted
+Dado un nombre, tenemos la frecuencia del nombre y la población en
+tres datasets, crear la media ponderada.

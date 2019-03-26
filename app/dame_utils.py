@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2019  David Arroyo Menéndez
@@ -28,6 +28,13 @@ import os
 class DameUtils():
     def is_not_blank(self, s):
         return bool(s and s.strip())
+
+    def represents_int(self, s):
+        try:
+            int(s)
+            return True
+        except ValueError:
+            return False
 
     def split(self, arr, size):
         arrs = []

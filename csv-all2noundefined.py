@@ -20,23 +20,27 @@
 # along with GNU Emacs; see the file COPYING.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
-
 from app.dame_sexmachine import DameSexmachine
-import sys
-import argparse
-parser = argparse.ArgumentParser()
-parser.add_argument("file", help="csv file")
-parser.add_argument('--version', action='version', version='0.1')
-args = parser.parse_args()
-if (len(sys.argv) > 1):
-    s = DameSexmachine()
-    if (args.file == 'files/partial.csv'):
-        s.gender_list()
-    elif (args.file == 'files/all.csv'):
-        s.gender_list(all=True)
-    else:
-        print("Perhaps this file has not the right format")
-    print("The number of males in %s is %s" % (str(args.file), str(s.males)))
-    print("The number of females in %s is %s" % (str(args.file), str(s.females)))
-    print("The number of gender not recognised in %s is %s" % (str(args.file), str(s.unknown)))
+from app.dame_utils import DameUtils
+import csv
+from pprint import pprint
+import re
 
+du = DameUtils()
+
+with open('files/names/all.csv') as csvfile:
+    reader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    filenou = open('files/names/allnoundefined.csv','w+')
+
+    for row in reader:
+        g = du.drop_quotes(row[4])
+        if ((g == "m") | (g == "f")):
+            filenou.write(row[0]+','+row[1]+','+row[2]+','+row[3]+','+row[4]+','+row[5]+'\n')
+
+    filenou.close()
+
+#        print(sorted(l, key=str.lower))
+#        print(row[1])
+        # if re.search(r"'", row[1]):
+        #     result = re.sub(r"'", "", row[1])
+        # pprint(result)
