@@ -1,6 +1,6 @@
 * Logo
 
-[[file:files/images/hetero.png]]
+[[file:files/images/hetero-360-353.png]]
 
 * Name
 damegender is a gender detection tool coded by David Arroyo MEnéndez (DAME)
