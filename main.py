@@ -42,6 +42,8 @@ if (len(sys.argv) > 1):
             guess = s.guess(args.name, binary=True, ml="sgd")
         elif (args.ml == "svc"):
             guess = s.guess(args.name, binary=True, ml="svc")
+        elif (args.ml == "gaussianNB"):
+            guess = s.guess(args.name, binary=True, ml="gaussianNB")
         elif (args.ml == "multinomialNB"):
             guess = s.guess(args.name, binary=True, ml="multinomialNB")
         elif (args.ml == "bernoulliNB"):
@@ -50,6 +52,8 @@ if (len(sys.argv) > 1):
             sex = "male"
         elif (guess == 0):
             sex = "female"
+        elif (guess == 2):
+            sex = "unknown"
         print("%s gender is %s" % (str(args.name), sex))
     else:
         print("%s's gender is %s" % (str(args.name), s.guess(args.name)))
