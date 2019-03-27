@@ -210,7 +210,7 @@ class DameSexmachine(Gender):
 
     def guess(self, name, binary=False, ml="nltk"):
     # guess method to check names dictionary and nltk classifier
-        guess = ''
+        guess = 2
         guess = super().guess(name, binary)
         vector = self.features_int(name)
         if ((guess == 'unknown') | (guess == 2)):
