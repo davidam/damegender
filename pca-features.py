@@ -21,12 +21,11 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
-
-from pprint import pprint
+import json
 import pandas as pd
-from sklearn.decomposition import PCA
-
 import matplotlib.pyplot as plt
+from pprint import pprint
+from sklearn.decomposition import PCA
 from app.dame_sexmachine import DameSexmachine
 from app.dame_gender import Gender
 
@@ -35,55 +34,35 @@ g = Gender()
 g.features_list2csv(categorical="both", path="files/names/allnoundefined.csv")
 features = "files/features_list_no_undefined.csv"
 
-#print("STEP1: N COMPONENTS + 1 TARGET")
+## STEP1: N COMPONENTS + 1 TARGET
 
 x = pd.read_csv(features)
-print(x.columns)
+#print(x.columns)
 
 y = g.dataset2genderlist(dataset="files/names/allnoundefined.csv")
-print(y)
+#print(y)
 
-# load dataset
-
-# adding target
+# STEP2: ADDING TARGET
 target = pd.DataFrame(data = y, columns = ['target component'])
 finalDf = x.join(target)
 
 
-# normalize data
+# STEP3: NORMALIZE DATA
 from sklearn import preprocessing
 data_scaled = pd.DataFrame(preprocessing.scale(finalDf), columns = finalDf.columns)
 
 
-# PCA
+# STEP4: PCA
 pca = PCA(n_components=6)
 pca.fit_transform(data_scaled)
 
-# Dump components relations with features:
-print(pd.DataFrame(pca.components_,columns=data_scaled.columns,index = ['PC-1','PC-2','PC-3','PC-4','PC-5','PC-6']))
+# STEP5: Dump components relations with features:
 
+finalDf = pd.DataFrame(pca.components_,columns=data_scaled.columns,index = ['PC-1','PC-2','PC-3','PC-4','PC-5','PC-6'])
+jsondata = finalDf.to_json(orient='records')
 
+fo = open("files/pca.json", "w")
+fo.write(jsondata);
+# Close json file
+fo.close()
 
-# print("STEP2: STANDARIZE THE DATA")
-# from sklearn.preprocessing import StandardScaler
-# # Standardizing the features
-# x = StandardScaler().fit_transform(x)
-
-# # ## PCA PROJECTION TO N DIMENSIONS
-
-# from sklearn.decomposition import PCA
-# pca = PCA(n_components=6)
-# principalComponents = pca.fit_transform(x)
-# print("STEP3: PCA PROJECTION")
-# pprint(principalComponents)
-# principalDf = pd.DataFrame(data = principalComponents, columns = ['principal component 1', 'principal component 2', 'principal component 3', 'principal component 4', 'principal component 5', 'principal component 6'])
-
-# target = pd.DataFrame(data = y, columns = ['target component'])
-
-# finalDf = data_scaled.join(target)
-
-
-# # # ## Visualize N Projection
-
-# finalDf.plot()
-# plt.show()
