@@ -24,15 +24,27 @@
 import json
 import pandas as pd
 import matplotlib.pyplot as plt
+import argparse
+
 from pprint import pprint
 from sklearn.decomposition import PCA
 from app.dame_sexmachine import DameSexmachine
 from app.dame_gender import Gender
 
+## PARAMETERS
+parser = argparse.ArgumentParser()
+parser.add_argument("categorical", default="both", choices=['both', 'noletters'])
+args = parser.parse_args()
+
 ## LOAD DATASET
 g = Gender()
-g.features_list2csv(categorical="both", path="files/names/allnoundefined.csv")
-features = "files/features_list_no_undefined.csv"
+if (args.categorical == "both"):
+    g.features_list2csv(categorical="both", path="files/names/allnoundefined.csv")
+    features = "files/features_list_no_undefined.csv"
+elif (args.categorical == "noletters"):
+    g.features_list2csv(categorical="noletters", path="files/names/allnoundefined.csv")
+    features = "files/features_list_cat.csv"
+
 
 ## STEP1: N COMPONENTS + 1 TARGET
 
