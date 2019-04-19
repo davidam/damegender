@@ -66,3 +66,4 @@ fo.write(jsondata);
 # Close json file
 fo.close()
 
+print("The file is created in files/pca.json")
