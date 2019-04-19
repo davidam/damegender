@@ -26,6 +26,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import argparse
 
+from json2html import *
 from pprint import pprint
 from sklearn.decomposition import PCA
 from app.dame_sexmachine import DameSexmachine
@@ -78,4 +79,13 @@ fo.write(jsondata);
 # Close json file
 fo.close()
 
-print("The file is created in files/pca.json")
+print("The json file is created in files/pca.json")
+
+# STEP6: Dump to html file
+
+jh = json2html.convert(json = jsondata)
+jh = "<html><body>" + jh + "</body></html>"
+fo = open("files/pca.html", "w")
+fo.write(jh);
+
+print("The html file is created in files/pca.html")
