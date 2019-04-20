@@ -157,6 +157,49 @@ $ python3 damemodels.py
 $ python3 pca-components.py --csv="files/features_list.csv" # To determine number of components
 $ python3 pca-features.py                                   # To understand the weight between variables for a target
 #+END_SRC
+* Benchmarking
+** Accuracy
+
+|                |           Accuracy |
+| Namsor         | 0.7539570378745054 |
+| Genderize      | 0.715375918598078  |
+| Gender Guesser | 0.6902204635387225 |
+| Dame Gender    | 0.6677501413227812 |
+
+Dame Gender is only supporting names in english and spanish. We hope
+better results with more languages.
+
+** Confusion Matrix
+
+**** Genderguesser
+#+BEGIN_SRC sh
+ [[ 1686, 78, 204]
+ [ 139, 3326, 346]]
+#+END_SRC
+
+**** Genderize
+#+BEGIN_SRC sh
+[[ 1742, 75, 151]
+ [ 242, 3157, 412]]
+#+END_SRC
+**** Namsor
+#+BEGIN_SRC sh
+[[ 1686, 78, 204]
+ [ 139, 3326, 346]]
+#+END_SRC
+**** Nameapi
+#+BEGIN_SRC sh
+[[ 3126, 93, 592]
+ [75, 1616, 277]]
+#+END_SRC
+**** Dame Gender
+#+BEGIN_SRC sh
+ [[ 1692, 276, 0]
+ [ 778, 3033, 0]]
+#+END_SRC
+
+In this version of Dame Gender, we are not considering decide names as undefined.
+
 * Statistics for damegender
 Some theory could be useful to understand some commands
 ** Errors and Confusion Matrix
