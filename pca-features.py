@@ -34,7 +34,7 @@ from app.dame_gender import Gender
 
 ## PARAMETERS
 parser = argparse.ArgumentParser()
-parser.add_argument("categorical", default="both", choices=['both', 'noletters'])
+parser.add_argument("categorical", default="both", choices=['both', 'noletters', 'nocategorical'])
 args = parser.parse_args()
 
 ## LOAD DATASET
@@ -45,6 +45,9 @@ if (args.categorical == "both"):
 elif (args.categorical == "noletters"):
     g.features_list2csv(categorical="noletters", path="files/names/allnoundefined.csv")
     features = "files/features_list_cat.csv"
+elif (args.categorical == "nocategorical"):
+    g.features_list2csv(categorical="nocategorical", path="files/names/allnoundefined.csv")
+    features = "files/features_list_no_cat.csv"
 
 
 ## STEP1: N COMPONENTS + 1 TARGET
