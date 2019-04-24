@@ -67,6 +67,19 @@ elif (args.api == "genderize"):
     print("+ The na coded: %s" %  naCoded)
     egb = dn.error_gender_bias(gl1, gl2)
     print("+ The error gender bias: %s" %  egb)
+elif (args.api == "genderapi"):
+    dga = DameGenderApi()
+    print("Genderapi with %s has: " % args.csv)
+    gl1 = dga.gender_list(path=args.csv)
+    gl2 = dga.guess_list(path=args.csv, binary=True)
+    ec = dga.error_coded(gl1, gl2)
+    print("+ The error code: %s" % ec)
+    ecwa = dga.error_coded_without_na(gl1, gl2)
+    print("+ The error code without na: %s" %  ecwa)
+    naCoded = dga.na_coded(gl1, gl2)
+    print("+ The na coded: %s" %  naCoded)
+    egb = dga.error_gender_bias(gl1, gl2)
+    print("+ The error gender bias: %s" %  egb)
 elif (args.api == "genderguesser"):
     dn = DameGenderGuesser()
     print("Gender Guesser with %s has: " % args.csv)
@@ -80,7 +93,6 @@ elif (args.api == "genderguesser"):
     print("+ The na coded: %s" %  naCoded)
     egb = dn.error_gender_bias(gl1, gl2)
     print("+ The error gender bias: %s" %  egb)
-
 elif (args.api == "nameapi"):
     dn = DameNameapi()
     print("Nameapi with %s has: " % args.csv)
