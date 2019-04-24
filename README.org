@@ -1,6 +1,6 @@
 * Logo
 
-[[file:files/images/hetero-360-353.png]]
+[[file:files/images/gender.png]]
 
 * Name
 damegender is a gender detection tool coded by David Arroyo MEnéndez (DAME)
@@ -157,6 +157,113 @@ $ python3 damemodels.py
 $ python3 pca-components.py --csv="files/features_list.csv" # To determine number of components
 $ python3 pca-features.py                                   # To understand the weight between variables for a target
 #+END_SRC
+* Benchmarking
+** Market Study
+
+|                                        | damegender      | gender api        | gender guesser | genderize               | name api                    | namsor                    |
+| Database size                          | 60000           | 1877787           | 45376          | 216286                  | 510000                      | 1300000                   |
+| Regular data updates                   | yes, developing | yes               | no             | yes                     | yes                         | yes                       |
+| Handles unstructured full name strings | yes             | yes               | no             | no                      | yes                         | no                        |
+| Handles surnames                       | yes             | yes               | no             | no                      | yes                         | yes                       |
+| Handles non-Latin alphabets            | no              | partially         | no             | partially               | yes                         | yes                       |
+| Implicit geo-localization              | no              | no                | no             | no                      | yes                         | yes                       |
+| Assingment type                        | binary          | probabilistic     | binary         | probabilistic           | probabilistic               | probabilistic             |
+| Free parameters                        | -               | accuracy, samples | -              | probability             | confidence                  | scale                     |
+| Free license                           | yes             | no                | yes            | no                      | no                          | no                        |
+| API                                    | future          | yes               | no             | yes                     | yes                         | yes                       |
+| Monthly free requests                  | free license    | 500               | free license   | Free for 1000 names/day | Free for 1000 credits/month | Free for 5000 names/month |
+
+** Accuracy
+
+|                |           Accuracy |
+| Namsor         | 0.7539570378745054 |
+| Genderize      | 0.715375918598078  |
+| Gender Guesser | 0.6902204635387225 |
+| Dame Gender    | 0.6677501413227812 |
+
+Dame Gender is only supporting names in english and spanish. We hope
+better results with more languages.
+*** Machine Learning Algorithms in DameGender
+These results are experimental, we are improving the choosing of features.
+
++ Stochastic Gradient Descendent accuracy: 0.5873374788015828
++ Support Vector Machines accuracy: 0.7049180327868853
++ Gaussian Naive Bayes accuracy: 0.5960994912379876
++ Multinomial Naive Bayes accuracy: 0.5876201243640475
++ Bernoulli Naive Bayes accuracy: 0.5962408140192199
++ Dame Gender (nltk bayes) accuracy: 0.6677501413227812
+
+** Confusion Matrix
+
+**** Genderguesser
+#+BEGIN_SRC sh
+ [[ 1686, 78, 204]
+ [ 139, 3326, 346]]
+#+END_SRC
+
+**** Genderize
+#+BEGIN_SRC sh
+[[ 1742, 75, 151]
+ [ 242, 3157, 412]]
+#+END_SRC
+**** Namsor
+#+BEGIN_SRC sh
+[[ 1686, 78, 204]
+ [ 139, 3326, 346]]
+#+END_SRC
+**** Nameapi
+#+BEGIN_SRC sh
+[[ 3126, 93, 592]
+ [75, 1616, 277]]
+#+END_SRC
+**** Dame Gender
+#+BEGIN_SRC sh
+ [[ 1692, 276, 0]
+ [ 778, 3033, 0]]
+#+END_SRC
+
+In this version of Dame Gender, we are not considering decide names as undefined.
+
+** Errors with files/names/all.csv has:
+*** Gender Guesser
+
+| The error code            |  0.22564457518601835 |
+| The error code without na | 0.026962383126766687 |
+| The na coded              |   0.2041875757051393 |
+| The error gender bias     |   0.0030441400304414 |
+
+The command was:
+
+#+BEGIN_SRC
+$ python3 errors.py --api="genderguesser" --csv="files/names/all.csv"
+#+END_SRC
+
+*** Damegender
+
+| The error code            | 0.18238449558747188 |
+| The error code without na | 0.18238449558747188 |
+| The na coded              |                 0.0 |
+| The error gender bias     |  0.0868662398338813 |
+
+The command was:
+
+#+BEGIN_SRC
+$ python3 errors.py --api="damegender" --csv="files/names/all.csv"
+#+END_SRC
+
+*** Namsor
+
+#+BEGIN_SRC
+$ python3 errors.py --api="namsor" --csv="files/names/all.csv"
+Namsor with files/names/all.csv has:
+#+END_SRC
+
+| The error code            |  0.13272192420834053 |
+| The error code without na | 0.041499330655957165 |
+| The na coded              |  0.09517217511680222 |
+| The error gender bias     | 0.011665710460891184 |
+
+
 * Statistics for damegender
 Some theory could be useful to understand some commands
 ** Errors and Confusion Matrix

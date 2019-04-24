@@ -200,6 +200,16 @@ elif (args.api == "damegender"):
         multinomialNB_accuracy = ds.accuracy_score_dame(gl1, gl2)
         print("Multinomial Naive Bayes accuracy: %s" % multinomialNB_accuracy)
 
+    elif (args.ml == "bernoulliNB"):
+        ds = DameSexmachine()
+        print("################### Bernoulli Naive Bayes!!")
+        gl1 = ds.gender_list(path=args.csv)
+        print("Gender list: " + str(gl1))
+        gl2 = ds.guess_list(path=args.csv, binary=True, ml="bernoulliNB")
+        print("Guess list:  " +str(gl2))
+        bernoulliNB_accuracy = ds.accuracy_score_dame(gl1, gl2)
+        print("Bernoulli Naive Bayes accuracy: %s" % bernoulliNB_accuracy)
+
 
 
 elif (args.api == "genderapi"):

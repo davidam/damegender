@@ -460,7 +460,7 @@ class Gender(object):
             f = open('files/features_list_no_letters.csv', 'w')
         elif (categorical=="noundefined"):
             fl = self.features_list_no_undefined(path)
-            first_line = "first_letter, last_letter, vocals, consonants, first_letter, first_letter_vocal, last_letter_vocal, last_letter_consonant, last_letter_a"
+            first_line = "first_letter, last_letter, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, vocals, consonants, first_letter, first_letter_vocal, last_letter_vocal, last_letter_consonant, last_letter_a"
             f = open('files/features_list_no_undefined.csv', 'w')
         else:
             fl = self.features_list(path)

@@ -180,9 +180,11 @@ class TddInPythonExample(unittest.TestCase):
         csv3 = g.features_list2csv(path="files/names/min.csv", categorical="nocategorical")
         csv4 = g.features_list2csv(path="files/names/allnoundefined.csv", categorical="noundefined")
         self.assertTrue(os.path.isfile("files/features_list.csv"))
-        self.assertTrue(os.path.isfile("files/features_list_cat.csv"))
-        self.assertTrue(os.path.isfile("files/features_list_no_cat.csv"))
-        self.assertTrue(os.path.isfile("files/features_list_no_undefined.csv"))
+        file = open("files/features_list.csv", "r")
+        if (file):
+            self.assertTrue(os.path.isfile("files/features_list_cat.csv"))
+            self.assertTrue(os.path.isfile("files/features_list_no_cat.csv"))
+            self.assertTrue(os.path.isfile("files/features_list_no_undefined.csv"))
 
     def test_dame_gender_dame_accuracy_score_dame_method_returns_correct_result(self):
        g = Gender()
