@@ -105,6 +105,10 @@ class Gender(object):
             features_int["last_letter_a"] = 1
         else:
             features_int["last_letter_a"] = 0
+        if (name[-1].lower() == "o"):
+            features_int["last_letter_o"] = 1
+        else:
+            features_int["last_letter_o"] = 0            
         return features_int
 
     def males_list(self):
