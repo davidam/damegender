@@ -294,7 +294,10 @@ GET https://gender-api.com/get?name=lisa;jess;thomas&multi=true&key=<your privat
   SCHEDULED: <2019-01-16 mié>
   - State "DONE"       from "TODO"       [2019-02-17 dom 16:34]
 Escribir el código de todas las posibilidades que se dan.
-* TODO Introducir la feature all_syllables. Esto vendría bien para decidir si es o no un nombre
+* DONE Plantearse introducir la feature all_syllables. Esto vendría bien para decidir si es o no un nombre
+  - State "DONE"       from "TODO"       [2019-04-26 vie 22:38]
+Lo relacionado con syllables. Lo dejamos para cuando se detecte el origen geográfico.
+Las sílabas dependen del idioma.
 * DONE Introducir la feature in_dict. Esto vendría bien para decidir si es o no un nombre
   - State "DONE"       from "TODO"       [2019-02-17 dom 16:36]
 python-examples/shell/eng2spa.py
@@ -363,8 +366,9 @@ Sexmachine confusion matrix:
 * DONE Entrada http://t3chfest2019.eventbrite.es
   SCHEDULED: <2019-01-28 lun 10:30>
   - State "DONE"       from "TODO"       [2019-02-14 jue 18:26]
-* TODO T3chfest
+* DONE T3chfest
   SCHEDULED: <2019-03-14 jue>
+  - State "DONE"       from "TODO"       [2019-04-26 vie 22:36]
 * DONE Crear argumento api para accuracy y confusion
   SCHEDULED: <2019-01-21 lun>
   - State "DONE"       from "TODO"       [2019-01-23 mié 15:55]
@@ -460,8 +464,9 @@ Se descarta el estudio de la primera letra (ver infofeatures.py)
 ** TODO Escribir un pca para determinar las 5 letras más determinantes en la elección de género al final del nombre (como última letra)
 * GOING Escribir un pca
 ** TODO Pensar el dataset (puntos a tener en cuenta)
-*** Retirar undefined??
-Podemos retirar el undefined para pca, o recodificar de manera que 0 (female), 1 (undefined) y 2 (male)
+*** DONE Retirar undefined??
+	- State "DONE"       from "TODO"       [2019-04-26 vie 22:49]
+Nuestro objetivo es predecir los undefined. Por lo que solo tomamos en cuenta los géneros definidos.
 *** Variables no continuas
 Si son categórisscas de blanco/negro se codifican de manera 0 o 1.
 Si son categóricas del estilo mueble (silla, mesa, nevera, sillón, etc.) se retiran.
@@ -636,8 +641,9 @@ https://pythonprogramming.net/pickle-classifier-save-nltk-tutorial/
 save_classifier = open("naivebayes.pickle","wb")
 pickle.dump(classifier, save_classifier)
 save_classifier.close()
-* TODO Leer https://plot.ly/ipython-notebooks/principal-component-analysis/
+* DONE Leer https://plot.ly/ipython-notebooks/principal-component-analysis/
   SCHEDULED: <2019-02-13 mié>
+  - State "DONE"       from "TODO"       [2019-04-26 vie 22:47]
 * DONE Hacer el trabajo de scale, probability, average, etc. para el artículo
   SCHEDULED: <2019-02-12 mar>
   - State "DONE"       from "TODO"       [2019-02-17 dom 16:47]
