@@ -108,7 +108,7 @@ class Gender(object):
         if (name[-1].lower() == "o"):
             features_int["last_letter_o"] = 1
         else:
-            features_int["last_letter_o"] = 0            
+            features_int["last_letter_o"] = 0
         return features_int
 
     def males_list(self):
@@ -456,7 +456,7 @@ class Gender(object):
             f = open('files/features_list_cat.csv'  , 'w')
         elif (categorical=="nocategorical"):
             fl = self.features_list_no_categorical(path)
-            first_line = "a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, x, y, z, vocals, consonants"
+            first_line = "a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, vocals, consonants"
             f = open('files/features_list_no_cat.csv', 'w')
         elif (categorical=="noletters"):
             fl = self.features_list_no_letters(path)
