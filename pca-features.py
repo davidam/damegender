@@ -35,6 +35,7 @@ from app.dame_gender import Gender
 ## PARAMETERS
 parser = argparse.ArgumentParser()
 parser.add_argument("categorical", default="both", choices=['both', 'noletters', 'nocategorical'])
+parser.add_argument("components", type=int)
 args = parser.parse_args()
 
 ## LOAD DATASET
@@ -69,12 +70,19 @@ data_scaled = pd.DataFrame(preprocessing.scale(finalDf), columns = finalDf.colum
 
 
 # STEP4: PCA
-pca = PCA(n_components=6)
+pca = PCA(n_components=int(args.components))
 pca.fit_transform(data_scaled)
 
 # STEP5: Dump components relations with features:
 
-finalDf = pd.DataFrame(pca.components_,columns=data_scaled.columns,index = ['PC-1','PC-2','PC-3','PC-4','PC-5','PC-6'])
+finalIndex = []
+for i in range(1, int(args.components)+1):
+    finalIndex.append('PC-'+str(i))
+#print(finalIndex)
+
+#finalDf = pd.DataFrame(pca.components_,columns=data_scaled.columns,index = ['PC-1','PC-2','PC-3','PC-4','PC-5','PC-6'])
+finalDf = pd.DataFrame(pca.components_,columns=data_scaled.columns,index = finalIndex)
+
 jsondata = finalDf.to_json(orient='records')
 
 fo = open("files/pca.json", "w")
