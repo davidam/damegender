@@ -24,6 +24,22 @@ from app.dame_gender import Gender
 
 g = Gender()
 
+# LETTER A
+print("---------------------------------------------------------------")
+females = 0
+for i in g.females_list():
+    if (g.features_int(i)["a"] >= 1):
+        females = females + 1
+#print("Females with last letter a: " + str(females))
+print("Females with letter/s a: %s " % (females/ len(g.females_list())))
+
+males = 0
+for i in g.males_list():
+    if (g.features_int(i)["a"] >= 1):
+        males = males + 1
+print("Males with letter/s a: %s " % (males/ len(g.males_list())))
+
+
 # LAST LETTER A
 print("---------------------------------------------------------------")
 females = 0
@@ -52,7 +68,7 @@ males = 0
 for i in g.males_list():
     if (g.features_int(i)["last_letter_o"] == 1):
         males = males + 1
-print("Males with last letter a: %s " % (males/ len(g.males_list())))
+print("Males with last letter o: %s " % (males/ len(g.males_list())))
 
 # LAST LETTER CONSONANT
 print("---------------------------------------------------------------")
@@ -83,6 +99,67 @@ for i in g.males_list():
         males = males + 1
 print("Males with last letter vocal: %s" % (males/ len(g.males_list())))
 print("---------------------------------------------------------------")
+
+# FIRST LETTER CONSONANT
+print("---------------------------------------------------------------")
+females = 0
+for i in g.females_list():
+    if (g.features_int(i)["first_letter_consonant"] == 1):
+        females = females + 1
+print("Females with first letter consonant: %s" % (females/ len(g.females_list())))
+
+males = 0
+for i in g.males_list():
+    if (g.features_int(i)["first_letter_consonant"] == 1):
+        males = males + 1
+print("Males with first letter consonant: %s" % (males/ len(g.males_list())))
+
+# FIRST LETTER VOCAL
+print("---------------------------------------------------------------")
+females = 0
+for i in g.females_list():
+    if (g.features_int(i)["first_letter_vocal"] == 1):
+        females = females + 1
+print("Females with first letter vocal: %s" % (females/ len(g.females_list())))
+
+males = 0
+for i in g.males_list():
+    if (g.features_int(i)["first_letter_vocal"] == 1):
+        males = males + 1
+print("Males with first letter vocal: %s" % (males/ len(g.males_list())))
+
+
+# # FIRST LETTER VOCAL
+# print("---------------------------------------------------------------")
+# females = 0
+# for i in g.females_list():
+#     if (g.features_int(i)["first_letter_vocal"] == 1):
+#         females = females + 1
+# print("Females with first letter vocal: %s" % (females/ len(g.females_list())))
+
+# males = 0
+# for i in g.males_list():
+#     if (g.features_int(i)["first_letter_vocal"] == 1):
+#         males = males + 1
+# print("Males with first letter vocal: %s" % (males/ len(g.males_list())))
+# print("---------------------------------------------------------------")
+
+
+# # LETTER A
+# print("---------------------------------------------------------------")
+# females = 0
+# for i in g.females_list():
+#     if (g.features_int(i)["a"] >= 1):
+#         females = females + 1
+# #print("Females with last letter a: " + str(females))
+# print("Females with letter a: %s " % (females/ len(g.females_list())))
+
+# males = 0
+# for i in g.males_list():
+#     if (g.features_int(i)["a"] >= 1):
+#         males = males + 1
+# print("Males with letter a: %s " % (males/ len(g.males_list())))
+
 
 # females = 0
 # for i in g.females_list():
