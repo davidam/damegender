@@ -83,6 +83,7 @@ class Gender(object):
             for letter2 in name:
                 if (letter1 == letter2):
                     features_int["consonants"] = features_int["consonants"] + 1
+        # FIRST LETTER
         if (name[0].lower() in 'aeiou'):
             features_int["first_letter_vocal"] = 1
         else:
@@ -91,6 +92,7 @@ class Gender(object):
             features_int["first_letter_consonant"] = 1
         else:
             features_int["first_letter_consonant"] = 0
+        # LAST LETTER
         if (name[-1].lower() in 'aeiou'):
             features_int["last_letter_vocal"] = 1
         else:
@@ -109,6 +111,10 @@ class Gender(object):
             features_int["last_letter_o"] = 1
         else:
             features_int["last_letter_o"] = 0
+        features_int["a"] = 0
+        for i in name:
+            if (i == "a"):
+                features_int["a"] = features_int["a"] + 1
         return features_int
 
     def males_list(self):
@@ -140,6 +146,22 @@ class Gender(object):
                     datasetname = row.title()
                     if (datasetname == name):
                         guess = 1
+        if (dataset == "files/names/nam_dict.txt"):
+            # TODO: Mejor con grep
+            import os
+            cmd = 'grep -i "'+ name + ' " files/names/nam_dict.txt > grep.tmp'
+            os.system(cmd)
+            results = [i for i in open('grep.tmp','r').readlines()]
+            for row in results:
+                datasetname = row[1].title()
+                if (datasetname == name):
+                    guess = row[0].title()
+                    if ((guess == 'F') | (guess == '?F')):
+                        guess = 0
+                    elif ((guess == 'M') | (guess == '?M')):
+                        guess = 1
+                    elif (guess == '='):
+                        guess = 2
         if (dataset == "files/names/all.csv"):
             with open(dataset) as csvfile:
                 sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
