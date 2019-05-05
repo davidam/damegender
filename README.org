@@ -31,6 +31,7 @@ $ pip3 install -r requirements.txt
 $ python3 -m venv /tmp/d
 $ cd /tmp/d
 $ source bin/activate
+$ pip install --upgrade pip
 $ pip3 install damegender
 $ cd lib/python3.5/site-packages/damegender
 $ python3 main.py David
