@@ -76,7 +76,7 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_utils_drop_pwd_method_returns_correct_result(self):
         du = DameUtils()
-        self.assertEqual(du.drop_pwd("/home/davidam/git/damegender/files/kernelgits.txt"), "files/kernelgits.txt")
+        self.assertEqual(du.drop_pwd("/home/davidam/git/damegender/src/damegender/files/kernelgits.txt"), "files/kernelgits.txt")
 
 
     def test_dame_utils_files_one_level_drop_pwd_method_returns_correct_result(self):
