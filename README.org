@@ -1,6 +1,6 @@
 * Logo
 
-[[file:files/images/gender.png]]
+[[file:src/damegender/files/images/gender.png]]
 
 * Name
 damegender is a gender detection tool coded by David Arroyo MEnéndez (DAME)
@@ -354,22 +354,22 @@ It means, I have 2 females true and I've guessed 2 females and I've 14 males tru
 The dispersion measures between 1 variables are: variance, standard
 deviation, ...
 
-[[file:files/images/variance.png]]
+[[file:src/damegender/files/images/variance.png]]
 
 If you have 2 variables, you can write a formula so similar to variance.
 
-[[file:files/images/covariance.png]]
+[[file:src/damegender/files/images/covariance.png]]
 
 If you have 3 variables or more, you can write a covariance matrix.
 
-[[file:files/images/matrix-covariance.png]]
+[[file:src/damegender/files/images/matrix-covariance.png]]
 
 In essence, an eigenvector v of a linear transformation T is a
 non-zero vector that, when T is applied to it, does not change
 direction. Applying T to the eigenvector only scales the eigenvector
 by the scalar value λ, called an eigenvalue.
 
-[[file:files/images/eigenvector.png]]
+[[file:src/damegender/files/images/eigenvector.png]]
 
 A feature vector is constructed taking the eigenvectors that you want
 to keep from the list of eigenvectors.
@@ -437,7 +437,7 @@ plt.title('Dataset Explained Variance')
 plt.show()
 #+END_SRC
 
-[[file:files/images/pca-number-components.png]]
+[[file:src/damegender/files/images/pca-number-components.png]]
 
 Taking a look to the image. We can choose 6 components.
 
