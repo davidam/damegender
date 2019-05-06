@@ -147,11 +147,9 @@ class Gender(object):
                     if (datasetname == name):
                         guess = 1
         if (dataset == "files/names/nam_dict.txt"):
-            # TODO: Mejor con grep
-            import os
-            cmd = 'grep -i "'+ name + ' " files/names/nam_dict.txt > grep.tmp'
+            cmd = 'grep -i "'+ name + ' " files/names/nam_dict.txt > files/grep.tmp'
             os.system(cmd)
-            results = [i for i in open('grep.tmp','r').readlines()]
+            results = [i for i in open('files/grep.tmp','r').readlines()]
             for row in results:
                 datasetname = row[1].title()
                 if (datasetname == name):
