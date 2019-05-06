@@ -147,11 +147,9 @@ class Gender(object):
                     if (datasetname == name):
                         guess = 1
         if (dataset == "files/names/nam_dict.txt"):
-            # TODO: Mejor con grep
-            import os
-            cmd = 'grep -i "'+ name + ' " files/names/nam_dict.txt > grep.tmp'
+            cmd = 'grep -i "'+ name + ' " files/names/nam_dict.txt > files/grep.tmp'
             os.system(cmd)
-            results = [i for i in open('grep.tmp','r').readlines()]
+            results = [i for i in open('files/grep.tmp','r').readlines()]
             for row in results:
                 datasetname = row[1].title()
                 if (datasetname == name):
@@ -170,10 +168,10 @@ class Gender(object):
                     datasetname = row[0].title()
                     if (datasetname == name):
                         guess = row[4]
-                        if (guess == 'f'):
-                            guess = 0
-                        elif (guess == 'm'):
+                        if (guess == 'm'):
                             guess = 1
+                        elif (guess == 'f'):
+                            guess = 0
                         elif (guess == 'u'):
                             guess = 2
         if (dataset == "files/names/yob2017.txt"):
@@ -200,10 +198,10 @@ class Gender(object):
                     datasetname = row[0].title()
                     guess = row[4]
                     guess = guess.replace('\"','')
-                    if (guess == 'f'):
-                        guess = 0
-                    elif (guess == 'm'):
+                    if (guess == 'm'):
                         guess = 1
+                    elif (guess == 'f'):
+                        guess = 0
                     elif (guess == 'u'):
                         guess = 2
                     genderlist.append(guess)
