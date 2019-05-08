@@ -34,6 +34,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', default="files/names/min.csv")
 parser.add_argument('--api', default="all")
+parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
 args = parser.parse_args()
 #print(args.csv)
 
@@ -89,7 +90,7 @@ elif (args.api == "genderguesser"):
 elif (args.api == "sexmachine"):
     ds = DameSexmachine()
     print("Sexmachine confusion matrix:\n")
-    ds.print_confusion_matrix_dame(path=args.csv)
+    ds.print_confusion_matrix_dame(path=args.csv, ml=args.ml)
 
 elif (args.api == "nameapi"):
     dna = DameNameapi()
