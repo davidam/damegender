@@ -33,6 +33,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 args = parser.parse_args()
 
+# TODO: This script file found name as part in a composed name. It must find the name as the exact name
+
 # Diccionario de nombres de paises y números en nam_dict.txt
 keyscountries = {"30": "Great Britain", "31": "Ireland", "32": "USA", "33": "Italy", "34": "Malta", "35": "Portugal", "36": "Spain", "37": "France", "38": "Belgium", "39": "Luxembourg", "40": "The Netherlands", "41": "East Frisia", "42": "Germany", "43": "Austria", "44": "Swiss", "45": "Iceland", "46": "Denmark", "47": "Norway", "48": "Sweden", "49": "Finland", "50": "Estonia", "51": "Latvia", "52": "Lithuania", "53": "Poland", "54": "Czech Republic", "55": "Slovakia", "56": "Hungary", "57": "Romania", "58": "Bulgaria", "59": "Bosnia and Herzegovina", "60": "Croatia", "61": "Kosovo", "62": "Macedonia", "63": "Montenegro", "64": "Serbia", "65": "Slovenia", "66": "Albania", "67": "Greece", "68": "Rusia", "69": "Belarus", "70": "Moldova", "71": "Ukraine", "72": "Armenia", "73": "Azerbaijan", "74": "Georgia", "75": "Kazakhstan/Uzbekistan", "76": "Turkey", "77": "Arabia/Persia", "78": "Israel", "79": "China", "80": "India/Sri Lanka", "81": "Japan", "82": "Korea", "83": "Vietnam", "84": "other countries"}
 
@@ -62,5 +64,13 @@ if (len(sys.argv) > 1):
         print(rowres[0].title())
         for i in range(30, 84):
             if (exists_in_country(int(i), rowres)):
-                l.append(keyscountries[str(i)])
-    print(l)
+                if (rowres[0].title() == "M"):
+                    males.append(keyscountries[str(i)])
+                elif (rowres[0].title() == "F"):
+                    females.append(keyscountries[str(i)])
+                elif (rowres[0].title() == "="):
+                    both.append(keyscountries[str(i)])
+
+    print("males: " + str(males))
+    print("females: " + str(females))
+    print("both: " + str(both))
