@@ -30,7 +30,7 @@ from app.dame_utils import DameUtils
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("name", help="display the gender")
+parser.add_argument("name", help="display the country")
 args = parser.parse_args()
 
 # TODO: This script file found name as part in a composed name. It must find the name as the exact name
@@ -52,7 +52,7 @@ def exists_in_country(num, arr):
         return False
 
 if (len(sys.argv) > 1):
-    cmd = 'grep -i ' + args.name + ' files/names/nam_dict.txt > files/grep.tmp'
+    cmd = 'grep -i " ' + args.name + ' " files/names/nam_dict.txt > files/grep.tmp'
     print(cmd)
     print(os.system(cmd))
     results = [i for i in open('files/grep.tmp','r').readlines()]
