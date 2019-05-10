@@ -76,6 +76,6 @@ if (len(sys.argv) > 1):
                     elif (rowres[0].title() == "="):
                         both.append(keyscountries[str(i)])
 
-    print("males: " + str(males))
-    print("females: " + str(females))
-    print("both: " + str(both))
+    print("males: " + (str(sorted(males))))
+    print("females: " + str(sorted(females)))
+    print("both: " + str(sorted(both)))
