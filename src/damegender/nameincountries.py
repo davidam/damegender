@@ -54,14 +54,14 @@ def exists_in_country(num, arr):
 if (len(sys.argv) > 1):
     cmd = 'grep -i " ' + args.name + ' " files/names/nam_dict.txt > files/grep.tmp'
     print(cmd)
-    print(os.system(cmd))
+    os.system(cmd)
     results = [i for i in open('files/grep.tmp','r').readlines()]
     males = [ ]
     females = [ ]
     both = [ ]
-    l = [ ]
+
     for rowres in results:
-        print(rowres[0].title())
+        #print(rowres[0].title())
         for i in range(30, 84):
             if (exists_in_country(int(i), rowres)):
                 if (rowres[0].title() == "M"):
