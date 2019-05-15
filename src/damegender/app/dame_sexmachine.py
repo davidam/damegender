@@ -267,6 +267,20 @@ class DameSexmachine(Gender):
                 slist.append(self.guess(name, binary, ml=ml))
         return slist
 
+    def print_confusion_matrix_dame(self, path='files/names/partial.csv', ml="nltk"):
+        truevector = self.gender_list(path)
+        guessvector = self.guess_list(path,binary=True,ml=ml)
+        self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
+        self.femalemale = self.count_true2guess(truevector, guessvector, 0, 1)
+        self.femaleundefined = self.count_true2guess(truevector, guessvector, 0, 2)
+        self.malefemale = self.count_true2guess(truevector, guessvector, 1, 0)
+        self.malemale = self.count_true2guess(truevector, guessvector, 1, 1)
+        self.maleundefined = self.count_true2guess(truevector, guessvector, 1, 2)
+        print("[[ %s, %s, %s]" % (self.femalefemale, self.femalemale, self.femaleundefined))
+        print(" [ %s, %s, %s]]\n" % (self.malefemale, self.malemale, self.maleundefined))
+        return ""
+
+
     def num_females(self, url, directory):
     # Extracting females with perceval
         gg = GenderGit()
