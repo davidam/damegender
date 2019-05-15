@@ -9,3 +9,5 @@ pyhyphen
 unidecode
 pandas
 matplotlib
+google-api-python-client
+json2html
