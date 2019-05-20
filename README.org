@@ -14,14 +14,18 @@ damegender is a gender detection tool coded by David Arroyo MEnéndez (DAME)
 
 DAMe Gender is for you!
 
+* Tell me about DAMe Gender on Youtube
+
+[[yt:dvN0lMgQ9Pc]]
+
 * Install
 ** Installing Software
 *** Posible Debian/Ubuntu dependencies
-#+BEGIN_SRC 
+#+BEGIN_SRC
 $ sudo apt-get install python3-nose-exclude dict dict-freedict-eng-spa dict-freedict-spa-eng dictd
 #+END_SRC
 *** From sources
-#+BEGIN_SRC 
+#+BEGIN_SRC
 $ git clone https://github.com/davidam/damegender
 $ cd damegender
 $ pip3 install -r requirements.txt
@@ -276,7 +280,6 @@ Namsor with files/names/all.csv has:
 | The error code without na | 0.041499330655957165 |
 | The na coded              |  0.09517217511680222 |
 | The error gender bias     | 0.011665710460891184 |
-
 
 * Statistics for damegender
 Some theory could be useful to understand some commands
