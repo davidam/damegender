@@ -15,9 +15,7 @@ damegender is a gender detection tool coded by David Arroyo MEnéndez (DAME)
 DAMe Gender is for you!
 
 * Tell me about DAMe Gender on Youtube
-#+BEGIN_EXPORT html
-<iframe width="440" height="335" src="https://www.youtube.com/embed/dvN0lMgQ9Pc" frameborder="0" allowfullscreen=""></iframe>
-#+END_EXPORT
+[[https://www.youtube.com/embed/dvN0lMgQ9Pc][file:src/damegender/files/images/damegender-front-youtube.png]]
 
 * Install
 ** Installing Software
