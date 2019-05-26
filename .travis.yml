@@ -1,0 +1,10 @@
+language: python
+
+services:
+  - docker
+
+before_install:
+- docker build . -t damegender/damegender:latest
+
+script:
+- docker run -ti --entrypoint nosetests damegender/damegender:latest test

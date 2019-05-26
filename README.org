@@ -18,6 +18,14 @@ DAMe Gender is for you!
 [[https://www.youtube.com/embed/dvN0lMgQ9Pc][file:src/damegender/files/images/damegender-front-youtube.png]]
 
 * Install
+** Docker Image
+#+BEGIN_SRC
+# Build the container image
+$ docker build . -t damegender/damegender:latest
+
+# Run the container
+$ docker run -ti damegender/damegender:latest main.py David
+#+END_SRC
 ** Installing Software
 *** Posible Debian/Ubuntu dependencies
 #+BEGIN_SRC
@@ -65,9 +73,17 @@ $ python3
 #+BEGIN_SRC sh
 $ nosetest3 test
 #+END_SRC
+*** Using Docker image
+#+BEGIN_SRC sh
+$ docker run -ti --entrypoint nosetests damegender/damegender:latest test
+#+END_SRC
 ** Single test
 #+BEGIN_SRC sh
 $ nosetests3 test/test_dame_sexmachine.py:TddInPythonExample.test_string2array_method_returns_correct_result
+#+END_SRC
+*** Using Docker image
+#+BEGIN_SRC sh
+$ docker run -ti --entrypoint nosetests damegender/damegender:latest test/test_dame_sexmachine.py:TddInPythonExample.test_string2array_method_returns_correct_result
 #+END_SRC
 * Execute program
 
