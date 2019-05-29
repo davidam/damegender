@@ -105,6 +105,13 @@ Mesa gender is female
 0 males for Mesa from INE.es
 0 females for Mesa from INE.es
 
+# Find your name in different countries
+$ python3 nameincountries.py David
+grep -i " David " files/names/nam_dict.txt > files/grep.tmp
+males: ['Albania', 'Armenia', 'Austria', 'Azerbaijan', 'Belgium', 'Bosnia and Herzegovina', 'Czech Republic', 'Denmark', 'East Frisia', 'France', 'Georgia', 'Germany', 'Great Britain', 'Iceland', 'Ireland', 'Israel', 'Italy', 'Kazakhstan/Uzbekistan', 'Luxembourg', 'Malta', 'Norway', 'Portugal', 'Romania', 'Slovenia', 'Spain', 'Sweden', 'Swiss', 'The Netherlands', 'USA', 'Ukraine']
+females: []
+both: []
+
 # Count gender from a git repository
 $ python3 git2gender.py https://github.com/chaoss/grimoirelab-perceval.git --directory="/tmp/clonedir"
 The number of males sending commits is 15
@@ -189,6 +196,7 @@ $ python3 damemodels.py
 # Experiments to determine features with weight (not finished)
 $ python3 pca-components.py --csv="files/features_list.csv" # To determine number of components
 $ python3 pca-features.py                                   # To understand the weight between variables for a target
+
 #+END_SRC
 * Benchmarking
 ** Market Study
