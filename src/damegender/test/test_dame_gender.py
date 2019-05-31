@@ -67,6 +67,11 @@ class TddInPythonExample(unittest.TestCase):
         f = g.females_list()
         self.assertTrue("Eva" in f)
 
+    def test_dame_gender_filenamdict2list(self):
+        g = Gender()
+        name = g.filenamdict2list()[0]
+        self.assertEqual(name, "Aad")
+
     def test_dame_gender_name2gender_in_dataset_method_returns_correct_result(self):
         g = Gender()
         guess = g.name2gender_in_dataset("David", dataset='files/names/names_es')
@@ -145,6 +150,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(gl[0:4], [1, 1, 1, 1])
         gl2 = g.dataset2genderlist(dataset="files/names/yob2017.txt")
         self.assertEqual(gl2[0:4], [0, 0, 0, 0])
+
 
     def test_dame_gender_features_list_method_returns_correct_result(self):
         g = Gender()
