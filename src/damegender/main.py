@@ -58,9 +58,9 @@ if (len(sys.argv) > 1):
             sex = "unknown"
         print("%s gender is %s" % (str(args.name), sex))
     else:
-        if (s.name_frec(args.name, dataset=args.total)['males'] > s.name_frec(args.name, dataset=args.total)['females']):
+        if (int(s.name_frec(args.name, dataset=args.total)['males']) > int(s.name_frec(args.name, dataset=args.total)['females'])):
             print("%s's gender is male" % (str(args.name)))
-        elif (s.name_frec(args.name, dataset=args.total)['males'] < s.name_frec(args.name, dataset=args.total)['females']):
+        elif (int(s.name_frec(args.name, dataset=args.total)['males']) < int(s.name_frec(args.name, dataset=args.total)['females'])):
             print("%s's gender is female" % (str(args.name)))
         else:
             guess = s.guess(args.name, binary=True, ml="nltk")
