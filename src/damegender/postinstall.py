@@ -21,8 +21,15 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
 
+
+g = Gender()
+print("We are creating files/names/nam_dict_list.txt")
+g.namdict2file()
+
+print("We are creating .sav files data models in files/datamodels")
 print("This process take a long time, you can rest.")
 
 s = DameSexmachine()
