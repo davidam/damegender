@@ -38,6 +38,8 @@ from sklearn.metrics import confusion_matrix
 from sklearn.decomposition import PCA
 from app.dame_utils import DameUtils
 
+csv.field_size_limit(3000000)
+
 class Gender(object):
 # That's the root class in the heritage, apis classes and sexmachine is inheriting from gender
     def __init__(self):
@@ -55,6 +57,8 @@ class Gender(object):
             if (re.match(r'[0-9]+ definitions found', line)):
                 in_dict = True
         return in_dict
+
+###################### FEATURES METHODS ##########################
 
     def features(self, name):
     # features method created to check the nltk classifier
@@ -117,6 +121,8 @@ class Gender(object):
                 features_int["a"] = features_int["a"] + 1
         return features_int
 
+######################## DATASETS METHODS ###############################################
+
     def males_list(self):
         my_corpus = nltk.corpus.PlaintextCorpusReader('files/names/names_es', '.*\.txt')
         m = names.words('male.txt') + my_corpus.sents('masculinos.txt')[1]
@@ -128,6 +134,18 @@ class Gender(object):
         f = names.words('female.txt') + my_corpus.sents('femeninos.txt')[1]
         f = list(OrderedDict.fromkeys(f))
         return f
+
+    def csv2names(self, path='files/names/partial.csv'):
+    # make a list from a csv file
+        csvlist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                name = row[0].title()
+                name = name.replace('\"','')
+                csvlist.append(name)
+        return csvlist
 
     def name2gender_in_dataset(self, name, dataset=''):
         guess = 2
@@ -220,6 +238,96 @@ class Gender(object):
                     genderlist.append(guess)
         return genderlist
 
+    def name_frec(self, name, dataset='ine'):
+        if (dataset == 'ine'):
+            du = DameUtils()
+            name = du.drop_accents(name)
+            file_males = open('files/names/names_es/masculinos_original.csv', 'r')
+            inereader_males = csv.reader(file_males, delimiter=',', quotechar='|')
+            males = 0
+            for row in inereader_males:
+                if ((len(row)>1) and (row[1].lower() == name.lower())):
+                    males = row[2]
+                    males = du.drop_dots(males)
+            file_females = open('files/names/names_es/femeninos_original.csv', 'r')
+            inereader_females = csv.reader(file_females, delimiter=',', quotechar='|')
+            females = 0
+            for row in inereader_females:
+                if ((len(row) > 1) and (row[1].lower() == name.lower())):
+                    females = row[2]
+                    females = du.drop_dots(females)
+            dicc = {"females": females, "males": males}
+        elif (dataset == 'uscensus'):
+            du = DameUtils()
+            usfile = open('files/names/yob2017.txt', 'r')
+            usreader = csv.reader(usfile, delimiter=',', quotechar='|')
+            males = 0
+            females = 0
+            for row in usreader:
+                if ((len(row) > 1) and (row[0].lower() == name.lower())):
+                    if (row[1] == 'F'):
+                        females = row[2]
+                    elif (row[1] == 'M'):
+                        males = row[2]
+            dicc = {"females": females, "males": males}
+        elif (dataset == 'ukcensus'):
+            du = DameUtils()
+            name = du.drop_accents(name)
+            file_males = open('files/names/2017boysnames-uk.csv', 'r')
+            reader_males = csv.reader(file_males, delimiter=',', quotechar='|')
+            males = 0
+            for row in reader_males:
+                if (len(row)>1):
+                    ukname = du.drop_accents(du.drop_white_space(row[1])).lower()
+                    if (ukname == name.lower()):
+                        ukname = du.drop_accents(du.drop_white_space(row[1])).lower()
+                        males = row[2]
+                        males = du.drop_dots(males)
+            file_females = open('files/names/2017girlsnames-uk.csv', 'r')
+            reader_females = csv.reader(file_females, delimiter=',', quotechar='|')
+            females = 0
+            for row in reader_females:
+                if (len(row) > 1):
+                    ukname = du.drop_accents(du.drop_white_space(row[1])).lower()
+                    if (ukname == name.lower()):
+                        females = row[2]
+                        females = du.drop_dots(females)
+            dicc = {"females": females, "males": males}
+
+        return dicc
+
+    def namdict2file(self):
+        filepath = 'files/names/nam_dict.txt'
+        mylist = []
+        with open(filepath) as fp:
+            for cnt, line in enumerate(fp):
+            # From 3 to 25
+                if (cnt > 292):
+                    name = ""
+                    for i in range(3,25):
+                        name = name + str(line[i])
+                    mylist += [name]
+        print(mylist)
+        file = open("files/names/nam_dict_list.txt", "w")
+        file.writelines(mylist)
+        file.close()
+        # cmd1 = 'echo '+ str(mylist) +' > mylist.txt'
+        # print(os.system(cmd1))
+
+
+    def filenamdict2list(self):
+        names = [ ]
+        dataset='files/names/nam_dict_list.txt'
+        with open('files/names/nam_dict_list.txt', 'r') as csvFile:
+            reader = csv.reader(csvFile)
+            for row in reader:
+                names = names + row[0].split()
+        return names
+
+
+
+############################### GUESS ##############################################################
+
     def guess(self, name, binary=False):
     # guess method to check names dictionary
         guess = ''
@@ -248,19 +356,6 @@ class Gender(object):
             else:
                 guess = 'unknown'
         return guess
-
-    def csv2names(self, path='files/names/partial.csv'):
-    # make a list from a csv file
-        csvlist = []
-        with open(path) as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(sexreader, None)
-            for row in sexreader:
-                name = row[0].title()
-                name = name.replace('\"','')
-                csvlist.append(name)
-        return csvlist
-
 
     def guess_list(self, path='files/names/partial.csv', binary=False):
     # guess list method
@@ -299,6 +394,8 @@ class Gender(object):
         self.males = count_males
         self.unknown = count_unknown
         return glist
+
+########################### METHODS ABOUT STATISTICS ##################
 
     def count_true2guess(self, truevector, guessvector, true, guess):
         i = 0
@@ -499,64 +596,6 @@ class Gender(object):
                 count = count + 1
             f.write(line+str(i[count])+"\n")
         f.close()
-
-    def name_frec(self, name, dataset='ine'):
-        if (dataset == 'ine'):
-            du = DameUtils()
-            name = du.drop_accents(name)
-            file_males = open('files/names/names_es/masculinos_original.csv', 'r')
-            inereader_males = csv.reader(file_males, delimiter=',', quotechar='|')
-            males = 0
-            for row in inereader_males:
-                if ((len(row)>1) and (row[1].lower() == name.lower())):
-                    males = row[2]
-                    males = du.drop_dots(males)
-            file_females = open('files/names/names_es/femeninos_original.csv', 'r')
-            inereader_females = csv.reader(file_females, delimiter=',', quotechar='|')
-            females = 0
-            for row in inereader_females:
-                if ((len(row) > 1) and (row[1].lower() == name.lower())):
-                    females = row[2]
-                    females = du.drop_dots(females)
-            dicc = {"females": females, "males": males}
-        elif (dataset == 'uscensus'):
-            du = DameUtils()
-            usfile = open('files/names/yob2017.txt', 'r')
-            usreader = csv.reader(usfile, delimiter=',', quotechar='|')
-            males = 0
-            females = 0
-            for row in usreader:
-                if ((len(row) > 1) and (row[0].lower() == name.lower())):
-                    if (row[1] == 'F'):
-                        females = row[2]
-                    elif (row[1] == 'M'):
-                        males = row[2]
-            dicc = {"females": females, "males": males}
-        elif (dataset == 'ukcensus'):
-            du = DameUtils()
-            name = du.drop_accents(name)
-            file_males = open('files/names/2017boysnames-uk.csv', 'r')
-            reader_males = csv.reader(file_males, delimiter=',', quotechar='|')
-            males = 0
-            for row in reader_males:
-                if (len(row)>1):
-                    ukname = du.drop_accents(du.drop_white_space(row[1])).lower()
-                    if (ukname == name.lower()):
-                        ukname = du.drop_accents(du.drop_white_space(row[1])).lower()
-                        males = row[2]
-                        males = du.drop_dots(males)
-            file_females = open('files/names/2017girlsnames-uk.csv', 'r')
-            reader_females = csv.reader(file_females, delimiter=',', quotechar='|')
-            females = 0
-            for row in reader_females:
-                if (len(row) > 1):
-                    ukname = du.drop_accents(du.drop_white_space(row[1])).lower()
-                    if (ukname == name.lower()):
-                        females = row[2]
-                        females = du.drop_dots(females)
-            dicc = {"females": females, "males": males}
-
-        return dicc
 
     def pca(self, path='files/names/partial.csv', n=2):
         X = np.array(self.features_list())
