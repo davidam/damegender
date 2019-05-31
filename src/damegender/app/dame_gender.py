@@ -307,7 +307,7 @@ class Gender(object):
                     for i in range(3,25):
                         name = name + str(line[i])
                     mylist += [name]
-        print(mylist)
+#        print(mylist)
         file = open("files/names/nam_dict_list.txt", "w")
         file.writelines(mylist)
         file.close()
