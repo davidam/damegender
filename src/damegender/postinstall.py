@@ -26,17 +26,22 @@ from app.dame_sexmachine import DameSexmachine
 
 
 g = Gender()
-print("We are creating files/names/nam_dict_list.txt")
-g.namdict2file()
 
-print("We are creating .sav files data models in files/datamodels")
-print("This process take a long time, you can rest.")
+print("You don't need execute this script in normal conditions. We are going to create some data files, in normal conditions you've downloaded these files cloning the repository. But perhaps you need regenerate these files.")
 
-s = DameSexmachine()
-s.gaussianNB()
-s.svc()
-s.sgd()
-s.multinomialNB()
-s.bernoulliNB()
+yesornot = input("Do you want continue? (Yes/Not) ")
 
-print("This process has finished. You have the models in files/datamodels/*.sav")
+#print(yesornot)
+
+if ((yesornot == "Yes") | (yesornot == "yes") | (yesornot == "Y") | (yesornot == "y")):
+    print("We are creating files/names/nam_dict_list.txt")
+    g.namdict2file()
+    print("We are creating .sav files data models in files/datamodels")
+    print("This process take a long time, you can rest.")
+    s = DameSexmachine()
+    s.gaussianNB()
+    s.svc()
+    s.sgd()
+    s.multinomialNB()
+    s.bernoulliNB()
+    print("This process has finished. You have the models in files/datamodels/*.sav")
