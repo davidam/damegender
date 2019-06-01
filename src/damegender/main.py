@@ -23,12 +23,14 @@
 
 from app.dame_sexmachine import DameSexmachine
 import sys
+import os
+import re
 import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
-parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
-parser.add_argument('--total', default="ine", choices=['ine', 'uscensus', 'ukcensus', 'all'])
+parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
+parser.add_argument('--total', default="ine", choices=['ine', 'uscensus', 'ukcensus', 'all', 'genderguesser'])
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 
@@ -56,7 +58,19 @@ if (len(sys.argv) > 1):
             sex = "unknown"
         print("%s gender is %s" % (str(args.name), sex))
     else:
-        print("%s's gender is %s" % (str(args.name), s.guess(args.name)))
+        if (int(s.name_frec(args.name, dataset=args.total)['males']) > int(s.name_frec(args.name, dataset=args.total)['females'])):
+            print("%s's gender is male" % (str(args.name)))
+        elif (int(s.name_frec(args.name, dataset=args.total)['males']) < int(s.name_frec(args.name, dataset=args.total)['females'])):
+            print("%s's gender is female" % (str(args.name)))
+        else:
+            guess = s.guess(args.name, binary=True, ml="nltk")
+            if (guess == 1):
+                sex = "male"
+            elif (guess == 0):
+                sex = "female"
+            elif (guess == 2):
+                sex = "unknown"
+            print("%s gender predicted is %s" % (str(args.name), sex))
     if (args.total == "ine"):
         print("%s males for %s from INE.es" % (s.name_frec(args.name, dataset=args.total)['males'], args.name))
         print("%s females for %s from INE.es" % (s.name_frec(args.name, dataset=args.total)['females'], args.name))
@@ -76,3 +90,16 @@ if (len(sys.argv) > 1):
         females3 = s.name_frec(args.name, dataset="ukcensus")['females']
         females = int(females1) + int(females2) + int(females3)
         print("%s males and %s females from all census (INE + Uk census + USA census)" % (males, females))
+    elif (args.total == "genderguesser"):
+        cmd = 'grep -i " ' + args.name + ' " files/names/nam_dict.txt > files/grep.tmp'
+        print(cmd)
+        os.system(cmd)
+        results = [i for i in open('files/grep.tmp','r').readlines()]
+        for i in results:
+            regex = "(M|F|=|\?|1)( |M|F)?( )(" + args.name +")"
+            r = re.match(regex, i)
+            if r:
+                if (r.group(1) == "M"):
+                    print("male")
+                elif (r.group(1) == "F"):
+                    print("female")

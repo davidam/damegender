@@ -33,7 +33,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the country")
 args = parser.parse_args()
 
-# Diccionary of countries and person names in files/names/nam_dict.txt
+## Dictionary of countries and person names in files/names/nam_dict.txt
 keyscountries = {"30": "Great Britain", "31": "Ireland", "32": "USA", "33": "Italy", "34": "Malta", "35": "Portugal", "36": "Spain", "37": "France", "38": "Belgium", "39": "Luxembourg", "40": "The Netherlands", "41": "East Frisia", "42": "Germany", "43": "Austria", "44": "Swiss", "45": "Iceland", "46": "Denmark", "47": "Norway", "48": "Sweden", "49": "Finland", "50": "Estonia", "51": "Latvia", "52": "Lithuania", "53": "Poland", "54": "Czech Republic", "55": "Slovakia", "56": "Hungary", "57": "Romania", "58": "Bulgaria", "59": "Bosnia and Herzegovina", "60": "Croatia", "61": "Kosovo", "62": "Macedonia", "63": "Montenegro", "64": "Serbia", "65": "Slovenia", "66": "Albania", "67": "Greece", "68": "Rusia", "69": "Belarus", "70": "Moldova", "71": "Ukraine", "72": "Armenia", "73": "Azerbaijan", "74": "Georgia", "75": "Kazakhstan/Uzbekistan", "76": "Turkey", "77": "Arabia/Persia", "78": "Israel", "79": "China", "80": "India/Sri Lanka", "81": "Japan", "82": "Korea", "83": "Vietnam", "84": "other countries"}
 
 du = DameUtils()
@@ -64,7 +64,7 @@ if (len(sys.argv) > 1):
         if (n.group(6)):
             string = n.group(4) + n.group(5) + str(n.group(6))
         else:
-            string = n.group(4) + n.group(5) 
+            string = n.group(4) + n.group(5)
 
         if (du.drop_white_space(args.name) == du.drop_white_space(string) ):
             for i in range(30, 84):
