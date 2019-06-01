@@ -23,6 +23,10 @@
 
 from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
+from app.dame_utils import DameUtils
+import csv
+from pprint import pprint
+import re
 
 
 g = Gender()
@@ -45,3 +49,15 @@ if ((yesornot == "Yes") | (yesornot == "yes") | (yesornot == "Y") | (yesornot ==
     s.multinomialNB()
     s.bernoulliNB()
     print("This process has finished. You have the models in files/datamodels/*.sav")
+
+    du = DameUtils()
+
+    print("Creating the file files/names/allnoundefined.csv from files/names/all.csv")
+    with open('files/names/all.csv') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',', quotechar='|')
+        filenou = open('files/names/allnoundefined.csv','w+')
+        for row in reader:
+            g = du.drop_quotes(row[4])
+            if ((g == "m") | (g == "f")):
+                filenou.write(row[0]+','+row[1]+','+row[2]+','+row[3]+','+row[4]+','+row[5]+'\n')
+        filenou.close()
