@@ -57,7 +57,9 @@ scale: 1.0
 #+END_SRC
 
 + Poor explicative power
-+ Peer review only with black box tests
++ Peer review only with black box tests 
++ You need pay if you want compute many data (more expensive)
++ You can compute from local massive data (fast)
 
 ** Census Open Data
 
