@@ -47,6 +47,18 @@ $ pip3 install damegender
 $ cd lib/python3.5/site-packages/damegender
 $ python3 main.py David
 #+END_SRC
+
+To install apis extra dependencies:
+#+BEGIN_SRC
+$ pip3 install damegender[apis]
+#+END_SRC
+
+To install mailing lists and repositories extra dependencies:
+#+BEGIN_SRC
+$ pip3 install damegender[mails_and_repositories]
+#+END_SRC
+
+
 ** Obtaining an api key
 
 Currently you can need an api key from:
