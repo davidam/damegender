@@ -57,6 +57,7 @@ scale: 1.0
 #+END_SRC
 
 + Poor explicative power
++ Peer review only with black box tests
 
 ** Census Open Data
 
@@ -68,6 +69,8 @@ David gender is male
 #+END_SRC
 
 + Precise explanation from a Statistical Institute
++ You have the possibility to make peer review in a specific
+  geographical area
 
 ** Give me informative features
 
