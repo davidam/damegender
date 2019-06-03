@@ -35,7 +35,6 @@ from sklearn.linear_model import SGDClassifier
 from sklearn import svm
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
-import hyphen
 import pickle
 from app.dame_gender import Gender
 
@@ -76,8 +75,8 @@ class DameSexmachine(Gender):
             features_int["last_letter_vocal"] = 1
         else:
             features_int["last_letter_vocal"] = 0
-        h = hyphen.Hyphenator('en_US')
-        features_int["syllables"] = len(h.syllables(name))
+        # h = hyphen.Hyphenator('en_US')
+        # features_int["syllables"] = len(h.syllables(name))
         if (ord(name[-1].lower()) == "a"):
             features_int["last_letter_a"] = 1
         else:
@@ -203,7 +202,7 @@ class DameSexmachine(Gender):
         i = 0
         features_int = self.features_int(string)
         while ((name == "") and (len(arr) > i)):
-            if ((self.guess_surname(arr[i]) == False) and (features_int['syllables'] > 0)):
+            if ((self.guess_surname(arr[i]) == False) and (len(string) > 0)):
                 name = arr[i]
             i = i + 1
         return self.guess(name)

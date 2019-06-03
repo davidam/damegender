@@ -24,7 +24,6 @@
 from nltk.corpus import names
 import nltk
 import csv
-import hyphen
 import unidecode
 import unicodedata
 import numpy as np

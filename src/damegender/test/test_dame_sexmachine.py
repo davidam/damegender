@@ -58,7 +58,6 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_sexmachine_features_int_method_returns_correct_result(self):
         s = DameSexmachine()
         f = s.features_int("David")
-        self.assertTrue(f['syllables'] > 0)
         self.assertTrue(len(f) > 0)
 
     def test_dame_sexmachine_guess_method_returns_correct_result(self):
@@ -181,14 +180,14 @@ class TddInPythonExample(unittest.TestCase):
     def test_sexmachine_sgd_load_method_returns_correct_result(self):
         s = DameSexmachine()
         m = s.sgd_load()
-        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1, 0]])
-        n = np.array([2])
+        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1]])
+        n = np.array([1])
         self.assertEqual(n, predicted)
 
     def test_sexmachine_svc_load_method_returns_correct_result(self):
         s = DameSexmachine()
         m = s.svc_load()
-        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1, 0]])
+        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1]])
         n = np.array([1])
         self.assertTrue(np.array_equal(predicted, n))
 
@@ -196,16 +195,16 @@ class TddInPythonExample(unittest.TestCase):
         s = DameSexmachine()
         m = s.multinomialNB_load()
         array = [[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,
-                   0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 0],
+                   0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0],
                  [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1, 0,
-                   0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0, 1]]
+                   0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0]]
         predicted= m.predict(array)
-        n = np.array([1, 1])
+        n = np.array([0, 0])
         self.assertTrue(np.array_equal(predicted, n))
 
     def test_sexmachine_bernoulliNB_load_method_returns_correct_result(self):
         s = DameSexmachine()
         m = s.bernoulliNB_load()
-        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1, 0]])
+        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1]])
         n = np.array([2])
         self.assertTrue(np.array_equal(predicted, n))
