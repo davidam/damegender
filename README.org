@@ -29,7 +29,7 @@ $ docker run -ti damegender/damegender:latest main.py David
 ** Installing Software
 *** Posible Debian/Ubuntu dependencies
 #+BEGIN_SRC
-$ sudo apt-get install python3-nose-exclude dict dict-freedict-eng-spa dict-freedict-spa-eng dictd
+$ sudo apt-get install python3-nose-exclude python3-dev dict dict-freedict-eng-spa dict-freedict-spa-eng dictd
 #+END_SRC
 *** From sources
 #+BEGIN_SRC
