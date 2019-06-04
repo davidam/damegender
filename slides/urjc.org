@@ -74,6 +74,24 @@ David gender is male
 + You have the possibility to make peer review in a specific
   geographical area
 
+** Selecting components with PCA
+
+file:img/pca.png
+
+In this analysis, we can observe 4 components.
+
+The first component is about if the last letter is vocal or
+consonant. If the last letter is vocal we can find a female and if the
+last letter is a consonant we can find a male.
+
+The second component is about the first letter. The last letter is
+determing females and the first letter is determing males.
+
+The third component is not giving relevant information.
+
+The fourth component is giving tha last_letter_a and the
+first_letter_vocal is for females.
+
 ** Give me informative features
 
 #+BEGIN_SRC
