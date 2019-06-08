@@ -26,40 +26,8 @@ import re
 from setuptools import setup
 
 
-cwd = os.getcwd()
-
-def files_one_level(directory):
-    f = os.popen('find '+ directory )
-    l = []
-    for line in f:
-        fields = line.strip().split()
-        l.append(fields[0])
-    return l
-
-def files_one_level_drop_pwd(directory):
-    f = os.popen('find '+ directory)
-    l = []
-    for line in f:
-        fields = line.strip().split()
-        if not(os.path.isdir(fields[0])) and ("__init__.py" not in fields[0]):
-            l.append(drop_pwd(fields[0]))
-    return l
-
-def drop_pwd(s):
-    cwd = os.getcwd()
-    result = ""
-    if re.search(cwd, s):
-        result = re.sub(cwd+'/', '', s)
-    return result
-
-
-
-#files_one_level_drop_pwd
-#print(du.files_one_level_drop_pwd("~/git/damegender/src/damegender/files"))
-print(files_one_level_drop_pwd(cwd+"/src/damegender/files/names"))
-
 setup(name='damegender',
-      version='0.0.52',
+      version='0.0.74',
       description='Gender Detection Tool by David Arroyo MEnéndez',
       long_description='Gender Detection Tool by David Arroyo MEnéndez',
       classifiers=[
@@ -67,32 +35,37 @@ setup(name='damegender',
           "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
           "Operating System :: OS Independent",
       ],
-      keywords='gender repositories',
+      keywords='gender, repositories',
       url='http://github.com/davidam/damegender',
       author='David Arroyo Menéndez',
       author_email='davidam@gnu.org',
       license='GPLv3',
       packages=['damegender', 'damegender.app', 'damegender.test', 'damegender.files'],
-      package_dir={'damegender': 'src/damegender', 'damegender.app': 'src/damegender/app', 'damegender.test': 'src/damegender/test', 'damegender.files': 'src/damegender/files'},
-#      data_files=[('damegender', ['src/damegender/files/features_list.csv', 'src/damegender/files/features_list_cat.csv', 'src/damegender/files/features_list_no_cat.csv', 'src/damegender/files/names/all.csv', 'src/damegender/files/names/partial.csv', 'src/damegender/files/names/names_es/femeninos_original.csv', 'src/damegender/files/names/names_es/masculinos_original.csv', 'src/damegender/files/names/names_es/masculinos.txt', 'src/damegender/files/names/names_es/femeninos.txt'])],
-      data_files=[('damegender', ['src/damegender/files/features_list.csv', 'src/damegender/files/features_list_cat.csv', 'src/damegender/files/features_list_no_cat.csv'] + files_one_level_drop_pwd(cwd+"/src/damegender/files/images") + files_one_level_drop_pwd(cwd+"/src/damegender/files/datamodels") + files_one_level_drop_pwd(cwd+"/src/damegender/files/mbox") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names"))],
-      scripts=files_one_level(cwd+"/src/damegender/"),
+      package_dir={'damegender': 'src/damegender', 'damegender.app': 'src/damegender/app', 'damegender.test': 'src/damegender/test', 'damegender.files': 'src/damegender/files', 'damegender.names': 'src/damegender/files/names', 'damegender.names_es': 'src/damegender/files/names/names_es', 'damegender.images': 'src/damegender/files/images', 'damegender.datamodels': 'src/damegender/files/datamodels', 'damegender.root': '.'},
+      package_data={'damegender': ['*'],
+                    'damegender.app': ['*'],
+                    'damegender.test': ['*'],                    
+                    'damegender.files': ['*'],
+                    'damegender.names': ['*'],
+                    'damegender.names_es': ['*'],
+                    'damegender.images': ['*'],
+                    'damegender.datamodels': ['*'],
+                    'damegender.root': ['*']},      
       install_requires=[
           'markdown',
           'nltk',
-          'perceval',
           'requests',
-          'gender_guesser',
-          'genderize',
           'numpy',
           'scikit-learn',
-          'pyhyphen',
           'unidecode',
           'pandas',
           'matplotlib',
-          'google-api-python-client',
           'json2html',
       ],
+      extras_require = {
+          'mails_and_repositories' : ["perceval"],
+          'apis': ["gender_guesser", "genderize", "google-api-python-client"],
+      },
       test_suite='nose.collector',
       tests_require=['nose', 'nose-cover3'],
       entry_points={

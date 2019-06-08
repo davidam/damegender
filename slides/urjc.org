@@ -10,12 +10,12 @@
 * Summary
 ** Abstract
 
-Nowadays there are various APIs to detect gender from a name. In this
-paper, we offer a tool to use and compare these apis and a method to
-classify male and female applying machine learning and using
-a free license. The gender detection from a name is useful to make
-gender studies from social networks, mailing lists, software
-repositories, articles, etc.
+Nowadays there are various APIs to detect gender from a name. In these
+slides, we offer a tool to use and compare these apis and a method to
+classify male and female applying machine learning and using a free
+license. The gender detection from a name is useful to make gender
+studies from social networks, mailing lists, software repositories,
+articles, etc.
 
 ** Download source and article to a make a good tracing
 
@@ -23,12 +23,14 @@ repositories, articles, etc.
 
 ** Social Need (I)
 
-The value to detect the gender in a name using machine learning is
-related with new names don't registered in census as male or female.
-On situations using *nicknames, new names, diminutives*, ... the humans
-knows the gender in an intuitive way. Lingüistic features and
-statistics about male or female, countries, ... in a name could be
-interesting to decide give a name to a baby.
+Traditional approaches for inferring the gender given a name are
+based on the use of census data and specific APIs that tend to use also
+census data. I propose to use ML techniques to complement them, so that
+it can be applied to *nicknames, new names, diminutives*, etc. that
+usually do not appear in census data. The underlying assumption that
+lead me to this approach is that we humans tend to have a certain
+intuition, that commonly works, to infer the gender of a name even if
+it is the first time we see it
 
 ** Social Need (II)
 
@@ -38,7 +40,7 @@ Engineering, Mathematics and Medicine). Create *free tools* and
 improve the current state of art allows measure and later create
 policies with facts to fix the situation.
 
-** Underlying Scientific Technologies
+** Underlying Technologies
 
 + Scikit
 + NLTK
@@ -46,7 +48,7 @@ policies with facts to fix the situation.
 + Matplotlib
 + Perceval
 
-** Datasets
+** APIs with Datasets
 
 #+BEGIN_SRC
 $ python3 api2gender.py Laura --surname="Cornejo" --api=namsor
@@ -55,6 +57,9 @@ scale: 1.0
 #+END_SRC
 
 + Poor explicative power
++ Peer review only with black box tests 
++ You need pay if you want compute many data (more expensive)
++ You can compute from local massive data (fast)
 
 ** Census Open Data
 
@@ -66,6 +71,26 @@ David gender is male
 #+END_SRC
 
 + Precise explanation from a Statistical Institute
++ You have the possibility to make peer review in a specific
+  geographical area
+
+** Selecting components with PCA
+
+file:img/pca.png
+
+In this analysis, we can observe 4 components.
+
+The first component is about if the last letter is vocal or
+consonant. If the last letter is vocal we can find a female and if the
+last letter is a consonant we can find a male.
+
+The second component is about the first letter. The last letter is
+determing females and the first letter is determing males.
+
+The third component is not giving relevant information.
+
+The fourth component is giving tha last_letter_a and the
+first_letter_vocal is for females.
 
 ** Give me informative features
 
@@ -116,6 +141,14 @@ $ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce
 The number of males sending mails is 6
 The number of females sending mails is 0
 #+END_SRC
+
+** Future Work
+
+Damegender is a tool to research in gender gap. So, the future work is
+to understand the massive gender gap with an empirical approach.
+
+The public mailing list and software repositories is a big public data
+source in this sense.
 
 ** Conclusions
 
