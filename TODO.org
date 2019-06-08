@@ -1,8 +1,9 @@
 #+TODO: TODO(t) POSIBLE(p) POSSIBLE(p) GOING(g) FUTURE(f) | DONE(d!) CANCELED(c!)
 
 
-* TODO gsoc applications open March 25, 2019 at 19:00
+* DONE gsoc applications open March 25, 2019 at 19:00
   SCHEDULED: <2019-03-25 lun 19:00>
+  - State "DONE"       from "TODO"       [2019-06-07 vie 15:58]
 * DONE Reflexionar la manera de nombrar las clases
   SCHEDULED: <2018-12-11 mar>
   - State "DONE"       from "TODO"       [2018-12-11 mar 16:12]
@@ -717,9 +718,9 @@ wget -c https://avatars2.githubusercontent.com/u/1023217
   - State "DONE"       from "TODO"       [2019-03-22 vie 22:53]
 1. Dar 2 argumentos datasetfile y census (es, uk, usa, ...)
 2. Si existe datasetfile aplica datasetfile, sino aplica census
-* TODO Escribir damegender con un fichero main.py y el __init__.py
-* TODO En pca-features tener en consideración nombres 0 o 1
+* DONE En pca-features tener en consideración nombres 0 o 1
   SCHEDULED: <2019-02-24 dom>
+  - State "DONE"       from "TODO"       [2019-06-07 vie 15:57]
 * TODO Escribir la desviación típica en la elección de male or female
   SCHEDULED: <2019-02-24 dom>
 * DONE Urls dando problemas en lo del kernel
@@ -745,3 +746,50 @@ pip3 install dametowel
 * TODO Escribir average_weighted
 Dado un nombre, tenemos la frecuencia del nombre y la población en
 tres datasets, crear la media ponderada.
+* TODO Crear una comparativa de eficiencia
+  SCHEDULED: <2019-05-16 jue>
+* TODO Revisar dataset2genderlist con todos los datasets
+  SCHEDULED: <2019-05-30 jue>
+* TODO Revisar los métodos males y females para todos los datasets
+  SCHEDULED: <2019-05-31 vie>
+* DONE Introducir gender guesser en main.py
+  SCHEDULED: <2019-05-30 jue>
+  - State "DONE"       from "TODO"       [2019-05-30 jue 16:50]
+* POSIBLE Métodos hacia dame_dataset
++ [ ]    def males_list(self):
++ [ ]    def females_list(self):
++ [ ]    def name2gender_in_dataset(self, name, dataset=''):
++ [ ]    def dataset2genderlist(self, dataset=''):
++ [ ]    def csv2names(self, path='files/names/partial.csv'):
++ [ ]    def gender_list(self, path='files/names/partial.csv'):
++ [ ]    def name_frec(self, name, dataset='ine'):
++ [ ]    def namdict2file():
++ [ ]    def filenamdict2list():
+* DONE Mejorar postinstall
+  SCHEDULED: <2019-05-31 vie>
+  - State "DONE"       from "TODO"       [2019-06-01 sáb 17:01]
+Crear un solo fichero desde:
++ damemodels.py
++ namdictlist2file.py
+https://stackoverflow.com/questions/20288711/post-install-script-with-python-setuptools
+* DONE Echar un vistazo a:
+  SCHEDULED: <2019-05-31 vie>
+  - State "DONE"       from "TODO"       [2019-06-07 vie 15:56]
++ https://github.com/chaoss/grimoirelab-sortinghat/blob/master/setup.py
+     package_data={'sortinghat.templates': ['*.tmpl'],
+                    'sortinghat.data': ['*'],
+                    },
+* DONE Hay problemas con Alex
+  SCHEDULED: <2019-05-31 vie>
+  - State "DONE"       from "TODO"       [2019-06-01 sáb 09:50]
+$ python3 main.py Alex
+Alex gender is female
+41351  males for Alex from INE.es
+140  females for Alex from INE.es
+* TODO Crear fichero performance.sh para ver la velocidad de respuesta de las diferentes APIs
+  SCHEDULED: <2019-06-01 sáb>
+* DONE Escribir nameincountries.py
+  SCHEDULED: <2019-06-07 vie>
+  - State "DONE"       from "TODO"       [2019-06-07 vie 15:59]
+* TODO En confusion.py hay un lío con nameapi
+  SCHEDULED: <2019-06-07 vie>
