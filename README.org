@@ -58,7 +58,6 @@ To install mailing lists and repositories extra dependencies:
 $ pip3 install damegender[mails_and_repositories]
 #+END_SRC
 
-
 ** Obtaining an api key
 
 Currently you can need an api key from:
@@ -186,10 +185,6 @@ Sexmachine confusion matrix:
  [[2 0 0]
  [0 5 0]
  [1 0 0]]
-Nameapi confusion matrix:
- [[0 0 2]
- [0 0 5]
- [0 0 1]]
 
 # To analyze errors guessing names from a csv
 $ python3 errors.py --csv="files/names/all.csv" --api="genderguesser"
@@ -203,8 +198,8 @@ Gender Guesser with files/names/all.csv has:
 $ python3 corr.py
 $ python3 corr.py --csv="categorical"
 $ python3 corr.py --csv="nocategorical"
-# To create the pickle models in files directory
-$ python3 damemodels.py
+# To create files from scripts. Example: the pickle models, or csv processed from original files.
+$ python3 postinstall.py
 # Experiments to determine features with weight (not finished)
 $ python3 pca-components.py --csv="files/features_list.csv" # To determine number of components
 $ python3 pca-features.py                                   # To understand the weight between variables for a target
