@@ -311,6 +311,20 @@ Namsor with files/names/all.csv has:
 | The na coded              |  0.09517217511680222 |
 | The error gender bias     | 0.011665710460891184 |
 
+** Performance
++ GenderGuesser accuracy: 0.6902204635387225
+real	160m58.742s
+user	44m47.532s
+sys	0m56.024s
+
++ Dame Gender accuracy: 0.6677501413227812
+real	129m23.082s
+user	53m12.640s
+sys	0m32.040s
+
+
+
+
 * Statistics for damegender
 Some theory could be useful to understand some commands
 ** Errors and Confusion Matrix
