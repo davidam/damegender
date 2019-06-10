@@ -71,12 +71,12 @@ if (args.api == "all"):
 
     ds = DameSexmachine()
     if (args.dimensions == "3x2"):
-        print("Sexmachine confusion matrix:\n")
+        print("Damegender confusion matrix:\n")
         ds.print_confusion_matrix_dame(path=args.csv, ml=args.ml)
     elif (args.dimensions == "3x3"):
         ds = DameSexmachine()
         sexmachine_confusion_matrix = ds.confusion_matrix(path=args.csv)
-        print("Sexmachine confusion matrix:\n %s" % sexmachine_confusion_matrix)
+        print("Damegender confusion matrix:\n %s" % sexmachine_confusion_matrix)
 
     # dna = DameNameapi()
     # if (args.dimensions == "3x2"):
@@ -118,12 +118,12 @@ elif (args.api == "genderguesser"):
 elif (args.api == "damegender"):
     ds = DameSexmachine()
     if (args.dimensions == "3x2"):
-        print("Sexmachine confusion matrix:\n")
+        print("Damegender confusion matrix:\n")
         ds.print_confusion_matrix_dame(path=args.csv, ml=args.ml)
     elif (args.dimensions == "3x3"):
         ds = DameSexmachine()
         sexmachine_confusion_matrix = ds.confusion_matrix(path=args.csv)
-        print("Sexmachine confusion matrix:\n %s" % sexmachine_confusion_matrix)
+        print("Damegender confusion matrix:\n %s" % sexmachine_confusion_matrix)
 
 # elif (args.api == "nameapi"):
 #     dna = DameNameapi()
