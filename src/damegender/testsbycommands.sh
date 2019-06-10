@@ -100,3 +100,12 @@ then
 else
 	echo "confusiondamegender test is ok"
 fi
+
+python3 confusion.py --api="genderguesser" --dimensions=3x2 --csv=files/names/min.csv > files/tests/confusiongenderguesser-$(date "+%y-%m-%d-%H").txt
+
+if ! cmp files/tests/confusiongenderguesser.txt files/tests/confusiongenderguesser-$(date "+%y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "confusiongenderguesser test is failing"
+else
+	echo "confusiongenderguesser test is ok"
+fi
