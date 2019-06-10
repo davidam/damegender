@@ -662,18 +662,6 @@ F1 = 2 * (precision * recall) / (precision + recall)
 * DONE Probar lo de pillar una api key de google
   SCHEDULED: <2019-02-18 lun>
   - State "DONE"       from "TODO"       [2019-03-13 mié 17:59]
-* DONE Para la Beatriz
-  - State "DONE"       from "TODO"       [2019-02-18 lun 09:43]
-Emacs sabe que eras la más bella
-Por eso con IA Madrid me cierra la puerta
-El sur las abre en Mayo
-Trataré de escapar de la capital del reino
-Para verte efectivamente con mi caballo.
-
-References:
-+ https://www.opensouthcode.org/conferences/opensouthcode2019
-+ https://orgmode.org/worg/org-tutorials/org-effectiveness.html
-+
 * TODO Flask
   SCHEDULED: <2019-02-18 lun>
 https://medium.com/ymedialabs-innovation/deploy-flask-app-with-nginx-using-gunicorn-and-supervisor-d7a93aa07c18
@@ -786,10 +774,20 @@ $ python3 main.py Alex
 Alex gender is female
 41351  males for Alex from INE.es
 140  females for Alex from INE.es
-* TODO Crear fichero performance.sh para ver la velocidad de respuesta de las diferentes APIs
+* DONE Empezar fichero performance.sh para ver la velocidad de respuesta de las diferentes APIs
   SCHEDULED: <2019-06-01 sáb>
+  - State "DONE"       from "TODO"       [2019-06-09 dom 17:58]
 * DONE Escribir nameincountries.py
   SCHEDULED: <2019-06-07 vie>
   - State "DONE"       from "TODO"       [2019-06-07 vie 15:59]
 * TODO En confusion.py hay un lío con nameapi
   SCHEDULED: <2019-06-07 vie>
+* DONE Puesto que uno de los componentes de PCA nos ha dado que la primera letra podría indicar género estaría bien hacer un infofeatures por vocal o consonante
+  - State "DONE"       from "TODO"       [2019-06-10 lun 11:09]
+Parece que esa no sería la pista:
+---------------------------------------------------------------
+Females with first letter consonant: 0.7968786216487677
+Males with first letter consonant: 0.7735667564447865
+---------------------------------------------------------------
+Females with first letter vocal: 0.2030441165108553
+Males with first letter vocal: 0.22633705271258175
