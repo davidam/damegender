@@ -76,7 +76,6 @@ David gender is male
 
 ** Selecting components with PCA
 
-file:img/pca.png
 
 In this analysis, we can observe 4 components.
 
@@ -89,8 +88,8 @@ determing females and the first letter is determing males.
 
 The third component is not giving relevant information.
 
-The fourth component is giving tha last_letter_a and the
-first_letter_vocal is for females.
+The fourth component is giving tha last letter a and the
+first letter vocal is for females.
 
 ** Give me informative features
 
@@ -141,6 +140,19 @@ $ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce
 The number of males sending mails is 6
 The number of females sending mails is 0
 #+END_SRC
+
+** Dissemination
+
+We have presented this working in progress in one scientific event:
++ http://gregoriorobles.github.io/MadSESE/201906.html
+
+We have presented this working in progress in different industrial
+events: Python Barcelona, Open South Code and Medialab Prado.
++ https://www.youtube.com/watch?v=dvN0lMgQ9Pc
++ https://www.opensouthcode.org/conferences/opensouthcode2019/program/proposals/183
++ https://www.medialab-prado.es/actividades/procesamiento-de-lenguaje-natural-con-python-nltk
+
+Our idea is present an article finished this academic year.
 
 ** Future Work
 
