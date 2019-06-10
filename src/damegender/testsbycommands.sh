@@ -29,6 +29,15 @@ else
     echo "maindavid test is ok"
 fi
 
+python3 main.py Inés > files/tests/mainines-$(date "+%y-%m-%d-%H").txt
+
+if ! cmp files/tests/mainines.txt files/tests/mainines-$(date "+%y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "mainines test is failing"
+else
+	echo "mainines test is ok"
+fi
+
 python3 main.py Alex > files/tests/mainalex-$(date "+%y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainalex.txt files/tests/mainalex-$(date "+%y-%m-%d-%H").txt >/dev/null 2>&1
@@ -72,4 +81,22 @@ then
 	echo "accuracymin test is failing"
 else
 	echo "accuracymin test is ok"
+fi
+
+python3 accuracy.py --api="genderguesser" --csv=files/names/min.csv > files/tests/accuracygenderguesser-$(date "+%y-%m-%d-%H").txt
+
+if ! cmp files/tests/accuracygenderguesser.txt files/tests/accuracygenderguesser-$(date "+%y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "accuracygenderguesser test is failing"
+else
+	echo "accuracygenderguesser test is ok"
+fi
+
+python3 confusion.py --api="damegender" --dimensions=3x2 --csv=files/names/min.csv > files/tests/confusiondamegender-$(date "+%y-%m-%d-%H").txt
+
+if ! cmp files/tests/confusiondamegender.txt files/tests/confusiondamegender-$(date "+%y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "confusiondamegender test is failing"
+else
+	echo "confusiondamegender test is ok"
 fi
