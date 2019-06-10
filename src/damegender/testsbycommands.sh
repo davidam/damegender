@@ -64,3 +64,12 @@ then
 else
 	echo "nameincountries test is ok"
 fi
+
+python3 accuracy.py --csv=files/names/min.csv > files/tests/accuracymin-$(date "+%y-%m-%d-%H").txt
+
+if ! cmp files/tests/accuracymin.txt files/tests/accuracymin-$(date "+%y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "accuracymin test is failing"
+else
+	echo "accuracymin test is ok"
+fi
