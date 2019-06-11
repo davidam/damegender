@@ -34,7 +34,22 @@ parser.add_argument('--total', default="ine", choices=['ine', 'genderguesser'])
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 
-if (len(sys.argv) > 1):
+
+if (args.total == "genderguesser"):
+        cmd = 'grep -i " ' + args.name + ' " files/names/nam_dict.txt > files/grep.tmp'
+        print(cmd)
+        os.system(cmd)
+        results = [i for i in open('files/grep.tmp','r').readlines()]
+
+        for i in results:
+            regex = "(M|F|=|\?|1)( |M|F)?( )(" + args.name +")"
+            r = re.match(regex, i)
+            if r:
+                if (r.group(1) == "M"):
+                    print("male")
+                elif (r.group(1) == "F"):
+                    print("female")
+else:
     s = DameSexmachine()
     if (int(s.name_frec(args.name, dataset=args.total)['males']) > int(s.name_frec(args.name, dataset=args.total)['females'])):
         print("%s's gender is male" % (str(args.name)))
@@ -72,16 +87,4 @@ if (len(sys.argv) > 1):
     if (args.total == "ine"):
         print("%s males for %s from INE.es" % (s.name_frec(args.name, dataset=args.total)['males'], args.name))
         print("%s females for %s from INE.es" % (s.name_frec(args.name, dataset=args.total)['females'], args.name))
-    elif (args.total == "genderguesser"):
-        cmd = 'grep -i " ' + args.name + ' " files/names/nam_dict.txt > files/grep.tmp'
-        print(cmd)
-        os.system(cmd)
-        results = [i for i in open('files/grep.tmp','r').readlines()]
-        for i in results:
-            regex = "(M|F|=|\?|1)( |M|F)?( )(" + args.name +")"
-            r = re.match(regex, i)
-            if r:
-                if (r.group(1) == "M"):
-                    print("male")
-                elif (r.group(1) == "F"):
-                    print("female")
+#
