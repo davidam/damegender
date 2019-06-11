@@ -44,6 +44,8 @@ if (len(sys.argv) > 1):
         print("%s's gender is female" % (str(args.name)))
         prob = int(s.name_frec(args.name, dataset=args.total)['females']) / (int(s.name_frec(args.name, dataset=args.total)['females']) + int(s.name_frec(args.name, dataset=args.total)['males']))
         print("probability: %s" % str(prob))
+    elif ((int(s.name_frec(args.name, dataset=args.total)['males']) == 0) and (int(s.name_frec(args.name, dataset=args.total)['females']) == 0)):
+        args.ml = 'nltk'
 
     if (args.ml):
         #print(s.guess("Palabra", binary=True, ml="svc"))
