@@ -56,6 +56,43 @@ else
 	echo "mainandrea test is ok"
 fi
 
+python3 main.py "Jesús María" > files/tests/mainjesusmaria-$(date "+%y-%m-%d-%H").txt
+
+if ! cmp files/tests/mainjesusmaria.txt files/tests/mainjesusmaria-$(date "+%y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "mainjesusmaria test is failing"
+else
+	echo "mainjesusmaria test is ok"
+fi
+
+python3 main.py "José María" > files/tests/mainjosemaria-$(date "+%y-%m-%d-%H").txt
+
+if ! cmp files/tests/mainjosemaria.txt files/tests/mainjosemaria-$(date "+%y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "mainjosemaria test is failing"
+else
+	echo "mainjosemaria test is ok"
+fi
+
+python3 main.py "Jesús" --total=genderguesser > files/tests/mainjesusgenderguesser-$(date "+%y-%m-%d-%H").txt
+
+if ! cmp files/tests/mainjesusgenderguesser.txt files/tests/mainjesusgenderguesser-$(date "+%y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "mainjesusgenderguesser test is failing"
+else
+	echo "mainjesusgenderguesser test is ok"
+fi
+
+python3 main.py "Sara" --total=genderguesser > files/tests/mainsaragenderguesser-$(date "+%y-%m-%d-%H").txt
+
+if ! cmp files/tests/mainsaragenderguesser.txt files/tests/mainsaragenderguesser-$(date "+%y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "mainsaragenderguesser test is failing"
+else
+	echo "mainsaragenderguesser test is ok"
+fi
+
+
 python3 main.py Mesa --ml=nltk > files/tests/mainmesa-$(date "+%y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainmesa.txt files/tests/mainmesa-$(date "+%y-%m-%d-%H").txt >/dev/null 2>&1
