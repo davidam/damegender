@@ -36,12 +36,13 @@ args = parser.parse_args()
 
 
 if (args.total == "genderguesser"):
-        cmd = 'grep -i " ' + args.name + ' " files/names/nam_dict.txt > files/grep.tmp'
+
+        cmd = 'grep -i " ' + args.name.capitalize() + ' " files/names/nam_dict.txt > files/grep.tmp'
         print(cmd)
         os.system(cmd)
         results = [i for i in open('files/grep.tmp','r').readlines()]
         for i in results:
-            regex = "(M|F|=|\?|1)( |M|F)?( )(" + args.name +")"
+            regex = "(M|F|=|\?|1)( |M|F)?( )(" + args.name.capitalize() +")"
             r = re.match(regex, i)
             prob = r.group(1) + r.group(2)
             if (('F' == prob) or ('F ' == prob)):
