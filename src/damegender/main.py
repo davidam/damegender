@@ -30,7 +30,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
-parser.add_argument('--total', default="ine", choices=['ine', 'uscensus', 'ukcensus', 'all', 'genderguesser'])
+parser.add_argument('--total', default="ine", choices=['ine', 'genderguesser'])
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 
