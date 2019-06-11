@@ -40,15 +40,31 @@ if (args.total == "genderguesser"):
         print(cmd)
         os.system(cmd)
         results = [i for i in open('files/grep.tmp','r').readlines()]
-
         for i in results:
             regex = "(M|F|=|\?|1)( |M|F)?( )(" + args.name +")"
             r = re.match(regex, i)
-            if r:
-                if (r.group(1) == "M"):
-                    print("male")
-                elif (r.group(1) == "F"):
-                    print("female")
+            prob = r.group(1) + r.group(2)
+            if (('F' == prob) or ('F ' == prob)):
+                print("female")
+                print("prob: fully female")
+            elif (prob == '?F'):
+                print("female")
+                print("prob: mostly female")
+            elif (prob == '1F'):
+                print("female")
+                print("prob: female name, if first part of name; mostly female name")
+            elif (('M' == prob) or ('M ' == prob)):
+                print("male")
+                print("prob: fully male")
+            elif (prob == '?M'):
+                print("male")
+                print("prob: mostly male")
+            elif (prob == '1M'):
+                print("male")
+                print("prob: male name, if first part of name; mostly male name")
+            elif (prob == '? '):
+                print("unknow")
+                print("you can try predict with --ml")
 else:
     s = DameSexmachine()
     if (int(s.name_frec(args.name, dataset=args.total)['males']) > int(s.name_frec(args.name, dataset=args.total)['females'])):
