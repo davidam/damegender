@@ -92,6 +92,15 @@ else
 	echo "mainsaragenderguesser test is ok"
 fi
 
+python3 main.py sara --total=genderguesser > files/tests/mainsara2genderguesser-$(date "+%y-%m-%d-%H").txt
+
+if ! cmp files/tests/mainsara2genderguesser.txt files/tests/mainsara2genderguesser-$(date "+%y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "mainsara2genderguesser test is failing"
+else
+	echo "mainsara2genderguesser test is ok"
+fi
+
 
 python3 main.py Mesa --ml=nltk > files/tests/mainmesa-$(date "+%y-%m-%d-%H").txt
 
