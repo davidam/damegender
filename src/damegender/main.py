@@ -36,6 +36,15 @@ args = parser.parse_args()
 
 if (len(sys.argv) > 1):
     s = DameSexmachine()
+    if (int(s.name_frec(args.name, dataset=args.total)['males']) > int(s.name_frec(args.name, dataset=args.total)['females'])):
+        print("%s's gender is male" % (str(args.name)))
+        prob = int(s.name_frec(args.name, dataset=args.total)['males']) / (int(s.name_frec(args.name, dataset=args.total)['males']) + int(s.name_frec(args.name, dataset=args.total)['females']))
+        print("probability: %s" % str(prob))
+    elif (int(s.name_frec(args.name, dataset=args.total)['males']) < int(s.name_frec(args.name, dataset=args.total)['females'])):
+        print("%s's gender is female" % (str(args.name)))
+        prob = int(s.name_frec(args.name, dataset=args.total)['females']) / (int(s.name_frec(args.name, dataset=args.total)['females']) + int(s.name_frec(args.name, dataset=args.total)['males']))
+        print("probability: %s" % str(prob))
+
     if (args.ml):
         #print(s.guess("Palabra", binary=True, ml="svc"))
         if (args.ml == "nltk"):
@@ -56,40 +65,11 @@ if (len(sys.argv) > 1):
             sex = "female"
         elif (guess == 2):
             sex = "unknown"
-        print("%s gender is %s" % (str(args.name), sex))
-    else:
-        if (int(s.name_frec(args.name, dataset=args.total)['males']) > int(s.name_frec(args.name, dataset=args.total)['females'])):
-            print("%s's gender is male" % (str(args.name)))
-        elif (int(s.name_frec(args.name, dataset=args.total)['males']) < int(s.name_frec(args.name, dataset=args.total)['females'])):
-            print("%s's gender is female" % (str(args.name)))
-        else:
-            guess = s.guess(args.name, binary=True, ml="nltk")
-            if (guess == 1):
-                sex = "male"
-            elif (guess == 0):
-                sex = "female"
-            elif (guess == 2):
-                sex = "unknown"
-            print("%s gender predicted is %s" % (str(args.name), sex))
+        print("%s gender predicted is %s" % (str(args.name), sex))
+
     if (args.total == "ine"):
         print("%s males for %s from INE.es" % (s.name_frec(args.name, dataset=args.total)['males'], args.name))
         print("%s females for %s from INE.es" % (s.name_frec(args.name, dataset=args.total)['females'], args.name))
-    elif (args.total == "uscensus"):
-        print("%s males for %s from US Census (2017)" % (s.name_frec(args.name, dataset=args.total)['males'], args.name))
-        print("%s females for %s from US Census (2017)" % (s.name_frec(args.name, dataset=args.total)['females'], args.name))
-    elif (args.total == "ukcensus"):
-        print("%s males for %s from UK Census (2017)" % (s.name_frec(args.name, dataset=args.total)['males'], args.name))
-        print("%s females for %s from UK Census (2017)" % (s.name_frec(args.name, dataset=args.total)['females'], args.name))
-    elif (args.total == "all"):
-        males1 = s.name_frec(args.name, dataset="ine")['males']
-        males2 = s.name_frec(args.name, dataset="uscensus")['males']
-        males3 = s.name_frec(args.name, dataset="ukcensus")['males']
-        males = int(males1) + int(males2) + int(males3)
-        females1 = s.name_frec(args.name, dataset="ine")['females']
-        females2 = s.name_frec(args.name, dataset="uscensus")['females']
-        females3 = s.name_frec(args.name, dataset="ukcensus")['females']
-        females = int(females1) + int(females2) + int(females3)
-        print("%s males and %s females from all census (INE + Uk census + USA census)" % (males, females))
     elif (args.total == "genderguesser"):
         cmd = 'grep -i " ' + args.name + ' " files/names/nam_dict.txt > files/grep.tmp'
         print(cmd)
