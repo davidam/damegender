@@ -1,0 +1,4 @@
+David's gender is male
+probability: 1.0
+363559  males for David from INE.es
+0 females for David from INE.es

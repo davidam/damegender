@@ -172,10 +172,10 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(gender1, 'male')
         self.assertTrue(gender2, 'female')
 
-    # def test_sexmachine_sgd_method_returns_correct_result(self):
-    #     s = DameSexmachine()
-    #     m = s.sgd()
-    #     self.assertTrue(os.path.isfile("files/sgd_model.sav"))
+    def test_sexmachine_sgd_method_returns_correct_result(self):
+        s = DameSexmachine()
+        m = s.sgd()
+        self.assertTrue(os.path.isfile("files/datamodels/sgd_model.sav"))
 
     def test_sexmachine_sgd_load_method_returns_correct_result(self):
         s = DameSexmachine()
@@ -199,7 +199,7 @@ class TddInPythonExample(unittest.TestCase):
                  [ 0,  0,  0,  0, 21,  0,  0,  0,  0, 34,  0,  0,  0,  0,  0,  1, 0,
                    0,  0,  0,  5,  0,  0,  1,  0,  0,  1,  0,  0,  1, 34,  0,  0]]
         predicted= m.predict(array)
-        n = np.array([0, 0])
+        n = np.array([1, 1])
         self.assertTrue(np.array_equal(predicted, n))
 
     def test_sexmachine_bernoulliNB_load_method_returns_correct_result(self):

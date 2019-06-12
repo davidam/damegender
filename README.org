@@ -58,7 +58,6 @@ To install mailing lists and repositories extra dependencies:
 $ pip3 install damegender[mails_and_repositories]
 #+END_SRC
 
-
 ** Obtaining an api key
 
 Currently you can need an api key from:
@@ -186,10 +185,6 @@ Sexmachine confusion matrix:
  [[2 0 0]
  [0 5 0]
  [1 0 0]]
-Nameapi confusion matrix:
- [[0 0 2]
- [0 0 5]
- [0 0 1]]
 
 # To analyze errors guessing names from a csv
 $ python3 errors.py --csv="files/names/all.csv" --api="genderguesser"
@@ -203,8 +198,8 @@ Gender Guesser with files/names/all.csv has:
 $ python3 corr.py
 $ python3 corr.py --csv="categorical"
 $ python3 corr.py --csv="nocategorical"
-# To create the pickle models in files directory
-$ python3 damemodels.py
+# To create files from scripts. Example: the pickle models, or csv processed from original files.
+$ python3 postinstall.py
 # Experiments to determine features with weight (not finished)
 $ python3 pca-components.py --csv="files/features_list.csv" # To determine number of components
 $ python3 pca-features.py                                   # To understand the weight between variables for a target
@@ -315,6 +310,20 @@ Namsor with files/names/all.csv has:
 | The error code without na | 0.041499330655957165 |
 | The na coded              |  0.09517217511680222 |
 | The error gender bias     | 0.011665710460891184 |
+
+** Performance
++ GenderGuesser accuracy: 0.6902204635387225
+real	160m58.742s
+user	44m47.532s
+sys	0m56.024s
+
++ Dame Gender accuracy: 0.6677501413227812
+real	129m23.082s
+user	53m12.640s
+sys	0m32.040s
+
+
+
 
 * Statistics for damegender
 Some theory could be useful to understand some commands
@@ -551,3 +560,6 @@ The third component is not giving relevant information.
 
 The fourth component is giving tha last_letter_a and the
 first_letter_vocal is for females.
+* Beautiful Snakes
+
+| [[file:src/damegender/files/images/violet-snake2.png]] |
