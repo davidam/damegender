@@ -43,6 +43,9 @@ class TddInPythonExample(unittest.TestCase):
         x= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
         sp = u.split(x, 5)
         self.assertEqual(sp, [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13]])
+        y = list(range(1, 100))
+        ysp = u.split(y, 10)
+        self.assertEqual(ysp[0:2], [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]])
 
     def test_drop_dots_method_returns_correct_result(self):
         u = DameUtils()
