@@ -27,6 +27,7 @@ import json
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
 
+
 class DameGenderApi(Gender):
 
     def get(self, name):
@@ -85,9 +86,9 @@ class DameGenderApi(Gender):
             d = json.loads(r.text)
             slist = []
             for item in d['result']:
-                if ((item['gender'] == None) & binary):
+                if (((item['gender'] == None) or (item['gender'] == 'unknown')) & binary):
                     slist.append(2)
-                elif ((item['gender'] == None) & (not binary)):
+                elif (((item['gender'] == None) or (item['gender'] == 'unknown')) & (not binary)):
                     slist.append("unknown")
                 elif ((item['gender'] == "male") & binary):
                     slist.append(1)
@@ -97,5 +98,8 @@ class DameGenderApi(Gender):
                     slist.append(0)
                 elif ((item['gender'] == "female") & (not binary)):
                     slist.append("female")
+            # print("string: " + string)
+            # print("slist: " + str(slist))
+            # print("slist len:" + str(len(slist)))
             list_total = list_total + slist
         return list_total
