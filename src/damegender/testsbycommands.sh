@@ -94,7 +94,7 @@ fi
 
 python3 main.py sara --total=genderguesser > files/tests/mainsara2genderguesser-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/mainsara2genderguesser.txt files/tests/mainsara2genderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+if ! cmp files/tests/mainsaragenderguesser.txt files/tests/mainsara2genderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "mainsara2genderguesser test is failing"
 else
@@ -155,3 +155,6 @@ then
 else
 	echo "confusiongenderguesser test is ok"
 fi
+
+echo "cleaning temporary files"
+rm files/tests/*$(date "+%Y")*.txt
