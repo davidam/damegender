@@ -62,9 +62,9 @@ if (len(sys.argv) > 1):
         regex = "(M|F|=|\?|1)( |M|F)?( )(\w+)( )?(\w+)?( )?(\w+)?"
         n = re.match(regex, rowres)
         if (n.group(6)):
-            string = n.group(4) + n.group(5) + str(n.group(6))
+            string = str(n.group(4)) + str(n.group(5)) + str(n.group(6))
         else:
-            string = n.group(4) + n.group(5)
+            string = str(n.group(4)) + str(n.group(5))
 
         if (du.drop_white_space(args.name) == du.drop_white_space(string) ):
             for i in range(30, 84):
