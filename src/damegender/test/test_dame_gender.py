@@ -61,11 +61,19 @@ class TddInPythonExample(unittest.TestCase):
         g = Gender()
         m = g.males_list()
         self.assertTrue("Adrian" in m)
+        self.assertEqual(len(m), 13199)
+        self.assertEqual(len(g.males_list('spa')), 8451)
+        self.assertEqual(len(g.males_list('eng')), 4999)
+
+
 
     def test_dame_gender_females_list_method_returns_correct_result(self):
         g = Gender()
         f = g.females_list()
         self.assertTrue("Eva" in f)
+        # self.assertEqual(len(f.females_list('spa')), 9467)
+        # self.assertEqual(len(f.females_list('eng')), 5001)
+
 
     def test_dame_gender_filenamdict2list(self):
         g = Gender()
@@ -113,8 +121,8 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_guess_list_method_returns_correct_result(self):
         g = Gender()
-        self.assertEqual(['unknown', 'male', 'male', 'male', 'unknown', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'unknown', 'male', 'male', 'male', 'female', 'male', 'unknown'], g.guess_list(path="files/names/partial.csv", binary=False))
-        self.assertEqual([2, 1, 1, 1, 2, 1, 0, 0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 2], g.guess_list(path="files/names/partial.csv",binary=True))
+        self.assertEqual(['unknown', 'male', 'male', 'male', 'unknown', 'male', 'unknown', 'unknown', 'male', 'male', 'male', 'male', 'male', 'male', 'unknown', 'male', 'male', 'male', 'female', 'male', 'unknown'], g.guess_list(path="files/names/partial.csv", binary=False))
+        self.assertEqual([2, 1, 1, 1, 2, 1, 2, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 2], g.guess_list(path="files/names/partial.csv",binary=True))
 
 
     # def test_dame_gender_accuracy_method_returns_correct_result(self):
@@ -125,7 +133,7 @@ class TddInPythonExample(unittest.TestCase):
         g = Gender()
         cm = g.confusion_matrix(path="files/names/partial.csv")
         print(cm)
-        am = np.array([[3, 0, 0],[0, 13, 3],[0, 1, 1]])
+        am = np.array([[1, 0, 2],[0, 13, 3],[0, 1, 1]])
         self.assertTrue(np.array_equal(cm,am))
 
     # def test_gender_guess_list_method_returns_correct_result(self):
