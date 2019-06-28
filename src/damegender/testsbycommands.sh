@@ -138,6 +138,16 @@ else
 	echo "accuracygenderguesser test is ok"
 fi
 
+python3 accuracy.py --api="damegender" --csv=files/names/min.csv > files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/accuracypartialdamegender.txt files/tests/accuracygenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "accuracypartialdamegender test is failing"
+else
+	echo "accuracypartialdamegender test is ok"
+fi
+
+
 python3 confusion.py --api="damegender" --dimensions=3x2 --csv=files/names/min.csv > files/tests/confusiondamegender-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/confusiondamegender.txt files/tests/confusiondamegender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
