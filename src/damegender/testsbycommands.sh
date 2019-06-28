@@ -166,5 +166,14 @@ else
 	echo "confusiongenderguesser test is ok"
 fi
 
+python3 errors.py > files/tests/errors-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/errors.txt files/tests/errors-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1 
+then 
+    echo "errors test is failing"
+else
+    echo "errors test is ok"
+fi
+
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
