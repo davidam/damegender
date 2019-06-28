@@ -38,6 +38,15 @@ else
 	echo "api2genderDavidgenderize test is ok"
 fi
 
+python3 api2gender.py Leticia --surname="Martin" --api="namsor" > files/tests/api2genderLeticianamsor-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/api2genderLeticianamsor.txt files/tests/api2genderLeticianamsor-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "api2genderLeticianamsor test is failing"
+else
+	echo "api2genderLeticianamsor test is ok"
+fi
+
 python3 api2gender.py David --api="genderguesser" > files/tests/api2genderDavidgenderguesser-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/api2genderDavidgenderguesser.txt files/tests/api2genderDavidgenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -46,3 +55,19 @@ then
 else
 	echo "api2genderDavidgenderize test is ok"
 fi
+
+cd files/mbox
+wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
+cd ../..
+python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/ > files/tests/mail2gender-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/mail2gender.txt files/tests/mail2gender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "mail2gender test is failing"
+else
+	echo "mail2gender test is ok"
+fi
+
+rm -rf /tmp/clonedir
+echo "cleaning temporary files"
+rm files/tests/*$(date "+%Y")*.txt
