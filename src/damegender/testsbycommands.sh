@@ -138,9 +138,9 @@ else
 	echo "accuracygenderguesser test is ok"
 fi
 
-python3 accuracy.py --api="damegender" --csv=files/names/min.csv > files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --api="damegender" --csv=files/names/partial.csv > files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/accuracypartialdamegender.txt files/tests/accuracygenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+if ! cmp files/tests/accuracypartialdamegender.txt files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "accuracypartialdamegender test is failing"
 else
