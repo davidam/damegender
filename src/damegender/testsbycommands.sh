@@ -168,12 +168,31 @@ fi
 
 python3 errors.py > files/tests/errors-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/errors.txt files/tests/errors-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1 
-then 
+if ! cmp files/tests/errors.txt files/tests/errors-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
     echo "errors test is failing"
 else
     echo "errors test is ok"
 fi
+
+python3 errors.py --csv="files/names/partial.csv" > files/tests/errorspartial-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/errorspartial.txt files/tests/errorspartial-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+    echo "errorspartial test is failing"
+else
+    echo "errorspartial test is ok"
+fi
+
+python3 errors.py --csv="files/names/partial.csv" --api="genderguesser" > files/tests/errorsgenderguesser-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/errorsgenderguesser.txt files/tests/errorsgenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "errorsgenderguesser test is failing"
+else
+	echo "errorsgenderguesser test is ok"
+fi
+
 
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
