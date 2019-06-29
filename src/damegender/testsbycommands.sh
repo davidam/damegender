@@ -193,6 +193,14 @@ else
 	echo "errorsgenderguesser test is ok"
 fi
 
+python3 infofeatures.py > files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/infofeatures.txt files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "infofeatures test is failing"
+else
+	echo "infofeatures test is ok"
+fi
 
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
