@@ -33,7 +33,7 @@ from app.dame_customsearch import DameCustomsearch
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', default="files/names/min.csv")
-parser.add_argument('--api', default="all", choices=['namsor', 'genderize', 'genderguesser', 'damegender', 'all'])
+parser.add_argument('--api', default="all", choices=['namsor', 'genderize', 'genderapi', 'genderguesser', 'damegender', 'all'])
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
 parser.add_argument('--dimensions', default="3x2", choices=['3x2', '3x3'])
 args = parser.parse_args()
@@ -51,6 +51,8 @@ if (args.api == "all"):
     elif (args.dimensions == "3x3"):
         namsor_confusion_matrix = dn.confusion_matrix(path=args.csv)
         print("Namsor confusion matrix:\n %s" % namsor_confusion_matrix)
+
+
 
     dg = DameGenderize()
     if (args.dimensions == "3x2"):
@@ -105,6 +107,16 @@ elif (args.api == "genderize"):
         dg = DameGenderize()
         genderize_confusion_matrix = dg.confusion_matrix(path=args.csv)
         print("Genderize confusion matrix:\n %s" % genderize_confusion_matrix)
+
+elif (args.api == "genderapi"):
+    dga = DameGenderApi()
+    if (args.dimensions == "3x2"):
+        print("Genderapi confusion matrix:\n")
+        dga.print_confusion_matrix_dame(path=args.csv)
+    elif (args.dimensions == "3x3"):
+        dga = DameGenderApi()
+        genderapi_confusion_matrix = dga.confusion_matrix(path=args.csv)
+        print("Genderize confusion matrix:\n %s" % genderapi_confusion_matrix)
 
 elif (args.api == "genderguesser"):
     dgg = DameGenderGuesser()
