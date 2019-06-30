@@ -52,8 +52,6 @@ if (args.api == "all"):
         namsor_confusion_matrix = dn.confusion_matrix(path=args.csv)
         print("Namsor confusion matrix:\n %s" % namsor_confusion_matrix)
 
-
-
     dg = DameGenderize()
     if (args.dimensions == "3x2"):
         print("Genderize confusion matrix:\n")
@@ -62,6 +60,15 @@ if (args.api == "all"):
         dg = DameGenderize()
         genderize_confusion_matrix = dg.confusion_matrix(path=args.csv)
         print("Genderize confusion matrix:\n %s" % genderize_confusion_matrix)
+
+    dga = DameGenderApi()
+    if (args.dimensions == "3x2"):
+        print("Genderapi confusion matrix:\n")
+        dga.print_confusion_matrix_dame(path=args.csv)
+    elif (args.dimensions == "3x3"):
+        dga = DameGenderApi()
+        genderapi_confusion_matrix = dga.confusion_matrix(path=args.csv)
+        print("Genderize confusion matrix:\n %s" % genderapi_confusion_matrix)
 
     dgg = DameGenderGuesser()
     if (args.dimensions == "3x2"):
