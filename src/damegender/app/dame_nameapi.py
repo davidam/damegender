@@ -37,7 +37,7 @@ class DameNameapi(Gender):
         guess = ""
         confidence = ""
         if (self.config['DEFAULT']['nameapi'] == 'yes'):
-            fichero = open(self.config['DEFAULT']['nameapifile'], "r+")
+            fichero = open(self.config['FILES']['nameapi'], "r+")
             contenido = fichero.readline().rstrip()
             #print(contenido)
 
