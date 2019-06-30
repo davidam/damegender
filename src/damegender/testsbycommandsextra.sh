@@ -56,6 +56,25 @@ else
 	echo "api2genderDavidgenderize test is ok"
 fi
 
+python3 api2gender.py Inés --api="genderapi" > files/tests/api2genderInésgenderapi-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/api2genderInésgenderapi.txt files/tests/api2genderInésgenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "api2genderInésgenderapi test is failing"
+else
+	echo "api2genderInésgenderapi test is ok"
+fi
+
+python3 confusion.py --api="genderapi" > files/tests/confusiongenderapi-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/confusiongenderapi.txt files/tests/confusiongenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "confusiongenderapi test is failing"
+else
+	echo "confusiongenderapi test is ok"
+fi
+
+
 cd files/mbox
 wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
 cd ../..
@@ -67,6 +86,8 @@ then
 else
 	echo "mail2gender test is ok"
 fi
+
+
 
 rm -rf /tmp/clonedir
 echo "cleaning temporary files"
