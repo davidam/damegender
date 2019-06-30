@@ -74,6 +74,14 @@ else
 	echo "confusiongenderapi test is ok"
 fi
 
+python3 accuracy.py --api="genderapi" > files/tests/accuracygenderapi-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/accuracygenderapi.txt files/tests/accuracygenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "accuracygenderapi test is failing"
+else
+	echo "accuracygenderapi test is ok"
+fi
 
 cd files/mbox
 wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
