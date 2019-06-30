@@ -33,6 +33,10 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(du.is_not_blank("  "), False)
         self.assertEqual(du.is_not_blank("ok"), True)
 
+    def test_path2file_method_returns_correct_result(self):
+        du = DameUtils()
+        self.assertEqual(du.path2file("files/images/lalla.csv"), "files_images_lalla.csv")
+
     def test_represents_int_method_returns_correct_result(self):
         du = DameUtils()
         self.assertEqual(du.represents_int("23"), True)

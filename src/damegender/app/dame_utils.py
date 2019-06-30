@@ -45,6 +45,15 @@ class DameUtils():
         arrs.append(arr)
         return arrs
 
+    def path2file(self, s):
+        aux = ""
+        for c in unicodedata.normalize('NFD', str(s)):
+            if ((c == ' ') | (c == '/')):
+                aux = aux + "_"
+            else:
+                aux = aux + c
+        return aux
+
     def drop_dots(self, s):
         aux = ""
         for c in unicodedata.normalize('NFD', str(s)):
