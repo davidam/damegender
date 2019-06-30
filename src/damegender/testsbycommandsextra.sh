@@ -65,6 +65,7 @@ else
 	echo "api2genderInésgenderapi test is ok"
 fi
 
+
 python3 confusion.py --api="genderapi" > files/tests/confusiongenderapi-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/confusiongenderapi.txt files/tests/confusiongenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -72,6 +73,15 @@ then
 	echo "confusiongenderapi test is failing"
 else
 	echo "confusiongenderapi test is ok"
+fi
+
+python3 confusion.py --api="all" > files/tests/confusionall-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/confusionall.txt files/tests/confusionall-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "confusionall test is failing"
+else
+	echo "confusionall test is ok"
 fi
 
 python3 accuracy.py --api="genderapi" > files/tests/accuracygenderapi-$(date "+%Y-%m-%d-%H").txt
