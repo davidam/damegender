@@ -220,6 +220,14 @@ else
 	echo "csv2genderpartial test is ok"
 fi
 
+python3 pca-features.py "noletters" 6 > files/tests/pca-features-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/pca-features.txt files/tests/pca-features-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1 
+then 
+    echo "pca-features test is failing"
+else
+    echo "pca-features test is ok"
+fi
 
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
