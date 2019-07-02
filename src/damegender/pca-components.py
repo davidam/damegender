@@ -31,6 +31,10 @@ from app.dame_utils import DameUtils
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv')
+show_parser = parser.add_mutually_exclusive_group(required=False)
+show_parser.add_argument('--show', dest='show', action='store_true')
+show_parser.add_argument('--no-show', dest='show', action='store_false')
+parser.set_defaults(show=True)
 args = parser.parse_args()
 
 du = DameUtils()
@@ -51,7 +55,8 @@ if (len(sys.argv) > 1):
     plt.ylabel('Variance (%)') #for each component
     plt.title('Dataset Explained Variance')
     plt.savefig('files/images/pca_components_'+ str(du.path2file(args.csv)) + '.png')
-    plt.show()
+    if (args.show):
+        plt.show()
 else:
     print("You must introduce a csv file.")
     print("Try $ python3 pca-components.py --csv='files/features_list.csv'")
