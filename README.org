@@ -209,13 +209,13 @@ $ python3 pca-features.py                                   # To understand the 
 ** Market Study
 
 |                                        | Gender API               | gender-guesser | genderize.io       | NameAPI       | NamSor        | damegender         |
-| Database size                          | 431322102                | 45376          | 216286             | 510000        | 4407502834    | damegender         |
+| Database size                          | 431322102                | 45376          | 216286             | 1428345       | 4407502834    | 57282              |
 | Regular data updates                   | yes                      | no             | no                 | yes           | yes           | yes, developing    |
 | Handles unstructured full name strings | yes                      | no             | no                 | yes           | no            | yes                |
 | Handles surnames                       | yes                      | no             | no                 | yes           | yes           | yes                |
 | Handles non-Latin alphabets            | partially                | no             | partially          | yes           | yes           | no                 |
 | Implicit geo-localization              | yes                      | no             | no                 | yes           | yes           | no                 |
-| Exists locale                          | yes                      | yes            | yes                |               | yes           | yes                |
+| Exists locale                          | yes                      | yes            | yes                | yes           | yes           | yes                |
 | Assingment type                        | probilistic              | binary         | probabilistic      | probabilistic | probabilistic | probabilistic      |
 | Free parameters                        | total_names, probability | gender         | probability, count | confidence    | scale         | total_names, count |
 | Prediction                             | no                       | no             | no                 | no            | no            | yes                |
