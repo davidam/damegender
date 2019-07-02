@@ -65,6 +65,28 @@ class DameGenderApi(Gender):
         v = self.get(name)
         return v[1]
 
+    def download(self, path="files/names/partial.csv"):
+        du = DameUtils()
+        fichero = open("files/apikeys/genderapipass.txt", "r+")
+        backup = open("files/names/genderapi"+du.path2file(path)+".txt", "w+")
+        contenido = fichero.readline()
+        string = ""
+        names = self.csv2names(path)
+        names_list = du.split(names, 20)
+        for l in names_list:
+            count = 1
+            string = ""
+            for n in l:
+                if (len(l) > count):
+                    string = string + n + ";"
+                else:
+                    string = string + n
+                count = count + 1
+            r = requests.get('https://gender-api.com/get?name='+string+'&multi=true&key='+contenido)
+            backup.write(r.text)
+        backup.close()
+        return 1
+
     def guess_list(self, path="files/names/partial.csv", binary=False):
         du = DameUtils()
         fichero = open("files/apikeys/genderapipass.txt", "r+")
