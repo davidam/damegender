@@ -34,8 +34,8 @@ from app.dame_gender import Gender
 
 ## PARAMETERS
 parser = argparse.ArgumentParser()
-parser.add_argument("categorical", default="both", choices=['both', 'noletters', 'nocategorical'])
-parser.add_argument("components", type=int)
+parser.add_argument("--categorical", default="both", choices=['both', 'noletters', 'nocategorical'])
+parser.add_argument("--components", type=int)
 args = parser.parse_args()
 
 ## LOAD DATASET
