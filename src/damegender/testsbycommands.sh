@@ -16,7 +16,7 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with GNU Emacs; see the file COPYING.  If not, write to
+# along with Damegender; see the file LICENSE.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
@@ -138,6 +138,16 @@ else
 	echo "accuracygenderguesser test is ok"
 fi
 
+python3 accuracy.py --api="damegender" --csv=files/names/partial.csv > files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/accuracypartialdamegender.txt files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "accuracypartialdamegender test is failing"
+else
+	echo "accuracypartialdamegender test is ok"
+fi
+
+
 python3 confusion.py --api="damegender" --dimensions=3x2 --csv=files/names/min.csv > files/tests/confusiondamegender-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/confusiondamegender.txt files/tests/confusiondamegender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -154,6 +164,78 @@ then
 	echo "confusiongenderguesser test is failing"
 else
 	echo "confusiongenderguesser test is ok"
+fi
+
+<<<<<<< HEAD
+=======
+python3 errors.py > files/tests/errors-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/errors.txt files/tests/errors-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+    echo "errors test is failing"
+else
+    echo "errors test is ok"
+fi
+
+python3 errors.py --csv="files/names/partial.csv" > files/tests/errorspartial-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/errorspartial.txt files/tests/errorspartial-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+    echo "errorspartial test is failing"
+else
+    echo "errorspartial test is ok"
+fi
+
+python3 errors.py --csv="files/names/partial.csv" --api="genderguesser" > files/tests/errorsgenderguesser-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/errorsgenderguesser.txt files/tests/errorsgenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "errorsgenderguesser test is failing"
+else
+	echo "errorsgenderguesser test is ok"
+fi
+
+python3 infofeatures.py > files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/infofeatures.txt files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "infofeatures test is failing"
+else
+	echo "infofeatures test is ok"
+fi
+
+python3 csv2gender.py files/names/all.csv > files/tests/csv2genderall-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/csv2genderall.txt files/tests/csv2genderall-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "csv2genderall test is failing"
+else
+	echo "csv2genderall test is ok"
+fi
+
+python3 csv2gender.py files/names/partial.csv > files/tests/csv2genderpartial-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/csv2genderpartial.txt files/tests/csv2genderpartial-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "csv2genderpartial test is failing"
+else
+	echo "csv2genderpartial test is ok"
+fi
+
+rm files/images/pca_components_files_features_list_no_cat.csv.png
+python3 pca-components.py --csv='files/features_list_no_cat.csv' --no-show
+if [ -a files/images/pca_components_files_features_list_no_cat.csv.png ]; then
+	echo "pca-components-nocategorical test is ok"
+else
+	echo "pca-components-nocategorical test is failing"
+fi
+
+python3 pca-features.py --categorical="nocategorical" --components=7 > files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "pca-features-nocategorical test is failing"
+else
+	echo "pca-features-nocategorical test is ok"
 fi
 
 echo "cleaning temporary files"

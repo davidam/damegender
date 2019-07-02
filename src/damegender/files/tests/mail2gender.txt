@@ -1,0 +1,2 @@
+The number of males sending mails is 5
+The number of females sending mails is 1

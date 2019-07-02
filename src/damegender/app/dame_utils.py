@@ -17,7 +17,7 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with GNU Emacs; see the file COPYING.  If not, write to
+# along with Damegender; see the file LICENSE.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
@@ -44,6 +44,15 @@ class DameUtils():
             arr = arr[size:]
         arrs.append(arr)
         return arrs
+
+    def path2file(self, s):
+        aux = ""
+        for c in unicodedata.normalize('NFD', str(s)):
+            if ((c == ' ') | (c == '/')):
+                aux = aux + "_"
+            else:
+                aux = aux + c
+        return aux
 
     def drop_dots(self, s):
         aux = ""

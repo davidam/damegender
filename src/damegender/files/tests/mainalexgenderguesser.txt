@@ -1,0 +1,2 @@
+grep -i " Alex " files/names/nam_dict.txt > files/grep.tmp
+male

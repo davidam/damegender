@@ -64,6 +64,7 @@ Currently you can need an api key from:
 + https://store.genderize.io/documentation
 + https://gender-api.com
 + https://www.nameapi.org/
++ https://v2.namsor.com/NamSorAPIv2/sign-in.html
 
 You can execute:
 #+BEGIN_SRC
@@ -80,7 +81,7 @@ $ python3
 #+END_SRC
 
 * Check test
-** All tests
+** All unit tests
 #+BEGIN_SRC sh
 $ nosetest3 test
 #+END_SRC
@@ -88,7 +89,7 @@ $ nosetest3 test
 #+BEGIN_SRC sh
 $ docker run -ti --entrypoint nosetests damegender/damegender:latest test
 #+END_SRC
-** Single test
+** Single unit test
 #+BEGIN_SRC sh
 $ nosetests3 test/test_dame_sexmachine.py:TddInPythonExample.test_string2array_method_returns_correct_result
 #+END_SRC
@@ -96,6 +97,13 @@ $ nosetests3 test/test_dame_sexmachine.py:TddInPythonExample.test_string2array_m
 #+BEGIN_SRC sh
 $ docker run -ti --entrypoint nosetests damegender/damegender:latest test/test_dame_sexmachine.py:TddInPythonExample.test_string2array_method_returns_correct_result
 #+END_SRC
+** Tests from commands
+#+BEGIN_SRC sh
+$ cd src/damegender
+$ ./testsbycommands.sh         # It must run for you
+$ ./testsbycommandsextra.sh    # You will need api keys!!!!! And to install all software required.
+#+END_SRC
+
 * Execute program
 
 #+BEGIN_SRC sh
@@ -208,18 +216,22 @@ $ python3 pca-features.py                                   # To understand the 
 * Benchmarking
 ** Market Study
 
-|                                        | damegender      | gender api        | gender guesser | genderize               | name api                    | namsor                    |
-| Database size                          | 60000           | 1877787           | 45376          | 216286                  | 510000                      | 1300000                   |
-| Regular data updates                   | yes, developing | yes               | no             | yes                     | yes                         | yes                       |
-| Handles unstructured full name strings | yes             | yes               | no             | no                      | yes                         | no                        |
-| Handles surnames                       | yes             | yes               | no             | no                      | yes                         | yes                       |
-| Handles non-Latin alphabets            | no              | partially         | no             | partially               | yes                         | yes                       |
-| Implicit geo-localization              | no              | no                | no             | no                      | yes                         | yes                       |
-| Assingment type                        | binary          | probabilistic     | binary         | probabilistic           | probabilistic               | probabilistic             |
-| Free parameters                        | -               | accuracy, samples | -              | probability             | confidence                  | scale                     |
-| Free license                           | yes             | no                | yes            | no                      | no                          | no                        |
-| API                                    | future          | yes               | no             | yes                     | yes                         | yes                       |
-| Monthly free requests                  | free license    | 500               | free license   | Free for 1000 names/day | Free for 1000 credits/month | Free for 5000 names/month |
+|                                        | Gender API               | gender-guesser | genderize.io       | NameAPI       | NamSor        | damegender         |
+| Database size                          | 431322102                | 45376          | 216286             | 1428345       | 4407502834    | 57282              |
+| Regular data updates                   | yes                      | no             | no                 | yes           | yes           | yes, developing    |
+| Handles unstructured full name strings | yes                      | no             | no                 | yes           | no            | yes                |
+| Handles surnames                       | yes                      | no             | no                 | yes           | yes           | yes                |
+| Handles non-Latin alphabets            | partially                | no             | partially          | yes           | yes           | no                 |
+| Implicit geo-localization              | yes                      | no             | no                 | yes           | yes           | no                 |
+| Exists locale                          | yes                      | yes            | yes                | yes           | yes           | yes                |
+| Assingment type                        | probilistic              | binary         | probabilistic      | probabilistic | probabilistic | probabilistic      |
+| Free parameters                        | total_names, probability | gender         | probability, count | confidence    | scale         | total_names, count |
+| Prediction                             | no                       | no             | no                 | no            | no            | yes                |
+| Free license                           | no                       | yes            | no                 | no            | no            | yes                |
+| API                                    | yes                      | no             | yes                | yes           | yes           | future             |
+| free requests limited                  | yes (200)                | unlimited      | yes                | yes           | yes           | unlimited          |
+
+(Checked: 2019/06/27)
 
 ** Accuracy
 

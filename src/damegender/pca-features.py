@@ -17,7 +17,7 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with GNU Emacs; see the file COPYING.  If not, write to
+# along with Damegender; see the file LICENSE.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
@@ -34,8 +34,8 @@ from app.dame_gender import Gender
 
 ## PARAMETERS
 parser = argparse.ArgumentParser()
-parser.add_argument("categorical", default="both", choices=['both', 'noletters', 'nocategorical'])
-parser.add_argument("components", type=int)
+parser.add_argument("--categorical", default="both", choices=['both', 'noletters', 'nocategorical'])
+parser.add_argument("--components", type=int)
 args = parser.parse_args()
 
 ## LOAD DATASET

@@ -17,7 +17,7 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with GNU Emacs; see the file COPYING.  If not, write to
+# along with Damegender; see the file LICENSE.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
@@ -122,15 +122,25 @@ class Gender(object):
 
 ######################## DATASETS METHODS ###############################################
 
-    def males_list(self):
+    def males_list(self, corpus='engspa'):
         my_corpus = nltk.corpus.PlaintextCorpusReader('files/names/names_es', '.*\.txt')
-        m = names.words('male.txt') + my_corpus.sents('masculinos.txt')[1]
+        if (corpus == 'eng'):
+            m = names.words('male.txt')
+        elif (corpus == 'spa'):
+            m = my_corpus.sents('masculinos.txt')[1]
+        elif (corpus == 'engspa'):
+            m = names.words('male.txt') + my_corpus.sents('masculinos.txt')[1]
         m = list(OrderedDict.fromkeys(m))
         return m
 
-    def females_list(self):
+    def females_list(self, corpus='engspa'):
         my_corpus = nltk.corpus.PlaintextCorpusReader('files/names/names_es', '.*\.txt')
-        f = names.words('female.txt') + my_corpus.sents('femeninos.txt')[1]
+        if (corpus == 'eng'):
+            f = names.words('female.txt')
+        elif (corpus == 'spa'):
+            f = my_corpus.sents('femeninos.txt')[1]
+        elif (corpus == 'engspa'):
+            f = names.words('female.txt') + my_corpus.sents('femeninos.txt')[1]
         f = list(OrderedDict.fromkeys(f))
         return f
 

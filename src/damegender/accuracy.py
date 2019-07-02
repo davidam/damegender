@@ -17,7 +17,7 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with GNU Emacs; see the file COPYING.  If not, write to
+# along with Damegender; see the file LICENSE.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
@@ -33,7 +33,7 @@ from app.dame_customsearch import DameCustomsearch
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', default="files/names/min.csv")
-parser.add_argument('--api', default="damegender", choices=['customsearch', 'namsor', 'genderize', 'genderguesser', 'damegender', 'genderapi', 'nameapi'])
+parser.add_argument('--api', default="damegender", choices=['customsearch', 'namsor', 'genderize', 'genderguesser', 'damegender', 'genderapi', 'nameapi', 'all'])
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
 args = parser.parse_args()
 
@@ -85,9 +85,14 @@ if (args.api == "all"):
 
     dga = DameGenderApi()
     print("################### GenderApi!!")
-    gl = dga.gender_list(pat=args.csv)
+    gl = dga.gender_list(path=args.csv)
     print("Gender list: " + str(gl))
+    sl = dga.guess_list(path=args.csv, binary=True)
+    print("Guess list:  " +str(sl))
+    genderapi_accuracy = dga.accuracy_score_dame(gl,sl)
+    print("Genderapi accuracy: %s" % genderapi_accuracy)
 
+    
     dna = DameNameapi()
     print("################### Nameapi!!")
     gl = dna.gender_list(path=args.csv)

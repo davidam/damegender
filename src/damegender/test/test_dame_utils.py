@@ -17,7 +17,7 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with GNU Emacs; see the file COPYING.  If not, write to
+# along with Damegender; see the file LICENSE.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
@@ -33,6 +33,10 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(du.is_not_blank("  "), False)
         self.assertEqual(du.is_not_blank("ok"), True)
 
+    def test_path2file_method_returns_correct_result(self):
+        du = DameUtils()
+        self.assertEqual(du.path2file("files/images/lalla.csv"), "files_images_lalla.csv")
+
     def test_represents_int_method_returns_correct_result(self):
         du = DameUtils()
         self.assertEqual(du.represents_int("23"), True)
@@ -43,6 +47,9 @@ class TddInPythonExample(unittest.TestCase):
         x= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
         sp = u.split(x, 5)
         self.assertEqual(sp, [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13]])
+        y = list(range(1, 100))
+        ysp = u.split(y, 10)
+        self.assertEqual(ysp[0:2], [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]])
 
     def test_drop_dots_method_returns_correct_result(self):
         u = DameUtils()

@@ -1,0 +1,3 @@
+The number of males in files/names/all.csv is 3811
+The number of females in files/names/all.csv is 1968
+The number of gender not recognised in files/names/all.csv is 1297

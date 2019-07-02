@@ -17,16 +17,16 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with GNU Emacs; see the file COPYING.  If not, write to
+# along with Damegender; see the file LICENSE.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
 import unittest
+import os
 from app.dame_genderapi import DameGenderApi
 
 
 class TddInPythonExample(unittest.TestCase):
-
 
     def test_dame_genderapi_get_method_returns_correct_result(self):
         dga = DameGenderApi()
@@ -45,6 +45,12 @@ class TddInPythonExample(unittest.TestCase):
             self.assertEqual(g, "female")
             g = dga.guess("Sara", binary=True)
             self.assertEqual(g, 0)
+
+    def test_dame_genderapi_download_method_returns_correct_result(self):
+        dga = DameGenderApi()
+        if (dga.config['DEFAULT']['genderapi'] == 'yes'):
+            g = dga.download(path="files/names/partial.csv")
+            self.assertTrue(os.path.isfile("files/names/genderapi"+du.path2file(path)+".txt"))
 
     def test_dame_genderapi_accuracy_method_returns_correct_result(self):
         dga = DameGenderApi()

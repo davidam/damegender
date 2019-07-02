@@ -1,0 +1,2 @@
+The number of males sending commits is 17
+The number of females sending commits is 12

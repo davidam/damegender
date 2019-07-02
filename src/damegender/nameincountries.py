@@ -17,7 +17,7 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with GNU Emacs; see the file COPYING.  If not, write to
+# along with Damegender; see the file LICENSE.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
@@ -62,9 +62,9 @@ if (len(sys.argv) > 1):
         regex = "(M|F|=|\?|1)( |M|F)?( )(\w+)( )?(\w+)?( )?(\w+)?"
         n = re.match(regex, rowres)
         if (n.group(6)):
-            string = n.group(4) + n.group(5) + str(n.group(6))
+            string = str(n.group(4)) + str(n.group(5)) + str(n.group(6))
         else:
-            string = n.group(4) + n.group(5)
+            string = str(n.group(4)) + str(n.group(5))
 
         if (du.drop_white_space(args.name) == du.drop_white_space(string) ):
             for i in range(30, 84):

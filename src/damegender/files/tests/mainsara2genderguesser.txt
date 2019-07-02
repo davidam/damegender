@@ -1,0 +1,3 @@
+grep -i " Sara " files/names/nam_dict.txt > files/grep.tmp
+female
+prob: fully female

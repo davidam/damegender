@@ -791,3 +791,10 @@ Males with first letter consonant: 0.7735667564447865
 ---------------------------------------------------------------
 Females with first letter vocal: 0.2030441165108553
 Males with first letter vocal: 0.22633705271258175
+* TODO Probando min.csv generar un fichero que devuelva género y probabilidad con genderapi
+  SCHEDULED: <2019-07-01 lun>
+* TODO Revisar features_list.csv
+  SCHEDULED: <2019-07-01 lun>
+* DONE pca-features in bash test
+  SCHEDULED: <2019-07-02 mar>
+  - State "DONE"       from "TODO"       [2019-07-02 mar 13:57]
