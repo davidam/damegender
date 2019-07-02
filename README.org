@@ -80,7 +80,7 @@ $ python3
 #+END_SRC
 
 * Check test
-** All tests
+** All unit tests
 #+BEGIN_SRC sh
 $ nosetest3 test
 #+END_SRC
@@ -88,7 +88,7 @@ $ nosetest3 test
 #+BEGIN_SRC sh
 $ docker run -ti --entrypoint nosetests damegender/damegender:latest test
 #+END_SRC
-** Single test
+** Single unit test
 #+BEGIN_SRC sh
 $ nosetests3 test/test_dame_sexmachine.py:TddInPythonExample.test_string2array_method_returns_correct_result
 #+END_SRC
@@ -96,6 +96,13 @@ $ nosetests3 test/test_dame_sexmachine.py:TddInPythonExample.test_string2array_m
 #+BEGIN_SRC sh
 $ docker run -ti --entrypoint nosetests damegender/damegender:latest test/test_dame_sexmachine.py:TddInPythonExample.test_string2array_method_returns_correct_result
 #+END_SRC
+** Tests from commands
+#+BEGIN_SRC sh
+$ cd src/damegender
+$ ./testsbycommands.sh         # It must run for you
+$ ./testsbycommandsextra.sh    # You will need api keys!!!!!
+#+END_SRC
+
 * Execute program
 
 #+BEGIN_SRC sh
