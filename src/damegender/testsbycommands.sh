@@ -220,14 +220,23 @@ else
 	echo "csv2genderpartial test is ok"
 fi
 
-python3 pca-features.py "noletters" 6 > files/tests/pca-features-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/pca-features.txt files/tests/pca-features-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1 
-then 
-    echo "pca-features test is failing"
+rm files/images/pca_components_files_features_list_no_cat.csv.png
+python3 pca-components.py --csv='files/features_list_no_cat.csv' --no-show
+if [ -a files/images/pca_components_files_features_list_no_cat.csv.png ]; then
+	echo "pca-components-nocategorical test is ok"
 else
-    echo "pca-features test is ok"
+	echo "pca-components-nocategorical test is failing"
 fi
+
+python3 pca-features.py --categorical="nocategorical" --components=7 > files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "pca-features-nocategorical test is failing"
+else
+	echo "pca-features-nocategorical test is ok"
+fi
+
+
 
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
