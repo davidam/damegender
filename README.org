@@ -64,6 +64,7 @@ Currently you can need an api key from:
 + https://store.genderize.io/documentation
 + https://gender-api.com
 + https://www.nameapi.org/
++ https://v2.namsor.com/NamSorAPIv2/sign-in.html
 
 You can execute:
 #+BEGIN_SRC
@@ -100,7 +101,7 @@ $ docker run -ti --entrypoint nosetests damegender/damegender:latest test/test_d
 #+BEGIN_SRC sh
 $ cd src/damegender
 $ ./testsbycommands.sh         # It must run for you
-$ ./testsbycommandsextra.sh    # You will need api keys!!!!!
+$ ./testsbycommandsextra.sh    # You will need api keys!!!!! And to install all software required.
 #+END_SRC
 
 * Execute program
