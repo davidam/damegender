@@ -52,7 +52,7 @@ def drop_pwd(s):
     return result
 
 setup(name='damegender',
-      version='0.0.93',
+      version='0.0.94',
       description='Gender Detection Tool by David Arroyo MEnéndez',
       long_description='Gender Detection Tool by David Arroyo MEnéndez',
       classifiers=[
@@ -76,7 +76,7 @@ setup(name='damegender',
                     'damegender.images': ['*'],
                     'damegender.datamodels': ['*'],
                     'damegender.root': ['*']},
-      data_files=[('damegender', ['src/damegender/files/features_list.csv', 'src/damegender/files/features_list_cat.csv', 'src/damegender/files/features_list_no_cat.csv'] + files_one_level_drop_pwd(cwd+"/src/damegender/files/images") + files_one_level_drop_pwd(cwd+"/src/damegender/files/datamodels") + files_one_level_drop_pwd(cwd+"/src/damegender/files/mbox") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names_es"))],
+      data_files=[('damegender', ['src/damegender/config.cfg', 'src/damegender/files/features_list.csv', 'src/damegender/files/features_list_cat.csv', 'src/damegender/files/features_list_no_cat.csv'] + files_one_level_drop_pwd(cwd+"/src/damegender/files/images") + files_one_level_drop_pwd(cwd+"/src/damegender/files/datamodels") + files_one_level_drop_pwd(cwd+"/src/damegender/files/mbox") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names_es") + files_one_level_drop_pwd(cwd+"/src/damegender/files/tests"))],
       install_requires=[
           'markdown',
           'nltk',
