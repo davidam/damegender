@@ -120,6 +120,15 @@ else
 	echo "nameincountries test is ok"
 fi
 
+python3 nameincountries.py david > files/tests/nameincountriesdavid2-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/nameincountriesdavid2.txt files/tests/nameincountriesdavid2-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "nameincountries donwcase test is failing"
+else
+	echo "nameincountries donwcase test is ok"
+fi
+
 
 python3 infofeatures.py > files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt
 
