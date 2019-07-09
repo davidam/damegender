@@ -75,6 +75,31 @@ class DameUtils():
                 aux = aux + c
         return aux
 
+    def drop_white_space_around(self, s):
+        aux = ""
+        arr = unicodedata.normalize('NFD', str(s))
+        i = 0
+        j = -1
+        while (i != j):
+            if (arr[i] == " "):
+                aux = ""
+            else:
+                aux = aux + arr[i]
+                j = i + 1
+            i = i + 1
+        j = -1
+        while (len(arr) > i) and (i != j):
+            if (arr[i].isalpha()):
+                aux = aux + arr[i]
+            elif ((arr[i] == " ") and (len(arr) == (i+1))):
+                j = i+1
+            elif ((arr[i] == " ") and (arr[i+1].isalpha())):
+                aux = aux + arr[i]
+            else:
+                j = i+1
+            i = i+1
+        return aux
+
     def drop_accents(self, s):
         return ''.join((c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn'))
 
