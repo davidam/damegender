@@ -63,6 +63,17 @@ class TddInPythonExample(unittest.TestCase):
         u = DameUtils()
         self.assertEqual("In", u.drop_white_space("In "))
         self.assertEqual("Ines", u.drop_accents(u.drop_white_space("Inés ")))
+        self.assertEqual("JuanCarlosI", u.drop_accents(u.drop_white_space("Juan Carlos I ")))
+
+    def test_drop_white_space_around_method_returns_correct_result(self):
+        u = DameUtils()
+        self.assertEqual("In", u.drop_white_space_around(" In"))
+        self.assertEqual("Juan Carlos I", u.drop_white_space_around(" Juan Carlos I"))
+        self.assertEqual("Juan Carlos I", u.drop_white_space_around(" Juan Carlos I  "))
+        self.assertEqual("Juan Carlos I", u.drop_white_space_around(" Juan Carlos I "))
+        self.assertEqual("Ines", u.drop_white_space_around(u.drop_accents("Inés ")))
+        self.assertEqual("Ana", u.drop_white_space_around(" Ana"))
+
 
     def test_drop_quotes_method_returns_correct_result(self):
         u = DameUtils()
