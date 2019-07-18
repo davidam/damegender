@@ -33,6 +33,11 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(du.is_not_blank("  "), False)
         self.assertEqual(du.is_not_blank("ok"), True)
 
+    def test_various_words_p(self):
+        du = DameUtils()
+        self.assertEqual(du.various_words_p("david arroyo"), True)
+        self.assertEqual(du.various_words_p(" david arroyo "), True)
+        
     def test_path2file_method_returns_correct_result(self):
         du = DameUtils()
         self.assertEqual(du.path2file("files/images/lalla.csv"), "files_images_lalla.csv")
@@ -73,7 +78,6 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual("Juan Carlos I", u.drop_white_space_around(" Juan Carlos I "))
         self.assertEqual("Ines", u.drop_white_space_around(u.drop_accents("Inés ")))
         self.assertEqual("Ana", u.drop_white_space_around(" Ana"))
-
 
     def test_drop_quotes_method_returns_correct_result(self):
         u = DameUtils()

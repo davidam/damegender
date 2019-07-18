@@ -29,6 +29,13 @@ class DameUtils():
     def is_not_blank(self, s):
         return bool(s and s.strip())
 
+    def various_words_p(self, s):
+        match = re.search(r" ?(\w+)( \w)+", s)
+        if match:
+            return 1
+        else:
+            return 0
+    
     def represents_int(self, s):
         try:
             int(s)
@@ -74,7 +81,7 @@ class DameUtils():
             if (c != ' '):
                 aux = aux + c
         return aux
-
+    
     def drop_white_space_around(self, s):
         aux = ""
         arr = unicodedata.normalize('NFD', str(s))
