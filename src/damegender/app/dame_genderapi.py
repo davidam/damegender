@@ -34,6 +34,7 @@ class DameGenderApi(Gender):
         if (self.config['DEFAULT']['genderapi'] == 'yes'):
             fichero = open("files/apikeys/genderapipass.txt", "r+")
             contenido = fichero.readline()
+            contenido = contenido.replace('\n','')
             r = requests.get('https://gender-api.com/get?name='+name+'&key='+contenido)
             j = json.loads(r.text)
             v = [j['gender'], j['accuracy']]
@@ -68,22 +69,31 @@ class DameGenderApi(Gender):
     def download(self, path="files/names/partial.csv"):
         du = DameUtils()
         fichero = open("files/apikeys/genderapipass.txt", "r+")
-        backup = open("files/names/genderapi"+du.path2file(path)+".txt", "w+")
+#        path="files/names/partial.csv"
+        backup = open("files/names/genderapi"+du.path2file(path)+".json", "w+")
         contenido = fichero.readline()
+        contenido = contenido.replace('\n','')
         string = ""
         names = self.csv2names(path)
         names_list = du.split(names, 20)
+        myjson = {'names': []}
+        string = ""
         for l in names_list:
+        # generating names string to include in url
             count = 1
-            string = ""
+            stringaux = ""
             for n in l:
                 if (len(l) > count):
-                    string = string + n + ";"
+                    stringaux = stringaux + n + ";"
                 else:
-                    string = string + n
+                    stringaux = stringaux + n
                 count = count + 1
-            r = requests.get('https://gender-api.com/get?name='+string+'&multi=true&key='+contenido)
-            backup.write(r.text)
+            string = string + ";" + stringaux
+        url1 = 'https://gender-api.com/get?name='+ string +'&multi=true&key='+contenido
+        r = requests.get(url1)
+        j = json.loads(r.text)
+        myjson['names'].append(j['result'])
+        backup.write(r.text+"\n")
         backup.close()
         return 1
 
