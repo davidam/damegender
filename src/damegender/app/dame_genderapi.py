@@ -76,7 +76,7 @@ class DameGenderApi(Gender):
         string = ""
         names = self.csv2names(path)
         names_list = du.split(names, 20)
-        myjson = {'names': []}
+        jsondict = {'names': []}
         string = ""
         for l in names_list:
         # generating names string to include in url
@@ -88,12 +88,13 @@ class DameGenderApi(Gender):
                 else:
                     stringaux = stringaux + n
                 count = count + 1
-            string = string + ";" + stringaux
-        url1 = 'https://gender-api.com/get?name='+ string +'&multi=true&key='+contenido
-        r = requests.get(url1)
-        j = json.loads(r.text)
-        myjson['names'].append(j['result'])
-        backup.write(r.text+"\n")
+                #            string = string + ";" + stringaux
+            url1 = 'https://gender-api.com/get?name='+ stringaux +'&multi=true&key='+contenido
+            r = requests.get(url1)
+            j = json.loads(r.text)
+            jsondict['names'].append(j['result'])
+        jsonv = json.dumps(jsondict)
+        backup.write(jsonv)
         backup.close()
         return 1
 
