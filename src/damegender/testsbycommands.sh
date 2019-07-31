@@ -130,18 +130,18 @@ else
 fi
 
 
-python3 infofeatures.py > files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt
+# python3 infofeatures.py > files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/infofeatures.txt files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "infofeatures test is failing"
-else
-	echo "infofeatures test is ok"
-fi
+# if ! cmp files/tests/infofeatures.txt files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+# then
+# 	echo "infofeatures test is failing"
+# else
+# 	echo "infofeatures test is ok"
+# fi
 
 python3 csv2gender.py files/names/all.csv > files/tests/csv2genderall-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/csv2genderall.txt files/tests/csv2genderall-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+if ! cmp files/tests/csv2genderall.txt files/tests/csv2genderall-$(date "+%Y-%m-%d-%H").txt 
 then
 	echo "csv2genderall test is failing"
 else
@@ -191,6 +191,14 @@ then
 	echo "pca-features-nocategorical test is failing"
 else
 	echo "pca-features-nocategorical test is ok"
+fi
+
+python3 accuracy.py --api="genderapi" --csv="files/names/min.csv" --json="files/names/genderapifiles_names_min.csv.json" > files/tests/accuracyminjsongenderapi-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/accuracyminjsongenderapi.txt files/tests/accuracyminjsongenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "accuracyminjsongenderapi test is failing"
+else
+	echo "accuracyminjsongenderapi test is ok"
 fi
 
 
