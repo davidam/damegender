@@ -65,8 +65,7 @@ if (len(sys.argv) > 1):
             string = str(n.group(4)) + str(n.group(5)) + str(n.group(6))
         else:
             string = str(n.group(4)) + str(n.group(5))
-
-        if (du.drop_white_space(args.name) == du.drop_white_space(string) ):
+        if (du.drop_white_space(args.name.capitalize()) == du.drop_white_space(string) ):
             for i in range(30, 84):
                 if (exists_in_country(int(i), rowres)):
                     if (rowres[0].title() == "M"):

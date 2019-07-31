@@ -136,6 +136,12 @@ class TddInPythonExample(unittest.TestCase):
         am = np.array([[1, 0, 2],[0, 13, 3],[0, 1, 1]])
         self.assertTrue(np.array_equal(cm,am))
 
+    def test_dame_gender_confusion_matrix_dame_method_returns_correct_result(self):
+        g = Gender()
+        cm = g.confusion_matrix_dame(path="files/names/min.csv")
+        am = [[0, 0, 1], [0, 4, 1]]
+        self.assertEqual(cm,am)
+
     # def test_gender_guess_list_method_returns_correct_result(self):
     #     g = Gender()
     #     string = g.guess_list(path="files/names/partial.csv", binary=False)

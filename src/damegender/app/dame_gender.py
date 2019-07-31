@@ -502,6 +502,12 @@ class Gender(object):
         return confusion_matrix(gl, sl)
 
     def print_confusion_matrix_dame(self, path='files/names/partial.csv'):
+        cmd = self.confusion_matrix_dame(path)
+        print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+        print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+        return ""
+
+    def confusion_matrix_dame(self, path='files/names/partial.csv'):
         truevector = self.gender_list(path)
         guessvector = self.guess_list(path,binary=True)
         self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
@@ -510,9 +516,8 @@ class Gender(object):
         self.malefemale = self.count_true2guess(truevector, guessvector, 1, 0)
         self.malemale = self.count_true2guess(truevector, guessvector, 1, 1)
         self.maleundefined = self.count_true2guess(truevector, guessvector, 1, 2)
-        print("[[ %s, %s, %s]" % (self.femalefemale, self.femalemale, self.femaleundefined))
-        print(" [ %s, %s, %s]]\n" % (self.malefemale, self.malemale, self.maleundefined))
-        return ""
+        l = [[ self.femalefemale, self.femalemale, self.femaleundefined ], [self.malefemale, self.malemale, self.maleundefined]]
+        return l
 
     def features_list(self, path='files/names/partial.csv', sexdataset=''):
         flist = []

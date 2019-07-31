@@ -32,7 +32,8 @@ from app.dame_customsearch import DameCustomsearch
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--csv', default="files/names/min.csv")
+parser.add_argument('--csv', default="files/names/min.csv", help='input file for names')  
+parser.add_argument('--json', help='if you have downloaded the results from an api in a json file, you can try this argument')
 parser.add_argument('--api', default="damegender", choices=['customsearch', 'namsor', 'genderize', 'genderguesser', 'damegender', 'genderapi', 'nameapi', 'all'])
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
 args = parser.parse_args()
@@ -92,7 +93,7 @@ if (args.api == "all"):
     genderapi_accuracy = dga.accuracy_score_dame(gl,sl)
     print("Genderapi accuracy: %s" % genderapi_accuracy)
 
-    
+
     dna = DameNameapi()
     print("################### Nameapi!!")
     gl = dna.gender_list(path=args.csv)
@@ -222,7 +223,10 @@ elif (args.api == "genderapi"):
     print("################### GenderApi!!")
     gl = dga.gender_list(path=args.csv)
     print("Gender list: " + str(gl))
-    sl = dga.guess_list(path=args.csv, binary=True)
+    if (args.json != ""):
+        sl = dga.json2guess_list(jsonf=args.json, binary=True)
+    else:
+        sl = dga.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
     genderapi_accuracy = dga.accuracy_score_dame(gl,sl)
     print("Genderapi accuracy: %s" % genderapi_accuracy)

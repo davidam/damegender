@@ -120,93 +120,28 @@ else
 	echo "nameincountries test is ok"
 fi
 
-python3 accuracy.py --csv=files/names/min.csv > files/tests/accuracymin-$(date "+%Y-%m-%d-%H").txt
+python3 nameincountries.py david > files/tests/nameincountriesdavid2-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/accuracymin.txt files/tests/accuracymin-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+if ! cmp files/tests/nameincountriesdavid2.txt files/tests/nameincountriesdavid2-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-	echo "accuracymin test is failing"
+	echo "nameincountries donwcase test is failing"
 else
-	echo "accuracymin test is ok"
-fi
-
-python3 accuracy.py --api="genderguesser" --csv=files/names/min.csv > files/tests/accuracygenderguesser-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/accuracygenderguesser.txt files/tests/accuracygenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "accuracygenderguesser test is failing"
-else
-	echo "accuracygenderguesser test is ok"
-fi
-
-python3 accuracy.py --api="damegender" --csv=files/names/partial.csv > files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/accuracypartialdamegender.txt files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "accuracypartialdamegender test is failing"
-else
-	echo "accuracypartialdamegender test is ok"
+	echo "nameincountries donwcase test is ok"
 fi
 
 
-python3 confusion.py --api="damegender" --dimensions=3x2 --csv=files/names/min.csv > files/tests/confusiondamegender-$(date "+%Y-%m-%d-%H").txt
+# python3 infofeatures.py > files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/confusiondamegender.txt files/tests/confusiondamegender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "confusiondamegender test is failing"
-else
-	echo "confusiondamegender test is ok"
-fi
-
-python3 confusion.py --api="genderguesser" --dimensions=3x2 --csv=files/names/min.csv > files/tests/confusiongenderguesser-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/confusiongenderguesser.txt files/tests/confusiongenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "confusiongenderguesser test is failing"
-else
-	echo "confusiongenderguesser test is ok"
-fi
-
-<<<<<<< HEAD
-=======
-python3 errors.py > files/tests/errors-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/errors.txt files/tests/errors-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-    echo "errors test is failing"
-else
-    echo "errors test is ok"
-fi
-
-python3 errors.py --csv="files/names/partial.csv" > files/tests/errorspartial-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/errorspartial.txt files/tests/errorspartial-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-    echo "errorspartial test is failing"
-else
-    echo "errorspartial test is ok"
-fi
-
-python3 errors.py --csv="files/names/partial.csv" --api="genderguesser" > files/tests/errorsgenderguesser-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/errorsgenderguesser.txt files/tests/errorsgenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "errorsgenderguesser test is failing"
-else
-	echo "errorsgenderguesser test is ok"
-fi
-
-python3 infofeatures.py > files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/infofeatures.txt files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "infofeatures test is failing"
-else
-	echo "infofeatures test is ok"
-fi
+# if ! cmp files/tests/infofeatures.txt files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+# then
+# 	echo "infofeatures test is failing"
+# else
+# 	echo "infofeatures test is ok"
+# fi
 
 python3 csv2gender.py files/names/all.csv > files/tests/csv2genderall-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/csv2genderall.txt files/tests/csv2genderall-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+if ! cmp files/tests/csv2genderall.txt files/tests/csv2genderall-$(date "+%Y-%m-%d-%H").txt 
 then
 	echo "csv2genderall test is failing"
 else
@@ -222,7 +157,9 @@ else
 	echo "csv2genderpartial test is ok"
 fi
 
-rm files/images/pca_components_files_features_list_no_cat.csv.png
+if [ -a files/images/pca_components_files_features_list_no_cat.csv.png ]; then
+    rm files/images/pca_components_files_features_list_no_cat.csv.png
+fi
 python3 pca-components.py --csv='files/features_list_no_cat.csv' --no-show
 if [ -a files/images/pca_components_files_features_list_no_cat.csv.png ]; then
 	echo "pca-components-nocategorical test is ok"
@@ -237,6 +174,33 @@ then
 else
 	echo "pca-features-nocategorical test is ok"
 fi
+
+if [ -a files/images/pca_components_files_features_list_cat.csv.png ]; then
+    rm files/images/pca_components_files_features_list_cat.csv.png
+fi
+python3 pca-components.py --csv='files/features_list_cat.csv' --no-show
+if [ -a files/images/pca_components_files_features_list_cat.csv.png ]; then
+	echo "pca-components-categorical test is ok"
+else
+	echo "pca-components-categorical test is failing"
+fi
+
+python3 pca-features.py --categorical="noletters" --components=3 > files/tests/pca-features-categorical-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "pca-features-nocategorical test is failing"
+else
+	echo "pca-features-nocategorical test is ok"
+fi
+
+python3 accuracy.py --api="genderapi" --csv="files/names/min.csv" --json="files/names/genderapifiles_names_min.csv.json" > files/tests/accuracyminjsongenderapi-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/accuracyminjsongenderapi.txt files/tests/accuracyminjsongenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "accuracyminjsongenderapi test is failing"
+else
+	echo "accuracyminjsongenderapi test is ok"
+fi
+
 
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt

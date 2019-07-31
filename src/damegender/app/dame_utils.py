@@ -29,6 +29,13 @@ class DameUtils():
     def is_not_blank(self, s):
         return bool(s and s.strip())
 
+    def various_words_p(self, s):
+        match = re.search(r"( ?(\w+)( \w)+)|( ?(\w+)(\+\w)+)", s)
+        if match:
+            return 1
+        else:
+            return 0
+
     def represents_int(self, s):
         try:
             int(s)
@@ -73,6 +80,42 @@ class DameUtils():
         for c in unicodedata.normalize('NFD', str(s)):
             if (c != ' '):
                 aux = aux + c
+        return aux
+
+    def white_space_inside_by(self, s, by):
+        inside = 0
+        aux = ""
+        string = self.drop_white_space_around(s)
+        for c in unicodedata.normalize('NFD', str(string)):
+            if (c == ' '):
+                aux = aux + by
+            else:
+                aux = aux + c
+        return aux
+
+    def drop_white_space_around(self, s):
+        aux = ""
+        arr = unicodedata.normalize('NFD', str(s))
+        i = 0
+        j = -1
+        while (i != j):
+            if (arr[i] == " "):
+                aux = ""
+            else:
+                aux = aux + arr[i]
+                j = i + 1
+            i = i + 1
+        j = -1
+        while (len(arr) > i) and (i != j):
+            if (arr[i].isalpha()):
+                aux = aux + arr[i]
+            elif ((arr[i] == " ") and (len(arr) == (i+1))):
+                j = i+1
+            elif ((arr[i] == " ") and (arr[i+1].isalpha())):
+                aux = aux + arr[i]
+            else:
+                j = i+1
+            i = i+1
         return aux
 
     def drop_accents(self, s):
