@@ -82,6 +82,7 @@ class TddInPythonExample(unittest.TestCase):
         dga = DameGenderApi()
         if (dga.config['DEFAULT']['genderapi'] == 'yes'):
             self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], dga.json2guess_list(jsonf="files/names/genderapifiles_names_min.csv.json"))
+            self.assertEqual([1, 1, 1, 1, 1, 0], dga.json2guess_list(jsonf="files/names/genderapifiles_names_min.csv.json", binary=True))
 
     def test_dame_genderapi_confusion_matrix_dame_method_returns_correct_result(self):
         dga = DameGenderApi()

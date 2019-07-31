@@ -103,7 +103,15 @@ class DameGenderApi(Gender):
         json_object = json.loads(jsondata)
         guesslist = []
         for i in json_object["names"][0]:
-            guesslist.append(i['gender'])
+            if binary:
+                if (i['gender'] == 'female'):
+                    guesslist.append(0)
+                elif (i['gender'] == 'male'):
+                    guesslist.append(1)
+                else:
+                    guesslist.append(2)
+            else:
+                guesslist.append(i['gender'])
         return guesslist
 
     def guess_list(self, path="files/names/partial.csv", binary=False):
