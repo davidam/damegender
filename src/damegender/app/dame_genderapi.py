@@ -98,6 +98,14 @@ class DameGenderApi(Gender):
         backup.close()
         return 1
 
+    def json2guess_list(self, jsonf="files/names/genderapifiles_names_min.csv.json", binary=False):
+        jsondata = open(jsonf).read()
+        json_object = json.loads(jsondata)
+        guesslist = []
+        for i in json_object["names"][0]:
+            guesslist.append(i['gender'])
+        return guesslist
+
     def guess_list(self, path="files/names/partial.csv", binary=False):
         du = DameUtils()
         fichero = open("files/apikeys/genderapipass.txt", "r+")

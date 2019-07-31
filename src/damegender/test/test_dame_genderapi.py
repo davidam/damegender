@@ -61,7 +61,7 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_genderapi_download_method_returns_correct_result(self):
         dga = DameGenderApi()
         du = DameUtils()
-        path1="files/names/min.csv"
+        path1="files/names/all.csv"
         if (dga.config['DEFAULT']['genderapi'] == 'yes'):
             g = dga.download(path1)
             self.assertTrue(os.path.isfile("files/names/genderapi"+du.path2file(path1)+".json"))
@@ -77,6 +77,11 @@ class TddInPythonExample(unittest.TestCase):
         if (dga.config['DEFAULT']['genderapi'] == 'yes'):
             self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'male', 'female', 'male', 'male'], dga.guess_list(path="files/names/partial.csv", binary=False))
             self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1], dga.guess_list(path="files/names/partial.csv",binary=True))
+
+    def test_dame_genderapi_json2guess_list_method_returns_correct_result(self):
+        dga = DameGenderApi()
+        if (dga.config['DEFAULT']['genderapi'] == 'yes'):
+            self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], dga.json2guess_list(jsonf="files/names/genderapifiles_names_min.csv.json"))
 
     def test_dame_genderapi_confusion_matrix_dame_method_returns_correct_result(self):
         dga = DameGenderApi()
