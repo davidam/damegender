@@ -36,8 +36,9 @@ class TddInPythonExample(unittest.TestCase):
     def test_various_words_p(self):
         du = DameUtils()
         self.assertEqual(du.various_words_p("david arroyo"), True)
+        self.assertEqual(du.various_words_p("Abdul+Ahad"), True)
         self.assertEqual(du.various_words_p(" david arroyo "), True)
-        
+
     def test_path2file_method_returns_correct_result(self):
         du = DameUtils()
         self.assertEqual(du.path2file("files/images/lalla.csv"), "files_images_lalla.csv")
@@ -76,8 +77,14 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual("Juan Carlos I", u.drop_white_space_around(" Juan Carlos I"))
         self.assertEqual("Juan Carlos I", u.drop_white_space_around(" Juan Carlos I  "))
         self.assertEqual("Juan Carlos I", u.drop_white_space_around(" Juan Carlos I "))
+        self.assertEqual("Jose Maria", u.drop_white_space_around(u.drop_accents(" José María ")))
         self.assertEqual("Ines", u.drop_white_space_around(u.drop_accents("Inés ")))
         self.assertEqual("Ana", u.drop_white_space_around(" Ana"))
+
+    def test_drop_white_space_around_method_returns_correct_result(self):
+        u = DameUtils()
+        self.assertEqual("Maria+Jose", u.white_space_inside_by(u.drop_accents(" María José "), "+"))
+#        self.assertEqual("María+José", u.white_space_inside_by(" María José ", "+"))
 
     def test_drop_quotes_method_returns_correct_result(self):
         u = DameUtils()
