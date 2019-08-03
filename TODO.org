@@ -456,7 +456,8 @@ https://publications.computer.org/software-magazine/2018/07/25/20-years-open-sou
 * DONE Escribir confusion de machine learning methods
   - State "DONE"       from "TODO"       [2019-02-17 dom 16:40]
 * GOING Elección de features
-** TODO Sentido Común (infofeatures.py)
+** DONE Sentido Común (infofeatures.py)
+   - State "DONE"       from "TODO"       [2019-08-03 sáb 15:53]
 Se descarta el estudio de la primera letra (ver infofeatures.py)
 + [ ] last_letter_a
 + [ ] last_letter_consonant
@@ -477,8 +478,9 @@ Si son categóricas del estilo mueble (silla, mesa, nevera, sillón, etc.) se re
 ** DONE Escribir un fichero que nos de el dataframe con los compoentes principales
    SCHEDULED: <2019-02-21 jue>
    - State "DONE"       from "TODO"       [2019-02-21 jue 12:35]
-** TODO Visualizar el dataset para entender qué features correlacionan según los componentes principales
+** DONE Visualizar el dataset para entender qué features correlacionan según los componentes principales
    SCHEDULED: <2019-02-21 jue>
+   - State "DONE"       from "TODO"       [2019-08-03 sáb 15:48]
 * DONE En dame_sexmachine.py  es necesario reescribir guess para aplicar Machine Learning
   SCHEDULED: <2019-01-25 vie>
   - State "DONE"       from "TODO"       [2019-02-17 dom 16:44]
@@ -657,8 +659,10 @@ F1 = 2 * (precision * recall) / (precision + recall)
 * DONE En features_list añadir argumento dataset como opcional y añadir una columna gender
   SCHEDULED: <2019-02-18 lun>
   - State "DONE"       from "TODO"       [2019-02-17 dom 16:55]
-* TODO Revisar que están todas las apis bien hechos los experimentos
+* DONE Revisar que están todas las apis bien hechos los experimentos
   SCHEDULED: <2019-02-18 lun>
+  - State "DONE"       from "TODO"       [2019-08-03 sáb 15:56]
+Se ha realizado testscommandsextra.sh para garantizar la calidad del software con las apis
 * DONE Probar lo de pillar una api key de google
   SCHEDULED: <2019-02-18 lun>
   - State "DONE"       from "TODO"       [2019-03-13 mié 17:59]
