@@ -306,8 +306,8 @@ davidam@libresoft ~/git/python-examples/shell: (dev) $ python3 spa2eng.py David 
 No definitions found for "David"
 davidam@libresoft ~/git/python-examples/shell: (dev) $ python3 spa2eng.py Tabla | grep "No definitions"
 davidam@libresoft ~/git/python-examples/shell: (dev) $
-* TODO Pensar en una o varias features other_apis
-* TODO En los detectores de género que den los mismos resultados preguntar si ya es el mismo software
+* CANCELED Pensar en una o varias features other_apis
+  - State "CANCELED"   from "TODO"       [2019-08-03 sáb 15:59]
 * DONE Empezar Artículo
   - State "DONE"       from "TODO"       [2019-03-13 mié 17:55]
 ** DONE Elección features
@@ -728,7 +728,7 @@ wget -c https://avatars2.githubusercontent.com/u/1023217
   - State "DONE"       from "TODO"       [2019-03-22 vie 22:53]
 https://docs.python.org/2/distutils/setupscript.html
 * TODO Plantearse separar dame_gender.py a dame_statistics.py
-  SCHEDULED: <2019-03-04 lun>
+  SCHEDULED: <2019-08-03 sáb>
 * TODO remove_if_contains_init
   SCHEDULED: <2019-03-09 sáb>
 * DONE Aprender a hacer comandos
@@ -742,8 +742,9 @@ tres datasets, crear la media ponderada.
   SCHEDULED: <2019-05-16 jue>
 * TODO Revisar dataset2genderlist con todos los datasets
   SCHEDULED: <2019-05-30 jue>
-* TODO Revisar los métodos males y females para todos los datasets
+* DONE Revisar los métodos males y females para todos los datasets
   SCHEDULED: <2019-05-31 vie>
+  - State "DONE"       from "TODO"       [2019-08-03 sáb 16:01]
 * DONE Introducir gender guesser en main.py
   SCHEDULED: <2019-05-30 jue>
   - State "DONE"       from "TODO"       [2019-05-30 jue 16:50]
@@ -785,7 +786,7 @@ Alex gender is female
   SCHEDULED: <2019-06-07 vie>
   - State "DONE"       from "TODO"       [2019-06-07 vie 15:59]
 * TODO En confusion.py hay un lío con nameapi
-  SCHEDULED: <2019-06-07 vie>
+  SCHEDULED: <2019-08-03 sáb>
 * DONE Puesto que uno de los componentes de PCA nos ha dado que la primera letra podría indicar género estaría bien hacer un infofeatures por vocal o consonante
   - State "DONE"       from "TODO"       [2019-06-10 lun 11:09]
 Parece que esa no sería la pista:
@@ -795,10 +796,16 @@ Males with first letter consonant: 0.7735667564447865
 ---------------------------------------------------------------
 Females with first letter vocal: 0.2030441165108553
 Males with first letter vocal: 0.22633705271258175
-* TODO Probando min.csv generar un fichero que devuelva género y probabilidad con genderapi
+* DONE Probando min.csv generar un fichero que devuelva género y probabilidad con genderapi en json
   SCHEDULED: <2019-07-01 lun>
+  - State "DONE"       from "TODO"       [2019-08-03 sáb 16:12]
 * TODO Revisar features_list.csv
   SCHEDULED: <2019-07-01 lun>
 * DONE pca-features in bash test
   SCHEDULED: <2019-07-02 mar>
   - State "DONE"       from "TODO"       [2019-07-02 mar 13:57]
+* TODO Sacar el accuracy y el confusion desde el json de genderapi
+  SCHEDULED: <2019-08-04 dom>
+* TODO Arreglar el tema de los binarios en la paquetería
+  SCHEDULED: <2019-08-04 dom>
+* TODO Buscar la validez de la muestra para saber si los nacimientos en uk y usa nos valdrían para sacar probabilidades
