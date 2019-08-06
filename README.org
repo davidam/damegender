@@ -236,6 +236,7 @@ $ python3 pca-features.py                                   # To understand the 
 ** Accuracy
 
 |                |           Accuracy |
+| Genderapi      | 0.9687686966482124 |
 | Namsor         | 0.7539570378745054 |
 | Genderize      | 0.715375918598078  |
 | Gender Guesser | 0.6902204635387225 |
