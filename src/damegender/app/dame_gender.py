@@ -114,10 +114,6 @@ class Gender(object):
             features_int["last_letter_o"] = 1
         else:
             features_int["last_letter_o"] = 0
-        features_int["a"] = 0
-        for i in name:
-            if (i == "a"):
-                features_int["a"] = features_int["a"] + 1
         return features_int
 
 ######################## DATASETS METHODS ###############################################
@@ -562,7 +558,8 @@ class Gender(object):
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"','')
-                l = list([self.features_int(name)["first_letter"], self.features_int(name)["last_letter"], self.features_int(name)["last_letter_a"], self.features_int(name)["first_letter_vocal"], self.features_int(name)["last_letter_vocal"], self.features_int(name)["last_letter_consonant"]])
+                # first_letter, last_letter, vocals, consonants, first_letter_vocal, last_letter_vocal, first_letter_consonant, last_letter_consonant, last_letter_a, last_letter_o"
+                l = list([self.features_int(name)["first_letter"], self.features_int(name)["last_letter"], self.features_int(name)["vocals"], self.features_int(name)["consonants"], self.features_int(name)["first_letter_vocal"], self.features_int(name)["last_letter_vocal"], self.features_int(name)["first_letter_consonant"], self.features_int(name)["last_letter_consonant"], self.features_int(name)["last_letter_a"], self.features_int(name)["last_letter_o"]])
                 flist.append(l)
         return flist
 
@@ -591,15 +588,15 @@ class Gender(object):
             f = open('files/features_list_no_cat.csv', 'w')
         elif (categorical=="noletters"):
             fl = self.features_list_no_letters(path)
-            first_line = "first_letter, last_letter, vocals, consonants, first_letter, first_letter_vocal, last_letter_vocal, last_letter_consonant, last_letter_a"
+            first_line = "first_letter, last_letter, vocals, consonants, first_letter_vocal, last_letter_vocal, first_letter_consonant, last_letter_consonant, last_letter_a, last_letter_o"
             f = open('files/features_list_no_letters.csv', 'w')
         elif (categorical=="noundefined"):
             fl = self.features_list_no_undefined(path)
-            first_line = "first_letter, last_letter, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, vocals, consonants, first_letter, first_letter_vocal, last_letter_vocal, last_letter_consonant, last_letter_a"
+            first_line = "first_letter, last_letter, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, vocals, consonants, first_letter_vocal, last_letter_vocal, first_letter_consonant, last_letter_consonant, last_letter_a, last_letter_o"
             f = open('files/features_list_no_undefined.csv', 'w')
         else:
             fl = self.features_list(path)
-            first_line = "first_letter, last_letter, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, vocals, consonants, first_letter, first_letter_vocal, last_letter_vocal, last_letter_consonant, last_letter_a"
+            first_line = "first_letter, last_letter, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, vocals, consonants, first_letter_vocal, last_letter_vocal, first_letter_consonant, last_letter_consonant, last_letter_a, last_letter_o"
             f = open('files/features_list.csv', 'w')
         f.write(first_line+"\n")
         for i in fl:
