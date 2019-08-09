@@ -31,6 +31,7 @@ import configparser
 import os
 import re
 import sys
+import json
 from collections import OrderedDict
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
@@ -116,7 +117,69 @@ class Gender(object):
             features_int["last_letter_o"] = 0
         return features_int
 
-######################## DATASETS METHODS ###############################################
+    ######################## DATASETS METHODS ###############################################
+
+    def ukfile(self):
+        # create a file with name and prob from uk births
+        total = 0
+        for i in range(1880, 2018):
+             # first we acquire the total of births from 1880 to 2017
+             dataset = "files/names/uk/yob"+ str(i) +".txt"
+             with open(dataset) as csvfile:
+                 sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+                 next(sexreader, None)
+                 totali = 0
+                 for row in sexreader:
+                     datasetcount = row[2]
+                     totali = totali + int(datasetcount)
+             total = total + totali
+
+        # now we are going to start the json file with 1880
+        jsonuk = "files/names/uk/jsonuk.json"
+        file = open(jsonuk, "w")
+        dataset = "files/names/uk/yob1880.txt"
+        with open(dataset) as csvfile:
+             sexreader1 = csv.reader(csvfile, delimiter=',', quotechar='|')
+             next(sexreader1, None)
+             cnt = 0
+             for row in sexreader1:
+                 cnt = cnt + 1
+        end = cnt
+        lines = []
+        lines.append('[')
+        with open(dataset) as csvfile:
+             sexreader2 = csv.reader(csvfile, delimiter=',', quotechar='|')
+             next(sexreader2, None)
+             cnt = 1
+             print(cnt)
+             print(end)
+             for row in sexreader2:
+                lines.append('{"name": "'+ row[0]+'",')
+                lines.append('"gender": "'+ row[1]+'",')
+                print(end)
+                print(cnt)
+                if (end == cnt):
+                    lines.append('"count": '+ row[2]+'}')
+                    print('"count": '+ row[2]+'}')
+                else:
+                    lines.append('"count": '+ row[2]+'},')
+                    print('"count": '+ row[2]+'},')
+                cnt = cnt + 1
+             lines.append(']')
+        fo = open(jsonuk, "w")
+        fo.writelines(lines)
+        # Cerramos el archivo
+        for i in range(1881, 2018):
+            dataset = "files/names/uk/yob"+ str(i) +".txt"
+            with open(dataset) as csvfile:
+                sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+                next(sexreader, None)
+                lines = []
+                for row in sexreader:
+                    print(row)
+                #         Cerramos el archivo
+        fo.close()
+        return 1
 
     def males_list(self, corpus='engspa'):
         my_corpus = nltk.corpus.PlaintextCorpusReader('files/names/names_es', '.*\.txt')
