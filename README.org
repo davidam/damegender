@@ -572,6 +572,11 @@ The third component is not giving relevant information.
 
 The fourth component is giving tha last_letter_a and the
 first_letter_vocal is for females.
+* Speeches, Seminars, Expressions of Support
++ [[http://gregoriorobles.github.io/MadSESE/201906.html][MadSeSe]]
++ [[https://www.meetup.com/es-ES/python-185/events/261405719/][Python Barcelona]]
++ [[https://www.medialab-prado.es/noticias/taller-de-periodismo-de-datos-2019-sesiones-formativas][Taller de Periodismo de Datos (Medialab Prado, Madrid). NLTK & Damegender]]
+
 * Beautiful Snakes
 
 | [[file:src/damegender/files/images/violet-snake2.png]] |
