@@ -157,9 +157,29 @@ else
 	echo "csv2genderpartial test is ok"
 fi
 
+if [ -a files/images/pca_components_files_features_list.csv.png ]; then
+    rm files/images/pca_components_files_features_list.csv.png
+fi
+
+python3 pca-components.py --csv='files/features_list.csv' --no-show
+if [ -a files/images/pca_components_files_features_list.csv.png ]; then
+	echo "pca-components test is ok"
+else
+	echo "pca-components test is failing"
+fi
+
+python3 pca-features.py --categorical="both" --components=7 > files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "pca-features-both test is failing"
+else
+	echo "pca-features-both test is ok"
+fi
+
 if [ -a files/images/pca_components_files_features_list_no_cat.csv.png ]; then
     rm files/images/pca_components_files_features_list_no_cat.csv.png
 fi
+
 python3 pca-components.py --csv='files/features_list_no_cat.csv' --no-show
 if [ -a files/images/pca_components_files_features_list_no_cat.csv.png ]; then
 	echo "pca-components-nocategorical test is ok"
@@ -178,12 +198,41 @@ fi
 if [ -a files/images/pca_components_files_features_list_cat.csv.png ]; then
     rm files/images/pca_components_files_features_list_cat.csv.png
 fi
+
 python3 pca-components.py --csv='files/features_list_cat.csv' --no-show
 if [ -a files/images/pca_components_files_features_list_cat.csv.png ]; then
 	echo "pca-components-categorical test is ok"
 else
 	echo "pca-components-categorical test is failing"
 fi
+
+python3 pca-features.py --categorical="noletters" --components=3 > files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "pca-features-nocategorical test is failing"
+else
+	echo "pca-features-nocategorical test is ok"
+fi
+
+if [ -a files/images/pca_components_files_features_list_no_undefined.csv.png ]; then
+    rm files/images/pca_components_files_features_list_no_undefined.csv.png
+fi
+
+python3 pca-components.py --csv='files/features_list_no_undefined.csv' --no-show
+if [ -a files/images/pca_components_files_features_list_no_undefined.csv.png ]; then
+	echo "pca-components-no-undefined test is ok"
+else
+	echo "pca-components-no-undefined test is failing"
+fi
+
+python3 pca-features.py --categorical="both" --components=3 > files/tests/pca-features-both-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/pca-features-both.txt files/tests/pca-features-both-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "pca-features-both test is failing"
+else
+	echo "pca-features-both test is ok"
+fi
+
 
 python3 pca-features.py --categorical="noletters" --components=3 > files/tests/pca-features-categorical-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1

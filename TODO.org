@@ -306,8 +306,8 @@ davidam@libresoft ~/git/python-examples/shell: (dev) $ python3 spa2eng.py David 
 No definitions found for "David"
 davidam@libresoft ~/git/python-examples/shell: (dev) $ python3 spa2eng.py Tabla | grep "No definitions"
 davidam@libresoft ~/git/python-examples/shell: (dev) $
-* TODO Pensar en una o varias features other_apis
-* TODO En los detectores de género que den los mismos resultados preguntar si ya es el mismo software
+* CANCELED Pensar en una o varias features other_apis
+  - State "CANCELED"   from "TODO"       [2019-08-03 sáb 15:59]
 * DONE Empezar Artículo
   - State "DONE"       from "TODO"       [2019-03-13 mié 17:55]
 ** DONE Elección features
@@ -456,13 +456,107 @@ https://publications.computer.org/software-magazine/2018/07/25/20-years-open-sou
 * DONE Escribir confusion de machine learning methods
   - State "DONE"       from "TODO"       [2019-02-17 dom 16:40]
 * GOING Elección de features
-** TODO Sentido Común (infofeatures.py)
-Se descarta el estudio de la primera letra (ver infofeatures.py)
+** DONE Sentido Común (infofeatures.py)
+   - State "DONE"       from "TODO"       [2019-08-03 sáb 15:53]
+Se hizo una versión extendida de infofeatures.py (hasta versión 0.1.9 de pip)
+Dió los siguientes resultados:
+
+davidam@libresoft ~/git/damegender/src/damegender: (master) $ python3 infofeatures.py
+---------------------------------------------------------------
+Females with letter/s a: 0.7346828401452523
+Males with letter/s a: 0.6176225471626638
+---------------------------------------------------------------
+Females with last letter a: 0.4705246078961601
+Males with last letter a: 0.16910371997878626
+---------------------------------------------------------------
+Females with last letter o: 0.017306652244456464
+Males with last letter o: 0.10758390787180847
+---------------------------------------------------------------
+Females with last letter consonant: 0.2735841767750908
+Males with last letter consonant: 0.48738540798545343
+---------------------------------------------------------------
+Females with last letter vocal: 0.7262612995441552
+Males with last letter vocal: 0.5123115387529358
+---------------------------------------------------------------
+---------------------------------------------------------------
+there are 12943 females
+first letter females dictionary:
+a  :: 0.10090396353241134
+m  :: 0.08946921115660975
+s  :: 0.07602565093100518
+c  :: 0.06227304334389245
+l  :: 0.056941976357876845
+e  :: 0.04890674495866491
+n  :: 0.048597697597156764
+d  :: 0.047902341033763424
+j  :: 0.04566174766282933
+r  :: 0.044116510855288574
+k  :: 0.03793556362512555
+b  :: 0.03770377810399444
+g  :: 0.03639032681758479
+y  :: 0.03530866105230627
+h  :: 0.03229544927760179
+i  :: 0.03229544927760179
+t  :: 0.03160009271420845
+f  :: 0.027350691493471375
+p  :: 0.02263771923047207
+v  :: 0.0202426021787839
+o  :: 0.016843081202194236
+z  :: 0.016456772000309046
+x  :: 0.013366298385227536
+w  :: 0.010971181333539365
+u  :: 0.004094877539983002
+q  :: 0.0036313064977207756
+ñ  :: 0.0
+---------------------------------------------------------------
+there are 13199 males
+first letter males dictionary:
+a  :: 0.11955451170543223
+m  :: 0.0847033866201985
+s  :: 0.06811122054701113
+c  :: 0.0577316463368437
+j  :: 0.053640427305098874
+e  :: 0.049776498219562086
+l  :: 0.048943101750132584
+d  :: 0.04788241533449504
+b  :: 0.04757936207288431
+r  :: 0.04538222592620653
+g  :: 0.042806273202515344
+h  :: 0.0375028411243276
+k  :: 0.037199787862716875
+n  :: 0.03553299492385787
+t  :: 0.031744829153723765
+i  :: 0.029017349799227213
+f  :: 0.02810819001439503
+y  :: 0.025683763921509204
+p  :: 0.02325933782862338
+v  :: 0.018940828850670506
+o  :: 0.0172740359118115
+z  :: 0.01606182286536859
+w  :: 0.01424350329570422
+x  :: 0.01007652094855671
+u  :: 0.005682248655201152
+q  :: 0.003485112508523373
+ñ  :: 0.0
+---------------------------------------------------------------
+Females with first letter consonant: 0.7968786216487677
+Males with first letter consonant: 0.7786195923933631
+---------------------------------------------------------------
+Females with first letter vocal: 0.2030441165108553
+Males with first letter vocal: 0.2213046442912342
+
+Se descarta por baja diferencia entre hombres y mujeres
++ [ ] el estudio de la primera letra (ver infofeatures.py)
++ [ ] last_letter_o (otras last_letter daban resultados más bajos, excepto last_letter_a)
+
+Las features que se consideran a escoger son:
++ [ ] vocals
++ [ ] consonants
 + [ ] last_letter_a
 + [ ] last_letter_consonant
 + [ ] last_letter_vocal
-** TODO Escribir un pca para determinar las 5 letras más determinantes en la elección de género (pueden ocurrir una o varias veces en el nombre)
-** TODO Escribir un pca para determinar las 5 letras más determinantes en la elección de género al final del nombre (como última letra)
++ [ ] last_letter
+
 * GOING Escribir un pca
 ** TODO Pensar el dataset (puntos a tener en cuenta)
 *** DONE Retirar undefined??
@@ -477,8 +571,9 @@ Si son categóricas del estilo mueble (silla, mesa, nevera, sillón, etc.) se re
 ** DONE Escribir un fichero que nos de el dataframe con los compoentes principales
    SCHEDULED: <2019-02-21 jue>
    - State "DONE"       from "TODO"       [2019-02-21 jue 12:35]
-** TODO Visualizar el dataset para entender qué features correlacionan según los componentes principales
+** DONE Visualizar el dataset para entender qué features correlacionan según los componentes principales
    SCHEDULED: <2019-02-21 jue>
+   - State "DONE"       from "TODO"       [2019-08-03 sáb 15:48]
 * DONE En dame_sexmachine.py  es necesario reescribir guess para aplicar Machine Learning
   SCHEDULED: <2019-01-25 vie>
   - State "DONE"       from "TODO"       [2019-02-17 dom 16:44]
@@ -657,8 +752,10 @@ F1 = 2 * (precision * recall) / (precision + recall)
 * DONE En features_list añadir argumento dataset como opcional y añadir una columna gender
   SCHEDULED: <2019-02-18 lun>
   - State "DONE"       from "TODO"       [2019-02-17 dom 16:55]
-* TODO Revisar que están todas las apis bien hechos los experimentos
+* DONE Revisar que están todas las apis bien hechos los experimentos
   SCHEDULED: <2019-02-18 lun>
+  - State "DONE"       from "TODO"       [2019-08-03 sáb 15:56]
+Se ha realizado testscommandsextra.sh para garantizar la calidad del software con las apis
 * DONE Probar lo de pillar una api key de google
   SCHEDULED: <2019-02-18 lun>
   - State "DONE"       from "TODO"       [2019-03-13 mié 17:59]
@@ -724,7 +821,7 @@ wget -c https://avatars2.githubusercontent.com/u/1023217
   - State "DONE"       from "TODO"       [2019-03-22 vie 22:53]
 https://docs.python.org/2/distutils/setupscript.html
 * TODO Plantearse separar dame_gender.py a dame_statistics.py
-  SCHEDULED: <2019-03-04 lun>
+  SCHEDULED: <2019-08-03 sáb>
 * TODO remove_if_contains_init
   SCHEDULED: <2019-03-09 sáb>
 * DONE Aprender a hacer comandos
@@ -738,8 +835,9 @@ tres datasets, crear la media ponderada.
   SCHEDULED: <2019-05-16 jue>
 * TODO Revisar dataset2genderlist con todos los datasets
   SCHEDULED: <2019-05-30 jue>
-* TODO Revisar los métodos males y females para todos los datasets
+* DONE Revisar los métodos males y females para todos los datasets
   SCHEDULED: <2019-05-31 vie>
+  - State "DONE"       from "TODO"       [2019-08-03 sáb 16:01]
 * DONE Introducir gender guesser en main.py
   SCHEDULED: <2019-05-30 jue>
   - State "DONE"       from "TODO"       [2019-05-30 jue 16:50]
@@ -781,7 +879,7 @@ Alex gender is female
   SCHEDULED: <2019-06-07 vie>
   - State "DONE"       from "TODO"       [2019-06-07 vie 15:59]
 * TODO En confusion.py hay un lío con nameapi
-  SCHEDULED: <2019-06-07 vie>
+  SCHEDULED: <2019-08-03 sáb>
 * DONE Puesto que uno de los componentes de PCA nos ha dado que la primera letra podría indicar género estaría bien hacer un infofeatures por vocal o consonante
   - State "DONE"       from "TODO"       [2019-06-10 lun 11:09]
 Parece que esa no sería la pista:
@@ -791,10 +889,18 @@ Males with first letter consonant: 0.7735667564447865
 ---------------------------------------------------------------
 Females with first letter vocal: 0.2030441165108553
 Males with first letter vocal: 0.22633705271258175
-* TODO Probando min.csv generar un fichero que devuelva género y probabilidad con genderapi
+* DONE Probando min.csv generar un fichero que devuelva género y probabilidad con genderapi en json
   SCHEDULED: <2019-07-01 lun>
+  - State "DONE"       from "TODO"       [2019-08-03 sáb 16:12]
 * TODO Revisar features_list.csv
-  SCHEDULED: <2019-07-01 lun>
+  SCHEDULED: <2019-08-03 sáb>
 * DONE pca-features in bash test
   SCHEDULED: <2019-07-02 mar>
   - State "DONE"       from "TODO"       [2019-07-02 mar 13:57]
+* DONE Sacar el accuracy desde el json de genderapi
+  SCHEDULED: <2019-08-04 dom>
+  - State "DONE"       from "TODO"       [2019-08-06 mar 19:23]
+* TODO Sacar el confusion desde el json de genderapi
+* TODO Arreglar el tema de los binarios en la paquetería
+  SCHEDULED: <2019-08-04 dom>
+* TODO Buscar la validez de la muestra para saber si los nacimientos en uk y usa nos valdrían para sacar probabilidades

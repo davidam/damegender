@@ -28,14 +28,14 @@ g = Gender()
 print("---------------------------------------------------------------")
 females = 0
 for i in g.females_list():
-    if (g.features_int(i)["a"] >= 1):
+    if (g.features_int(i)['count(a)'] >= 1):
         females = females + 1
 #print("Females with last letter a: " + str(females))
 print("Females with letter/s a: %s " % (females/ len(g.females_list())))
 
 males = 0
 for i in g.males_list():
-    if (g.features_int(i)["a"] >= 1):
+    if (g.features_int(i)['count(a)'] >= 1):
         males = males + 1
 print("Males with letter/s a: %s " % (males/ len(g.males_list())))
 

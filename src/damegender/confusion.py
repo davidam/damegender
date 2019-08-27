@@ -33,7 +33,7 @@ from app.dame_customsearch import DameCustomsearch
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', default="files/names/min.csv")
-parser.add_argument('--api', default="all", choices=['namsor', 'genderize', 'genderapi', 'genderguesser', 'damegender', 'all'])
+parser.add_argument('--api', default="all", choices=['namsor', 'genderize', 'genderapi', 'genderguesser', 'damegender', 'nameapi', 'all'])
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
 parser.add_argument('--dimensions', default="3x2", choices=['3x2', '3x3'])
 args = parser.parse_args()
@@ -144,14 +144,14 @@ elif (args.api == "damegender"):
         sexmachine_confusion_matrix = ds.confusion_matrix(path=args.csv)
         print("Damegender confusion matrix:\n %s" % sexmachine_confusion_matrix)
 
-# elif (args.api == "nameapi"):
-#     dna = DameNameapi()
-#     if (args.dimensions == "3x2"):
-#         print("Nameapi confusion matrix:\n")
-#         dna.print_confusion_matrix_dame(path=args.csv)
-#     elif (args.dimensions == "3x3"):
-#         nameapi_confusion_matrix = dna.confusion_matrix(path=args.csv)
-#         print("Nameapi confusion matrix:\n %s" % nameapi_confusion_matrix)
+elif (args.api == "nameapi"):
+    dna = DameNameapi()
+    if (args.dimensions == "3x2"):
+        print("Nameapi confusion matrix:\n")
+        dna.print_confusion_matrix_dame(path=args.csv)
+    elif (args.dimensions == "3x3"):
+        nameapi_confusion_matrix = dna.confusion_matrix(path=args.csv)
+        print("Nameapi confusion matrix:\n %s" % nameapi_confusion_matrix)
 
 # elif (args.api == "customsearch"):
 #     dc = DameCustomsearch()

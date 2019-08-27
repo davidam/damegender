@@ -45,17 +45,17 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_gender_features_int_method_returns_correct_result(self):
         g = Gender()
         features_int = g.features_int("David")
-        self.assertTrue(features_int["first_letter"] == 100)
+#        self.assertTrue(features_int["first_letter"] == 100)
         self.assertTrue(features_int["last_letter"] == 100)
         self.assertTrue(features_int["vocals"] == 2)
         self.assertTrue(features_int["consonants"] == 2)
-        self.assertTrue(features_int["first_letter_vocal"] == 0)
+#        self.assertTrue(features_int["first_letter_vocal"] == 0)
         self.assertTrue(features_int["last_letter_vocal"] == 0)
-        self.assertTrue(features_int["first_letter_consonant"] == 1)
+#        self.assertTrue(features_int["first_letter_consonant"] == 1)
         self.assertTrue(features_int["last_letter_consonant"] == 1)
         #self.assertTrue(features_int["syllables"] == 2)
         self.assertTrue(features_int["last_letter_a"] == 0)
-        self.assertTrue(len(features_int) > 0)
+        self.assertEqual(len(features_int), 36)
 
     def test_dame_gender_males_list_method_returns_correct_result(self):
         g = Gender()
@@ -192,7 +192,7 @@ class TddInPythonExample(unittest.TestCase):
         g = Gender()
         flnl = g.features_list_no_letters('files/names/partial.csv')
         self.assertTrue(len(flnl[0]) > 5)
-        self.assertEqual(flnl[0], [112, 101, 0, 0, 1, 0])
+        self.assertEqual(flnl[0], [112, 101, 3, 2, 0, 1, 1, 0, 0, 0])
 
     def test_dame_gender_features_list2csv_method_returns_correct_result(self):
         # TODO: You can write asserts to verify the first line

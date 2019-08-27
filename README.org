@@ -7,8 +7,10 @@ damegender is a gender detection tool coded by David Arroyo MEnéndez (DAME)
 
 * Why?
 + If you want determine gender gap in free software projects or mailing lists.
-+ If you don't know the gender about a name in spanish or english (current status).
++ If you don't know the gender about a name
 + If you want research with statistics about why a name is related with males or females.
++ If you want use a free gender detection tool from a name from a command with
+  open data.
 + If you want use the main solutions in gender detection (genderize,
   genderapi, namsor, nameapi and gender guesser) from a command.
 
@@ -236,14 +238,16 @@ $ python3 pca-features.py                                   # To understand the 
 ** Accuracy
 
 |                |           Accuracy |
+| Genderapi      | 0.9687686966482124 |
 | Namsor         | 0.7539570378745054 |
 | Genderize      | 0.715375918598078  |
 | Gender Guesser | 0.6902204635387225 |
 | Dame Gender    | 0.6677501413227812 |
 
-Dame Gender is only supporting names in english and spanish. We hope
-better results with more languages.
-*** Machine Learning Algorithms in DameGender
+We are using nltk and INE.es dataset in test. We hope better results
+with more languages.
+
+ Machine Learning Algorithms in DameGender
 These results are experimental, we are improving the choosing of features.
 
 + Stochastic Gradient Descendent accuracy: 0.5873374788015828
@@ -252,7 +256,6 @@ These results are experimental, we are improving the choosing of features.
 + Multinomial Naive Bayes accuracy: 0.5876201243640475
 + Bernoulli Naive Bayes accuracy: 0.5962408140192199
 + Dame Gender (nltk bayes) accuracy: 0.6677501413227812
-
 ** Confusion Matrix
 
 **** Genderguesser
@@ -333,9 +336,6 @@ sys	0m56.024s
 real	129m23.082s
 user	53m12.640s
 sys	0m32.040s
-
-
-
 
 * Statistics for damegender
 Some theory could be useful to understand some commands
@@ -572,6 +572,20 @@ The third component is not giving relevant information.
 
 The fourth component is giving tha last_letter_a and the
 first_letter_vocal is for females.
+* Speeches, Seminars, Expressions of Support
++ [[http://gregoriorobles.github.io/MadSESE/201906.html][MadSeSe]]
++ [[https://www.meetup.com/es-ES/python-185/events/261405719/][Python Barcelona]]
++ [[https://www.medialab-prado.es/noticias/taller-de-periodismo-de-datos-2019-sesiones-formativas][Taller de Periodismo de Datos (Medialab Prado, Madrid). NLTK & Damegender]]
+
 * Beautiful Snakes
 
 | [[file:src/damegender/files/images/violet-snake2.png]] |
+* License
+Copyright (C) 2019 David Arroyo Menendez
+    Permission is granted to copy, distribute and/or modify this document
+    under the terms of the GNU Free Documentation License, Version 1.3
+    or any later version published by the Free Software Foundation;
+    with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+    A copy of the license is included in [[https://www.gnu.org/copyleft/fdl.html][GNU Free Documentation License]].
+
+[[https://www.gnu.org/copyleft/fdl.html][file:https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/GFDL_Logo.svg/200px-GFDL_Logo.svg.png]]
