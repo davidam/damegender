@@ -124,22 +124,24 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(['unknown', 'male', 'male', 'male', 'unknown', 'male', 'unknown', 'unknown', 'male', 'male', 'male', 'male', 'male', 'male', 'unknown', 'male', 'male', 'male', 'female', 'male', 'unknown'], g.guess_list(path="files/names/partial.csv", binary=False))
         self.assertEqual([2, 1, 1, 1, 2, 1, 2, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 2], g.guess_list(path="files/names/partial.csv",binary=True))
 
-
     # def test_dame_gender_accuracy_method_returns_correct_result(self):
     #     g = Gender()
     #     self.assertTrue(g.accuracy(path="files/names/partial.csv") >= 0.5)
 
-    def test_dame_gender_confusion_matrix_method_returns_correct_result(self):
-        g = Gender()
-        cm = g.confusion_matrix(path="files/names/partial.csv")
-        print(cm)
-        am = np.array([[1, 0, 2],[0, 13, 3],[0, 1, 1]])
-        self.assertTrue(np.array_equal(cm,am))
+    # def test_dame_gender_confusion_matrix_method_returns_correct_result(self):
+    #     g = Gender()
+    #     cm = g.confusion_matrix_dame(path="files/names/partial.csv")
+    #     print(cm)
+    #     am = np.array([[1, 0, 2],[0, 13, 3],[0, 1, 1]])
+    #     self.assertTrue(np.array_equal(cm,am))
 
     def test_dame_gender_confusion_matrix_dame_method_returns_correct_result(self):
         g = Gender()
-        cm = g.confusion_matrix_dame(path="files/names/min.csv")
+        cm = g.confusion_matrix_gender(path="files/names/min.csv", dimensions="2x3")
         am = [[0, 0, 1], [0, 4, 1]]
+        self.assertEqual(cm,am)
+        cm = g.confusion_matrix_gender(path="files/names/partial.csv", dimensions="3x3")
+        am = [[1, 0, 2], [0, 13, 3], [0, 13, 3]]
         self.assertEqual(cm,am)
 
     # def test_gender_guess_list_method_returns_correct_result(self):
