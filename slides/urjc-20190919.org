@@ -118,6 +118,7 @@ Males with last letter vocal: 0.3640823393612928
 ** Some accuracies
 
 | Way to guess a string          |           Accuracy |
+| Genderapi                      | 0.9687686966482124 |
 | Namsor                         | 0.7539570378745054 |
 | Genderize                      |  0.715375918598078 |
 | Support Vector Machines        | 0.7049180327868853 |
