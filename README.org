@@ -3,7 +3,7 @@
 [[file:src/damegender/files/images/gender.png]]
 
 * Name
-damegender is a gender detection tool coded by David Arroyo MEnéndez (DAME)
+damegender is a gender detection tool from the name coded by David Arroyo MEnéndez (DAME)
 
 * Why?
 + If you want determine gender gap in free software projects or mailing lists.
