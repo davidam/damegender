@@ -112,7 +112,7 @@ $ ./testsbycommandsextra.sh    # You will need api keys!!!!! And to install all 
 # Detect gender from a name (INE is the dataset used by default)
 $ python3 main.py David
 David gender is male
-363559  males for David from INE.es
+ 363559  males for David from INE.es
 0 females for David from INE.es
 
 # Detect gender from a name from multiple dataset
