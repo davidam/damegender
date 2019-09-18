@@ -52,7 +52,7 @@ def drop_pwd(s):
     return result
 
 setup(name='damegender',
-      version='0.1.9',
+      version='0.1.22',
       description='Gender Detection Tool by David Arroyo MEnéndez',
       long_description='Gender Detection Tool by David Arroyo MEnéndez',
       classifiers=[
@@ -61,6 +61,7 @@ setup(name='damegender',
           "Operating System :: OS Independent",
       ],
       keywords='gender, repositories',
+#      scripts=['src/damegender/main'],
       url='http://github.com/davidam/damegender',
       author='David Arroyo Menéndez',
       author_email='davidam@gnu.org',
@@ -76,7 +77,7 @@ setup(name='damegender',
                     'damegender.images': ['*'],
                     'damegender.datamodels': ['*'],
                     'damegender.root': ['*']},
-      data_files=[('damegender', ['src/damegender/config.cfg', 'src/damegender/files/features_list.csv', 'src/damegender/files/features_list_cat.csv', 'src/damegender/files/features_list_no_cat.csv'] + files_one_level_drop_pwd(cwd+"/src/damegender/files/images") + files_one_level_drop_pwd(cwd+"/src/damegender/files/datamodels") + files_one_level_drop_pwd(cwd+"/src/damegender/files/mbox") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names_es") + files_one_level_drop_pwd(cwd+"/src/damegender/files/tests"))],
+      data_files=[('damegender', ['src/damegender/README.org', 'src/damegender/config.cfg', 'src/damegender/files/features_list.csv', 'src/damegender/files/features_list_cat.csv', 'src/damegender/files/features_list_no_cat.csv'] + files_one_level_drop_pwd(cwd+"/src/damegender/files/images") + files_one_level_drop_pwd(cwd+"/src/damegender/files/datamodels") + files_one_level_drop_pwd(cwd+"/src/damegender/files/mbox") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names/names_es") + files_one_level_drop_pwd(cwd+"/src/damegender/files/tests"))],
       install_requires=[
           'markdown',
           'nltk',
@@ -91,11 +92,12 @@ setup(name='damegender',
       extras_require = {
           'mails_and_repositories' : ["perceval"],
           'apis': ["gender_guesser", "genderize", "google-api-python-client"],
+          'all' : ["perceval", "gender_guesser", "genderize", "google-api-python-client"],
       },
       test_suite='nose.collector',
       tests_require=['nose', 'nose-cover3'],
       entry_points={
-          'console_scripts': ['damegender=damegender'],
+          'console_scripts': ['main=main.command_line:main'],
       },
       include_package_data=True,
       zip_safe=False)

@@ -114,6 +114,50 @@ class DameGenderApi(Gender):
                 guesslist.append(i['gender'])
         return guesslist
 
+    def confusion_matrix_gender(self, path='files/names/partial.csv', dimensions="2x3", jsonf=""):
+        truevector = self.gender_list(path)
+        if (jsonf != ""):
+            guessvector = self.json2guess_list(jsonf="",binary=True)
+        else:
+            guessvector = self.guess_list(path,binary=True)
+        self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
+        self.femalemale = self.count_true2guess(truevector, guessvector, 0, 1)
+        self.femaleundefined = self.count_true2guess(truevector, guessvector, 0, 2)
+        self.malefemale = self.count_true2guess(truevector, guessvector, 1, 0)
+        self.malemale = self.count_true2guess(truevector, guessvector, 1, 1)
+        self.maleundefined = self.count_true2guess(truevector, guessvector, 1, 2)
+        self.undefinedfemale = self.count_true2guess(truevector, guessvector, 1, 0)
+        self.undefinedmale = self.count_true2guess(truevector, guessvector, 1, 1)
+        self.undefinedundefined = self.count_true2guess(truevector, guessvector, 1, 2)
+
+        l = [[ self.femalefemale, self.femalemale, self.femaleundefined ], [self.malefemale, self.malemale, self.maleundefined], [self.undefinedfemale, self.undefinedmale, self.undefinedundefined]]
+
+        if (dimensions == "1x1"):
+            res = [[ l[0][0] ]]
+        elif (dimensions == "1x2"):
+            res = [[ l[0][0], l[0][1] ]]
+        elif (dimensions == "1x3"):
+            res = [[ l[0][0], l[0][1], l[0][2] ]]
+        elif (dimensions == "2x1"):
+            res = [[ l[0][0] ], [ l[1][0] ]]
+        elif (dimensions == "2x2"):
+            res = [[ l[0][0], l[0][1] ], [ l[1][0], l[1][1] ]]
+        elif (dimensions == "2x3"):
+            res = [[ l[0][0], l[0][1], l[0][2] ], [ l[1][0], l[1][1], l[1][2] ]]
+        elif (dimensions == "3x1"):
+            res = [[ l[0][0] ], [ l[1][0] ], [ l[2][0]]]
+        elif (dimensions == "3x2"):
+            res = [[ l[0][0], l[0][1] ], [ l[1][0], l[1][1] ], [ l[2][0], l[2][1]]]
+        elif (dimensions == "3x3"):
+            res = [[ l[0][0], l[0][1], l[0][2] ], [ l[1][0], l[1][1], l[1][2] ], [ l[2][0], l[2][1], l[2][2]]]
+        return res
+
+    def print_confusion_matrix_gender(self, path='files/names/partial.csv', dimensions="2x3", jsonf=""):
+        cmd = self.confusion_matrix_gender(path, dimensions, jsonf)
+        print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+        print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+        return ""
+
     def guess_list(self, path="files/names/partial.csv", binary=False):
         du = DameUtils()
         fichero = open("files/apikeys/genderapipass.txt", "r+")
