@@ -45,18 +45,21 @@ print("If the classifier is nice, the diagonal is high because there are true po
 
 
 if (args.api == "all"):
-    dn = DameNamsor()
-    print("Namsor confusion matrix:\n")
-    dn.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    dg = Gender()
+    if (dg.config['DEFAULT']['namsor'] == 'yes'):
+        dn = DameNamsor()
+        print("Namsor confusion matrix:\n")
+        dn.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
 
-    dg = DameGenderize()
-    print("Genderize confusion matrix:\n ")
-    dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    if (dg.config['DEFAULT']['genderize'] == 'yes'):
+        dg = DameGenderize()
+        print("Genderize confusion matrix:\n ")
+        dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
 
-    dga = DameGenderApi()
-    print("Genderapi confusion matrix:\n")
-#    dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
-    dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded)
+    if (dg.config['DEFAULT']['genderapi'] == 'yes'):
+        dga = DameGenderApi()
+        print("Genderapi confusion matrix:\n")
+        dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded)
 
     dgg = DameGenderGuesser()
     print("Gender Guesser confusion matrix:\n")
@@ -66,9 +69,10 @@ if (args.api == "all"):
     print("Damegender confusion matrix:\n")
     ds.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
 
-    dna = DameNameapi()
-    print("Nameapi confusion matrix:\n")
-    dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    if (dg.config['DEFAULT']['nameapi'] == 'yes'):
+        dna = DameNameapi()
+        print("Nameapi confusion matrix:\n")
+        dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
 
 elif (args.api == "namsor"):
     dn = DameNamsor()
