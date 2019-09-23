@@ -153,7 +153,7 @@ Females with first letter vocal: 0.2030441165108553
 Males with first letter vocal: 0.2213046442912342
 #+END_SRC 
 
-** PCA or not PCA (Principal Component Analysis)
+** A previous step to Machine Learning. PCA or not PCA (Principal Component Analysis)
 
 #+BEGIN_SRC bash
 $ python3 pca-components.py --csv='files/features_list_no_undefined.csv'
@@ -163,12 +163,50 @@ $ python3 pca-components.py --csv='files/features_list_no_undefined.csv'
 
 [[file:img/pca_components_files_features_list_no_undefined.png]]
 
-** PCA or not PCA (Principal Component Analysis)
+** PCA or not PCA (II)
 
 #+BEGIN_SRC bash
 $ python3 pca-features.py --categorical="both" --components=7
 $ firefox files/pca.html &
 #+END_SRC
+
+** PCA or not PCA (III)
+
+[[file:img/pcatable.png]]
+
+In this analysis, we can observe 4 components.
+
+The first component is about if the last letter is vocal or
+consonant. If the last letter is vocal we can find a male and if the
+last letter is a consonant we can find a female.
+
+The second component is about the first letter. The last letter is
+determing females and the first letter is determing males.
+
+The third component is not giving relevant information.
+
+The fourth component is giving tha last_letter_a and the
+first_letter_vocal is for females.
+
+So, we have our scientific intutions to compose the machine learning model
+
+** Measuring tools and machine learning algorithms
+*** APIs
+
+|                |           Accuracy |
+| Genderapi      | 0.9687686966482124 |
+| Namsor         | 0.7539570378745054 |
+| Genderize      | 0.715375918598078  |
+| Gender Guesser | 0.6902204635387225 |
+
+*** Machine Learning Algorithms
+
+| Support Vector Machines accuracy        | 0.7049180327868853 |
+| NLTK bayes                              | 0.6677501413227812 |
+| Bernoulli Naive Bayes                   | 0.5962408140192199 |
+| Gaussian Naive Bayes                    | 0.5960994912379876 |
+| Stochastic Gradient Descendent accuracy | 0.5873374788015828 |
+| Multinomial Naive Bayes                 | 0.5876201243640475 |
 
 
 * License
