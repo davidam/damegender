@@ -166,7 +166,8 @@ $ python3 pca-components.py --csv='files/features_list_no_undefined.csv'
 ** PCA or not PCA (II)
 
 #+BEGIN_SRC bash
-$ python3 pca-features.py --categorical="both" --components=7
+$ python3 pca-features.py --categorical="both" 
+--components=7
 $ firefox files/pca.html &
 #+END_SRC
 
@@ -174,7 +175,7 @@ $ firefox files/pca.html &
 
 [[file:img/pcatable.png]]
 
-In this analysis, we can observe 4 components.
+In this analysis, there are 4 components.
 
 The first component is about if the last letter is vocal or
 consonant. If the last letter is vocal we can find a male and if the
