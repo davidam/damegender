@@ -114,49 +114,43 @@ spam is only to reduce time or earn money for humans. It is not exact!!
 Now, you could count males and females with mails and git:
 
 #+BEGIN_SRC bash
-$ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
+$ python3 mail2gender.py 
+http://mail-archives.apache.org/mod_mbox/httpd-announce/
+
 The number of males sending mails is 5
 The number of females sending mails is 1
 #+END_SRC
 
 #+BEGIN_SRC bash
-$ python3 git2gender.py https://github.com/chaoss/grimoirelab-perceval.git --directory="/tmp/clonedir"
+$ python3 git2gender.py 
+https://github.com/chaoss/grimoirelab-perceval.git --directory="/tmp/clonedir"
+
 The number of males sending commits is 17
 The number of females sending commits is 13
+
 #+END_SRC
 
 ** What features in a string is determining the sex?
 
 #+BEGIN_SRC bash
 $ python3 infofeatures.py 
----------------------------------------------------------------
 Females with letter/s a: 0.7657420999768214 
 Males with letter/s a: 0.6717175543601788 
----------------------------------------------------------------
 Females with last letter a: 0.4705246078961601 
 Males with last letter a: 0.16910371997878626 
----------------------------------------------------------------
 Females with last letter o: 0.017306652244456464 
 Males with last letter o: 0.10758390787180847 
----------------------------------------------------------------
 Females with last letter consonant: 0.2735841767750908
 Males with last letter consonant: 0.48738540798545343
----------------------------------------------------------------
 Females with last letter vocal: 0.7262612995441552
 Males with last letter vocal: 0.5123115387529358
----------------------------------------------------------------
----------------------------------------------------------------
-Females with first letter consonant: 0.7968786216487677
-Males with first letter consonant: 0.7786195923933631
----------------------------------------------------------------
-Females with first letter vocal: 0.2030441165108553
-Males with first letter vocal: 0.2213046442912342
 #+END_SRC 
 
 ** A previous step to Machine Learning. PCA or not PCA (Principal Component Analysis)
 
 #+BEGIN_SRC bash
-$ python3 pca-components.py --csv='files/features_list_no_undefined.csv'
+$ python3 pca-components.py 
+--csv='files/features_list_no_undefined.csv'
 #+END_SRC
 
 ** PCA or not PCA (Principal Component Analysis)
