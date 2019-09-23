@@ -203,6 +203,51 @@ So, we have our scientific intutions to compose the machine learning model
 | Stochastic Gradient Descendent accuracy | 0.5873374788015828 |
 | Multinomial Naive Bayes                 | 0.5876201243640475 |
 
+** Tell me more about errors
+#+BEGIN_SRC bash
+$ python3 errors.py --csv="files/names/all.csv" --api="genderguesser"
+Gender Guesser with files/names/all.csv has:
++ The error code: 0.22564457518601835
++ The error code without na: 0.026539047204698716
++ The na coded: 0.20453365634192766
++ The error gender bias: 0.0026103980857080703
+#+END_SRC
+** Tell me about the confusion matrix
+
+*** Genderguesser
+#+BEGIN_SRC sh
+ [[ 1686, 78, 204]
+ [ 139, 3326, 346]]
+#+END_SRC
+
+*** Genderize
+#+BEGIN_SRC sh
+[[ 1742, 75, 151]
+ [ 242, 3157, 412]]
+#+END_SRC
+*** Namsor
+#+BEGIN_SRC sh
+[[ 1686, 78, 204]
+ [ 139, 3326, 346]]
+#+END_SRC
+*** Nameapi
+#+BEGIN_SRC sh
+[[ 3126, 93, 592]
+ [75, 1616, 277]]
+#+END_SRC
+*** Dame Gender
+#+BEGIN_SRC sh
+ [[ 1692, 276, 0]
+ [ 778, 3033, 0]]
+#+END_SRC
+
+In this version of Dame Gender, we are not considering decide names as undefined.
+
+** Thanks for your attention
+
+We must work on Damegender.
+You can give support to this cause.
+
 
 * License
 ** License
