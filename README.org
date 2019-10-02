@@ -1,0 +1,591 @@
+* Logo
+
+[[file:src/damegender/files/images/gender.png]]
+
+* Name
+damegender is a gender detection tool from the name coded by David Arroyo MEnéndez (DAME)
+
+* Why?
++ If you want determine gender gap in free software projects or mailing lists.
++ If you don't know the gender about a name
++ If you want research with statistics about why a name is related with males or females.
++ If you want use a free gender detection tool from a name from a command with
+  open data.
++ If you want use the main solutions in gender detection (genderize,
+  genderapi, namsor, nameapi and gender guesser) from a command.
+
+DAMe Gender is for you!
+
+* Tell me about DAMe Gender on Youtube
+[[https://www.youtube.com/embed/dvN0lMgQ9Pc][file:src/damegender/files/images/damegender-front-youtube.png]]
+
+* Install
+** Docker Image
+#+BEGIN_SRC
+# Build the container image
+$ docker build . -t damegender/damegender:latest
+
+# Run the container
+$ docker run -ti damegender/damegender:latest main.py David
+#+END_SRC
+** Installing Software
+*** Posible Debian/Ubuntu dependencies
+#+BEGIN_SRC
+$ sudo apt-get install python3-nose-exclude python3-dev dict dict-freedict-eng-spa dict-freedict-spa-eng dictd
+#+END_SRC
+*** From sources
+#+BEGIN_SRC
+$ git clone https://github.com/davidam/damegender
+$ cd damegender
+$ pip3 install -r requirements.txt
+#+END_SRC
+*** With python package
+#+BEGIN_SRC
+$ python3 -m venv /tmp/d
+$ cd /tmp/d
+$ source bin/activate
+$ pip install --upgrade pip
+$ pip3 install damegender
+$ cd lib/python3.5/site-packages/damegender
+$ python3 main.py David
+#+END_SRC
+
+To install apis extra dependencies:
+#+BEGIN_SRC
+$ pip3 install damegender[apis]
+#+END_SRC
+
+To install mailing lists and repositories extra dependencies:
+#+BEGIN_SRC
+$ pip3 install damegender[mails_and_repositories]
+#+END_SRC
+
+** Obtaining an api key
+
+Currently you can need an api key from:
++ https://store.genderize.io/documentation
++ https://gender-api.com
++ https://www.nameapi.org/
++ https://v2.namsor.com/NamSorAPIv2/sign-in.html
+
+You can execute:
+#+BEGIN_SRC
+$ python3 apikeyadd.py
+#+END_SRC
+To configure your api key
+
+** Configuring nltk
+
+#+BEGIN_SRC sh
+$ python3
+>>> import nltk
+>>> nltk.download('names')
+#+END_SRC
+
+* Check test
+** All unit tests
+#+BEGIN_SRC sh
+$ nosetest3 test
+#+END_SRC
+*** Using Docker image
+#+BEGIN_SRC sh
+$ docker run -ti --entrypoint nosetests damegender/damegender:latest test
+#+END_SRC
+** Single unit test
+#+BEGIN_SRC sh
+$ nosetests3 test/test_dame_sexmachine.py:TddInPythonExample.test_string2array_method_returns_correct_result
+#+END_SRC
+*** Using Docker image
+#+BEGIN_SRC sh
+$ docker run -ti --entrypoint nosetests damegender/damegender:latest test/test_dame_sexmachine.py:TddInPythonExample.test_string2array_method_returns_correct_result
+#+END_SRC
+** Tests from commands
+#+BEGIN_SRC sh
+$ cd src/damegender
+$ ./testsbycommands.sh         # It must run for you
+$ ./testsbycommandsextra.sh    # You will need api keys!!!!! And to install all software required.
+#+END_SRC
+
+* Execute program
+
+#+BEGIN_SRC sh
+# Detect gender from a name (INE is the dataset used by default)
+$ python3 main.py David
+David gender is male
+ 363559  males for David from INE.es
+0 females for David from INE.es
+
+# Detect gender from a name from multiple dataset
+$ python3 main.py David --total="all"
+David gender is male
+375099 males and 9 females from all census (INE + Uk census + USA census)
+
+# Detect gender from a name only using machine learning (experimental way)
+$ python3 main.py Mesa --ml=nltk
+Mesa gender is female
+0 males for Mesa from INE.es
+0 females for Mesa from INE.es
+
+# Find your name in different countries
+$ python3 nameincountries.py David
+grep -i " David " files/names/nam_dict.txt > files/grep.tmp
+males: ['Albania', 'Armenia', 'Austria', 'Azerbaijan', 'Belgium', 'Bosnia and Herzegovina', 'Czech Republic', 'Denmark', 'East Frisia', 'France', 'Georgia', 'Germany', 'Great Britain', 'Iceland', 'Ireland', 'Israel', 'Italy', 'Kazakhstan/Uzbekistan', 'Luxembourg', 'Malta', 'Norway', 'Portugal', 'Romania', 'Slovenia', 'Spain', 'Sweden', 'Swiss', 'The Netherlands', 'USA', 'Ukraine']
+females: []
+both: []
+
+# Count gender from a git repository
+$ python3 git2gender.py https://github.com/chaoss/grimoirelab-perceval.git --directory="/tmp/clonedir"
+The number of males sending commits is 15
+The number of females sending commits is 7
+
+# Count gender from a mailing list
+$ cd files/mbox
+$ wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
+$ cd ..
+$ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
+
+# Use an api to detect the gender
+$ python3 api2gender.py Leticia --surname="Martin" --api=namsor
+female
+scale: 0.99
+
+# Google popularity for a name
+$ python3 gendergoogle.py Leticia
+Google results of Leticia as male: 42300
+Google results of Leticia as female: 63400
+
+# Give me informative features
+$ python3 infofeatures.py
+Females with last letter a: 0.4705246078961601
+Males with last letter a: 0.048672566371681415
+Females with last letter consonant: 0.2735841767750908
+Males with last letter consonant: 0.6355328972681801
+Females with last letter vocal: 0.7262612995441552
+Males with last letter vocal: 0.3640823393612928
+
+# To measure success
+$ python3 accuracy.py --csv=files/names/min.csv
+################### NLTK!!
+Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
+Guess list:  [1, 1, 1, 1, 0, 1, 0, 0]
+Dame Gender accuracy: 0.875
+
+$ python3 accuracy.py --api="genderize" --csv=files/names/min.csv
+################### Genderize!!
+Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
+Guess list:  [1, 1, 1, 1, 2, 1, 0, 0]
+Genderize accuracy: 1
+
+$ python3 confusion.py
+A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are true positives
+Namsor confusion matrix:
+ [[2 0 0]
+ [0 5 0]
+ [0 1 0]]
+Genderize confusion matrix:
+ [[2 0 0]
+ [0 5 0]
+ [0 0 1]]
+Gender Guesser confusion matrix:
+ [[2 0 0]
+ [0 5 0]
+ [0 1 0]]
+Sexmachine confusion matrix:
+ [[2 0 0]
+ [0 5 0]
+ [1 0 0]]
+
+# To analyze errors guessing names from a csv
+$ python3 errors.py --csv="files/names/all.csv" --api="genderguesser"
+Gender Guesser with files/names/all.csv has:
++ The error code: 0.22564457518601835
++ The error code without na: 0.026539047204698716
++ The na coded: 0.20453365634192766
++ The error gender bias: 0.0026103980857080703
+
+# To deploy a graph about correlation between variables
+$ python3 corr.py
+$ python3 corr.py --csv="categorical"
+$ python3 corr.py --csv="nocategorical"
+# To create files from scripts. Example: the pickle models, or csv processed from original files.
+$ python3 postinstall.py
+# Experiments to determine features with weight (not finished)
+$ python3 pca-components.py --csv="files/features_list.csv" # To determine number of components
+$ python3 pca-features.py                                   # To understand the weight between variables for a target
+
+#+END_SRC
+* Benchmarking
+** Market Study
+
+|                                        | Gender API               | gender-guesser | genderize.io       | NameAPI       | NamSor        | damegender         |
+| Database size                          | 431322102                | 45376          | 216286             | 1428345       | 4407502834    | 57282              |
+| Regular data updates                   | yes                      | no             | no                 | yes           | yes           | yes, developing    |
+| Handles unstructured full name strings | yes                      | no             | no                 | yes           | no            | yes                |
+| Handles surnames                       | yes                      | no             | no                 | yes           | yes           | yes                |
+| Handles non-Latin alphabets            | partially                | no             | partially          | yes           | yes           | no                 |
+| Implicit geo-localization              | yes                      | no             | no                 | yes           | yes           | no                 |
+| Exists locale                          | yes                      | yes            | yes                | yes           | yes           | yes                |
+| Assingment type                        | probilistic              | binary         | probabilistic      | probabilistic | probabilistic | probabilistic      |
+| Free parameters                        | total_names, probability | gender         | probability, count | confidence    | scale         | total_names, count |
+| Prediction                             | no                       | no             | no                 | no            | no            | yes                |
+| Free license                           | no                       | yes            | no                 | no            | no            | yes                |
+| API                                    | yes                      | no             | yes                | yes           | yes           | future             |
+| free requests limited                  | yes (200)                | unlimited      | yes                | yes           | yes           | unlimited          |
+
+(Checked: 2019/06/27)
+
+** Accuracy
+
+|                |           Accuracy |
+| Genderapi      | 0.9687686966482124 |
+| Namsor         | 0.7539570378745054 |
+| Genderize      | 0.715375918598078  |
+| Gender Guesser | 0.6902204635387225 |
+| Dame Gender    | 0.6677501413227812 |
+
+We are using nltk and INE.es dataset in test. We hope better results
+with more languages.
+
+ Machine Learning Algorithms in DameGender
+These results are experimental, we are improving the choosing of features.
+
++ Stochastic Gradient Descendent accuracy: 0.5873374788015828
++ Support Vector Machines accuracy: 0.7049180327868853
++ Gaussian Naive Bayes accuracy: 0.5960994912379876
++ Multinomial Naive Bayes accuracy: 0.5876201243640475
++ Bernoulli Naive Bayes accuracy: 0.5962408140192199
++ Dame Gender (nltk bayes) accuracy: 0.6677501413227812
+** Confusion Matrix
+
+**** Genderguesser
+#+BEGIN_SRC sh
+ [[ 1686, 78, 204]
+ [ 139, 3326, 346]]
+#+END_SRC
+
+**** Genderize
+#+BEGIN_SRC sh
+[[ 1742, 75, 151]
+ [ 242, 3157, 412]]
+#+END_SRC
+**** Namsor
+#+BEGIN_SRC sh
+[[ 1686, 78, 204]
+ [ 139, 3326, 346]]
+#+END_SRC
+**** Nameapi
+#+BEGIN_SRC sh
+[[ 3126, 93, 592]
+ [75, 1616, 277]]
+#+END_SRC
+**** Dame Gender
+#+BEGIN_SRC sh
+ [[ 1692, 276, 0]
+ [ 778, 3033, 0]]
+#+END_SRC
+
+In this version of Dame Gender, we are not considering decide names as undefined.
+
+** Errors with files/names/all.csv has:
+*** Gender Guesser
+
+| The error code            |  0.22564457518601835 |
+| The error code without na | 0.026962383126766687 |
+| The na coded              |   0.2041875757051393 |
+| The error gender bias     |   0.0030441400304414 |
+
+The command was:
+
+#+BEGIN_SRC
+$ python3 errors.py --api="genderguesser" --csv="files/names/all.csv"
+#+END_SRC
+
+*** Damegender
+
+| The error code            | 0.18238449558747188 |
+| The error code without na | 0.18238449558747188 |
+| The na coded              |                 0.0 |
+| The error gender bias     |  0.0868662398338813 |
+
+The command was:
+
+#+BEGIN_SRC
+$ python3 errors.py --api="damegender" --csv="files/names/all.csv"
+#+END_SRC
+
+*** Namsor
+
+#+BEGIN_SRC
+$ python3 errors.py --api="namsor" --csv="files/names/all.csv"
+Namsor with files/names/all.csv has:
+#+END_SRC
+
+| The error code            |  0.13272192420834053 |
+| The error code without na | 0.041499330655957165 |
+| The na coded              |  0.09517217511680222 |
+| The error gender bias     | 0.011665710460891184 |
+
+** Performance
++ GenderGuesser accuracy: 0.6902204635387225
+real	160m58.742s
+user	44m47.532s
+sys	0m56.024s
+
++ Dame Gender accuracy: 0.6677501413227812
+real	129m23.082s
+user	53m12.640s
+sys	0m32.040s
+
+* Statistics for damegender
+Some theory could be useful to understand some commands
+** Errors and Confusion Matrix
+Guessing the sex, we have an true idea (example: female) and we obtain
+a result, the guessed result (example: female). We have written
+count_true2guess to make statistics variables about it.
+
+In confusion matrix litherature, we can find this vocabulary for true and guess:
+
+| True positive  | False Positive |
+|----------------+----------------|
+| False negative | True Negative  |
+
+*Precision* is about true positives between true positives plus false positives
+
+#+BEGIN_SRC
+(self.femalefemale + self.malemale ) / (self.femalefemale + self.malemale + self.femalemale)
+#+END_SRC
+
+*Recall* is about true positives between true positives plus false negatives.
+
+#+BEGIN_SRC
+(self.femalefemale + self.malemale ) / (self.femalefemale + self.malemale + self.malefemale)
+#+END_SRC
+
+The *F1 score* is the harmonic mean of precision and recall taking
+both metrics into account in the following equation:
+
+#+BEGIN_SRC
+2 * ((precision * recall) / (precision + recall))
+#+END_SRC
+
+*Error coded* is about the true is different than the guessed:
+
+#+BEGIN_SRC
+(self.femalemale + self.malefemale + self.maleundefined + self.femaleundefined) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale + self.maleundefined + self.femaleundefined)
+#+END_SRC
+
+*Error coded without na* is about the true is different than the guessed, but without undefined results.
+
+#+BEGIN_SRC
+(self.maleundefined + self.femaleundefined) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale + self.maleundefined + self.femaleundefined)
+#+END_SRC
+
+*Error gender bias* is to understand if the error is bigger guessing males than females or viceversa.
+
+#+BEGIN_SRC
+(self.malefemale - self.femalemale) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale)
+#+END_SRC
+
+*The weighted error* is about the true is different than the guessed, but giving a weight to the guessed as undefined.
+
+#+BEGIN_SRC
+(self.femalemale + self.malefemale + w * (self.maleundefined + self.femaleundefined)) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale + w * (self.maleundefined + self.femaleundefined))
+#+END_SRC
+
+The *confusion matrix* creates a matrix between the true and the guess. If you have this confusion matrix:
+
+#+BEGIN_SRC
+[[ 2, 0, 0]
+ [ 0, 5, 0]]
+#+END_SRC
+It means, I have 2 females true and I've guessed 2 females and I've 5 males true and I've guessed 5 males. I don't have errors in my classifier.
+
+#+BEGIN_SRC
+ [[ 2  1  0]
+ [ 2 14  0]
+#+END_SRC
+
+It means, I have 2 females true and I've guessed 2 females and I've 14 males true and I've guessed 14 males. 1 female was considered male, 2 males was considered female.
+
+** PCA
+*** Concepts
+The dispersion measures between 1 variables are: variance, standard
+deviation, ...
+
+[[file:src/damegender/files/images/variance.png]]
+
+If you have 2 variables, you can write a formula so similar to variance.
+
+[[file:src/damegender/files/images/covariance.png]]
+
+If you have 3 variables or more, you can write a covariance matrix.
+
+[[file:src/damegender/files/images/matrix-covariance.png]]
+
+In essence, an eigenvector v of a linear transformation T is a
+non-zero vector that, when T is applied to it, does not change
+direction. Applying T to the eigenvector only scales the eigenvector
+by the scalar value λ, called an eigenvalue.
+
+[[file:src/damegender/files/images/eigenvector.png]]
+
+A feature vector is constructed taking the eigenvectors that you want
+to keep from the list of eigenvectors.
+
+The new dataset take the transpose of the vector and multiply it on
+the left of the original data set, transposed.
+
+#+BEGIN_SRC
+FinalData = RowFeatureVector x RowDataAdjust
+#+END_SRC
+
+We can choose PCA using the covariance method as opposed to the
+correlation method.
+
+The [[https://en.wikipedia.org/wiki/Principal_component_analysis#Computing_PCA_using_the_covariance_method][covariance method]] has the next steps:
+1. Organize the data set
+2. Calculate the empirical mean
+3. Calculate the deviations from the mean
+4. Find the covariance matrix
+5. Find the eigenvectors and eigenvalues of the covariance matrix
+6. Rearrange the eigenvectors and eigenvalues
+7. Compute the cumulative energy content for each eigenvector
+8. Select a subset of the eigenvectors as basis vectors
+9. Project the z-scores of the data onto the new basis
+
+The [[https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc552.htm][correlation method]] has the next steps:
+1. Compute the correlation matrix
+2. Solve for the correlation roots of R (product of eigenvalues)
+3. Compute the first column of the V matrix
+4. Compute the remaining columns of the V matrix
+5. Compute the L^(1/2) matrix
+6. Compute the communality
+7. Diagonal elements report how much of the variability is explained
+8. Compute the coefficient matrix
+9. Compute the principal factors
+
+*** Choosing components
+
+We can choose components with:
+
+#+BEGIN_SRC
+import numpy as np
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import MinMaxScaler
+import matplotlib.pyplot as plt
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--csv')
+args = parser.parse_args()
+
+#filepath = 'files/features_list.csv' #your path here
+data = np.genfromtxt(args.csv, delimiter=',', dtype='float64')
+
+scaler = MinMaxScaler(feature_range=[0, 1])
+data_rescaled = scaler.fit_transform(data[1:, 0:8])
+
+#Fitting the PCA algorithm with our Data
+pca = PCA().fit(data_rescaled)
+#Plotting the Cumulative Summation of the Explained Variance
+plt.figure()
+plt.plot(np.cumsum(pca.explained_variance_ratio_))
+plt.xlabel('Number of Components')
+plt.ylabel('Variance (%)') #for each component
+plt.title('Dataset Explained Variance')
+plt.show()
+#+END_SRC
+
+[[file:src/damegender/files/images/pca-number-components.png]]
+
+Taking a look to the image. We can choose 6 components.
+
+*** Load Dataset
+
+We choose the file all.csv to generate features and a list to determine gender (male or female)
+
+#+BEGIN_SRC lisp
+from pprint import pprint
+import pandas as pd
+import matplotlib.pyplot as plt
+from app.dame_sexmachine import DameSexmachine
+from app.dame_gender import Gender
+
+## LOAD DATASET
+g = Gender()
+g.features_list2csv(categorical="both", path="files/names/all.csv")
+features = "files/features_list.csv"
+
+print("STEP1: N COMPONENTS + 1 TARGET")
+
+x = pd.read_csv(features)
+print(x.columns)
+
+y = g.dataset2genderlist(dataset="files/names/all.csv")
+print(y)
+#+END_SRC
+
+*** Standarize the data
+
+#+BEGIN_SRC
+print("STEP2: STANDARIZE THE DATA")
+from sklearn.preprocessing import StandardScaler
+# Standardizing the features
+x = StandardScaler().fit_transform(x)
+#+END_SRC
+
+*** Pca Projection to N Dimensions
+
+Finally, we create the pca transform with 6 dimensions and we add the target component.
+
+#+BEGIN_SRC
+from sklearn.decomposition import PCA
+pca = PCA(n_components=6)
+principalComponents = pca.fit_transform(x)
+print("STEP3: PCA PROJECTION")
+pprint(principalComponents)
+principalDf = pd.DataFrame(data = principalComponents, columns = ['principal component 1', 'principal component 2', 'principal component 3', 'principal component 4', 'principal component 5', 'principal component 6'])
+
+target = pd.DataFrame(data = y, columns = ['target component'])
+
+print(principalDf.join(target))
+#+END_SRC
+*** Analize components to determine gender in names
+
+| first\_letter   | last\_letter    | last\_letter\_a   | first\_letter\_vocal   | last\_letter\_vocal   | last\_letter\_consonant   | target component   |
+|-----------------+-----------------+-------------------+------------------------+-----------------------+---------------------------+--------------------|
+| -0.2080025204   | -0.3208958517   | 0.2352509625      | 0.2113242731           | *0.6095269139*        | *-0.6095269139*           | -0.1035071139      |
+| *-0.6037951881* | *0.5174873789*  | -0.4252467151     | 0.4278794455           | 0.0388287435          | -0.0388287435             | -0.0265942125      |
+| 0.1049343046    | 0.1158117877    | -0.2867605971     | -0.3473950734          | 0.0901034539          | -0.0901034539             | -0.8697264971      |
+| 0.2026467275    | 0.3142402839    | *0.630802294*     | *0.5325769702*         | -0.1291229841         | 0.1291229841              | -0.3811720011      |
+
+In this analysis, we can observe 4 components.
+
+The first component is about if the last letter is vocal or
+consonant. If the last letter is vocal we can find a male and if the
+last letter is a consonant we can find a male.
+
+The second component is about the first letter. The last letter is
+determing females and the first letter is determing males.
+
+The third component is not giving relevant information.
+
+The fourth component is giving tha last_letter_a and the
+first_letter_vocal is for females.
+* Speeches, Seminars, Expressions of Support
++ [[http://gregoriorobles.github.io/MadSESE/201906.html][MadSeSe]]
++ [[https://www.meetup.com/es-ES/python-185/events/261405719/][Python Barcelona]]
++ [[https://www.medialab-prado.es/noticias/taller-de-periodismo-de-datos-2019-sesiones-formativas][Taller de Periodismo de Datos (Medialab Prado, Madrid). NLTK & Damegender]]
+
+* Beautiful Snakes
+
+| [[file:src/damegender/files/images/violet-snake2.png]] |
+* License
+Copyright (C) 2019 David Arroyo Menendez
+    Permission is granted to copy, distribute and/or modify this document
+    under the terms of the GNU Free Documentation License, Version 1.3
+    or any later version published by the Free Software Foundation;
+    with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+    A copy of the license is included in [[https://www.gnu.org/copyleft/fdl.html][GNU Free Documentation License]].
+
+[[https://www.gnu.org/copyleft/fdl.html][file:https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/GFDL_Logo.svg/200px-GFDL_Logo.svg.png]]
