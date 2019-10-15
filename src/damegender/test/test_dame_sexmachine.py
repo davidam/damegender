@@ -170,6 +170,18 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(gender1, 'male')
         self.assertTrue(gender2, 'female')
 
+    def test_sexmachine_forest_method_returns_correct_result(self):
+        s = DameSexmachine()
+        m = s.forest()
+        self.assertTrue(os.path.isfile("files/datamodels/forest_model.sav"))
+
+    def test_sexmachine_forest_load_method_returns_correct_result(self):
+        s = DameSexmachine()
+        m = s.forest_load()
+        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1]])
+        a = np.array([1.3954322254322253])
+        self.assertEqual(predicted[0], a[0])
+        
     def test_sexmachine_sgd_method_returns_correct_result(self):
         s = DameSexmachine()
         m = s.sgd()
