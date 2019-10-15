@@ -48,6 +48,15 @@ else
 fi
 
 
+python3 main.py silla --ml=xgboost > files/tests/maincasa-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/maincasa.txt files/tests/maincasa-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+    echo "maincasa test is failing"
+else
+    echo "maincasa test is ok"
+fi
+
+
 python3 git2gender.py https://github.com/davidam/orgguide-es.git --directory="/tmp/clonedir" > files/tests/git2gender1-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/git2gender1.txt files/tests/git2gender1-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
