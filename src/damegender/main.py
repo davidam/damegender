@@ -94,7 +94,9 @@ else:
         elif (args.ml == "bernoulliNB"):
             guess = s.guess(args.name, binary=True, ml="bernoulliNB")
         elif (args.ml == "forest"):
-            guess = s.guess(args.name, binary=True, ml="forest")            
+            guess = s.guess(args.name, binary=True, ml="forest")
+        elif (args.ml == "xgboost"):
+            guess = s.guess(args.name, binary=True, ml="xgboost")                        
         if (guess == 1):
             sex = "male"
         elif (guess == 0):
