@@ -42,8 +42,6 @@ args = parser.parse_args()
 print("A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.")
 print("If the classifier is nice, the diagonal is high because there are true positives")
 
-
-
 if (args.api == "all"):
     dg = Gender()
     if (dg.config['DEFAULT']['namsor'] == 'yes'):
@@ -80,15 +78,17 @@ elif (args.api == "namsor"):
     dn.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
 
 elif (args.api == "genderize"):
-    dga = DameGenderApi()
-    print("Genderapi confusion matrix:\n")
-    dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    dg = DameGenderize()
+    print("Genderize confusion matrix:\n")
+    dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
 
 elif (args.api == "genderapi"):
     dga = DameGenderApi()
     print("Genderapi confusion matrix:\n")
-#    dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
-    dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded)
+    if (args.jsondownloaded != ""):
+        dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded)
+    else:
+        dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
 
 elif (args.api == "genderguesser"):
     dgg = DameGenderGuesser()
