@@ -32,7 +32,8 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.linear_model import SGDClassifier
-from sklearn.ensemble import RandomForestRegressor 
+from sklearn.ensemble import RandomForestRegressor
+from xgboost import XGBClassifier
 from sklearn import svm
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
@@ -152,7 +153,7 @@ class DameSexmachine(Gender):
         filename = 'files/datamodels/multinomialNB_model.sav'
         pickle.dump(model, open(filename, 'wb'))
         return model
-    
+
     def multinomialNB_load(self):
         pkl_file = open('files/datamodels/multinomialNB_model.sav', 'rb')
         clf = pickle.load(pkl_file)
@@ -182,7 +183,7 @@ class DameSexmachine(Gender):
         rf = RandomForestRegressor()
         rf.fit(X, y)
         filename = 'files/datamodels/forest_model.sav'
-        pickle.dump(rf, open(filename, 'wb'))        
+        pickle.dump(rf, open(filename, 'wb'))
         return rf
 
     def forest_load(self):
@@ -190,7 +191,23 @@ class DameSexmachine(Gender):
         clf = pickle.load(pkl_file)
         pkl_file.close()
         return clf
-    
+
+    def xgboost(self):
+    # Scikit xgboost classifier
+        X = np.array(self.features_list(path="files/names/all.csv"))
+        y = np.array(self.gender_list(path="files/names/all.csv"))
+        model = XGBClassifier()
+        model.fit(X, y)
+        filename = 'files/datamodels/xgboost_model.sav'
+        pickle.dump(model, open(filename, 'wb'))
+        return model
+
+    def xgboost_load(self):
+        pkl_file = open('files/datamodels/xgboost_model.sav', 'rb')
+        clf = pickle.load(pkl_file)
+        pkl_file.close()
+        return clf
+
     def string2array(self, string):
         res = ""
         string = unidecode.unidecode(string)
@@ -253,6 +270,10 @@ class DameSexmachine(Gender):
                 guess = predicted[0]
             elif (ml == "bernoulliNB"):
                 m = s.bernoulliNB_load()
+                predicted = m.predict([vector])
+                guess = predicted[0]
+            elif (ml == "forest"):
+                m = s.forest_load()
                 predicted = m.predict([vector])
                 guess = predicted[0]
             if binary:
