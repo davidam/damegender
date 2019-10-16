@@ -35,7 +35,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--csv', default="files/names/min.csv", help='input file for names')  
 parser.add_argument('--json', help='if you have downloaded the results from an api in a json file, you can try this argument')
 parser.add_argument('--api', default="damegender", choices=['customsearch', 'namsor', 'genderize', 'genderguesser', 'damegender', 'genderapi', 'nameapi', 'all'])
-parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
+parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'xgboost'])
 args = parser.parse_args()
 
 if (args.api == "all"):
@@ -214,6 +214,26 @@ elif (args.api == "damegender"):
         bernoulliNB_accuracy = ds.accuracy_score_dame(gl1, gl2)
         print("Bernoulli Naive Bayes accuracy: %s" % bernoulliNB_accuracy)
 
+    elif (args.ml == "forest"):
+        ds = DameSexmachine()
+        print("################### Random Forest!!")
+        gl1 = ds.gender_list(path=args.csv)
+        print("Gender list: " + str(gl1))
+        gl2 = ds.guess_list(path=args.csv, binary=True, ml="forest")
+        print("Guess list:  " +str(gl2))
+        forest_accuracy = ds.accuracy_score_dame(gl1, gl2)
+        print("Random Forest accuracy: %s" % forest_accuracy)
+        
+    elif (args.ml == "xgboost"):
+        ds = DameSexmachine()
+        print("################### Xgboost!!")
+        gl1 = ds.gender_list(path=args.csv)
+        print("Gender list: " + str(gl1))
+        gl2 = ds.guess_list(path=args.csv, binary=True, ml="xgboost")
+        print("Guess list:  " +str(gl2))
+        xgboost_accuracy = ds.accuracy_score_dame(gl1, gl2)
+        print("Xgboost accuracy: %s" % xgboost_accuracy)
+        
 
 
 elif (args.api == "genderapi"):
