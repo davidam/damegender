@@ -904,3 +904,43 @@ Males with first letter vocal: 0.22633705271258175
 * TODO Arreglar el tema de los binarios en la paquetería
   SCHEDULED: <2019-08-04 dom>
 * TODO Buscar la validez de la muestra para saber si los nacimientos en uk y usa nos valdrían para sacar probabilidades
+* TODO Revisar cumplimiento de PEP8 en el software
+** A Foolish Consistency is the Hobgoblin of Little Minds
+** Code Lay-out
+*** Indentation
+*** Tabs or Spaces?
+*** Maximum Line Length
+*** Should a Line Break Before or After a Binary Operator?
+*** Blank Lines
+*** Source File Encoding
+*** Imports
+*** Module Level Dunder Names
+** String Quotes
+** Whitespace in Expressions and Statements
+*** Pet Peeves
+*** Other Recommendations
+** When to Use Trailing Commas
+** Comments
+*** Block Comments
+*** Inline Comments
+*** Documentation Strings
+** Naming Conventions
+*** Overriding Principle
+*** Descriptive: Naming Styles
+*** Prescriptive: Naming Conventions
+**** Names to Avoid
+**** ASCII Compatibility
+**** Package and Module Names
+**** Class Names
+**** Type Variable Names
+**** Exception Names
+**** Global Variable Names
+**** Function and Variable Names
+**** Function and Method Arguments
+**** Method Names and Instance Variables
+**** Constants
+**** Designing for Inheritance
+*** Public and Internal Interfaces
+** Programming Recommendations
+*** Function Annotations
+*** Variable Annotations

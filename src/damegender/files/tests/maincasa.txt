@@ -1,0 +1,3 @@
+casa gender predicted is female
+0 males for casa from INE.es
+0 females for casa from INE.es

@@ -219,7 +219,7 @@ $ python3 pca-features.py                                   # To understand the 
 ** Market Study
 
 |                                        | Gender API               | gender-guesser | genderize.io       | NameAPI       | NamSor        | damegender         |
-| Database size                          | 431322102                | 45376          | 216286             | 1428345       | 4407502834    | 57282              |
+| Database size                          | 431322102                | 45376          | 114541298          | 1428345       | 4407502834    | 57282              |
 | Regular data updates                   | yes                      | no             | no                 | yes           | yes           | yes, developing    |
 | Handles unstructured full name strings | yes                      | no             | no                 | yes           | no            | yes                |
 | Handles surnames                       | yes                      | no             | no                 | yes           | yes           | yes                |
@@ -256,6 +256,7 @@ These results are experimental, we are improving the choosing of features.
 + Multinomial Naive Bayes accuracy: 0.5876201243640475
 + Bernoulli Naive Bayes accuracy: 0.5962408140192199
 + Dame Gender (nltk bayes) accuracy: 0.6677501413227812
++ Random Forest accuracy: 0.3364895421141888
 ** Confusion Matrix
 
 **** Genderguesser

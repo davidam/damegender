@@ -31,11 +31,9 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.linear_model import SGDClassifier
+from xgboost import XGBClassifier
 from sklearn import svm
-
 from app.dame_sexmachine import DameSexmachine
-
-
 
 class TddInPythonExample(unittest.TestCase):
 
@@ -170,6 +168,18 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(gender1, 'male')
         self.assertTrue(gender2, 'female')
 
+    def test_sexmachine_forest_method_returns_correct_result(self):
+        s = DameSexmachine()
+        m = s.forest()
+        self.assertTrue(os.path.isfile("files/datamodels/forest_model.sav"))
+
+    def test_sexmachine_forest_load_method_returns_correct_result(self):
+        s = DameSexmachine()
+        m = s.forest_load()
+        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1]])
+        a = np.array([1.3954322254322253])
+        self.assertEqual(predicted[0], a[0])
+
     def test_sexmachine_sgd_method_returns_correct_result(self):
         s = DameSexmachine()
         m = s.sgd()
@@ -205,4 +215,17 @@ class TddInPythonExample(unittest.TestCase):
         m = s.bernoulliNB_load()
         predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1]])
         n = np.array([2])
+        self.assertTrue(np.array_equal(predicted, n))
+
+    def test_sexmachine_xgboost_method_returns_correct_result(self):
+        s = DameSexmachine()
+        m = s.xgboost()
+        self.assertTrue(os.path.isfile("files/datamodels/xgboost_model.sav"))
+
+
+    def test_sexmachine_xgboost_load_method_returns_correct_result(self):
+        s = DameSexmachine()
+        m = s.xgboost_load()
+        predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1]])
+        n = np.array([0])
         self.assertTrue(np.array_equal(predicted, n))
