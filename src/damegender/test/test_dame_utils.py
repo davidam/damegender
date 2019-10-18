@@ -112,4 +112,4 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_utils_files_one_level_drop_pwd_method_returns_correct_result(self):
         du = DameUtils()
         cwd = os.getcwd()
-        self.assertEqual(sorted(du.files_one_level_drop_pwd(cwd+"/files/datamodels")), ['files/datamodels/bernoulliNB_model.sav', 'files/datamodels/gaussianNB_model.sav', 'files/datamodels/multinomialNB_model.sav', 'files/datamodels/sgd_model.sav', 'files/datamodels/svc_model.sav'])
+        self.assertEqual(sorted(du.files_one_level_drop_pwd(cwd+"/files/datamodels")), ['files/datamodels/bernoulliNB_model.sav', 'files/datamodels/forest_model.sav', 'files/datamodels/gaussianNB_model.sav', 'files/datamodels/multinomialNB_model.sav', 'files/datamodels/sgd_model.sav', 'files/datamodels/svc_model.sav', 'files/datamodels/xgboost_model.sav'])
