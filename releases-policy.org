@@ -1,0 +1,27 @@
+
+* Major release
+
+You must execute with sucess all test in master:
+$ nosetest3 test
+$ ./testsbycommands.sh
+$ ./testsbycommandsextra.sh
+
+Now you can upload to pypi:
+$ python3 setup.py register sdist
+$ twine upload dist/damegender-0.1.33.tar.gz
+$ python3 -m venv /tmp/d
+$ cd /tmp/d
+$ source bin/activate
+$ pip3 install damegender
+
+Later you must check test in the python environment:
+$ cd /tmp/d
+$ nosetest3 test
+$ ./testsbycommands.sh
+$ ./testsbycommandsextra.sh
+
+* Minor release
+In minor releases you can forget the 
+$ ./testsbycommandsextra.sh 
+
+Due to time or money efforts collecting keys
