@@ -5,6 +5,7 @@ You must execute with sucess all test in master:
 $ nosetest3 test
 $ ./testsbycommands.sh
 $ ./testsbycommandsextra.sh
+$ pep8 src/damegender
 
 Now you can upload to pypi:
 $ python3 setup.py register sdist
