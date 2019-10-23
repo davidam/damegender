@@ -1,7 +1,20 @@
 
 * Major release
 
-You must execute with sucess all test in master:
+First, you must execute with success:
+$ nosetest3 test
+$ ./testsbycommands.sh
+$ ./testsbycommandsextra.sh
+$ pep8 src/damegender
+
+Later, you can upload the development to master:
+$ git branch 
+dev
+$ git checkout master
+$ git merge dev
+$ git push
+
+You must execute with success all test in master:
 $ nosetest3 test
 $ ./testsbycommands.sh
 $ ./testsbycommandsextra.sh
@@ -20,6 +33,10 @@ $ cd /tmp/d
 $ nosetest3 test
 $ ./testsbycommands.sh
 $ ./testsbycommandsextra.sh
+
+Finally, now you can tag the release:
+$ git tag -a v0.1.34 -m 'version 0.1.34 in pip3'
+$ git push  origin v0.1.34 
 
 * Minor release
 In minor releases you can forget the 
