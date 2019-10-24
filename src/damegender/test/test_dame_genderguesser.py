@@ -1,6 +1,7 @@
 import unittest
 from app.dame_genderguesser import DameGenderGuesser
 
+
 class TddInPythonExample(unittest.TestCase):
 
     def test_genderguesser_list_method_returns_correct_result(self):
@@ -17,7 +18,8 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_genderguesser_gender_list_method_returns_correct_result(self):
         dgg = DameGenderGuesser()
         gl = dgg.gender_list()
-        self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
+        self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1,
+                              2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
         self.assertEqual(len(gl), 21)
         self.assertEqual(dgg.females, 3)
         self.assertEqual(dgg.males, 16)
@@ -26,8 +28,13 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_genderguesser_guess_list_method_returns_correct_result(self):
         dgg = DameGenderGuesser()
-        self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male', 'female', 'female', 'male', 'male'], dgg.guess_list(path="files/names/partial.csv", binary=False)[0:10])
-        self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1], dgg.guess_list(path="files/names/partial.csv",binary=True)[0:10])
+        self.assertEqual(['male', 'male', 'male', 'male', 'male',
+                          'male', 'female', 'female', 'male', 'male'],
+                         dgg.guess_list(path="files/names/partial.csv",
+                                        binary=False)[0:10])
+        self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1],
+                         dgg.guess_list(path="files/names/partial.csv",
+                                        binary=True)[0:10])
 
     def test_dame_genderguesser_accuracy_method_returns_correct_result(self):
         dgg = DameGenderGuesser()
