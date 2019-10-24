@@ -26,8 +26,8 @@ import unittest
 from app.dame_gender import Gender
 from app.dame_nameapi import DameNameapi
 
-class TddInPythonExample(unittest.TestCase):
 
+class TddInPythonExample(unittest.TestCase):
 
     def test_dame_nameapi_init_method_returns_correct_result(self):
         g = DameNameapi()
@@ -50,7 +50,9 @@ class TddInPythonExample(unittest.TestCase):
         g = DameNameapi()
         gl = g.gender_list()
         if (g.config['DEFAULT']['nameapi'] == 'yes'):
-            self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
+            self.assertEqual(gl,
+                             [1, 1, 1, 1, 2, 1, 0, 0, 1, 1,
+                              2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
             self.assertEqual(len(gl), 21)
             self.assertEqual(g.females, 3)
             self.assertEqual(g.males, 16)
@@ -64,5 +66,13 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_nameapi_guess_list_method_returns_correct_result(self):
         g = DameNameapi()
         if (g.config['DEFAULT']['nameapi'] == 'yes'):
-            self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male', 'female', 'female', 'male', 'male', 'male', 'male', 'male', 'male', 'neutral', 'male', 'male', 'male', 'female', 'male', 'male'], g.guess_list(path="files/names/partial.csv", binary=False))
-            self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 1], g.guess_list(path="files/names/partial.csv",binary=True))
+            self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male',
+                              'female', 'female', 'male', 'male', 'male',
+                              'male', 'male', 'male', 'neutral', 'male',
+                              'male', 'male', 'female', 'male', 'male'],
+                             g.guess_list(path="files/names/partial.csv",
+                                          binary=False))
+            self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1,
+                              1, 1, 1, 2, 1, 1, 1, 0, 1, 1],
+                             g.guess_list(path="files/names/partial.csv",
+                                          binary=True))
