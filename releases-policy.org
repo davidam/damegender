@@ -1,7 +1,11 @@
 
 * Major release
 
-First, you must execute with success:
+Zero, cloning you obtain a clean repository
+$ git clone https://github.com/davidam/damegender
+$ git checkout dev
+
+First, you must execute tests with success:
 $ nosetest3 test
 $ ./testsbycommands.sh
 $ ./testsbycommandsextra.sh
