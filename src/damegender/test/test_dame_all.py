@@ -24,7 +24,9 @@
 import unittest
 from app.dame_all import DameAll
 
+
 class TddInPythonExample(unittest.TestCase):
+
     def test_dame_all_average_method_returns_correct_result(self):
         da = DameAll()
         avg1 = da.average("David", "Arroyo")
