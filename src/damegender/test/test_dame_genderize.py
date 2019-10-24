@@ -27,23 +27,23 @@ from app.dame_genderize import DameGenderize
 
 class TddInPythonExample(unittest.TestCase):
 
-    def test_dame_genderize_guess_method_returns_correct_result(self):
+    def test_dame_genderize_guess(self):
         dg = DameGenderize()
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
             self.assertEqual(dg.guess("David"), "male")
             self.assertEqual(dg.guess("David", binary=True), 1)
 
-    def test_dame_genderize_prob_method_returns_correct_result(self):
+    def test_dame_genderize_prob(self):
         dg = DameGenderize()
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
             self.assertEqual(dg.prob("David", binary=True), 1.0)
 
-    def test_dame_genderize_guess_file_method_returns_correct_result(self):
+    def test_dame_genderize_guess_file(self):
         dg = DameGenderize()
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
             self.assertEqual(dg.guess("David", binary=True), 1)
 
-    def test_dame_genderize_gender_list_method_returns_correct_result(self):
+    def test_dame_genderize_gender_list(self):
         dg = DameGenderize()
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
             gl = dg.gender_list()
@@ -54,7 +54,7 @@ class TddInPythonExample(unittest.TestCase):
             self.assertEqual(dg.males, 16)
             self.assertEqual(dg.unknown, 2)
 
-    def test_dame_genderize_guess_list_method_returns_correct_result(self):
+    def test_dame_genderize_guess_list(self):
         dg = DameGenderize()
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
             self.assertEqual(['male', 'male', 'male', 'male', 'unknown',
@@ -65,7 +65,7 @@ class TddInPythonExample(unittest.TestCase):
                              dg.guess_list(path="files/names/partial.csv",
                                            binary=True)[0:10])
 
-    def test_dame_genderize_guess_list_method_returns_correct_result(self):
+    def test_dame_genderize_guess_list(self):
         dg = DameGenderize()
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
             self.assertEqual(['male', 'male', 'male', 'male', 'unknown',
