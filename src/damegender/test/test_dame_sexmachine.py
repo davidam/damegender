@@ -169,20 +169,16 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(gender2, 'female')
 
     def test_sexmachine_forest_method_returns_correct_result(self):
-        s = DameSexmachine()
-        m = s.forest()
         self.assertTrue(os.path.isfile("files/datamodels/forest_model.sav"))
 
     def test_sexmachine_forest_load_method_returns_correct_result(self):
         s = DameSexmachine()
         m = s.forest_load()
         predicted = m.predict([[ 0,  0,  1,  0, 21,  0,  0,  0,  0, 34,  2,  0,  0,  0,  0,  0, 0,  0,  0,  5,  0,  0,  0,  0,  0,  2,  0,  0,  0, 34,  1,  0, 1]])
-        a = np.array([1.3954322254322253])
+        a = np.array([0.6333333333333334])
         self.assertEqual(predicted[0], a[0])
 
-    def test_sexmachine_sgd_method_returns_correct_result(self):
-        s = DameSexmachine()
-        m = s.sgd()
+    def test_sexmachine_sgd_model_exists_method_returns_correct_result(self):
         self.assertTrue(os.path.isfile("files/datamodels/sgd_model.sav"))
 
     def test_sexmachine_sgd_load_method_returns_correct_result(self):
@@ -218,8 +214,6 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(np.array_equal(predicted, n))
 
     def test_sexmachine_xgboost_method_returns_correct_result(self):
-        s = DameSexmachine()
-        m = s.xgboost()
         self.assertTrue(os.path.isfile("files/datamodels/xgboost_model.sav"))
 
 
