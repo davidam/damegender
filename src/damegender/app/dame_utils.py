@@ -25,6 +25,7 @@ import unicodedata
 import re
 import os
 
+
 class DameUtils():
     def is_not_blank(self, s):
         return bool(s and s.strip())
@@ -119,7 +120,8 @@ class DameUtils():
         return aux
 
     def drop_accents(self, s):
-        return ''.join((c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn'))
+        return ''.join((c for c in unicodedata.normalize('NFD', s)
+                        if unicodedata.category(c) != 'Mn'))
 
     def drop_pwd(self, s):
         cwd = os.getcwd()
@@ -149,7 +151,7 @@ class DameUtils():
         return aux
 
     def files_one_level(self, directory):
-        f = os.popen('find '+ directory )
+        f = os.popen('find ' + directory)
         l = []
         for line in f:
             fields = line.strip().split()
@@ -157,7 +159,7 @@ class DameUtils():
         return l
 
     def files_one_level_drop_pwd(self, directory):
-        f = os.popen('find '+ directory)
+        f = os.popen('find ' + directory)
         l = []
         for line in f:
             fields = line.strip().split()
