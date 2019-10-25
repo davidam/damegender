@@ -28,18 +28,20 @@ import numpy as np
 
 from app.dame_gender import Gender
 
+
 class DameNamsor(Gender):
 
     def get(self, name, surname, binary=False):
-    # obtaining data from namsor
-        namsorlist = []
-        r = requests.get('https://api.namsor.com/onomastics/api/json/gender/'+ name +'/' + surname)
+        # obtaining data from namsor
+        string = 'https://api.namsor.com/onomastics/api/json/gender/'
+        string = string + name + '/' + surname
+        r = requests.get(string)
         d = json.loads(r.text)
         v = [d['gender'], d['scale']]
         return v
 
     def guess(self, name, surname, binary=False):
-    # guess method to check names dictionary
+        # guess method to check names dictionary
         v = self.get(name, surname)
         if ((v[0] == 'female') and binary):
             guess = 0
@@ -52,20 +54,20 @@ class DameNamsor(Gender):
         return guess
 
     def scale(self, name, surname):
-    # scale is a probability measure
+        # scale is a probability measure
         v = self.get(name, surname)
         return v[1]
 
     def guess_list(self, path='files/partial.csv', binary=False):
-    # guess list method
+        # guess list method
         slist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             next(sexreader, None)
             for row in sexreader:
                 name = row[0].title()
-                name = name.replace('\"','')
+                name = name.replace('\"', '')
                 surname = row[2].title()
-                surname = surname.replace('\"','')
+                surname = surname.replace('\"', '')
                 slist.append(self.guess(name, surname, binary))
         return slist
