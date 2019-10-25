@@ -27,9 +27,10 @@ import json
 import gender_guesser.detector as gender
 from app.dame_gender import Gender
 
+
 class DameGenderGuesser(Gender):
     def guess(self, name, binary=False):
-    # guess method to check names dictionary
+        # guess method to check names dictionary
         genderguesserlist = []
         d = gender.Detector()
         get = d.get_gender(name)
