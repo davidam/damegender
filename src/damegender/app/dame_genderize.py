@@ -34,7 +34,7 @@ from sklearn.metrics import confusion_matrix
 class DameGenderize(Gender):
 
     def guess(self, name, binary=False):
-    # guess method to check names dictionary
+        # guess method to check names dictionary
         if (self.config['DEFAULT']['genderize'] == 'no'):
             v = Genderize().get([name])
         elif (self.config['DEFAULT']['genderize'] == 'yes'):
@@ -53,7 +53,7 @@ class DameGenderize(Gender):
         return guess
 
     def prob(self, name, binary=False):
-    # guess method to check names dictionary
+        # guess method to check names dictionary
         if (self.config['DEFAULT']['genderize'] == 'no'):
             v = Genderize().get([name])
         elif (self.config['DEFAULT']['genderize'] == 'yes'):
@@ -66,40 +66,40 @@ class DameGenderize(Gender):
         return prob
 
     def guess_list(self, path='files/names/partial.csv', binary=False):
-    # guess list method
+        # guess list method
         slist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             next(sexreader, None)
             i = 0
-#            string = ""
             listnames = list()
             for row in sexreader:
                 name = row[0].title()
-                name = name.replace('\"','')
+                name = name.replace('\"', '')
                 listnames.append(name)
-#        print("len listnames:"+str(len(listnames)))
         new = []
-        for i in range(0, len(listnames), 10): # We must split the list in different lists with size 10
-            new.append(listnames[i : i+10])
+        # We must split the list in different lists with size 10
+        for i in range(0, len(listnames), 10):
+            new.append(listnames[i:i+10])
         for i in new:
             if (self.config['DEFAULT']['genderize'] == 'no'):
                 jsonlist = Genderize().get(i)
             elif (self.config['DEFAULT']['genderize'] == 'yes'):
                 fichero = open("files/apikeys/genderizepass.txt", "r+")
                 apikey = fichero.readline().rstrip()
-                jsonlist = Genderize(user_agent='GenderizeDocs/0.0', api_key=apikey).get(i)
+                jsonlist = Genderize(user_agent='GenderizeDocs/0.0',
+                                     api_key=apikey).get(i)
             for item in jsonlist:
-                if ((item['gender'] == None) & binary):
+                if ((item['gender'] is None) & binary):
                     slist.append(2)
-                elif ((item['gender'] == None) & (not binary)):
+                elif ((item['gender'] is None) & (not binary)):
                     slist.append("unknown")
                 elif ((item['gender'] == "male") & binary):
                     slist.append(1)
-                elif ((item['gender'] == "male") & (not binary) ):
+                elif ((item['gender'] == "male") & (not binary)):
                     slist.append("male")
                 elif ((item['gender'] == "female") & binary):
                     slist.append(0)
-                elif ((item['gender'] == "female") & (not binary) ):
+                elif ((item['gender'] == "female") & (not binary)):
                     slist.append("female")
         return slist
