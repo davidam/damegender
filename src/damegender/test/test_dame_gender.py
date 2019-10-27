@@ -288,6 +288,8 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(int(frec2['females']) > 10)
         frec6 = g.name_frec("MARIA", dataset='ukcensus')
         self.assertTrue(int(frec6['females']) > 10)
+        frec7 = g.name_frec("JULIAN", dataset='ukcensus')
+        self.assertTrue(int(frec7['males']) > 10)
 
     def test_dame_gender_error_gender_bias(self):
         g = Gender()
