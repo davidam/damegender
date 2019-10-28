@@ -91,16 +91,18 @@ class DameSexmachine(Gender):
 
     def classifier(self):
         # NLTK bayesian classifier
-        labeled_names = ([(name, 'male') for name in names.words('male.txt')] +
-                         [(name, 'female') for name in names.words('female.txt')])
-        # labeled_names = []
-        # for name in names.words('male.txt'):
-        #     elem = [(name, 'male')]
-        #     labeled_names = labeled_names + elem
-        # for name in names.words('female.txt'):
-        #     elem = (name, 'female')
-        #     labeled_names = labeled_names + elem
-        featuresets = [(self.features(n), gender) for (n, gender) in labeled_names]
+
+        labeled_names = []
+        for name in names.words('male.txt'):
+            elem = [(name, 'male')]
+            labeled_names = labeled_names + elem
+
+        for name in names.words('female.txt'):
+            elem = [(name, 'female')]
+            labeled_names = labeled_names + elem
+
+        featuresets = [(self.features(n), gender) for (n, gender) in
+                       labeled_names]
         train_set, test_set = featuresets[500:], featuresets[:500]
         classifier = nltk.NaiveBayesClassifier.train(train_set)
         return classifier
