@@ -580,7 +580,7 @@ first_letter_vocal is for females.
 
 * Beautiful Snakes
 
-| [[file:src/damegender/files/images/violet-snake2.png]] |
+| [[file:src/damegender/files/images/violet-snake3.png]] |
 * License
 Copyright (C) 2019 David Arroyo Menendez
     Permission is granted to copy, distribute and/or modify this document
