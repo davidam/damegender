@@ -1,6 +1,19 @@
-* Logo
 
-[[file:src/damegender/files/images/gender.png]]
+* Logo. The democracy is reach votes
+
+You can vote a logo cliking in the image
+
+#+attr_html: :width 200px
+#+attr_latex: :height 200px
+[[https://api.gh-polls.com/poll/01DRGPZMXEWREFDKPSVGQB5QWA/snake/vote][file:src/damegender/files/images/gender.png]]
+
+#+attr_html: :width 200px
+#+attr_latex: :height 200px
+[[https://api.gh-polls.com/poll/01DRGPZMXEWREFDKPSVGQB5QWA/triangle/vote][file:src/damegender/files/images/dame_gender_alternative.jpg]]
+
+#+attr_html: :width 200px
+#+attr_latex: :height 200px
+[[https://api.gh-polls.com/poll/01DRGPZMXEWREFDKPSVGQB5QWA/gendergap/vote][file:src/damegender/files/images/gendergap400x400.jpg]]
 
 * Name
 damegender is a gender detection tool from the name coded by David Arroyo MEnéndez (DAME)
