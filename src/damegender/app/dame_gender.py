@@ -500,16 +500,6 @@ class Gender(object):
     def maleundefined(self, truevector, guessvector):
         return self.count_true2guess(truevector, guessvector, 1, 2)
 
-    def recall(self, truevector, guessvector):
-        result = 0
-        divider = self.femalefemale(truevector, guessvector)
-        divider = divisor + self.malemale(truevector, guessvector)
-        dividend = self.femalefemale(truevector, guessvector)
-        dividend = dividing + self.malemales(truevector, guessvector)
-        dividend = dividing + self.femalemale(truevector, guessvector)
-        result = divider / dividend
-        return result
-
     def precision(self, truevector, guessvector):
         result = 0
         divider = self.femalefemale(truevector, guessvector)
@@ -519,6 +509,20 @@ class Gender(object):
         dividend = dividend + self.malefemale(truevector, guessvector)
         result = divider / dividend
         return result
+
+
+    def recall(self, truevector, guessvector):
+        result = 0
+        divider = self.femalefemale(truevector, guessvector)
+        divider = divider + self.malemale(truevector, guessvector)
+        dividend = self.femalefemale(truevector, guessvector)
+        dividend = dividend + self.malemale(truevector, guessvector)
+        dividend = dividend + self.malefemale(truevector, guessvector)
+        dividend = dividend + self.femaleundefined(truevector, guessvector)
+        dividend = dividend + self.maleundefined(truevector, guessvector)
+        result = divider / dividend
+        return result
+
 
     def f1score(self, truevector, guessvector):
         result = 0
