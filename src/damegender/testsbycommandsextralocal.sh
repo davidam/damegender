@@ -20,6 +20,8 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+
+
 python3 main.py "Jesús" --total=genderguesser > files/tests/mainjesusgenderguesser-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainjesusgenderguesser.txt files/tests/mainjesusgenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -91,6 +93,33 @@ else
 	echo "accuracygenderguesser test is ok"
 fi
 
+python3 accuracy.py --api="genderguesser" --measure="precision" --csv=files/names/partialnoundefined.csv > files/tests/accuracypartialprecisiongenderguesser-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/accuracypartialprecisiongenderguesser.txt files/tests/accuracypartialprecisiongenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "accuracypartialprecisiongenderguesser test is failing"
+else
+	echo "accuracypartialprecisiongenderguesser test is ok"
+fi
+
+python3 accuracy.py --api="genderguesser" --measure="f1score" --csv=files/names/partialnoundefined.csv > files/tests/accuracypartialf1scoregenderguesser-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/accuracypartialf1scoregenderguesser.txt files/tests/accuracypartialf1scoregenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "accuracypartialf1scoregenderguesser test is failing"
+else
+	echo "accuracypartialf1scoregenderguesser test is ok"
+fi
+
+python3 accuracy.py --api="genderguesser" --measure="recall" --csv=files/names/partialnoundefined.csv > files/tests/accuracypartialrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/accuracypartialrecallgenderguesser.txt files/tests/accuracypartialrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "accuracypartialrecallgenderguesser test is failing"
+else
+	echo "accuracypartialrecallgenderguesser test is ok"
+fi
+
 
 python3 accuracy.py --api="damegender" --csv=files/names/partial.csv > files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt
 
@@ -100,7 +129,6 @@ then
 else
 	echo "accuracypartialdamegender test is ok"
 fi
-
 
 
 python3 confusion.py --api="damegender" --dimensions=2x3 --csv=files/names/min.csv > files/tests/confusiondamegender-$(date "+%Y-%m-%d-%H").txt
@@ -139,8 +167,7 @@ else
 	echo "errorsgenderguesser test is ok"
 fi
 
-
-
 rm -rf /tmp/clonedir
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
+
