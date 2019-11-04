@@ -32,15 +32,16 @@ from app.dame_customsearch import DameCustomsearch
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--csv', default="files/names/min.csv", help='input file for names')  
+parser.add_argument('--csv', default="files/names/min.csv", help='input file for names')
 parser.add_argument('--json', help='if you have downloaded the results from an api in a json file, you can try this argument')
+parser.add_argument('--measure', default="accuracy", choices=['accuracy', 'precision', 'recall'])
 parser.add_argument('--api', default="damegender", choices=['customsearch', 'namsor', 'genderize', 'genderguesser', 'damegender', 'genderapi', 'nameapi', 'all'])
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'xgboost'])
 args = parser.parse_args()
 
 if (args.api == "all"):
     dg = Gender()
-    
+
     if (dg.config['DEFAULT']['namsor'] == 'yes'):
         dn = DameNamsor()
         print("################### Namsor!!")
@@ -81,7 +82,7 @@ if (args.api == "all"):
     sexmachine_accuracy = ds.accuracy_score_dame(gl,sl)
     print("Sexmachine accuracy: %s" % sexmachine_accuracy)
 
-    if (dg.config['DEFAULT']['genderapi'] == 'yes'):    
+    if (dg.config['DEFAULT']['genderapi'] == 'yes'):
         dga = DameGenderApi()
         print("################### GenderApi!!")
         gl = dga.gender_list(path=args.csv)
@@ -91,7 +92,7 @@ if (args.api == "all"):
         genderapi_accuracy = dga.accuracy_score_dame(gl,sl)
         print("Genderapi accuracy: %s" % genderapi_accuracy)
 
-    if (dg.config['DEFAULT']['nameapi'] == 'yes'):    
+    if (dg.config['DEFAULT']['nameapi'] == 'yes'):
         dna = DameNameapi()
         print("################### Nameapi!!")
         gl = dna.gender_list(path=args.csv)
@@ -129,8 +130,20 @@ elif (args.api == "genderguesser"):
     print("Gender list: " + str(gl))
     sl = dgg.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
-    genderguesser_accuracy = dgg.accuracy_score_dame(gl,sl)
-    print("GenderGuesser accuracy: %s" % genderguesser_accuracy)
+
+    if (args.measure == "accuracy"):
+        genderguesser_accuracy = dgg.accuracy_score_dame(gl,sl)
+        print("GenderGuesser accuracy: %s" % genderguesser_accuracy)
+    elif (args.measure == "precision"):
+        genderguesser_precision = dgg.precision(gl,sl)
+        print("GenderGuesser precision: %s" % genderguesser_precision)
+    elif (args.measure == "recall"):
+        genderguesser_recall = dgg.recall(gl,sl)
+        print("GenderGuesser recall: %s" % genderguesser_recall)
+    elif (args.measure == "f1score"):
+        genderguesser_f1score = dgg.f1score(gl,sl)
+        print("Gender Guesser f1score: %s" % genderguesser_f1score)
+
 
 elif (args.api == "customsearch"):
     dc = DameCustomsearch()
@@ -223,7 +236,7 @@ elif (args.api == "damegender"):
         print("Guess list:  " +str(gl2))
         forest_accuracy = ds.accuracy_score_dame(gl1, gl2)
         print("Random Forest accuracy: %s" % forest_accuracy)
-        
+
     elif (args.ml == "xgboost"):
         ds = DameSexmachine()
         print("################### Xgboost!!")
@@ -233,7 +246,7 @@ elif (args.api == "damegender"):
         print("Guess list:  " +str(gl2))
         xgboost_accuracy = ds.accuracy_score_dame(gl1, gl2)
         print("Xgboost accuracy: %s" % xgboost_accuracy)
-        
+
 
 
 elif (args.api == "genderapi"):
