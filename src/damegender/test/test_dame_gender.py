@@ -240,9 +240,12 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_count_true2guess(self):
         g = Gender()
-        v1 = [1, 0, 1, 1]
-        v2 = [1, 1, 1, 0]
-        self.assertEqual(g.count_true2guess(v1, v2, 1, 1), 2)
+        v1 = [1, 0, 1, 1, 0, 0]
+        v2 = [1, 1, 1, 0, 0, 0]
+        self.assertEqual(g.count_true2guess(v1, v2, 0, 0), 2) # femalefemale
+        self.assertEqual(g.count_true2guess(v1, v2, 1, 1), 2) # malemale
+        self.assertEqual(g.count_true2guess(v1, v2, 0, 1), 1) # femalemale
+        self.assertEqual(g.count_true2guess(v1, v2, 1, 0), 1) # malefemale
         vv1 = [1, 0, 1, 1, 1]
         vv2 = [1, 1, 1, 0]
         self.assertEqual(g.count_true2guess(vv2, vv1, 1, 1), 2)  # malemale
