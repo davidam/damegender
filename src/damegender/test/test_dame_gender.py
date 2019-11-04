@@ -238,6 +238,35 @@ class TddInPythonExample(unittest.TestCase):
                                         1, 1, 1, 1, 1, 0, 1, 1])
         self.assertEqual(score4, 1)
 
+    def test_dame_gender_precision(self):
+        g = Gender()
+        score1 = g.precision([1, 1], [1, 1])
+        self.assertEqual(score1, 1)
+        score2 = g.precision([1, 1, 1, 0], [1, 1, 2, 0])
+        self.assertEqual(score2, 1)
+        score3 = g.precision([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
+        self.assertEqual(score3, 1)
+        score4 = g.precision([1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1,
+                              1, 1, 1, 1, 1, 0, 1, 1],
+                             [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1,
+                              1, 1, 1, 1, 1, 0, 1, 1])
+        self.assertEqual(score4, 1)
+
+    def test_dame_gender_recall(self):
+        g = Gender()
+        score1 = g.recall([1, 1], [1, 1])
+        self.assertEqual(score1, 1)
+        score2 = g.recall([1, 1, 1, 0], [1, 1, 2, 0])
+        self.assertEqual(score2, 1)
+        score3 = g.recall([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
+        self.assertEqual(score3, 1)
+        score4 = g.recall([1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1,
+                           1, 1, 1, 1, 1, 0, 1, 1],
+                          [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1,
+                           1, 1, 1, 1, 1, 0, 1, 1])
+        self.assertEqual(score4, 1)
+
+
     def test_dame_gender_count_true2guess(self):
         g = Gender()
         v1 = [1, 0, 1, 1, 0, 0]
