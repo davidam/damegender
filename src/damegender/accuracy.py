@@ -119,19 +119,7 @@ elif (args.api == "namsor"):
     print("Gender list: " + str(gl))
     sl = dn.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
-
-    if (args.measure == "accuracy"):
-        namsor_accuracy = dn.accuracy_score_dame(gl,sl)
-        print("Namsor accuracy: %s" % namsor_accuracy)
-    elif (args.measure == "precision"):
-        namsor_precision = dn.precision(gl,sl)
-        print("Namsor precision: %s" % namsor_precision)
-    elif (args.measure == "recall"):
-        namsor_recall = dn.recall(gl,sl)
-        print("Namsor recall: %s" % namsor_recall)
-    elif (args.measure == "f1score"):
-        namsor_f1score = dn.f1score(gl,sl)
-        print("Namsor f1score: %s" % namsor_f1score)
+    dn.print_measures(gl, sl, args.measure)
 
 
 elif (args.api == "genderize"):
@@ -142,23 +130,7 @@ elif (args.api == "genderize"):
     print("Gender list: " + str(gl))
     sl = dg.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(gl))
-    # genderize_accuracy = dg.accuracy_score_dame(gl, sl)
-    # print("Genderize accuracy: %s" % genderize_accuracy)
-
-    if (args.measure == "accuracy"):
-        genderize_accuracy = dg.accuracy_score_dame(gl,sl)
-        print("Genderize accuracy: %s" % genderize_accuracy)
-    elif (args.measure == "precision"):
-        genderize_precision = dg.precision(gl,sl)
-        print("Genderize precision: %s" % genderize_precision)
-    elif (args.measure == "recall"):
-        genderize_recall = dg.recall(gl,sl)
-        print("Genderize recall: %s" % genderize_recall)
-    elif (args.measure == "f1score"):
-        genderize_f1score = dg.f1score(gl,sl)
-        print("Genderize f1score: %s" % genderize_f1score)
-
-
+    dg.print_measures(gl, sl, args.measure)
 
 elif (args.api == "genderguesser"):
     dgg = DameGenderGuesser()
@@ -167,19 +139,7 @@ elif (args.api == "genderguesser"):
     print("Gender list: " + str(gl))
     sl = dgg.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
-
-    if (args.measure == "accuracy"):
-        genderguesser_accuracy = dgg.accuracy_score_dame(gl,sl)
-        print("GenderGuesser accuracy: %s" % genderguesser_accuracy)
-    elif (args.measure == "precision"):
-        genderguesser_precision = dgg.precision(gl,sl)
-        print("GenderGuesser precision: %s" % genderguesser_precision)
-    elif (args.measure == "recall"):
-        genderguesser_recall = dgg.recall(gl,sl)
-        print("GenderGuesser recall: %s" % genderguesser_recall)
-    elif (args.measure == "f1score"):
-        genderguesser_f1score = dgg.f1score(gl,sl)
-        print("Gender Guesser f1score: %s" % genderguesser_f1score)
+    dgg.print_measures(gl, sl, args.measure)
 
 
 elif (args.api == "customsearch"):
@@ -295,21 +255,7 @@ elif (args.api == "genderapi"):
     else:
         sl = dga.json2guess_list(jsonf=args.json, binary=True)
     print("Guess list:  " +str(sl))
-    # genderapi_accuracy = dga.accuracy_score_dame(gl,sl)
-    # print("Genderapi accuracy: %s" % genderapi_accuracy)
-
-    if (args.measure == "accuracy"):
-        genderapi_accuracy = dga.accuracy_score_dame(gl,sl)
-        print("Genderapi accuracy: %s" % genderapi_accuracy)
-    elif (args.measure == "precision"):
-        genderapi_precision = dga.precision(gl,sl)
-        print("Genderapi precision: %s" % genderapi_precision)
-    elif (args.measure == "recall"):
-        genderapi_recall = dga.recall(gl,sl)
-        print("Genderapi recall: %s" % genderapi_recall)
-    elif (args.measure == "f1score"):
-        genderapi_f1score = dga.f1score(gl,sl)
-        print("Genderapi f1score: %s" % genderapi_f1score)
+    dga.print_measures(gl, sl, args.measure)
 
 
 elif (args.api == "nameapi"):
@@ -319,18 +265,4 @@ elif (args.api == "nameapi"):
     print("Gender list: " + str(gl))
     sl = dna.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
-    # nameapi_accuracy = dna.accuracy_score_dame(gl,sl)
-    # print("Nameapi accuracy: %s" % nameapi_accuracy)
-
-    if (args.measure == "accuracy"):
-        nameapi_accuracy = dgg.accuracy_score_dame(gl,sl)
-        print("Nameapi accuracy: %s" % nameapi_accuracy)
-    elif (args.measure == "precision"):
-        nameapi_precision = dgg.precision(gl,sl)
-        print("Nameapi precision: %s" % nameapi_precision)
-    elif (args.measure == "recall"):
-        nameapi_recall = dgg.recall(gl,sl)
-        print("Nameapi recall: %s" % nameapi_recall)
-    elif (args.measure == "f1score"):
-        nameapi_f1score = dgg.f1score(gl,sl)
-        print("Nameapi f1score: %s" % nameapi_f1score)
+    dna.print_measures(gl, sl, args.measure)
