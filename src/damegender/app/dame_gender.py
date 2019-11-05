@@ -851,3 +851,19 @@ class Gender(object):
         X = np.array(self.features_list())
         pca = PCA(n_components=n)
         return pca.fit(X)
+
+    def print_measures(self, gl1, gl2, measure):
+        if (measure == "accuracy"):
+            gender_accuracy = self.accuracy_score_dame(gl1,gl2)
+            print("Dame Gender accuracy: %s" % gender_accuracy)
+
+        elif (measure == "precision"):
+            gender_precision = self.precision(gl1,gl2)
+            print("Dame Gender precision: %s" % gender_precision)
+
+        elif (measure == "recall"):
+            gender_recall = self.recall(gl1,gl1)
+            print("Dame Gender recall: %s" % gender_recall)
+        elif (measure == "f1score"):
+            gender_f1score = self.f1score(gl1,gl2)
+            print("Dame Gender f1score: %s" % gender_f1score)
