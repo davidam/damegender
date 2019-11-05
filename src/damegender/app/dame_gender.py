@@ -852,18 +852,18 @@ class Gender(object):
         pca = PCA(n_components=n)
         return pca.fit(X)
 
-    def print_measures(self, gl1, gl2, measure):
+    def print_measures(self, gl1, gl2, measure, api_name):
         if (measure == "accuracy"):
             gender_accuracy = self.accuracy_score_dame(gl1,gl2)
-            print("Dame Gender accuracy: %s" % gender_accuracy)
+            print("%s accuracy: %s" % (api_name, gender_accuracy))
 
         elif (measure == "precision"):
             gender_precision = self.precision(gl1,gl2)
-            print("Dame Gender precision: %s" % gender_precision)
+            print("%s precision: %s" % (api_name, gender_precision))
 
         elif (measure == "recall"):
             gender_recall = self.recall(gl1,gl1)
-            print("Dame Gender recall: %s" % gender_recall)
+            print("%s recall: %s" % (api_name, gender_recall))
         elif (measure == "f1score"):
             gender_f1score = self.f1score(gl1,gl2)
-            print("Dame Gender f1score: %s" % gender_f1score)
+            print("%s f1score: %s" % (api_name, gender_f1score))
