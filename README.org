@@ -353,74 +353,138 @@ sys	0m32.040s
 
 * Statistics for damegender
 Some theory could be useful to understand some commands
-** Errors and Confusion Matrix
-Guessing the sex, we have an true idea (example: female) and we obtain
-a result, the guessed result (example: female). We have written
-count_true2guess to make statistics variables about it.
+** Measuring success and fails
 
-In confusion matrix litherature, we can find this vocabulary for true and guess:
+To guess the sex, we have an true idea (example: female) and we obtain
+a result with a method (example: using an api, querying a dataset or
+with a machine learning model). The guessed result could be male,
+female or perhaps unknown. Remember some definitions about results
+about this matter:
 
-| True positive  | False Positive |
-|----------------+----------------|
-| False negative | True Negative  |
+*True positive* is find a value guessed as true if the value in
+the data source is positive.
 
-*Precision* is about true positives between true positives plus false positives
+*True negative* is find a value guessed as true if the the
+value in the data source is negative.
+
+*False positive* is find a value guessed as false if the the
+value in the data source is positive.
+
+*False negative* is find a value guessed as false if the the
+value in the data source is negative.
+
+So, we can find a vocabulary for measure true, false, success and
+errors. We can make a summary in the gender name context about
+mathematical concepts:
+
+*Precision* is about true positives between true positives plus false
+positives
 
 #+BEGIN_SRC
-(self.femalefemale + self.malemale ) / (self.femalefemale + self.malemale + self.femalemale)
+(femalefemale + malemale ) /
+(femalefemale + malemale + femalemale)
 #+END_SRC
 
-*Recall* is about true positives between true positives plus false negatives.
+*Recall* is about true positives between true positives plus false
+negatives.
 
 #+BEGIN_SRC
-(self.femalefemale + self.malemale ) / (self.femalefemale + self.malemale + self.malefemale)
+(femalefemale + malemale ) /
+(femalefemale + malemale + malefemale + femaleundefined + maleundefined)
+#+END_SRC
+
+*Accuray* is about true positives between all.
+
+#+BEGIN_SRC
+(femalefemale + malemale ) /
+(femalefemale + malemale + malefemale + femalemale + femaleundefined + maleundefinedxs)
 #+END_SRC
 
 The *F1 score* is the harmonic mean of precision and recall taking
 both metrics into account in the following equation:
 
 #+BEGIN_SRC
-2 * ((precision * recall) / (precision + recall))
+2 * (
+(precision * recall) /
+(precision + recall))
 #+END_SRC
+
+In Damengender, we are using accuracy.py to apply these concepts. Take
+a look to practice:
+
+#+BEGIN_SRC bash
+$ python3 accuracy.py --api="damegender" --measure="f1score" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="damegender" --measure="recall" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="damegender" --measure="precision" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="damegender" --measure="accuracy" --csv="files/names/partialnoundefined.csv"
+
+$ python3 accuracy.py --api="genderguesser" --measure="f1score" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="genderguesser" --measure="recall" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="genderguesser" --measure="precision" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="genderguesser" --measure="accuracy" --csv="files/names/partialnoundefined.csv"
+#+END_SRC
+
 
 *Error coded* is about the true is different than the guessed:
 
 #+BEGIN_SRC
-(self.femalemale + self.malefemale + self.maleundefined + self.femaleundefined) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale + self.maleundefined + self.femaleundefined)
+(femalemale + malefemale + maleundefined + femaleundefined) /
+(malemale + femalemale + malefemale +
+femalefemale + maleundefined + femaleundefined)
 #+END_SRC
 
-*Error coded without na* is about the true is different than the guessed, but without undefined results.
+*Error coded without na* is about the true is different than the
+guessed, but without undefined results.
 
 #+BEGIN_SRC
-(self.maleundefined + self.femaleundefined) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale + self.maleundefined + self.femaleundefined)
+(maleundefined + femaleundefined) /
+(malemale + femalemale + malefemale +
+femalefemale + maleundefined + femaleundefined)
 #+END_SRC
 
-*Error gender bias* is to understand if the error is bigger guessing males than females or viceversa.
+*Error gender bias* is to understand if the error is bigger guessing
+males than females or viceversa.
 
 #+BEGIN_SRC
-(self.malefemale - self.femalemale) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale)
+(malefemale - femalemale) /
+(malemale + femalemale + malefemale + femalefemale)
 #+END_SRC
 
-*The weighted error* is about the true is different than the guessed, but giving a weight to the guessed as undefined.
+*The weighted error* is about the true is different than the guessed,
+but giving a weight to the guessed as undefined.
 
 #+BEGIN_SRC
-(self.femalemale + self.malefemale + w * (self.maleundefined + self.femaleundefined)) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale + w * (self.maleundefined + self.femaleundefined))
+(femalemale + malefemale +
++ w * (maleundefined + femaleundefined)) /
+(malemale + femalemale + malefemale + femalefemale +
++ w * (maleundefined + femaleundefined))
 #+END_SRC
 
-The *confusion matrix* creates a matrix between the true and the guess. If you have this confusion matrix:
+In Damengeder, we have coded errors.py to implement the different definitions in diffrent apis.
+
+The *confusion matrix* creates a matrix between the true and the
+guess. If you have this confusion matrix:
 
 #+BEGIN_SRC
 [[ 2, 0, 0]
  [ 0, 5, 0]]
 #+END_SRC
-It means, I have 2 females true and I've guessed 2 females and I've 5 males true and I've guessed 5 males. I don't have errors in my classifier.
+
+It means, I have 2 females true and I've guessed 2 females and I've 5
+males true and I've guessed 5 males. I don't have errors in my
+classifier.
 
 #+BEGIN_SRC
- [[ 2  1  0]
- [ 2 14  0]
+[[ 2  1  0]
+[ 2 14  0]
 #+END_SRC
 
-It means, I have 2 females true and I've guessed 2 females and I've 14 males true and I've guessed 14 males. 1 female was considered male, 2 males was considered female.
+It means, I have 2 females true and I've guessed 2 females and I've 14
+males true and I've guessed 14 males. 1 female was considered male, 2
+males was considered female.
+
+In Damegender, we have coded confusion.py to implement this concept
+with the different apis.
 
 ** PCA
 *** Concepts
