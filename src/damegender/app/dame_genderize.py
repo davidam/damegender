@@ -38,7 +38,7 @@ class DameGenderize(Gender):
         if (self.config['DEFAULT']['genderize'] == 'no'):
             v = Genderize().get([name])
         elif (self.config['DEFAULT']['genderize'] == 'yes'):
-            fichero = open(self.config['DEFAULT']['genderizefile'], "r+")
+            fichero = open(self.config['FILES']['genderize'], "r+")
             apikey = fichero.readline().rstrip()
             v = Genderize(
                 user_agent='GenderizeDocs/0.0',
