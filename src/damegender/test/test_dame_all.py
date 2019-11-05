@@ -27,9 +27,9 @@ from app.dame_all import DameAll
 
 class TddInPythonExample(unittest.TestCase):
 
-    def test_dame_all_average_method_returns_correct_result(self):
-        da = DameAll()
-        avg1 = da.average("David", "Arroyo")
-        self.assertEqual(avg1, 1.0)
-        avg2 = da.average("Laura", "Santos")
-        self.assertEqual(avg2, 0)
+    # def test_dame_all_average_method_returns_correct_result(self):
+    #     da = DameAll()
+    #     avg1 = da.average("David", "Arroyo")
+    #     self.assertEqual(avg1, 1.0)
+    #     avg2 = da.average("Laura", "Santos")
+    #     self.assertEqual(avg2, 0)
