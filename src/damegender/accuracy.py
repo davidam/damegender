@@ -131,7 +131,7 @@ elif (args.api == "namsor"):
         print("Namsor recall: %s" % namsor_recall)
     elif (args.measure == "f1score"):
         namsor_f1score = dn.f1score(gl,sl)
-        print("Gender Guesser f1score: %s" % namsor_f1score)
+        print("Namsor f1score: %s" % namsor_f1score)
 
 
 elif (args.api == "genderize"):
@@ -156,7 +156,7 @@ elif (args.api == "genderize"):
         print("Genderize recall: %s" % genderize_recall)
     elif (args.measure == "f1score"):
         genderize_f1score = dg.f1score(gl,sl)
-        print("Gender Guesser f1score: %s" % genderize_f1score)
+        print("Genderize f1score: %s" % genderize_f1score)
 
 
 
@@ -310,7 +310,7 @@ elif (args.api == "genderapi"):
         print("Genderapi recall: %s" % genderapi_recall)
     elif (args.measure == "f1score"):
         genderapi_f1score = dga.f1score(gl,sl)
-        print("Gender Guesser f1score: %s" % genderapi_f1score)
+        print("Genderapi f1score: %s" % genderapi_f1score)
 
 
 elif (args.api == "nameapi"):
@@ -334,4 +334,4 @@ elif (args.api == "nameapi"):
         print("Nameapi recall: %s" % nameapi_recall)
     elif (args.measure == "f1score"):
         nameapi_f1score = dgg.f1score(gl,sl)
-        print("Gender Guesser f1score: %s" % nameapi_f1score)
+        print("Nameapi f1score: %s" % nameapi_f1score)
