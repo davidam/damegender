@@ -195,15 +195,6 @@ elif (args.api == "customsearch"):
 
 elif (args.api == "damegender"):
 
-    # ds = DameSexmachine()
-    # print("################### Dame Gender!!")
-    # gl = ds.gender_list(path=args.csv)
-    # print("Gender list: " + str(gl))
-    # sl = ds.guess_list(path=args.csv, binary=True)
-    # print("Guess list:  " +str(sl))
-    # sexmachine_accuracy = ds.accuracy_score_dame(gl,sl)
-    # print("Sexmachine accuracy: %s" % sexmachine_accuracy)
-
     if (args.ml == "nltk"):
         ds = DameSexmachine()
         print("################### NLTK!!")
@@ -211,8 +202,9 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True)
         print("Guess list:  " +str(gl2))
-        nltk_accuracy = ds.accuracy_score_dame(gl1, gl2)
-        print("Dame Gender accuracy: %s" % nltk_accuracy)
+        # nltk_accuracy = ds.accuracy_score_dame(gl1, gl2)
+        # print("Dame Gender accuracy: %s" % nltk_accuracy)
+        ds.print_measures(gl1, gl2, args.measure)
 
     elif (args.ml == "svc"):
         ds = DameSexmachine()
@@ -221,8 +213,10 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="svc")
         print("Guess list:  " +str(gl2))
-        svc_accuracy = ds.accuracy_score_dame(gl1, gl2)
-        print("Support Vector Machines accuracy: %s" % svc_accuracy)
+        ds.print_measures(gl1, gl2, args.measure)
+        # svc_accuracy = ds.accuracy_score_dame(gl1, gl2)
+        # print("Support Vector Machines accuracy: %s" % svc_accuracy)
+
 
     elif (args.ml == "sgd"):
         ds = DameSexmachine()
@@ -231,8 +225,9 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="sgd")
         print("Guess list:  " +str(gl2))
-        sgd_accuracy = ds.accuracy_score_dame(gl1, gl2)
-        print("Stochastic Gradient Descendent accuracy: %s" % sgd_accuracy)
+        ds.print_measures(gl1, gl2, args.measure)
+        # sgd_accuracy = ds.accuracy_score_dame(gl1, gl2)
+        # print("Stochastic Gradient Descendent accuracy: %s" % sgd_accuracy)
 
     elif (args.ml == "gaussianNB"):
         ds = DameSexmachine()
@@ -241,8 +236,9 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="gaussianNB")
         print("Guess list:  " +str(gl2))
-        gaussianNB_accuracy = ds.accuracy_score_dame(gl1, gl2)
-        print("Gaussian Naive Bayes accuracy: %s" % gaussianNB_accuracy)
+        ds.print_measures(gl1, gl2, args.measure)
+        # gaussianNB_accuracy = ds.accuracy_score_dame(gl1, gl2)
+        # print("Gaussian Naive Bayes accuracy: %s" % gaussianNB_accuracy)
 
     elif (args.ml == "multinomialNB"):
         ds = DameSexmachine()
@@ -251,8 +247,9 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="multinomialNB")
         print("Guess list:  " +str(gl2))
-        multinomialNB_accuracy = ds.accuracy_score_dame(gl1, gl2)
-        print("Multinomial Naive Bayes accuracy: %s" % multinomialNB_accuracy)
+        ds.print_measures(gl1, gl2, args.measure)
+        # multinomialNB_accuracy = ds.accuracy_score_dame(gl1, gl2)
+        # print("Multinomial Naive Bayes accuracy: %s" % multinomialNB_accuracy)
 
     elif (args.ml == "bernoulliNB"):
         ds = DameSexmachine()
@@ -261,8 +258,9 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="bernoulliNB")
         print("Guess list:  " +str(gl2))
-        bernoulliNB_accuracy = ds.accuracy_score_dame(gl1, gl2)
-        print("Bernoulli Naive Bayes accuracy: %s" % bernoulliNB_accuracy)
+        ds.print_measures(gl1, gl2, args.measure)
+        # bernoulliNB_accuracy = ds.accuracy_score_dame(gl1, gl2)
+        # print("Bernoulli Naive Bayes accuracy: %s" % bernoulliNB_accuracy)
 
     elif (args.ml == "forest"):
         ds = DameSexmachine()
@@ -271,8 +269,9 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="forest")
         print("Guess list:  " +str(gl2))
-        forest_accuracy = ds.accuracy_score_dame(gl1, gl2)
-        print("Random Forest accuracy: %s" % forest_accuracy)
+        ds.print_measures(gl1, gl2, args.measure)
+        # forest_accuracy = ds.accuracy_score_dame(gl1, gl2)
+        # print("Random Forest accuracy: %s" % forest_accuracy)
 
     elif (args.ml == "xgboost"):
         ds = DameSexmachine()
@@ -281,9 +280,9 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="xgboost")
         print("Guess list:  " +str(gl2))
-        xgboost_accuracy = ds.accuracy_score_dame(gl1, gl2)
-        print("Xgboost accuracy: %s" % xgboost_accuracy)
-
+        # xgboost_accuracy = ds.accuracy_score_dame(gl1, gl2)
+        # print("Xgboost accuracy: %s" % xgboost_accuracy)
+        ds.print_measures(gl1, gl2, args.measure)
 
 
 elif (args.api == "genderapi"):
