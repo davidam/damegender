@@ -20,6 +20,12 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+if ! cmp files/tests/config.cfg config.cfg >/dev/null 2>&1
+then
+	echo "We suggest enable all apis for the tests. Another test can be failing for this fact"
+else
+	echo "Your config.cfg is ok"
+fi
 
 
 python3 git2gender.py https://github.com/davidam/orgguide-es.git --directory="/tmp/clonedir" > files/tests/git2gender1-$(date "+%Y-%m-%d-%H").txt
@@ -43,14 +49,14 @@ else
 	echo "mail2gender test is ok"
 fi
 
-python3 api2gender.py David --api="genderize" > files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt
+# python3 api2gender.py David --api="genderize" > files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/api2genderDavidgenderize.txt files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "api2genderDavidgenderize test is failing"
-else
-	echo "api2genderDavidgenderize test is ok"
-fi
+# if ! cmp files/tests/api2genderDavidgenderize.txt files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+# then
+# 	echo "api2genderDavidgenderize test is failing"
+# else
+# 	echo "api2genderDavidgenderize test is ok"
+# fi
 
 python3 api2gender.py Leticia --surname="Martin" --api="namsor" > files/tests/api2genderLeticianamsor-$(date "+%Y-%m-%d-%H").txt
 
@@ -96,16 +102,15 @@ else
 	echo "confusiongenderapi test is ok"
 fi
 
-python3 confusion.py --api="genderize" > files/tests/confusiongenderize-$(date "+%Y-%m-%d-%H").txt
+# python3 confusion.py --api="genderize" > files/tests/confusiongenderize-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/confusiongenderize.txt files/tests/confusiongenderize-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "confusiongenderize test is failing"
-else
-	echo "confusiongenderize test is ok"
-fi
+# if ! cmp files/tests/confusiongenderize.txt files/tests/confusiongenderize-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+# then
+# 	echo "confusiongenderize test is failing"
+# else
+# 	echo "confusiongenderize test is ok"
+# fi
 
-x
 
 
 rm -rf /tmp/clonedir
