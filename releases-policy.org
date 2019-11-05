@@ -8,8 +8,9 @@ $ git checkout dev
 First, you must execute tests with success:
 $ nosetest3 test
 $ ./testsbycommands.sh
-$ ./testsbycommandsextra.sh
-$ pep8 src/damegender
+$ ./testsbycommandsextralocal.sh
+$ ./testsbycommandsextranet.sh
+$ pycodestyle src/damegender
 
 Later, you can upload the development to master:
 $ git branch 
@@ -21,8 +22,9 @@ $ git push
 You must execute with success all test in master:
 $ nosetest3 test
 $ ./testsbycommands.sh
-$ ./testsbycommandsextra.sh
-$ pep8 src/damegender
+$ ./testsbycommandsextralocal.sh
+$ ./testsbycommandsextranet.sh
+$ pycodestyle src/damegender
 
 Now you can upload to pypi:
 $ python3 setup.py register sdist
@@ -36,7 +38,8 @@ Later you must check test in the python environment:
 $ cd /tmp/d
 $ nosetest3 test
 $ ./testsbycommands.sh
-$ ./testsbycommandsextra.sh
+$ ./testsbycommandsextralocal.sh
+$ ./testsbycommandsextranet.sh
 
 Finally, now you can tag the release:
 $ git tag -a v0.1.34 -m 'version 0.1.34 in pip3'
@@ -44,6 +47,6 @@ $ git push  origin v0.1.34
 
 * Minor release
 In minor releases you can forget the 
-$ ./testsbycommandsextra.sh 
+$ ./testsbycommandsextranet.sh 
 
 Due to time or money efforts collecting keys
