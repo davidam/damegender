@@ -22,7 +22,9 @@
 
 if ! cmp files/tests/config.cfg config.cfg >/dev/null 2>&1
 then
-	echo "We suggest enable all apis for the tests. Another test can be failing for this fact"
+	echo "We suggest enable all apis for the tests."
+	echo "Another test can be failing for this fact."
+	echo "You can edit config.cfg file for it."
 else
 	echo "Your config.cfg is ok"
 fi
