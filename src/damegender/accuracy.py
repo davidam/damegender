@@ -142,8 +142,23 @@ elif (args.api == "genderize"):
     print("Gender list: " + str(gl))
     sl = dg.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(gl))
-    genderize_accuracy = dg.accuracy_score_dame(gl, sl)
-    print("Genderize accuracy: %s" % genderize_accuracy)
+    # genderize_accuracy = dg.accuracy_score_dame(gl, sl)
+    # print("Genderize accuracy: %s" % genderize_accuracy)
+
+    if (args.measure == "accuracy"):
+        genderize_accuracy = dg.accuracy_score_dame(gl,sl)
+        print("Genderize accuracy: %s" % genderize_accuracy)
+    elif (args.measure == "precision"):
+        genderize_precision = dg.precision(gl,sl)
+        print("Genderize precision: %s" % genderize_precision)
+    elif (args.measure == "recall"):
+        genderize_recall = dg.recall(gl,sl)
+        print("Genderize recall: %s" % genderize_recall)
+    elif (args.measure == "f1score"):
+        genderize_f1score = dg.f1score(gl,sl)
+        print("Gender Guesser f1score: %s" % genderize_f1score)
+
+
 
 elif (args.api == "genderguesser"):
     dgg = DameGenderGuesser()
