@@ -257,7 +257,7 @@ class TddInPythonExample(unittest.TestCase):
         score1 = g.recall([1, 1], [1, 1])
         self.assertEqual(score1, 1)
         score2 = g.recall([1, 1, 1, 0], [1, 1, 2, 0])
-        self.assertEqual(score2, 1)
+        self.assertEqual(score2, 0.75)
         score3 = g.recall([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
         self.assertEqual(score3, 1)
         score4 = g.recall([1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1,
