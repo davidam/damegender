@@ -94,7 +94,8 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_genderapi_confusion_matrix_gender(self):
         dga = DameGenderApi()
-        cm = dga.confusion_matrix_gender(path="files/names/min.csv",
+        if (dga.config['DEFAULT']['genderapi'] == 'yes'):
+            cm = dga.confusion_matrix_gender(path="files/names/min.csv",
                                          dimensions="2x3")
-        am = [[1, 0, 0], [0, 5, 0]]
-        self.assertEqual(cm, am)
+            am = [[1, 0, 0], [0, 5, 0]]
+            self.assertEqual(cm, am)
