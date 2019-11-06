@@ -66,7 +66,7 @@ if (args.api == "all"):
     print("Gender list: " + str(gl))
     sl = dgg.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
-    dgg.print_measures(gl, sl, args.measure, "Gender Guesser")
+    dgg.print_measures(gl, sl, args.measure, "GenderGuesser")
 
 
     ds = DameSexmachine()
@@ -124,7 +124,7 @@ elif (args.api == "genderguesser"):
     print("Gender list: " + str(gl))
     sl = dgg.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
-    dgg.print_measures(gl, sl, args.measure, "Gender Guesser")
+    dgg.print_measures(gl, sl, args.measure, "GenderGuesser")
 
 
 elif (args.api == "customsearch"):
