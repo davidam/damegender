@@ -510,7 +510,6 @@ class Gender(object):
         result = divider / dividend
         return result
 
-
     def recall(self, truevector, guessvector):
         result = 0
         divider = self.femalefemale(truevector, guessvector)
@@ -522,7 +521,6 @@ class Gender(object):
         dividend = dividend + self.maleundefined(truevector, guessvector)
         result = divider / dividend
         return result
-
 
     def f1score(self, truevector, guessvector):
         result = 0
@@ -854,16 +852,16 @@ class Gender(object):
 
     def print_measures(self, gl1, gl2, measure, api_name):
         if (measure == "accuracy"):
-            gender_accuracy = self.accuracy_score_dame(gl1,gl2)
+            gender_accuracy = self.accuracy_score_dame(gl1, gl2)
             print("%s accuracy: %s" % (api_name, gender_accuracy))
 
         elif (measure == "precision"):
-            gender_precision = self.precision(gl1,gl2)
+            gender_precision = self.precision(gl1, gl2)
             print("%s precision: %s" % (api_name, gender_precision))
 
         elif (measure == "recall"):
-            gender_recall = self.recall(gl1,gl1)
+            gender_recall = self.recall(gl1, gl1)
             print("%s recall: %s" % (api_name, gender_recall))
         elif (measure == "f1score"):
-            gender_f1score = self.f1score(gl1,gl2)
+            gender_f1score = self.f1score(gl1, gl2)
             print("%s f1score: %s" % (api_name, gender_f1score))
