@@ -43,39 +43,39 @@
       \begin{column}{.48\linewidth}
         \begin{block}{Basic usages}
           \centering
-           $$\$ python3   main.py   David $$
-           $$\$ python3   main.py   Mesa --ml=nltk $$
-           $$\$ python3 nameincountries.py David $$
-           $$\$ python3 api2gender.py Leticia \-\-surname="Martin" \-\-api=namsor $$
+           $$\$ python3 \hspace{1cm}  main.py \hspace{1cm}  David $$
+           $$\$ python3 \hspace{1cm}  main.py \hspace{1cm}  Mesa \hspace{1cm} --ml=nltk $$
+           $$\$ python3 \hspace{1cm} nameincountries.py \hspace{1cm} David $$
+           $$\$ python3 \hspace{1cm} api2gender.py \hspace{1cm} Leticia \hspace{1cm}  \-\-api=genderapi $$
         \end{block}
         \begin{block}{Statistics}
           \begin{itemize}
-             $ python3 infofeatures.py \par
-             $ python3 confusion.py \par
-             $ python3 errors.py \-\-csv="files/names/all.csv" \-\-api="genderguesser" \par
-             $ python3 pca-components.py \-\-csv="files/features_list.csv" \par
-             $ python3 pca-features.py \par
+             \$ python3 \hspace{1cm} infofeatures.py \newline
+             \$ python3 \hspace{1cm} confusion.py \newline
+             \$ python3 \hspace{1cm} errors.py \hspace{1cm} \-\-csv="files/names/all.csv" \hspace{1cm} \-\-api="genderguesser" \newline
+             \$ python3 \hspace{1cm} pca-components.py \hspace{1cm} \-\-csv="files/features\_list.csv" \newline
+            \$ python3 \hspace{1cm} pca-features.py \newline
+            \$ python3 \hspace{1cm} accuracy.py \hspace{1cm} --api="genderguesser" \hspace{1cm} --measure="recall" \hspace{1cm} --csv=files/names/allnoundefined.csv \par
           \end{itemize}
         \end{block}
       \end{column}
       \begin{column}{.48\linewidth}
-        \begin{block}{Introduction}
-          \begin{itemize}
-          \item third items
-          \item some items
-          \item some items
-          \item some items
-          \end{itemize}
+        \begin{block}{Easy Installation and Testing}
+          \centering
+           $$\$ \hspace{1cm} pip3 \hspace{1cm}  install \hspace{1cm}  damegender[all] $$
+           $$\$ \hspace{1cm} python3 \hspace{1cm} apikeyadd.py $$
+           $$\$ \hspace{1cm} cd \hspace{1cm} src/damegender \hspace{1cm} \& \hspace{1cm} nosetest3 \hspace{1cm} test $$
+           $$\$ \hspace{1cm} ./testsbycommands.sh \hspace{1cm} \& \hspace{1cm} ./testsbycommandsextralocal.sh $$
         \end{block}
 
-        \begin{block}{Introduction}
+        \begin{block}{Open Datasets}
           \begin{itemize}
-          \item fourth items and $\alpha=\gamma, \sum_{i}$
-          \item some items
-          \item some items
-          \item some items
+          \item INE.es census names
+          \item GenderGuesser
+          \item UK and USA births and deatsh
+          \item NLTK
+          \item Wikidata
           \end{itemize}
-          $$\alpha=\gamma, \sum_{i}$$
         \end{block}
       \end{column}
     \end{columns}
