@@ -250,12 +250,14 @@ with more languages.
  Machine Learning Algorithms in DameGender
 These results are experimental, we are improving the choosing of features.
 
-+ Stochastic Gradient Descendent accuracy: 0.5873374788015828
 + Support Vector Machines accuracy: 0.7049180327868853
-+ Gaussian Naive Bayes accuracy: 0.5960994912379876
-+ Multinomial Naive Bayes accuracy: 0.5876201243640475
-+ Bernoulli Naive Bayes accuracy: 0.5962408140192199
 + Dame Gender (nltk bayes) accuracy: 0.6677501413227812
++ Gaussian Naive Bayes accuracy: 0.5960994912379876
++ Bernoulli Naive Bayes accuracy: 0.5962408140192199
++ Multinomial Naive Bayes accuracy: 0.5876201243640475
++ Stochastic Gradient Descendent accuracy: 0.5873374788015828
++ Xgboost accuracy: 0.5621820237422273
+
 ** Confusion Matrix
 
 **** Genderguesser

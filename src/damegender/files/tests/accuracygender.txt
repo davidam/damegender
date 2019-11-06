@@ -1,0 +1,4 @@
+################### GenderApi!!
+Gender list: [1, 1, 1, 1, 1, 0]
+Guess list:  [1, 1, 1, 1, 1, 0]
+Genderapi accuracy: 1

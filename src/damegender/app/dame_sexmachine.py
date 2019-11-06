@@ -33,12 +33,15 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.linear_model import SGDClassifier
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.preprocessing import StandardScaler
+from sklearn.datasets import make_classification
 from xgboost import XGBClassifier
 from sklearn import svm
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 import pickle
 from app.dame_gender import Gender
+
 
 class DameSexmachine(Gender):
     def __init__(self):
@@ -47,7 +50,7 @@ class DameSexmachine(Gender):
         self.unknown = 0
 
     def features(self, name):
-    # features method created to check the nltk classifier
+        # features method created to check the nltk classifier
         features = {}
         features["first_letter"] = name[0].lower()
         features["last_letter"] = name[-1].lower()
@@ -57,12 +60,13 @@ class DameSexmachine(Gender):
         return features
 
     def features_int(self, name):
-    # features method created to check the scikit classifiers
+        # features method created to check the scikit classifiers
         features_int = {}
         features_int["first_letter"] = ord(name[0].lower())
         features_int["last_letter"] = ord(name[-1].lower())
         for letter in 'abcdefghijklmnopqrstuvwxyz':
-            features_int["count({})".format(letter)] = name.lower().count(letter)
+            n = name.lower().count(letter)
+            features_int["count({})".format(letter)] = n
         features_int["vocals"] = 0
         for letter in 'aeiou':
             features_int["vocals"] = features_int["vocals"] + 1
@@ -85,18 +89,26 @@ class DameSexmachine(Gender):
             features_int["last_letter_a"] = 0
         return features_int
 
-    # TODO: Reescribir el clasificador
     def classifier(self):
-    # NLTK bayesian classifier
-        labeled_names = ([(name, 'male') for name in names.words('male.txt')] +
-                         [(name, 'female') for name in names.words('female.txt')])
-        featuresets = [(self.features(n), gender) for (n, gender) in labeled_names]
+        # NLTK bayesian classifier
+
+        labeled_names = []
+        for name in names.words('male.txt'):
+            elem = [(name, 'male')]
+            labeled_names = labeled_names + elem
+
+        for name in names.words('female.txt'):
+            elem = [(name, 'female')]
+            labeled_names = labeled_names + elem
+
+        featuresets = [(self.features(n), gender) for (n, gender) in
+                       labeled_names]
         train_set, test_set = featuresets[500:], featuresets[:500]
         classifier = nltk.NaiveBayesClassifier.train(train_set)
         return classifier
 
     def svc(self):
-    # Scikit classifier
+        # Scikit svc classifier
         X = np.array(self.features_list(path="files/names/all.csv"))
         y = self.gender_list(path="files/names/all.csv")
         clf = svm.SVC()
@@ -112,10 +124,10 @@ class DameSexmachine(Gender):
         return clf
 
     def sgd(self):
-    # Scikit classifier
+        # Scikit classifier
         X = np.array(self.features_list(path="files/names/all.csv"))
         y = self.gender_list("files/names/all.csv")
-        clf = SGDClassifier(loss="log").fit(X,y)
+        clf = SGDClassifier(loss="log").fit(X, y)
         filename = 'files/datamodels/sgd_model.sav'
         pickle.dump(clf, open(filename, 'wb'))
         return clf
@@ -127,10 +139,10 @@ class DameSexmachine(Gender):
         return clf
 
     def gaussianNB(self):
-    # Scikit bayesian classifier
+        # Scikit bayesian classifier
         x = np.array(self.features_list(path="files/names/all.csv"))
         y = np.array(self.gender_list(path="files/names/all.csv"))
-        #Create a Gaussian Classifier
+        # Create a Gaussian Classifier
         model = GaussianNB()
         # Train the model using the training sets
         model.fit(x, y)
@@ -145,7 +157,7 @@ class DameSexmachine(Gender):
         return clf
 
     def multinomialNB(self):
-    # Scikit bayesian classifier
+        # Scikit bayesian classifier
         X = np.array(self.features_list(path="files/names/all.csv"))
         y = np.array(self.gender_list(path="files/names/all.csv"))
         model = MultinomialNB()
@@ -161,7 +173,7 @@ class DameSexmachine(Gender):
         return clf
 
     def bernoulliNB(self):
-    # Scikit bayesian classifier
+        # Scikit bayesian classifier
         X = np.array(self.features_list(path="files/names/all.csv"))
         y = np.array(self.gender_list(path="files/names/all.csv"))
         model = BernoulliNB()
@@ -177,10 +189,16 @@ class DameSexmachine(Gender):
         return clf
 
     def forest(self):
-    # Scikit forest classifier
+        # Scikit forest classifier
         X = np.array(self.features_list(path="files/names/all.csv"))
         y = np.array(self.gender_list(path="files/names/all.csv"))
-        rf = RandomForestRegressor()
+        X, y = make_classification(n_samples=7000,
+                                   n_features=33,
+                                   n_informative=33,
+                                   n_redundant=0,
+                                   random_state=0,
+                                   shuffle=False)
+        rf = RandomForestRegressor(n_estimators=20, random_state=0)
         rf.fit(X, y)
         filename = 'files/datamodels/forest_model.sav'
         pickle.dump(rf, open(filename, 'wb'))
@@ -193,7 +211,7 @@ class DameSexmachine(Gender):
         return clf
 
     def xgboost(self):
-    # Scikit xgboost classifier
+        # Scikit xgboost classifier
         X = np.array(self.features_list(path="files/names/all.csv"))
         y = np.array(self.gender_list(path="files/names/all.csv"))
         model = XGBClassifier()
@@ -217,7 +235,7 @@ class DameSexmachine(Gender):
         return array
 
     def guess_surname(self, string):
-    # A first version without ML
+        # A first version without ML
         path = 'files/names/surnames.csv'
         boolean = False
         with open(path) as csvfile:
@@ -230,19 +248,19 @@ class DameSexmachine(Gender):
         return boolean
 
     def string2gender(self, string):
-    # TODO: Podríamos tener en cuenta el tratamiento de cadenas basura antes del nombre
+        # TODO: take care with trash strings before the name
         arr = self.string2array(string)
         name = ""
         i = 0
         features_int = self.features_int(string)
         while ((name == "") and (len(arr) > i)):
-            if ((self.guess_surname(arr[i]) == False) and (len(string) > 0)):
+            if (not(self.guess_surname(arr[i])) and (len(string) > 0)):
                 name = arr[i]
             i = i + 1
         return self.guess(name)
 
     def guess(self, name, binary=False, ml="nltk"):
-    # guess method to check names dictionary and nltk classifier
+        # guess method to check names dictionary and nltk classifier
         guess = 2
         guess = super().guess(name, binary)
         vector = self.features_int(name)
@@ -279,53 +297,74 @@ class DameSexmachine(Gender):
             elif (ml == "xgboost"):
                 m = s.xgboost_load()
                 predicted = m.predict([vector])
-                guess = predicted[0]                
+                guess = predicted[0]
             if binary:
-                if (guess=='female'):
+                if (guess == 'female'):
                     guess = 0
-                elif (guess=='male'):
+                elif (guess == 'male'):
                     guess = 1
-                elif (guess=='unkwnon'):
+                elif (guess == 'unkwnon'):
                     guess = 2
             else:
-                if (guess==0):
+                if (guess == 0):
                     guess = 'female'
-                elif (guess==1):
+                elif (guess == 1):
                     guess = 'male'
-                elif (guess==2):
+                elif (guess == 2):
                     guess = 'unknown'
         return guess
 
-    def guess_list(self, path='files/names/partial.csv', binary=False, ml="nltk"):
-    # guess list method
+    def guess_list(self, path='files/names/partial.csv',
+                   binary=False, ml="nltk"):
+        # guess list method
         slist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             next(sexreader, None)
             for row in sexreader:
                 name = row[0].title()
-                name = name.replace('\"','')
+                name = name.replace('\"', '')
                 slist.append(self.guess(name, binary, ml=ml))
         return slist
 
-    def print_confusion_matrix_dame(self, path='files/names/partial.csv', ml="nltk"):
+    def print_confusion_matrix_dame(self,
+                                    path='files/names/partial.csv',
+                                    ml="nltk"):
         truevector = self.gender_list(path)
-        guessvector = self.guess_list(path,binary=True,ml=ml)
-        self.femalefemale = self.count_true2guess(truevector, guessvector, 0, 0)
-        self.femalemale = self.count_true2guess(truevector, guessvector, 0, 1)
-        self.femaleundefined = self.count_true2guess(truevector, guessvector, 0, 2)
-        self.malefemale = self.count_true2guess(truevector, guessvector, 1, 0)
-        self.malemale = self.count_true2guess(truevector, guessvector, 1, 1)
-        self.maleundefined = self.count_true2guess(truevector, guessvector, 1, 2)
-        print("[[ %s, %s, %s]" % (self.femalefemale, self.femalemale, self.femaleundefined))
-        print(" [ %s, %s, %s]]\n" % (self.malefemale, self.malemale, self.maleundefined))
+        guessvector = self.guess_list(path,
+                                      binary=True,
+                                      ml=ml)
+        self.femalefemale = self.count_true2guess(truevector,
+                                                  guessvector,
+                                                  0, 0)
+        self.femalemale = self.count_true2guess(truevector,
+                                                guessvector,
+                                                0, 1)
+        self.femaleundefined = self.count_true2guess(truevector,
+                                                     guessvector,
+                                                     0, 2)
+        self.malefemale = self.count_true2guess(truevector,
+                                                guessvector,
+                                                1, 0)
+        self.malemale = self.count_true2guess(truevector,
+                                              guessvector,
+                                              1, 1)
+        self.maleundefined = self.count_true2guess(truevector,
+                                                   guessvector,
+                                                   1, 2)
+        print("[[ %s, %s, %s]" % (self.femalefemale,
+                                  self.femalemale,
+                                  self.femaleundefined))
+        print(" [ %s, %s, %s]]\n" % (self.malefemale,
+                                     self.malemale,
+                                     self.maleundefined))
         return ""
 
-
     def num_females(self, url, directory):
-    # Extracting females with perceval
+        # Extracting females with perceval
         gg = GenderGit()
-        r = gg.repo("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir")
+        r = gg.repo("https://github.com/grimoirelab/perceval.git",
+                    "/tmp/clonedir")
         count = 0
         for user in r.fetch():
             name = gg.removeMail(user['data']['Author'])
@@ -335,9 +374,10 @@ class DameSexmachine(Gender):
         return count
 
     def num_males(self, url, directory):
-    # Extracting males with perceval
+        # Extracting males with perceval
         gg = GenderGit()
-        r = gg.repo("https://github.com/grimoirelab/perceval.git", "/tmp/clonedir")
+        r = gg.repo("https://github.com/grimoirelab/perceval.git",
+                    "/tmp/clonedir")
         count = 0
         for user in r.fetch():
             name = gg.removeMail(user['data']['Author'])

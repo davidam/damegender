@@ -29,17 +29,17 @@ import requests
 import configparser
 from app.dame_gender import Gender
 
+
 class DameNameapi(Gender):
 
     def get(self, name, surname, binary=False):
-    # guess method to check names dictionary
+        # guess method to check names dictionary
         nameapilist = []
         guess = ""
         confidence = ""
         if (self.config['DEFAULT']['nameapi'] == 'yes'):
             fichero = open(self.config['FILES']['nameapi'], "r+")
             contenido = fichero.readline().rstrip()
-            #print(contenido)
 
             # url of the NameAPI.org endpoint:
             url = (
@@ -81,7 +81,7 @@ class DameNameapi(Gender):
                 resp_dict = resp.json()
                 guess = resp_dict['matches'][0]['parsedPerson']['gender']['gender'].lower()
                 confidence = resp_dict['matches'][0]['parsedPerson']['gender']['confidence']
-                if (binary == True):
+                if (binary is True):
                     if (guess == 'female'):
                         guess = 0
                     elif (guess == 'male'):
@@ -93,7 +93,7 @@ class DameNameapi(Gender):
             except requests.exceptions.RequestException as e:
                 print("Network error:", e)
         else:
-            if (binary == True):
+            if (binary is True):
                 guess = 2
             else:
                 guess = "unknown"
@@ -108,15 +108,15 @@ class DameNameapi(Gender):
         return v[1]
 
     def guess_list(self, path='files/names/partial.csv', binary=False):
-    # guess list method
+        # guess list method
         slist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             next(sexreader, None)
             for row in sexreader:
                 name = row[0].title()
-                name = name.replace('\"','')
+                name = name.replace('\"', '')
                 surname = row[2].title()
-                surname = surname.replace('\"','')
+                surname = surname.replace('\"', '')
                 slist.append(self.guess(name, surname, binary))
         return slist

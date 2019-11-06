@@ -21,13 +21,15 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
-import unittest
-from app.dame_all import DameAll
+# import unittest
+# from app.dame_all import DameAll
 
-class TddInPythonExample(unittest.TestCase):
-    def test_dame_all_average_method_returns_correct_result(self):
-        da = DameAll()
-        avg1 = da.average("David", "Arroyo")
-        self.assertEqual(avg1, 1.0)
-        avg2 = da.average("Laura", "Santos")
-        self.assertEqual(avg2, 0)
+
+# class TddInPythonExample(unittest.TestCase):
+
+#     # def test_dame_all_average_method_returns_correct_result(self):
+#     #     da = DameAll()
+#     #     avg1 = da.average("David", "Arroyo")
+#     #     self.assertEqual(avg1, 1.0)
+#     #     avg2 = da.average("Laura", "Santos")
+#     #     self.assertEqual(avg2, 0)

@@ -22,9 +22,9 @@
 # Boston, MA 02110-1301 USA,
 
 import pprint
-#import argparse
 from googleapiclient.discovery import build
 from app.dame_gender import Gender
+
 
 class DameCustomsearch(Gender):
 
@@ -33,8 +33,7 @@ class DameCustomsearch(Gender):
         cxfilekey = open("files/apikeys/customsearchcxkey.txt", "r+")
         content = filekey.readline().rstrip()
         cxcontent = cxfilekey.readline().rstrip()
-        service = build("customsearch", "v1",
-                  developerKey=content)
+        service = build("customsearch", "v1", developerKey=content)
         res1 = service.cse().list(
             q=name+'+male',
             cx=cxcontent,
@@ -46,12 +45,12 @@ class DameCustomsearch(Gender):
         rmale = res1['searchInformation']['totalResults']
         rfemale = res2['searchInformation']['totalResults']
         if (rfemale > rmale):
-            if (binary == True):
+            if (binary is True):
                 guess = 0
             else:
                 guess = "female"
         elif (rmale > rfemale):
-            if (binary == True):
+            if (binary is True):
                 guess = 1
             else:
                 guess = "male"
@@ -60,9 +59,9 @@ class DameCustomsearch(Gender):
 
     def prob(self, name):
         v = self.get(name, False)
-        if (guess=="female"):
+        if (guess == "female"):
             prob = dicc["rfemale"] / (dicc["rfemale"] + dicc["rmale"])
-        elif (guess=="male"):
+        elif (guess == "male"):
             prob = dicc["rmale"] / (dicc["rfemale"] + dicc["rmale"])
         return prob
 

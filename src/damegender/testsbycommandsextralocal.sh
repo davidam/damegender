@@ -20,6 +20,8 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+
+
 python3 main.py "Jesús" --total=genderguesser > files/tests/mainjesusgenderguesser-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainjesusgenderguesser.txt files/tests/mainjesusgenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -48,40 +50,20 @@ else
 fi
 
 
-python3 main.py silla --ml=xgboost > files/tests/maincasa-$(date "+%Y-%m-%d-%H").txt
+python3 main.py silla --ml=xgboost > files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/mainsilla.txt files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+    echo "mainsilla test is failing"
+else
+    echo "mainsilla test is ok"
+fi
+
+python3 main.py casa --ml=forest > files/tests/maincasa-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/maincasa.txt files/tests/maincasa-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
     echo "maincasa test is failing"
 else
     echo "maincasa test is ok"
-fi
-
-
-python3 git2gender.py https://github.com/davidam/orgguide-es.git --directory="/tmp/clonedir" > files/tests/git2gender1-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/git2gender1.txt files/tests/git2gender1-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "git2gender1 test is failing"
-else
-	echo "git2gender1 test is ok"
-fi
-
-python3 api2gender.py David --api="genderize" > files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/api2genderDavidgenderize.txt files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "api2genderDavidgenderize test is failing"
-else
-	echo "api2genderDavidgenderize test is ok"
-fi
-
-python3 api2gender.py Leticia --surname="Martin" --api="namsor" > files/tests/api2genderLeticianamsor-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/api2genderLeticianamsor.txt files/tests/api2genderLeticianamsor-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "api2genderLeticianamsor test is failing"
-else
-	echo "api2genderLeticianamsor test is ok"
 fi
 
 python3 api2gender.py David --api="genderguesser" > files/tests/api2genderDavidgenderguesser-$(date "+%Y-%m-%d-%H").txt
@@ -90,18 +72,8 @@ if ! cmp files/tests/api2genderDavidgenderguesser.txt files/tests/api2genderDavi
 then
 	echo "api2genderDavidgenderguesser test is failing"
 else
-	echo "api2genderDavidgenderize test is ok"
+	echo "api2genderDavidgenderguesser test is ok"
 fi
-
-python3 api2gender.py Inés --api="genderapi" > files/tests/api2genderInésgenderapi-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/api2genderInésgenderapi.txt files/tests/api2genderInésgenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "api2genderInésgenderapi test is failing"
-else
-	echo "api2genderInésgenderapi test is ok"
-fi
-
 
 python3 accuracy.py --csv=files/names/min.csv > files/tests/accuracymin-$(date "+%Y-%m-%d-%H").txt
 
@@ -121,6 +93,34 @@ else
 	echo "accuracygenderguesser test is ok"
 fi
 
+python3 accuracy.py --api="genderguesser" --measure="precision" --csv=files/names/partialnoundefined.csv > files/tests/accuracypartialprecisiongenderguesser-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/accuracypartialprecisiongenderguesser.txt files/tests/accuracypartialprecisiongenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "accuracypartialprecisiongenderguesser test is failing"
+else
+	echo "accuracypartialprecisiongenderguesser test is ok"
+fi
+
+python3 accuracy.py --api="genderguesser" --measure="f1score" --csv=files/names/partialnoundefined.csv > files/tests/accuracypartialf1scoregenderguesser-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/accuracypartialf1scoregenderguesser.txt files/tests/accuracypartialf1scoregenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "accuracypartialf1scoregenderguesser test is failing"
+else
+	echo "accuracypartialf1scoregenderguesser test is ok"
+fi
+
+python3 accuracy.py --api="genderguesser" --measure="recall" --csv=files/names/partialnoundefined.csv > files/tests/accuracypartialrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/accuracypartialrecallgenderguesser.txt files/tests/accuracypartialrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "accuracypartialrecallgenderguesser test is failing"
+else
+	echo "accuracypartialrecallgenderguesser test is ok"
+fi
+
+
 python3 accuracy.py --api="damegender" --csv=files/names/partial.csv > files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/accuracypartialdamegender.txt files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -128,24 +128,6 @@ then
 	echo "accuracypartialdamegender test is failing"
 else
 	echo "accuracypartialdamegender test is ok"
-fi
-
-
-python3 accuracy.py --api="genderapi" > files/tests/accuracygenderapi-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/accuracygenderapi.txt files/tests/accuracygenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "accuracygenderapi test is failing"
-else
-	echo "accuracygenderapi test is ok"
-fi
-
-python3 accuracy.py --api="genderapi" --csv="files/names/min.csv" --json="files/names/genderapifiles_names_min.csv.json" > files/tests/accuracyminjsongenderapi-$(date "+%Y-%m-%d-%H").txt
-if ! cmp files/tests/accuracyminjsongenderapi.txt files/tests/accuracyminjsongenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "accuracyminjsongenderapi test is failing"
-else
-	echo "accuracyminjsongenderapi test is ok"
 fi
 
 
@@ -167,44 +149,6 @@ else
 	echo "confusiongenderguesser test is ok"
 fi
 
-python3 confusion.py --api="genderapi" > files/tests/confusiongenderapi-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/confusiongenderapi.txt files/tests/confusiongenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "confusiongenderapi test is failing"
-else
-	echo "confusiongenderapi test is ok"
-fi
-
-python3 confusion.py --api="genderize" > files/tests/confusiongenderize-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/confusiongenderize.txt files/tests/confusiongenderize-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "confusiongenderize test is failing"
-else
-	echo "confusiongenderize test is ok"
-fi
-
-
-python3 confusion.py --api="all" > files/tests/confusionall-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/confusionall.txt files/tests/confusionall-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "confusionall test is failing"
-else
-	echo "confusionall test is ok"
-fi
-
-
-python3 errors.py > files/tests/errors-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/errors.txt files/tests/errors-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-    echo "errors test is failing"
-else
-    echo "errors test is ok"
-fi
-
 python3 errors.py --csv="files/names/partial.csv" > files/tests/errorspartial-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/errorspartial.txt files/tests/errorspartial-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -223,21 +167,7 @@ else
 	echo "errorsgenderguesser test is ok"
 fi
 
-
-cd files/mbox
-wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
-cd ../..
-python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/ > files/tests/mail2gender-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/mail2gender.txt files/tests/mail2gender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "mail2gender test is failing"
-else
-	echo "mail2gender test is ok"
-fi
-
-
-
 rm -rf /tmp/clonedir
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
+

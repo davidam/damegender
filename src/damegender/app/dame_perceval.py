@@ -67,7 +67,10 @@ class DamePerceval(object):
         return second
 
     def list_committers(self, url, directory):
-    # Return the list containing the strings from a git repository related to the users ordered by commit including repeated users to allow count gender contributions.
+        # Return the list containing the strings
+        # from a git repository related to the
+        # users ordered by commit including
+        # repeated users to allow count gender contributions.
         repo = Git(uri=url, gitpath=directory)
         list_committers = []
         for user in repo.fetch():

@@ -32,15 +32,16 @@ from app.dame_customsearch import DameCustomsearch
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--csv', default="files/names/min.csv", help='input file for names')  
+parser.add_argument('--csv', default="files/names/min.csv", help='input file for names')
 parser.add_argument('--json', help='if you have downloaded the results from an api in a json file, you can try this argument')
+parser.add_argument('--measure', default="accuracy", choices=['accuracy', 'precision', 'recall', 'f1score'])
 parser.add_argument('--api', default="damegender", choices=['customsearch', 'namsor', 'genderize', 'genderguesser', 'damegender', 'genderapi', 'nameapi', 'all'])
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'xgboost'])
 args = parser.parse_args()
 
 if (args.api == "all"):
     dg = Gender()
-    
+
     if (dg.config['DEFAULT']['namsor'] == 'yes'):
         dn = DameNamsor()
         print("################### Namsor!!")
@@ -48,8 +49,7 @@ if (args.api == "all"):
         print("Gender list: " + str(gl))
         sl = dn.guess_list(path=args.csv, binary=True)
         print("Guess list:  " +str(sl))
-        namsor_accuracy = dn.accuracy_score_dame(gl, sl)
-        print("Namsor accuracy: %s" % namsor_accuracy)
+        dg.print_measures(gl, sl, args.measure, "Namsor")
 
     if (dg.config['DEFAULT']['genderize'] == 'yes'):
         dg = DameGenderize()
@@ -58,8 +58,7 @@ if (args.api == "all"):
         print("Gender list: " + str(gl))
         sl = dg.guess_list(path=args.csv, binary=True)
         print("Guess list:  " +str(gl))
-        genderize_accuracy = dg.accuracy_score_dame(gl,sl)
-        print("Genderize accuracy: %s" % genderize_accuracy)
+        dg.print_measures(gl, sl, args.measure, "Genderize")
 
     dgg = DameGenderGuesser()
     print("################### GenderGuesser!!")
@@ -67,9 +66,8 @@ if (args.api == "all"):
     print("Gender list: " + str(gl))
     sl = dgg.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
+    dgg.print_measures(gl, sl, args.measure, "Gender Guesser")
 
-    genderguesser_accuracy = dgg.accuracy_score_dame(gl,sl)
-    print("GenderGuesser accuracy: %s" % genderguesser_accuracy)
 
     ds = DameSexmachine()
     print("################### Dame Gender!!")
@@ -77,29 +75,27 @@ if (args.api == "all"):
     print("Gender list: " + str(gl))
     sl = ds.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
+    ds.print_measures(gl, sl, args.measure, "Dame Gender")
 
-    sexmachine_accuracy = ds.accuracy_score_dame(gl,sl)
-    print("Sexmachine accuracy: %s" % sexmachine_accuracy)
 
-    if (dg.config['DEFAULT']['genderapi'] == 'yes'):    
+
+    if (dg.config['DEFAULT']['genderapi'] == 'yes'):
         dga = DameGenderApi()
         print("################### GenderApi!!")
         gl = dga.gender_list(path=args.csv)
         print("Gender list: " + str(gl))
         sl = dga.guess_list(path=args.csv, binary=True)
         print("Guess list:  " +str(sl))
-        genderapi_accuracy = dga.accuracy_score_dame(gl,sl)
-        print("Genderapi accuracy: %s" % genderapi_accuracy)
+        dga.print_measures(gl, sl, args.measure, "Genderapi")
 
-    if (dg.config['DEFAULT']['nameapi'] == 'yes'):    
+    if (dg.config['DEFAULT']['nameapi'] == 'yes'):
         dna = DameNameapi()
         print("################### Nameapi!!")
         gl = dna.gender_list(path=args.csv)
         print("Gender list: " + str(gl))
         sl = dna.guess_list(path=args.csv, binary=True)
         print("Guess list:  " +str(sl))
-        nameapi_accuracy = dna.accuracy_score_dame(gl,sl)
-        print("Nameapi accuracy: %s" % nameapi_accuracy)
+        dna.print_measures(gl, sl, args.measure, "Nameapi")
 
 elif (args.api == "namsor"):
     dn = DameNamsor()
@@ -108,8 +104,8 @@ elif (args.api == "namsor"):
     print("Gender list: " + str(gl))
     sl = dn.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
-    namsor_accuracy = dn.accuracy_score_dame(gl, sl)
-    print("Namsor accuracy: %s" % namsor_accuracy)
+    dn.print_measures(gl, sl, args.measure, "Namsor")
+
 
 elif (args.api == "genderize"):
     dg = DameGenderize()
@@ -119,8 +115,7 @@ elif (args.api == "genderize"):
     print("Gender list: " + str(gl))
     sl = dg.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(gl))
-    genderize_accuracy = dg.accuracy_score_dame(gl, sl)
-    print("Genderize accuracy: %s" % genderize_accuracy)
+    dg.print_measures(gl, sl, args.measure, "Genderize")
 
 elif (args.api == "genderguesser"):
     dgg = DameGenderGuesser()
@@ -129,8 +124,8 @@ elif (args.api == "genderguesser"):
     print("Gender list: " + str(gl))
     sl = dgg.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
-    genderguesser_accuracy = dgg.accuracy_score_dame(gl,sl)
-    print("GenderGuesser accuracy: %s" % genderguesser_accuracy)
+    dgg.print_measures(gl, sl, args.measure, "Gender Guesser")
+
 
 elif (args.api == "customsearch"):
     dc = DameCustomsearch()
@@ -145,15 +140,6 @@ elif (args.api == "customsearch"):
 
 elif (args.api == "damegender"):
 
-    # ds = DameSexmachine()
-    # print("################### Dame Gender!!")
-    # gl = ds.gender_list(path=args.csv)
-    # print("Gender list: " + str(gl))
-    # sl = ds.guess_list(path=args.csv, binary=True)
-    # print("Guess list:  " +str(sl))
-    # sexmachine_accuracy = ds.accuracy_score_dame(gl,sl)
-    # print("Sexmachine accuracy: %s" % sexmachine_accuracy)
-
     if (args.ml == "nltk"):
         ds = DameSexmachine()
         print("################### NLTK!!")
@@ -161,8 +147,7 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True)
         print("Guess list:  " +str(gl2))
-        nltk_accuracy = ds.accuracy_score_dame(gl1, gl2)
-        print("Dame Gender accuracy: %s" % nltk_accuracy)
+        ds.print_measures(gl1, gl2, args.measure, "Damegender")
 
     elif (args.ml == "svc"):
         ds = DameSexmachine()
@@ -171,8 +156,8 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="svc")
         print("Guess list:  " +str(gl2))
-        svc_accuracy = ds.accuracy_score_dame(gl1, gl2)
-        print("Support Vector Machines accuracy: %s" % svc_accuracy)
+        ds.print_measures(gl1, gl2, args.measure, "Damegender")
+
 
     elif (args.ml == "sgd"):
         ds = DameSexmachine()
@@ -181,8 +166,7 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="sgd")
         print("Guess list:  " +str(gl2))
-        sgd_accuracy = ds.accuracy_score_dame(gl1, gl2)
-        print("Stochastic Gradient Descendent accuracy: %s" % sgd_accuracy)
+        ds.print_measures(gl1, gl2, args.measure, "Damegender")
 
     elif (args.ml == "gaussianNB"):
         ds = DameSexmachine()
@@ -191,8 +175,7 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="gaussianNB")
         print("Guess list:  " +str(gl2))
-        gaussianNB_accuracy = ds.accuracy_score_dame(gl1, gl2)
-        print("Gaussian Naive Bayes accuracy: %s" % gaussianNB_accuracy)
+        ds.print_measures(gl1, gl2, args.measure, "Damegender")
 
     elif (args.ml == "multinomialNB"):
         ds = DameSexmachine()
@@ -201,8 +184,7 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="multinomialNB")
         print("Guess list:  " +str(gl2))
-        multinomialNB_accuracy = ds.accuracy_score_dame(gl1, gl2)
-        print("Multinomial Naive Bayes accuracy: %s" % multinomialNB_accuracy)
+        ds.print_measures(gl1, gl2, args.measure, "Damegender")
 
     elif (args.ml == "bernoulliNB"):
         ds = DameSexmachine()
@@ -211,8 +193,7 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="bernoulliNB")
         print("Guess list:  " +str(gl2))
-        bernoulliNB_accuracy = ds.accuracy_score_dame(gl1, gl2)
-        print("Bernoulli Naive Bayes accuracy: %s" % bernoulliNB_accuracy)
+        ds.print_measures(gl1, gl2, args.measure, "Damegender")
 
     elif (args.ml == "forest"):
         ds = DameSexmachine()
@@ -221,9 +202,8 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="forest")
         print("Guess list:  " +str(gl2))
-        forest_accuracy = ds.accuracy_score_dame(gl1, gl2)
-        print("Random Forest accuracy: %s" % forest_accuracy)
-        
+        ds.print_measures(gl1, gl2, args.measure, "Damegender")
+
     elif (args.ml == "xgboost"):
         ds = DameSexmachine()
         print("################### Xgboost!!")
@@ -231,9 +211,7 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="xgboost")
         print("Guess list:  " +str(gl2))
-        xgboost_accuracy = ds.accuracy_score_dame(gl1, gl2)
-        print("Xgboost accuracy: %s" % xgboost_accuracy)
-        
+        ds.print_measures(gl1, gl2, args.measure, "Damegender")
 
 
 elif (args.api == "genderapi"):
@@ -241,13 +219,13 @@ elif (args.api == "genderapi"):
     print("################### GenderApi!!")
     gl = dga.gender_list(path=args.csv)
     print("Gender list: " + str(gl))
-    if (args.json != ""):
-        sl = dga.json2guess_list(jsonf=args.json, binary=True)
-    else:
+    if (args.json is None):
         sl = dga.guess_list(path=args.csv, binary=True)
+    else:
+        sl = dga.json2guess_list(jsonf=args.json, binary=True)
     print("Guess list:  " +str(sl))
-    genderapi_accuracy = dga.accuracy_score_dame(gl,sl)
-    print("Genderapi accuracy: %s" % genderapi_accuracy)
+    dga.print_measures(gl, sl, args.measure, "Genderapi")
+
 
 elif (args.api == "nameapi"):
     dna = DameNameapi()
@@ -256,5 +234,4 @@ elif (args.api == "nameapi"):
     print("Gender list: " + str(gl))
     sl = dna.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
-    nameapi_accuracy = dna.accuracy_score_dame(gl,sl)
-    print("Nameapi accuracy: %s" % nameapi_accuracy)
+    dna.print_measures(gl, sl, args.measure, "Nameapi")
