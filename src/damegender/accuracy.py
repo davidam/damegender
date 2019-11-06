@@ -66,7 +66,7 @@ if (args.api == "all"):
     print("Gender list: " + str(gl))
     sl = dgg.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
-    dgg.print_measures(gl, sl, args.measure, "Gender Guesser")
+    dgg.print_measures(gl, sl, args.measure, "GenderGuesser")
 
 
     ds = DameSexmachine()
@@ -124,7 +124,7 @@ elif (args.api == "genderguesser"):
     print("Gender list: " + str(gl))
     sl = dgg.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
-    dgg.print_measures(gl, sl, args.measure, "Gender Guesser")
+    dgg.print_measures(gl, sl, args.measure, "GenderGuesser")
 
 
 elif (args.api == "customsearch"):
@@ -147,7 +147,7 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True)
         print("Guess list:  " +str(gl2))
-        ds.print_measures(gl1, gl2, args.measure, "Damegender")
+        ds.print_measures(gl1, gl2, args.measure, "Dame Gender")
 
     elif (args.ml == "svc"):
         ds = DameSexmachine()
@@ -156,7 +156,7 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="svc")
         print("Guess list:  " +str(gl2))
-        ds.print_measures(gl1, gl2, args.measure, "Damegender")
+        ds.print_measures(gl1, gl2, args.measure, "Dame Gender")
 
 
     elif (args.ml == "sgd"):
@@ -166,7 +166,7 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="sgd")
         print("Guess list:  " +str(gl2))
-        ds.print_measures(gl1, gl2, args.measure, "Damegender")
+        ds.print_measures(gl1, gl2, args.measure, "Dame Gender")
 
     elif (args.ml == "gaussianNB"):
         ds = DameSexmachine()
@@ -175,7 +175,7 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="gaussianNB")
         print("Guess list:  " +str(gl2))
-        ds.print_measures(gl1, gl2, args.measure, "Damegender")
+        ds.print_measures(gl1, gl2, args.measure, "Dame Gender")
 
     elif (args.ml == "multinomialNB"):
         ds = DameSexmachine()
@@ -184,7 +184,7 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="multinomialNB")
         print("Guess list:  " +str(gl2))
-        ds.print_measures(gl1, gl2, args.measure, "Damegender")
+        ds.print_measures(gl1, gl2, args.measure, "Dame Gender")
 
     elif (args.ml == "bernoulliNB"):
         ds = DameSexmachine()
@@ -193,7 +193,7 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="bernoulliNB")
         print("Guess list:  " +str(gl2))
-        ds.print_measures(gl1, gl2, args.measure, "Damegender")
+        ds.print_measures(gl1, gl2, args.measure, "Dame Gender")
 
     elif (args.ml == "forest"):
         ds = DameSexmachine()
@@ -202,7 +202,7 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="forest")
         print("Guess list:  " +str(gl2))
-        ds.print_measures(gl1, gl2, args.measure, "Damegender")
+        ds.print_measures(gl1, gl2, args.measure, "Dame Gender")
 
     elif (args.ml == "xgboost"):
         ds = DameSexmachine()
@@ -211,7 +211,7 @@ elif (args.api == "damegender"):
         print("Gender list: " + str(gl1))
         gl2 = ds.guess_list(path=args.csv, binary=True, ml="xgboost")
         print("Guess list:  " +str(gl2))
-        ds.print_measures(gl1, gl2, args.measure, "Damegender")
+        ds.print_measures(gl1, gl2, args.measure, "Dame Gender")
 
 
 elif (args.api == "genderapi"):
