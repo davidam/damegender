@@ -60,6 +60,12 @@ To install mailing lists and repositories extra dependencies:
 $ pip3 install damegender[mails_and_repositories]
 #+END_SRC
 
+To install all posible dependencies
+
+#+BEGIN_SRC
+$ pip3 install damegender[all]
+#+END_SRC
+
 ** Obtaining an api key
 
 Currently you can need an api key from:
