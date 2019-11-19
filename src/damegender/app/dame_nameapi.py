@@ -28,11 +28,12 @@ import numpy as np
 import requests
 import configparser
 from app.dame_gender import Gender
+from app.dame_utils import DameUtils
 
 
 class DameNameapi(Gender):
 
-    def get(self, name, surname, binary=False):
+    def get(self, name, surname="", binary=False):
         # guess method to check names dictionary
         nameapilist = []
         guess = ""
@@ -98,6 +99,28 @@ class DameNameapi(Gender):
             else:
                 guess = "unknown"
         return [guess, confidence]
+
+    def download(self, path="files/names/partial.csv"):
+        du = DameUtils()
+        nameapijson = open("files/names/nameapi"+du.path2file(path)+".json", "w+")
+        names = self.csv2names(path)
+        nameapijson.write("[")
+        length = len(names)
+        i = 0
+        while (i < length):
+            nameapijson.write('{"name":"'+names[i]+'",\n')
+            g = self.get(names[i], "", binary=True)
+            nameapijson.write('"gender":'+str(g[0])+',\n')
+            nameapijson.write('"confidence":'+str(g[1])+'\n')
+            if ((length -1) == i):
+                nameapijson.write('} \n')
+            else:
+                nameapijson.write('}, \n')
+            i = i + 1
+        nameapijson.write("]")
+        nameapijson.close()
+        return 0
+
 
     def guess(self, name, surname, binary=False):
         v = self.get(name, surname, binary)
