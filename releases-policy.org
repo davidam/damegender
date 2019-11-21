@@ -26,6 +26,14 @@ $ ./testsbycommandsextralocal.sh
 $ ./testsbycommandsextranet.sh
 $ pycodestyle src/damegender
 
+Checking if your setup.py is ok:
+$ python3 setup.py register sdist
+$ twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+$ python3 -m venv /tmp/d
+$ cd /tmp/d
+$ source bin/activate
+$ python3 -m pip install --index-url https://test.pypi.org/legacy/ damegender
+
 Now you can upload to pypi:
 $ python3 setup.py register sdist
 $ twine upload dist/damegender-0.1.33.tar.gz
