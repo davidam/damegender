@@ -123,7 +123,7 @@ fi
 
 python3 csv2gender.py files/names/all.csv > files/tests/csv2genderall-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/csv2genderall.txt files/tests/csv2genderall-$(date "+%Y-%m-%d-%H").txt 
+if ! cmp files/tests/csv2genderall.txt files/tests/csv2genderall-$(date "+%Y-%m-%d-%H").txt
 then
 	echo "csv2genderall test is failing"
 else
@@ -224,6 +224,21 @@ else
 	echo "pca-features-nocategorical test is ok"
 fi
 
+python3 confusion.py > files/tests/confusion-$(date "+%Y-%m-%d-%H").txt > files/tests/confusion-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/confusion.txt files/tests/confusion-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "confusion test is failing"
+else
+	echo "confusion test is ok"
+fi
+
+python3 confusion.py --ml="nltk" > files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt 
+if ! cmp files/tests/confusionnltk.txt files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "confusion nltk test is failing"
+else
+	echo "confusion nltk test is ok"
+fi
 
 
 echo "cleaning temporary files"
