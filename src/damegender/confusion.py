@@ -42,6 +42,7 @@ args = parser.parse_args()
 print("A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.")
 print("If the classifier is nice, the diagonal is high because there are true positives")
 
+
 if (args.api == "all"):
     dg = Gender()
     if (dg.config['DEFAULT']['namsor'] == 'yes'):
@@ -65,7 +66,7 @@ if (args.api == "all"):
 
     ds = DameSexmachine()
     print("Damegender confusion matrix:\n")
-    ds.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    ds.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, ml='nltk')
 
     if (dg.config['DEFAULT']['nameapi'] == 'yes'):
         dna = DameNameapi()
@@ -99,12 +100,13 @@ elif (args.api == "damegender"):
     ds = DameSexmachine()
     print("Damegender confusion matrix:\n")
     ds.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, ml=args.ml)
+
 elif (args.api == "nameapi"):
     dna = DameNameapi()
     print("Nameapi confusion matrix:\n")
     dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
 
-elif (args.api == "customsearch"):
-    dc = DameCustomsearch()
-    print("Google Custom Search confusion matrix:\n")
-    dc.print_confusion_matrix_gender(path=args.csv)
+# elif (args.api == "customsearch"):
+#     dc = DameCustomsearch()
+#     print("Google Custom Search confusion matrix:\n")
+#     dc.print_confusion_matrix_gender(path=args.csv)
