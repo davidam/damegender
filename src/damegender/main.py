@@ -36,13 +36,13 @@ args = parser.parse_args()
 
 
 if (args.total == "genderguesser"):
-
-        cmd = 'grep -i " ' + args.name.capitalize() + ' " files/names/nam_dict.txt > files/grep.tmp'
+        name = args.name.capitalize()
+        cmd = 'grep -i "' + name + '" files/names/nam_dict.txt > logs/grep.tmp'
         print(cmd)
         os.system(cmd)
-        results = [i for i in open('files/grep.tmp','r').readlines()]
+        results = [i for i in open('files/grep.tmp', 'r').readlines()]
         for i in results:
-            regex = "(M|F|=|\?|1)( |M|F)?( )(" + args.name.capitalize() +")"
+            regex = "(M|F|=|\?|1)( |M|F)?( )(" + name + ")"
             r = re.match(regex, i)
             prob = r.group(1) + r.group(2)
             if (('F' == prob) or ('F ' == prob)):
@@ -68,19 +68,20 @@ if (args.total == "genderguesser"):
                 print("you can try predict with --ml")
 else:
     s = DameSexmachine()
-    if (int(s.name_frec(args.name, dataset=args.total)['males']) > int(s.name_frec(args.name, dataset=args.total)['females'])):
+    num_males = s.name_frec(args.name, dataset=args.total)['males']
+    num_females = s.name_frec(args.name, dataset=args.total)['females']
+    if (int(num_males) > int(num_females)):
         print("%s's gender is male" % (str(args.name)))
-        prob = int(s.name_frec(args.name, dataset=args.total)['males']) / (int(s.name_frec(args.name, dataset=args.total)['males']) + int(s.name_frec(args.name, dataset=args.total)['females']))
+        prob = int(num_males) / (int(num_males) + int(num_females))
         print("probability: %s" % str(prob))
-    elif (int(s.name_frec(args.name, dataset=args.total)['males']) < int(s.name_frec(args.name, dataset=args.total)['females'])):
+    elif (int(num_males) < int(num_females)):
         print("%s's gender is female" % (str(args.name)))
-        prob = int(s.name_frec(args.name, dataset=args.total)['females']) / (int(s.name_frec(args.name, dataset=args.total)['females']) + int(s.name_frec(args.name, dataset=args.total)['males']))
+        prob = int(num_females) / (int(num_females) + int(num_males))
         print("probability: %s" % str(prob))
-    elif ((int(s.name_frec(args.name, dataset=args.total)['males']) == 0) and (int(s.name_frec(args.name, dataset=args.total)['females']) == 0)):
+    elif ((int(num_males) == 0) and (int(num_females) == 0)):
         args.ml = 'nltk'
 
     if (args.ml):
-        #print(s.guess("Palabra", binary=True, ml="svc"))
         if (args.ml == "nltk"):
             guess = s.guess(args.name, binary=True, ml="nltk")
         if (args.ml == "sgd"):
@@ -96,7 +97,7 @@ else:
         elif (args.ml == "forest"):
             guess = s.guess(args.name, binary=True, ml="forest")
         elif (args.ml == "xgboost"):
-            guess = s.guess(args.name, binary=True, ml="xgboost")                        
+            guess = s.guess(args.name, binary=True, ml="xgboost")
         if (guess == 1):
             sex = "male"
         elif (guess == 0):
@@ -106,6 +107,6 @@ else:
         print("%s gender predicted is %s" % (str(args.name), sex))
 
     if (args.total == "ine"):
-        print("%s males for %s from INE.es" % (s.name_frec(args.name, dataset=args.total)['males'], args.name))
-        print("%s females for %s from INE.es" % (s.name_frec(args.name, dataset=args.total)['females'], args.name))
+        print("%s males for %s from INE.es" % (num_males, args.name))
+        print("%s females for %s from INE.es" % (num_females, args.name))
 #

@@ -1,0 +1,6 @@
+$ python3 errors.py --api="genderguesser" --csv=files/names/allnoundefined.csv 
+Gender Guesser with files/names/allnoundefined.csv has: 
++ The error code: 0.2255105572862582
++ The error code without na: 0.026962383126766687
++ The na coded: 0.20404984423676012
++ The error gender bias: 0.0030441400304414

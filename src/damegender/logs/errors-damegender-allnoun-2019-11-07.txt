@@ -1,0 +1,6 @@
+$ python3 errors.py --api="damegender" --csv=files/names/allnoundefined.csv
+Damegender with files/names/allnoundefined.csv has: 
++ The error code: 0.2547594323295258
++ The error code without na: 0.2547594323295258
++ The na coded: 0.0
++ The error gender bias: -0.04949809622706819
