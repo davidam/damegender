@@ -29,6 +29,15 @@ else
     echo "maindavid test is ok"
 fi
 
+python3 main.py Jesús > files/tests/mainjesus-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/mainjesus.txt files/tests/mainjesus-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+    echo "mainjesus test is failing"
+else
+    echo "mainjesus test is ok"
+fi
+
 python3 main.py Inés > files/tests/mainines-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainines.txt files/tests/mainines-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -97,18 +106,28 @@ python3 nameincountries.py David > files/tests/nameincountriesdavid-$(date "+%Y-
 
 if ! cmp files/tests/nameincountriesdavid.txt files/tests/nameincountriesdavid-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-	echo "nameincountries test is failing"
+	echo "nameincountries david test is failing"
 else
-	echo "nameincountries test is ok"
+	echo "nameincountries david test is ok"
 fi
 
 python3 nameincountries.py david > files/tests/nameincountriesdavid2-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/nameincountriesdavid2.txt files/tests/nameincountriesdavid2-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-	echo "nameincountries donwcase test is failing"
+	echo "nameincountries david donwcase test is failing"
 else
-	echo "nameincountries donwcase test is ok"
+	echo "nameincountries david donwcase test is ok"
+fi
+
+
+python3 nameincountries.py Jesús > files/tests/nameincountriesjesus-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/nameincountriesjesus.txt files/tests/nameincountriesjesus-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "nameincountries jesus test is failing"
+else
+	echo "nameincountries jesus test is ok"
 fi
 
 
