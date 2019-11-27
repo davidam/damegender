@@ -57,7 +57,6 @@ if (len(sys.argv) > 1):
     males = [ ]
     females = [ ]
     both = [ ]
-
     for rowres in results:
         regex = "(M|F|=|\?|1)( |M|F)?( )(\w+)( )?(\w+)?( )?(\w+)?"
         n = re.match(regex, rowres)
@@ -66,11 +65,12 @@ if (len(sys.argv) > 1):
         else:
             string = str(n.group(4)) + str(n.group(5))
         if (du.drop_white_space(args.name.capitalize()) == du.drop_white_space(string) ):
+            twochars = rowres[0] + rowres[1]
             for i in range(30, 84):
                 if (exists_in_country(int(i), rowres)):
-                    if (rowres[0].title() == "M"):
+                    if ((rowres[0].title() == "M") | (twochars.title() == "1M") | (twochars.title() == "?M")) :
                         males.append(keyscountries[str(i)])
-                    elif (rowres[0].title() == "F"):
+                    elif ((rowres[0].title() == "F") | (twochars.title() == "1F") | (twochars.title() == "?F")):
                         females.append(keyscountries[str(i)])
                     elif (rowres[0].title() == "="):
                         both.append(keyscountries[str(i)])
