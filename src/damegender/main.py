@@ -34,37 +34,33 @@ parser.add_argument('--total', default="ine", choices=['ine', 'genderguesser'])
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 
-
+results = []
 if (args.total == "genderguesser"):
         name = args.name.capitalize()
-        cmd = 'grep -i "' + name + '" files/names/nam_dict.txt > logs/grep.tmp'
-        print(cmd)
+        cmd = 'grep -i "' + name + '" files/names/nam_dict.txt > files/logs/grep.tmp'
+#        print(cmd)
         os.system(cmd)
-        results = [i for i in open('files/grep.tmp', 'r').readlines()]
+        for i in open('files/logs/grep.tmp', 'r').readlines():
+                results.append(i)
+        male = 0
+        female = 0
         for i in results:
-            regex = "(M|F|=|\?|1)( |M|F)?( )(" + name + ")"
-            r = re.match(regex, i)
-            prob = r.group(1) + r.group(2)
-            if (('F' == prob) or ('F ' == prob)):
-                print("female")
-                print("prob: fully female")
-            elif (prob == '?F'):
-                print("female")
-                print("prob: mostly female")
-            elif (prob == '1F'):
-                print("female")
-                print("prob: female name, if first part of name; mostly female name")
-            elif (('M' == prob) or ('M ' == prob)):
-                print("male")
-                print("prob: fully male")
-            elif (prob == '?M'):
-                print("male")
-                print("prob: mostly male")
-            elif (prob == '1M'):
-                print("male")
-                print("prob: male name, if first part of name; mostly male name")
-            elif (prob == '? '):
-                print("unknow")
+                regex = "(M|F|=|\?|1)( |M|F)?( )(" + name + ")"
+                r = re.match(regex, i)
+                if (r is not None):
+                        prob = r.group(1) + r.group(2)
+                else:
+                        prob = ""
+                if (('F' == prob) or ('F ' == prob) or (prob == '?F') or (prob == '1F')):
+                        female = female + 1
+                elif (('M' == prob) or ('M ' == prob) or ('?M' == prob) or ('1M' == prob)):
+                        male = male + 1
+        if ( female > male ):
+                print("gender: female")
+        if ( male > female ):
+                print("gender: male")
+        elif ( male == female ):
+                print("gender: unknown")
                 print("you can try predict with --ml")
 else:
     s = DameSexmachine()
