@@ -1,3 +1,1 @@
-grep -i " Jesús " files/names/nam_dict.txt > files/grep.tmp
-male
-prob: male name, if first part of name; mostly male name
+gender: male
