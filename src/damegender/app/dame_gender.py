@@ -238,9 +238,9 @@ class Gender(object):
                         guess = 1
         if (dataset == "files/names/nam_dict.txt"):
             cmd = 'grep -i "' + name
-            cmd = cmd + ' " files/names/nam_dict.txt > files/grep.tmp'
+            cmd = cmd + ' " files/names/nam_dict.txt > files/logs/grep.tmp'
             os.system(cmd)
-            results = [i for i in open('files/grep.tmp', 'r').readlines()]
+            results = [i for i in open('files/logs/grep.tmp', 'r').readlines()]
             for row in results:
                 datasetname = row[1].title()
                 if (datasetname == name):
