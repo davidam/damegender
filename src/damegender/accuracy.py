@@ -236,6 +236,14 @@ elif (args.api == "nameapi"):
     print("################### Nameapi!!")
     gl = dna.gender_list(path=args.csv)
     print("Gender list: " + str(gl))
-    sl = dna.guess_list(path=args.csv, binary=True)
-    print("Guess list:  " +str(sl))
+    if (os.path.isfile(args.jsondownloaded)):
+        jsonf = args.jsondownloaded
+        p = os.getcwd() + jsonf
+        sl = dna.json2guess_list(jsonf, binary=True)
+    elif ():
+        sl = dna.guess_list(path=args.csv, binary=True)
+        print("Guess list:  " +str(sl))
+    else:
+        print("In the path %s doesn't exist file" % args.jsondownloaded)
+    print("Guess list:" + str(sl))
     dna.print_measures(gl, sl, args.measure, "Nameapi")
