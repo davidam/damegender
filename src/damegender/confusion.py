@@ -29,7 +29,7 @@ from app.dame_genderapi import DameGenderApi
 from app.dame_genderize import DameGenderize
 from app.dame_nameapi import DameNameapi
 from app.dame_customsearch import DameCustomsearch
-
+import os
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', default="files/names/min.csv")
@@ -85,11 +85,12 @@ elif (args.api == "genderize"):
 
 elif (args.api == "genderapi"):
     dga = DameGenderApi()
-    print("Genderapi confusion matrix:\n")
-    if (args.jsondownloaded != ""):
+    if (os.path.isfile(args.jsondownloaded)):
         dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded)
-    else:
+    elif (args.jsondownloaded == ''):
         dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    else:
+        print("In the path %s doesn't exist file" % args.jsondownloaded)
 
 elif (args.api == "genderguesser"):
     dgg = DameGenderGuesser()

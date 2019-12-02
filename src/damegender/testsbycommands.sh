@@ -251,12 +251,20 @@ else
 	echo "confusion test is ok"
 fi
 
-python3 confusion.py --ml="nltk" > files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt 
+python3 confusion.py --ml="nltk" > files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/confusionnltk.txt files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "confusion nltk test is failing"
 else
 	echo "confusion nltk test is ok"
+fi
+
+python3 confusion.py --api=genderapi --jsondownloaded="files/names/genderapifiles_names_min.csv.json" > files/tests/confusiongenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/confusiongenderapijsondownloaded.txt files/tests/confusiongenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "confusion genderapi jsondonwloaded test is failing"
+else
+	echo "confusion genderapi jsondonwloaded test is ok"
 fi
 
 
