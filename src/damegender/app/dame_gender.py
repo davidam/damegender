@@ -854,3 +854,11 @@ class Gender(object):
         elif (measure == "f1score"):
             gender_f1score = self.f1score(gl1, gl2)
             print("%s f1score: %s" % (api_name, gender_f1score))
+
+    def print_confusion_matrix_gender(self, path='files/names/partial.csv', dimensions="2x3", jsonf=""):
+        jf = os.getcwd() + "/" +  jsonf
+        if (os.path.isfile(jf)):
+            cmd = self.confusion_matrix_gender(path, dimensions, jf)
+            print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+            print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+        return ""
