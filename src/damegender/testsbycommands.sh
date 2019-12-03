@@ -275,6 +275,14 @@ else
 	echo "accuracy genderapi jsondonwloaded test is ok"
 fi
 
+python3 accuracy.py --csv=files/names/partial.csv --api=nameapi --json="files/names/nameapifiles_names_partial.csv.json" > files/tests/accuracypartialjsonnameapi-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/accuracypartialjsonnameapi.txt files/tests/accuracypartialjsonnameapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "accuracy nameapi jsondonwloaded test is failing"
+else
+	echo "accuracy nameapi jsondonwloaded test is ok"
+fi
+
 
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
