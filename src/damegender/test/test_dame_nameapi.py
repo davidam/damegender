@@ -66,6 +66,7 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_nameapi_guess_list_method_returns_correct_result(self):
         dna = DameNameapi()
         if (dna.config['DEFAULT']['nameapi'] == 'yes'):
-            dna.json2guess_list(jsonf, binary=True)
+            jsonf = 'files/names/nameapifiles_names_partial.csv.json'
+            l = dna.json2guess_list(jsonf, binary=True)
             self.assertEqual(l, [1, 1, 1, 1, 1, 1, 0, 0, 1,
                               1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 1])
