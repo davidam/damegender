@@ -70,3 +70,11 @@ class TddInPythonExample(unittest.TestCase):
             l = dna.json2guess_list(jsonf, binary=True)
             self.assertEqual(l, [1, 1, 1, 1, 1, 1, 0, 0, 1,
                               1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 1])
+
+    def test_dame_nameapi_confusion_matrix_returns_correct_result(self):
+        dna = DameNameapi()
+        if (dna.config['DEFAULT']['nameapi'] == 'yes'):
+            cm = dna.confusion_matrix_gender(path="files/names/min.csv",
+                                             dimensions="2x3")
+            self.assertEqual([[1, 0, 0], [0, 5, 0]],
+                             cm)
