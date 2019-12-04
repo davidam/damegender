@@ -26,6 +26,7 @@ import requests
 import json
 import numpy as np
 
+from app.dame_utils import DameUtils
 from app.dame_gender import Gender
 
 
@@ -71,3 +72,33 @@ class DameNamsor(Gender):
                 surname = surname.replace('\"', '')
                 slist.append(self.guess(name, surname, binary))
         return slist
+
+    def download(self, path="files/names/min.csv"):
+        du = DameUtils()
+        namsorjson = path
+        namsorjson = open("files/names/namsor"+du.path2file(path)+".json", "w+")
+        surnames=True
+        names = self.csv2names(path, surnames=surnames)
+        namsorjson.write("[")
+        length = len(names)
+        i = 0
+        while (i < length):
+            namsorjson.write('{"name":"'+str(names[i])+'",\n')
+            # print(str(names[i]))
+            # print(names[i][0])
+            name = names[i][0]
+            # print(name)
+            # print(names[i][1])
+            surname = names[i][1]
+#            print(surname)
+            dnget = self.get(name="David", surname="Arroyo", binary=True)
+#            print(dnget)
+            namsorjson.write('"gender":"'+str(dnget[0])+'",\n')
+            namsorjson.write('"scale":'+str(dnget[1])+'\n')
+            if ((length -1) == i):
+                namsorjson.write('} \n')
+            else:
+                namsorjson.write('}, \n')
+            i = i + 1
+        namsorjson.write("]")
+        namsorjson.close()
