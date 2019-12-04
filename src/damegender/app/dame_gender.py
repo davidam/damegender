@@ -218,9 +218,9 @@ class Gender(object):
                 name = row[0].title()
                 name = name.replace('\"', '')
                 if (surnames == True):
-                    surname = row[3].title()
-                    surname = row[3].replace('\"', '')
-                    elem = list(name, surname)
+                    surname = row[2].title()
+                    surname = row[2].replace('\"', '')
+                    elem = [name, surname]
                     csvlist.append(elem)
                 else:
                     csvlist.append(name)
