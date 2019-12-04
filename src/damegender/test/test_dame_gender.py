@@ -121,6 +121,11 @@ class TddInPythonExample(unittest.TestCase):
         g = Gender()
         names = g.csv2names(path='files/names/partial.csv')
         self.assertTrue(len(names) > 10)
+        names = g.csv2names(path='files/names/min.csv')
+        self.assertTrue(['pierre', 'raul', 'adriano', 'ralf', 'guillermo', 'sabina'], names)
+        names = g.csv2names(path='files/names/min.csv')
+        self.assertTrue([['pierre', 'grivel'], ['raul', 'serapioni'], ['adriano', 'moura'], ['ralf', 'kieser'], ['guillermo', 'leon-de-barra'], ['sabina', 'pannek']], names)
+
 
     def test_dame_gender_guess_list(self):
         g = Gender()

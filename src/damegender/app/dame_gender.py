@@ -207,8 +207,9 @@ class Gender(object):
         f = list(OrderedDict.fromkeys(f))
         return f
 
-    def csv2names(self, path='files/names/partial.csv'):
+    def csv2names(self, path='files/names/partial.csv', *args, **kwargs):
         # make a list from a csv file
+        surnames = kwargs.get('surnames', False)
         csvlist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -216,7 +217,13 @@ class Gender(object):
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
-                csvlist.append(name)
+                if (surnames == True):
+                    surname = row[3].title()
+                    surname = row[3].replace('\"', '')
+                    elem = list(name, surname)
+                    csvlist.append(elem)
+                else:
+                    csvlist.append(name)
         return csvlist
 
     def name2gender_in_dataset(self, name, dataset=''):
