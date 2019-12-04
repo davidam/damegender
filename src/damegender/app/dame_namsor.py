@@ -84,15 +84,9 @@ class DameNamsor(Gender):
         i = 0
         while (i < length):
             namsorjson.write('{"name":"'+str(names[i])+'",\n')
-            # print(str(names[i]))
-            # print(names[i][0])
             name = names[i][0]
-            # print(name)
-            # print(names[i][1])
             surname = names[i][1]
-#            print(surname)
-            dnget = self.get(name="David", surname="Arroyo", binary=True)
-#            print(dnget)
+            dnget = self.get(name=name, surname=surname, binary=True)
             namsorjson.write('"gender":"'+str(dnget[0])+'",\n')
             namsorjson.write('"scale":'+str(dnget[1])+'\n')
             if ((length -1) == i):
