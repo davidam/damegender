@@ -102,7 +102,8 @@ class DameNamsor(Gender):
         jsondata = open(jsonf).read()
         json_object = json.loads(jsondata)
         guesslist = []
-        for i in json_object["names"][0]:
+
+        for i in json_object:
             if binary:
                 if (i['gender'] == 'female'):
                     guesslist.append(0)
