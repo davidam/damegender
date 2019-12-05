@@ -83,9 +83,10 @@ class DameNamsor(Gender):
         length = len(names)
         i = 0
         while (i < length):
-            namsorjson.write('{"name":"'+str(names[i])+'",\n')
             name = names[i][0]
+            namsorjson.write('{"name":"'+str(names[i][0])+'",\n')
             surname = names[i][1]
+            namsorjson.write('"surname":"'+str(names[i][1])+'",\n')
             dnget = self.get(name=name, surname=surname, binary=True)
             namsorjson.write('"gender":"'+str(dnget[0])+'",\n')
             namsorjson.write('"scale":'+str(dnget[1])+'\n')
@@ -96,3 +97,19 @@ class DameNamsor(Gender):
             i = i + 1
         namsorjson.write("]")
         namsorjson.close()
+
+    def json2guess_list(self, jsonf="", binary=False):
+        jsondata = open(jsonf).read()
+        json_object = json.loads(jsondata)
+        guesslist = []
+        for i in json_object["names"][0]:
+            if binary:
+                if (i['gender'] == 'female'):
+                    guesslist.append(0)
+                elif (i['gender'] == 'male'):
+                    guesslist.append(1)
+                else:
+                    guesslist.append(2)
+            else:
+                guesslist.append(i['gender'])
+        return guesslist
