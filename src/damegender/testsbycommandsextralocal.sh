@@ -20,6 +20,23 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+cp config.cfg config.cfg.backup
+
+echo "
+[DEFAULT]
+genderapi = no
+genderize = no
+nameapi = no
+namsor = no
+customsearch = no
+
+[FILES]
+genderapi = files/apikeys/genderapipass.txt
+genderize = files/apikeys/genderizepass.txt
+genderguesser = files/apikeys/genderguesserpass.txt
+namsor = files/apikeys/namsorpass.txt
+nameapi = files/apikeys/nameapipass.txt
+" > config.cfg
 
 
 python3 main.py "Jesús" --total=genderguesser > files/tests/mainjesusgenderguesser-$(date "+%Y-%m-%d-%H").txt
@@ -171,3 +188,9 @@ rm -rf /tmp/clonedir
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
 
+echo "cleaning temporary files"
+rm files/tests/*$(date "+%Y")*.txt
+
+echo "restoring the config"
+cp config.cfg.backup config.cfg
+rm config.cfg.backup
