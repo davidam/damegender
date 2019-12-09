@@ -43,3 +43,9 @@ class DameGenderGuesser(Gender):
         else:
             guess = get
         return guess
+
+    def print_confusion_matrix_gender(self, path='files/names/partial.csv', dimensions="2x3"):
+        cmd = self.confusion_matrix_gender(path, dimensions)
+        print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+        print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+        return ""
