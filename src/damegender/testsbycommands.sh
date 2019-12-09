@@ -20,6 +20,26 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# First, we save the current config and create the config for the tests
+
+cp config.cfg config.cfg.backup
+
+echo "
+[DEFAULT]
+genderapi = no
+genderize = no
+nameapi = no
+namsor = no
+customsearch = no
+
+[FILES]
+genderapi = files/apikeys/genderapipass.txt
+genderize = files/apikeys/genderizepass.txt
+genderguesser = files/apikeys/genderguesserpass.txt
+namsor = files/apikeys/namsorpass.txt
+nameapi = files/apikeys/nameapipass.txt
+" > config.cfg
+
 python3 main.py David > files/tests/maindavid-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/maindavid.txt files/tests/maindavid-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -243,7 +263,7 @@ else
 	echo "pca-features-nocategorical test is ok"
 fi
 
-python3 confusion.py > files/tests/confusion-$(date "+%Y-%m-%d-%H").txt > files/tests/confusion-$(date "+%Y-%m-%d-%H").txt
+python3 confusion.py --csv="files/names/min.csv" > files/tests/confusion-$(date "+%Y-%m-%d-%H").txt > files/tests/confusion-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/confusion.txt files/tests/confusion-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "confusion test is failing"
@@ -251,7 +271,7 @@ else
 	echo "confusion test is ok"
 fi
 
-python3 confusion.py --ml="nltk" > files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt
+python3 confusion.py --csv="files/names/min.csv" --ml="nltk" > files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/confusionnltk.txt files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "confusion nltk test is failing"
@@ -259,7 +279,7 @@ else
 	echo "confusion nltk test is ok"
 fi
 
-python3 confusion.py --api=genderapi --jsondownloaded="files/names/genderapifiles_names_min.csv.json" > files/tests/confusiongenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
+python3 confusion.py --csv="files/names/min.csv" --api=genderapi --jsondownloaded="files/names/genderapifiles_names_min.csv.json" > files/tests/confusiongenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/confusiongenderapijsondownloaded.txt files/tests/confusiongenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "confusion genderapi jsondonwloaded test is failing"
@@ -267,7 +287,15 @@ else
 	echo "confusion genderapi jsondonwloaded test is ok"
 fi
 
-python3 accuracy.py --api=genderapi --jsondownloaded="files/names/genderapifiles_names_min.csv.json" > files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
+python3 confusion.py --csv="files/names/min.csv" --api=nameapi --jsondownloaded="files/names/nameapifiles_names_min.csv.json" > files/tests/confusionnameapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/confusiongenderapijsondownloaded.txt files/tests/confusiongenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "confusion genderapi jsondonwloaded test is failing"
+else
+	echo "confusion genderapi jsondonwloaded test is ok"
+fi
+
+python3 accuracy.py --csv="files/names/min.csv" --api=genderapi --jsondownloaded="files/names/genderapifiles_names_min.csv.json" > files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/accuracygenderapijsondownloaded.txt files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "accuracy genderapi jsondonwloaded test is failing"
@@ -286,3 +314,7 @@ fi
 
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
+
+echo "restoring the config"
+cp config.cfg.backup config.cfg
+rm config.cfg.backup 
