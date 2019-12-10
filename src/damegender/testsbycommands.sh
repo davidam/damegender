@@ -263,7 +263,8 @@ else
 	echo "pca-features-nocategorical test is ok"
 fi
 
-python3 confusion.py --csv="files/names/min.csv" > files/tests/confusion-$(date "+%Y-%m-%d-%H").txt > files/tests/confusion-$(date "+%Y-%m-%d-%H").txt
+
+python3 confusion.py --csv="files/names/min.csv" > files/tests/confusion-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/confusion.txt files/tests/confusion-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "confusion test is failing"
@@ -279,7 +280,7 @@ else
 	echo "confusion nltk test is ok"
 fi
 
-python3 confusion.py --csv="files/names/min.csv" --api=genderapi --jsondownloaded="files/names/genderapifiles_names_min.csv.json" > files/tests/confusiongenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
+python3 confusion.py --csv="files/names/min.csv" --api=genderapi --jsondownloaded="files/names/genderapifiles_names_min.processed.json" > files/tests/confusiongenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/confusiongenderapijsondownloaded.txt files/tests/confusiongenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "confusion genderapi jsondonwloaded test is failing"
@@ -287,12 +288,12 @@ else
 	echo "confusion genderapi jsondonwloaded test is ok"
 fi
 
-python3 confusion.py --csv="files/names/min.csv" --api=nameapi --jsondownloaded="files/names/nameapifiles_names_min.csv.json" > files/tests/confusionnameapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
-if ! cmp files/tests/confusiongenderapijsondownloaded.txt files/tests/confusiongenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+python3 confusion.py --csv="files/names/partial.csv" --api=nameapi --jsondownloaded="files/names/nameapifiles_names_partial.csv.json" > files/tests/confusionnameapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/confusionnameapijsondownloaded.txt files/tests/confusionnameapijsondownloaded-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-	echo "confusion genderapi jsondonwloaded test is failing"
+	echo "confusion nameapi jsondonwloaded test is failing"
 else
-	echo "confusion genderapi jsondonwloaded test is ok"
+	echo "confusion nameapi jsondonwloaded test is ok"
 fi
 
 python3 accuracy.py --csv="files/names/min.csv" --api=genderapi --jsondownloaded="files/names/genderapifiles_names_min.csv.json" > files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
@@ -317,4 +318,4 @@ rm files/tests/*$(date "+%Y")*.txt
 
 echo "restoring the config"
 cp config.cfg.backup config.cfg
-rm config.cfg.backup 
+rm config.cfg.backup
