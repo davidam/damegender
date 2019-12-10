@@ -110,7 +110,13 @@ elif (args.api == "namsor"):
     print("################### Namsor!!")
     gl = dn.gender_list(path=args.csv)
     print("Gender list: " + str(gl))
-    sl = dn.guess_list(path=args.csv, binary=True)
+    if (os.path.isfile(args.jsondownloaded)):
+        sl = dn.json2guess_list(jsonf=args.jsondownloaded, binary=True)
+    elif (args.jsondownloaded == ''):
+        sl = dn.guess_list(path=args.csv, binary=True)
+    else:
+        print("In the path %s doesn't exist file" % args.jsondownloaded)
+#    sl = dn.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(sl))
     dn.print_measures(gl, sl, args.measure, "Namsor")
 
