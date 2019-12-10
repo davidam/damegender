@@ -86,7 +86,13 @@ if (args.api == "all"):
         print("################### GenderApi!!")
         gl = dga.gender_list(path=args.csv)
         print("Gender list: " + str(gl))
-        sl = dga.guess_list(path=args.csv, binary=True)
+        if (os.path.isfile(args.jsondownloaded)):
+            sl = json2guess_list(jsonf="", binary=False)
+        elif (args.jsondownloaded == ''):
+            sl = dga.guess_list(path=args.csv, binary=True)
+        else:
+            print("In the path %s doesn't exist file" % args.jsondownloaded)
+#        sl = dga.guess_list(path=args.csv, binary=True)
         print("Guess list:  " +str(sl))
         dga.print_measures(gl, sl, args.measure, "Genderapi")
 
