@@ -105,16 +105,16 @@ class DameGenderApi(Gender):
         jsondata = open(jsonf).read()
         json_object = json.loads(jsondata)
         guesslist = []
-        for i in json_object["names"][0]:
+        for i in json_object[0]["names"]:
             if binary:
-                if (i['gender'] == 'female'):
+                if (i["gender"] == 'female'):
                     guesslist.append(0)
-                elif (i['gender'] == 'male'):
+                elif (i["gender"] == 'male'):
                     guesslist.append(1)
                 else:
                     guesslist.append(2)
             else:
-                guesslist.append(i['gender'])
+                guesslist.append(i["gender"])
         return guesslist
 
     def confusion_matrix_gender(self, path='', dimensions="2x3", jsonf=""):
