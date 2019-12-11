@@ -102,14 +102,14 @@ else
 	echo "mail2gender test is ok"
 fi
 
-# python3 api2gender.py David --api="genderize" > files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt
+python3 api2gender.py David --api="genderize" > files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt
 
-# if ! cmp files/tests/api2genderDavidgenderize.txt files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-# then
-# 	echo "api2genderDavidgenderize test is failing"
-# else
-# 	echo "api2genderDavidgenderize test is ok"
-# fi
+if ! cmp files/tests/api2genderDavidgenderize.txt files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "api2genderDavidgenderize test is failing"
+else
+	echo "api2genderDavidgenderize test is ok"
+fi
 
 if [ -a files/apikeys/namsorpass.txt ]; then
     python3 api2gender.py Leticia --surname="Martin" --api="namsor" > files/tests/api2genderLeticianamsor-$(date "+%Y-%m-%d-%H").txt
