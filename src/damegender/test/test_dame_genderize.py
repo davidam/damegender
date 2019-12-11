@@ -27,6 +27,19 @@ from app.dame_genderize import DameGenderize
 
 class TddInPythonExample(unittest.TestCase):
 
+    def test_dame_genderize_get(self):
+        dg = DameGenderize()
+        string = dg.get("peter")
+        self.assertEqual(string, {'probability': 0.99, 'count': 165452, 'name': 'peter', 'gender': 'male'})
+
+    def test_dame_genderize_get2to10(self):
+        dg = DameGenderize()
+        string = dg.get2to10(name1="peter", name2="lois", name3="stevie")
+        self.assertEqual(string, [{'count': 165452, 'gender': 'male', 'name': 'peter', 'probability': 0.99}, {'count': 2510, 'gender': 'female', 'name': 'lois', 'probability': 0.58}, {'count': 2568, 'gender': 'male', 'name': 'stevie', 'probability': 0.87}])
+        #https://api.genderize.io/?name[]=peter&name[]=lois&name[]=stevie&name[]=john&name[]=paul&name[]=mike&name[]=mary&name[]=anna
+        string2 = dg.get2to10(name1="peter", name2="lois", name3="stevie", name4="john", name5="paul", name6="mike", name7="mary", name8="anna")
+        self.assertEqual(string2, [{"name":"peter","gender":"male","probability":0.99,"count":165452},{"name":"lois","gender":"female","probability":0.58,"count":2510},{"name":"stevie","gender":"male","probability":0.87,"count":2568},{"name":"john","gender":"male","probability":0.99,"count":218952},{"name":"paul","gender":"male","probability":0.99,"count":148099},{"name":"mike","gender":"male","probability":0.99,"count":109844},{"name":"mary","gender":"female","probability":0.99,"count":142684},{"name":"anna","gender":"female","probability":0.98,"count":383713}])
+
     def test_dame_genderize_guess(self):
         dg = DameGenderize()
         self.assertEqual(dg.guess("David"), "male")
@@ -35,11 +48,6 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_genderize_prob(self):
         dg = DameGenderize()
         self.assertEqual(dg.prob("David"), 0.99)
-
-    # def test_dame_genderize_guess_file(self):
-    #     dg = DameGenderize()
-    #     #if (dg.config['DEFAULT']['genderize'] == 'yes'):
-    #     self.assertEqual(dg.guess("David", binary=True), 1)
 
     # def test_dame_genderize_gender_list(self):
     #     dg = DameGenderize()

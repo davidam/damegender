@@ -41,6 +41,30 @@ class DameGenderize(Gender):
         d = json.loads(r.text)
         return d
 
+    def get2to10(self, name1, name2, *args, **kwargs):
+        string1 = 'https://api.genderize.io/'
+        string2 = '?name[]='+name1+'&name[]='+name2
+        string = string1 + string2
+        if ('name3' in kwargs):
+            string = string+'&name[]='+kwargs.get('name3')
+        if ('name4' in kwargs):
+            string = string+'&name[]='+kwargs.get('name4')
+        if ('name5' in kwargs):
+            string = string+'&name[]='+kwargs.get('name5')
+        if ('name6' in kwargs):
+            string = string+'&name[]='+kwargs.get('name6')
+        if ('name7' in kwargs):
+            string = string+'&name[]='+kwargs.get('name7')
+        if ('name8' in kwargs):
+            string = string+'&name[]='+kwargs.get('name8')
+        if ('name9' in kwargs):
+            string = string+'&name[]='+kwargs.get('name9')
+        if ('name10' in kwargs):
+            string = string+'&name[]='+kwargs.get('name10')
+        r = requests.get(string)
+        d = json.loads(r.text)
+        return d
+
     def guess(self, name, binary=False):
         d = self.get(name)
         if (binary == True):
