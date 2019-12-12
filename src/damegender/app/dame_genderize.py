@@ -33,10 +33,14 @@ from sklearn.metrics import confusion_matrix
 
 class DameGenderize(Gender):
 
-    def get(self, name, **kwargs):
+    def get(self, name, *args, **kwargs):
         # obtaining data from genderize
         string = 'https://api.genderize.io/?name='
         string = string + name
+        if ('country_id' in kwargs):
+            string = string + "&country_id=" + kwargs.get('country_id')
+        if ('surname' in kwargs):
+            string = string + "&surname=" + kwargs.get('surname')
         r = requests.get(string)
         d = json.loads(r.text)
         return d

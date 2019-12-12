@@ -29,8 +29,10 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_genderize_get(self):
         dg = DameGenderize()
-        string = dg.get("peter")
-        self.assertEqual(string, {'probability': 0.99, 'count': 165452, 'name': 'peter', 'gender': 'male'})
+        string1 = dg.get("peter")
+        self.assertEqual(string1, {'probability': 0.99, 'count': 165452, 'name': 'peter', 'gender': 'male'})
+        string2 = dg.get(name="peter", surname="smith", country_id="US")
+        self.assertEqual(string2, {'count': 6521, 'country_id': 'US', 'gender': 'male', 'name': 'peter', 'probability': 0.99})
 
     def test_dame_genderize_get2to10(self):
         dg = DameGenderize()
