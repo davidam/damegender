@@ -47,12 +47,17 @@ class DameGenderize(Gender):
 
     def get2to10(self, l):
         string = 'https://api.genderize.io/'
+
         if ((len(l) > 1) and (len(l) <= 10)):
             string = string + '?name[]='+l[0]
             for i in l[1:10]:
                 string = string + '&name[]='+ i
-        r = requests.get(string)
-        d = json.loads(r.text)
+            r = requests.get(string)
+            d = json.loads(r.text)
+        elif (len(l) == 1):
+            d = self.get(l[0])
+        else:
+            d = ""
         return d
 
     def guess(self, name, binary=False):
@@ -72,15 +77,19 @@ class DameGenderize(Gender):
         d = self.get(name)
         return d['probability']
 
+    def guess_list(self, path='files/names/partial.csv', binary=False):
+        l = self.csv2names(path)
+        new = []
+        d = ""
+        # We must split the list in different lists with size 10
+        for i in range(0, len(l), 10):
+            new.append(l[i:i+10])
+        # Now
+        lresult = []
+        for j in new:
+            lresult.append(self.get2to10(j))
+        return lresult
 
-
-    # def guess_list(self, path='files/names/partial.csv', binary=False):
-    #     genderlist = self.gender_list(path)
-    #     guesslist = []
-    #     new = []
-    #     # We must split the list in different lists with size 10
-    #     for i in range(0, len(listnames), 10):
-    #         new.append(listnames[i:i+10])
 
     # def guess(self, name, binary=False):
     #     # guess method to check names dictionary
@@ -122,15 +131,15 @@ class DameGenderize(Gender):
     #         sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
     #         next(sexreader, None)
     #         i = 0
-    #         listnames = list()
+    #         genderlist = list()
     #         for row in sexreader:
     #             name = row[0].title()
     #             name = name.replace('\"', '')
-    #             listnames.append(name)
+    #             genderlist.append(name)
     #     new = []
     #     # We must split the list in different lists with size 10
-    #     for i in range(0, len(listnames), 10):
-    #         new.append(listnames[i:i+10])
+    #     for i in range(0, len(genderlist), 10):
+    #         new.append(genderlist[i:i+10])
     #     for i in new:
     #         if (self.config['DEFAULT']['genderize'] == 'no'):
     #             jsonlist = Genderize().get(i)
