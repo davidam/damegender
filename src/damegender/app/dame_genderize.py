@@ -45,26 +45,12 @@ class DameGenderize(Gender):
         d = json.loads(r.text)
         return d
 
-    def get2to10(self, name1, name2, *args, **kwargs):
-        string1 = 'https://api.genderize.io/'
-        string2 = '?name[]='+name1+'&name[]='+name2
-        string = string1 + string2
-        if ('name3' in kwargs):
-            string = string+'&name[]='+kwargs.get('name3')
-        if ('name4' in kwargs):
-            string = string+'&name[]='+kwargs.get('name4')
-        if ('name5' in kwargs):
-            string = string+'&name[]='+kwargs.get('name5')
-        if ('name6' in kwargs):
-            string = string+'&name[]='+kwargs.get('name6')
-        if ('name7' in kwargs):
-            string = string+'&name[]='+kwargs.get('name7')
-        if ('name8' in kwargs):
-            string = string+'&name[]='+kwargs.get('name8')
-        if ('name9' in kwargs):
-            string = string+'&name[]='+kwargs.get('name9')
-        if ('name10' in kwargs):
-            string = string+'&name[]='+kwargs.get('name10')
+    def get2to10(self, l):
+        string = 'https://api.genderize.io/'
+        if ((len(l) > 1) and (len(l) <= 10)):
+            string = string + '?name[]='+l[0]
+            for i in l[1:10]:
+                string = string + '&name[]='+ i
         r = requests.get(string)
         d = json.loads(r.text)
         return d
@@ -87,6 +73,14 @@ class DameGenderize(Gender):
         return d['probability']
 
 
+
+    # def guess_list(self, path='files/names/partial.csv', binary=False):
+    #     genderlist = self.gender_list(path)
+    #     guesslist = []
+    #     new = []
+    #     # We must split the list in different lists with size 10
+    #     for i in range(0, len(listnames), 10):
+    #         new.append(listnames[i:i+10])
 
     # def guess(self, name, binary=False):
     #     # guess method to check names dictionary
