@@ -27,6 +27,7 @@ import requests
 import json
 import configparser
 from app.dame_gender import Gender
+from app.dame_utils import DameUtils
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 
@@ -55,7 +56,7 @@ class DameGenderize(Gender):
             r = requests.get(string)
             d = json.loads(r.text)
         elif (len(l) == 1):
-            d = self.get(l[0])
+            d = [self.get(l[0])]
         else:
             d = ""
         return d
@@ -65,7 +66,7 @@ class DameGenderize(Gender):
         if (binary == True):
             if (d['gender'] == 'male'):
                 gender = 1
-            elif (d['gender'] == 'female'):
+            if (d['gender'] == 'female'):
                 gender = 0
             else:
                 gender = 2
@@ -77,18 +78,25 @@ class DameGenderize(Gender):
         d = self.get(name)
         return d['probability']
 
-    def guess_list(self, path='files/names/partial.csv', binary=False):
+    def download(self, path='files/names/partial.csv'):
+        du = DameUtils()
         l = self.csv2names(path)
         new = []
         d = ""
         # We must split the list in different lists with size 10
         for i in range(0, len(l), 10):
             new.append(l[i:i+10])
-        # Now
+
         lresult = []
         for j in new:
             lresult.append(self.get2to10(j))
-        return lresult
+        res = []
+        for k in lresult:
+            res = res + k
+        backup = open("files/names/genderize"+du.path2file(path)+".json", "w+")
+        backup.write(str(res))
+        backup.close()
+        return res
 
 
     # def guess(self, name, binary=False):
