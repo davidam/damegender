@@ -50,6 +50,10 @@ class TddInPythonExample(unittest.TestCase):
         dg = DameGenderize()
         self.assertEqual(dg.prob("David"), 0.99)
 
+    def test_dame_genderize_guess_list(self):
+        dg = DameGenderize()
+        gl = dg.json2guess_list(jsonf="files/names/genderapifiles_names_min.processed.json", binary=True)
+        self.assertEqual(gl, [1, 1, 1, 1, 1, 0])
     # def test_dame_genderize_gender_list(self):
     #     dg = DameGenderize()
     #     #if (dg.config['DEFAULT']['genderize'] == 'yes'):

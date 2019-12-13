@@ -86,7 +86,6 @@ class DameGenderize(Gender):
         # We must split the list in different lists with size 10
         for i in range(0, len(l), 10):
             new.append(l[i:i+10])
-
         lresult = []
         for j in new:
             lresult.append(self.get2to10(j))
@@ -98,6 +97,21 @@ class DameGenderize(Gender):
         backup.close()
         return res
 
+    def json2guess_list(self, jsonf="", binary=False):
+        jsondata = open(jsonf).read()
+        json_object = json.loads(jsondata)
+        guesslist = []
+        for i in json_object[0]["names"]:
+            if binary:
+                if (i["gender"] == 'female'):
+                    guesslist.append(0)
+                elif (i["gender"] == 'male'):
+                    guesslist.append(1)
+                else:
+                    guesslist.append(2)
+            else:
+                guesslist.append(i["gender"])
+        return guesslist
 
     # def guess(self, name, binary=False):
     #     # guess method to check names dictionary
