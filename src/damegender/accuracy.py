@@ -125,10 +125,15 @@ elif (args.api == "genderize"):
     dg = DameGenderize()
     print("################### Genderize!!")
     gl = dg.gender_list(path=args.csv)
-
     print("Gender list: " + str(gl))
     sl = dg.guess_list(path=args.csv, binary=True)
     print("Guess list:  " +str(gl))
+    if (os.path.isfile(args.jsondownloaded)):
+        sl = dg.json2guess_list(jsonf=args.jsondownloaded, binary=True)
+    elif (args.jsondownloaded == ''):
+        sl = dg.guess_list(path=args.csv, binary=True)
+    else:
+        print("In the path %s doesn't exist file" % args.jsondownloaded)    
     dg.print_measures(gl, sl, args.measure, "Genderize")
 
 elif (args.api == "genderguesser"):
