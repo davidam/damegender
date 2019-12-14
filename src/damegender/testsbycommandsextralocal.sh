@@ -66,6 +66,15 @@ else
 	echo "mainsara2genderguesser test is ok"
 fi
 
+python3 accuracy.py --measure="precision" --csv="files/names/min.csv" --api=genderize --jsondownloaded="files/tests/accuracygenderizeminjsonprecision.txt" > files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt 
+
+if ! cmp files/tests/accuracygenderizeminjsonprecision.txt files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "accuracygenderizeminjsonprecision test is failing"
+else
+	echo "accuracygenderizeminjsonprecision test is ok"
+fi
+
 
 python3 main.py silla --ml=xgboost > files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/mainsilla.txt files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
