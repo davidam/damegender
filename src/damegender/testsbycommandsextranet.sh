@@ -111,6 +111,14 @@ else
 	echo "api2genderDavidgenderize test is ok"
 fi
 
+python3 downloadjson.py --api=genderize --csv=files/names/min.csv 
+
+if [ -a files/names/genderizefiles_names_min.csv.json ]; then
+    echo "download genderize files names min is ok"
+else
+    echo "download genderize files names min is failing"
+fi
+
 if [ -a files/apikeys/namsorpass.txt ]; then
     python3 api2gender.py Leticia --surname="Martin" --api="namsor" > files/tests/api2genderLeticianamsor-$(date "+%Y-%m-%d-%H").txt
 
@@ -120,9 +128,28 @@ if [ -a files/apikeys/namsorpass.txt ]; then
     else
 	echo "api2genderLeticianamsor test is ok"
     fi
+
+    python3 downloadjson.py --api=namsor --csv=files/names/min.csv 
+
+    if [ -a files/names/namsorfiles_names_min.csv.json ]; then
+	echo "download namsor files names min is ok"
+    else
+	echo "download namsor files names min is failing"
+    fi
+
+    
 fi
 
 if [ -a files/apikeys/genderapipass.txt ]; then
+
+    python3 downloadjson.py --api=genderapi --csv=files/names/min.csv 
+
+    if [ -a files/names/genderapifiles_names_min.csv.json ]; then
+	echo "download genderapi files names min is ok"
+    else
+	echo "download genderapi files names min is failing"
+    fi
+	
     python3 api2gender.py Inés --api="genderapi" > files/tests/api2genderInésgenderapi-$(date "+%Y-%m-%d-%H").txt
 
     if ! cmp files/tests/api2genderInésgenderapi.txt files/tests/api2genderInésgenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
