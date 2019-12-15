@@ -87,7 +87,12 @@ elif (args.api == "namsor"):
 elif (args.api == "genderize"):
     dg = DameGenderize()
     print("Genderize confusion matrix:\n")
-    dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    if (os.path.isfile(args.jsondownloaded)):
+        dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded)
+    elif (args.jsondownloaded == ''):
+        dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    else:
+        print("In the path %s doesn't exist file" % args.jsondownloaded)    
 
 elif (args.api == "genderapi"):
     dga = DameGenderApi()
