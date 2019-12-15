@@ -66,7 +66,7 @@ else
 	echo "mainsara2genderguesser test is ok"
 fi
 
-python3 accuracy.py --measure="precision" --csv="files/names/min.csv" --api=genderize --jsondownloaded="files/tests/accuracygenderizeminjsonprecision.txt" > files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt 
+python3 accuracy.py --measure="precision" --csv="files/names/min.csv" --api=genderize --jsondownloaded="files/tests/accuracygenderizeminjsonprecision.txt" > files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/accuracygenderizeminjsonprecision.txt files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -173,6 +173,16 @@ then
 	echo "confusiongenderguesser test is failing"
 else
 	echo "confusiongenderguesser test is ok"
+fi
+
+
+python3 confusion.py --csv=files/names/min.csv --jsondownloaded=files/names/namsorfiles_names_min.csv.json --api=namsor > files/tests/confusionnamsorjson-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/confusionnamsorjson.txt files/tests/confusionnamsorjson-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "confusion namsor test is failing"
+else
+	echo "confusion namsor test is ok"
 fi
 
 python3 errors.py --csv="files/names/partial.csv" > files/tests/errorspartial-$(date "+%Y-%m-%d-%H").txt
