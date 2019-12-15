@@ -31,7 +31,7 @@ from app.dame_nameapi import DameNameapi
 import argparse
 import os
 parser = argparse.ArgumentParser()
-parser.add_argument('--csv', default="files/names/min.csv", help='input file for names')
+parser.add_argument('--csv', type=str, required=True, default="files/names/min.csv", help='input file for names')
 parser.add_argument('--api', default="damegender", choices=['namsor', 'genderize', 'genderapi', 'nameapi'])
 args = parser.parse_args()
 
@@ -41,7 +41,7 @@ if (args.api=='genderize'):
 elif (args.api=='genderapi'):
     dga = DameGenderApi()
     text1 = dga.download(path=args.csv)
-elif (args.api=='namsor'):    
+elif (args.api=='namsor'):
     dn = DameNamsor()
     text1 = dn.download(path=args.csv)
 elif (args.api=='nameapi'):
