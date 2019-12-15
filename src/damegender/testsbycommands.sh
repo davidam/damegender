@@ -280,7 +280,7 @@ else
 	echo "confusion nltk test is ok"
 fi
 
-python3 confusion.py --csv="files/names/min.csv" --api=genderapi --jsondownloaded="files/names/genderapifiles_names_min.processed.json" > files/tests/confusiongenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
+python3 confusion.py --csv="files/names/min.csv" --api=genderapi --jsondownloaded="files/names/genderapifiles_names_min.csv.json" > files/tests/confusiongenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/confusiongenderapijsondownloaded.txt files/tests/confusiongenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "confusion genderapi jsondonwloaded test is failing"
@@ -296,7 +296,7 @@ else
 	echo "confusion nameapi jsondonwloaded test is ok"
 fi
 
-python3 accuracy.py --csv="files/names/min.csv" --api=genderapi --jsondownloaded="files/names/genderapifiles_names_min.processed.json" > files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --csv="files/names/min.csv" --api=genderapi --jsondownloaded="files/names/genderapifiles_names_min.csv.json" > files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/accuracygenderapijsondownloaded.txt files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "accuracy genderapi jsondonwloaded test is failing"
