@@ -64,10 +64,10 @@ class DameGenderize(Gender):
     def guess(self, name, binary=False):
         d = self.get(name)
         if (binary == True):
-            if (d['gender'] == 'male'):
-                gender = 1
             if (d['gender'] == 'female'):
                 gender = 0
+            elif (d['gender'] == 'male'):
+                gender = 1
             else:
                 gender = 2
         else:
