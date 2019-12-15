@@ -34,9 +34,9 @@ from app.dame_customsearch import DameCustomsearch
 import argparse
 import os
 parser = argparse.ArgumentParser()
-parser.add_argument('--csv', default="files/names/min.csv", help='input file for names')
+parser.add_argument('--csv', type=str, required=True, default="files/names/min.csv", help='input file for names')
 parser.add_argument('--jsondownloaded', help='if you have downloaded the results from an api in a json file, you can try this argument')
-parser.add_argument('--measure', default="accuracy", choices=['accuracy', 'precision', 'recall', 'f1score'])
+parser.add_argument('--measure', default="precision", choices=['accuracy', 'precision', 'recall', 'f1score'])
 parser.add_argument('--api', default="damegender", choices=['customsearch', 'namsor', 'genderize', 'genderguesser', 'damegender', 'genderapi', 'nameapi', 'all'])
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'xgboost'])
 args = parser.parse_args()
@@ -110,10 +110,10 @@ elif (args.api == "namsor"):
     print("################### Namsor!!")
     gl = dn.gender_list(path=args.csv)
     print("Gender list: " + str(gl))
-    if (os.path.isfile(args.jsondownloaded)):
-        sl = dn.json2guess_list(jsonf=args.jsondownloaded, binary=True)
-    elif (args.jsondownloaded == ''):
+    if (args.jsondownloaded is None):
         sl = dn.guess_list(path=args.csv, binary=True)
+    elif (os.path.isfile(args.jsondownloaded)):
+        sl = dn.json2guess_list(jsonf=args.jsondownloaded, binary=True)
     else:
         print("In the path %s doesn't exist file" % args.jsondownloaded)
 #    sl = dn.guess_list(path=args.csv, binary=True)
@@ -126,14 +126,13 @@ elif (args.api == "genderize"):
     print("################### Genderize!!")
     gl = dg.gender_list(path=args.csv)
     print("Gender list: " + str(gl))
-    sl = dg.guess_list(path=args.csv, binary=True)
-    print("Guess list:  " +str(gl))
-    if (os.path.isfile(args.jsondownloaded)):
-        sl = dg.json2guess_list(jsonf=args.jsondownloaded, binary=True)
-    elif (args.jsondownloaded == ''):
+    if (args.jsondownloaded is None):
         sl = dg.guess_list(path=args.csv, binary=True)
+    elif (os.path.isfile(args.jsondownloaded)):
+        sl = dg.json2guess_list(jsonf=args.jsondownloaded, binary=True)
     else:
-        print("In the path %s doesn't exist file" % args.jsondownloaded)    
+        print("In the path %s doesn't exist file" % args.jsondownloaded)
+    print("Guess list:  " +str(sl))
     dg.print_measures(gl, sl, args.measure, "Genderize")
 
 elif (args.api == "genderguesser"):
