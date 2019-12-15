@@ -92,8 +92,9 @@ class DameGenderize(Gender):
         res = []
         for k in lresult:
             res = res + k
+        res = str(res).replace("\'", "\"")
         backup = open("files/names/genderize"+du.path2file(path)+".json", "w+")
-        backup.write(str(res))
+        backup.write(res)
         backup.close()
         return res
 
