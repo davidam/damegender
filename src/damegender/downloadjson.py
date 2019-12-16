@@ -40,7 +40,8 @@ if (args.api=='genderize'):
     text1 = dg.download(path=args.csv)
 elif (args.api=='genderapi'):
     dga = DameGenderApi()
-    text1 = dga.download(path=args.csv)
+    if (dga.limit_p() == False):
+        text1 = dga.download(path=args.csv)
 elif (args.api=='namsor'):
     dn = DameNamsor()
     text1 = dn.download(path=args.csv)
