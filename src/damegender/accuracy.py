@@ -36,7 +36,7 @@ import os
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', type=str, required=True, default="files/names/min.csv", help='input file for names')
 parser.add_argument('--jsondownloaded', help='if you have downloaded the results from an api in a json file, you can try this argument')
-parser.add_argument('--measure', default="precision", choices=['accuracy', 'precision', 'recall', 'f1score'])
+parser.add_argument('--measure', default="accuracy", choices=['accuracy', 'precision', 'recall', 'f1score'])
 parser.add_argument('--api', default="damegender", choices=['customsearch', 'namsor', 'genderize', 'genderguesser', 'damegender', 'genderapi', 'nameapi', 'all'])
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'xgboost'])
 args = parser.parse_args()
