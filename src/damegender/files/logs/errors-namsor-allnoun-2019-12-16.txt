@@ -1,0 +1,6 @@
+$ python3 errors.py --api=namsor --jsondownloaded=files/names/namsorfiles_names_allnoundefined.csv.json
+Namsor with files/names/min.csv has:
++ The error code: 0.16666666666666666
++ The error code without na: 0.16666666666666666
++ The na coded: 0.0
++ The error gender bias: 0.16666666666666666
