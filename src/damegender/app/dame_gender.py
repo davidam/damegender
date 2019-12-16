@@ -507,6 +507,28 @@ class Gender(object):
     def maleundefined(self, truevector, guessvector):
         return self.count_true2guess(truevector, guessvector, 1, 2)
 
+    def accuracy_score_dame(self, truevector, guessvector):
+        if (len(truevector) == len(guessvector)):
+            divider = self.femalefemale(truevector, guessvector)
+            divider = divider + self.malemale(truevector, guessvector)
+            dividend = self.femalefemale(truevector, guessvector)
+            dividend = dividend + self.malemale(truevector, guessvector)
+            dividend = dividend + self.malefemale(truevector, guessvector)
+            dividend = dividend + self.femalemale(truevector, guessvector)
+            dividend = dividend + self.femaleundefined(truevector, guessvector)
+            dividend = dividend + self.maleundefined(truevector, guessvector)
+            result = divider / dividend
+        else:
+            result = 0
+            print("Both vectors must have the same length")
+        return result
+
+    # def accuracy(self, path):
+    #     gl = self.gender_list(path)
+    #     sl = self.guess_list(path, binary=True)
+    #     return self.accuracy_score_dame(gl, sl)
+
+
     def precision(self, truevector, guessvector):
         result = 0
         divider = self.femalefemale(truevector, guessvector)
@@ -603,28 +625,6 @@ class Gender(object):
         result = divider / dividend
         return result
 
-    def accuracy_score_dame(self, v1, v2):
-        if (len(v1) == len(v2)):
-            success = 0
-            fails = 0
-            for i in range(0, len(v1)):
-                if (v1[i] == v2[i]):
-                    success = success + 1
-                else:
-                    fails = fails + 1
-            if (fails == 0):
-                accuracy = 1
-            else:
-                accuracy = success / len(v1)
-        else:
-            accuracy = 0
-            print("Both vectors must have the same length")
-        return accuracy
-
-    def accuracy(self, path):
-        gl = self.gender_list(path)
-        sl = self.guess_list(path, binary=True)
-        return self.accuracy_score_dame(gl, sl)
 
     def confusion_matrix(self, path='files/names/partial.csv'):
         gl = self.gender_list(path)
