@@ -66,7 +66,7 @@ else
 	echo "mainsara2genderguesser test is ok"
 fi
 
-python3 accuracy.py --measure="precision" --csv="files/names/min.csv" --api=genderize --jsondownloaded="files/tests/accuracygenderizeminjsonprecision.txt" > files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --measure="precision" --csv="files/names/min.csv" --api=genderize --jsondownloaded="files/names/genderizefiles_names_min.csv.json" > files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/accuracygenderizeminjsonprecision.txt files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -147,7 +147,7 @@ else
 fi
 
 
-python3 accuracy.py --api="damegender" --csv=files/names/partial.csv > files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --measure=accuracy --csv=files/names/partial.csv --api="damegender" > files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/accuracypartialdamegender.txt files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
