@@ -217,3 +217,13 @@ class DameGenderApi(Gender):
             # print("slist len:" + str(len(slist)))
             list_total = list_total + slist
         return list_total
+
+    def limit_p(self):
+        if (self.config['DEFAULT']['genderapi'] == 'yes'):
+            fichero = open("files/apikeys/genderapipass.txt", "r+")
+            contenido = fichero.readline()
+            contenido = contenido.replace('\n', '')
+            string = 'https://gender-api.com/get-stats?key=' + contenido
+            r = requests.get(string)
+            j = json.loads(r.text)
+        return j
