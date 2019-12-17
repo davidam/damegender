@@ -86,10 +86,10 @@ if (args.api == "all"):
         print("################### GenderApi!!")
         gl = dga.gender_list(path=args.csv)
         print("Gender list: " + str(gl))
-        if (os.path.isfile(args.jsondownloaded)):
-            sl = json2guess_list(jsonf="", binary=False)
-        elif (args.jsondownloaded == ''):
+        if (args.jsondownloaded is None):
             sl = dga.guess_list(path=args.csv, binary=True)
+        elif (os.path.isfile(args.jsondownloaded)):
+            sl = json2guess_list(jsonf="", binary=False)
         else:
             print("In the path %s doesn't exist file" % args.jsondownloaded)
 #        sl = dga.guess_list(path=args.csv, binary=True)
@@ -237,10 +237,10 @@ elif (args.api == "genderapi"):
     print("################### GenderApi!!")
     gl = dga.gender_list(path=args.csv)
     print("Gender list: " + str(gl))
-    if (os.path.isfile(args.jsondownloaded)):
-        sl = dga.json2guess_list(jsonf=args.jsondownloaded, binary=True)
-    elif (args.jsondownloaded == ''):
+    if (args.jsondownloaded is None):
         sl = dga.guess_list(path=args.csv, binary=True)
+    elif (os.path.isfile(args.jsondownloaded)):
+        sl = dga.json2guess_list(jsonf=args.jsondownloaded, binary=True)
     else:
         print("In the path %s doesn't exist file" % args.jsondownloaded)
     print("Guess list:  " +str(sl))
@@ -252,13 +252,13 @@ elif (args.api == "nameapi"):
     print("################### Nameapi!!")
     gl = dna.gender_list(path=args.csv)
     print("Gender list: " + str(gl))
-    if (os.path.isfile(args.jsondownloaded)):
+    if (args.jsondownloaded is None):
+        sl = dna.guess_list(path=args.csv, binary=True)
+        print("Guess list:  " +str(sl))    
+    elif (os.path.isfile(args.jsondownloaded)):
         jsonf = args.jsondownloaded
         p = os.getcwd() + jsonf
         sl = dna.json2guess_list(jsonf, binary=True)
-    elif ():
-        sl = dna.guess_list(path=args.csv, binary=True)
-        print("Guess list:  " +str(sl))
     else:
         print("In the path %s doesn't exist file" % args.jsondownloaded)
     print("Guess list:" + str(sl))
