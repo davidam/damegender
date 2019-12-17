@@ -219,6 +219,7 @@ class DameGenderApi(Gender):
         return list_total
 
     def limit_p(self):
+        j = ""
         if (self.config['DEFAULT']['genderapi'] == 'yes'):
             fichero = open("files/apikeys/genderapipass.txt", "r+")
             contenido = fichero.readline()
