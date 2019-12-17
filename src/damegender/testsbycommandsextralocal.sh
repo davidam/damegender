@@ -20,6 +20,23 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+cp config.cfg config.cfg.backup
+
+echo "
+[DEFAULT]
+genderapi = no
+genderize = no
+nameapi = no
+namsor = no
+customsearch = no
+
+[FILES]
+genderapi = files/apikeys/genderapipass.txt
+genderize = files/apikeys/genderizepass.txt
+genderguesser = files/apikeys/genderguesserpass.txt
+namsor = files/apikeys/namsorpass.txt
+nameapi = files/apikeys/nameapipass.txt
+" > config.cfg
 
 
 python3 main.py "Jesús" --total=genderguesser > files/tests/mainjesusgenderguesser-$(date "+%Y-%m-%d-%H").txt
@@ -47,6 +64,15 @@ then
 	echo "mainsara2genderguesser test is failing"
 else
 	echo "mainsara2genderguesser test is ok"
+fi
+
+python3 accuracy.py --measure="precision" --csv="files/names/min.csv" --api=genderize --jsondownloaded="files/names/genderizefiles_names_min.csv.json" > files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/accuracygenderizeminjsonprecision.txt files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "accuracygenderizeminjsonprecision test is failing"
+else
+	echo "accuracygenderizeminjsonprecision test is ok"
 fi
 
 
@@ -121,7 +147,7 @@ else
 fi
 
 
-python3 accuracy.py --api="damegender" --csv=files/names/partial.csv > files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --measure=accuracy --csv=files/names/partial.csv --api="damegender" > files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/accuracypartialdamegender.txt files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -149,6 +175,26 @@ else
 	echo "confusiongenderguesser test is ok"
 fi
 
+python3 confusion.py --csv=files/names/min.csv --jsondownloaded=files/names/namsorfiles_names_min.csv.json --api=namsor > files/tests/confusionnamsorjson-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/confusionnamsorjson.txt files/tests/confusionnamsorjson-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "confusion namsor test is failing"
+else
+	echo "confusion namsor test is ok"
+fi
+
+
+python3 confusion.py --csv=files/names/min.csv --jsondownloaded=files/names/genderizefiles_names_min.csv.json --api=genderize > files/tests/confusiongenderizejson-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/confusiongenderizejson.txt files/tests/confusiongenderizejson-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "confusion genderize test is failing"
+else
+	echo "confusion genderize test is ok"
+fi
+
+
 python3 errors.py --csv="files/names/partial.csv" > files/tests/errorspartial-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/errorspartial.txt files/tests/errorspartial-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -171,3 +217,9 @@ rm -rf /tmp/clonedir
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
 
+echo "cleaning temporary files"
+rm files/tests/*$(date "+%Y")*.txt
+
+echo "restoring the config"
+cp config.cfg.backup config.cfg
+rm config.cfg.backup

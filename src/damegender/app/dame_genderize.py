@@ -27,79 +27,161 @@ import requests
 import json
 import configparser
 from app.dame_gender import Gender
+from app.dame_utils import DameUtils
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 
 
 class DameGenderize(Gender):
 
+    def get(self, name, *args, **kwargs):
+        # obtaining data from genderize
+        string = 'https://api.genderize.io/?name='
+        string = string + name
+        if ('country_id' in kwargs):
+            string = string + "&country_id=" + kwargs.get('country_id')
+        if ('surname' in kwargs):
+            string = string + "&surname=" + kwargs.get('surname')
+        r = requests.get(string)
+        d = json.loads(r.text)
+        return d
+
+    def get2to10(self, l):
+        string = 'https://api.genderize.io/'
+
+        if ((len(l) > 1) and (len(l) <= 10)):
+            string = string + '?name[]='+l[0]
+            for i in l[1:10]:
+                string = string + '&name[]='+ i
+            r = requests.get(string)
+            d = json.loads(r.text)
+        elif (len(l) == 1):
+            d = [self.get(l[0])]
+        else:
+            d = ""
+        return d
+
     def guess(self, name, binary=False):
-        # guess method to check names dictionary
-        if (self.config['DEFAULT']['genderize'] == 'no'):
-            v = Genderize().get([name])
-        elif (self.config['DEFAULT']['genderize'] == 'yes'):
-            fichero = open(self.config['FILES']['genderize'], "r+")
-            apikey = fichero.readline().rstrip()
-            v = Genderize(
-                user_agent='GenderizeDocs/0.0',
-                api_key=apikey).get([name])
-        g = v[0]['gender']
-        if ((g == 'female') and binary):
-            guess = 0
-        elif ((g == 'male') and binary):
-            guess = 1
-        elif (not(binary)):
-            guess = g
-        return guess
+        d = self.get(name)
+        if (binary == True):
+            if (d['gender'] == 'female'):
+                gender = 0
+            elif (d['gender'] == 'male'):
+                gender = 1
+            else:
+                gender = 2
+        else:
+            gender = d['gender']
+        return gender
 
-    def prob(self, name, binary=False):
-        # guess method to check names dictionary
-        if (self.config['DEFAULT']['genderize'] == 'no'):
-            v = Genderize().get([name])
-        elif (self.config['DEFAULT']['genderize'] == 'yes'):
-            fichero = open(self.config['DEFAULT']['genderizefile'], "r+")
-            apikey = fichero.readline().rstrip()
-            v = Genderize(
-                user_agent='GenderizeDocs/0.0',
-                api_key=apikey).get([name])
-        prob = v[0]['probability']
-        return prob
+    def prob(self, name):
+        d = self.get(name)
+        return d['probability']
 
-    def guess_list(self, path='files/names/partial.csv', binary=False):
-        # guess list method
-        slist = []
-        with open(path) as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(sexreader, None)
-            i = 0
-            listnames = list()
-            for row in sexreader:
-                name = row[0].title()
-                name = name.replace('\"', '')
-                listnames.append(name)
+    def download(self, path='files/names/partial.csv'):
+        du = DameUtils()
+        l = self.csv2names(path)
         new = []
+        d = ""
         # We must split the list in different lists with size 10
-        for i in range(0, len(listnames), 10):
-            new.append(listnames[i:i+10])
-        for i in new:
-            if (self.config['DEFAULT']['genderize'] == 'no'):
-                jsonlist = Genderize().get(i)
-            elif (self.config['DEFAULT']['genderize'] == 'yes'):
-                fichero = open("files/apikeys/genderizepass.txt", "r+")
-                apikey = fichero.readline().rstrip()
-                jsonlist = Genderize(user_agent='GenderizeDocs/0.0',
-                                     api_key=apikey).get(i)
-            for item in jsonlist:
-                if ((item['gender'] is None) & binary):
-                    slist.append(2)
-                elif ((item['gender'] is None) & (not binary)):
-                    slist.append("unknown")
-                elif ((item['gender'] == "male") & binary):
-                    slist.append(1)
-                elif ((item['gender'] == "male") & (not binary)):
-                    slist.append("male")
-                elif ((item['gender'] == "female") & binary):
-                    slist.append(0)
-                elif ((item['gender'] == "female") & (not binary)):
-                    slist.append("female")
-        return slist
+        for i in range(0, len(l), 10):
+            new.append(l[i:i+10])
+        lresult = []
+        for j in new:
+            lresult.append(self.get2to10(j))
+        res = []
+        for k in lresult:
+            res = res + k
+        res = str(res).replace("\'", "\"")
+        backup = open("files/names/genderize"+du.path2file(path)+".json", "w+")
+        backup.write(res)
+        backup.close()
+        return res
+
+    def json2guess_list(self, jsonf="", binary=False):
+        jsondata = open(jsonf).read()
+        json_object = json.loads(jsondata)
+        guesslist = []
+        for i in json_object:
+            if binary:
+                if (i["gender"] == 'female'):
+                    guesslist.append(0)
+                elif (i["gender"] == 'male'):
+                    guesslist.append(1)
+                else:
+                    guesslist.append(2)
+            else:
+                guesslist.append(i["gender"])
+        return guesslist
+
+    # def guess(self, name, binary=False):
+    #     # guess method to check names dictionary
+    #     if (self.config['DEFAULT']['genderize'] == 'no'):
+    #         v = Genderize().get([name])
+    #     elif (self.config['DEFAULT']['genderize'] == 'yes'):
+    #         fichero = open(self.config['FILES']['genderize'], "r+")
+    #         apikey = fichero.readline().rstrip()
+    #         v = Genderize(
+    #             user_agent='GenderizeDocs/0.0',
+    #             api_key=apikey).get([name])
+    #     g = v[0]['gender']
+    #     if ((g == 'female') and binary):
+    #         guess = 0
+    #     elif ((g == 'male') and binary):
+    #         guess = 1
+    #     elif (not(binary)):
+    #         guess = g
+    #     return guess
+
+
+    # def prob(self, name, binary=False):
+    #     # guess method to check names dictionary
+    #     if (self.config['DEFAULT']['genderize'] == 'no'):
+    #         v = Genderize().get([name])
+    #     elif (self.config['DEFAULT']['genderize'] == 'yes'):
+    #         fichero = open(self.config['DEFAULT']['genderizefile'], "r+")
+    #         apikey = fichero.readline().rstrip()
+    #         v = Genderize(
+    #             user_agent='GenderizeDocs/0.0',
+    #             api_key=apikey).get([name])
+    #     prob = v[0]['probability']
+    #     return prob
+
+    # def guess_list(self, path='files/names/partial.csv', binary=False):
+    #     # guess list method
+    #     slist = []
+    #     with open(path) as csvfile:
+    #         sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    #         next(sexreader, None)
+    #         i = 0
+    #         genderlist = list()
+    #         for row in sexreader:
+    #             name = row[0].title()
+    #             name = name.replace('\"', '')
+    #             genderlist.append(name)
+    #     new = []
+    #     # We must split the list in different lists with size 10
+    #     for i in range(0, len(genderlist), 10):
+    #         new.append(genderlist[i:i+10])
+    #     for i in new:
+    #         if (self.config['DEFAULT']['genderize'] == 'no'):
+    #             jsonlist = Genderize().get(i)
+    #         elif (self.config['DEFAULT']['genderize'] == 'yes'):
+    #             fichero = open("files/apikeys/genderizepass.txt", "r+")
+    #             apikey = fichero.readline().rstrip()
+    #             jsonlist = Genderize(user_agent='GenderizeDocs/0.0',
+    #                                  api_key=apikey).get(i)
+    #         for item in jsonlist:
+    #             if ((item['gender'] is None) & binary):
+    #                 slist.append(2)
+    #             elif ((item['gender'] is None) & (not binary)):
+    #                 slist.append("unknown")
+    #             elif ((item['gender'] == "male") & binary):
+    #                 slist.append(1)
+    #             elif ((item['gender'] == "male") & (not binary)):
+    #                 slist.append("male")
+    #             elif ((item['gender'] == "female") & binary):
+    #                 slist.append(0)
+    #             elif ((item['gender'] == "female") & (not binary)):
+    #                 slist.append("female")
+    #     return slist

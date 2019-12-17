@@ -30,11 +30,12 @@ from app.dame_genderize import DameGenderize
 from app.dame_nameapi import DameNameapi
 from app.dame_namsor import DameNamsor
 
-
+import os
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', default="files/names/min.csv")
 parser.add_argument('--api', default="damegender", choices=['damegender', 'namsor', 'genderize', 'genderguesser', 'genderapi', 'nameapi'])
+parser.add_argument('--jsondownloaded', default="", help="files/names/genderapifiles_names_min.csv.json")
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'xgboost'])
 args = parser.parse_args()
 #print(args.csv)
@@ -94,7 +95,11 @@ elif (args.api == "genderapi"):
     d = DameGenderApi()
     print("Genderapi with %s has: " % args.csv)
     gl1 = d.gender_list(path=args.csv)
-    gl2 = d.guess_list(path=args.csv, binary=True)
+    if (os.path.isfile(args.jsondownloaded)):
+        gl2 = d.json2guess_list(jsonf=args.jsondownloaded, binary=True)
+    else:
+        gl2 = d.guess_list(path=args.csv, binary=True)
+#    gl2 = d.guess_list(path=args.csv, binary=True)
     ec = d.error_coded(gl1, gl2)
     print("+ The error code: %s" % ec)
     ecwa = d.error_coded_without_na(gl1, gl2)
@@ -120,7 +125,11 @@ elif (args.api == "nameapi"):
     d = DameNameapi()
     print("Nameapi with %s has: " % args.csv)
     gl1 = d.gender_list(path=args.csv)
-    gl2 = d.guess_list(path=args.csv, binary=True)
+    if (os.path.isfile(args.jsondownloaded)):
+        gl2 = d.json2guess_list(jsonf=args.jsondownloaded, binary=True)
+    else:
+        gl2 = d.guess_list(path=args.csv, binary=True)
+#    gl2 = d.guess_list(path=args.csv, binary=True)
     ec = d.error_coded(gl1, gl2)
     print("+ The error code: %s" % ec)
     ecwa = d.error_coded_without_na(gl1, gl2)
@@ -133,7 +142,10 @@ elif (args.api == "namsor"):
     d = DameNamsor()
     print("Namsor with %s has: " % args.csv)
     gl1 = d.gender_list(path=args.csv)
-    gl2 = d.guess_list(path=args.csv, binary=True)
+    if (os.path.isfile(args.jsondownloaded)):
+        gl2 = d.json2guess_list(jsonf=args.jsondownloaded, binary=True)
+    else:
+        gl2 = d.guess_list(path=args.csv, binary=True)
     ec = d.error_coded(gl1, gl2)
     print("+ The error code: %s" % ec)
     ecwa = d.error_coded_without_na(gl1, gl2)

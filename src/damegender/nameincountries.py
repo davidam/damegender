@@ -50,10 +50,10 @@ def exists_in_country(num, arr):
         return False
 
 if (len(sys.argv) > 1):
-    cmd = 'grep -i " ' + args.name + ' " files/names/nam_dict.txt > files/grep.tmp'
+    cmd = 'grep -i " ' + args.name + ' " files/names/nam_dict.txt > files/logs/grep.tmp'
     print(cmd)
     os.system(cmd)
-    results = [i for i in open('files/grep.tmp','r').readlines()]
+    results = [i for i in open('files/logs/grep.tmp','r').readlines()]
     males = [ ]
     females = [ ]
     both = [ ]

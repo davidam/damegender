@@ -29,12 +29,12 @@ from app.dame_genderapi import DameGenderApi
 from app.dame_genderize import DameGenderize
 from app.dame_nameapi import DameNameapi
 from app.dame_customsearch import DameCustomsearch
-
+import os
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--csv', default="files/names/min.csv")
+parser.add_argument('--csv', type=str, required=True, help="files/names/min.csv")
 parser.add_argument('--jsondownloaded', default="", help="files/names/genderapifiles_names_min.csv.json")
-parser.add_argument('--api', default="all", choices=['namsor', 'genderize', 'genderapi', 'genderguesser', 'damegender', 'nameapi', 'all'])
+parser.add_argument('--api', default="damegender", choices=['namsor', 'genderize', 'genderapi', 'genderguesser', 'damegender', 'nameapi', 'all'])
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
 parser.add_argument('--dimensions', default="2x3", choices=['1x1', '1x2', '1x3', '2x1', '2x2', '2x3', '3x1', '3x2', '3x3'])
 args = parser.parse_args()
@@ -76,20 +76,32 @@ if (args.api == "all"):
 elif (args.api == "namsor"):
     dn = DameNamsor()
     print("Namsor confusion matrix:\n")
-    dn.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    if (os.path.isfile(args.jsondownloaded)):
+        dn.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded)
+    elif (args.jsondownloaded == ''):
+        dn.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    else:
+        print("In the path %s doesn't exist file" % args.jsondownloaded)
+
 
 elif (args.api == "genderize"):
     dg = DameGenderize()
     print("Genderize confusion matrix:\n")
-    dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    if (os.path.isfile(args.jsondownloaded)):
+        dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded)
+    elif (args.jsondownloaded == ''):
+        dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    else:
+        print("In the path %s doesn't exist file" % args.jsondownloaded)    
 
 elif (args.api == "genderapi"):
     dga = DameGenderApi()
-    print("Genderapi confusion matrix:\n")
-    if (args.jsondownloaded != ""):
+    if (os.path.isfile(args.jsondownloaded)):
         dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded)
-    else:
+    elif (args.jsondownloaded == ''):
         dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    else:
+        print("In the path %s doesn't exist file" % args.jsondownloaded)
 
 elif (args.api == "genderguesser"):
     dgg = DameGenderGuesser()
@@ -104,7 +116,14 @@ elif (args.api == "damegender"):
 elif (args.api == "nameapi"):
     dna = DameNameapi()
     print("Nameapi confusion matrix:\n")
-    dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+#    dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    if (os.path.isfile(args.jsondownloaded)):
+        dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded)
+    elif (args.jsondownloaded == ''):
+        dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    else:
+        print("In the path %s doesn't exist file" % args.jsondownloaded)
+
 
 # elif (args.api == "customsearch"):
 #     dc = DameCustomsearch()

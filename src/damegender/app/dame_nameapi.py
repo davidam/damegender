@@ -27,6 +27,7 @@ import json
 import numpy as np
 import requests
 import configparser
+import os
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
 
@@ -143,3 +144,12 @@ class DameNameapi(Gender):
                 surname = surname.replace('\"', '')
                 slist.append(self.guess(name, surname, binary))
         return slist
+
+    def json2guess_list(self, jsonf="", binary=False):
+        # jsonf="files/names/nameapifiles_names_partial.csv.json"
+        jsondata = open(jsonf).read()
+        json_object = json.loads(jsondata)
+        guesslist = []
+        for i in json_object:
+            guesslist.append(i["gender"])
+        return guesslist

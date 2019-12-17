@@ -37,4 +37,8 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_genderguesser_accuracy(self):
         dgg = DameGenderGuesser()
+        gl1 = dgg.gender_list(path="files/names/partial.csv")
+        gl2 = dgg.guess_list(path="files/names/partial.csv",
+                                        binary=True)
+        self.assertTrue(dgg.accuracy_score_dame(gl1, gl2) >= 0.5)
         self.assertTrue(dgg.accuracy(path="files/names/partial.csv") >= 0.5)

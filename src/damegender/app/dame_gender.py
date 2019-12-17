@@ -207,8 +207,9 @@ class Gender(object):
         f = list(OrderedDict.fromkeys(f))
         return f
 
-    def csv2names(self, path='files/names/partial.csv'):
+    def csv2names(self, path='files/names/partial.csv', *args, **kwargs):
         # make a list from a csv file
+        surnames = kwargs.get('surnames', False)
         csvlist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -216,7 +217,13 @@ class Gender(object):
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
-                csvlist.append(name)
+                if (surnames == True):
+                    surname = row[2].title()
+                    surname = row[2].replace('\"', '')
+                    elem = [name, surname]
+                    csvlist.append(elem)
+                else:
+                    csvlist.append(name)
         return csvlist
 
     def name2gender_in_dataset(self, name, dataset=''):
@@ -238,9 +245,9 @@ class Gender(object):
                         guess = 1
         if (dataset == "files/names/nam_dict.txt"):
             cmd = 'grep -i "' + name
-            cmd = cmd + ' " files/names/nam_dict.txt > files/grep.tmp'
+            cmd = cmd + ' " files/names/nam_dict.txt > files/logs/grep.tmp'
             os.system(cmd)
-            results = [i for i in open('files/grep.tmp', 'r').readlines()]
+            results = [i for i in open('files/logs/grep.tmp', 'r').readlines()]
             for row in results:
                 datasetname = row[1].title()
                 if (datasetname == name):
@@ -500,6 +507,28 @@ class Gender(object):
     def maleundefined(self, truevector, guessvector):
         return self.count_true2guess(truevector, guessvector, 1, 2)
 
+    def accuracy_score_dame(self, truevector, guessvector):
+        if (len(truevector) == len(guessvector)):
+            divider = self.femalefemale(truevector, guessvector)
+            divider = divider + self.malemale(truevector, guessvector)
+            dividend = self.femalefemale(truevector, guessvector)
+            dividend = dividend + self.malemale(truevector, guessvector)
+            dividend = dividend + self.malefemale(truevector, guessvector)
+            dividend = dividend + self.femalemale(truevector, guessvector)
+            dividend = dividend + self.femaleundefined(truevector, guessvector)
+            dividend = dividend + self.maleundefined(truevector, guessvector)
+            result = divider / dividend
+        else:
+            result = 0
+            print("Both vectors must have the same length")
+        return result
+
+    def accuracy(self, path):
+        gl = self.gender_list(path)
+        sl = self.guess_list(path, binary=True)
+        return self.accuracy_score_dame(gl, sl)
+
+
     def precision(self, truevector, guessvector):
         result = 0
         divider = self.femalefemale(truevector, guessvector)
@@ -596,28 +625,6 @@ class Gender(object):
         result = divider / dividend
         return result
 
-    def accuracy_score_dame(self, v1, v2):
-        if (len(v1) == len(v2)):
-            success = 0
-            fails = 0
-            for i in range(0, len(v1)):
-                if (v1[i] == v2[i]):
-                    success = success + 1
-                else:
-                    fails = fails + 1
-            if (fails == 0):
-                accuracy = 1
-            else:
-                accuracy = success / len(v1)
-        else:
-            accuracy = 0
-            print("Both vectors must have the same length")
-        return accuracy
-
-    def accuracy(self, path):
-        gl = self.gender_list(path)
-        sl = self.guess_list(path, binary=True)
-        return self.accuracy_score_dame(gl, sl)
 
     def confusion_matrix(self, path='files/names/partial.csv'):
         gl = self.gender_list(path)
@@ -630,37 +637,35 @@ class Gender(object):
         print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
         return ""
 
-    def confusion_matrix_gender(self, path='', dimensions="3x2"):
+    def confusion_matrix_gender(self, path='', dimensions="2x3", jsonf=""):
         truevector = self.gender_list(path)
-        guessvector = self.guess_list(path, binary=True)
-        ff = self.count_true2guess(truevector, guessvector, 0, 0)
-        self.femalefemale = ff
-        fm = self.count_true2guess(truevector, guessvector, 0, 1)
-        self.femalemale = fm
-        fu = self.count_true2guess(truevector, guessvector, 0, 2)
-        self.femaleundefined = fu
-        mf = self.count_true2guess(truevector, guessvector, 1, 0)
-        self.malefemale = mf
-        mm = self.count_true2guess(truevector, guessvector, 1, 1)
-        self.malemale = mm
-        mu = self.count_true2guess(truevector, guessvector, 1, 2)
-        self.maleundefined = mu
-        uf = self.count_true2guess(truevector, guessvector, 1, 0)
-        self.undefinedfemale = uf
-        um = self.count_true2guess(truevector, guessvector, 1, 1)
-        self.undefinedmale = um
-        uu = self.count_true2guess(truevector, guessvector, 1, 2)
-        self.undefinedundefined = uu
+        if (os.path.isfile(jsonf)):
+            guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
+        else:
+            guessvector = self.guess_list(path, binary=True)
 
-        l = [[self.femalefemale,
-              self.femalemale,
-              self.femaleundefined],
-             [self.malefemale,
-              self.malemale,
-              self.maleundefined],
-             [self.undefinedfemale,
-              self.undefinedmale,
-              self.undefinedundefined]]
+        # femalefemale
+        self.ff = self.count_true2guess(truevector, guessvector, 0, 0)
+        # femalemale
+        self.fm = self.count_true2guess(truevector, guessvector, 0, 1)
+        # femaundefined
+        self.fu = self.count_true2guess(truevector, guessvector, 0, 2)
+        # malefemale
+        self.mf = self.count_true2guess(truevector, guessvector, 1, 0)
+        # malemale
+        self.mm = self.count_true2guess(truevector, guessvector, 1, 1)
+        # maleundefined
+        self.mu = self.count_true2guess(truevector, guessvector, 1, 2)
+        # undefinedfemale
+        self.uf = self.count_true2guess(truevector, guessvector, 1, 0)
+        # undefinedmale
+        self.um = self.count_true2guess(truevector, guessvector, 1, 1)
+        # undefinedundefined
+        self.uu = self.count_true2guess(truevector, guessvector, 1, 2)
+
+        l = [[self.ff, self.fm, self.fu],
+             [self.mf, self.mm, self.mu],
+             [self.uf, self.um, self.uu]]
 
         if (dimensions == "1x1"):
             res = [[l[0][0]]]
@@ -677,23 +682,14 @@ class Gender(object):
         elif (dimensions == "3x1"):
             res = [[l[0][0]], [l[1][0]], [l[2][0]]]
         elif (dimensions == "3x2"):
-            res = [[l[0][0],
-                    l[0][1]],
-                   [l[1][0],
-                    l[1][1]],
-                   [l[2][0],
-                    l[2][1]]]
+            res = [[l[0][0], l[0][1]], [l[1][0], l[1][1]], [l[2][0], l[2][1]]]
         elif (dimensions == "3x3"):
-            res = [[l[0][0],
-                    l[0][1],
-                    l[0][2]],
-                   [l[1][0],
-                    l[1][1],
-                    l[1][2]],
-                   [l[2][0],
-                    l[2][1],
-                    l[2][2]]]
+            res = [[l[0][0], l[0][1], l[0][2]],
+                   [l[1][0], l[1][1], l[1][2]],
+                   [l[2][0], l[2][1], l[2][2]]]
         return res
+
+
 
     def features_list(self, path='files/names/partial.csv', sexdataset=''):
         flist = []
@@ -865,3 +861,11 @@ class Gender(object):
         elif (measure == "f1score"):
             gender_f1score = self.f1score(gl1, gl2)
             print("%s f1score: %s" % (api_name, gender_f1score))
+
+    def print_confusion_matrix_gender(self, path='files/names/partial.csv', dimensions="2x3", jsonf=""):
+        jf = os.getcwd() + "/" +  jsonf
+        if (os.path.isfile(jf)):
+            cmd = self.confusion_matrix_gender(path, dimensions, jf)
+            print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+            print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+        return ""

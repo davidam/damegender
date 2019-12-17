@@ -24,11 +24,11 @@
 import os
 import re
 from setuptools import setup
-# from os import path
+from os import path
 
-# this_directory = path.abspath(path.dirname(__file__))
-# with open(path.join(this_directory, 'README.md')) as f:
-#     long_description = f.read()
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.md')) as f:
+    long_description = f.read()
 
 cwd = os.getcwd()
 
@@ -57,9 +57,10 @@ def drop_pwd(s):
     return result
 
 setup(name='damegender',
-      version='0.1.42',
+      version='0.1.45',
       description='Gender Detection Tool by David Arroyo MEnéndez',
-      long_description='Gender Detection Tool by David Arroyo MEnéndez',
+      long_description=long_description,
+      long_description_content_type='text/markdown',
       classifiers=[
           "Programming Language :: Python :: 3",
           "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
@@ -81,9 +82,9 @@ setup(name='damegender',
                     'damegender.names_es': ['*'],
                     'damegender.images': ['*'],
                     'damegender.datamodels': ['*'],
-                    'damegender.logs': ['*'],                    
+                    'damegender.logs': ['*'],
                     'damegender.root': ['*']},
-      data_files=[('damegender', ['src/damegender/README.org', 'src/damegender/config.cfg', 'src/damegender/files/features_list.csv', 'src/damegender/files/features_list_cat.csv', 'src/damegender/files/features_list_no_cat.csv', 'src/damegender/files/features_list_no_undefined.csv'] + files_one_level_drop_pwd(cwd+"/src/damegender/files/images") + files_one_level_drop_pwd(cwd+"/src/damegender/files/datamodels") + files_one_level_drop_pwd(cwd+"/src/damegender/files/mbox") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names/names_es") + files_one_level_drop_pwd(cwd+"/src/damegender/files/tests")  + files_one_level_drop_pwd(cwd+"/src/damegender/files/logs"))],
+      data_files=[('damegender', ['src/damegender/README.org', 'src/damegender/README.md', 'src/damegender/config.cfg', 'src/damegender/files/features_list.csv', 'src/damegender/files/features_list_cat.csv', 'src/damegender/files/features_list_no_cat.csv', 'src/damegender/files/features_list_no_undefined.csv'] + files_one_level_drop_pwd(cwd+"/src/damegender/files/images") + files_one_level_drop_pwd(cwd+"/src/damegender/files/datamodels") + files_one_level_drop_pwd(cwd+"/src/damegender/files/mbox") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names/names_es") + files_one_level_drop_pwd(cwd+"/src/damegender/files/tests")  + files_one_level_drop_pwd(cwd+"/src/damegender/files/logs"))],
       install_requires=[
           'markdown',
           'nltk',

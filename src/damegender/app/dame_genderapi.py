@@ -24,6 +24,7 @@
 import csv
 import requests
 import json
+import os
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
 
@@ -106,22 +107,23 @@ class DameGenderApi(Gender):
         guesslist = []
         for i in json_object["names"][0]:
             if binary:
-                if (i['gender'] == 'female'):
+                if (i["gender"] == 'female'):
                     guesslist.append(0)
-                elif (i['gender'] == 'male'):
+                elif (i["gender"] == 'male'):
                     guesslist.append(1)
                 else:
                     guesslist.append(2)
             else:
-                guesslist.append(i['gender'])
+                guesslist.append(i["gender"])
         return guesslist
 
     def confusion_matrix_gender(self, path='', dimensions="2x3", jsonf=""):
         truevector = self.gender_list(path)
-        if (jsonf != ""):
-            guessvector = self.json2guess_list(jsonf="", binary=True)
+        if (os.path.isfile(jsonf)):
+            guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
         else:
             guessvector = self.guess_list(path, binary=True)
+
         # femalefemale
         self.ff = self.count_true2guess(truevector, guessvector, 0, 0)
         # femalemale
@@ -168,9 +170,11 @@ class DameGenderApi(Gender):
         return res
 
     def print_confusion_matrix_gender(self, path='files/names/partial.csv', dimensions="2x3", jsonf=""):
-        cmd = self.confusion_matrix_gender(path, dimensions, jsonf)
-        print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-        print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+        jf = os.getcwd() + "/" +  jsonf
+        if (os.path.isfile(jf)):
+            cmd = self.confusion_matrix_gender(path, dimensions, jf)
+            print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+            print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
         return ""
 
     def guess_list(self, path="files/names/partial.csv", binary=False):
@@ -213,3 +217,14 @@ class DameGenderApi(Gender):
             # print("slist len:" + str(len(slist)))
             list_total = list_total + slist
         return list_total
+
+    def limit_p(self):
+        j = ""
+        if (self.config['DEFAULT']['genderapi'] == 'yes'):
+            fichero = open("files/apikeys/genderapipass.txt", "r+")
+            contenido = fichero.readline()
+            contenido = contenido.replace('\n', '')
+            string = 'https://gender-api.com/get-stats?key=' + contenido
+            r = requests.get(string)
+            j = json.loads(r.text)
+        return j

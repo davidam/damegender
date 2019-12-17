@@ -118,11 +118,6 @@ David gender is male
  363559  males for David from INE.es
 0 females for David from INE.es
 
-# Detect gender from a name from multiple dataset
-$ python3 main.py David --total="all"
-David gender is male
-375099 males and 9 females from all census (INE + Uk census + USA census)
-
 # Detect gender from a name only using machine learning (experimental way)
 $ python3 main.py Mesa --ml=nltk
 Mesa gender is female
@@ -166,6 +161,10 @@ Males with last letter consonant: 0.6355328972681801
 Females with last letter vocal: 0.7262612995441552
 Males with last letter vocal: 0.3640823393612928
 
+# Download results from an api and save in a file
+$ python3 downloadjson --csv=files/names/min.csv --api=genderize
+$ cat files/names/genderizefiles_names_min.csv.json
+
 # To measure success
 $ python3 accuracy.py --csv=files/names/min.csv
 ################### NLTK!!
@@ -179,25 +178,13 @@ Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
 Guess list:  [1, 1, 1, 1, 2, 1, 0, 0]
 Genderize accuracy: 1
 
-$ python3 confusion.py
+$ python3 confusion.py --csv="files/names/partial.csv" --api=nameapi --jsondownloaded="files/names/nameapifiles_names_partial.csv.json"
 A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
 If the classifier is nice, the diagonal is high because there are true positives
-Namsor confusion matrix:
- [[2 0 0]
- [0 5 0]
- [0 1 0]]
-Genderize confusion matrix:
- [[2 0 0]
- [0 5 0]
- [0 0 1]]
-Gender Guesser confusion matrix:
- [[2 0 0]
- [0 5 0]
- [0 1 0]]
-Sexmachine confusion matrix:
- [[2 0 0]
- [0 5 0]
- [1 0 0]]
+Nameapi confusion matrix:
+
+[[ 3, 0, 0]
+ [ 0, 15, 1]]
 
 # To analyze errors guessing names from a csv
 $ python3 errors.py --csv="files/names/all.csv" --api="genderguesser"
