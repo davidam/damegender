@@ -40,7 +40,7 @@ echo "
 # genderguesser = files/apikeys/genderguesserpass.txt
 # namsor = files/apikeys/namsorpass.txt
 # nameapi = files/apikeys/nameapipass.txt
-# " 
+# "
 
 if [ -a files/apikeys/genderapipass.txt ]; then
     echo "genderapi = yes" >> config.cfg
@@ -51,25 +51,25 @@ fi
 if [ -a files/apikeys/genderizepass.txt ]; then
     echo "genderize = yes" >> config.cfg
 else
-    echo "genderize = no" >> config.cfg    
+    echo "genderize = no" >> config.cfg
 fi
 
 if [ -a files/apikeys/genderguesserpass.txt ]; then
     echo "genderguesser = yes" >> config.cfg
 else
-    echo "genderguesser = no" >> config.cfg    
+    echo "genderguesser = no" >> config.cfg
 fi
 
 if [ -a files/apikeys/namsorpass.txt ]; then
     echo "namsor = yes" >> config.cfg
 else
-    echo "namsor = no" >> config.cfg    
+    echo "namsor = no" >> config.cfg
 fi
 
 if [ -a files/apikeys/nameapipass.txt ]; then
     echo "nameapi = yes" >> config.cfg
 else
-    echo "nameapi = no" >> config.cfg    
+    echo "nameapi = no" >> config.cfg
 fi
 
 echo "
@@ -79,7 +79,7 @@ genderize = files/apikeys/genderizepass.txt
 genderguesser = files/apikeys/genderguesserpass.txt
 namsor = files/apikeys/namsorpass.txt
 nameapi = files/apikeys/nameapipass.txt
-" >> config.cfg    
+" >> config.cfg
 
 python3 git2gender.py https://github.com/davidam/orgguide-es.git --directory="/tmp/clonedir" > files/tests/git2gender1-$(date "+%Y-%m-%d-%H").txt
 
@@ -102,7 +102,6 @@ else
 	echo "mail2gender test is ok"
 fi
 
-
 python3 api2gender.py David --api="genderize" > files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/api2genderDavidgenderize.txt files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -112,7 +111,7 @@ else
 	echo "api2genderDavidgenderize test is ok"
 fi
 
-python3 downloadjson.py --api=genderize --csv=files/names/min.csv 
+python3 downloadjson.py --api=genderize --csv=files/names/min.csv
 
 if [ -a files/names/genderizefiles_names_min.csv.json ]; then
     echo "download genderize files names min is ok"
@@ -130,7 +129,7 @@ if [ -a files/apikeys/namsorpass.txt ]; then
 	echo "api2genderLeticianamsor test is ok"
     fi
 
-    python3 downloadjson.py --api=namsor --csv=files/names/min.csv 
+    python3 downloadjson.py --api=namsor --csv=files/names/min.csv
 
     if [ -a files/names/namsorfiles_names_min.csv.json ]; then
 	echo "download namsor files names min is ok"
@@ -138,19 +137,19 @@ if [ -a files/apikeys/namsorpass.txt ]; then
 	echo "download namsor files names min is failing"
     fi
 
-    
+
 fi
 
 if [ -a files/apikeys/genderapipass.txt ]; then
 
-    python3 downloadjson.py --api=genderapi --csv=files/names/min.csv 
+    python3 downloadjson.py --api=genderapi --csv=files/names/min.csv
 
     if [ -a files/names/genderapifiles_names_min.csv.json ]; then
 	echo "download genderapi files names min is ok"
     else
 	echo "download genderapi files names min is failing"
     fi
-	
+
     python3 api2gender.py Inés --api="genderapi" > files/tests/api2genderInésgenderapi-$(date "+%Y-%m-%d-%H").txt
 
     if ! cmp files/tests/api2genderInésgenderapi.txt files/tests/api2genderInésgenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -169,34 +168,7 @@ if [ -a files/apikeys/genderapipass.txt ]; then
 	echo "accuracygenderapi test is ok"
     fi
 
-    python3 accuracy.py --api="genderapi" --csv="files/names/min.csv" --jsondownloaded="files/names/genderapifiles_names_min.processed.json" > files/tests/accuracyminjsongenderapi-$(date "+%Y-%m-%d-%H").txt
-    if ! cmp files/tests/accuracyminjsongenderapi.txt files/tests/accuracyminjsongenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-    then
-	echo "accuracyminjsongenderapi test is failing"
-    else
-	echo "accuracyminjsongenderapi test is ok"
-    fi
-
-    python3 confusion.py --api="genderapi" --csv="files/names/min.csv" --jsondownloaded="files/names/genderapifiles_names_min.processed.json" > files/tests/confusiongenderapi-$(date "+%Y-%m-%d-%H").txt
-    
-    if ! cmp files/tests/confusiongenderapi.txt files/tests/confusiongenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-    then
-	echo "confusiongenderapi test is failing"
-    else
-	echo "confusiongenderapi test is ok"
-    fi
 fi
-
-# python3 confusion.py --api="genderize" > files/tests/confusiongenderize-$(date "+%Y-%m-%d-%H").txt
-
-# if ! cmp files/tests/confusiongenderize.txt files/tests/confusiongenderize-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-# then
-# 	echo "confusiongenderize test is failing"
-# else
-# 	echo "confusiongenderize test is ok"
-# fi
-
-python3 confusion.py --api="genderapi" --csv="files/names/min.csv" --json="files/names/genderapifiles_names_min.processed.json" > files/tests/confusiongenderapi.txt
 
 rm -rf /tmp/clonedir
 echo "cleaning temporary files"
