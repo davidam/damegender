@@ -523,10 +523,10 @@ class Gender(object):
             print("Both vectors must have the same length")
         return result
 
-    # def accuracy(self, path):
-    #     gl = self.gender_list(path)
-    #     sl = self.guess_list(path, binary=True)
-    #     return self.accuracy_score_dame(gl, sl)
+    def accuracy(self, path):
+        gl = self.gender_list(path)
+        sl = self.guess_list(path, binary=True)
+        return self.accuracy_score_dame(gl, sl)
 
 
     def precision(self, truevector, guessvector):
