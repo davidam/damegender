@@ -102,6 +102,7 @@ else
 	echo "mail2gender test is ok"
 fi
 
+
 python3 api2gender.py David --api="genderize" > files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/api2genderDavidgenderize.txt files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -168,7 +169,7 @@ if [ -a files/apikeys/genderapipass.txt ]; then
 	echo "accuracygenderapi test is ok"
     fi
 
-    python3 accuracy.py --api="genderapi" --csv="files/names/min.csv" --json="files/names/genderapifiles_names_min.processed.json" > files/tests/accuracyminjsongenderapi-$(date "+%Y-%m-%d-%H").txt
+    python3 accuracy.py --api="genderapi" --csv="files/names/min.csv" --jsondownloaded="files/names/genderapifiles_names_min.processed.json" > files/tests/accuracyminjsongenderapi-$(date "+%Y-%m-%d-%H").txt
     if ! cmp files/tests/accuracyminjsongenderapi.txt files/tests/accuracyminjsongenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
     then
 	echo "accuracyminjsongenderapi test is failing"
@@ -176,7 +177,7 @@ if [ -a files/apikeys/genderapipass.txt ]; then
 	echo "accuracyminjsongenderapi test is ok"
     fi
 
-    python3 confusion.py --api="genderapi" --csv="files/names/min.csv" --json="files/names/genderapifiles_names_min.processed.json" > files/tests/confusiongenderapi-$(date "+%Y-%m-%d-%H").txt
+    python3 confusion.py --api="genderapi" --csv="files/names/min.csv" --jsondownloaded="files/names/genderapifiles_names_min.processed.json" > files/tests/confusiongenderapi-$(date "+%Y-%m-%d-%H").txt
     
     if ! cmp files/tests/confusiongenderapi.txt files/tests/confusiongenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
     then
