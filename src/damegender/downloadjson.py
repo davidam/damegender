@@ -37,7 +37,10 @@ args = parser.parse_args()
 
 if (args.api=='genderize'):
     dg = DameGenderize()
-    text1 = dg.download(path=args.csv)
+    if (dg.config['DEFAULT']['genderize'] == 'yes'):
+        text1 = dg.download(path=args.csv)
+    else:
+        print("You must enable genderize in config.cfg")
 elif (args.api=='genderapi'):
     dga = DameGenderApi()
     if (dga.config['DEFAULT']['genderapi'] == 'yes'):
@@ -49,7 +52,10 @@ elif (args.api=='genderapi'):
         print("You must enable genderapi in config.cfg")
 elif (args.api=='namsor'):
     dn = DameNamsor()
-    text1 = dn.download(path=args.csv)
+    if (dga.config['DEFAULT']['namsor'] == 'yes'):
+        text1 = dn.download(path=args.csv)
+    else:
+        print("You must enable namsor in config.cfg")
 elif (args.api=='nameapi'):
     dna = DameNameapi()
     if (dna.config['DEFAULT']['nameapi'] == 'yes'):
