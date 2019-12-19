@@ -111,7 +111,7 @@ class DameNameapi(Gender):
         while (i < length):
             nameapijson.write('{"name":"'+names[i][0]+'",\n')
             g = self.get(names[i][0], names[i][1], binary=True)
-            nameapijson.write('"surname":'+names[i][1]+',\n')
+            nameapijson.write('"surname":"'+names[i][1]+'",\n')
             nameapijson.write('"gender":'+str(g[0])+',\n')
             nameapijson.write('"confidence":'+str(g[1])+'\n')
             if ((length -1) == i):
