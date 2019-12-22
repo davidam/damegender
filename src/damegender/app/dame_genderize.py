@@ -114,6 +114,24 @@ class DameGenderize(Gender):
                 guesslist.append(i["gender"])
         return guesslist
 
+    def limit_exceeded_p(self):
+        j = ""
+        if (self.config['DEFAULT']['genderize'] == 'yes'):
+            fichero = open("files/apikeys/genderizepass.txt", "r+")
+            contenido = fichero.readline()
+            contenido = contenido.replace('\n', '')
+            string = 'https://api.genderize.io/?name[]=peter&name[]=lois&name[]=stevie?apikey=' + contenido
+        else:
+            string = 'https://api.genderize.io/?name[]=peter&name[]=lois&name[]=stevie'
+        r = requests.get(string)
+        j = json.loads(r.text)
+        if (j["error"] is not None):
+            p = True
+        else:
+            p = False
+        return p
+
+
     # def guess(self, name, binary=False):
     #     # guess method to check names dictionary
     #     if (self.config['DEFAULT']['genderize'] == 'no'):
