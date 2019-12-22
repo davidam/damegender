@@ -218,8 +218,9 @@ class DameGenderApi(Gender):
             list_total = list_total + slist
         return list_total
 
-    def limit_p(self):
+    def limit_exceeded_p(self):
         j = ""
+        limit_exceeded_p = True
         if (self.config['DEFAULT']['genderapi'] == 'yes'):
             fichero = open("files/apikeys/genderapipass.txt", "r+")
             contenido = fichero.readline()
@@ -227,4 +228,5 @@ class DameGenderApi(Gender):
             string = 'https://gender-api.com/get-stats?key=' + contenido
             r = requests.get(string)
             j = json.loads(r.text)
-        return j
+            limit_exceeded_p = j["is_limit_reached"]
+        return limit_exceeded_p
