@@ -37,17 +37,15 @@ args = parser.parse_args()
 
 if (args.api=='genderize'):
     dg = DameGenderize()
-    if (dg.config['DEFAULT']['genderize'] == 'yes'):
-        if (dg.limit_exceeded_p() == False):
-            text1 = dg.download(path=args.csv)
-        else:
-            print("You have not money with this api key")
-    else:
-        print("You must enable genderize in config.cfg")
+    text1 = dg.download(path=args.csv)    
 elif (args.api=='genderapi'):
     dga = DameGenderApi()
     if (dga.config['DEFAULT']['genderapi'] == 'yes'):
-        if (dga.limit_exceeded_p() == False):
+        if (dga.apikey_limit_exceeded_p() == False):
+            text1 = dga.download(path=args.csv)
+        elif (dga.apikey_count_requests() < len(dga.csv2names(args.csv))):
+            print("You have enough requests with this api key")
+        elif (dga.apikey_count_requests() >= len(dga.csv2names(args.csv))):
             text1 = dga.download(path=args.csv)
         else:
             print("You have not money with this api key")
