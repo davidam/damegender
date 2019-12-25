@@ -71,14 +71,20 @@ class TddInPythonExample(unittest.TestCase):
             self.assertEqual(l, [1, 1, 1, 1, 1, 1, 0, 0, 1,
                               1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 1])
 
-    def test_dame_nameapi_confusion_matrix_returns_correct_result(self):
+    def test_dame_nameapi_confusion_matrix_net_returns_correct_result(self):
         dna = DameNameapi()
         jsonf = 'files/names/nameapifiles_names_partial.csv.json'
         if (dna.config['DEFAULT']['nameapi'] == 'yes'):
-            cm = dna.confusion_matrix_gender(path="files/names/min.csv",
-                                             dimensions="2x3")
-            self.assertEqual([[1, 0, 0], [0, 5, 0]],
+            cm = dna.confusion_matrix_gender(path="files/names/partial.csv",
+                                             dimensions="2x3",
+                                             jsonf=jsonf)
+            self.assertEqual([[3, 0, 0], [0, 15, 1]],
                              cm)
+
+    def test_dame_nameapi_confusion_matrix_json_returns_correct_result(self):
+        dna = DameNameapi()
+        jsonf = 'files/names/nameapifiles_names_partial.csv.json'
+        if (dna.config['DEFAULT']['nameapi'] == 'yes'):
             cm = dna.confusion_matrix_gender(path="files/names/partial.csv",
                                              dimensions="2x3",
                                              jsonf=jsonf)
