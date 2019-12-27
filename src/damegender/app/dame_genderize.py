@@ -31,7 +31,6 @@ from app.dame_utils import DameUtils
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 
-
 class DameGenderize(Gender):
 
     def get(self, name, *args, **kwargs):
@@ -93,6 +92,7 @@ class DameGenderize(Gender):
         for k in lresult:
             res = res + k
         res = str(res).replace("\'", "\"")
+        res = str(res).replace('None', '"unknown"')
         backup = open("files/names/genderize"+du.path2file(path)+".json", "w+")
         backup.write(res)
         backup.close()
@@ -114,7 +114,7 @@ class DameGenderize(Gender):
                 guesslist.append(i["gender"])
         return guesslist
 
-    def limit_exceeded_p(self):
+    def apikey_limit_exceeded_p(self):
         j = ""
         if (self.config['DEFAULT']['genderize'] == 'yes'):
             fichero = open("files/apikeys/genderizepass.txt", "r+")
