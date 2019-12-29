@@ -77,20 +77,25 @@ class DameGenderize(Gender):
         d = self.get(name)
         return d['probability']
 
-    def download(self, path='files/names/partial.csv'):
+    def download(self, path='files/names/partial.csv', surnames=False):
         du = DameUtils()
-        l = self.csv2names(path)
         new = []
         d = ""
-        # We must split the list in different lists with size 10
-        for i in range(0, len(l), 10):
-            new.append(l[i:i+10])
         lresult = []
-        for j in new:
-            lresult.append(self.get2to10(j))
         res = []
-        for k in lresult:
-            res = res + k
+        if (surnames == True):
+            l = self.csv2names(path, surnames=True)
+            for i in range(0, len(l)):
+                lresult.append(self.get(l[i][0], surname=l[i][1]))
+        else:
+            l = self.csv2names(path)
+            # We must split the list in different lists with size 10
+            for i in range(0, len(l), 10):
+                new.append(l[i:i+10])
+            for j in new:
+                lresult.append(self.get2to10(j))
+            for k in lresult:
+                res = res + k
         res = str(res).replace("\'", "\"")
         res = str(res).replace('None', '"unknown"')
         backup = open("files/names/genderize"+du.path2file(path)+".json", "w+")
