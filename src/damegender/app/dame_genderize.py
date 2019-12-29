@@ -86,7 +86,10 @@ class DameGenderize(Gender):
         if (surnames == True):
             l = self.csv2names(path, surnames=True)
             for i in range(0, len(l)):
-                lresult.append(self.get(l[i][0], surname=l[i][1]))
+                d = self.get(l[i][0], surname=l[i][1])
+                d["surname"] = l[i][1]
+                lresult.append(d)
+            res = str(lresult)
         else:
             l = self.csv2names(path)
             # We must split the list in different lists with size 10
