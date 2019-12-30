@@ -82,7 +82,7 @@ class DameGenderize(Gender):
         new = []
         d = ""
         lresult = []
-        res = []
+        res = ""
         if (surnames == True):
             l = self.csv2names(path, surnames=True)
             for i in range(0, len(l)):
@@ -98,7 +98,7 @@ class DameGenderize(Gender):
             for j in new:
                 lresult.append(self.get2to10(j))
             for k in lresult:
-                res = res + k
+                res = res + str(k)
         res = str(res).replace("\'", "\"")
         res = str(res).replace('None', '"unknown"')
         backup = open("files/names/genderize"+du.path2file(path)+".json", "w+")
@@ -121,6 +121,7 @@ class DameGenderize(Gender):
             else:
                 guesslist.append(i["gender"])
         return guesslist
+
 
     def apikey_limit_exceeded_p(self):
         j = ""
