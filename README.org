@@ -237,14 +237,16 @@ $ python3 pca-features.py                                   # To understand the 
 
 ** Accuracy
 
-|                |           Accuracy |
-| Genderapi      | 0.9687686966482124 |
-| Namsor         | 0.7539570378745054 |
-| Genderize      | 0.715375918598078  |
-| Gender Guesser | 0.6902204635387225 |
-| Dame Gender    | 0.6677501413227812 |
+| Name           |           Accuracy |          Precision |            F1score | Recall |
+| Genderapi      | 0.9687686966482124 | 0.9717050018254838 | 0.9637877964874163 |    1.0 |
+| Genderize      |           0.926775 | 0.9761303240374678 | 0.9655113956503119 |    1.0 |
+| Namsor         | 0.8672551055728626 | 0.9730097087378641 | 0.9236866359447006 |    1.0 |
+| Gender Guesser | 0.7743554248139817 | 0.9848151408450704 | 0.8715900233826968 |    1.0 |
+| Damegender     | 0.7452405676704742 | 0.8789548887528067 | 0.8789548887528067 |    1.0 |
 
-We are using nltk and INE.es dataset in test. We hope better results
+(Checked: 2019/10 until 2019/12)
+
+In Damegender we are using nltk and INE.es dataset in test. We hope better results
 with more languages.
 
  Machine Learning Algorithms in DameGender
@@ -289,43 +291,12 @@ These results are experimental, we are improving the choosing of features.
 In this version of Dame Gender, we are not considering decide names as undefined.
 
 ** Errors with files/names/all.csv has:
-*** Gender Guesser
 
-| The error code            |  0.22564457518601835 |
-| The error code without na | 0.026962383126766687 |
-| The na coded              |   0.2041875757051393 |
-| The error gender bias     |   0.0030441400304414 |
-
-The command was:
-
-#+BEGIN_SRC
-$ python3 errors.py --api="genderguesser" --csv="files/names/all.csv"
-#+END_SRC
-
-*** Damegender
-
-| The error code            | 0.18238449558747188 |
-| The error code without na | 0.18238449558747188 |
-| The na coded              |                 0.0 |
-| The error gender bias     |  0.0868662398338813 |
-
-The command was:
-
-#+BEGIN_SRC
-$ python3 errors.py --api="damegender" --csv="files/names/all.csv"
-#+END_SRC
-
-*** Namsor
-
-#+BEGIN_SRC
-$ python3 errors.py --api="namsor" --csv="files/names/all.csv"
-Namsor with files/names/all.csv has:
-#+END_SRC
-
-| The error code            |  0.13272192420834053 |
-| The error code without na | 0.041499330655957165 |
-| The na coded              |  0.09517217511680222 |
-| The error gender bias     | 0.011665710460891184 |
+| API            |          error code | error code without na |            na coded |    error gender bias |
+| Damegender     |  0.2547594323295258 |    0.2547594323295258 |                 0.0 | -0.04949809622706819 |
+| GenderApi      | 0.16666666666666666 |   0.16666666666666666 |                 0.0 | -0.16666666666666666 |
+| Gender Guesser |  0.2255105572862582 |  0.026962383126766687 | 0.20404984423676012 |   0.0030441400304414 |
+| Namsor         | 0.16666666666666666 |   0.16666666666666666 |                 0.0 |  0.16666666666666666 |
 
 ** Performance
 + GenderGuesser accuracy: 0.6902204635387225
