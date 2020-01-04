@@ -48,7 +48,7 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_nameapi_gender_list_method_returns_correct_result(self):
         g = DameNameapi()
-        gl = g.gender_list()
+        gl = g.gender_list(path="files/names/partial.csv")
         if (g.config['DEFAULT']['nameapi'] == 'yes'):
             self.assertEqual(gl,
                              [1, 1, 1, 1, 2, 1, 0, 0, 1, 1,
@@ -66,10 +66,11 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_nameapi_guess_list_method_returns_correct_result(self):
         dna = DameNameapi()
         if (dna.config['DEFAULT']['nameapi'] == 'yes'):
-            jsonf = 'files/names/nameapifiles_names_partial.csv.json'
-            l = dna.json2guess_list(jsonf, binary=True)
+            jsonf1 = 'files/names/nameapifiles_names_partial.csv.json'
+            l = dna.json2guess_list(jsonf1, binary=True)
             self.assertEqual(l, [1, 1, 1, 1, 1, 1, 0, 0, 1,
                               1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 1])
+
 
     def test_dame_nameapi_confusion_matrix_net_returns_correct_result(self):
         dna = DameNameapi()
@@ -88,12 +89,11 @@ class TddInPythonExample(unittest.TestCase):
             cm = dna.confusion_matrix_gender(path="files/names/min.csv",
                                              dimensions="2x3",
                                              jsonf=jsonf)
-            self.assertEqual([[3, 0, 0], [0, 15, 1]],
+            self.assertEqual([[1, 0, 0], [0, 5, 0]],
                              cm)
 
 
     def test_dame_nameapi_json2names(self):
         dn = DameNameapi()
         l = dn.json2names(jsonf="files/names/nameapifiles_names_min.csv.json")
-        self.assertEqual(['Pierre', 'Raul', 'Adriano', 'Ralf',
-                          'Guillermo', 'Sabina'], l)
+        self.assertEqual(['Pierre', 'Raul', 'Adriano', 'Ralf', 'Guillermo', 'Sabina'], l)
