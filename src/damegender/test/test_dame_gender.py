@@ -166,7 +166,7 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_gender_list(self):
         g = Gender()
-        gl = g.gender_list()
+        gl = g.gender_list(path="files/names/partial.csv")
         self.assertEqual(gl,
                          [1, 1, 1, 1, 2, 1, 0, 0, 1, 1,
                           2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
@@ -279,14 +279,24 @@ class TddInPythonExample(unittest.TestCase):
         v1 = [1, 0, 1, 1, 0, 0]
         v2 = [1, 1, 1, 0, 0, 0]
         self.assertEqual(g.count_true2guess(v1, v2, 0, 0), 2) # femalefemale
+        self.assertEqual(g.femalefemale(v1, v2), 2)
         self.assertEqual(g.count_true2guess(v1, v2, 1, 1), 2) # malemale
+        self.assertEqual(g.malemale(v1, v2), 2)
         self.assertEqual(g.count_true2guess(v1, v2, 0, 1), 1) # femalemale
+        self.assertEqual(g.femalemale(v1, v2), 1)
         self.assertEqual(g.count_true2guess(v1, v2, 1, 0), 1) # malefemale
+        self.assertEqual(g.malefemale(v1, v2), 1)
         vv1 = [1, 0, 1, 1, 1]
         vv2 = [1, 1, 1, 0]
         self.assertEqual(g.count_true2guess(vv2, vv1, 1, 1), 2)  # malemale
         self.assertEqual(g.count_true2guess(vv2, vv1, 0, 1), 1)  # femalemale
         self.assertEqual(g.count_true2guess(vv2, vv1, 1, 0), 1)  # malefemale
+        vvv1 = [1, 0, 2, 2, 1]
+        vvv2 = [2, 0, 1, 2, 1]
+        self.assertEqual(g.count_true2guess(vvv2, vvv1, 2, 2), 1)  # undefinedundefined
+        self.assertEqual(g.undefinedundefined(vvv2, vvv1), 1)
+        self.assertEqual(g.count_true2guess(vvv2, vvv1, 2, 1), 1)  # undefinedmale
+
 
     def test_dame_gender_error_coded(self):
         g = Gender()
@@ -335,3 +345,10 @@ class TddInPythonExample(unittest.TestCase):
         v1 = [0, 1, 1, 1]
         v2 = [0, 0, 1, 1]
         self.assertEqual(g.error_gender_bias(v1, v2), 0.25)
+
+    def test_dame_gender_json2names(self):
+        g = Gender()
+        j2n = g.json2names(jsonf="files/names/namsorfiles_names_min.csv.json")
+        self.assertEqual(["Pierre", "Raul", "Adriano", "Ralf", "Guillermo", "Sabina"], j2n)
+        j2ns = g.json2names(jsonf="files/names/namsorfiles_names_min.csv.json", surnames=True)
+        self.assertEqual(j2ns, [["Pierre", "grivel"], ["Raul", "serapioni"], ["Adriano", "moura"], ["Ralf", "kieser"], ["Guillermo", "leon-de-la-barra"], ["Sabina", "pannek"]])
