@@ -60,7 +60,7 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_namsor_gender_list(self):
         dn = DameNamsor()
-        gl = dn.gender_list()
+        gl = dn.gender_list(path="files/names/partial.csv")
         self.assertEqual(gl,
                          [1, 1, 1, 1, 2, 1, 0, 0, 1, 1,
                           2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
