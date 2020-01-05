@@ -46,7 +46,7 @@ elif (args.api=='genderapi'):
         if (dga.apikey_limit_exceeded_p() == False):
             text1 = dga.download(path=args.csv)
         elif (dga.apikey_count_requests() < len(dga.csv2names(args.csv))):
-            print("You have enough requests with this api key")
+            print("You don't have enough requests with this api key")
         elif (dga.apikey_count_requests() >= len(dga.csv2names(args.csv))):
             text1 = dga.download(path=args.csv)
         else:
