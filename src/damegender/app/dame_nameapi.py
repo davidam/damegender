@@ -104,13 +104,14 @@ class DameNameapi(Gender):
     def download(self, path="files/names/partial.csv"):
         du = DameUtils()
         nameapijson = open("files/names/nameapi"+du.path2file(path)+".json", "w+")
-        names = self.csv2names(path)
+        names = self.csv2names(path, surnames=True)
         nameapijson.write("[")
         length = len(names)
         i = 0
         while (i < length):
-            nameapijson.write('{"name":"'+names[i]+'",\n')
-            g = self.get(names[i], "", binary=True)
+            nameapijson.write('{"name":"'+names[i][0]+'",\n')
+            g = self.get(names[i][0], names[i][1], binary=True)
+            nameapijson.write('"surname":"'+names[i][1]+'",\n')
             nameapijson.write('"gender":'+str(g[0])+',\n')
             nameapijson.write('"confidence":'+str(g[1])+'\n')
             if ((length -1) == i):

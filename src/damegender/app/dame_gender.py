@@ -153,13 +153,9 @@ class Gender(object):
             sexreader2 = csv.reader(csvfile, delimiter=',', quotechar='|')
             next(sexreader2, None)
             cnt = 1
-            print(cnt)
-            print(end)
             for row in sexreader2:
                 lines.append('{"name": "' + row[0] + '",')
                 lines.append('"gender": "' + row[1] + '",')
-                print(end)
-                print(cnt)
                 if (end == cnt):
                     lines.append('"count": ' + row[2] + '}')
                     print('"count": ' + row[2] + '}')
@@ -448,7 +444,7 @@ class Gender(object):
                 slist.append(self.guess(name, binary))
         return slist
 
-    def gender_list(self, path='files/names/partial.csv'):
+    def gender_list(self, path):
         # counting males, females and unknown
         glist = []
         with open(path) as csvfile:
@@ -457,8 +453,10 @@ class Gender(object):
             count_females = 0
             count_males = 0
             count_unknown = 0
+            gender = ""
             for row in sexreader:
-                gender = row[4]
+                if (row[4] != ""):
+                    gender = row[4]
                 if (gender == 'f'):
                     g = 0
                     count_females = count_females + 1
@@ -506,6 +504,15 @@ class Gender(object):
 
     def maleundefined(self, truevector, guessvector):
         return self.count_true2guess(truevector, guessvector, 1, 2)
+
+    def undefinedfemale(self, truevector, guessvector):
+        return self.count_true2guess(truevector, guessvector, 2, 0)
+
+    def undefinedmale(self, truevector, guessvector):
+        return self.count_true2guess(truevector, guessvector, 2, 1)
+
+    def undefinedundefined(self, truevector, guessvector):
+        return self.count_true2guess(truevector, guessvector, 2, 2)
 
     def accuracy_score_dame(self, truevector, guessvector):
         if (len(truevector) == len(guessvector)):
@@ -869,3 +876,16 @@ class Gender(object):
             print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
             print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
         return ""
+
+
+    def json2names(self, jsonf="", surnames=False):
+        jsondata = open(jsonf).read()
+        json_object = json.loads(jsondata)
+        nameslist = []
+        for i in json_object:
+            if (i["name"] != ''):
+                if (surnames == True):
+                    nameslist.append([i["name"], i["surname"]])
+                else:
+                    nameslist.append(i["name"])
+        return nameslist

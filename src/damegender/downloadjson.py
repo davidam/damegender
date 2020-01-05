@@ -33,18 +33,35 @@ import os
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', type=str, required=True, default="files/names/min.csv", help='input file for names')
 parser.add_argument('--api', default="damegender", choices=['namsor', 'genderize', 'genderapi', 'nameapi'])
+parser.add_argument("--surnames", default=False, action="store_true", help="Flag to surnames")
 args = parser.parse_args()
+
 
 if (args.api=='genderize'):
     dg = DameGenderize()
-    text1 = dg.download(path=args.csv)
+    text1 = dg.download(path=args.csv, surnames=args.surnames)
 elif (args.api=='genderapi'):
     dga = DameGenderApi()
-    if (dga.limit_p() == False):
-        text1 = dga.download(path=args.csv)
+    if (dga.config['DEFAULT']['genderapi'] == 'yes'):
+        if (dga.apikey_limit_exceeded_p() == False):
+            text1 = dga.download(path=args.csv)
+        elif (dga.apikey_count_requests() < len(dga.csv2names(args.csv))):
+            print("You don't have enough requests with this api key")
+        elif (dga.apikey_count_requests() >= len(dga.csv2names(args.csv))):
+            text1 = dga.download(path=args.csv)
+        else:
+            print("You have not money with this api key")
+    else:
+        print("You must enable genderapi in config.cfg")
 elif (args.api=='namsor'):
     dn = DameNamsor()
-    text1 = dn.download(path=args.csv)
+    if (dga.config['DEFAULT']['namsor'] == 'yes'):
+        text1 = dn.download(path=args.csv)
+    else:
+        print("You must enable namsor in config.cfg")
 elif (args.api=='nameapi'):
     dna = DameNameapi()
-    text1 = dna.download(path=args.csv)
+    if (dna.config['DEFAULT']['nameapi'] == 'yes'):
+        text1 = dna.download(path=args.csv)
+    else:
+        print("You must enable nameapi in config.cfg")

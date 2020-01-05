@@ -1,0 +1,5 @@
+$ python3 confusion.py --api=genderapi --jsondownloaded=files/names/genderapifiles_names_all.onelist.json --csv=files/names/all.csv
+A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are true positives
+[[ 1734, 211, 23]
+ [ 155, 3589, 67]]

@@ -17,7 +17,7 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_genderguesser_gender_list(self):
         dgg = DameGenderGuesser()
-        gl = dgg.gender_list()
+        gl = dgg.gender_list(path="files/names/partial.csv")
         self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1,
                               2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
         self.assertEqual(len(gl), 21)

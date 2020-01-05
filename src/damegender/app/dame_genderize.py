@@ -31,7 +31,6 @@ from app.dame_utils import DameUtils
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 
-
 class DameGenderize(Gender):
 
     def get(self, name, *args, **kwargs):
@@ -78,21 +77,30 @@ class DameGenderize(Gender):
         d = self.get(name)
         return d['probability']
 
-    def download(self, path='files/names/partial.csv'):
+    def download(self, path='files/names/partial.csv', surnames=False):
         du = DameUtils()
-        l = self.csv2names(path)
         new = []
         d = ""
-        # We must split the list in different lists with size 10
-        for i in range(0, len(l), 10):
-            new.append(l[i:i+10])
         lresult = []
-        for j in new:
-            lresult.append(self.get2to10(j))
-        res = []
-        for k in lresult:
-            res = res + k
+        res = ""
+        if (surnames == True):
+            l = self.csv2names(path, surnames=True)
+            for i in range(0, len(l)):
+                d = self.get(l[i][0], surname=l[i][1])
+                d["surname"] = l[i][1]
+                lresult.append(d)
+            res = str(lresult)
+        else:
+            l = self.csv2names(path)
+            # We must split the list in different lists with size 10
+            for i in range(0, len(l), 10):
+                new.append(l[i:i+10])
+            for j in new:
+                lresult.append(self.get2to10(j))
+            for k in lresult:
+                res = res + str(k)
         res = str(res).replace("\'", "\"")
+        res = str(res).replace('None', '"unknown"')
         backup = open("files/names/genderize"+du.path2file(path)+".json", "w+")
         backup.write(res)
         backup.close()
@@ -113,6 +121,25 @@ class DameGenderize(Gender):
             else:
                 guesslist.append(i["gender"])
         return guesslist
+
+
+    def apikey_limit_exceeded_p(self):
+        j = ""
+        if (self.config['DEFAULT']['genderize'] == 'yes'):
+            fichero = open("files/apikeys/genderizepass.txt", "r+")
+            contenido = fichero.readline()
+            contenido = contenido.replace('\n', '')
+            string = 'https://api.genderize.io/?name[]=peter&name[]=lois&name[]=stevie?apikey=' + contenido
+        else:
+            string = 'https://api.genderize.io/?name[]=peter&name[]=lois&name[]=stevie'
+        r = requests.get(string)
+        j = json.loads(r.text)
+        if (j["error"] is not None):
+            p = True
+        else:
+            p = False
+        return p
+
 
     # def guess(self, name, binary=False):
     #     # guess method to check names dictionary

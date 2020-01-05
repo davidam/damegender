@@ -288,6 +288,17 @@ else
 	echo "confusion genderapi jsondonwloaded test is ok"
 fi
 
+
+python3 confusion.py --csv=files/names/partialnoundefined.csv --api=genderize --jsondownloaded=files/names/genderizefiles_names_partialnoundefined.csv.json > files/tests/confusion-genderize-partialnoun-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/confusion-genderize-partialnoun.txt files/tests/confusion-genderize-partialnoun-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "confusion genderize jsondonwloaded test is failing"
+else
+	echo "confusion genderize jsondonwloaded test is ok"
+fi
+
+
 python3 confusion.py --csv="files/names/partial.csv" --api=nameapi --jsondownloaded="files/names/nameapifiles_names_partial.csv.json" > files/tests/confusionnameapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/confusionnameapijsondownloaded.txt files/tests/confusionnameapijsondownloaded-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -310,6 +321,39 @@ then
 	echo "accuracy nameapi jsondonwloaded test is failing"
 else
 	echo "accuracy nameapi jsondonwloaded test is ok"
+fi
+
+python3 accuracy.py --jsondownloaded=files/names/genderizefiles_names_partialnoundefined.csv.json --measure=f1score --api=genderize --csv=files/names/partialnoundefined.csv > files/tests/accuracygenderizepartialjsonf1score-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/accuracygenderizepartialjsonf1score.txt files/tests/accuracygenderizepartialjsonf1score-$(date "+%Y-%m-%d-%H").txt
+then
+	echo "accuracy genderize f1score jsondonwloaded test is failing"
+else
+	echo "accuracy genderize f1score jsondonwloaded test is ok"
+fi
+
+python3 accuracy.py --jsondownloaded=files/names/genderizefiles_names_partialnoundefined.csv.json --measure=precision --api=genderize --csv=files/names/partialnoundefined.csv > files/tests/accuracygenderizepartialjsonprecision-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/accuracygenderizepartialjsonprecision.txt files/tests/accuracygenderizepartialjsonprecision-$(date "+%Y-%m-%d-%H").txt
+then
+	echo "accuracy genderize precision jsondonwloaded test is failing"
+else
+	echo "accuracy genderize precision jsondonwloaded test is ok"
+fi
+
+python3 accuracy.py --jsondownloaded=files/names/genderizefiles_names_partialnoundefined.csv.json --measure=recall --api=genderize --csv=files/names/partialnoundefined.csv > files/tests/accuracygenderizepartialjsonrecall-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/accuracygenderizepartialjsonrecall.txt files/tests/accuracygenderizepartialjsonrecall-$(date "+%Y-%m-%d-%H").txt
+then
+	echo "accuracy genderize recall jsondonwloaded test is failing"
+else
+	echo "accuracy genderize recall jsondonwloaded test is ok"
+fi
+
+
+python3 accuracy.py --jsondownloaded=files/names/genderizefiles_names_partialnoundefined.csv.json --measure=accuracy --api=genderize --csv=files/names/partialnoundefined.csv > files/tests/accuracygenderizepartialjsonaccuracy-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/accuracygenderizepartialjsonaccuracy.txt files/tests/accuracygenderizepartialjsonaccuracy-$(date "+%Y-%m-%d-%H").txt
+then
+	echo "accuracy genderize accuracy jsondonwloaded test is failing"
+else
+	echo "accuracy genderize accuracy jsondonwloaded test is ok"
 fi
 
 

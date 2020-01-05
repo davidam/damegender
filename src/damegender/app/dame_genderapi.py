@@ -218,8 +218,9 @@ class DameGenderApi(Gender):
             list_total = list_total + slist
         return list_total
 
-    def limit_p(self):
+    def apikey_limit_exceeded_p(self):
         j = ""
+        limit_exceeded_p = True
         if (self.config['DEFAULT']['genderapi'] == 'yes'):
             fichero = open("files/apikeys/genderapipass.txt", "r+")
             contenido = fichero.readline()
@@ -227,4 +228,30 @@ class DameGenderApi(Gender):
             string = 'https://gender-api.com/get-stats?key=' + contenido
             r = requests.get(string)
             j = json.loads(r.text)
-        return j
+            limit_exceeded_p = j["is_limit_reached"]
+        return limit_exceeded_p
+
+    def apikey_count_requests(self):
+        count = -1
+        if (self.config['DEFAULT']['genderapi'] == 'yes'):
+            fichero = open("files/apikeys/genderapipass.txt", "r+")
+            contenido = fichero.readline()
+            contenido = contenido.replace('\n', '')
+            string = 'https://gender-api.com/get-stats?key=' + contenido
+            r = requests.get(string)
+            j = json.loads(r.text)
+            count = j["remaining_requests"]
+        return count
+
+
+    def json2names(self, jsonf="", surnames=False):
+        jsondata = open(jsonf).read()
+        json_object = json.loads(jsondata)
+        nameslist = []
+        for i in json_object[0]:
+            if (i["name"] != ''):
+                if (surnames == True):
+                    nameslist.append([i["name"], i["surname"]])
+                else:
+                    nameslist.append(i["name"])
+        return nameslist

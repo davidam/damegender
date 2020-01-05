@@ -57,7 +57,8 @@ def drop_pwd(s):
     return result
 
 setup(name='damegender',
-      version='0.1.45',
+      python_requires='>3.5',
+      version='0.1.48',
       description='Gender Detection Tool by David Arroyo MEnéndez',
       long_description=long_description,
       long_description_content_type='text/markdown',
@@ -84,7 +85,7 @@ setup(name='damegender',
                     'damegender.datamodels': ['*'],
                     'damegender.logs': ['*'],
                     'damegender.root': ['*']},
-      data_files=[('damegender', ['src/damegender/README.org', 'src/damegender/README.md', 'src/damegender/config.cfg', 'src/damegender/files/features_list.csv', 'src/damegender/files/features_list_cat.csv', 'src/damegender/files/features_list_no_cat.csv', 'src/damegender/files/features_list_no_undefined.csv'] + files_one_level_drop_pwd(cwd+"/src/damegender/files/images") + files_one_level_drop_pwd(cwd+"/src/damegender/files/datamodels") + files_one_level_drop_pwd(cwd+"/src/damegender/files/mbox") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names/names_es") + files_one_level_drop_pwd(cwd+"/src/damegender/files/tests")  + files_one_level_drop_pwd(cwd+"/src/damegender/files/logs"))],
+      data_files=[('damegender', ['src/damegender/README.org', 'src/damegender/README.md', 'src/damegender/config.cfg', 'src/damegender/testsbycommands.sh', 'src/damegender/testsbycommandsextralocal.sh', 'src/damegender/testsbycommandsextranet.sh', 'src/damegender/files/features_list.csv', 'src/damegender/files/features_list_cat.csv', 'src/damegender/files/features_list_no_cat.csv', 'src/damegender/files/features_list_no_undefined.csv'] + files_one_level_drop_pwd(cwd+"/src/damegender/files/images") + files_one_level_drop_pwd(cwd+"/src/damegender/files/datamodels") + files_one_level_drop_pwd(cwd+"/src/damegender/files/mbox") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names/names_es") + files_one_level_drop_pwd(cwd+"/src/damegender/files/tests")  + files_one_level_drop_pwd(cwd+"/src/damegender/files/logs"))],
       install_requires=[
           'markdown',
           'nltk',
