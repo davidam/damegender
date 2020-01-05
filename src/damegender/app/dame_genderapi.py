@@ -243,15 +243,3 @@ class DameGenderApi(Gender):
             count = j["remaining_requests"]
         return count
 
-
-    def json2names(self, jsonf="", surnames=False):
-        jsondata = open(jsonf).read()
-        json_object = json.loads(jsondata)
-        nameslist = []
-        for i in json_object[0]:
-            if (i["name"] != ''):
-                if (surnames == True):
-                    nameslist.append([i["name"], i["surname"]])
-                else:
-                    nameslist.append(i["name"])
-        return nameslist
