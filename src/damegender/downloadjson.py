@@ -55,7 +55,7 @@ elif (args.api=='genderapi'):
         print("You must enable genderapi in config.cfg")
 elif (args.api=='namsor'):
     dn = DameNamsor()
-    if (dga.config['DEFAULT']['namsor'] == 'yes'):
+    if (dn.config['DEFAULT']['namsor'] == 'yes'):
         text1 = dn.download(path=args.csv)
     else:
         print("You must enable namsor in config.cfg")
