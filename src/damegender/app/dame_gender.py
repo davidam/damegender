@@ -877,7 +877,6 @@ class Gender(object):
             print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
         return ""
 
-
     def json2names(self, jsonf="", surnames=False):
         jsondata = open(jsonf).read()
         json_object = json.loads(jsondata)
@@ -889,3 +888,14 @@ class Gender(object):
                 else:
                     nameslist.append(i["name"])
         return nameslist
+
+    def json_eq_csv_in_names(self, jsonf="", path=""):
+        boolean = False
+        json = self.json2names(jsonf=jsonf, surnames=False)
+        csv = self.csv2names(path=path)
+        count = 0
+        for i in json:
+            for j in csv:
+                if (i == j):
+                    count = count +1
+        return ((len(json) == len(csv)) and (len(json) == count))

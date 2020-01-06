@@ -352,3 +352,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(["Pierre", "Raul", "Adriano", "Ralf", "Guillermo", "Sabina"], j2n)
         j2ns = g.json2names(jsonf="files/names/namsorfiles_names_min.csv.json", surnames=True)
         self.assertEqual(j2ns, [["Pierre", "grivel"], ["Raul", "serapioni"], ["Adriano", "moura"], ["Ralf", "kieser"], ["Guillermo", "leon-de-la-barra"], ["Sabina", "pannek"]])
+
+    def test_dame_gender_check_names(self):
+        g = Gender()
+        self.assertTrue(g.json_eq_csv_in_names(jsonf="files/names/namsorfiles_names_min.csv.json", path="files/names/min.csv"))
