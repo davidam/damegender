@@ -528,6 +528,8 @@ class Gender(object):
         else:
             result = 0
             print("Both vectors must have the same length")
+            print("truevector: %s" % truevector)
+            print("guessvector: %s" % guessvector)
         return result
 
     def accuracy(self, path):
