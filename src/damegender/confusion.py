@@ -34,7 +34,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', type=str, required=True, help="files/names/min.csv")
 parser.add_argument('--jsondownloaded', default="", help="files/names/genderapifiles_names_min.csv.json")
-parser.add_argument('--api', default="damegender", choices=['namsor', 'genderize', 'genderapi', 'genderguesser', 'damegender', 'nameapi', 'all'])
+parser.add_argument('--api', required=True, choices=['namsor', 'genderize', 'genderapi', 'genderguesser', 'damegender', 'nameapi', 'all'])
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
 parser.add_argument('--dimensions', default="2x3", choices=['1x1', '1x2', '1x3', '2x1', '2x2', '2x3', '3x1', '3x2', '3x3'])
 args = parser.parse_args()
