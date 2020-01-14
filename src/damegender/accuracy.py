@@ -148,6 +148,10 @@ elif (args.api == "genderize"):
                 print("In the path %s doesn't exist file" % args.jsondownloaded)
         else:
             print("Names in json and csv are differents")
+            print("Names in csv: ")
+            print(dg.csv2names(path=args.csv))
+            print("Names in json: ")
+            print(dg.json2names(jsonf=args.jsondownloaded))
 
 elif (args.api == "genderguesser"):
     dgg = DameGenderGuesser()
