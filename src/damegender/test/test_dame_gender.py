@@ -356,3 +356,5 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_gender_check_names(self):
         g = Gender()
         self.assertTrue(g.json_eq_csv_in_names(jsonf="files/names/namsorfiles_names_min.csv.json", path="files/names/min.csv"))
+        self.assertTrue(g.json_eq_csv_in_names(jsonf="files/names/genderizefiles_names_min.csv.json", path="files/names/min.csv"))
+        self.assertTrue(g.json_eq_csv_in_names(jsonf="files/names/nameapifiles_names_min.csv.json", path="files/names/min.csv"))
