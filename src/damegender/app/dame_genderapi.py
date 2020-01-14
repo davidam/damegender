@@ -117,6 +117,19 @@ class DameGenderApi(Gender):
                 guesslist.append(i["gender"])
         return guesslist
 
+    def json2names(self, jsonf="", surnames=False):
+        jsondata = open(jsonf).read()
+        json_object = json.loads(jsondata)
+        nameslist = []
+        for i in json_object["names"][0]:
+            if (i["name"] != ''):
+                if (surnames == True):
+                    nameslist.append([i["name"], i["surname"]])
+                else:
+                    nameslist.append(i["name"])
+        return nameslist
+
+
     def confusion_matrix_gender(self, path='', dimensions="2x3", jsonf=""):
         truevector = self.gender_list(path)
         if (os.path.isfile(jsonf)):
@@ -242,4 +255,3 @@ class DameGenderApi(Gender):
             j = json.loads(r.text)
             count = j["remaining_requests"]
         return count
-
