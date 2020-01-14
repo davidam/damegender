@@ -101,7 +101,7 @@ else
 	echo "api2genderDavidgenderguesser test is ok"
 fi
 
-python3 accuracy.py --csv=files/names/min.csv > files/tests/accuracymin-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --csv=files/names/min.csv --api="damegender" > files/tests/accuracymin-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/accuracymin.txt files/tests/accuracymin-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
