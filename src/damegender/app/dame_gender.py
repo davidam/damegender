@@ -905,3 +905,20 @@ class Gender(object):
                 count = count +1
             i = i+1
         return ((len(json) == len(csv)) and (len(json) == count))
+
+    def first_uneq_json_and_csv_in_names(self, jsonf="", path=""):
+        json = self.json2names(jsonf=jsonf, surnames=False)
+        csv = self.csv2names(path=path)
+        i = 0
+        maxi_json = len(json) -1
+        maxi_csv = len(csv) - 1
+        while ((i < maxi_json) and (i < maxi_csv) and (json[i].lower() == csv[i].lower())):
+            i = i + 1
+        ret = json[i].lower()
+        if ((i > maxi_json) and (i > maxi_csv)):
+            ret = ""
+        elif (i > maxi_json):
+            ret = csv[i].lower()
+        elif (i > maxi_csv):
+            ret = json[i].lower()
+        return ret
