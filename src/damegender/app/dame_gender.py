@@ -896,9 +896,12 @@ class Gender(object):
         json = self.json2names(jsonf=jsonf, surnames=False)
         csv = self.csv2names(path=path)
         count = 0
+        i = 0
         maxi = len(json)
         if (maxi < len(csv)):
             maxi = len(csv)
         while (maxi > count):
-            count = count +1
+            if (json[i] == csv[i]):
+                count = count +1
+            i = i+1
         return ((len(json) == len(csv)) and (len(json) == count))
