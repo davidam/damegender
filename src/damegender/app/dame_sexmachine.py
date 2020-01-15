@@ -35,7 +35,7 @@ from sklearn.linear_model import SGDClassifier
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler
 from sklearn.datasets import make_classification
-from xgboost import XGBClassifier
+#from xgboost import XGBClassifier
 from sklearn import svm
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
@@ -210,21 +210,21 @@ class DameSexmachine(Gender):
         pkl_file.close()
         return clf
 
-    def xgboost(self):
-        # Scikit xgboost classifier
-        X = np.array(self.features_list(path="files/names/all.csv"))
-        y = np.array(self.gender_list(path="files/names/all.csv"))
-        model = XGBClassifier()
-        model.fit(X, y)
-        filename = 'files/datamodels/xgboost_model.sav'
-        pickle.dump(model, open(filename, 'wb'))
-        return model
+    # def xgboost(self):
+    #     # Scikit xgboost classifier
+    #     X = np.array(self.features_list(path="files/names/all.csv"))
+    #     y = np.array(self.gender_list(path="files/names/all.csv"))
+    #     model = XGBClassifier()
+    #     model.fit(X, y)
+    #     filename = 'files/datamodels/xgboost_model.sav'
+    #     pickle.dump(model, open(filename, 'wb'))
+    #     return model
 
-    def xgboost_load(self):
-        pkl_file = open('files/datamodels/xgboost_model.sav', 'rb')
-        clf = pickle.load(pkl_file)
-        pkl_file.close()
-        return clf
+    # def xgboost_load(self):
+    #     pkl_file = open('files/datamodels/xgboost_model.sav', 'rb')
+    #     clf = pickle.load(pkl_file)
+    #     pkl_file.close()
+    #     return clf
 
     def string2array(self, string):
         res = ""
