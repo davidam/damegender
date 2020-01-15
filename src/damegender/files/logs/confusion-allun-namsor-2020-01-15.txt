@@ -1,0 +1,9 @@
+$ python3 confusion.py --csv=files/names/all.csv --jsondownloaded=files/names/namsorfiles_names_allundefined.csv.json --api=namsor > files/logs/confusion-allun-namsor-2020-01-15.txt
+
+A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are true positives
+Namsor confusion matrix:
+
+[[ 41, 100, 46]
+ [ 191, 492, 224]]
+
