@@ -206,10 +206,12 @@ class Gender(object):
     def csv2names(self, path='files/names/partial.csv', *args, **kwargs):
         # make a list from a csv file
         surnames = kwargs.get('surnames', False)
+        header = kwargs.get('header', True)
         csvlist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(sexreader, None)
+            if (header == True):
+                next(sexreader, None)
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
