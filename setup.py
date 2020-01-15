@@ -58,7 +58,7 @@ def drop_pwd(s):
 
 setup(name='damegender',
       python_requires='>3.5',
-      version='0.1.48',
+      version='0.1.49',
       description='Gender Detection Tool by David Arroyo MEnéndez',
       long_description=long_description,
       long_description_content_type='text/markdown',
@@ -96,7 +96,7 @@ setup(name='damegender',
           'pandas',
           'matplotlib',
           'json2html',
-          'xgboost'
+#          'xgboost'
       ],
       extras_require = {
           'mails_and_repositories' : ["perceval"],
