@@ -1,9 +1,7 @@
 
-* Logo. The democracy is reach votes
+* Logo
 
-You can vote a logo cliking in the image
-
-| [[https://api.gh-polls.com/poll/01DRGPZMXEWREFDKPSVGQB5QWA/snake/vote][file:src/damegender/files/images/gender.png]] | [[https://api.gh-polls.com/poll/01DRGPZMXEWREFDKPSVGQB5QWA/triangle/vote][file:src/damegender/files/images/dame_gender_alternative.jpg]] | [[https://api.gh-polls.com/poll/01DRGPZMXEWREFDKPSVGQB5QWA/gendergap/vote][file:src/damegender/files/images/gendergap400x400.jpg]] |
+file:src/damegender/files/images/gender.png
 
 * Name
 damegender is a gender detection tool from the name coded by David Arroyo MEnéndez (DAME)
@@ -606,7 +604,8 @@ first_letter_vocal is for females.
 
 * Beautiful Snakes
 
-| [[file:src/damegender/files/images/violet-snake3.png]] |
+file:src/damegender/files/images/violet-snake3.png
+
 * License
 Copyright (C) 2019 David Arroyo Menendez
     Permission is granted to copy, distribute and/or modify this document
