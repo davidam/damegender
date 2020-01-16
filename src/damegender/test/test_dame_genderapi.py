@@ -52,7 +52,7 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_genderapi_download(self):
         dga = DameGenderApi()
         du = DameUtils()
-        path1 = "files/names/all.csv"
+        path1 = "files/names/min.csv"
         if (dga.config['DEFAULT']['genderapi'] == 'yes'):
             g = dga.download(path1)
             self.assertTrue(
@@ -68,17 +68,12 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_genderapi_guess_list(self):
         dga = DameGenderApi()
         if (dga.config['DEFAULT']['genderapi'] == 'yes'):
-            self.assertEqual(['male', 'male', 'male', 'male', 'male',
-                              'male', 'female', 'female', 'male', 'male',
-                              'male', 'male', 'male', 'male', 'male',
-                              'male', 'male', 'male', 'female', 'male',
-                              'male'],
-                             dga.guess_list(path="files/names/partial.csv",
-                                            binary=False))
-            self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1,
-                              1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
-                             dga.guess_list(path="files/names/partial.csv",
-                                            binary=True))
+            self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'],
+                             dn.guess_list(path="files/names/partial.csv",
+                                      binary=False))
+            self.assertEqual([1, 1, 1, 1, 1, 0],
+                             dn.guess_list(path="files/names/partial.csv",
+                                      binary=True))
 
     def test_dame_genderapi_json2guess_list(self):
         dga = DameGenderApi()
@@ -98,3 +93,7 @@ class TddInPythonExample(unittest.TestCase):
                                          dimensions="2x3")
             am = [[1, 0, 0], [0, 5, 0]]
             self.assertEqual(cm, am)
+
+    def test_dame_gender_check_names(self):
+        g = DameGenderApi()
+        self.assertTrue(g.json_eq_csv_in_names(jsonf="files/names/genderapifiles_names_min.csv.json", path="files/names/min.csv"))

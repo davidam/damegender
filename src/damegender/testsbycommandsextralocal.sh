@@ -76,13 +76,14 @@ else
 fi
 
 
-python3 main.py silla --ml=xgboost > files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt
-if ! cmp files/tests/mainsilla.txt files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-    echo "mainsilla test is failing"
-else
-    echo "mainsilla test is ok"
-fi
+# xgboost is disabled for now
+# python3 main.py silla --ml=xgboost > files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt
+# if ! cmp files/tests/mainsilla.txt files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+# then
+#     echo "mainsilla test is failing"
+# else
+#     echo "mainsilla test is ok"
+# fi
 
 python3 main.py casa --ml=forest > files/tests/maincasa-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/maincasa.txt files/tests/maincasa-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -101,7 +102,7 @@ else
 	echo "api2genderDavidgenderguesser test is ok"
 fi
 
-python3 accuracy.py --csv=files/names/min.csv > files/tests/accuracymin-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --csv=files/names/min.csv --api="damegender" > files/tests/accuracymin-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/accuracymin.txt files/tests/accuracymin-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then

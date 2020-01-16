@@ -206,10 +206,12 @@ class Gender(object):
     def csv2names(self, path='files/names/partial.csv', *args, **kwargs):
         # make a list from a csv file
         surnames = kwargs.get('surnames', False)
+        header = kwargs.get('header', True)
         csvlist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(sexreader, None)
+            if (header == True):
+                next(sexreader, None)
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
@@ -528,6 +530,8 @@ class Gender(object):
         else:
             result = 0
             print("Both vectors must have the same length")
+            print("truevector: %s" % truevector)
+            print("guessvector: %s" % guessvector)
         return result
 
     def accuracy(self, path):
@@ -877,7 +881,6 @@ class Gender(object):
             print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
         return ""
 
-
     def json2names(self, jsonf="", surnames=False):
         jsondata = open(jsonf).read()
         json_object = json.loads(jsondata)
@@ -889,3 +892,35 @@ class Gender(object):
                 else:
                     nameslist.append(i["name"])
         return nameslist
+
+    def json_eq_csv_in_names(self, jsonf="", path=""):
+        boolean = False
+        json = self.json2names(jsonf=jsonf, surnames=False)
+        csv = self.csv2names(path=path)
+        count = 0
+        i = 0
+        maxi = len(json)
+        if (maxi < len(csv)):
+            maxi = len(csv)
+        while (maxi > count):
+            if (json[i] == csv[i]):
+                count = count +1
+            i = i+1
+        return ((len(json) == len(csv)) and (len(json) == count))
+
+    def first_uneq_json_and_csv_in_names(self, jsonf="", path=""):
+        json = self.json2names(jsonf=jsonf, surnames=False)
+        csv = self.csv2names(path=path)
+        i = 0
+        maxi_json = len(json) -1
+        maxi_csv = len(csv) - 1
+        while ((i < maxi_json) and (i < maxi_csv) and (json[i].lower() == csv[i].lower())):
+            i = i + 1
+        ret = json[i].lower()
+        if ((i > maxi_json) and (i > maxi_csv)):
+            ret = ""
+        elif (i > maxi_json):
+            ret = csv[i].lower()
+        elif (i > maxi_csv):
+            ret = json[i].lower()
+        return ret
