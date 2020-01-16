@@ -2,7 +2,7 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. Logo</a></li>
+<li><a href="#sec-1">1. Logo. The democracy is reach votes</a></li>
 <li><a href="#sec-2">2. Name</a></li>
 <li><a href="#sec-3">3. Why?</a></li>
 <li><a href="#sec-4">4. Tell me about DAMe Gender on Youtube</a></li>
@@ -41,13 +41,7 @@
 <li><a href="#sec-8-1">8.1. Market Study</a></li>
 <li><a href="#sec-8-2">8.2. Accuracy</a></li>
 <li><a href="#sec-8-3">8.3. Confusion Matrix</a></li>
-<li><a href="#sec-8-4">8.4. Errors with files/names/all.csv has:</a>
-<ul>
-<li><a href="#sec-8-4-1">8.4.1. Gender Guesser</a></li>
-<li><a href="#sec-8-4-2">8.4.2. Damegender</a></li>
-<li><a href="#sec-8-4-3">8.4.3. Namsor</a></li>
-</ul>
-</li>
+<li><a href="#sec-8-4">8.4. Errors with files/names/all.csv has:</a></li>
 <li><a href="#sec-8-5">8.5. Performance</a></li>
 </ul>
 </li>
@@ -73,9 +67,15 @@
 </div>
 </div>
 
-# Logo<a id="sec-1" name="sec-1"></a>
+# Logo. The democracy is reach votes<a id="sec-1" name="sec-1"></a>
+
+You can vote a logo cliking in the image
 
 [![img](src/damegender/files/images/gender.png)](https://api.gh-polls.com/poll/01DRGPZMXEWREFDKPSVGQB5QWA/snake/vote)
+
+[![img](src/damegender/files/images/dame_gender_alternative.jpg)](https://api.gh-polls.com/poll/01DRGPZMXEWREFDKPSVGQB5QWA/triangle/vote)
+
+[![img](src/damegender/files/images/gendergap400x400.jpg)](https://api.gh-polls.com/poll/01DRGPZMXEWREFDKPSVGQB5QWA/gendergap/vote)
 
 # Name<a id="sec-2" name="sec-2"></a>
 
@@ -179,7 +179,8 @@ To configure your api key
 
     $ cd src/damegender
     $ ./testsbycommands.sh         # It must run for you
-    $ ./testsbycommandsextra.sh    # You will need api keys!!!!! And to install all software required.
+    $ ./testsbycommandsextralocal.sh    # You will need all dependencies with: $ pip3 install damegender[all]
+    $ ./testsbycommandsextranet.sh    # You will need api keys
 
 # Execute program<a id="sec-7" name="sec-7"></a>
 
@@ -188,11 +189,6 @@ To configure your api key
     David gender is male
      363559  males for David from INE.es
     0 females for David from INE.es
-
-    # Detect gender from a name from multiple dataset
-    $ python3 main.py David --total="all"
-    David gender is male
-    375099 males and 9 females from all census (INE + Uk census + USA census)
 
     # Detect gender from a name only using machine learning (experimental way)
     $ python3 main.py Mesa --ml=nltk
@@ -237,6 +233,10 @@ To configure your api key
     Females with last letter vocal: 0.7262612995441552
     Males with last letter vocal: 0.3640823393612928
 
+    # Download results from an api and save in a file
+    $ python3 downloadjson --csv=files/names/min.csv --api=genderize
+    $ cat files/names/genderizefiles_names_min.csv.json
+
     # To measure success
     $ python3 accuracy.py --csv=files/names/min.csv
     ################### NLTK!!
@@ -250,25 +250,13 @@ To configure your api key
     Guess list:  [1, 1, 1, 1, 2, 1, 0, 0]
     Genderize accuracy: 1
 
-    $ python3 confusion.py
+    $ python3 confusion.py --csv="files/names/partial.csv" --api=nameapi --jsondownloaded="files/names/nameapifiles_names_partial.csv.json"
     A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
     If the classifier is nice, the diagonal is high because there are true positives
-    Namsor confusion matrix:
-     [[2 0 0]
-     [0 5 0]
-     [0 1 0]]
-    Genderize confusion matrix:
-     [[2 0 0]
-     [0 5 0]
-     [0 0 1]]
-    Gender Guesser confusion matrix:
-     [[2 0 0]
-     [0 5 0]
-     [0 1 0]]
-    Sexmachine confusion matrix:
-     [[2 0 0]
-     [0 5 0]
-     [1 0 0]]
+    Nameapi confusion matrix:
+
+    [[ 3, 0, 0]
+     [ 0, 15, 1]]
 
     # To analyze errors guessing names from a csv
     $ python3 errors.py --csv="files/names/all.csv" --api="genderguesser"
@@ -477,46 +465,72 @@ To configure your api key
 <col  class="left" />
 
 <col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
 </colgroup>
 <tbody>
 <tr>
-<td class="left">&#xa0;</td>
+<td class="left">Name</td>
 <td class="right">Accuracy</td>
+<td class="right">Precision</td>
+<td class="right">F1score</td>
+<td class="right">Recall</td>
 </tr>
 
 
 <tr>
 <td class="left">Genderapi</td>
 <td class="right">0.9687686966482124</td>
-</tr>
-
-
-<tr>
-<td class="left">Namsor</td>
-<td class="right">0.7539570378745054</td>
+<td class="right">0.9717050018254838</td>
+<td class="right">0.9637877964874163</td>
+<td class="right">1.0</td>
 </tr>
 
 
 <tr>
 <td class="left">Genderize</td>
-<td class="right">0.715375918598078</td>
+<td class="right">0.926775</td>
+<td class="right">0.9761303240374678</td>
+<td class="right">0.9655113956503119</td>
+<td class="right">1.0</td>
+</tr>
+
+
+<tr>
+<td class="left">Namsor</td>
+<td class="right">0.8672551055728626</td>
+<td class="right">0.9730097087378641</td>
+<td class="right">0.9236866359447006</td>
+<td class="right">1.0</td>
 </tr>
 
 
 <tr>
 <td class="left">Gender Guesser</td>
-<td class="right">0.6902204635387225</td>
+<td class="right">0.7743554248139817</td>
+<td class="right">0.9848151408450704</td>
+<td class="right">0.8715900233826968</td>
+<td class="right">1.0</td>
 </tr>
 
 
 <tr>
-<td class="left">Dame Gender</td>
-<td class="right">0.6677501413227812</td>
+<td class="left">Damegender</td>
+<td class="right">0.7452405676704742</td>
+<td class="right">0.8789548887528067</td>
+<td class="right">0.8789548887528067</td>
+<td class="right">1.0</td>
 </tr>
 </tbody>
 </table>
 
-We are using nltk and INE.es dataset in test. We hope better results
+(Checked: 2019/10 until 2019/12)
+
+In Damegender we are using nltk and INE.es dataset in test. We hope better results
 with more languages.
 
  Machine Learning Algorithms in DameGender
@@ -561,8 +575,6 @@ These results are experimental, we are improving the choosing of features.
 
 ## Errors with files/names/all.csv has:<a id="sec-8-4" name="sec-8-4"></a>
 
-### Gender Guesser<a id="sec-8-4-1" name="sec-8-4-1"></a>
-
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -570,112 +582,56 @@ These results are experimental, we are improving the choosing of features.
 <col  class="left" />
 
 <col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
 </colgroup>
 <tbody>
 <tr>
-<td class="left">The error code</td>
-<td class="right">0.22564457518601835</td>
+<td class="left">API</td>
+<td class="right">error code</td>
+<td class="right">error code without na</td>
+<td class="right">na coded</td>
+<td class="right">error gender bias</td>
 </tr>
 
 
 <tr>
-<td class="left">The error code without na</td>
+<td class="left">Damegender</td>
+<td class="right">0.2547594323295258</td>
+<td class="right">0.2547594323295258</td>
+<td class="right">0.0</td>
+<td class="right">-0.04949809622706819</td>
+</tr>
+
+
+<tr>
+<td class="left">GenderApi</td>
+<td class="right">0.16666666666666666</td>
+<td class="right">0.16666666666666666</td>
+<td class="right">0.0</td>
+<td class="right">-0.16666666666666666</td>
+</tr>
+
+
+<tr>
+<td class="left">Gender Guesser</td>
+<td class="right">0.2255105572862582</td>
 <td class="right">0.026962383126766687</td>
-</tr>
-
-
-<tr>
-<td class="left">The na coded</td>
-<td class="right">0.2041875757051393</td>
-</tr>
-
-
-<tr>
-<td class="left">The error gender bias</td>
+<td class="right">0.20404984423676012</td>
 <td class="right">0.0030441400304414</td>
 </tr>
-</tbody>
-</table>
-
-The command was:
-
-    $ python3 errors.py --api="genderguesser" --csv="files/names/all.csv"
-
-### Damegender<a id="sec-8-4-2" name="sec-8-4-2"></a>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-
-<col  class="right" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">The error code</td>
-<td class="right">0.18238449558747188</td>
-</tr>
 
 
 <tr>
-<td class="left">The error code without na</td>
-<td class="right">0.18238449558747188</td>
-</tr>
-
-
-<tr>
-<td class="left">The na coded</td>
+<td class="left">Namsor</td>
+<td class="right">0.16666666666666666</td>
+<td class="right">0.16666666666666666</td>
 <td class="right">0.0</td>
-</tr>
-
-
-<tr>
-<td class="left">The error gender bias</td>
-<td class="right">0.0868662398338813</td>
-</tr>
-</tbody>
-</table>
-
-The command was:
-
-    $ python3 errors.py --api="damegender" --csv="files/names/all.csv"
-
-### Namsor<a id="sec-8-4-3" name="sec-8-4-3"></a>
-
-    $ python3 errors.py --api="namsor" --csv="files/names/all.csv"
-    Namsor with files/names/all.csv has:
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-
-<col  class="right" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">The error code</td>
-<td class="right">0.13272192420834053</td>
-</tr>
-
-
-<tr>
-<td class="left">The error code without na</td>
-<td class="right">0.041499330655957165</td>
-</tr>
-
-
-<tr>
-<td class="left">The na coded</td>
-<td class="right">0.09517217511680222</td>
-</tr>
-
-
-<tr>
-<td class="left">The error gender bias</td>
-<td class="right">0.011665710460891184</td>
+<td class="right">0.16666666666666666</td>
 </tr>
 </tbody>
 </table>
@@ -684,15 +640,15 @@ The command was:
 
 -   GenderGuesser accuracy: 0.6902204635387225
 
-real        160m58.742s
-user        44m47.532s
-sys        0m56.024s
+real    160m58.742s
+user    44m47.532s
+sys    0m56.024s
 
 -   Dame Gender accuracy: 0.6677501413227812
 
-real        129m23.082s
-user        53m12.640s
-sys        0m32.040s
+real    129m23.082s
+user    53m12.640s
+sys    0m32.040s
 
 # Statistics for damegender<a id="sec-9" name="sec-9"></a>
 
@@ -1051,7 +1007,7 @@ first<sub>letter</sub><sub>vocal</sub> is for females.
 </colgroup>
 <tbody>
 <tr>
-<td class="left">[![img](src/damegender/files/images/violet-snake3.png)]</td>
+<td class="left">![img](src/damegender/files/images/violet-snake3.png)</td>
 </tr>
 </tbody>
 </table>
