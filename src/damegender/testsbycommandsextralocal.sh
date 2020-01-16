@@ -76,13 +76,14 @@ else
 fi
 
 
-python3 main.py silla --ml=xgboost > files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt
-if ! cmp files/tests/mainsilla.txt files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-    echo "mainsilla test is failing"
-else
-    echo "mainsilla test is ok"
-fi
+# xgboost is disabled for now
+# python3 main.py silla --ml=xgboost > files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt
+# if ! cmp files/tests/mainsilla.txt files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+# then
+#     echo "mainsilla test is failing"
+# else
+#     echo "mainsilla test is ok"
+# fi
 
 python3 main.py casa --ml=forest > files/tests/maincasa-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/maincasa.txt files/tests/maincasa-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
