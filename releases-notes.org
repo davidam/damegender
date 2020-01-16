@@ -1,0 +1,38 @@
+
+* v0.0.36
+
+First version packaged.
++ The application is supporting test with nose
++ main.py is returning names in english and spanish
++ api2gender.py is for return names from main apis
++ confusion.py is giving support for main apis
++ accuracy.py is giving support for main apis
++ errors.py is giving support for genderize, damegender, genderguesser and nameapi
++ apikeyadd.py allows create a password file for apis
++ csv2gender.py is only for partial.csv and all.csv
++ damemodels.py is creating sav files for machine learning algorithms with scikit
++ gendergoogle.py is a prototype to calculate gender from google results with a name
++ git2gender.py is a prototype to return number of males and females in a git repository
++ mail2gender.py is a prototype to return number of males and females in a mailing list
++ infofeatures.py is related to last_letter_a, last_letter_consonant, last_letter_vocal
++ pca support is only a prototype
+
+* v0.1.9
+
++ Improved the test system with testing from python commands with bash.
++ Added nameincountries.py to guess a name in different countries
++ main.py: added bernoulliNB ML algorithm and support to genderguesser
++ confusion.py: adding support to different dimensions
++ accuracy.py: added bernoulliNB ML algorithm
++ errors.py: adding genderapi and namsor support
++ csv2gender.py: Minor chances
++ rewriting damemodels.py to postinstall.py to recreate all files created with scripts from original files (not only ML models)
++ mail2gender.py: small fix, avoid duplicated
++ infofeatures.py: is related to letter_a, last_letter_a, last_letter_o, last_letter_consonant, last_letter_vocal, first_letter, first_letter_consonant, first_letter_vocal
++ pca support with pca-components.py and pca-features.py
+
+* v0.2.1
+
++ Added downloadjson.py to download names from csv to one json file we
+  have rewrited accuracy.py, confusion.py and errors.py to make this
+  calculus offline
