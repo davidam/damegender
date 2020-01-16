@@ -530,6 +530,8 @@ class Gender(object):
         else:
             result = 0
             print("Both vectors must have the same length")
+            print("truevector length: %s" % len(truevector))
+            print("guessvector length: %s" % len(guessvector))
             print("truevector: %s" % truevector)
             print("guessvector: %s" % guessvector)
         return result
@@ -923,4 +925,4 @@ class Gender(object):
             ret = csv[i].lower()
         elif (i > maxi_csv):
             ret = json[i].lower()
-        return ret
+        return [ret, i]

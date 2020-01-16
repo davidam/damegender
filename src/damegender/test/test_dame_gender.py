@@ -364,5 +364,7 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_first_uneq(self):
         g = Gender()
-        self.assertEqual("sabina", g.first_uneq_json_and_csv_in_names(jsonf="files/names/genderizefiles_names_min.csv.json", path="files/names/min.csv"))
-        self.assertEqual("guillermo", g.first_uneq_json_and_csv_in_names(jsonf="files/names/nameapifiles_names_min.csv.json", path="files/names/partial.csv"))
+        self.assertEqual("sabina", g.first_uneq_json_and_csv_in_names(jsonf="files/names/genderizefiles_names_min.csv.json", path="files/names/min.csv")[0])
+        self.assertEqual(5, g.first_uneq_json_and_csv_in_names(jsonf="files/names/genderizefiles_names_min.csv.json", path="files/names/min.csv")[1])
+        self.assertEqual("guillermo", g.first_uneq_json_and_csv_in_names(jsonf="files/names/nameapifiles_names_min.csv.json", path="files/names/partial.csv")[0])
+        self.assertEqual(4, g.first_uneq_json_and_csv_in_names(jsonf="files/names/nameapifiles_names_min.csv.json", path="files/names/partial.csv")[1])
