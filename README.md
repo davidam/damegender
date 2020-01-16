@@ -2,7 +2,7 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. Logo. The democracy is reach votes</a></li>
+<li><a href="#sec-1">1. Logo</a></li>
 <li><a href="#sec-2">2. Name</a></li>
 <li><a href="#sec-3">3. Why?</a></li>
 <li><a href="#sec-4">4. Tell me about DAMe Gender on Youtube</a></li>
@@ -67,15 +67,9 @@
 </div>
 </div>
 
-# Logo. The democracy is reach votes<a id="sec-1" name="sec-1"></a>
+# Logo<a id="sec-1" name="sec-1"></a>
 
-You can vote a logo cliking in the image
-
-[![img](src/damegender/files/images/gender.png)](https://api.gh-polls.com/poll/01DRGPZMXEWREFDKPSVGQB5QWA/snake/vote)
-
-[![img](src/damegender/files/images/dame_gender_alternative.jpg)](https://api.gh-polls.com/poll/01DRGPZMXEWREFDKPSVGQB5QWA/triangle/vote)
-
-[![img](src/damegender/files/images/gendergap400x400.jpg)](https://api.gh-polls.com/poll/01DRGPZMXEWREFDKPSVGQB5QWA/gendergap/vote)
+![img](src/damegender/files/images/gender.png)
 
 # Name<a id="sec-2" name="sec-2"></a>
 
@@ -999,18 +993,7 @@ first<sub>letter</sub><sub>vocal</sub> is for females.
 
 # Beautiful Snakes<a id="sec-11" name="sec-11"></a>
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">![img](src/damegender/files/images/violet-snake3.png)</td>
-</tr>
-</tbody>
-</table>
+![img](src/damegender/files/images/violet-snake3.png)
 
 # License<a id="sec-12" name="sec-12"></a>
 
