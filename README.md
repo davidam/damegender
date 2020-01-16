@@ -103,7 +103,7 @@ DAMe Gender is for you!
 
     # Build the container image
     $ docker build . -t damegender/damegender:latest
-    
+
     # Run the container
     $ docker run -ti damegender/damegender:latest main.py David
 
@@ -188,46 +188,46 @@ To configure your api key
     David gender is male
      363559  males for David from INE.es
     0 females for David from INE.es
-    
+
     # Detect gender from a name from multiple dataset
     $ python3 main.py David --total="all"
     David gender is male
     375099 males and 9 females from all census (INE + Uk census + USA census)
-    
+
     # Detect gender from a name only using machine learning (experimental way)
     $ python3 main.py Mesa --ml=nltk
     Mesa gender is female
     0 males for Mesa from INE.es
     0 females for Mesa from INE.es
-    
+
     # Find your name in different countries
     $ python3 nameincountries.py David
     grep -i " David " files/names/nam_dict.txt > files/grep.tmp
     males: ['Albania', 'Armenia', 'Austria', 'Azerbaijan', 'Belgium', 'Bosnia and Herzegovina', 'Czech Republic', 'Denmark', 'East Frisia', 'France', 'Georgia', 'Germany', 'Great Britain', 'Iceland', 'Ireland', 'Israel', 'Italy', 'Kazakhstan/Uzbekistan', 'Luxembourg', 'Malta', 'Norway', 'Portugal', 'Romania', 'Slovenia', 'Spain', 'Sweden', 'Swiss', 'The Netherlands', 'USA', 'Ukraine']
     females: []
     both: []
-    
+
     # Count gender from a git repository
     $ python3 git2gender.py https://github.com/chaoss/grimoirelab-perceval.git --directory="/tmp/clonedir"
     The number of males sending commits is 15
     The number of females sending commits is 7
-    
+
     # Count gender from a mailing list
     $ cd files/mbox
     $ wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
     $ cd ..
     $ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
-    
+
     # Use an api to detect the gender
     $ python3 api2gender.py Leticia --surname="Martin" --api=namsor
     female
     scale: 0.99
-    
+
     # Google popularity for a name
     $ python3 gendergoogle.py Leticia
     Google results of Leticia as male: 42300
     Google results of Leticia as female: 63400
-    
+
     # Give me informative features
     $ python3 infofeatures.py
     Females with last letter a: 0.4705246078961601
@@ -236,20 +236,20 @@ To configure your api key
     Males with last letter consonant: 0.6355328972681801
     Females with last letter vocal: 0.7262612995441552
     Males with last letter vocal: 0.3640823393612928
-    
+
     # To measure success
     $ python3 accuracy.py --csv=files/names/min.csv
     ################### NLTK!!
     Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
     Guess list:  [1, 1, 1, 1, 0, 1, 0, 0]
     Dame Gender accuracy: 0.875
-    
+
     $ python3 accuracy.py --api="genderize" --csv=files/names/min.csv
     ################### Genderize!!
     Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
     Guess list:  [1, 1, 1, 1, 2, 1, 0, 0]
     Genderize accuracy: 1
-    
+
     $ python3 confusion.py
     A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
     If the classifier is nice, the diagonal is high because there are true positives
@@ -269,7 +269,7 @@ To configure your api key
      [[2 0 0]
      [0 5 0]
      [1 0 0]]
-    
+
     # To analyze errors guessing names from a csv
     $ python3 errors.py --csv="files/names/all.csv" --api="genderguesser"
     Gender Guesser with files/names/all.csv has:
@@ -277,7 +277,7 @@ To configure your api key
     + The error code without na: 0.026539047204698716
     + The na coded: 0.20453365634192766
     + The error gender bias: 0.0026103980857080703
-    
+
     # To deploy a graph about correlation between variables
     $ python3 corr.py
     $ python3 corr.py --csv="categorical"
@@ -556,7 +556,7 @@ These results are experimental, we are improving the choosing of features.
 
         [[ 1692, 276, 0]
         [ 778, 3033, 0]]
-    
+
     In this version of Dame Gender, we are not considering decide names as undefined.
 
 ## Errors with files/names/all.csv has:<a id="sec-8-4" name="sec-8-4"></a>
@@ -753,7 +753,7 @@ a look to practice:
     $ python3 accuracy.py --api="damegender" --measure="recall" --csv="files/names/partialnoundefined.csv"
     $ python3 accuracy.py --api="damegender" --measure="precision" --csv="files/names/partialnoundefined.csv"
     $ python3 accuracy.py --api="damegender" --measure="accuracy" --csv="files/names/partialnoundefined.csv"
-    
+
     $ python3 accuracy.py --api="genderguesser" --measure="f1score" --csv="files/names/partialnoundefined.csv"
     $ python3 accuracy.py --api="genderguesser" --measure="recall" --csv="files/names/partialnoundefined.csv"
     $ python3 accuracy.py --api="genderguesser" --measure="precision" --csv="files/names/partialnoundefined.csv"
@@ -877,13 +877,13 @@ We can choose components with:
     parser = argparse.ArgumentParser()
     parser.add_argument('--csv')
     args = parser.parse_args()
-    
+
     #filepath = 'files/features_list.csv' #your path here
     data = np.genfromtxt(args.csv, delimiter=',', dtype='float64')
-    
+
     scaler = MinMaxScaler(feature_range=[0, 1])
     data_rescaled = scaler.fit_transform(data[1:, 0:8])
-    
+
     #Fitting the PCA algorithm with our Data
     pca = PCA().fit(data_rescaled)
     #Plotting the Cumulative Summation of the Explained Variance
@@ -907,17 +907,17 @@ We choose the file all.csv to generate features and a list to determine gender (
     import matplotlib.pyplot as plt
     from app.dame_sexmachine import DameSexmachine
     from app.dame_gender import Gender
-    
+
     ## LOAD DATASET
     g = Gender()
     g.features_list2csv(categorical="both", path="files/names/all.csv")
     features = "files/features_list.csv"
-    
+
     print("STEP1: N COMPONENTS + 1 TARGET")
-    
+
     x = pd.read_csv(features)
     print(x.columns)
-    
+
     y = g.dataset2genderlist(dataset="files/names/all.csv")
     print(y)
 
@@ -938,9 +938,9 @@ Finally, we create the pca transform with 6 dimensions and we add the target com
     print("STEP3: PCA PROJECTION")
     pprint(principalComponents)
     principalDf = pd.DataFrame(data = principalComponents, columns = ['principal component 1', 'principal component 2', 'principal component 3', 'principal component 4', 'principal component 5', 'principal component 6'])
-    
+
     target = pd.DataFrame(data = y, columns = ['target component'])
-    
+
     print(principalDf.join(target))
 
 ### Analize components to determine gender in names<a id="sec-9-2-6" name="sec-9-2-6"></a>
@@ -1051,7 +1051,7 @@ first<sub>letter</sub><sub>vocal</sub> is for females.
 </colgroup>
 <tbody>
 <tr>
-<td class="left">![img](src/damegender/files/images/violet-snake3.png)</td>
+<td class="left">[![img](src/damegender/files/images/violet-snake3.png)]</td>
 </tr>
 </tbody>
 </table>
