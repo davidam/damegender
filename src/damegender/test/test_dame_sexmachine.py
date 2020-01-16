@@ -256,16 +256,16 @@ class TddInPythonExample(unittest.TestCase):
         n = np.array([2])
         self.assertTrue(np.array_equal(predicted, n))
 
-    def test_sexmachine_xgboost(self):
-        self.assertTrue(os.path.isfile("files/datamodels/xgboost_model.sav"))
+    # def test_sexmachine_xgboost(self):
+    #     self.assertTrue(os.path.isfile("files/datamodels/xgboost_model.sav"))
 
-    def test_sexmachine_xgboost_load(self):
-        s = DameSexmachine()
-        m = s.xgboost_load()
-        predicted = m.predict(
-            [[0,  0,  1,  0, 21,  0,  0,  0,  0, 34,
-              2,  0,  0,  0, 0,  0, 0,  0,  0,  5,
-              0,  0,  0,  0,  0,  2,  0,  0, 0, 34,
-              1,  0, 1]])
-        n = np.array([0])
-        self.assertTrue(np.array_equal(predicted, n))
+    # def test_sexmachine_xgboost_load(self):
+    #     s = DameSexmachine()
+    #     m = s.xgboost_load()
+    #     predicted = m.predict(
+    #         [[0,  0,  1,  0, 21,  0,  0,  0,  0, 34,
+    #           2,  0,  0,  0, 0,  0, 0,  0,  0,  5,
+    #           0,  0,  0,  0,  0,  2,  0,  0, 0, 34,
+    #           1,  0, 1]])
+    #     n = np.array([0])
+    #     self.assertTrue(np.array_equal(predicted, n))
