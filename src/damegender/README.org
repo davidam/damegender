@@ -1,6 +1,7 @@
+
 * Logo
 
-[[file:src/damegender/files/images/gender.png]]
+file:src/damegender/files/images/gender.png
 
 * Name
 damegender is a gender detection tool from the name coded by David Arroyo MEnéndez (DAME)
@@ -88,6 +89,7 @@ $ python3
 >>> nltk.download('names')
 #+END_SRC
 
+
 * Check test
 ** All unit tests
 #+BEGIN_SRC sh
@@ -109,7 +111,8 @@ $ docker run -ti --entrypoint nosetests damegender/damegender:latest test/test_d
 #+BEGIN_SRC sh
 $ cd src/damegender
 $ ./testsbycommands.sh         # It must run for you
-$ ./testsbycommandsextra.sh    # You will need api keys!!!!! And to install all software required.
+$ ./testsbycommandsextralocal.sh    # You will need all dependencies with: $ pip3 install damegender[all]
+$ ./testsbycommandsextranet.sh    # You will need api keys
 #+END_SRC
 
 * Execute program
@@ -120,11 +123,6 @@ $ python3 main.py David
 David gender is male
  363559  males for David from INE.es
 0 females for David from INE.es
-
-# Detect gender from a name from multiple dataset
-$ python3 main.py David --total="all"
-David gender is male
-375099 males and 9 females from all census (INE + Uk census + USA census)
 
 # Detect gender from a name only using machine learning (experimental way)
 $ python3 main.py Mesa --ml=nltk
@@ -169,6 +167,11 @@ Males with last letter consonant: 0.6355328972681801
 Females with last letter vocal: 0.7262612995441552
 Males with last letter vocal: 0.3640823393612928
 
+
+# Download results from an api and save in a file
+$ python3 downloadjson --csv=files/names/min.csv --api=genderize
+$ cat files/names/genderizefiles_names_min.csv.json
+
 # To measure success
 $ python3 accuracy.py --csv=files/names/min.csv
 ################### NLTK!!
@@ -182,25 +185,14 @@ Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
 Guess list:  [1, 1, 1, 1, 2, 1, 0, 0]
 Genderize accuracy: 1
 
-$ python3 confusion.py
+$ python3 confusion.py --csv="files/names/partial.csv" --api=nameapi --jsondownloaded="files/names/nameapifiles_names_partial.csv.json"
 A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
 If the classifier is nice, the diagonal is high because there are true positives
-Namsor confusion matrix:
- [[2 0 0]
- [0 5 0]
- [0 1 0]]
-Genderize confusion matrix:
- [[2 0 0]
- [0 5 0]
- [0 0 1]]
-Gender Guesser confusion matrix:
- [[2 0 0]
- [0 5 0]
- [0 1 0]]
-Sexmachine confusion matrix:
- [[2 0 0]
- [0 5 0]
- [1 0 0]]
+Nameapi confusion matrix:
+
+[[ 3, 0, 0]
+ [ 0, 15, 1]]
+
 
 # To analyze errors guessing names from a csv
 $ python3 errors.py --csv="files/names/all.csv" --api="genderguesser"
@@ -225,7 +217,7 @@ $ python3 pca-features.py                                   # To understand the 
 ** Market Study
 
 |                                        | Gender API               | gender-guesser | genderize.io       | NameAPI       | NamSor        | damegender         |
-| Database size                          | 431322102                | 45376          | 216286             | 1428345       | 4407502834    | 57282              |
+| Database size                          | 431322102                | 45376          | 114541298          | 1428345       | 4407502834    | 57282              |
 | Regular data updates                   | yes                      | no             | no                 | yes           | yes           | yes, developing    |
 | Handles unstructured full name strings | yes                      | no             | no                 | yes           | no            | yes                |
 | Handles surnames                       | yes                      | no             | no                 | yes           | yes           | yes                |
@@ -243,26 +235,28 @@ $ python3 pca-features.py                                   # To understand the 
 
 ** Accuracy
 
-|                |           Accuracy |
-| Genderapi      | 0.9687686966482124 |
-| Namsor         | 0.7539570378745054 |
-| Genderize      | 0.715375918598078  |
-| Gender Guesser | 0.6902204635387225 |
-| Dame Gender    | 0.6677501413227812 |
+| Name           |           Accuracy |          Precision |            F1score | Recall |
+| Genderapi      | 0.9687686966482124 | 0.9717050018254838 | 0.9637877964874163 |    1.0 |
+| Genderize      |           0.926775 | 0.9761303240374678 | 0.9655113956503119 |    1.0 |
+| Namsor         | 0.8672551055728626 | 0.9730097087378641 | 0.9236866359447006 |    1.0 |
+| Gender Guesser | 0.7743554248139817 | 0.9848151408450704 | 0.8715900233826968 |    1.0 |
+| Damegender     | 0.7452405676704742 | 0.8789548887528067 | 0.8789548887528067 |    1.0 |
 
-We are using nltk and INE.es dataset in test. We hope better results
+(Checked: 2019/10 until 2019/12)
+
+In Damegender we are using nltk and INE.es dataset in test. We hope better results
 with more languages.
 
- Machine Learning Algorithms in DameGender
+Machine Learning Algorithms in DameGender
 These results are experimental, we are improving the choosing of features.
 
-+ Support Vector Machines accuracy: 0.7049180327868853
-+ Dame Gender (nltk bayes) accuracy: 0.6677501413227812
-+ Gaussian Naive Bayes accuracy: 0.5960994912379876
-+ Bernoulli Naive Bayes accuracy: 0.5962408140192199
-+ Multinomial Naive Bayes accuracy: 0.5876201243640475
 + Stochastic Gradient Descendent accuracy: 0.5873374788015828
-+ Xgboost accuracy: 0.5621820237422273
++ Support Vector Machines accuracy: 0.7049180327868853
++ Gaussian Naive Bayes accuracy: 0.5960994912379876
++ Multinomial Naive Bayes accuracy: 0.5876201243640475
++ Bernoulli Naive Bayes accuracy: 0.5962408140192199
++ Dame Gender (nltk bayes) accuracy: 0.6677501413227812
++ Random Forest accuracy: 0.3364895421141888
 
 ** Confusion Matrix
 
@@ -296,43 +290,13 @@ These results are experimental, we are improving the choosing of features.
 In this version of Dame Gender, we are not considering decide names as undefined.
 
 ** Errors with files/names/all.csv has:
-*** Gender Guesser
 
-| The error code            |  0.22564457518601835 |
-| The error code without na | 0.026962383126766687 |
-| The na coded              |   0.2041875757051393 |
-| The error gender bias     |   0.0030441400304414 |
+| API            |          error code | error code without na |            na coded |    error gender bias |
+| Damegender     |  0.2547594323295258 |    0.2547594323295258 |                 0.0 | -0.04949809622706819 |
+| GenderApi      | 0.16666666666666666 |   0.16666666666666666 |                 0.0 | -0.16666666666666666 |
+| Gender Guesser |  0.2255105572862582 |  0.026962383126766687 | 0.20404984423676012 |   0.0030441400304414 |
+| Namsor         | 0.16666666666666666 |   0.16666666666666666 |                 0.0 |  0.16666666666666666 |
 
-The command was:
-
-#+BEGIN_SRC
-$ python3 errors.py --api="genderguesser" --csv="files/names/all.csv"
-#+END_SRC
-
-*** Damegender
-
-| The error code            | 0.18238449558747188 |
-| The error code without na | 0.18238449558747188 |
-| The na coded              |                 0.0 |
-| The error gender bias     |  0.0868662398338813 |
-
-The command was:
-
-#+BEGIN_SRC
-$ python3 errors.py --api="damegender" --csv="files/names/all.csv"
-#+END_SRC
-
-*** Namsor
-
-#+BEGIN_SRC
-$ python3 errors.py --api="namsor" --csv="files/names/all.csv"
-Namsor with files/names/all.csv has:
-#+END_SRC
-
-| The error code            |  0.13272192420834053 |
-| The error code without na | 0.041499330655957165 |
-| The na coded              |  0.09517217511680222 |
-| The error gender bias     | 0.011665710460891184 |
 
 ** Performance
 + GenderGuesser accuracy: 0.6902204635387225
@@ -347,74 +311,138 @@ sys	0m32.040s
 
 * Statistics for damegender
 Some theory could be useful to understand some commands
-** Errors and Confusion Matrix
-Guessing the sex, we have an true idea (example: female) and we obtain
-a result, the guessed result (example: female). We have written
-count_true2guess to make statistics variables about it.
+** Measuring success and fails
 
-In confusion matrix litherature, we can find this vocabulary for true and guess:
+To guess the sex, we have an true idea (example: female) and we obtain
+a result with a method (example: using an api, querying a dataset or
+with a machine learning model). The guessed result could be male,
+female or perhaps unknown. Remember some definitions about results
+about this matter:
 
-| True positive  | False Positive |
-|----------------+----------------|
-| False negative | True Negative  |
+*True positive* is find a value guessed as true if the value in
+the data source is positive.
 
-*Precision* is about true positives between true positives plus false positives
+*True negative* is find a value guessed as true if the the
+value in the data source is negative.
+
+*False positive* is find a value guessed as false if the the
+value in the data source is positive.
+
+*False negative* is find a value guessed as false if the the
+value in the data source is negative.
+
+So, we can find a vocabulary for measure true, false, success and
+errors. We can make a summary in the gender name context about
+mathematical concepts:
+
+*Precision* is about true positives between true positives plus false
+positives
 
 #+BEGIN_SRC
-(self.femalefemale + self.malemale ) / (self.femalefemale + self.malemale + self.femalemale)
+(femalefemale + malemale ) /
+(femalefemale + malemale + femalemale)
 #+END_SRC
 
-*Recall* is about true positives between true positives plus false negatives.
+*Recall* is about true positives between true positives plus false
+negatives.
 
 #+BEGIN_SRC
-(self.femalefemale + self.malemale ) / (self.femalefemale + self.malemale + self.malefemale)
+(femalefemale + malemale ) /
+(femalefemale + malemale + malefemale + femaleundefined + maleundefined)
+#+END_SRC
+
+*Accuray* is about true positives between all.
+
+#+BEGIN_SRC
+(femalefemale + malemale ) /
+(femalefemale + malemale + malefemale + femalemale + femaleundefined + maleundefinedxs)
 #+END_SRC
 
 The *F1 score* is the harmonic mean of precision and recall taking
 both metrics into account in the following equation:
 
 #+BEGIN_SRC
-2 * ((precision * recall) / (precision + recall))
+2 * (
+(precision * recall) /
+(precision + recall))
 #+END_SRC
+
+In Damengender, we are using accuracy.py to apply these concepts. Take
+a look to practice:
+
+#+BEGIN_SRC bash
+$ python3 accuracy.py --api="damegender" --measure="f1score" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="damegender" --measure="recall" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="damegender" --measure="precision" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="damegender" --measure="accuracy" --csv="files/names/partialnoundefined.csv"
+
+$ python3 accuracy.py --api="genderguesser" --measure="f1score" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="genderguesser" --measure="recall" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="genderguesser" --measure="precision" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="genderguesser" --measure="accuracy" --csv="files/names/partialnoundefined.csv"
+#+END_SRC
+
 
 *Error coded* is about the true is different than the guessed:
 
 #+BEGIN_SRC
-(self.femalemale + self.malefemale + self.maleundefined + self.femaleundefined) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale + self.maleundefined + self.femaleundefined)
+(femalemale + malefemale + maleundefined + femaleundefined) /
+(malemale + femalemale + malefemale +
+femalefemale + maleundefined + femaleundefined)
 #+END_SRC
 
-*Error coded without na* is about the true is different than the guessed, but without undefined results.
+*Error coded without na* is about the true is different than the
+guessed, but without undefined results.
 
 #+BEGIN_SRC
-(self.maleundefined + self.femaleundefined) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale + self.maleundefined + self.femaleundefined)
+(maleundefined + femaleundefined) /
+(malemale + femalemale + malefemale +
+femalefemale + maleundefined + femaleundefined)
 #+END_SRC
 
-*Error gender bias* is to understand if the error is bigger guessing males than females or viceversa.
+*Error gender bias* is to understand if the error is bigger guessing
+males than females or viceversa.
 
 #+BEGIN_SRC
-(self.malefemale - self.femalemale) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale)
+(malefemale - femalemale) /
+(malemale + femalemale + malefemale + femalefemale)
 #+END_SRC
 
-*The weighted error* is about the true is different than the guessed, but giving a weight to the guessed as undefined.
+*The weighted error* is about the true is different than the guessed,
+but giving a weight to the guessed as undefined.
 
 #+BEGIN_SRC
-(self.femalemale + self.malefemale + w * (self.maleundefined + self.femaleundefined)) / (self.malemale + self.femalemale + self.malefemale + self.femalefemale + w * (self.maleundefined + self.femaleundefined))
+(femalemale + malefemale +
++ w * (maleundefined + femaleundefined)) /
+(malemale + femalemale + malefemale + femalefemale +
++ w * (maleundefined + femaleundefined))
 #+END_SRC
 
-The *confusion matrix* creates a matrix between the true and the guess. If you have this confusion matrix:
+In Damengeder, we have coded errors.py to implement the different definitions in diffrent apis.
+
+The *confusion matrix* creates a matrix between the true and the
+guess. If you have this confusion matrix:
 
 #+BEGIN_SRC
 [[ 2, 0, 0]
  [ 0, 5, 0]]
 #+END_SRC
-It means, I have 2 females true and I've guessed 2 females and I've 5 males true and I've guessed 5 males. I don't have errors in my classifier.
+
+It means, I have 2 females true and I've guessed 2 females and I've 5
+males true and I've guessed 5 males. I don't have errors in my
+classifier.
 
 #+BEGIN_SRC
- [[ 2  1  0]
- [ 2 14  0]
+[[ 2  1  0]
+[ 2 14  0]
 #+END_SRC
 
-It means, I have 2 females true and I've guessed 2 females and I've 14 males true and I've guessed 14 males. 1 female was considered male, 2 males was considered female.
+It means, I have 2 females true and I've guessed 2 females and I've 14
+males true and I've guessed 14 males. 1 female was considered male, 2
+males was considered female.
+
+In Damegender, we have coded confusion.py to implement this concept
+with the different apis.
 
 ** PCA
 *** Concepts
@@ -584,10 +612,12 @@ first_letter_vocal is for females.
 + [[http://gregoriorobles.github.io/MadSESE/201906.html][MadSeSe]]
 + [[https://www.meetup.com/es-ES/python-185/events/261405719/][Python Barcelona]]
 + [[https://www.medialab-prado.es/noticias/taller-de-periodismo-de-datos-2019-sesiones-formativas][Taller de Periodismo de Datos (Medialab Prado, Madrid). NLTK & Damegender]]
++ [[https://tv.urjc.es/video/5d895319d68b148f7a8c0da6][Software Freedom Day (URJC, Móstoles). Damegender]]
 
 * Beautiful Snakes
 
-| [[file:src/damegender/files/images/violet-snake2.png]] |
+file:src/damegender/files/images/violet-snake3.png
+
 * License
 Copyright (C) 2019 David Arroyo Menendez
     Permission is granted to copy, distribute and/or modify this document
