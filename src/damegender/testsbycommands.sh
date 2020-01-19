@@ -307,6 +307,15 @@ else
 	echo "confusion nameapi jsondonwloaded test is ok"
 fi
 
+python3 confusion.py --csv=files/names/min.csv --jsondownloaded=files/names/nameapifiles_names_min.csv.json --api=nameapi --zero=male > files/tests/confusionnameapijsonzeromale-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/confusionnameapijsonzeromale.txt files/tests/confusionnameapijsonzeromale-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "confusion nameapi json zeromale test is failing"
+else
+	echo "confusion nameapi json zeromale test is ok"
+fi
+
+
 python3 accuracy.py --csv="files/names/min.csv" --api=genderapi --jsondownloaded="files/names/genderapifiles_names_min.csv.json" > files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/accuracygenderapijsondownloaded.txt files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -355,6 +364,8 @@ then
 else
 	echo "accuracy genderize accuracy jsondonwloaded test is ok"
 fi
+
+
 
 
 echo "cleaning temporary files"
