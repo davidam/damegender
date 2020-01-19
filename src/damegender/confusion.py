@@ -78,9 +78,9 @@ elif (args.api == "namsor"):
     dn = DameNamsor()
     print("Namsor confusion matrix:\n")
     if (os.path.isfile(args.jsondownloaded)):
-        dn.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded)
+        dn.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded, zero=args.zero)
     elif (args.jsondownloaded == ''):
-        dn.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+        dn.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, zero=args.zero)
     else:
         print("In the path %s doesn't exist file" % args.jsondownloaded)
 
@@ -89,30 +89,30 @@ elif (args.api == "genderize"):
     dg = DameGenderize()
     print("Genderize confusion matrix:\n")
     if (os.path.isfile(args.jsondownloaded)):
-        dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded)
+        dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded, zero=args.zero)
     elif (args.jsondownloaded == ''):
-        dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+        dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, zero=args.zero)
     else:
         print("In the path %s doesn't exist file" % args.jsondownloaded)
 
 elif (args.api == "genderapi"):
     dga = DameGenderApi()
     if (os.path.isfile(args.jsondownloaded)):
-        dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded)
+        dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded, zero=args.zero)
     elif (args.jsondownloaded == ''):
-        dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+        dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, zero=args.zero)
     else:
         print("In the path %s doesn't exist file" % args.jsondownloaded)
 
 elif (args.api == "genderguesser"):
     dgg = DameGenderGuesser()
     print("Gender Guesser confusion matrix:\n")
-    dgg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    dgg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, zero=args.zero)
 
 elif (args.api == "damegender"):
     ds = DameSexmachine()
     print("Damegender confusion matrix:\n")
-    ds.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, ml=args.ml)
+    ds.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, ml=args.ml, zero=args.zero)
 
 elif (args.api == "nameapi"):
     dna = DameNameapi()
