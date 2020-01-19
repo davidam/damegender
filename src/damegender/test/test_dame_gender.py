@@ -368,3 +368,4 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(5, g.first_uneq_json_and_csv_in_names(jsonf="files/names/genderizefiles_names_min.csv.json", path="files/names/min.csv")[1])
         self.assertEqual("guillermo", g.first_uneq_json_and_csv_in_names(jsonf="files/names/nameapifiles_names_min.csv.json", path="files/names/partial.csv")[0])
         self.assertEqual(4, g.first_uneq_json_and_csv_in_names(jsonf="files/names/nameapifiles_names_min.csv.json", path="files/names/partial.csv")[1])
+        self.assertEqual(["sébastien", 500], g.first_uneq_json_and_csv_in_names(jsonf="files/names/nameapifiles_names_allnoundefined7.csv.json", path="files/names/allnoundefined7.csv", header=False))
