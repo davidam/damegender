@@ -1,0 +1,9 @@
+$ python3 confusion.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/nameapifiles_names_allnoundefined.csv.json --api=nameapi
+
+A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are true positives
+Nameapi confusion matrix:
+
+[[ 1608, 106, 253]
+ [ 127, 3188, 495]]
+
