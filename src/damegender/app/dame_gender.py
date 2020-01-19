@@ -875,12 +875,20 @@ class Gender(object):
             gender_f1score = self.f1score(gl1, gl2)
             print("%s f1score: %s" % (api_name, gender_f1score))
 
-    def print_confusion_matrix_gender(self, path='files/names/partial.csv', dimensions="2x3", jsonf=""):
+    def print_confusion_matrix_gender(self, path='files/names/partial.csv', jsonf="", *args, **kwargs):
+        dimensions = kwargs.get('dimensions', '2x3')
+        zero = kwargs.get('zero', "female")
         jf = os.getcwd() + "/" +  jsonf
-        if (os.path.isfile(jf)):
+        if (os.path.isfile(jf) and (zero == "female")):
             cmd = self.confusion_matrix_gender(path, dimensions, jf)
-            print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-            print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+#                                          f          m          u
+            print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))    # f
+            print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2])) # m
+        elif (os.path.isfile(jf) and (zero == "male")):
+            cmd = self.confusion_matrix_gender(path, dimensions, jf)
+#                                        m           f           u
+            print("[[ %s, %s, %s]" % (cmd[1][1], cmd[1][0], cmd[1][2]))     # m
+            print(" [ %s, %s, %s]]\n" % (cmd[0][1], cmd[0][0], cmd[0][2]))  # f
         return ""
 
     def json2names(self, jsonf="", surnames=False):
@@ -910,9 +918,12 @@ class Gender(object):
             i = i+1
         return ((len(json) == len(csv)) and (len(json) == count))
 
-    def first_uneq_json_and_csv_in_names(self, jsonf="", path=""):
+    def first_uneq_json_and_csv_in_names(self, jsonf="", path="", *args, **kwargs):
+        header = kwargs.get('header', True)
         json = self.json2names(jsonf=jsonf, surnames=False)
-        csv = self.csv2names(path=path)
+        print(json)
+        csv = self.csv2names(path=path, header=header)
+        print(csv)
         i = 0
         maxi_json = len(json) -1
         maxi_csv = len(csv) - 1

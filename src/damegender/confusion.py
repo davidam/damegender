@@ -36,6 +36,7 @@ parser.add_argument('--csv', type=str, required=True, help="files/names/min.csv"
 parser.add_argument('--jsondownloaded', default="", help="files/names/genderapifiles_names_min.csv.json")
 parser.add_argument('--api', required=True, choices=['namsor', 'genderize', 'genderapi', 'genderguesser', 'damegender', 'nameapi', 'all'])
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB'])
+parser.add_argument('--zero', default="female", choices=['male', 'female'])
 parser.add_argument('--dimensions', default="2x3", choices=['1x1', '1x2', '1x3', '2x1', '2x2', '2x3', '3x1', '3x2', '3x3'])
 args = parser.parse_args()
 
@@ -92,7 +93,7 @@ elif (args.api == "genderize"):
     elif (args.jsondownloaded == ''):
         dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
     else:
-        print("In the path %s doesn't exist file" % args.jsondownloaded)    
+        print("In the path %s doesn't exist file" % args.jsondownloaded)
 
 elif (args.api == "genderapi"):
     dga = DameGenderApi()
@@ -118,9 +119,9 @@ elif (args.api == "nameapi"):
     print("Nameapi confusion matrix:\n")
 #    dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
     if (os.path.isfile(args.jsondownloaded)):
-        dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded)
+        dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded, zero=args.zero)
     elif (args.jsondownloaded == ''):
-        dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+        dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, zero=args.zero)
     else:
         print("In the path %s doesn't exist file" % args.jsondownloaded)
 
