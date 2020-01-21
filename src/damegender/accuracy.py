@@ -137,6 +137,7 @@ elif (args.api == "genderize"):
         sl = dg.guess_list(path=args.csv, binary=True)
         print("Guess list: " + str(sl))
     else:
+
         if (dg.json_eq_csv_in_names(jsonf=args.jsondownloaded, path=args.csv)):
             if (os.path.isfile(args.jsondownloaded)):
                 print("################### Genderize!!")
@@ -147,11 +148,14 @@ elif (args.api == "genderize"):
             else:
                 print("In the path %s doesn't exist file" % args.jsondownloaded)
         else:
+            print("There are %s names in the json file and %s in the csv file" % (len(dg.csv2names(path=args.csv)), len(dg.json2names(jsonf=args.jsondownloaded))))
             print("Names in json and csv are differents")
             print("Names in csv: ")
             print(dg.csv2names(path=args.csv))
             print("Names in json: ")
             print(dg.json2names(jsonf=args.jsondownloaded))
+            v = dg.first_uneq_json_and_csv_in_names(jsonf=args.jsondownloaded, path=args.csv)
+            print("First name different is %s. It's in position %s" % (v[0], v[1]))
 
 elif (args.api == "genderguesser"):
     dgg = DameGenderGuesser()
@@ -269,8 +273,6 @@ elif (args.api == "nameapi"):
     dna = DameNameapi()
     print("################### Nameapi!!")
     gl = dna.gender_list(path=args.csv)
-#    print(dna.csv2names(path=args.csv))
-#    print(len(gl))
     print("Gender list: " + str(gl))
     if (args.jsondownloaded is None):
         sl = dna.guess_list(path=args.csv, binary=True)
@@ -279,8 +281,6 @@ elif (args.api == "nameapi"):
         jsonf = args.jsondownloaded
         p = os.getcwd() + jsonf
         sl = dna.json2guess_list(jsonf, binary=True)
-#        print(len(sl))
-#        print(dna.json2names(jsonf))
     else:
         print("In the path %s doesn't exist file" % args.jsondownloaded)
     print("Guess list:" + str(sl))
