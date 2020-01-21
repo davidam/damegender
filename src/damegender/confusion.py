@@ -112,7 +112,7 @@ elif (args.api == "genderguesser"):
 elif (args.api == "damegender"):
     ds = DameSexmachine()
     print("Damegender confusion matrix:\n")
-    ds.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, ml=args.ml, truepositive=args.truepositive)
+    ds.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, ml=args.ml)
 
 elif (args.api == "nameapi"):
     dna = DameNameapi()
