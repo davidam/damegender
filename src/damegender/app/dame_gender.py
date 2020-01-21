@@ -682,7 +682,7 @@ class Gender(object):
 
     def print_confusion_matrix_gender(self, path='', *args, **kwargs):
         dimensions = kwargs.get('dimensions', '2x3')
-        truepositive = kwargs.get('truepositive', "female")
+        reverse = kwargs.get('reverse', "not")
         jsonf = kwargs.get('jsonf', "")
         # TODO Para toda combinación tests con sh, please
         jf = os.getcwd() + "/" +  jsonf
@@ -691,68 +691,68 @@ class Gender(object):
         else:
             cmd = self.confusion_matrix_gender(path)
         if (dimensions == "1x1"):
-            if (truepositive == "male"):
-                print("[[ %s ]]" % (cmd[0][0]))
-            elif (truepositive == "female"):
+            if (reverse == False):
                 print("[[ %s ]]" % (cmd[1][1]))
+            elif (reverse == True):
+                print("[[ %s ]]" % (cmd[0][0]))
         elif (dimensions == "1x2"):
-            if (truepositive == "male"):
-                print("[[ %s, %s ]]" % (cmd[0][0], cmd[0][1]))
-            elif (truepositive == "female"):
+            if (reverse == False):
                 print("[[ %s, %s ]]" % (cmd[1][1], cmd[1][0]))
+            elif (reverse == True):
+                print("[[ %s, %s ]]" % (cmd[0][0], cmd[0][1]))
         elif (dimensions == "1x3"):
-            if (truepositive == "male"):
-                print("[[ %s, %s, %s ]]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-            elif (truepositive == "female"):
+            if (reverse == False):
                 print("[[ %s, %s, %s ]]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
+            elif (reverse == True):
+                print("[[ %s, %s, %s ]]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
         elif (dimensions == "2x1"):
-            if (truepositive == "male"):
-                print("[[ %s ]" % (cmd[0][0]))
-                print(" [ %s ]]" % (cmd[0][1]))
-            elif (truepositive == "female"):
+            if (reverse == False):
                 print("[[ %s ]" % (cmd[1][1]))
                 print(" [ %s ]]" % (cmd[1][0]))
+            elif (reverse == True):
+                print("[[ %s ]" % (cmd[0][0]))
+                print(" [ %s ]]" % (cmd[0][1]))
         elif (dimensions == "2x2"):
-            if (truepositive == "male"):
-                print("[[ %s , %s ]" % (cmd[0][0], cmd[0][1]))
-                print(" [ %s , %s ]]" % (cmd[1][0], cmd[1][1]))
-            if (truepositive == "female"):
+            if (reverse == False):
                 print("[[ %s , %s ]" % (cmd[1][1], cmd[1][0]))
                 print(" [ %s , %s ]]" % (cmd[0][1], cmd[0][0]))
+            if (reverse == True):
+                print("[[ %s , %s ]" % (cmd[0][0], cmd[0][1]))
+                print(" [ %s , %s ]]" % (cmd[1][0], cmd[1][1]))
         elif (dimensions == "2x3"):
-            if (truepositive == "male"):
-                print("[[ %s, %s, %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-                print(" [ %s, %s, %s ]]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
-            if (truepositive == "female"):
+            if (reverse == False):
                 print("[[ %s, %s, %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
                 print(" [ %s, %s, %s ]]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
+            if (reverse == True):
+                print("[[ %s, %s, %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print(" [ %s, %s, %s ]]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
         elif (dimensions == "3x1"):
-            if (truepositive == "male"):
-                print("[[ %s ]" % (cmd[0][0]))
-                print(" [ %s ]" % (cmd[1][0]))
-                print(" [ %s ]]" % (cmd[2][0]))
-            elif (truepositive == "female"):
-                print("[[ %s ]," % (cmd[1][1]))
+            if (reverse == False):
+                print("[[ %s ]" % (cmd[1][1]))
                 print(" [ %s ]" % (cmd[0][1]))
                 print(" [ %s ]]" % (cmd[2][1]))
+            elif (reverse == True):
+                print("[[ %s ]," % (cmd[0][0]))
+                print(" [ %s ]" % (cmd[1][0]))
+                print(" [ %s ]]" % (cmd[2][0]))
         elif (dimensions == "3x2"):
-            if (truepositive == "male"):
-                print("[[ %s , %s ]" % (cmd[0][0], cmd[0][1]))
-                print(" [ %s , %s ]" % (cmd[1][0], cmd[1][1]))
-                print(" [ %s , %s ]]" % (cmd[2][0], cmd[2][1]))
-            if (truepositive == "female"):
-                print("[[ %s, %s ]" % (cmd[1][1], cmd[1][0]))
-                print(" [ %s, %s ]" % (cmd[0][1], cmd[0][0]))
-                print(" [ %s, %s ]]" % (cmd[2][1], cmd[2][0]))
+            if (reverse == False):
+                print("[[ %s , %s ]" % (cmd[1][1], cmd[1][0]))
+                print(" [ %s , %s ]" % (cmd[0][1], cmd[0][0]))
+                print(" [ %s , %s ]]" % (cmd[2][1], cmd[2][0]))
+            if (reverse == True):
+                print("[[ %s, %s ]" % (cmd[0][0], cmd[0][1]))
+                print(" [ %s, %s ]" % (cmd[1][0], cmd[1][1]))
+                print(" [ %s, %s ]]" % (cmd[2][0], cmd[2][1]))
         elif (dimensions == "3x3"):
-            if (truepositive == "male"):
-                print("[[ %s, %s, %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-                print(" [ %s, %s, %s ]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
-                print(" [ %s, %s, %s ]]" % (cmd[2][0], cmd[2][1], cmd[2][2]))
-            if (truepositive == "female"):
+            if (reverse == False):
                 print("[[ %s, %s, %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
                 print(" [ %s, %s, %s ]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
                 print(" [ %s, %s, %s ]]" % (cmd[2][1], cmd[2][0], cmd[2][2]))
+            if (reverse == True):
+                print("[[ %s, %s, %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print(" [ %s, %s, %s ]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+                print(" [ %s, %s, %s ]]" % (cmd[2][0], cmd[2][1], cmd[2][2]))
         return ""
 
 
