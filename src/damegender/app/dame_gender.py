@@ -644,7 +644,7 @@ class Gender(object):
         sl = self.guess_list(path, binary=True)
         return confusion_matrix(gl, sl)
 
-    def confusion_matrix_gender(self, path='', dimensions="2x3", jsonf=""):
+    def confusion_matrix_gender(self, path='', jsonf=""):
         truevector = self.gender_list(path)
         if (os.path.isfile(jsonf)):
             guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
@@ -674,26 +674,9 @@ class Gender(object):
              [self.mf, self.mm, self.mu],
              [self.uf, self.um, self.uu]]
 
-        if (dimensions == "1x1"):
-            res = [[l[0][0]]]
-        elif (dimensions == "1x2"):
-            res = [[l[0][0], l[0][1]]]
-        elif (dimensions == "1x3"):
-            res = [[l[0][0], l[0][1], l[0][2]]]
-        elif (dimensions == "2x1"):
-            res = [[l[0][0]], [l[1][0]]]
-        elif (dimensions == "2x2"):
-            res = [[l[0][0], l[0][1]], [l[1][0], l[1][1]]]
-        elif (dimensions == "2x3"):
-            res = [[l[0][0], l[0][1], l[0][2]], [l[1][0], l[1][1], l[1][2]]]
-        elif (dimensions == "3x1"):
-            res = [[l[0][0]], [l[1][0]], [l[2][0]]]
-        elif (dimensions == "3x2"):
-            res = [[l[0][0], l[0][1]], [l[1][0], l[1][1]], [l[2][0], l[2][1]]]
-        elif (dimensions == "3x3"):
-            res = [[l[0][0], l[0][1], l[0][2]],
-                   [l[1][0], l[1][1], l[1][2]],
-                   [l[2][0], l[2][1], l[2][2]]]
+        res = [[l[0][0], l[0][1], l[0][2]],
+               [l[1][0], l[1][1], l[1][2]],
+               [l[2][0], l[2][1], l[2][2]]]
         return res
 
     def print_confusion_matrix_gender(self, path='', dimensions="2x3", jsonf="",
