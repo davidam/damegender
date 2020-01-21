@@ -644,12 +644,6 @@ class Gender(object):
         sl = self.guess_list(path, binary=True)
         return confusion_matrix(gl, sl)
 
-    def print_confusion_matrix_gender(self, path='', dimensions="2x3"):
-        cmd = self.confusion_matrix_gender(path, dimensions)
-        print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-        print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
-        return ""
-
     def confusion_matrix_gender(self, path='', dimensions="2x3", jsonf=""):
         truevector = self.gender_list(path)
         if (os.path.isfile(jsonf)):
@@ -702,6 +696,77 @@ class Gender(object):
                    [l[2][0], l[2][1], l[2][2]]]
         return res
 
+    def print_confusion_matrix_gender(self, path='', dimensions="2x3", jsonf="",
+                                      truepositive="male"):
+        # TODO Para toda combinación tests con sh, please
+        if (os.path.isfile(jsonf)):
+            cmd = self.confusion_matrix_gender(path, dimensions, jsonf)
+        else:
+            cmd = self.confusion_matrix_gender(path, dimensions)
+        if (dimensions == "1x1"):
+            if (truepositive == "male"):
+                print("[[%s]]" % (cmd[0][0]))
+            elif (truepositive == "female"):
+                print("[[%s]]" % (cmd[1][1]))
+        elif (dimensions == "1x2"):
+            if (truepositive == "male"):
+                print("[[%s, %s]]" % (cmd[0][0], cmd[0][1]))
+            elif (truepositive == "female"):
+                print("[[%s, %s]]" % (cmd[1][1], cmd[1][0]))
+        elif (dimensions == "1x3"):
+            if (truepositive == "male"):
+                print("[[%s, %s, %s]]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+            elif (truepositive == "female"):
+                print("[[%s, %s, %s]]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
+        elif (dimensions == "2x1"):
+            if (truepositive == "male"):
+                print("[[%s]," % (cmd[0][0]))
+                print("[%s]]" % (cmd[0][1]))
+            elif (truepositive == "female"):
+                print("[[%s]," % (cmd[1][1]))
+                print("[%s]]" % (cmd[1][0]))
+        elif (dimensions == "2x2"):
+            if (truepositive == "male"):
+                print("[[%s , %s]," % (cmd[0][0], cmd[0][1]))
+                print("[%s , %s]]" % (cmd[1][0], cmd[1][1]))
+            if (truepositive == "female"):
+                print("[[%s , %s]," % (cmd[1][1], cmd[1][0]))
+                print("[%s , %s]]" % (cmd[0][1], cmd[0][0]))
+        elif (dimensions == "2x3"):
+            if (truepositive == "male"):
+                print("[[%s , %s , %s]," % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print("[%s , %s, %s]]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+            if (truepositive == "female"):
+                print("[[%s , %s , %s]," % (cmd[1][1], cmd[1][0], cmd[1][2]))
+                print("[%s , %s, %s]]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
+        elif (dimensions == "3x1"):
+            if (truepositive == "male"):
+                print("[[%s]," % (cmd[0][0]))
+                print("[%s]," % (cmd[1][0]))
+                print("[%s]]" % (cmd[2][0]))
+            elif (truepositive == "female"):
+                print("[[%s]," % (cmd[1][1]))
+                print("[[%s]," % (cmd[0][1]))
+                print("[[%s]," % (cmd[2][1]))
+        elif (dimensions == "3x2"):
+            if (truepositive == "male"):
+                print("[[%s , %s]," % (cmd[0][0], cmd[0][1]))
+                print("[%s , %s]," % (cmd[1][0], cmd[1][1]))
+                print("[%s , %s]]" % (cmd[2][0], cmd[2][1]))
+            if (truepositive == "female"):
+                print("[[%s , %s]," % (cmd[1][1], cmd[1][0]))
+                print("[%s , %s]," % (cmd[0][1], cmd[0][0]))
+                print("[%s, %s]]" % (cmd[2][1], cmd[2][0]))
+        elif (dimensions == "3x3"):
+            if (truepositive == "male"):
+                print("[[%s, %s, %s]," % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print("[%s, %s, %s]," % (cmd[1][0], cmd[1][1], cmd[1][2]))
+                print("[%s, %s, %s]]" % (cmd[2][0], cmd[2][1], cmd[2][2]))
+            if (truepositive == "female"):
+                print("[[%s, %s, %s]," % (cmd[1][1], cmd[1][0], cmd[1][2]))
+                print("[%s, %s, %s]," % (cmd[0][1], cmd[0][0], cmd[0][2]))
+                print("[%s, %s, %s]]" % (cmd[2][1], cmd[2][0], cmd[2][2]))
+        return ""
 
 
     def features_list(self, path='files/names/partial.csv', sexdataset=''):
@@ -875,21 +940,21 @@ class Gender(object):
             gender_f1score = self.f1score(gl1, gl2)
             print("%s f1score: %s" % (api_name, gender_f1score))
 
-    def print_confusion_matrix_gender(self, path='files/names/partial.csv', jsonf="", *args, **kwargs):
-        dimensions = kwargs.get('dimensions', '2x3')
-        zero = kwargs.get('zero', "female")
-        jf = os.getcwd() + "/" +  jsonf
-        if (os.path.isfile(jf) and (zero == "female")):
-            cmd = self.confusion_matrix_gender(path, dimensions, jf)
-#                                          f          m          u
-            print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))    # f
-            print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2])) # m
-        elif (os.path.isfile(jf) and (zero == "male")):
-            cmd = self.confusion_matrix_gender(path, dimensions, jf)
-#                                        m           f           u
-            print("[[ %s, %s, %s]" % (cmd[1][1], cmd[1][0], cmd[1][2]))     # m
-            print(" [ %s, %s, %s]]\n" % (cmd[0][1], cmd[0][0], cmd[0][2]))  # f
-        return ""
+#     def print_confusion_matrix_gender(self, path='files/names/partial.csv', jsonf="", *args, **kwargs):
+#         dimensions = kwargs.get('dimensions', '2x3')
+#         zero = kwargs.get('zero', "female")
+#         jf = os.getcwd() + "/" +  jsonf
+#         if (os.path.isfile(jf) and (zero == "female")):
+#             cmd = self.confusion_matrix_gender(path, dimensions, jf)
+# #                                          f          m          u
+#             print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))    # f
+#             print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2])) # m
+#         elif (os.path.isfile(jf) and (zero == "male")):
+#             cmd = self.confusion_matrix_gender(path, dimensions, jf)
+# #                                        m           f           u
+#             print("[[ %s, %s, %s]" % (cmd[1][1], cmd[1][0], cmd[1][2]))     # m
+#             print(" [ %s, %s, %s]]\n" % (cmd[0][1], cmd[0][0], cmd[0][2]))  # f
+#         return ""
 
     def json2names(self, jsonf="", surnames=False):
         jsondata = open(jsonf).read()
