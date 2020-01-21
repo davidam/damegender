@@ -699,8 +699,9 @@ class Gender(object):
     def print_confusion_matrix_gender(self, path='', dimensions="2x3", jsonf="",
                                       truepositive="male"):
         # TODO Para toda combinación tests con sh, please
-        if (os.path.isfile(jsonf)):
-            cmd = self.confusion_matrix_gender(path, dimensions, jsonf)
+        jf = os.getcwd() + "/" +  jsonf
+        if (os.path.isfile(jf)):
+            cmd = self.confusion_matrix_gender(path, dimensions, jf)
         else:
             cmd = self.confusion_matrix_gender(path, dimensions)
         if (dimensions == "1x1"):
