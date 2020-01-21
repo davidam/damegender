@@ -32,6 +32,7 @@ import os
 import re
 import sys
 import json
+
 from collections import OrderedDict
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
@@ -691,67 +692,67 @@ class Gender(object):
             cmd = self.confusion_matrix_gender(path)
         if (dimensions == "1x1"):
             if (truepositive == "male"):
-                print("[[%s]]" % (cmd[0][0]))
+                print("[[ %s ]]" % (cmd[0][0]))
             elif (truepositive == "female"):
-                print("[[%s]]" % (cmd[1][1]))
+                print("[[ %s ]]" % (cmd[1][1]))
         elif (dimensions == "1x2"):
             if (truepositive == "male"):
-                print("[[%s, %s]]" % (cmd[0][0], cmd[0][1]))
+                print("[[ %s, %s ]]" % (cmd[0][0], cmd[0][1]))
             elif (truepositive == "female"):
-                print("[[%s, %s]]" % (cmd[1][1], cmd[1][0]))
+                print("[[ %s, %s ]]" % (cmd[1][1], cmd[1][0]))
         elif (dimensions == "1x3"):
             if (truepositive == "male"):
-                print("[[%s, %s, %s]]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print("[[ %s, %s, %s ]]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
             elif (truepositive == "female"):
-                print("[[%s, %s, %s]]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
+                print("[[ %s, %s, %s ]]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
         elif (dimensions == "2x1"):
             if (truepositive == "male"):
-                print("[[%s]," % (cmd[0][0]))
-                print("[%s]]" % (cmd[0][1]))
+                print("[[ %s ]" % (cmd[0][0]))
+                print(" [ %s ]]" % (cmd[0][1]))
             elif (truepositive == "female"):
-                print("[[%s]," % (cmd[1][1]))
-                print("[%s]]" % (cmd[1][0]))
+                print("[[ %s ]" % (cmd[1][1]))
+                print(" [ %s ]]" % (cmd[1][0]))
         elif (dimensions == "2x2"):
             if (truepositive == "male"):
-                print("[[%s , %s]," % (cmd[0][0], cmd[0][1]))
-                print("[%s , %s]]" % (cmd[1][0], cmd[1][1]))
+                print("[[ %s , %s ]" % (cmd[0][0], cmd[0][1]))
+                print(" [ %s , %s ]]" % (cmd[1][0], cmd[1][1]))
             if (truepositive == "female"):
-                print("[[%s , %s]," % (cmd[1][1], cmd[1][0]))
-                print("[%s , %s]]" % (cmd[0][1], cmd[0][0]))
+                print("[[ %s , %s ]" % (cmd[1][1], cmd[1][0]))
+                print(" [ %s , %s ]]" % (cmd[0][1], cmd[0][0]))
         elif (dimensions == "2x3"):
             if (truepositive == "male"):
-                print("[[%s , %s , %s]," % (cmd[0][0], cmd[0][1], cmd[0][2]))
-                print("[%s , %s, %s]]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+                print("[[ %s, %s, %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print(" [ %s, %s, %s ]]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
             if (truepositive == "female"):
-                print("[[%s , %s , %s]," % (cmd[1][1], cmd[1][0], cmd[1][2]))
-                print("[%s , %s, %s]]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
+                print("[[ %s, %s, %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
+                print(" [ %s, %s, %s ]]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
         elif (dimensions == "3x1"):
             if (truepositive == "male"):
-                print("[[%s]," % (cmd[0][0]))
-                print("[%s]," % (cmd[1][0]))
-                print("[%s]]" % (cmd[2][0]))
+                print("[[ %s ]" % (cmd[0][0]))
+                print(" [ %s ]" % (cmd[1][0]))
+                print(" [ %s ]]" % (cmd[2][0]))
             elif (truepositive == "female"):
-                print("[[%s]," % (cmd[1][1]))
-                print("[[%s]," % (cmd[0][1]))
-                print("[[%s]," % (cmd[2][1]))
+                print("[[ %s ]," % (cmd[1][1]))
+                print(" [ %s ]" % (cmd[0][1]))
+                print(" [ %s ]]" % (cmd[2][1]))
         elif (dimensions == "3x2"):
             if (truepositive == "male"):
-                print("[[%s , %s]," % (cmd[0][0], cmd[0][1]))
-                print("[%s , %s]," % (cmd[1][0], cmd[1][1]))
-                print("[%s , %s]]" % (cmd[2][0], cmd[2][1]))
+                print("[[ %s , %s ]" % (cmd[0][0], cmd[0][1]))
+                print(" [ %s , %s ]" % (cmd[1][0], cmd[1][1]))
+                print(" [ %s , %s ]]" % (cmd[2][0], cmd[2][1]))
             if (truepositive == "female"):
-                print("[[%s , %s]," % (cmd[1][1], cmd[1][0]))
-                print("[%s , %s]," % (cmd[0][1], cmd[0][0]))
-                print("[%s, %s]]" % (cmd[2][1], cmd[2][0]))
+                print("[[ %s, %s ]" % (cmd[1][1], cmd[1][0]))
+                print(" [ %s, %s ]" % (cmd[0][1], cmd[0][0]))
+                print(" [ %s, %s ]]" % (cmd[2][1], cmd[2][0]))
         elif (dimensions == "3x3"):
             if (truepositive == "male"):
-                print("[[%s, %s, %s]," % (cmd[0][0], cmd[0][1], cmd[0][2]))
-                print("[%s, %s, %s]," % (cmd[1][0], cmd[1][1], cmd[1][2]))
-                print("[%s, %s, %s]]" % (cmd[2][0], cmd[2][1], cmd[2][2]))
+                print("[[ %s, %s, %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print(" [ %s, %s, %s ]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+                print(" [ %s, %s, %s ]]" % (cmd[2][0], cmd[2][1], cmd[2][2]))
             if (truepositive == "female"):
-                print("[[%s, %s, %s]," % (cmd[1][1], cmd[1][0], cmd[1][2]))
-                print("[%s, %s, %s]," % (cmd[0][1], cmd[0][0], cmd[0][2]))
-                print("[%s, %s, %s]]" % (cmd[2][1], cmd[2][0], cmd[2][2]))
+                print("[[ %s, %s, %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
+                print(" [ %s, %s, %s ]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
+                print(" [ %s, %s, %s ]]" % (cmd[2][1], cmd[2][0], cmd[2][2]))
         return ""
 
 
@@ -967,14 +968,13 @@ class Gender(object):
             if (json[i] == csv[i]):
                 count = count +1
             i = i+1
-        return ((len(json) == len(csv)) and (len(json) == count))
+        boolean = ((len(json) == len(csv)) and (len(json) == count))
+        return boolean
 
     def first_uneq_json_and_csv_in_names(self, jsonf="", path="", *args, **kwargs):
         header = kwargs.get('header', True)
         json = self.json2names(jsonf=jsonf, surnames=False)
-        print(json)
         csv = self.csv2names(path=path, header=header)
-        print(csv)
         i = 0
         maxi_json = len(json) -1
         maxi_csv = len(csv) - 1
