@@ -2,6 +2,5 @@ A confusion matrix C is such that Ci,j is equal to the number of observations kn
 If the classifier is nice, the diagonal is high because there are true positives
 Nameapi confusion matrix:
 
-[[ 3, 0, 0]
- [ 0, 15, 1]]
-
+[[ 3, 0, 0 ]
+ [ 0, 15, 1 ]]
