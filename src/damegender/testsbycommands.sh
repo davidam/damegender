@@ -280,7 +280,7 @@ else
 	echo "confusion nltk test is ok"
 fi
 
-python3 confusion.py --csv="files/names/min.csv" --api=genderapi --jsondownloaded="files/names/genderapifiles_names_min.csv.json" > files/tests/confusiongenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
+python3 confusion.py --csv="files/names/min.csv" --api=genderapi --jsondownloaded="files/names/genderapifiles_names_min.csv.json" --reverse > files/tests/confusiongenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/confusiongenderapijsondownloaded.txt files/tests/confusiongenderapijsondownloaded-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "confusion genderapi jsondonwloaded test is failing"
@@ -289,7 +289,7 @@ else
 fi
 
 
-python3 confusion.py --csv=files/names/partialnoundefined.csv --api=genderize --jsondownloaded=files/names/genderizefiles_names_partialnoundefined.csv.json > files/tests/confusion-genderize-partialnoun-$(date "+%Y-%m-%d-%H").txt
+python3 confusion.py --csv=files/names/partialnoundefined.csv --api=genderize --jsondownloaded=files/names/genderizefiles_names_partialnoundefined.csv.json --reverse > files/tests/confusion-genderize-partialnoun-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/confusion-genderize-partialnoun.txt files/tests/confusion-genderize-partialnoun-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -299,20 +299,12 @@ else
 fi
 
 
-python3 confusion.py --csv="files/names/partial.csv" --api=nameapi --jsondownloaded="files/names/nameapifiles_names_partial.csv.json" > files/tests/confusionnameapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
+python3 confusion.py --csv="files/names/partial.csv" --api=nameapi --jsondownloaded="files/names/nameapifiles_names_partial.csv.json" --reverse > files/tests/confusionnameapijsondownloaded-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/confusionnameapijsondownloaded.txt files/tests/confusionnameapijsondownloaded-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "confusion nameapi jsondonwloaded test is failing"
 else
 	echo "confusion nameapi jsondonwloaded test is ok"
-fi
-
-python3 confusion.py --csv=files/names/min.csv --jsondownloaded=files/names/nameapifiles_names_min.csv.json --api=nameapi --zero=male > files/tests/confusionnameapijsonzeromale-$(date "+%Y-%m-%d-%H").txt
-if ! cmp files/tests/confusionnameapijsonzeromale.txt files/tests/confusionnameapijsonzeromale-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "confusion nameapi json zeromale test is failing"
-else
-	echo "confusion nameapi json zeromale test is ok"
 fi
 
 
