@@ -216,13 +216,20 @@ class Gender(object):
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
+
+                middlename = row[1].replace(' ', '')
+                middlename = row[1].replace('\"', '')
+                if (middlename != ""):
+                    name = name + " " + middlename
+                    name = name.title()
                 if (surnames == True):
-                    surname = row[2].title()
-                    surname = row[2].replace('\"', '')
-                    elem = [name, surname]
+                    lastname = row[2].title()
+                    lastname = row[2].replace('\"', '')
+                    elem = [name, lastname]
                     csvlist.append(elem)
                 else:
                     csvlist.append(name)
+
         return csvlist
 
     def name2gender_in_dataset(self, name, dataset=''):
@@ -927,22 +934,6 @@ class Gender(object):
             gender_f1score = self.f1score(gl1, gl2)
             print("%s f1score: %s" % (api_name, gender_f1score))
 
-#     def print_confusion_matrix_gender(self, path='files/names/partial.csv', jsonf="", *args, **kwargs):
-#         dimensions = kwargs.get('dimensions', '2x3')
-#         zero = kwargs.get('zero', "female")
-#         jf = os.getcwd() + "/" +  jsonf
-#         if (os.path.isfile(jf) and (zero == "female")):
-#             cmd = self.confusion_matrix_gender(path, dimensions, jf)
-# #                                          f          m          u
-#             print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))    # f
-#             print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2])) # m
-#         elif (os.path.isfile(jf) and (zero == "male")):
-#             cmd = self.confusion_matrix_gender(path, dimensions, jf)
-# #                                        m           f           u
-#             print("[[ %s, %s, %s]" % (cmd[1][1], cmd[1][0], cmd[1][2]))     # m
-#             print(" [ %s, %s, %s]]\n" % (cmd[0][1], cmd[0][0], cmd[0][2]))  # f
-#         return ""
-
     def json2names(self, jsonf="", surnames=False):
         jsondata = open(jsonf).read()
         json_object = json.loads(jsondata)
@@ -955,20 +946,22 @@ class Gender(object):
                     nameslist.append(i["name"])
         return nameslist
 
+
     def json_eq_csv_in_names(self, jsonf="", path=""):
         boolean = False
         json = self.json2names(jsonf=jsonf, surnames=False)
         csv = self.csv2names(path=path)
         count = 0
         i = 0
-        maxi = len(json)
+        maxi = len(json) -1
         if (maxi < len(csv)):
-            maxi = len(csv)
+            maxi = len(csv) -1
         while (maxi > count):
             if (json[i] == csv[i]):
                 count = count +1
             i = i+1
-        boolean = ((len(json) == len(csv)) and (len(json) == count))
+
+        boolean = ((len(json) == len(csv)) and ((len(json) -1) == count))
         return boolean
 
     def first_uneq_json_and_csv_in_names(self, jsonf="", path="", *args, **kwargs):
