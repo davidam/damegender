@@ -206,6 +206,7 @@ class Gender(object):
 
     def csv2names(self, path='files/names/partial.csv', *args, **kwargs):
         # make a list from a csv file
+        name_and_middlename = kwargs.get('name_and_middlename', False)
         surnames = kwargs.get('surnames', False)
         header = kwargs.get('header', True)
         csvlist = []
@@ -219,7 +220,7 @@ class Gender(object):
 
                 middlename = row[1].replace(' ', '')
                 middlename = row[1].replace('\"', '')
-                if (middlename != ""):
+                if (name_and_middlename == True):
                     name = name + " " + middlename
                     name = name.title()
                 if (surnames == True):
@@ -956,11 +957,10 @@ class Gender(object):
         maxi = len(json) -1
         if (maxi < len(csv)):
             maxi = len(csv) -1
-        while (maxi > count):
+        while (maxi > i):
             if (json[i] == csv[i]):
                 count = count +1
             i = i+1
-
         boolean = ((len(json) == len(csv)) and ((len(json) -1) == count))
         return boolean
 
