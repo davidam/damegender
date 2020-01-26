@@ -206,7 +206,6 @@ class Gender(object):
 
     def csv2names(self, path='files/names/partial.csv', *args, **kwargs):
         # make a list from a csv file
-        name_and_middlename = kwargs.get('name_and_middlename', False)
         surnames = kwargs.get('surnames', False)
         header = kwargs.get('header', True)
         csvlist = []
@@ -217,21 +216,55 @@ class Gender(object):
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
+                # middlename = row[1].replace(' ', '')
+                # middlename = row[1].replace('\"', '')
 
-                middlename = row[1].replace(' ', '')
-                middlename = row[1].replace('\"', '')
-                if (name_and_middlename == True):
-                    name = name + " " + middlename
-                    name = name.title()
+                # if (name_and_middlename == True):
+                #     name = name + " " + middlename
+                #     name = name.title()
+
                 if (surnames == True):
-                    lastname = row[2].title()
-                    lastname = row[2].replace('\"', '')
-                    elem = [name, lastname]
+                    surname = row[2].title()
+                    surname = row[2].replace('\"', '')
+                    elem = [name, surname]
                     csvlist.append(elem)
                 else:
                     csvlist.append(name)
-
         return csvlist
+
+
+    def csv2json(self, path="", jsonf="", *args, **kwargs):
+        # csv to json file
+        header = kwargs.get('header', True)
+        csv2names = self.csv2names(path=path, surnames=True)
+        jsonf = "files/names/csv2json.json"
+        string = ""
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            if (header == True):
+                next(sexreader, None)
+            string = '['
+            for row in sexreader:
+                name = row[0].title()
+                name = name.replace('\"', '')
+
+                middlename = row[1].replace(' ', '')
+                middlename = row[1].replace('\"', '')
+
+                lastname = row[2].title()
+                lastname = row[2].replace('\"', '')
+
+                gender = row[4]
+
+                string = string + '{"name":"'+ name + ' ' + middlename +'", \n'
+                string = string + '"surname":"'+ lastname +'", \n'
+                string = string + '"probability": 1, \n'
+                string = string + '"gender": '+ gender +'}, \n'
+            string = string + ']'
+        file = open(jsonf, "w")
+        file.writelines(str(string))
+        file.close()
+
 
     def name2gender_in_dataset(self, name, dataset=''):
         guess = 2
