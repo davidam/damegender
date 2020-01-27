@@ -92,20 +92,25 @@ In Damegender, we are using accuracy.py with the different measures
 input. For instance:
 
 #+BEGIN_SRC bash
-$ python3 accuracy.py --api="damegender" --measure="recall" --csv=files/names/allnoundefined.csv
-$ python3 accuracy.py --api="nameapi" --measure="precision" --csv=files/names/allnoundefined.csv --jsondownloaded=files/names/nameapifiles_names_allnoundefined.csv.json
-$ python3 accuracy.py --api="namsor" --measure="accuracy" --csv=files/names/allnoundefined.csv --jsondownloaded=files/names/namsorfiles_names_allnoundefined.csv.json
+$ python3 accuracy.py --api="damegender" --measure="recall"
+--csv=files/names/allnoundefined.csv
+$ python3 accuracy.py --api="nameapi" --measure="precision"
+--csv=files/names/allnoundefined.csv
+--jsondownloaded=files/names/nameapifiles_names_allnoundefined.csv.json
+$ python3 accuracy.py --api="namsor" --measure="accuracy"
+--csv=files/names/allnoundefined.csv
+--jsondownloaded=files/names/namsorfiles_names_allnoundefined.csv.json
 #+END_SRC
 
 ** Accuracy results with Damegender
 
-| Name           |           Accuracy |          Precision |            F1score | Recall   |
-| Genderapi      | 0.9687686966482124 | 0.9717050018254838 | 0.9637877964874163 | 1.0      |
-| Genderize      |           0.926775 | 0.9761303240374678 | 0.9655113956503119 | 1.0      |
-| Namsor         | 0.8672551055728626 | 0.9730097087378641 | 0.9236866359447006 | 1.0      |
-| Nameapi        | 0.8301886792452831 |   0.97420272191753 | 0.9054181612233341 | 1.0      |
-| Gender Guesser | 0.7743554248139817 | 0.9848151408450704 | 0.8715900233826968 | 1.0      |
-| Damegender     | 0.7452405676704742 | 0.8789548887528067 | 0.8789548887528067 | 1.0      |
+| Name           | Accuracy | Precision | F1score | Recall |
+| Genderapi      |    0.969 |     0.972 |   0.964 |    1.0 |
+| Genderize      |    0.927 |     0.976 |   0.965 |    1.0 |
+| Namsor         |    0.867 |     0.973 |   0.924 |    1.0 |
+| Nameapi        |     0.83 |     0.974 |     0.9 |    1.0 |
+| Gender Guesser |    0.774 |     0.985 |   0.872 |    1.0 |
+| Damegender     |    0.745 |     0.879 |   0.879 |    1.0 |
 
 ** Measuring errors in gender detection tools from the name
 
@@ -164,12 +169,13 @@ Damegender with files/names/allnoundefined.csv has:
 
 ** Errors results with Damegender
 
-| API            |          error code | error code without na |            na coded |     error gender bias |
-| Damegender     |  0.2547594323295258 |    0.2547594323295258 |                 0.0 |  -0.04949809622706819 |
-| GenderApi      | 0.16666666666666666 |   0.16666666666666666 |                 0.0 |  -0.16666666666666666 |
-| Gender Guesser |  0.2255105572862582 |  0.026962383126766687 | 0.20404984423676012 |    0.0030441400304414 |
-| Namsor         | 0.16666666666666666 |   0.16666666666666666 |                 0.0 |   0.16666666666666666 |
-| Nameapi        | 0.36149584487534625 |    0.2666534102207198 | 0.12932825484764543 | 0.0013919268244183733 |
+| API            | err code | err without na | na coded | err gender bias |
+| Damegender     |    0.255 |          0.255 |      0.0 |          -0.049 |
+| GenderApi      |    0.167 |          0.167 |      0.0 |          -0.167 |
+| Gender Guesser |    0.225 |          0.027 |    0.204 |           0.003 |
+| Namsor         |    0.167 |          0.167 |      0.0 |           0.167 |
+| Nameapi        |    0.361 |          0.267 |    0.129 |           0.001 |
+
 
 ** Confusion Matrix to measure success and errors
 
@@ -199,8 +205,12 @@ males was considered female.
 In Damegender, we have coded confusion.py to implement this concept with the different apis.
 
 #+BEGIN_SRC bash
-$ python3 downloadjson.py --api="namsor" --csv=files/names/allnoundefined.csv
-$ python3 confusion.py --api="namsor"  --csv=files/names/allnoundefined.csv --jsondownloaded=files/names/namsorfiles_names_allnoundefined.csv.json
+$ python3 downloadjson.py --api="namsor"
+--csv=files/names/allnoundefined.csv
+$ python3 confusion.py --api="namsor"
+--csv=files/names/allnoundefined.csv
+--jsondownloaded=files/names/namsorfiles_names_allnoundefined.csv.json
+
 A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
 If the classifier is nice, the diagonal is high because there are true positives
 Namsor confusion matrix:
