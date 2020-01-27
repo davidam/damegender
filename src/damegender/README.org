@@ -30,7 +30,7 @@ $ docker build . -t damegender/damegender:latest
 $ docker run -ti damegender/damegender:latest main.py David
 #+END_SRC
 ** Installing Software
-*** Posible Debian/Ubuntu dependencies
+*** Possible Debian/Ubuntu dependencies
 #+BEGIN_SRC
 $ sudo apt-get install python3-nose-exclude python3-dev dict dict-freedict-eng-spa dict-freedict-spa-eng dictd
 #+END_SRC
@@ -61,7 +61,7 @@ To install mailing lists and repositories extra dependencies:
 $ pip3 install damegender[mails_and_repositories]
 #+END_SRC
 
-To install all posible dependencies
+To install all possible dependencies
 
 #+BEGIN_SRC
 $ pip3 install damegender[all]
@@ -335,7 +335,7 @@ So, we can find a vocabulary for measure true, false, success and
 errors. We can make a summary in the gender name context about
 mathematical concepts:
 
-*Precision* is about true positives between true positives plus false
+*Precision* is about true positives divided by true positives plus false
 positives
 
 #+BEGIN_SRC
@@ -343,7 +343,7 @@ positives
 (femalefemale + malemale + femalemale)
 #+END_SRC
 
-*Recall* is about true positives between true positives plus false
+*Recall* is about true positives divided by true positives plus false
 negatives.
 
 #+BEGIN_SRC
@@ -351,11 +351,11 @@ negatives.
 (femalefemale + malemale + malefemale + femaleundefined + maleundefined)
 #+END_SRC
 
-*Accuray* is about true positives between all.
+*Accuray* is about true positives divided by all.
 
 #+BEGIN_SRC
 (femalefemale + malemale ) /
-(femalefemale + malemale + malefemale + femalemale + femaleundefined + maleundefinedxs)
+(femalefemale + malemale + malefemale + femalemale + femaleundefined + maleundefined)
 #+END_SRC
 
 The *F1 score* is the harmonic mean of precision and recall taking
@@ -420,7 +420,7 @@ but giving a weight to the guessed as undefined.
 
 In Damengeder, we have coded errors.py to implement the different definitions in diffrent apis.
 
-The *confusion matrix* creates a matrix between the true and the
+The *confusion matrix* creates a matrix about the true and the
 guess. If you have this confusion matrix:
 
 #+BEGIN_SRC
@@ -446,8 +446,8 @@ with the different apis.
 
 ** PCA
 *** Concepts
-The dispersion measures between 1 variables are: variance, standard
-deviation, ...
+The dispersion measures between 1 variable, for instance, variance,
+standard deviation, ...
 
 [[file:src/damegender/files/images/variance.png]]
 
@@ -586,7 +586,7 @@ target = pd.DataFrame(data = y, columns = ['target component'])
 
 print(principalDf.join(target))
 #+END_SRC
-*** Analize components to determine gender in names
+*** Analyze components to determine gender in names
 
 | first\_letter   | last\_letter    | last\_letter\_a   | first\_letter\_vocal   | last\_letter\_vocal   | last\_letter\_consonant   | target component   |
 |-----------------+-----------------+-------------------+------------------------+-----------------------+---------------------------+--------------------|
@@ -602,12 +602,13 @@ consonant. If the last letter is vocal we can find a male and if the
 last letter is a consonant we can find a male.
 
 The second component is about the first letter. The last letter is
-determing females and the first letter is determing males.
+determining females and the first letter is determining males.
 
 The third component is not giving relevant information.
 
-The fourth component is giving tha last_letter_a and the
+The fourth component is giving the last_letter_a and the
 first_letter_vocal is for females.
+
 * Speeches, Seminars, Expressions of Support
 + [[http://gregoriorobles.github.io/MadSESE/201906.html][MadSeSe]]
 + [[https://www.meetup.com/es-ES/python-185/events/261405719/][Python Barcelona]]
