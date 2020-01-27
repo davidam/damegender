@@ -32,17 +32,17 @@ policies with facts to fix the situation.
 
 ** Problems addressed
 
-+ Evaluate quality/price with different comercial solutions.
++ Evaluate quality/price with different commercial solutions.
 + Think about free solutions.
-+ Treatment with names without census (ej: nicknames, diminutives, ...)
-+ Massive gender detection in Internet (ej: mailing lists, software
++ Treatment with names without census (ex: nicknames, diminutives, ...)
++ Massive gender detection in Internet (ex: mailing lists, software
   repositories, ...)
 
 ** Damegender as Python solution
 
 + Evaluate quality of different solutions applying metrics suggested by Santamaría and Mihaljević
 (2018)
-+ We have developed a tool to give support to spanish and english from the census to make the gender
++ We have developed a tool to give support to Spanish and English from the census to make the gender
 detection to understand the problems.
 + We have developed a machine learning solution to strings not found in the census dataset.
 + We have proof-of-concept tests applying Perceval to detect gender in mailing lists and software
@@ -63,17 +63,17 @@ repositories.
 
 ** Measuring success in gender detection tools from the name
 
-*Precision* is about true positives between true positives plus false positives
+*Precision* is about true positives divided by true positives plus false positives
 
 (femalefemale + malemale ) /
 (femalefemale + malemale + femalemale)
 
-*Recall* is about true positives between true positives plus false negatives.
+*Recall* is about true positives divided by true positives plus false negatives.
 
 (femalefemale + malemale ) /
 (femalefemale + malemale + malefemale + femaleundefined + maleundefined)
 
-*Accuray* is about true positives between all.
+*Accuracy* is about true positives divided by all.
 
 (femalefemale + malemale ) /
 (femalefemale + malemale + malefemale + femalemale + femaleundefined + maleundefined)
@@ -130,9 +130,9 @@ femalefemale + maleundefined + femaleundefined)
 #+END_SRC
 
 *Error gender bias* allows to understand if the error is bigger
-guessing males than females or viceversa. That's males guessed as
-females minus females guessed as males and this number divided between
-the total number of elements not guessed as undefined.
+guessing males than females or vice versa. That's males guessed as
+females minus females guessed as males and this number divided divided
+by the total number of elements not guessed as undefined.
 
 #+BEGIN_SRC lisp
 (malefemale - femalemale) /
@@ -173,7 +173,7 @@ Damegender with files/names/allnoundefined.csv has:
 
 ** Confusion Matrix to measure success and errors
 
-The rows of the datasource element are true and in the columns the
+The rows of the data source element are true and in the columns the
 elements are identified as guess.
 
 #+BEGIN_SRC shell
@@ -248,22 +248,28 @@ Namsor confusion matrix:
 
 ** Implementation (II). Features
 
-+ To know the gender about a name in spanish or english (current status)
+- To know the gender about a name in Spanish or English (current status)
   from open census in local.
-+ Decide about males and females in strings using different
+- Decide about males and females in strings using different
   machine learning algorithms.
-+ To use the main solutions in gender detection (genderize, genderapi,
+- To use the main solutions in gender detection (genderize, genderapi,
   namsor, nameapi and gender guesser) from a command and downloading
   results in a json file
-+ To research with statistics about why a name is related with
+- To research with statistics about why a name is related with
   males or females. We provide python commands about study and compare
   gender solutions with: confusion matrix, accuracies, error
   measures. And decide about features: statistical feature weight, pca
   about features, ...
-+ Determine gender gap in free software repositories or mailing lists
+- Determine gender gap in free software repositories or mailing lists
 (proof of concept)
 
 ** Conclusions
+
++ Market = APIs
++ Future Market = Free Software and Open Data?
++ Machine Learning can help to classify nicknames or diminutives
++ About massive gender detection
+
 ** License
 Copyright (C) 2020 David Arroyo Menendez
     Permission is granted to copy, distribute and/or modify this document
