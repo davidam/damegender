@@ -727,7 +727,7 @@ class Gender(object):
 
     def print_confusion_matrix_gender(self, path='', *args, **kwargs):
         dimensions = kwargs.get('dimensions', '2x3')
-        reverse = kwargs.get('reverse', "not")
+        reverse = kwargs.get('reverse', False)
         jsonf = kwargs.get('jsonf', "")
         # TODO Para toda combinación tests con sh, please
         jf = os.getcwd() + "/" +  jsonf
