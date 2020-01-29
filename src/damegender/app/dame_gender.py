@@ -236,14 +236,17 @@ class Gender(object):
     def csv2json(self, path="", jsonf="", *args, **kwargs):
         # csv to json file
         header = kwargs.get('header', True)
+        l = kwargs.get('l', [ ])
+        gendercase = kwargs.get('gendercase', True)
         csv2names = self.csv2names(path=path, surnames=True)
-        jsonf = "files/names/csv2json.json"
+        # jsonf = "files/names/csv2json.json"
         string = ""
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             if (header == True):
                 next(sexreader, None)
             string = '['
+            i = 0
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
@@ -259,7 +262,20 @@ class Gender(object):
                 string = string + '{"name":"'+ name + ' ' + middlename +'", \n'
                 string = string + '"surname":"'+ lastname +'", \n'
                 string = string + '"probability": 1, \n'
-                string = string + '"gender": '+ gender +'}, \n'
+                if (l == [ ] ):
+                    string = string + '"gender": '+ gender +'}, \n'
+                else:
+                    if (gendercase == True):
+                        if (l[i] == 0):
+                            string = string + '"gender": f}, \n'
+                        elif (l[i] == 1):
+                            string = string + '"gender": m}, \n'
+                        elif (l[i] == 2):
+                            string = string + '"gender": u}, \n'
+                    elif(gendercase == False):
+                        string = string + '"gender": '+str(l[i])+', \n'
+
+                i = i + 1
             string = string + ']'
         file = open(jsonf, "w")
         file.writelines(str(string))
@@ -692,6 +708,7 @@ class Gender(object):
 
     def confusion_matrix_gender(self, path='', jsonf=""):
         truevector = self.gender_list(path)
+#        cmd = self.confusion_matrix_gender(path, dimensions, jf, ml)
         if (os.path.isfile(jsonf)):
             guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
         else:
