@@ -233,10 +233,11 @@ class Gender(object):
         return csvlist
 
 
-    def csv2json(self, path="", jsonf="", *args, **kwargs):
+    def csv2json(self, path="", *args, **kwargs):
         # csv to json file
         header = kwargs.get('header', True)
         l = kwargs.get('l', [ ]) # l is a list, such as, guess_list or gender_list
+        jsonf = kwargs.get('jsonf', 'files/names/csv2json.json')
         csv2names = self.csv2names(path=path, surnames=True)
         string = ""
         with open(path) as csvfile:
