@@ -348,7 +348,6 @@ else
 	echo "accuracy genderize recall jsondonwloaded test is ok"
 fi
 
-
 python3 accuracy.py --jsondownloaded=files/names/genderizefiles_names_partialnoundefined.csv.json --measure=accuracy --api=genderize --csv=files/names/partialnoundefined.csv > files/tests/accuracygenderizepartialjsonaccuracy-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/accuracygenderizepartialjsonaccuracy.txt files/tests/accuracygenderizepartialjsonaccuracy-$(date "+%Y-%m-%d-%H").txt
 then
@@ -357,7 +356,14 @@ else
 	echo "accuracy genderize accuracy jsondonwloaded test is ok"
 fi
 
+python3 damegender2json.py --csv=files/names/partial.csv --binary --ml=svc --jsonoutput=files/names/partial.csv.svc.$(date "+%Y-%m-%d-%H").json 
 
+if ! cmp files/names/partial.csv.svc.json files/names/partial.csv.svc.$(date "+%Y-%m-%d-%H").json 
+then
+	echo "damegender2json test is failing"
+else
+	echo "damegender2json test is ok"
+fi
 
 
 echo "cleaning temporary files"
