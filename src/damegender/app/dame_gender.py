@@ -236,10 +236,8 @@ class Gender(object):
     def csv2json(self, path="", jsonf="", *args, **kwargs):
         # csv to json file
         header = kwargs.get('header', True)
-        l = kwargs.get('l', [ ])
-        gendercase = kwargs.get('gendercase', True)
+        l = kwargs.get('l', [ ]) # l is a list, such as, guess_list or gender_list
         csv2names = self.csv2names(path=path, surnames=True)
-        # jsonf = "files/names/csv2json.json"
         string = ""
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -265,16 +263,7 @@ class Gender(object):
                 if (l == [ ] ):
                     string = string + '"gender": '+ gender +'}, \n'
                 else:
-                    if (gendercase == True):
-                        if (l[i] == 0):
-                            string = string + '"gender": f}, \n'
-                        elif (l[i] == 1):
-                            string = string + '"gender": m}, \n'
-                        elif (l[i] == 2):
-                            string = string + '"gender": u}, \n'
-                    elif(gendercase == False):
-                        string = string + '"gender": '+str(l[i])+', \n'
-
+                    string = string + '"gender": '+str(l[i])+', \n'
                 i = i + 1
             string = string + ']'
         file = open(jsonf, "w")
