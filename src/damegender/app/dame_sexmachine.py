@@ -338,6 +338,14 @@ class DameSexmachine(Gender):
                 m = s.xgboost_load()
                 predicted = m.predict([vector])
                 guess = predicted[0]
+            elif (ml == "tree"):
+                m = s.xgboost_load()
+                predicted = m.predict([vector])
+                guess = predicted[0]
+            elif (ml == "mlp"):
+                m = s.mlp_load()
+                predicted = m.predict([vector])
+                guess = predicted[0]
             if binary:
                 if (guess == 'female'):
                     guess = 0
