@@ -334,12 +334,12 @@ class DameSexmachine(Gender):
                 m = s.forest_load()
                 predicted = m.predict([vector])
                 guess = predicted[0]
-            elif (ml == "xgboost"):
-                m = s.xgboost_load()
-                predicted = m.predict([vector])
-                guess = predicted[0]
+            # elif (ml == "xgboost"):
+            #     m = s.xgboost_load()
+            #     predicted = m.predict([vector])
+            #     guess = predicted[0]
             elif (ml == "tree"):
-                m = s.xgboost_load()
+                m = s.tree_load()
                 predicted = m.predict([vector])
                 guess = predicted[0]
             elif (ml == "mlp"):
