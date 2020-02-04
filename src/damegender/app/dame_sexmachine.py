@@ -36,6 +36,7 @@ from sklearn.naive_bayes import BernoulliNB
 from sklearn.linear_model import SGDClassifier
 from sklearn.ensemble import RandomForestRegressor
 from sklearn import tree
+from sklearn.neural_network import MLPClassifier
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.datasets import make_classification
@@ -229,6 +230,23 @@ class DameSexmachine(Gender):
         clf = pickle.load(clf_file)
         clf_file.close()
         return clf
+
+    def mlp(self):
+        X = np.array(self.features_list(path="files/names/all.csv"))
+        y = np.array(self.gender_list(path="files/names/all.csv"))
+        clf = MLPClassifier(solver='lbfgs', alpha=1e-5,
+                    hidden_layer_sizes=(5, 2), random_state=1)
+        clf.fit(X, y)
+        filename = 'files/datamodels/mlp_model.sav'
+        pickle.dump(clf, open(filename, 'wb'))
+        return clf
+
+    def mlp_load(self):
+        clf_file = open('files/datamodels/mlp_model.sav', 'rb')
+        clf = pickle.load(clf_file)
+        clf_file.close()
+        return clf
+
 
 
 

@@ -30,7 +30,7 @@ import re
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree'])
+parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
 args = parser.parse_args()
 
 
@@ -54,6 +54,9 @@ if (args.ml):
         s.forest()
     elif (args.ml == "tree"):
         s.tree()
+    elif (args.ml == "mlp"):
+        s.mlp()
+
 else:
 
     print("You don't need execute this script in normal conditions. We are going to create some data files, in normal conditions you've downloaded these files cloning the repository. But perhaps you need regenerate these files.")
@@ -73,6 +76,8 @@ else:
         s.sgd()
         s.multinomialNB()
         s.bernoulliNB()
+        s.tree()
+        s.mlp()
         print("This process has finished. You have the models in files/datamodels/*.sav")
 
         du = DameUtils()
