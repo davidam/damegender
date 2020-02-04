@@ -207,6 +207,19 @@ class TddInPythonExample(unittest.TestCase):
         a = np.array([0.6333333333333334])
         self.assertEqual(predicted[0], a[0])
 
+    def test_sexmachine_tree(self):
+        self.assertTrue(os.path.isfile("files/datamodels/tree_model.sav"))
+
+    def test_sexmachine_tree_load(self):
+        s = DameSexmachine()
+        m = s.tree_load()
+        predicted = m.predict([[0,  0,  1,  0, 21,  0,  0,  0,  0, 34,
+                                2,  0,  0,  0,  0,  0, 0,  0,  0,  5,
+                                0,  0,  0,  0,  0,  2,  0,  0,  0, 34,
+                                1,  0, 1]])
+        a = np.array([1])
+        self.assertEqual(predicted[0], a[0])
+
     def test_sexmachine_sgd_model_exists(self):
         self.assertTrue(os.path.isfile("files/datamodels/sgd_model.sav"))
 
@@ -255,6 +268,18 @@ class TddInPythonExample(unittest.TestCase):
               1,  0, 1]])
         n = np.array([2])
         self.assertTrue(np.array_equal(predicted, n))
+
+    # def test_dame_sexmachine_json2guess_list(self):
+    #     ds = DameSexmachine()
+    #     j2gl = ds.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=False)
+    #     self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], j2gl)
+    #     j2gl = ds.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=True)
+    #     self.assertEqual([1, 1, 1, 1, 1, 0], j2gl)
+    #     j2gl = ds.json2guess_list(jsonf="files/names/min.csv.json", binary=False)
+    #     self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], j2gl)
+    #     j2gl = ds.json2guess_list(jsonf="files/names/min.csv.json", binary=True)
+    #     self.assertEqual([1, 1, 1, 1, 1, 0], j2gl)
+
 
     # def test_sexmachine_xgboost(self):
     #     self.assertTrue(os.path.isfile("files/datamodels/xgboost_model.sav"))

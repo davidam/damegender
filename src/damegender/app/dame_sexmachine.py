@@ -23,6 +23,8 @@
 
 from pprint import pprint
 from nltk.corpus import names
+import json
+import os
 import csv
 import nltk
 import re
@@ -33,6 +35,8 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.linear_model import SGDClassifier
 from sklearn.ensemble import RandomForestRegressor
+from sklearn import tree
+
 from sklearn.preprocessing import StandardScaler
 from sklearn.datasets import make_classification
 #from xgboost import XGBClassifier
@@ -210,6 +214,24 @@ class DameSexmachine(Gender):
         pkl_file.close()
         return clf
 
+    def tree(self):
+        # Scikit forest classifier
+        X = np.array(self.features_list(path="files/names/all.csv"))
+        y = np.array(self.gender_list(path="files/names/all.csv"))
+        clf = tree.DecisionTreeClassifier()
+        clf = clf.fit(X, y)
+        filename = 'files/datamodels/tree_model.sav'
+        pickle.dump(clf, open(filename, 'wb'))
+        return clf
+
+    def tree_load(self):
+        clf_file = open('files/datamodels/tree_model.sav', 'rb')
+        clf = pickle.load(clf_file)
+        clf_file.close()
+        return clf
+
+
+
     # def xgboost(self):
     #     # Scikit xgboost classifier
     #     X = np.array(self.features_list(path="files/names/all.csv"))
@@ -332,6 +354,7 @@ class DameSexmachine(Gender):
         guessvector = self.guess_list(path,
                                       binary=True,
                                       ml=ml)
+
         ff = self.count_true2guess(truevector, guessvector, 0, 0)
         self.femalefemale = ff
         fm = self.count_true2guess(truevector, guessvector, 0, 1)
@@ -361,6 +384,7 @@ class DameSexmachine(Gender):
               self.undefinedmale,
               self.undefinedundefined]]
 
+        res = []
         if (dimensions == "1x1"):
             res = [[l[0][0]]]
         elif (dimensions == "1x2"):
@@ -394,11 +418,8 @@ class DameSexmachine(Gender):
                     l[2][2]]]
         return res
 
-    def print_confusion_matrix_gender(self, path='files/names/partial.csv', dimensions="3x2", ml="nltk"):
-        cmd = self.confusion_matrix_gender(path, dimensions, ml=ml)
-        print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-        print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
-        return ""
+
+
 
     def num_females(self, url, directory):
         # Extracting females with perceval
