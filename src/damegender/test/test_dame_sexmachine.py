@@ -205,7 +205,7 @@ class TddInPythonExample(unittest.TestCase):
                                 0,  0,  0,  0,  0,  2,  0,  0,  0, 34,
                                 1,  0, 1]])
         a = np.array([0.6333333333333334])
-        self.assertEqual(predicted[0], a[0])
+        self.assertEqual(predicted, a)
 
     def test_sexmachine_tree(self):
         self.assertTrue(os.path.isfile("files/datamodels/tree_model.sav"))
@@ -218,7 +218,7 @@ class TddInPythonExample(unittest.TestCase):
                                 0,  0,  0,  0,  0,  2,  0,  0,  0, 34,
                                 1,  0, 1]])
         a = np.array([1])
-        self.assertEqual(predicted[0], a[0])
+        self.assertEqual(predicted, a)
 
     def test_sexmachine_sgd_model_exists(self):
         self.assertTrue(os.path.isfile("files/datamodels/sgd_model.sav"))
