@@ -375,7 +375,7 @@ class DameSexmachine(Gender):
                 slist.append(self.guess(name, binary, ml=ml))
         return slist
 
-    def confusion_matrix_gender(self, path='', jsonf=''):
+    def confusion_matrix_gender(self, path='', jsonf='', ml='nltk'):
         # this method is an interfaz to confusion_matrix_table allowing introduce a json file
         # in dame_sexmachine we must rewrite it to allow machine learning algorithm
         truevector = self.gender_list(path)
