@@ -166,3 +166,12 @@ class DameUtils():
             if not(os.path.isdir(fields[0])):
                 l.append(self.drop_pwd(fields[0]))
         return l
+
+    def yes_or_not(question):
+        reply = str(raw_input(question+' (y/n): ')).lower().strip()
+        if reply[0] == 'y':
+            return True
+        if reply[0] == 'n':
+            return False
+        else:
+            return yes_or_not("Uhhhh... please enter ")
