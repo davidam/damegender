@@ -698,9 +698,8 @@ class Gender(object):
         sl = self.guess_list(path, binary=True)
         return confusion_matrix(gl, sl)
 
-    def confusion_matrix_gender(self, path='', jsonf=""):
+    def confusion_matrix_gender(self, path='', jsonf=''):
         truevector = self.gender_list(path)
-#        cmd = self.confusion_matrix_gender(path, dimensions, jf, ml)
         if (os.path.isfile(jsonf)):
             guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
         else:
@@ -737,8 +736,7 @@ class Gender(object):
     def print_confusion_matrix_gender(self, path='', *args, **kwargs):
         dimensions = kwargs.get('dimensions', '2x3')
         reverse = kwargs.get('reverse', False)
-        jsonf = kwargs.get('jsonf', "")
-        # TODO Para toda combinación tests con sh, please
+        jsonf = kwargs.get('jsonf', '')
         jf = os.getcwd() + "/" +  jsonf
         if (os.path.isfile(jf)):
             cmd = self.confusion_matrix_gender(path, jsonf=jf)
@@ -980,6 +978,24 @@ class Gender(object):
         elif (measure == "f1score"):
             gender_f1score = self.f1score(gl1, gl2)
             print("%s f1score: %s" % (api_name, gender_f1score))
+
+    def json2guess_list(self, jsonf="", binary=False):
+        jsondata = open(jsonf).read()
+        json_object = json.loads(jsondata)
+        guesslist = []
+
+        for i in json_object:
+            if binary:
+                if (i['gender'] == 'female'):
+                    guesslist.append(0)
+                elif (i['gender'] == 'male'):
+                    guesslist.append(1)
+                else:
+                    guesslist.append(2)
+            else:
+                guesslist.append(i['gender'])
+        return guesslist
+
 
     def json2names(self, jsonf="", surnames=False):
         jsondata = open(jsonf).read()
