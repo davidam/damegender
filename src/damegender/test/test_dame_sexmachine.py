@@ -280,6 +280,19 @@ class TddInPythonExample(unittest.TestCase):
         n = np.array([1])
         self.assertTrue(np.array_equal(predicted, n))
 
+    def test_dame_gender_confusion_matrix_gender(self):
+        ds = DameSexmachine()
+        cm = ds.confusion_matrix_gender(path="files/names/min.csv", dimensions="3x3")
+        am = [[1, 0, 0], [0, 5, 0], [0, 5, 0]]
+        self.assertEqual(cm, am)
+        cm = ds.confusion_matrix_gender(path="files/names/min.csv", ml="nltk", dimensions="3x3")
+        am = [[1, 0, 0], [0, 5, 0], [0, 5, 0]]
+        self.assertEqual(cm, am)
+        cm = ds.confusion_matrix_gender(path="files/names/min.csv", jsonf="files/names/min.csv.json", ml="nltk", dimensions="3x3")
+        am = [[1, 0, 0], [0, 5, 0], [0, 5, 0]]
+        self.assertEqual(cm, am)
+
+
 
     # def test_dame_sexmachine_json2guess_list(self):
     #     ds = DameSexmachine()
