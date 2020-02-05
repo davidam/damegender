@@ -97,3 +97,11 @@ class TddInPythonExample(unittest.TestCase):
         dn = DameNameapi()
         l = dn.json2names(jsonf="files/names/nameapifiles_names_min.csv.json")
         self.assertEqual(['Pierre', 'Raul', 'Adriano', 'Ralf', 'Guillermo', 'Sabina'], l)
+
+
+    def test_dame_nameapi_json2guess_list(self):
+        dn = DameNameapi()
+        j2gl = dn.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=False)
+        self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], j2gl)
+        j2gl = dn.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=True)
+        self.assertEqual([1, 1, 1, 1, 1, 0], j2gl)
