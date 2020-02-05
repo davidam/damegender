@@ -35,7 +35,7 @@ import argparse
 import os
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', type=str, required=True, default="files/names/min.csv", help='input file for names')
-parser.add_argument('--jsondownloaded', help='if you have downloaded the results from an api in a json file, you can try this argument')
+parser.add_argument('--jsondownloaded', required=True, help='if you have downloaded the results from an api in a json file, you can try this argument')
 parser.add_argument('--measure', default="accuracy", choices=['accuracy', 'precision', 'recall', 'f1score'])
 parser.add_argument('--api', required=True, choices=['customsearch', 'namsor', 'genderize', 'genderguesser', 'damegender', 'genderapi', 'nameapi', 'all'])
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'xgboost'])
@@ -179,7 +179,25 @@ elif (args.api == "customsearch"):
 
 
 elif (args.api == "damegender"):
+    ds = DameSexmachine()
+    gl = ds.gender_list(path=args.csv)
 
+    if (ds.json_eq_csv_in_names(jsonf=args.jsondownloaded, path=args.csv)):
+        if (os.path.isfile(args.jsondownloaded)):
+            print("################### Damegender!!")
+            print("Gender list: " + str(gl))
+            sl = ds.json2guess_list(jsonf=args.jsondownloaded, binary=True)
+            print("Guess list:  " +str(sl))
+            ds.print_measures(gl, sl, args.measure, "Damegender")
+        else:
+            print("In the path %s doesn't exist file" % args.jsondownloaded)
+    else:
+        print("Names in json and csv are differents")
+        print("Names in csv: %s:" % ds.csv2names(path=args.csv))
+        print("Names in json: %s:" % ds.json2names(jsonf=args.jsondownloaded, surnames=False))
+
+    # Todo este if es deprecated y es solo si no ha introducido json
+    # Habría que decidir si generar al vuelo el json y ejecutar u obligar al usuario a ejecutar damegender2json.py
     if (args.ml == "nltk"):
         ds = DameSexmachine()
         print("################### NLTK!!")
