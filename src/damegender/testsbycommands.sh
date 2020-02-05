@@ -356,13 +356,23 @@ else
 	echo "accuracy genderize accuracy jsondonwloaded test is ok"
 fi
 
-python3 damegender2json.py --csv=files/names/partial.csv --binary --ml=svc --jsonoutput=files/names/partial.csv.svc.$(date "+%Y-%m-%d-%H").json 
+python3 damegender2json.py --notoutput --csv=files/names/min.csv --jsonoutput=files/names/min.csv.$(date "+%Y-%m-%d-%H").json
 
-if ! cmp files/names/partial.csv.svc.json files/names/partial.csv.svc.$(date "+%Y-%m-%d-%H").json 
+if ! cmp files/names/min.csv.json files/names/min.csv.$(date "+%Y-%m-%d-%H").json
 then
 	echo "damegender2json test is failing"
 else
 	echo "damegender2json test is ok"
+fi
+
+
+python3 damegender2json.py --notoutput --csv=files/names/partial.csv --binary --ml=svc --jsonoutput=files/names/partial.csv.svc.$(date "+%Y-%m-%d-%H").json
+
+if ! cmp files/names/partial.csv.svc.json files/names/partial.csv.svc.$(date "+%Y-%m-%d-%H").json
+then
+	echo "damegender2json test svc is failing"
+else
+	echo "damegender2json test svc is ok"
 fi
 
 
