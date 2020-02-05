@@ -235,10 +235,11 @@ class Gender(object):
 
     def csv2json(self, path="", *args, **kwargs):
         # csv to json file
+        surnames = kwargs.get('surnames', False)
         header = kwargs.get('header', True)
         l = kwargs.get('l', [ ]) # l is a list, such as, guess_list or gender_list
         jsonf = kwargs.get('jsonf', 'files/names/csv2json.json')
-        csv2names = self.csv2names(path=path, surnames=True)
+        csv2names = self.csv2names(path=path, surnames=surnames)
         string = ""
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -257,8 +258,10 @@ class Gender(object):
                 lastname = row[2].replace('\"', '')
 
                 gender = row[4]
-
-                string = string + '{"name":"'+ name + ' ' + middlename +'", \n'
+                if surnames:
+                    string = string + '{"name":"'+ name + ' ' + middlename +'", \n'
+                else:
+                    string = string + '{"name":"'+ name + '", \n'
                 string = string + '"surname":"'+ lastname +'", \n'
                 string = string + '"probability": 1, \n'
                 if (l == [ ] ):
@@ -694,16 +697,13 @@ class Gender(object):
 
 
     def confusion_matrix(self, path='files/names/partial.csv'):
+        # this method is using scikit library (deprecated)
         gl = self.gender_list(path)
         sl = self.guess_list(path, binary=True)
         return confusion_matrix(gl, sl)
 
-    def confusion_matrix_gender(self, path='', jsonf=''):
-        truevector = self.gender_list(path)
-        if (os.path.isfile(jsonf)):
-            guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
-        else:
-            guessvector = self.guess_list(path, binary=True)
+    def confusion_matrix_table(self, truevector, guessvector):
+        # this method returns a 3x3 confusion matrix as python vectors
 
         # femalefemale
         self.ff = self.count_true2guess(truevector, guessvector, 0, 0)
@@ -733,8 +733,18 @@ class Gender(object):
                [l[2][0], l[2][1], l[2][2]]]
         return res
 
-    def print_confusion_matrix_gender(self, path='', *args, **kwargs):
-        dimensions = kwargs.get('dimensions', '2x3')
+    def confusion_matrix_gender(self, path='', jsonf=''):
+        # this method is an interfaz to confusion_matrix_table allowing introduce a json file
+        # in dame_sexmachine we must rewrite it to allow machine learning algorithm
+        truevector = self.gender_list(path)
+        if (os.path.isfile(jsonf)):
+            guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
+        else:
+            guessvector = self.guess_list(path, binary=True)
+        res = self.confusion_matrix_table(truevector, guessvector)
+        return res
+
+    def print_confusion_matrix_gender(self, path='', dimensions='', *args, **kwargs):
         reverse = kwargs.get('reverse', False)
         jsonf = kwargs.get('jsonf', '')
         jf = os.getcwd() + "/" +  jsonf
@@ -962,6 +972,19 @@ class Gender(object):
         X = np.array(self.features_list())
         pca = PCA(n_components=n)
         return pca.fit(X)
+
+    # def print_envolve_measures
+    #     if (ds.json_eq_csv_in_names(jsonf=args.jsondownloaded, path=args.csv)):
+    #         print("################### Damegender!!")
+    #         print("Gender list: " + str(gl))
+    #         sl = ds.json2guess_list(jsonf=args.jsondownloaded, binary=True)
+    #         print("Guess list:  " +str(sl))
+    #         ds.print_measures(gl, sl, args.measure, "Damegender")
+    #     else:
+    #         print("Names in json and csv are differents")
+    #         print("Names in csv: %s:" % ds.csv2names(path=args.csv))
+    #         print("Names in json: %s:" % ds.json2names(jsonf=args.jsondownloaded, surnames=False))
+
 
     def print_measures(self, gl1, gl2, measure, api_name):
         if (measure == "accuracy"):
