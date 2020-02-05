@@ -263,16 +263,15 @@ else
 	echo "pca-features-nocategorical test is ok"
 fi
 
-
-python3 confusion.py --csv="files/names/min.csv" --api=damegender > files/tests/confusion-$(date "+%Y-%m-%d-%H").txt
-if ! cmp files/tests/confusion.txt files/tests/confusion-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+python3 confusion.py --csv="files/names/min.csv" --api=damegender --jsondownloaded=files/names/min.csv.json > files/tests/confusiondamegender-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/confusiondamegender.txt files/tests/confusiondamegender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "confusion test is failing"
 else
 	echo "confusion test is ok"
 fi
 
-python3 confusion.py --csv="files/names/min.csv" --ml="nltk" --api=damegender > files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt
+python3 confusion.py --csv="files/names/min.csv" --ml="nltk" --api=damegender --jsondownloaded=files/names/min.csv.json > files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/confusionnltk.txt files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "confusion nltk test is failing"
@@ -356,6 +355,15 @@ else
 	echo "accuracy genderize accuracy jsondonwloaded test is ok"
 fi
 
+python3 accuracy.py --jsondownloaded=files/names/min.csv.json --measure=recall --api=damegender --csv=files/names/min.csv > files/tests/accuracygenderizepartialjsonrecall-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/accuracygenderizepartialjsonrecall.txt files/tests/accuracygenderizepartialjsonrecall-$(date "+%Y-%m-%d-%H").txt
+then
+	echo "accuracy genderize recall jsondonwloaded test is failing"
+else
+	echo "accuracy genderize recall jsondonwloaded test is ok"
+fi
+
+
 python3 damegender2json.py --notoutput --csv=files/names/min.csv --jsonoutput=files/names/min.csv.$(date "+%Y-%m-%d-%H").json
 
 if ! cmp files/names/min.csv.json files/names/min.csv.$(date "+%Y-%m-%d-%H").json
@@ -366,7 +374,7 @@ else
 fi
 
 
-python3 damegender2json.py --notoutput --csv=files/names/partial.csv --binary --ml=svc --jsonoutput=files/names/partial.csv.svc.$(date "+%Y-%m-%d-%H").json
+python3 damegender2json.py --notoutput --csv=files/names/partial.csv --ml=svc --jsonoutput=files/names/partial.csv.svc.$(date "+%Y-%m-%d-%H").json
 
 if ! cmp files/names/partial.csv.svc.json files/names/partial.csv.svc.$(date "+%Y-%m-%d-%H").json
 then
