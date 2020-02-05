@@ -375,9 +375,12 @@ class DameSexmachine(Gender):
                 slist.append(self.guess(name, binary, ml=ml))
         return slist
 
-    def confusion_matrix_gender(self, path='', dimensions="3x2", ml='nltk'):
+    def confusion_matrix_gender(self, path='', jsonf='', dimensions="3x2", ml='nltk'):
         truevector = self.gender_list(path)
-        guessvector = self.guess_list(path,
+        if (os.path.isfile(jsonf)):
+            guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
+        else:
+            guessvector = self.guess_list(path,
                                       binary=True,
                                       ml=ml)
 
