@@ -262,10 +262,11 @@ class Gender(object):
                 string = string + '"surname":"'+ lastname +'", \n'
                 string = string + '"probability": 1, \n'
                 if (l == [ ] ):
-                    string = string + '"gender": '+ gender +'}, \n'
+                    string = string + '"gender":"'+ gender +'"}, \n'
+                elif (len(l) <= i + 1):
+                    string = string + '"gender":"'+str(l[i])+'"} \n'
                 else:
-                    string = string + '"gender": '+str(l[i])+', \n'
-                string = string + '}, \n'
+                    string = string + '"gender":"'+str(l[i])+'"}, \n'
                 i = i + 1
             string = string + ']'
         file = open(jsonf, "w")
