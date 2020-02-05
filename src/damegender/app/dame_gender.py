@@ -265,6 +265,7 @@ class Gender(object):
                     string = string + '"gender": '+ gender +'}, \n'
                 else:
                     string = string + '"gender": '+str(l[i])+', \n'
+                string = string + '}, \n'
                 i = i + 1
             string = string + ']'
         file = open(jsonf, "w")
