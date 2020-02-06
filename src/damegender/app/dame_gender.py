@@ -1009,9 +1009,9 @@ class Gender(object):
 
         for i in json_object:
             if binary:
-                if (i['gender'] == 'female'):
+                if ((i['gender'] == 'female') or (i['gender'] == 'f') or (i['gender'] == 0)):
                     guesslist.append(0)
-                elif (i['gender'] == 'male'):
+                elif ((i['gender'] == 'male') or (i['gender'] == 'm') or (i['gender'] == 1)):
                     guesslist.append(1)
                 else:
                     guesslist.append(2)
