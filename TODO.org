@@ -974,8 +974,22 @@ GET https://gender-api.com/get-stats?&key=<your private server key>
   SCHEDULED: <2020-02-05 mié>
 * TODO Generar los json para damegender
 ** TODO Para cada algoritmo de ml generar json para
-*** TODO min.csv
-*** TODO partial.csv
+*** DONE min.csv
+	- State "DONE"       from "TODO"       [2020-02-05 mié 17:38]
+*** DONE partial.csv
+	- State "DONE"       from "TODO"       [2020-02-05 mié 17:38]
 *** TODO allnoundefined.csv
 *** TODO all.csv
 ** TODO json2guesslist eliminar el parámetro ml
+* TODO Generar logs de accuracies de los diferentes algoritmos de ML
+* TODO Generar logs de confusion de los diferentes algoritmos de ML
+* TODO En accuracy.py terminar la transición a jsondownloaded required=True
+  SCHEDULED: <2020-02-08 sáb>
+* DONE Escribir damegender.net
+  SCHEDULED: <2020-02-06 jue>
+  - State "DONE"       from "TODO"       [2020-02-06 jue 16:36]
+Github en https://github.com/davidam/damegender-web
+* DONE Hacer un vídeo
+  SCHEDULED: <2020-02-06 jue>
+  - State "DONE"       from "TODO"       [2020-02-06 jue 16:38]
+Publicado en https://tv.urjc.es/video/5d895319d68b148f7a8c0da6
