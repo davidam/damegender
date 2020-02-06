@@ -29,7 +29,7 @@ from app.dame_genderguesser import DameGenderGuesser
 from app.dame_genderapi import DameGenderApi
 from app.dame_nameapi import DameNameapi
 from app.dame_customsearch import DameCustomsearch
-
+from app.dame_utils import DameUtils
 
 import argparse
 import os
@@ -40,6 +40,8 @@ parser.add_argument('--measure', default="accuracy", choices=['accuracy', 'preci
 parser.add_argument('--api', required=True, choices=['customsearch', 'namsor', 'genderize', 'genderguesser', 'damegender', 'genderapi', 'nameapi', 'all'])
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'xgboost'])
 args = parser.parse_args()
+
+du = DameUtils()
 
 if (args.api == "all"):
     dg = Gender()
@@ -124,8 +126,9 @@ elif (args.api == "namsor"):
                 print("In the path %s doesn't exist file" % args.jsondownloaded)
         else:
             print("Names in json and csv are differents")
-            print("Names in csv: ")
-            print(dn.csv2names(path=args.csv))
+            print("Names in csv: %s:" % ds.csv2names(path=args.csv))
+            print("Names in json: %s:" % ds.json2names(jsonf=args.jsondownloaded, surnames=False))
+
 
 elif (args.api == "genderize"):
     dg = DameGenderize()
@@ -182,19 +185,34 @@ elif (args.api == "damegender"):
     ds = DameSexmachine()
     gl = ds.gender_list(path=args.csv)
 
-    if (ds.json_eq_csv_in_names(jsonf=args.jsondownloaded, path=args.csv)):
-        if (os.path.isfile(args.jsondownloaded)):
+    if (os.path.isfile(args.jsondownloaded)):
+        if (ds.json_eq_csv_in_names(jsonf=args.jsondownloaded, path=args.csv)):
             print("################### Damegender!!")
             print("Gender list: " + str(gl))
             sl = ds.json2guess_list(jsonf=args.jsondownloaded, binary=True)
             print("Guess list:  " +str(sl))
             ds.print_measures(gl, sl, args.measure, "Damegender")
         else:
-            print("In the path %s doesn't exist file" % args.jsondownloaded)
+            print("Names in json and csv are differents")
+            print("Names in csv: %s:" % ds.csv2names(path=args.csv))
+            print("Names in json: %s:" % ds.json2names(jsonf=args.jsondownloaded, surnames=False))
     else:
-        print("Names in json and csv are differents")
-        print("Names in csv: %s:" % ds.csv2names(path=args.csv))
-        print("Names in json: %s:" % ds.json2names(jsonf=args.jsondownloaded, surnames=False))
+        print("In the path %s doesn't exist file" % args.jsondownloaded)
+        print("You can create one, but this process can take long time")
+        yes_or_not = du.yes_or_not("Do you want create a json file? ")
+        if yes_or_not:
+            sl = ds.guess_list(path=args.csv, binary=args.binary, ml=args.ml)
+            ds.csv2json(path=args.csv, l=sl, jsonf=args.jsondownloaded)
+            if (ds.json_eq_csv_in_names(jsonf=args.jsondownloaded, path=args.csv)):
+                print("################### Damegender!!")
+                print("Gender list: " + str(gl))
+                print("Guess list:  " +str(sl))
+                ds.print_measures(gl, sl, args.measure, "Damegender")
+            else:
+                print("Names in json and csv are differents")
+                print("Names in csv: %s:" % ds.csv2names(path=args.csv))
+                print("Names in json: %s:" % ds.json2names(jsonf=args.jsondownloaded, surnames=False))
+
 
     # Todo este if es deprecated y es solo si no ha introducido json
     # Habría que decidir si generar al vuelo el json y ejecutar u obligar al usuario a ejecutar damegender2json.py
@@ -291,15 +309,27 @@ elif (args.api == "nameapi"):
     dna = DameNameapi()
     print("################### Nameapi!!")
     gl = dna.gender_list(path=args.csv)
-    print("Gender list: " + str(gl))
-    if (args.jsondownloaded is None):
-        sl = dna.guess_list(path=args.csv, binary=True)
-        print("Guess list:  " +str(sl))
-    elif (os.path.isfile(args.jsondownloaded)):
-        jsonf = args.jsondownloaded
-        p = os.getcwd() + jsonf
-        sl = dna.json2guess_list(jsonf, binary=True)
-    else:
-        print("In the path %s doesn't exist file" % args.jsondownloaded)
-    print("Guess list:" + str(sl))
-    dna.print_measures(gl, sl, args.measure, "Nameapi")
+    # if (args.jsondownloaded is None):
+    #     sl = dna.guess_list(path=args.csv, binary=True)
+    #     print("Guess list:  " +str(sl))
+    # else:
+
+    if (os.path.isfile(args.jsondownloaded)):
+        if (dna.json_eq_csv_in_names(jsonf=args.jsondownloaded, path=args.csv)):
+            print("Gender list: " + str(gl))
+            sl = dna.json2guess_list(jsonf=args.jsondownloaded, binary=True)
+            print("Guess list:  " +str(sl))
+            dna.print_measures(gl, sl, args.measure, "Nameapi")
+        else:
+            print("Names in json and csv are differents")
+            print("Names in csv: %s:" % dna.csv2names(path=args.csv))
+            print("Names in json: %s:" % dna.json2names(jsonf=args.jsondownloaded, surnames=False))
+
+    # elif (os.path.isfile(args.jsondownloaded)):
+    #     jsonf = args.jsondownloaded
+    #     p = os.getcwd() + jsonf
+    #     sl = dna.json2guess_list(jsonf, binary=True)
+    # else:
+    #     print("In the path %s doesn't exist file" % args.jsondownloaded)
+    # print("Guess list:" + str(sl))
+    # dna.print_measures(gl, sl, args.measure, "Nameapi")
