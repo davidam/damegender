@@ -112,7 +112,12 @@ elif (args.api == "genderguesser"):
 elif (args.api == "damegender"):
     ds = DameSexmachine()
     print("Damegender confusion matrix:\n")
-    ds.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, ml=args.ml)
+    if (os.path.isfile(args.jsondownloaded)):
+        ds.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded, ml=args.ml, reverse=args.reverse)
+    elif (args.jsondownloaded == ''):
+        ds.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, ml=args.ml, reverse=args.reverse)
+    else:
+        print("In the path %s doesn't exist file" % args.jsondownloaded)
 
 elif (args.api == "nameapi"):
     dna = DameNameapi()
