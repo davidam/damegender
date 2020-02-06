@@ -151,14 +151,7 @@ class TddInPythonExample(unittest.TestCase):
         g = Gender()
         self.assertTrue(g.accuracy(path="files/names/partial.csv") >= 0.5)
 
-    # def test_dame_gender_confusion_matrix(self):
-    #     g = Gender()
-    #     cm = g.confusion_matrix_dame(path="files/names/partial.csv")
-    #     print(cm)
-    #     am = np.array([[1, 0, 2],[0, 13, 3],[0, 1, 1]])
-    #     self.assertTrue(np.array_equal(cm,am))
-
-    def test_dame_gender_confusion_matrix_dame(self):
+    def test_dame_gender_confusion_matrix_gender(self):
         g = Gender()
         cm = g.confusion_matrix_gender(path="files/names/min.csv")
         am = [[0, 0, 1], [0, 4, 1], [0, 4, 1]]
