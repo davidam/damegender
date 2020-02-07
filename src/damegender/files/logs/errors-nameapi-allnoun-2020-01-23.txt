@@ -1,0 +1,5 @@
+Nameapi with files/names/allnoundefined.csv has: 
++ The error code: 0.36149584487534625
++ The error code without na: 0.2666534102207198
++ The na coded: 0.12932825484764543
++ The error gender bias: 0.0013919268244183733

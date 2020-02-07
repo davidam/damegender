@@ -834,6 +834,8 @@ pip3 install dametowel
 * TODO Escribir average_weighted
 Dado un nombre, tenemos la frecuencia del nombre y la población en
 tres datasets, crear la media ponderada.
+** DONE Descargar json de las diferentes apis
+   - State "DONE"       from "TODO"       [2020-02-05 mié 17:20]
 * TODO Crear una comparativa de eficiencia
   SCHEDULED: <2019-05-16 jue>
 * TODO Revisar dataset2genderlist con todos los datasets
@@ -907,7 +909,7 @@ Males with first letter vocal: 0.22633705271258175
 * DONE Sacar el confusion desde el json de genderapi
   - State "DONE"       from "TODO"       [2019-12-03 mar 18:16]
 * TODO Arreglar el tema de los binarios en la paquetería
-  SCHEDULED: <2019-08-04 dom>
+** TODO Montar namespaces
 * TODO Buscar la validez de la muestra para saber si los nacimientos en uk y usa nos valdrían para sacar probabilidades
 * GOING Revisar cumplimiento de PEP8 en el software
 ** A Foolish Consistency is the Hobgoblin of Little Minds
@@ -959,3 +961,45 @@ Reescribir el método en dame_gender.py dando solo como argumentos guess_vector 
 * DONE Crear un método para cada api que revise si hay dinero en la api key en Genderapi
 GET https://gender-api.com/get-stats?&key=<your private server key>
 
+* DONE Crear el script downloadjson.py
+  - State "DONE"       from "TODO"       [2020-02-05 mié 17:20]
+* DONE Crear el script damegender2json.py
+  SCHEDULED: <2020-02-05 mié>
+  - State "DONE"       from "TODO"       [2020-02-05 mié 17:16]
+* DONE Añadir algoritmo de ML tree
+  - State "DONE"       from "TODO"       [2020-02-05 mié 17:17]
+* DONE Añadir algortimo de ML red neuronal (mlp)
+  - State "DONE"       from "TODO"       [2020-02-05 mié 17:17]
+* TODO Revisar los undefined en accuracy
+  SCHEDULED: <2020-02-05 mié>
+Parece que puede haber bugs si hay en el guess list undefined
+Puedes hacer pruebas con partial.csv
+* TODO Generar los json para damegender
+** TODO Para cada algoritmo de ml generar json para
+*** DONE min.csv
+	- State "DONE"       from "TODO"       [2020-02-05 mié 17:38]
+*** DONE partial.csv
+	- State "DONE"       from "TODO"       [2020-02-05 mié 17:38]
+*** DONE allnoundefined.csv
+    - State "DONE"       from "TODO"       [2020-02-07 vie 22:22]
+*** TODO all.csv
+** DONE json2guesslist eliminar el parámetro ml
+   - State "DONE"       from "TODO"       [2020-02-07 vie 15:20]
+* TODO Generar logs de accuracies de los diferentes algoritmos de ML
+* TODO Generar logs de confusion de los diferentes algoritmos de ML
+* TODO En accuracy.py terminar la transición a jsondownloaded required=True
+  SCHEDULED: <2020-02-08 sáb>
+* DONE Escribir damegender.net
+  SCHEDULED: <2020-02-06 jue>
+  - State "DONE"       from "TODO"       [2020-02-06 jue 16:36]
+Github en https://github.com/davidam/damegender-web
+* DONE Hacer un vídeo
+  SCHEDULED: <2020-02-06 jue>
+  - State "DONE"       from "TODO"       [2020-02-06 jue 16:38]
+Publicado en https://tv.urjc.es/video/5d895319d68b148f7a8c0da6
+* TODO Hacer un pequeño sistema basado en reglas
++ [ ] finaliza en consonante
++ [ ] finaliza en a
++ [ ] tiene 4 letras o menos (puede ser diminutivo)
+* TODO Mejorar la base de verdad (ej: INE)
++ [ ] menos de 1000 nombres en la base de verdad

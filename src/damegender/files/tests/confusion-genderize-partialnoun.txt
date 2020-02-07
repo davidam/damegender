@@ -2,6 +2,5 @@ A confusion matrix C is such that Ci,j is equal to the number of observations kn
 If the classifier is nice, the diagonal is high because there are true positives
 Genderize confusion matrix:
 
-[[ 6, 0, 0]
- [ 1, 28, 0]]
-
+[[ 6, 0, 0 ]
+ [ 1, 28, 0 ]]

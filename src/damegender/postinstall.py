@@ -27,37 +27,67 @@ from app.dame_utils import DameUtils
 import csv
 from pprint import pprint
 import re
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
+args = parser.parse_args()
 
 
 g = Gender()
 
-print("You don't need execute this script in normal conditions. We are going to create some data files, in normal conditions you've downloaded these files cloning the repository. But perhaps you need regenerate these files.")
-
-yesornot = input("Do you want continue? (Yes/Not) ")
-
-#print(yesornot)
-
-if ((yesornot == "Yes") | (yesornot == "yes") | (yesornot == "Y") | (yesornot == "y")):
-    print("We are creating files/names/nam_dict_list.txt")
-    g.namdict2file()
-    print("We are creating .sav files data models in files/datamodels")
-    print("This process take a long time, you can rest.")
+if (args.ml):
     s = DameSexmachine()
-    s.gaussianNB()
-    s.svc()
-    s.sgd()
-    s.multinomialNB()
-    s.bernoulliNB()
-    print("This process has finished. You have the models in files/datamodels/*.sav")
+    if (args.ml == "nltk"):
+        guess = s.guess(args.name, binary=True, ml="nltk")
+    if (args.ml == "sgd"):
+        s.sgd()
+    elif (args.ml == "svc"):
+        s.svc()
+    elif (args.ml == "gaussianNB"):
+        s.gaussianNB()
+    elif (args.ml == "multinomialNB"):
+        s.multinomialNB()
+    elif (args.ml == "bernoulliNB"):
+        s.bernoulliNB()
+    elif (args.ml == "forest"):
+        s.forest()
+    elif (args.ml == "tree"):
+        s.tree()
+    elif (args.ml == "mlp"):
+        s.mlp()
 
-    du = DameUtils()
+else:
 
-    print("Creating the file files/names/allnoundefined.csv from files/names/all.csv")
-    with open('files/names/all.csv') as csvfile:
-        reader = csv.reader(csvfile, delimiter=',', quotechar='|')
-        filenou = open('files/names/allnoundefined.csv','w+')
-        for row in reader:
-            g = du.drop_quotes(row[4])
-            if ((g == "m") | (g == "f")):
-                filenou.write(row[0]+','+row[1]+','+row[2]+','+row[3]+','+row[4]+','+row[5]+'\n')
-        filenou.close()
+    print("You don't need execute this script in normal conditions. We are going to create some data files, in normal conditions you've downloaded these files cloning the repository. But perhaps you need regenerate these files.")
+
+    yesornot = input("Do you want continue? (Yes/Not) ")
+
+    #print(yesornot)
+
+    if ((yesornot == "Yes") | (yesornot == "yes") | (yesornot == "Y") | (yesornot == "y")):
+        print("We are creating files/names/nam_dict_list.txt")
+        g.namdict2file()
+        print("We are creating .sav files data models in files/datamodels")
+        print("This process take a long time, you can rest.")
+        s = DameSexmachine()
+        s.gaussianNB()
+        s.svc()
+        s.sgd()
+        s.multinomialNB()
+        s.bernoulliNB()
+        s.tree()
+        s.mlp()
+        print("This process has finished. You have the models in files/datamodels/*.sav")
+
+        du = DameUtils()
+
+        print("Creating the file files/names/allnoundefined.csv from files/names/all.csv")
+        with open('files/names/all.csv') as csvfile:
+            reader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            filenou = open('files/names/allnoundefined.csv','w+')
+            for row in reader:
+                g = du.drop_quotes(row[4])
+                if ((g == "m") | (g == "f")):
+                    filenou.write(row[0]+','+row[1]+','+row[2]+','+row[3]+','+row[4]+','+row[5]+'\n')
+            filenou.close()

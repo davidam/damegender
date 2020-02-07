@@ -32,6 +32,7 @@ import os
 import re
 import sys
 import json
+
 from collections import OrderedDict
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
@@ -215,6 +216,13 @@ class Gender(object):
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
+                # middlename = row[1].replace(' ', '')
+                # middlename = row[1].replace('\"', '')
+
+                # if (name_and_middlename == True):
+                #     name = name + " " + middlename
+                #     name = name.title()
+
                 if (surnames == True):
                     surname = row[2].title()
                     surname = row[2].replace('\"', '')
@@ -223,6 +231,51 @@ class Gender(object):
                 else:
                     csvlist.append(name)
         return csvlist
+
+
+    def csv2json(self, path="", *args, **kwargs):
+        # csv to json file
+        surnames = kwargs.get('surnames', False)
+        header = kwargs.get('header', True)
+        l = kwargs.get('l', [ ]) # l is a list, such as, guess_list or gender_list
+        jsonf = kwargs.get('jsonf', 'files/names/csv2json.json')
+        csv2names = self.csv2names(path=path, surnames=surnames)
+        string = ""
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            if (header == True):
+                next(sexreader, None)
+            string = '['
+            i = 0
+            for row in sexreader:
+                name = row[0].title()
+                name = name.replace('\"', '')
+
+                middlename = row[1].replace(' ', '')
+                middlename = row[1].replace('\"', '')
+
+                lastname = row[2].title()
+                lastname = row[2].replace('\"', '')
+
+                gender = row[4]
+                if surnames:
+                    string = string + '{"name":"'+ name + ' ' + middlename +'", \n'
+                else:
+                    string = string + '{"name":"'+ name + '", \n'
+                string = string + '"surname":"'+ lastname +'", \n'
+                string = string + '"probability": 1, \n'
+                if (l == [ ] ):
+                    string = string + '"gender":"'+ gender +'"}, \n'
+                elif (len(l) <= i + 1):
+                    string = string + '"gender":"'+str(l[i])+'"} \n'
+                else:
+                    string = string + '"gender":"'+str(l[i])+'"}, \n'
+                i = i + 1
+            string = string + ']'
+        file = open(jsonf, "w")
+        file.writelines(str(string))
+        file.close()
+
 
     def name2gender_in_dataset(self, name, dataset=''):
         guess = 2
@@ -434,24 +487,28 @@ class Gender(object):
                 guess = 'unknown'
         return guess
 
-    def guess_list(self, path='files/names/partial.csv', binary=False):
+    def guess_list(self, path='files/names/partial.csv', binary=False, *args, **kwargs):
         # guess list method
+        header = kwargs.get('header', True)
         slist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(sexreader, None)
+            if (header == True):
+                next(sexreader, None)
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
                 slist.append(self.guess(name, binary))
         return slist
 
-    def gender_list(self, path):
+    def gender_list(self, path, *args, **kwargs):
         # counting males, females and unknown
+        header = kwargs.get('header', True)
         glist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='"')
-            next(sexreader, None)
+            if (header == True):
+                next(sexreader, None)
             count_females = 0
             count_males = 0
             count_unknown = 0
@@ -530,6 +587,8 @@ class Gender(object):
         else:
             result = 0
             print("Both vectors must have the same length")
+            print("truevector length: %s" % len(truevector))
+            print("guessvector length: %s" % len(guessvector))
             print("truevector: %s" % truevector)
             print("guessvector: %s" % guessvector)
         return result
@@ -638,22 +697,13 @@ class Gender(object):
 
 
     def confusion_matrix(self, path='files/names/partial.csv'):
+        # this method is using scikit library (deprecated)
         gl = self.gender_list(path)
         sl = self.guess_list(path, binary=True)
         return confusion_matrix(gl, sl)
 
-    def print_confusion_matrix_gender(self, path='', dimensions="2x3"):
-        cmd = self.confusion_matrix_gender(path, dimensions)
-        print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-        print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
-        return ""
-
-    def confusion_matrix_gender(self, path='', dimensions="2x3", jsonf=""):
-        truevector = self.gender_list(path)
-        if (os.path.isfile(jsonf)):
-            guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
-        else:
-            guessvector = self.guess_list(path, binary=True)
+    def confusion_matrix_table(self, truevector, guessvector):
+        # this method returns a 3x3 confusion matrix as python vectors
 
         # femalefemale
         self.ff = self.count_true2guess(truevector, guessvector, 0, 0)
@@ -678,28 +728,94 @@ class Gender(object):
              [self.mf, self.mm, self.mu],
              [self.uf, self.um, self.uu]]
 
-        if (dimensions == "1x1"):
-            res = [[l[0][0]]]
-        elif (dimensions == "1x2"):
-            res = [[l[0][0], l[0][1]]]
-        elif (dimensions == "1x3"):
-            res = [[l[0][0], l[0][1], l[0][2]]]
-        elif (dimensions == "2x1"):
-            res = [[l[0][0]], [l[1][0]]]
-        elif (dimensions == "2x2"):
-            res = [[l[0][0], l[0][1]], [l[1][0], l[1][1]]]
-        elif (dimensions == "2x3"):
-            res = [[l[0][0], l[0][1], l[0][2]], [l[1][0], l[1][1], l[1][2]]]
-        elif (dimensions == "3x1"):
-            res = [[l[0][0]], [l[1][0]], [l[2][0]]]
-        elif (dimensions == "3x2"):
-            res = [[l[0][0], l[0][1]], [l[1][0], l[1][1]], [l[2][0], l[2][1]]]
-        elif (dimensions == "3x3"):
-            res = [[l[0][0], l[0][1], l[0][2]],
-                   [l[1][0], l[1][1], l[1][2]],
-                   [l[2][0], l[2][1], l[2][2]]]
+        res = [[l[0][0], l[0][1], l[0][2]],
+               [l[1][0], l[1][1], l[1][2]],
+               [l[2][0], l[2][1], l[2][2]]]
         return res
 
+    def confusion_matrix_gender(self, path='', jsonf=''):
+        # this method is an interfaz to confusion_matrix_table allowing introduce a json file
+        # in dame_sexmachine we must rewrite it to allow machine learning algorithm
+        truevector = self.gender_list(path)
+        if (os.path.isfile(jsonf)):
+            guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
+        else:
+            guessvector = self.guess_list(path, binary=True)
+        res = self.confusion_matrix_table(truevector, guessvector)
+        return res
+
+    def print_confusion_matrix_gender(self, path='', dimensions='', *args, **kwargs):
+        reverse = kwargs.get('reverse', False)
+        jsonf = kwargs.get('jsonf', '')
+        jf = os.getcwd() + "/" +  jsonf
+        if (os.path.isfile(jf)):
+            cmd = self.confusion_matrix_gender(path, jsonf=jf)
+        else:
+            cmd = self.confusion_matrix_gender(path)
+        if (dimensions == "1x1"):
+            if (reverse == False):
+                print("[[ %s ]]" % (cmd[1][1]))
+            elif (reverse == True):
+                print("[[ %s ]]" % (cmd[0][0]))
+        elif (dimensions == "1x2"):
+            if (reverse == False):
+                print("[[ %s, %s ]]" % (cmd[1][1], cmd[1][0]))
+            elif (reverse == True):
+                print("[[ %s, %s ]]" % (cmd[0][0], cmd[0][1]))
+        elif (dimensions == "1x3"):
+            if (reverse == False):
+                print("[[ %s, %s, %s ]]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
+            elif (reverse == True):
+                print("[[ %s, %s, %s ]]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+        elif (dimensions == "2x1"):
+            if (reverse == False):
+                print("[[ %s ]" % (cmd[1][1]))
+                print(" [ %s ]]" % (cmd[1][0]))
+            elif (reverse == True):
+                print("[[ %s ]" % (cmd[0][0]))
+                print(" [ %s ]]" % (cmd[0][1]))
+        elif (dimensions == "2x2"):
+            if (reverse == False):
+                print("[[ %s , %s ]" % (cmd[1][1], cmd[1][0]))
+                print(" [ %s , %s ]]" % (cmd[0][1], cmd[0][0]))
+            if (reverse == True):
+                print("[[ %s , %s ]" % (cmd[0][0], cmd[0][1]))
+                print(" [ %s , %s ]]" % (cmd[1][0], cmd[1][1]))
+        elif (dimensions == "2x3"):
+            if (reverse == False):
+                print("[[ %s, %s, %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
+                print(" [ %s, %s, %s ]]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
+            if (reverse == True):
+                print("[[ %s, %s, %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print(" [ %s, %s, %s ]]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+        elif (dimensions == "3x1"):
+            if (reverse == False):
+                print("[[ %s ]" % (cmd[1][1]))
+                print(" [ %s ]" % (cmd[0][1]))
+                print(" [ %s ]]" % (cmd[2][1]))
+            elif (reverse == True):
+                print("[[ %s ]," % (cmd[0][0]))
+                print(" [ %s ]" % (cmd[1][0]))
+                print(" [ %s ]]" % (cmd[2][0]))
+        elif (dimensions == "3x2"):
+            if (reverse == False):
+                print("[[ %s , %s ]" % (cmd[1][1], cmd[1][0]))
+                print(" [ %s , %s ]" % (cmd[0][1], cmd[0][0]))
+                print(" [ %s , %s ]]" % (cmd[2][1], cmd[2][0]))
+            if (reverse == True):
+                print("[[ %s, %s ]" % (cmd[0][0], cmd[0][1]))
+                print(" [ %s, %s ]" % (cmd[1][0], cmd[1][1]))
+                print(" [ %s, %s ]]" % (cmd[2][0], cmd[2][1]))
+        elif (dimensions == "3x3"):
+            if (reverse == False):
+                print("[[ %s, %s, %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
+                print(" [ %s, %s, %s ]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
+                print(" [ %s, %s, %s ]]" % (cmd[2][1], cmd[2][0], cmd[2][2]))
+            if (reverse == True):
+                print("[[ %s, %s, %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print(" [ %s, %s, %s ]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+                print(" [ %s, %s, %s ]]" % (cmd[2][0], cmd[2][1], cmd[2][2]))
+        return ""
 
 
     def features_list(self, path='files/names/partial.csv', sexdataset=''):
@@ -857,6 +973,19 @@ class Gender(object):
         pca = PCA(n_components=n)
         return pca.fit(X)
 
+    # def print_envolve_measures
+    #     if (ds.json_eq_csv_in_names(jsonf=args.jsondownloaded, path=args.csv)):
+    #         print("################### Damegender!!")
+    #         print("Gender list: " + str(gl))
+    #         sl = ds.json2guess_list(jsonf=args.jsondownloaded, binary=True)
+    #         print("Guess list:  " +str(sl))
+    #         ds.print_measures(gl, sl, args.measure, "Damegender")
+    #     else:
+    #         print("Names in json and csv are differents")
+    #         print("Names in csv: %s:" % ds.csv2names(path=args.csv))
+    #         print("Names in json: %s:" % ds.json2names(jsonf=args.jsondownloaded, surnames=False))
+
+
     def print_measures(self, gl1, gl2, measure, api_name):
         if (measure == "accuracy"):
             gender_accuracy = self.accuracy_score_dame(gl1, gl2)
@@ -873,13 +1002,23 @@ class Gender(object):
             gender_f1score = self.f1score(gl1, gl2)
             print("%s f1score: %s" % (api_name, gender_f1score))
 
-    def print_confusion_matrix_gender(self, path='files/names/partial.csv', dimensions="2x3", jsonf=""):
-        jf = os.getcwd() + "/" +  jsonf
-        if (os.path.isfile(jf)):
-            cmd = self.confusion_matrix_gender(path, dimensions, jf)
-            print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-            print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
-        return ""
+    def json2guess_list(self, jsonf="", binary=False):
+        jsondata = open(jsonf).read()
+        json_object = json.loads(jsondata)
+        guesslist = []
+
+        for i in json_object:
+            if binary:
+                if ((i['gender'] == 'female') or (i['gender'] == 'f') or (i['gender'] == 0)):
+                    guesslist.append(0)
+                elif ((i['gender'] == 'male') or (i['gender'] == 'm') or (i['gender'] == 1)):
+                    guesslist.append(1)
+                else:
+                    guesslist.append(2)
+            else:
+                guesslist.append(i['gender'])
+        return guesslist
+
 
     def json2names(self, jsonf="", surnames=False):
         jsondata = open(jsonf).read()
@@ -893,24 +1032,27 @@ class Gender(object):
                     nameslist.append(i["name"])
         return nameslist
 
+
     def json_eq_csv_in_names(self, jsonf="", path=""):
         boolean = False
         json = self.json2names(jsonf=jsonf, surnames=False)
         csv = self.csv2names(path=path)
         count = 0
         i = 0
-        maxi = len(json)
+        maxi = len(json) -1
         if (maxi < len(csv)):
-            maxi = len(csv)
-        while (maxi > count):
+            maxi = len(csv) -1
+        while (maxi > i):
             if (json[i] == csv[i]):
                 count = count +1
             i = i+1
-        return ((len(json) == len(csv)) and (len(json) == count))
+        boolean = ((len(json) == len(csv)) and ((len(json) -1) == count))
+        return boolean
 
-    def first_uneq_json_and_csv_in_names(self, jsonf="", path=""):
+    def first_uneq_json_and_csv_in_names(self, jsonf="", path="", *args, **kwargs):
+        header = kwargs.get('header', True)
         json = self.json2names(jsonf=jsonf, surnames=False)
-        csv = self.csv2names(path=path)
+        csv = self.csv2names(path=path, header=header)
         i = 0
         maxi_json = len(json) -1
         maxi_csv = len(csv) - 1
@@ -923,4 +1065,4 @@ class Gender(object):
             ret = csv[i].lower()
         elif (i > maxi_csv):
             ret = json[i].lower()
-        return ret
+        return [ret, i]

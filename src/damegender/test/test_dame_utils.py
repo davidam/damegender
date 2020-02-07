@@ -139,8 +139,9 @@ class TddInPythonExample(unittest.TestCase):
             ['files/datamodels/bernoulliNB_model.sav',
              'files/datamodels/forest_model.sav',
              'files/datamodels/gaussianNB_model.sav',
+             'files/datamodels/mlp_model.sav',
              'files/datamodels/multinomialNB_model.sav',
              'files/datamodels/sgd_model.sav',
              'files/datamodels/svc_model.sav',
-             'files/datamodels/xgboost_model.sav'])
+             'files/datamodels/tree_model.sav'])
 

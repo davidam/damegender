@@ -1,0 +1,7 @@
+A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are true positives
+Nameapi confusion matrix:
+
+[[ 5, 0, 0]
+ [ 0, 1, 0]]
+

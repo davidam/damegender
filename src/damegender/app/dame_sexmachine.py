@@ -23,6 +23,8 @@
 
 from pprint import pprint
 from nltk.corpus import names
+import json
+import os
 import csv
 import nltk
 import re
@@ -33,6 +35,9 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.linear_model import SGDClassifier
 from sklearn.ensemble import RandomForestRegressor
+from sklearn import tree
+from sklearn.neural_network import MLPClassifier
+
 from sklearn.preprocessing import StandardScaler
 from sklearn.datasets import make_classification
 #from xgboost import XGBClassifier
@@ -210,6 +215,41 @@ class DameSexmachine(Gender):
         pkl_file.close()
         return clf
 
+    def tree(self):
+        # Scikit forest classifier
+        X = np.array(self.features_list(path="files/names/all.csv"))
+        y = np.array(self.gender_list(path="files/names/all.csv"))
+        clf = tree.DecisionTreeClassifier()
+        clf = clf.fit(X, y)
+        filename = 'files/datamodels/tree_model.sav'
+        pickle.dump(clf, open(filename, 'wb'))
+        return clf
+
+    def tree_load(self):
+        clf_file = open('files/datamodels/tree_model.sav', 'rb')
+        clf = pickle.load(clf_file)
+        clf_file.close()
+        return clf
+
+    def mlp(self):
+        X = np.array(self.features_list(path="files/names/all.csv"))
+        y = np.array(self.gender_list(path="files/names/all.csv"))
+        clf = MLPClassifier(solver='lbfgs', alpha=1e-5,
+                    hidden_layer_sizes=(5, 2), random_state=1)
+        clf.fit(X, y)
+        filename = 'files/datamodels/mlp_model.sav'
+        pickle.dump(clf, open(filename, 'wb'))
+        return clf
+
+    def mlp_load(self):
+        clf_file = open('files/datamodels/mlp_model.sav', 'rb')
+        clf = pickle.load(clf_file)
+        clf_file.close()
+        return clf
+
+
+
+
     # def xgboost(self):
     #     # Scikit xgboost classifier
     #     X = np.array(self.features_list(path="files/names/all.csv"))
@@ -294,8 +334,16 @@ class DameSexmachine(Gender):
                 m = s.forest_load()
                 predicted = m.predict([vector])
                 guess = predicted[0]
-            elif (ml == "xgboost"):
-                m = s.xgboost_load()
+            # elif (ml == "xgboost"):
+            #     m = s.xgboost_load()
+            #     predicted = m.predict([vector])
+            #     guess = predicted[0]
+            elif (ml == "tree"):
+                m = s.tree_load()
+                predicted = m.predict([vector])
+                guess = predicted[0]
+            elif (ml == "mlp"):
+                m = s.mlp_load()
                 predicted = m.predict([vector])
                 guess = predicted[0]
             if binary:
@@ -327,78 +375,60 @@ class DameSexmachine(Gender):
                 slist.append(self.guess(name, binary, ml=ml))
         return slist
 
-    def confusion_matrix_gender(self, path='', dimensions="3x2", ml='nltk'):
+    def confusion_matrix_gender(self, path='', jsonf='', ml='nltk'):
+        # this method is an interfaz to confusion_matrix_table allowing introduce a json file
+        # in dame_sexmachine we must rewrite it to allow machine learning algorithm
         truevector = self.gender_list(path)
-        guessvector = self.guess_list(path,
-                                      binary=True,
-                                      ml=ml)
-        ff = self.count_true2guess(truevector, guessvector, 0, 0)
-        self.femalefemale = ff
-        fm = self.count_true2guess(truevector, guessvector, 0, 1)
-        self.femalemale = fm
-        fu = self.count_true2guess(truevector, guessvector, 0, 2)
-        self.femaleundefined = fu
-        mf = self.count_true2guess(truevector, guessvector, 1, 0)
-        self.malefemale = mf
-        mm = self.count_true2guess(truevector, guessvector, 1, 1)
-        self.malemale = mm
-        mu = self.count_true2guess(truevector, guessvector, 1, 2)
-        self.maleundefined = mu
-        uf = self.count_true2guess(truevector, guessvector, 1, 0)
-        self.undefinedfemale = uf
-        um = self.count_true2guess(truevector, guessvector, 1, 1)
-        self.undefinedmale = um
-        uu = self.count_true2guess(truevector, guessvector, 1, 2)
-        self.undefinedundefined = uu
+        if (os.path.isfile(jsonf)):
+            guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
+        else:
+            guessvector = self.guess_list(path,
+                                          binary=True,
+                                          ml=ml)
 
-        l = [[self.femalefemale,
-              self.femalemale,
-              self.femaleundefined],
-             [self.malefemale,
-              self.malemale,
-              self.maleundefined],
-             [self.undefinedfemale,
-              self.undefinedmale,
-              self.undefinedundefined]]
-
-        if (dimensions == "1x1"):
-            res = [[l[0][0]]]
-        elif (dimensions == "1x2"):
-            res = [[l[0][0], l[0][1]]]
-        elif (dimensions == "1x3"):
-            res = [[l[0][0], l[0][1], l[0][2]]]
-        elif (dimensions == "2x1"):
-            res = [[l[0][0]], [l[1][0]]]
-        elif (dimensions == "2x2"):
-            res = [[l[0][0], l[0][1]], [l[1][0], l[1][1]]]
-        elif (dimensions == "2x3"):
-            res = [[l[0][0], l[0][1], l[0][2]], [l[1][0], l[1][1], l[1][2]]]
-        elif (dimensions == "3x1"):
-            res = [[l[0][0]], [l[1][0]], [l[2][0]]]
-        elif (dimensions == "3x2"):
-            res = [[l[0][0],
-                    l[0][1]],
-                   [l[1][0],
-                    l[1][1]],
-                   [l[2][0],
-                    l[2][1]]]
-        elif (dimensions == "3x3"):
-            res = [[l[0][0],
-                    l[0][1],
-                    l[0][2]],
-                   [l[1][0],
-                    l[1][1],
-                    l[1][2]],
-                   [l[2][0],
-                    l[2][1],
-                    l[2][2]]]
+        res = self.confusion_matrix_table(truevector, guessvector)
         return res
 
-    def print_confusion_matrix_gender(self, path='files/names/partial.csv', dimensions="3x2", ml="nltk"):
-        cmd = self.confusion_matrix_gender(path, dimensions, ml=ml)
-        print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-        print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
-        return ""
+
+    # def confusion_matrix_gender(self, path='', jsonf='', dimensions="3x2", ml='nltk'):
+    #     truevector = self.gender_list(path)
+    #     if (os.path.isfile(jsonf)):
+    #         guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
+    #     else:
+    #         guessvector = self.guess_list(path,
+    #                                   binary=True,
+    #                                   ml=ml)
+
+    #     # femalefemale
+    #     self.ff = self.count_true2guess(truevector, guessvector, 0, 0)
+    #     # femalemale
+    #     self.fm = self.count_true2guess(truevector, guessvector, 0, 1)
+    #     # femaundefined
+    #     self.fu = self.count_true2guess(truevector, guessvector, 0, 2)
+    #     # malefemale
+    #     self.mf = self.count_true2guess(truevector, guessvector, 1, 0)
+    #     # malemale
+    #     self.mm = self.count_true2guess(truevector, guessvector, 1, 1)
+    #     # maleundefined
+    #     self.mu = self.count_true2guess(truevector, guessvector, 1, 2)
+    #     # undefinedfemale
+    #     self.uf = self.count_true2guess(truevector, guessvector, 1, 0)
+    #     # undefinedmale
+    #     self.um = self.count_true2guess(truevector, guessvector, 1, 1)
+    #     # undefinedundefined
+    #     self.uu = self.count_true2guess(truevector, guessvector, 1, 2)
+
+    #     l = [[self.ff, self.fm, self.fu],
+    #          [self.mf, self.mm, self.mu],
+    #          [self.uf, self.um, self.uu]]
+
+    #     res = [[l[0][0], l[0][1], l[0][2]],
+    #            [l[1][0], l[1][1], l[1][2]],
+    #            [l[2][0], l[2][1], l[2][2]]]
+    #     return res
+
+
+
 
     def num_females(self, url, directory):
         # Extracting females with perceval

@@ -129,6 +129,11 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual([['Pierre', 'grivel'], ['Raul', 'serapioni'], ['Adriano', 'moura'], ['Ralf', 'kieser'], ['Guillermo', 'leon-de-la-barra'], ['Sabina', 'pannek']], names)
 
 
+    def test_dame_gender_csv2json(self):
+        g = Gender()
+        g.csv2json(path="files/names/min.csv")
+        self.assertTrue(os.path.isfile("files/names/csv2json.json"))
+
     def test_dame_gender_guess_list(self):
         g = Gender()
         self.assertEqual(['unknown', 'male', 'male', 'male', 'unknown',
@@ -142,25 +147,16 @@ class TddInPythonExample(unittest.TestCase):
                          g.guess_list(path="files/names/partial.csv",
                                       binary=True))
 
-    # def test_dame_gender_accuracy(self):
-    #     g = Gender()
-    #     self.assertTrue(g.accuracy(path="files/names/partial.csv") >= 0.5)
-
-    # def test_dame_gender_confusion_matrix(self):
-    #     g = Gender()
-    #     cm = g.confusion_matrix_dame(path="files/names/partial.csv")
-    #     print(cm)
-    #     am = np.array([[1, 0, 2],[0, 13, 3],[0, 1, 1]])
-    #     self.assertTrue(np.array_equal(cm,am))
-
-    def test_dame_gender_confusion_matrix_dame(self):
+    def test_dame_gender_accuracy(self):
         g = Gender()
-        cm = g.confusion_matrix_gender(path="files/names/min.csv",
-                                       dimensions="2x3")
-        am = [[0, 0, 1], [0, 4, 1]]
+        self.assertTrue(g.accuracy(path="files/names/partial.csv") >= 0.5)
+
+    def test_dame_gender_confusion_matrix_gender(self):
+        g = Gender()
+        cm = g.confusion_matrix_gender(path="files/names/min.csv")
+        am = [[0, 0, 1], [0, 4, 1], [0, 4, 1]]
         self.assertEqual(cm, am)
-        cm = g.confusion_matrix_gender(path="files/names/partial.csv",
-                                       dimensions="3x3")
+        cm = g.confusion_matrix_gender(path="files/names/partial.csv")
         am = [[1, 0, 2], [0, 13, 3], [0, 13, 3]]
         self.assertEqual(cm, am)
 
@@ -364,5 +360,7 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_first_uneq(self):
         g = Gender()
-        self.assertEqual("sabina", g.first_uneq_json_and_csv_in_names(jsonf="files/names/genderizefiles_names_min.csv.json", path="files/names/min.csv"))
-        self.assertEqual("guillermo", g.first_uneq_json_and_csv_in_names(jsonf="files/names/nameapifiles_names_min.csv.json", path="files/names/partial.csv"))
+        self.assertEqual("sabina", g.first_uneq_json_and_csv_in_names(jsonf="files/names/genderizefiles_names_min.csv.json", path="files/names/min.csv")[0])
+        self.assertEqual(5, g.first_uneq_json_and_csv_in_names(jsonf="files/names/genderizefiles_names_min.csv.json", path="files/names/min.csv")[1])
+        self.assertEqual("guillermo", g.first_uneq_json_and_csv_in_names(jsonf="files/names/nameapifiles_names_min.csv.json", path="files/names/partial.csv")[0])
+        self.assertEqual(4, g.first_uneq_json_and_csv_in_names(jsonf="files/names/nameapifiles_names_min.csv.json", path="files/names/partial.csv")[1])

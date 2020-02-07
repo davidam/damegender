@@ -97,20 +97,3 @@ class DameNamsor(Gender):
             i = i + 1
         namsorjson.write("]")
         namsorjson.close()
-
-    def json2guess_list(self, jsonf="", binary=False):
-        jsondata = open(jsonf).read()
-        json_object = json.loads(jsondata)
-        guesslist = []
-
-        for i in json_object:
-            if binary:
-                if (i['gender'] == 'female'):
-                    guesslist.append(0)
-                elif (i['gender'] == 'male'):
-                    guesslist.append(1)
-                else:
-                    guesslist.append(2)
-            else:
-                guesslist.append(i['gender'])
-        return guesslist

@@ -29,7 +29,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
-parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest'])
+parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
 parser.add_argument('--total', default="ine", choices=['ine', 'genderguesser'])
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
@@ -94,6 +94,10 @@ else:
             guess = s.guess(args.name, binary=True, ml="forest")
         elif (args.ml == "xgboost"):
             guess = s.guess(args.name, binary=True, ml="xgboost")
+        elif (args.ml == "tree"):
+            guess = s.guess(args.name, binary=True, ml="tree")
+        elif (args.ml == "mlp"):
+            guess = s.guess(args.name, binary=True, ml="mlp")
         if (guess == 1):
             sex = "male"
         elif (guess == 0):
