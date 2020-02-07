@@ -1,0 +1,4 @@
+################### Damegender!!
+Gender list: [1, 1, 1, 1, 1, 0]
+Guess list:  [1, 1, 1, 1, 1, 0]
+Damegender recall: 1.0
