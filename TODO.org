@@ -980,7 +980,8 @@ Puedes hacer pruebas con partial.csv
 	- State "DONE"       from "TODO"       [2020-02-05 mié 17:38]
 *** DONE partial.csv
 	- State "DONE"       from "TODO"       [2020-02-05 mié 17:38]
-*** TODO allnoundefined.csv
+*** DONE allnoundefined.csv
+    - State "DONE"       from "TODO"       [2020-02-07 vie 22:22]
 *** TODO all.csv
 ** DONE json2guesslist eliminar el parámetro ml
    - State "DONE"       from "TODO"       [2020-02-07 vie 15:20]
