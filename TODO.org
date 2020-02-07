@@ -972,6 +972,8 @@ GET https://gender-api.com/get-stats?&key=<your private server key>
   - State "DONE"       from "TODO"       [2020-02-05 mié 17:17]
 * TODO Revisar los undefined en accuracy
   SCHEDULED: <2020-02-05 mié>
+Parece que puede haber bugs si hay en el guess list undefined
+Puedes hacer pruebas con partial.csv
 * TODO Generar los json para damegender
 ** TODO Para cada algoritmo de ml generar json para
 *** DONE min.csv
@@ -980,7 +982,8 @@ GET https://gender-api.com/get-stats?&key=<your private server key>
 	- State "DONE"       from "TODO"       [2020-02-05 mié 17:38]
 *** TODO allnoundefined.csv
 *** TODO all.csv
-** TODO json2guesslist eliminar el parámetro ml
+** DONE json2guesslist eliminar el parámetro ml
+   - State "DONE"       from "TODO"       [2020-02-07 vie 15:20]
 * TODO Generar logs de accuracies de los diferentes algoritmos de ML
 * TODO Generar logs de confusion de los diferentes algoritmos de ML
 * TODO En accuracy.py terminar la transición a jsondownloaded required=True
@@ -993,3 +996,9 @@ Github en https://github.com/davidam/damegender-web
   SCHEDULED: <2020-02-06 jue>
   - State "DONE"       from "TODO"       [2020-02-06 jue 16:38]
 Publicado en https://tv.urjc.es/video/5d895319d68b148f7a8c0da6
+* TODO Hacer un pequeño sistema basado en reglas
++ [ ] finaliza en consonante
++ [ ] finaliza en a
++ [ ] tiene 4 letras o menos (puede ser diminutivo)
+* TODO Mejorar la base de verdad (ej: INE)
++ [ ] menos de 1000 nombres en la base de verdad
