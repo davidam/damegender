@@ -38,7 +38,6 @@ parser.add_argument('--csv', type=str, required=True, default="files/names/min.c
 parser.add_argument('--jsondownloaded', required=True, help='if you have downloaded the results from an api in a json file, you can try this argument')
 parser.add_argument('--measure', default="accuracy", choices=['accuracy', 'precision', 'recall', 'f1score'])
 parser.add_argument('--api', required=True, choices=['customsearch', 'namsor', 'genderize', 'genderguesser', 'damegender', 'genderapi', 'nameapi', 'all'])
-parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'xgboost'])
 args = parser.parse_args()
 
 du = DameUtils()
@@ -214,82 +213,6 @@ elif (args.api == "damegender"):
                 print("Names in json: %s:" % ds.json2names(jsonf=args.jsondownloaded, surnames=False))
 
 
-    # Todo este if es deprecated y es solo si no ha introducido json
-    # Habría que decidir si generar al vuelo el json y ejecutar u obligar al usuario a ejecutar damegender2json.py
-    if (args.ml == "nltk"):
-        ds = DameSexmachine()
-        print("################### NLTK!!")
-        gl1 = ds.gender_list(path=args.csv)
-        print("Gender list: " + str(gl1))
-        gl2 = ds.guess_list(path=args.csv, binary=True)
-        print("Guess list:  " +str(gl2))
-        ds.print_measures(gl1, gl2, args.measure, "Dame Gender")
-
-    elif (args.ml == "svc"):
-        ds = DameSexmachine()
-        print("################### Support Vector Machines!!")
-        gl1 = ds.gender_list(path=args.csv)
-        print("Gender list: " + str(gl1))
-        gl2 = ds.guess_list(path=args.csv, binary=True, ml="svc")
-        print("Guess list:  " +str(gl2))
-        ds.print_measures(gl1, gl2, args.measure, "Dame Gender")
-
-
-    elif (args.ml == "sgd"):
-        ds = DameSexmachine()
-        print("################### Stochastic Gradient Descent!!")
-        gl1 = ds.gender_list(path=args.csv)
-        print("Gender list: " + str(gl1))
-        gl2 = ds.guess_list(path=args.csv, binary=True, ml="sgd")
-        print("Guess list:  " +str(gl2))
-        ds.print_measures(gl1, gl2, args.measure, "Dame Gender")
-
-    elif (args.ml == "gaussianNB"):
-        ds = DameSexmachine()
-        print("################### Gaussian Naive Bayes!!")
-        gl1 = ds.gender_list(path=args.csv)
-        print("Gender list: " + str(gl1))
-        gl2 = ds.guess_list(path=args.csv, binary=True, ml="gaussianNB")
-        print("Guess list:  " +str(gl2))
-        ds.print_measures(gl1, gl2, args.measure, "Dame Gender")
-
-    elif (args.ml == "multinomialNB"):
-        ds = DameSexmachine()
-        print("################### Multinomial Naive Bayes!!")
-        gl1 = ds.gender_list(path=args.csv)
-        print("Gender list: " + str(gl1))
-        gl2 = ds.guess_list(path=args.csv, binary=True, ml="multinomialNB")
-        print("Guess list:  " +str(gl2))
-        ds.print_measures(gl1, gl2, args.measure, "Dame Gender")
-
-    elif (args.ml == "bernoulliNB"):
-        ds = DameSexmachine()
-        print("################### Bernoulli Naive Bayes!!")
-        gl1 = ds.gender_list(path=args.csv)
-        print("Gender list: " + str(gl1))
-        gl2 = ds.guess_list(path=args.csv, binary=True, ml="bernoulliNB")
-        print("Guess list:  " +str(gl2))
-        ds.print_measures(gl1, gl2, args.measure, "Dame Gender")
-
-    elif (args.ml == "forest"):
-        ds = DameSexmachine()
-        print("################### Random Forest!!")
-        gl1 = ds.gender_list(path=args.csv)
-        print("Gender list: " + str(gl1))
-        gl2 = ds.guess_list(path=args.csv, binary=True, ml="forest")
-        print("Guess list:  " +str(gl2))
-        ds.print_measures(gl1, gl2, args.measure, "Dame Gender")
-
-    elif (args.ml == "xgboost"):
-        ds = DameSexmachine()
-        print("################### Xgboost!!")
-        gl1 = ds.gender_list(path=args.csv)
-        print("Gender list: " + str(gl1))
-        gl2 = ds.guess_list(path=args.csv, binary=True, ml="xgboost")
-        print("Guess list:  " +str(gl2))
-        ds.print_measures(gl1, gl2, args.measure, "Dame Gender")
-
-
 elif (args.api == "genderapi"):
     dga = DameGenderApi()
     print("################### GenderApi!!")
@@ -309,10 +232,6 @@ elif (args.api == "nameapi"):
     dna = DameNameapi()
     print("################### Nameapi!!")
     gl = dna.gender_list(path=args.csv)
-    # if (args.jsondownloaded is None):
-    #     sl = dna.guess_list(path=args.csv, binary=True)
-    #     print("Guess list:  " +str(sl))
-    # else:
 
     if (os.path.isfile(args.jsondownloaded)):
         if (dna.json_eq_csv_in_names(jsonf=args.jsondownloaded, path=args.csv)):
@@ -324,12 +243,7 @@ elif (args.api == "nameapi"):
             print("Names in json and csv are differents")
             print("Names in csv: %s:" % dna.csv2names(path=args.csv))
             print("Names in json: %s:" % dna.json2names(jsonf=args.jsondownloaded, surnames=False))
-
-    # elif (os.path.isfile(args.jsondownloaded)):
-    #     jsonf = args.jsondownloaded
-    #     p = os.getcwd() + jsonf
-    #     sl = dna.json2guess_list(jsonf, binary=True)
-    # else:
-    #     print("In the path %s doesn't exist file" % args.jsondownloaded)
+    else:
+        print("In the path %s doesn't exist file" % args.jsondownloaded)
     # print("Guess list:" + str(sl))
     # dna.print_measures(gl, sl, args.measure, "Nameapi")
