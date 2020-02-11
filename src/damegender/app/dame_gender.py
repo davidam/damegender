@@ -568,6 +568,22 @@ class Gender(object):
                     print("Names in json: %s:" % self.json2names(jsonf=jsonf, surnames=False))
         return 1
 
+    def pretty_cm(self, path, jsonf, *args, **kwargs):
+        api = kwargs.get('api', 'damegender')
+        reverse = kwargs.get('reverse', False)
+        dimensions = kwargs.get('dimensions', '3x2')
+        gl = self.gender_list(path=path)
+#        dna = DameNameapi()
+        print("%s confusion matrix:\n" % api)
+        #    dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+        if (os.path.isfile(jsonf)):
+            self.print_confusion_matrix_gender(path=path, dimensions=dimensions, jsonf=jsonf, reverse=reverse)
+        elif (args.jsondownloaded == ''):
+            self.print_confusion_matrix_gender(path=path, dimensions=dimensions, reverse=reverse)
+        else:
+            print("In the path %s doesn't exist file" % jsonf)
+
+
 
 # METHODS ABOUT STATISTICS #
 
