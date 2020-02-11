@@ -531,6 +531,44 @@ class Gender(object):
         self.unknown = count_unknown
         return glist
 
+
+    def pretty_gg_list(self, path, jsonf, *args, **kwargs):
+        measure = kwargs.get('measure', 'accuracy')
+        binary = kwargs.get('binary', True)
+        ml = kwargs.get('ml', 'nltk')
+        api = kwargs.get('api', 'damegender')
+        gl = self.gender_list(path=path)
+
+        if (os.path.isfile(jsonf)):
+            if (self.json_eq_csv_in_names(jsonf=jsonf, path=path)):
+                print("################### "+ api +"!!")
+                print("Gender list: " + str(gl))
+                sl = self.json2guess_list(jsonf=jsonf, binary=True)
+                print("Guess list:  " +str(sl))
+                self.print_measures(gl, sl, measure, api)
+            else:
+                print("Names in json and csv are differents")
+                print("Names in csv: %s:" % self.csv2names(path=path))
+                print("Names in json: %s:" % self.json2names(jsonf=jsonf, surnames=False))
+        else:
+            print("In the path %s doesn't exist file" % jsonf)
+            print("You can create one, but this process can take long time")
+            yes_or_not = du.yes_or_not("Do you want create a json file? ")
+            if yes_or_not:
+                sl = self.guess_list(path=path, binary=binary, ml=ml)
+                self.csv2json(path=path, l=sl, jsonf=jsonf)
+                if (self.json_eq_csv_in_names(jsonf=jsonf, path=args.csv)):
+                    print("################### "+ api +"!!")
+                    print("Gender list: " + str(gl))
+                    print("Guess list:  " +str(sl))
+                    self.print_measures(gl, sl, measure, api)
+                else:
+                    print("Names in json and csv are differents")
+                    print("Names in csv: %s:" % self.csv2names(path=path))
+                    print("Names in json: %s:" % self.json2names(jsonf=jsonf, surnames=False))
+        return 1
+
+
 # METHODS ABOUT STATISTICS #
 
     def count_true2guess(self, truevector, guessvector, true, guess):
