@@ -48,87 +48,51 @@ if (args.api == "all"):
     dg = Gender()
     if (dg.config['DEFAULT']['namsor'] == 'yes'):
         dn = DameNamsor()
-        print("Namsor confusion matrix:\n")
-        dn.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+        dn.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
     if (dg.config['DEFAULT']['genderize'] == 'yes'):
         dg = DameGenderize()
-        print("Genderize confusion matrix:\n ")
-        dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+        dg.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+#        dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
 
     if (dg.config['DEFAULT']['genderapi'] == 'yes'):
         dga = DameGenderApi()
-        print("Genderapi confusion matrix:\n")
-        dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded)
+        dga.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
     dgg = DameGenderGuesser()
-    print("Gender Guesser confusion matrix:\n")
     dgg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
 
     ds = DameSexmachine()
-    print("Damegender confusion matrix:\n")
-    ds.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, ml='nltk')
+    ds.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+
 
     if (dg.config['DEFAULT']['nameapi'] == 'yes'):
         dna = DameNameapi()
-        print("Nameapi confusion matrix:\n")
-        dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+        dna.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
 elif (args.api == "namsor"):
     dn = DameNamsor()
-    print("Namsor confusion matrix:\n")
-    if (os.path.isfile(args.jsondownloaded)):
-        dn.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded, reverse=args.reverse)
-    elif (args.jsondownloaded == ''):
-        dn.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, reverse=args.reverse)
-    else:
-        print("In the path %s doesn't exist file" % args.jsondownloaded)
-
+    dn.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
 elif (args.api == "genderize"):
     dg = DameGenderize()
-    print("Genderize confusion matrix:\n")
-    if (os.path.isfile(args.jsondownloaded)):
-        dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded, reverse=args.reverse)
-    elif (args.jsondownloaded == ''):
-        dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, reverse=args.reverse)
-    else:
-        print("In the path %s doesn't exist file" % args.jsondownloaded)
+    dg.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
 elif (args.api == "genderapi"):
     dga = DameGenderApi()
-    if (os.path.isfile(args.jsondownloaded)):
-        dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded, reverse=args.reverse)
-    elif (args.jsondownloaded == ''):
-        dga.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, reverse=args.reverse)
-    else:
-        print("In the path %s doesn't exist file" % args.jsondownloaded)
+    dga.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
 elif (args.api == "genderguesser"):
     dgg = DameGenderGuesser()
-    print("Gender Guesser confusion matrix:\n")
-    dgg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, reverse=args.reverse)
+    ds.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
 elif (args.api == "damegender"):
     ds = DameSexmachine()
-    print("Damegender confusion matrix:\n")
-    if (os.path.isfile(args.jsondownloaded)):
-        ds.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded, ml=args.ml, reverse=args.reverse)
-    elif (args.jsondownloaded == ''):
-        ds.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, ml=args.ml, reverse=args.reverse)
-    else:
-        print("In the path %s doesn't exist file" % args.jsondownloaded)
+    ds.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
 elif (args.api == "nameapi"):
     dna = DameNameapi()
-    print("Nameapi confusion matrix:\n")
-#    dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
-    if (os.path.isfile(args.jsondownloaded)):
-        dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, jsonf=args.jsondownloaded, reverse=args.reverse)
-    elif (args.jsondownloaded == ''):
-        dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions, reverse=args.reverse)
-    else:
-        print("In the path %s doesn't exist file" % args.jsondownloaded)
+    dna.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
 
 # elif (args.api == "customsearch"):
