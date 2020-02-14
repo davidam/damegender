@@ -66,15 +66,6 @@ else
 	echo "mainsara2genderguesser test is ok"
 fi
 
-python3 accuracy.py --measure="precision" --csv="files/names/min.csv" --api=genderize --jsondownloaded="files/names/genderizefiles_names_min.csv.json" > files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/accuracygenderizeminjsonprecision.txt files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "accuracygenderizeminjsonprecision test is failing"
-else
-	echo "accuracygenderizeminjsonprecision test is ok"
-fi
-
 
 # xgboost is disabled for now
 # python3 main.py silla --ml=xgboost > files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt
@@ -102,16 +93,18 @@ else
 	echo "api2genderDavidgenderguesser test is ok"
 fi
 
-python3 accuracy.py --csv=files/names/min.csv --api="damegender" > files/tests/accuracymin-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/accuracymin.txt files/tests/accuracymin-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+python3 accuracy.py --measure="precision" --csv="files/names/min.csv" --api=genderize --jsondownloaded="files/names/genderizefiles_names_min.csv.json" > files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/accuracygenderizeminjsonprecision.txt files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-	echo "accuracymin test is failing"
+	echo "accuracygenderizeminjsonprecision test is failing"
 else
-	echo "accuracymin test is ok"
+	echo "accuracygenderizeminjsonprecision test is ok"
 fi
 
-python3 accuracy.py --api="genderguesser" --csv=files/names/min.csv > files/tests/accuracygenderguesser-$(date "+%Y-%m-%d-%H").txt
+
+python3 accuracy.py --api="genderguesser" --csv=files/names/min.csv --jsondownloaded=files/names/min.csv.json > files/tests/accuracygenderguesser-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/accuracygenderguesser.txt files/tests/accuracygenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -120,25 +113,25 @@ else
 	echo "accuracygenderguesser test is ok"
 fi
 
-python3 accuracy.py --api="genderguesser" --measure="precision" --csv=files/names/partialnoundefined.csv > files/tests/accuracypartialprecisiongenderguesser-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --api="genderguesser" --measure="precision" --csv=files/names/partialnoundefined.csv --jsondownloaded=files/names/partialnoundefined.csv.json > files/tests/accuracygenderguesserpartialnoundefinedjsonprecision-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/accuracypartialprecisiongenderguesser.txt files/tests/accuracypartialprecisiongenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+if ! cmp files/tests/accuracygenderguesserpartialnoundefinedjsonprecision.txt files/tests/accuracygenderguesserpartialnoundefinedjsonprecision-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "accuracypartialprecisiongenderguesser test is failing"
 else
 	echo "accuracypartialprecisiongenderguesser test is ok"
 fi
 
-python3 accuracy.py --api="genderguesser" --measure="f1score" --csv=files/names/partialnoundefined.csv > files/tests/accuracypartialf1scoregenderguesser-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --api="genderguesser" --measure="f1score" --csv=files/names/partialnoundefined.csv --jsondownloaded=files/names/partialnoundefined.csv.json > files/tests/accuracygenderguesserpartialnoundefinedjsonf1score-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/accuracypartialf1scoregenderguesser.txt files/tests/accuracypartialf1scoregenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+if ! cmp files/tests/accuracygenderguesserpartialnoundefinedjsonf1score.txt files/tests/accuracygenderguesserpartialnoundefinedjsonf1score-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "accuracypartialf1scoregenderguesser test is failing"
 else
 	echo "accuracypartialf1scoregenderguesser test is ok"
 fi
 
-python3 accuracy.py --api="genderguesser" --measure="recall" --csv=files/names/partialnoundefined.csv > files/tests/accuracypartialrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --api="genderguesser" --measure="recall" --csv=files/names/partialnoundefined.csv --jsondownloaded=files/names/partialnoundefined.csv.json > files/tests/accuracypartialrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/accuracypartialrecallgenderguesser.txt files/tests/accuracypartialrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -147,8 +140,16 @@ else
 	echo "accuracypartialrecallgenderguesser test is ok"
 fi
 
+python3 accuracy.py --api="genderguesser" --measure="recall" --csv=files/names/partialnoundefined.csv --jsondownloaded=files/names/partialnoundefined.csv.json > files/tests/accuracypartialnoundefinedrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt
 
-python3 accuracy.py --measure=accuracy --csv=files/names/partial.csv --api="damegender" > files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/accuracypartialnoundefinedrecallgenderguesser.txt files/tests/accuracypartialnoundefinedrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "accuracypartialrecallgenderguesser test is failing"
+else
+	echo "accuracypartialrecallgenderguesser test is ok"
+fi
+
+python3 accuracy.py --measure=accuracy --csv=files/names/partial.csv --jsondownloaded=files/names/partial.csv.json --api="damegender" > files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/accuracypartialdamegender.txt files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
