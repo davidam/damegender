@@ -239,7 +239,7 @@ class Gender(object):
         header = kwargs.get('header', True)
         l = kwargs.get('l', [ ]) # l is a list, such as, guess_list or gender_list
         jsonf = kwargs.get('jsonf', 'files/names/csv2json.json')
-        csv2names = self.csv2names(path=path, surnames=surnames)
+        csv2names = self.csv2names(path=path, surnames=surnames, header=header)
         string = ""
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -537,6 +537,7 @@ class Gender(object):
         binary = kwargs.get('binary', True)
         ml = kwargs.get('ml', 'nltk')
         api = kwargs.get('api', 'damegender')
+        header = kwargs.get('header', True)
         gl = self.gender_list(path=path)
 
         if (os.path.isfile(jsonf)):
@@ -548,7 +549,7 @@ class Gender(object):
                 self.print_measures(gl, sl, measure, api)
             else:
                 print("Names in json and csv are differents")
-                print("Names in csv: %s:" % self.csv2names(path=path))
+                print("Names in csv: %s:" % self.csv2names(path=path, header=header))
                 print("Names in json: %s:" % self.json2names(jsonf=jsonf, surnames=False))
         else:
             print("In the path %s doesn't exist file" % jsonf)
@@ -564,7 +565,7 @@ class Gender(object):
                     self.print_measures(gl, sl, measure, api)
                 else:
                     print("Names in json and csv are differents")
-                    print("Names in csv: %s:" % self.csv2names(path=path))
+                    print("Names in csv: %s:" % self.csv2names(path=path, header=header))
                     print("Names in json: %s:" % self.json2names(jsonf=jsonf, surnames=False))
         return 1
 
@@ -1087,10 +1088,11 @@ class Gender(object):
         return nameslist
 
 
-    def json_eq_csv_in_names(self, jsonf="", path=""):
+    def json_eq_csv_in_names(self, jsonf="", path="", *args, **kwargs):
+        header = kwargs.get('header', True)
         boolean = False
         json = self.json2names(jsonf=jsonf, surnames=False)
-        csv = self.csv2names(path=path)
+        csv = self.csv2names(path=path, header=header)
         count = 0
         i = 0
         maxi = len(json) -1
