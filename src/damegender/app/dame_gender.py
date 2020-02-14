@@ -41,6 +41,7 @@ from app.dame_utils import DameUtils
 
 csv.field_size_limit(3000000)
 
+du = DameUtils()
 
 class Gender(object):
     # That's the root class in the heritage,
