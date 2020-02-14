@@ -140,18 +140,9 @@ else
 	echo "accuracypartialrecallgenderguesser test is ok"
 fi
 
-python3 accuracy.py --api="genderguesser" --measure="recall" --csv=files/names/partialnoundefined.csv --jsondownloaded=files/names/partialnoundefined.csv.json > files/tests/accuracypartialnoundefinedrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --measure=accuracy --csv=files/names/partialnoundefined.csv --jsondownloaded=files/names/partialnoundefined.csv.json --api="damegender" > files/tests/accuracypartialnound-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/accuracypartialnoundefinedrecallgenderguesser.txt files/tests/accuracypartialnoundefinedrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "accuracypartialrecallgenderguesser test is failing"
-else
-	echo "accuracypartialrecallgenderguesser test is ok"
-fi
-
-python3 accuracy.py --measure=accuracy --csv=files/names/partial.csv --jsondownloaded=files/names/partial.csv.json --api="damegender" > files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/accuracypartialdamegender.txt files/tests/accuracypartialdamegender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+if ! cmp files/tests/accuracypartialnound.txt files/tests/accuracypartialnound-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "accuracypartialdamegender test is failing"
 else
@@ -159,7 +150,7 @@ else
 fi
 
 
-python3 confusion.py --api="damegender" --dimensions=2x3 --csv=files/names/min.csv > files/tests/confusiondamegender-$(date "+%Y-%m-%d-%H").txt
+python3 confusion.py --api="damegender" --dimensions=2x3 --csv=files/names/min.csv --jsondownloaded=files/names/min.csv.json > files/tests/confusiondamegender-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/confusiondamegender.txt files/tests/confusiondamegender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -168,7 +159,7 @@ else
 	echo "confusiondamegender test is ok"
 fi
 
-python3 confusion.py --api="genderguesser" --dimensions=2x3 --csv=files/names/min.csv > files/tests/confusiongenderguesser-$(date "+%Y-%m-%d-%H").txt
+python3 confusion.py --api="genderguesser" --dimensions=2x3 --csv=files/names/min.csv --jsondownloaded=files/names/min.csv.json > files/tests/confusiongenderguesser-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/confusiongenderguesser.txt files/tests/confusiongenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
