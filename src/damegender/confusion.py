@@ -65,7 +65,6 @@ if (args.api == "all"):
     ds = DameSexmachine()
     ds.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
-
     if (dg.config['DEFAULT']['nameapi'] == 'yes'):
         dna = DameNameapi()
         dna.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
@@ -84,7 +83,7 @@ elif (args.api == "genderapi"):
 
 elif (args.api == "genderguesser"):
     dgg = DameGenderGuesser()
-    ds.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+    dgg.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
 elif (args.api == "damegender"):
     ds = DameSexmachine()
