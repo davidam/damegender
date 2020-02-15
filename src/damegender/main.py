@@ -21,6 +21,7 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
 import sys
 import os
@@ -30,7 +31,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
-parser.add_argument('--total', default="ine", choices=['ine', 'genderguesser'])
+parser.add_argument('--total', default="ine", choices=['ine', 'luciahelena', 'genderguesser'])
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 
@@ -62,6 +63,16 @@ if (args.total == "genderguesser"):
         elif ( male == female ):
                 print("gender: unknown")
                 print("you can try predict with --ml")
+elif (args.total == "luciahelena"):
+        g = Gender()
+        males = g.csv2names(path="files/names/allnoundefined.males.csv")
+        females = g.csv2names(path="files/names/allnoundefined.females.csv")
+        print("%s was classified as: " % args.name)
+        if (args.name in males):
+                print("male")
+        elif (args.name in females):
+                print("female")
+        
 else:
     s = DameSexmachine()
     num_males = s.name_frec(args.name, dataset=args.total)['males']
