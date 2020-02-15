@@ -72,7 +72,8 @@ elif (args.total == "luciahelena"):
                 print("male")
         elif (args.name in females):
                 print("female")
-        
+        else:
+                print("this name was not classified as male or female")
 else:
     s = DameSexmachine()
     num_males = s.name_frec(args.name, dataset=args.total)['males']
