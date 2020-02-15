@@ -103,6 +103,15 @@ else
 	echo "mainjosemaria test is ok"
 fi
 
+python3 main.py Elena --total=luciahelena > files/tests/mainelenaluciahelena-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/mainelenaluciahelena.txt files/tests/mainelenaluciahelena-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "mainelenaluciahelena test is failing"
+else
+	echo "mainelenaluciahelena test is ok"
+fi
+
 python3 main.py Mesa --ml=nltk > files/tests/mainmesa-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainmesa.txt files/tests/mainmesa-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
