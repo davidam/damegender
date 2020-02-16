@@ -374,104 +374,37 @@ class Gender(object):
 
 
     def name_frec(self, name, dataset='ine'):
-        if (dataset == 'ine'):
-            du = DameUtils()
-            name = du.drop_accents(name)
-            path_males = 'files/names/names_es/masculinos_original.csv'
-            file_males = open(path_males, 'r')
-            readerm = csv.reader(file_males, delimiter=',', quotechar='|')
-            males = 0
-            for row in readerm:
-                if ((len(row) > 1) and (row[1].lower() == name.lower())):
-                    males = row[2]
-                    males = du.drop_dots(males)
-            path_females = 'files/names/names_es/femeninos_original.csv'
-            file_females = open(path_females, 'r')
-            readerf = csv.reader(file_females, delimiter=',', quotechar='|')
-            females = 0
-            for row in readerf:
-                if ((len(row) > 1) and (row[1].lower() == name.lower())):
-                    females = row[2]
-                    females = du.drop_dots(females)
-            dicc = {"females": females, "males": males}
-        elif (dataset == 'uy'):
-            du = DameUtils()
-            name = du.drop_accents(name)
-            path_males = 'files/names/names_uy/uymasculinos.csv'
-            file_males = open(path_males, 'r')
-            readerm = csv.reader(file_males, delimiter=',', quotechar='|')
-            males = 0
-            for row in readerm:
-                if ((len(row) > 1) and (row[0].lower() == name.lower())):
-                    males = row[1]
-                    males = du.drop_dots(males)
-            path_females = 'files/names/names_uy/uyfemeninos.csv'
-            file_females = open(path_females, 'r')
-            readerf = csv.reader(file_females, delimiter=',', quotechar='|')
-            females = 0
-            for row in readerf:
-                if ((len(row) > 1) and (row[0].lower() == name.lower())):
-                    females = row[1]
-                    females = du.drop_dots(females)
-            dicc = {"females": females, "males": males}
-        elif (dataset == 'uk'):
-            du = DameUtils()
-            name = du.drop_accents(name)
-            path_males = 'files/names/names_uk/ukmales.csv'
-            file_males = open(path_males, 'r')
-            readerm = csv.reader(file_males, delimiter=',', quotechar='|')
-            males = 0
-            for row in readerm:
-                if ((len(row) > 1) and (row[0].lower() == name.lower())):
-                    males = row[1]
-                    males = du.drop_dots(males)
-            path_females = 'files/names/names_uk/ukfemales.csv'
-            file_females = open(path_females, 'r')
-            readerf = csv.reader(file_females, delimiter=',', quotechar='|')
-            females = 0
-            for row in readerf:
-                if ((len(row) > 1) and (row[0].lower() == name.lower())):
-                    females = row[1]
-                    females = du.drop_dots(females)
-            dicc = {"females": females, "males": males}
 
-        elif (dataset == 'uscensus'):
-            du = DameUtils()
-            usfile = open('files/names/yob2017.txt', 'r')
-            usreader = csv.reader(usfile, delimiter=',', quotechar='|')
-            males = 0
-            females = 0
-            for row in usreader:
-                if ((len(row) > 1) and (row[0].lower() == name.lower())):
-                    if (row[1] == 'F'):
-                        females = row[2]
-                    elif (row[1] == 'M'):
-                        males = row[2]
-            dicc = {"females": females, "males": males}
-        elif (dataset == 'ukcensus'):
-            du = DameUtils()
-            name = du.drop_accents(name)
-            file_males = open('files/names/2017boysnames-uk.csv', 'r')
-            rmales = csv.reader(file_males, delimiter=',', quotechar='|')
-            males = 0
-            for row in rmales:
-                if (len(row) > 1):
-                    nowhite = du.drop_white_space(row[1])
-                    ukname = du.drop_accents(nowhite).lower()
-                    if (ukname == name.lower()):
-                        males = row[2]
-                        males = du.drop_dots(males)
-            file_females = open('files/names/2017girlsnames-uk.csv', 'r')
-            rfemales = csv.reader(file_females, delimiter=',', quotechar='|')
-            females = 0
-            for row in rfemales:
-                if (len(row) > 1):
-                    nowhite = du.drop_white_space(row[1])
-                    ukname = du.drop_accents(nowhite).lower()
-                    if (ukname == name.lower()):
-                        females = row[2]
-                        females = du.drop_dots(females)
-            dicc = {"females": females, "males": males}
+        du = DameUtils()
+        name = du.drop_accents(name)
+        if (dataset == 'ine'):
+            path_males = 'files/names/names_es/esmasculinos.csv'
+        elif (dataset == 'uy'):
+            path_males = 'files/names/names_uy/uymasculinos.csv'
+        elif (dataset == 'uk'):
+            path_males = 'files/names/names_uk/ukmales.csv'
+        file_males = open(path_males, 'r')
+        readerm = csv.reader(file_males, delimiter=',', quotechar='|')
+        males = 0
+        for row in readerm:
+            if ((len(row) > 1) and (row[0].lower() == name.lower())):
+                males = row[1]
+                males = du.drop_dots(males)
+        if (dataset == 'ine'):
+            path_females = 'files/names/names_es/esfemeninos.csv'
+        elif (dataset == 'uy'):
+            path_females = 'files/names/names_uy/uyfemeninos.csv'
+        elif (dataset == 'uk'):
+            path_females = 'files/names/names_uk/ukfemales.csv'
+
+        file_females = open(path_females, 'r')
+        readerf = csv.reader(file_females, delimiter=',', quotechar='|')
+        females = 0
+        for row in readerf:
+            if ((len(row) > 1) and (row[0].lower() == name.lower())):
+                females = row[1]
+                females = du.drop_dots(females)
+        dicc = {"females": females, "males": males}
 
         return dicc
 
