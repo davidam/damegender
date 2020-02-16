@@ -1,0 +1,4 @@
+Julia's gender is female
+probability: 1.0
+0 males for Julia from United Kingdom census
+6925 females for Julia from United Kingdom census
