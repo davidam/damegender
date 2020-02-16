@@ -393,6 +393,26 @@ class Gender(object):
                     females = row[2]
                     females = du.drop_dots(females)
             dicc = {"females": females, "males": males}
+        if (dataset == 'uy'):
+            du = DameUtils()
+            name = du.drop_accents(name)
+            path_males = 'files/names/names_uy/uymasculinos.csv'
+            file_males = open(path_males, 'r')
+            readerm = csv.reader(file_males, delimiter=',', quotechar='|')
+            males = 0
+            for row in readerm:
+                if ((len(row) > 1) and (row[0].lower() == name.lower())):
+                    males = row[1]
+                    males = du.drop_dots(males)
+            path_females = 'files/names/names_uy/uyfemeninos.csv'
+            file_females = open(path_females, 'r')
+            readerf = csv.reader(file_females, delimiter=',', quotechar='|')
+            females = 0
+            for row in readerf:
+                if ((len(row) > 1) and (row[0].lower() == name.lower())):
+                    females = row[1]
+                    females = du.drop_dots(females)
+            dicc = {"females": females, "males": males}
         elif (dataset == 'uscensus'):
             du = DameUtils()
             usfile = open('files/names/yob2017.txt', 'r')
