@@ -31,7 +31,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
-parser.add_argument('--total', default="ine", choices=['ine', 'luciahelena', 'genderguesser'])
+parser.add_argument('--total', default="ine", choices=['ine', 'uy', 'luciahelena', 'genderguesser'])
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 
@@ -121,4 +121,6 @@ else:
     if (args.total == "ine"):
         print("%s males for %s from INE.es" % (num_males, args.name))
         print("%s females for %s from INE.es" % (num_females, args.name))
-#
+    elif (args.total == "uy"):
+        print("%s males for %s from Uruguay census" % (num_males, args.name))
+        print("%s females for %s from Uruguay census" % (num_females, args.name))
