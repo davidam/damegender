@@ -121,6 +121,34 @@ else
     echo "mainmesa test is ok"
 fi
 
+python3 main.py Julia --total=us > files/tests/mainjuliaus-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/mainjuliaus.txt files/tests/mainjuliaus-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "mainjuliaus test is failing"
+else
+	echo "mainjuliaus test is ok"
+fi
+
+python3 main.py Julia --total=uk > files/tests/mainjuliauk-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/mainjuliauk.txt files/tests/mainjuliauk-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "mainjuliauk test is failing"
+else
+	echo "mainjuliauk test is ok"
+fi
+
+python3 main.py Julia --total=uy > files/tests/mainjuliauy-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/mainjuliauy.txt files/tests/mainjuliauy-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "mainjuliauy test is failing"
+else
+	echo "mainjuliauy test is ok"
+fi
+
+
 python3 main.py silla --ml=forest > files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/mainsilla.txt files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
