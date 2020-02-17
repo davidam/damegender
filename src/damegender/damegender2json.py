@@ -35,7 +35,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--csv', type=str, required=True, help="files/names/min.csv")
 parser.add_argument('--binary', default=False, action="store_true")
 parser.add_argument('--notoutput', default=False, action="store_true")
-parser.add_argument('--jsonoutput', type=str, default="", required=False, help="files/names/out.json")
+parser.add_argument('--jsonoutput', type=str, default="files/names/out.json", required=False, help="files/names/out.json")
 parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'tree', 'mlp'])
 args = parser.parse_args()
 

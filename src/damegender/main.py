@@ -21,6 +21,7 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
 import sys
 import os
@@ -30,7 +31,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
-parser.add_argument('--total', default="ine", choices=['ine', 'genderguesser'])
+parser.add_argument('--total', default="ine", choices=['ine', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser'])
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 
@@ -62,6 +63,17 @@ if (args.total == "genderguesser"):
         elif ( male == female ):
                 print("gender: unknown")
                 print("you can try predict with --ml")
+elif (args.total == "luciahelena"):
+        g = Gender()
+        males = g.csv2names(path="files/names/allnoundefined.males.csv")
+        females = g.csv2names(path="files/names/allnoundefined.females.csv")
+        print("%s was classified as: " % args.name)
+        if (args.name in males):
+                print("male")
+        elif (args.name in females):
+                print("female")
+        else:
+                print("this name was not classified as male or female")
 else:
     s = DameSexmachine()
     num_males = s.name_frec(args.name, dataset=args.total)['males']
@@ -109,4 +121,12 @@ else:
     if (args.total == "ine"):
         print("%s males for %s from INE.es" % (num_males, args.name))
         print("%s females for %s from INE.es" % (num_females, args.name))
-#
+    elif (args.total == "uy"):
+        print("%s males for %s from Uruguay census" % (num_males, args.name))
+        print("%s females for %s from Uruguay census" % (num_females, args.name))
+    elif (args.total == "uk"):
+        print("%s males for %s from United Kingdom census" % (num_males, args.name))
+        print("%s females for %s from United Kingdom census" % (num_females, args.name))
+    elif (args.total == "us"):
+        print("%s males for %s from United States of America census" % (num_males, args.name))
+        print("%s females for %s from United States of America census" % (num_females, args.name))

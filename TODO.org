@@ -1003,3 +1003,10 @@ Publicado en https://tv.urjc.es/video/5d895319d68b148f7a8c0da6
 + [ ] tiene 4 letras o menos (puede ser diminutivo)
 * TODO Mejorar la base de verdad (ej: INE)
 + [ ] menos de 1000 nombres en la base de verdad
+* DONE Added new datasets:
+  - State "DONE"       from "TODO"       [2020-02-17 lun 00:52]
+Now the next datasets available from main.py in damegender
++ [X] United Kingdom
++ [X] United States of America
++ [X] Uruguay
++ [X] Lucía Santamaría and Helena 

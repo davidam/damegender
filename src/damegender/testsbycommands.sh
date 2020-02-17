@@ -103,6 +103,15 @@ else
 	echo "mainjosemaria test is ok"
 fi
 
+python3 main.py Elena --total=luciahelena > files/tests/mainelenaluciahelena-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/mainelenaluciahelena.txt files/tests/mainelenaluciahelena-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "mainelenaluciahelena test is failing"
+else
+	echo "mainelenaluciahelena test is ok"
+fi
+
 python3 main.py Mesa --ml=nltk > files/tests/mainmesa-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainmesa.txt files/tests/mainmesa-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -111,6 +120,34 @@ then
 else
     echo "mainmesa test is ok"
 fi
+
+python3 main.py Julia --total=us > files/tests/mainjuliaus-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/mainjuliaus.txt files/tests/mainjuliaus-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "mainjuliaus test is failing"
+else
+	echo "mainjuliaus test is ok"
+fi
+
+python3 main.py Julia --total=uk > files/tests/mainjuliauk-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/mainjuliauk.txt files/tests/mainjuliauk-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "mainjuliauk test is failing"
+else
+	echo "mainjuliauk test is ok"
+fi
+
+python3 main.py Julia --total=uy > files/tests/mainjuliauy-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/mainjuliauy.txt files/tests/mainjuliauy-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "mainjuliauy test is failing"
+else
+	echo "mainjuliauy test is ok"
+fi
+
 
 python3 main.py silla --ml=forest > files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/mainsilla.txt files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -339,7 +376,6 @@ else
 	echo "accuracy genderize precision jsondonwloaded test is ok"
 fi
 
-
 python3 accuracy.py --jsondownloaded=files/names/genderizefiles_names_partialnoundefined.csv.json --measure=accuracy --api=genderize --csv=files/names/partialnoundefined.csv > files/tests/accuracygenderizepartialjsonaccuracy-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/accuracygenderizepartialjsonaccuracy.txt files/tests/accuracygenderizepartialjsonaccuracy-$(date "+%Y-%m-%d-%H").txt
 then
@@ -347,6 +383,7 @@ then
 else
 	echo "accuracy genderize accuracy jsondonwloaded test is ok"
 fi
+
 
 python3 accuracy.py --jsondownloaded=files/names/min.csv.json --measure=recall --api=damegender --csv=files/names/min.csv > files/tests/accuracygenderizeminjsonrecall-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/accuracygenderizeminjsonrecall.txt files/tests/accuracygenderizeminjsonrecall-$(date "+%Y-%m-%d-%H").txt

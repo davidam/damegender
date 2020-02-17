@@ -37,8 +37,18 @@ First version packaged.
   have rewrited accuracy.py, confusion.py and errors.py to make this
   calculus offline
 
-* Next relesease
+* v0.2.3
 
 + Added damegender2json.py to generate files with ML results.
 + Created ML json files
 + Added new ML algorithms: tree and mlp (neural network)
+
+* v0.2.4
+
+Now the next datasets available from main.py in damegender
++ [X] United Kingdom
++ [X] United States of America
++ [X] Uruguay
++ [X] Lucía Santamaría and Helena 
+
+

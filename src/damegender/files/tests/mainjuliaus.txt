@@ -1,0 +1,4 @@
+Julia's gender is female
+probability: 0.9960856524631554
+1724 males for Julia from United States of America census
+438707 females for Julia from United States of America census

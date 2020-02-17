@@ -32,7 +32,7 @@ import argparse
 import os
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', type=str, required=True, default="files/names/min.csv", help='input file for names')
-parser.add_argument('--api', default="damegender", choices=['namsor', 'genderize', 'genderapi', 'nameapi'])
+parser.add_argument('--api', required=True, choices=['namsor', 'genderize', 'genderapi', 'nameapi'])
 parser.add_argument("--surnames", default=False, action="store_true", help="Flag to surnames")
 args = parser.parse_args()
 

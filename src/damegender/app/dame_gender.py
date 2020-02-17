@@ -41,6 +41,7 @@ from app.dame_utils import DameUtils
 
 csv.field_size_limit(3000000)
 
+du = DameUtils()
 
 class Gender(object):
     # That's the root class in the heritage,
@@ -239,7 +240,7 @@ class Gender(object):
         header = kwargs.get('header', True)
         l = kwargs.get('l', [ ]) # l is a list, such as, guess_list or gender_list
         jsonf = kwargs.get('jsonf', 'files/names/csv2json.json')
-        csv2names = self.csv2names(path=path, surnames=surnames)
+        csv2names = self.csv2names(path=path, surnames=surnames, header=header)
         string = ""
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -371,64 +372,43 @@ class Gender(object):
                     genderlist.append(guess)
         return genderlist
 
+
     def name_frec(self, name, dataset='ine'):
+
+        du = DameUtils()
+        name = du.drop_accents(name)
         if (dataset == 'ine'):
-            du = DameUtils()
-            name = du.drop_accents(name)
-            path_males = 'files/names/names_es/masculinos_original.csv'
-            file_males = open(path_males, 'r')
-            readerm = csv.reader(file_males, delimiter=',', quotechar='|')
-            males = 0
-            for row in readerm:
-                if ((len(row) > 1) and (row[1].lower() == name.lower())):
-                    males = row[2]
-                    males = du.drop_dots(males)
-            path_females = 'files/names/names_es/femeninos_original.csv'
-            file_females = open(path_females, 'r')
-            readerf = csv.reader(file_females, delimiter=',', quotechar='|')
-            females = 0
-            for row in readerf:
-                if ((len(row) > 1) and (row[1].lower() == name.lower())):
-                    females = row[2]
-                    females = du.drop_dots(females)
-            dicc = {"females": females, "males": males}
-        elif (dataset == 'uscensus'):
-            du = DameUtils()
-            usfile = open('files/names/yob2017.txt', 'r')
-            usreader = csv.reader(usfile, delimiter=',', quotechar='|')
-            males = 0
-            females = 0
-            for row in usreader:
-                if ((len(row) > 1) and (row[0].lower() == name.lower())):
-                    if (row[1] == 'F'):
-                        females = row[2]
-                    elif (row[1] == 'M'):
-                        males = row[2]
-            dicc = {"females": females, "males": males}
-        elif (dataset == 'ukcensus'):
-            du = DameUtils()
-            name = du.drop_accents(name)
-            file_males = open('files/names/2017boysnames-uk.csv', 'r')
-            rmales = csv.reader(file_males, delimiter=',', quotechar='|')
-            males = 0
-            for row in rmales:
-                if (len(row) > 1):
-                    nowhite = du.drop_white_space(row[1])
-                    ukname = du.drop_accents(nowhite).lower()
-                    if (ukname == name.lower()):
-                        males = row[2]
-                        males = du.drop_dots(males)
-            file_females = open('files/names/2017girlsnames-uk.csv', 'r')
-            rfemales = csv.reader(file_females, delimiter=',', quotechar='|')
-            females = 0
-            for row in rfemales:
-                if (len(row) > 1):
-                    nowhite = du.drop_white_space(row[1])
-                    ukname = du.drop_accents(nowhite).lower()
-                    if (ukname == name.lower()):
-                        females = row[2]
-                        females = du.drop_dots(females)
-            dicc = {"females": females, "males": males}
+            path_males = 'files/names/names_es/esmasculinos.csv'
+        elif (dataset == 'uy'):
+            path_males = 'files/names/names_uy/uymasculinos.csv'
+        elif (dataset == 'uk'):
+            path_males = 'files/names/names_uk/ukmales.csv'
+        elif (dataset == 'us'):
+            path_males = 'files/names/names_us/usmales.csv'            
+        file_males = open(path_males, 'r')
+        readerm = csv.reader(file_males, delimiter=',', quotechar='|')
+        males = 0
+        for row in readerm:
+            if ((len(row) > 1) and (row[0].lower() == name.lower())):
+                males = row[1]
+                males = du.drop_dots(males)
+        if (dataset == 'ine'):
+            path_females = 'files/names/names_es/esfemeninos.csv'
+        elif (dataset == 'uy'):
+            path_females = 'files/names/names_uy/uyfemeninos.csv'
+        elif (dataset == 'uk'):
+            path_females = 'files/names/names_uk/ukfemales.csv'
+        elif (dataset == 'us'):
+            path_females = 'files/names/names_us/usfemales.csv'
+
+        file_females = open(path_females, 'r')
+        readerf = csv.reader(file_females, delimiter=',', quotechar='|')
+        females = 0
+        for row in readerf:
+            if ((len(row) > 1) and (row[0].lower() == name.lower())):
+                females = row[1]
+                females = du.drop_dots(females)
+        dicc = {"females": females, "males": males}
 
         return dicc
 
@@ -530,6 +510,61 @@ class Gender(object):
         self.males = count_males
         self.unknown = count_unknown
         return glist
+
+
+    def pretty_gg_list(self, path, jsonf, *args, **kwargs):
+        measure = kwargs.get('measure', 'accuracy')
+        binary = kwargs.get('binary', True)
+        ml = kwargs.get('ml', 'nltk')
+        api = kwargs.get('api', 'damegender')
+        header = kwargs.get('header', True)
+        gl = self.gender_list(path=path)
+
+        if (os.path.isfile(jsonf)):
+            if (self.json_eq_csv_in_names(jsonf=jsonf, path=path)):
+                print("################### "+ api +"!!")
+                print("Gender list: " + str(gl))
+                sl = self.json2guess_list(jsonf=jsonf, binary=True)
+                print("Guess list:  " +str(sl))
+                self.print_measures(gl, sl, measure, api)
+            else:
+                print("Names in json and csv are differents")
+                print("Names in csv: %s:" % self.csv2names(path=path, header=header))
+                print("Names in json: %s:" % self.json2names(jsonf=jsonf, surnames=False))
+        else:
+            print("In the path %s doesn't exist file" % jsonf)
+            print("You can create one, but this process can take long time")
+            yes_or_not = du.yes_or_not("Do you want create a json file? ")
+            if yes_or_not:
+                sl = self.guess_list(path=path, binary=binary, ml=ml)
+                self.csv2json(path=path, l=sl, jsonf=jsonf)
+                if (self.json_eq_csv_in_names(jsonf=jsonf, path=args.csv)):
+                    print("################### "+ api +"!!")
+                    print("Gender list: " + str(gl))
+                    print("Guess list:  " +str(sl))
+                    self.print_measures(gl, sl, measure, api)
+                else:
+                    print("Names in json and csv are differents")
+                    print("Names in csv: %s:" % self.csv2names(path=path, header=header))
+                    print("Names in json: %s:" % self.json2names(jsonf=jsonf, surnames=False))
+        return 1
+
+    def pretty_cm(self, path, jsonf, *args, **kwargs):
+        api = kwargs.get('api', 'damegender')
+        reverse = kwargs.get('reverse', False)
+        dimensions = kwargs.get('dimensions', '3x2')
+        gl = self.gender_list(path=path)
+#        dna = DameNameapi()
+        print("%s confusion matrix:\n" % api)
+        #    dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+        if (os.path.isfile(jsonf)):
+            self.print_confusion_matrix_gender(path=path, dimensions=dimensions, jsonf=jsonf, reverse=reverse)
+        elif (args.jsondownloaded == ''):
+            self.print_confusion_matrix_gender(path=path, dimensions=dimensions, reverse=reverse)
+        else:
+            print("In the path %s doesn't exist file" % jsonf)
+
+
 
 # METHODS ABOUT STATISTICS #
 
@@ -1033,10 +1068,11 @@ class Gender(object):
         return nameslist
 
 
-    def json_eq_csv_in_names(self, jsonf="", path=""):
+    def json_eq_csv_in_names(self, jsonf="", path="", *args, **kwargs):
+        header = kwargs.get('header', True)
         boolean = False
         json = self.json2names(jsonf=jsonf, surnames=False)
-        csv = self.csv2names(path=path)
+        csv = self.csv2names(path=path, header=header)
         count = 0
         i = 0
         maxi = len(json) -1
