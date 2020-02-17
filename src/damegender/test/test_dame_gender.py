@@ -321,7 +321,7 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_gender_name_frec(self):
         g = Gender()
         frec1 = g.name_frec("INES", dataset='ine')
-        self.assertEqual(int(frec1['females']), 61337)
+        self.assertEqual(int(frec1['females']), 61920)
         self.assertEqual(int(frec1['males']), 0)
         frec2 = g.name_frec("BEATRIZ", dataset='ine')
         self.assertTrue(int(frec2['females']) > 10)
