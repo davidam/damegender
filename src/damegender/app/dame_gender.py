@@ -377,6 +377,7 @@ class Gender(object):
 
         du = DameUtils()
         name = du.drop_accents(name)
+        path_males = 'files/names/names_es/esmasculinos.csv'
         if (dataset == 'ine'):
             path_males = 'files/names/names_es/esmasculinos.csv'
         elif (dataset == 'uy'):
@@ -392,6 +393,7 @@ class Gender(object):
             if ((len(row) > 1) and (row[0].lower() == name.lower())):
                 males = row[1]
                 males = du.drop_dots(males)
+        path_females = 'files/names/names_es/esfemeninos.csv'                
         if (dataset == 'ine'):
             path_females = 'files/names/names_es/esfemeninos.csv'
         elif (dataset == 'uy'):
