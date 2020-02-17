@@ -1,4 +1,4 @@
 Julia's gender is female
-probability: 1.0
-0 males for Julia from Uruguay census
-11 females for Julia from Uruguay census
+probability: 0.9892051030421982
+11 males for Julia from Uruguay census
+1008 females for Julia from Uruguay census
