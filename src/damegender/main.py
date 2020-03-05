@@ -23,6 +23,7 @@
 
 from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
+from app.dame_utils import DameUtils
 import sys
 import os
 import re
@@ -39,6 +40,7 @@ args = parser.parse_args()
 results = []
 
 s = DameSexmachine()
+du = DameUtils()
 
 if (args.total == "genderguesser"):
         name = args.name.capitalize()
@@ -97,23 +99,23 @@ elif ((args.verbose) or (args.total == "all")):
         print("%s males for %s from United States of America census" % (num_males, args.name))
         print("%s females for %s from United States of America census" % (num_females, args.name))
         guess = s.guess(args.name, binary=True, ml="nltk")
-        print("%s gender predicted with nltk is %s" % (str(args.name), guess))
+        print("%s gender predicted with nltk is %s" % (str(args.name), du.int2gender(guess)))
         guess = s.guess(args.name, binary=True, ml="sgd")
-        print("%s gender predicted with sgd is %s" % (str(args.name), guess))
+        print("%s gender predicted with sgd is %s" % (str(args.name), du.int2gender(guess)))
         guess = s.guess(args.name, binary=True, ml="svc")
-        print("%s gender predicted with svc is %s" % (str(args.name), guess))
+        print("%s gender predicted with svc is %s" % (str(args.name), du.int2gender(guess)))
         guess = s.guess(args.name, binary=True, ml="gaussianNB")
-        print("%s gender predicted with gaussianNB is %s" % (str(args.name), guess))
+        print("%s gender predicted with gaussianNB is %s" % (str(args.name), du.int2gender(guess)))
         guess = s.guess(args.name, binary=True, ml="multinomialNB")
-        print("%s gender predicted with multinomialNB is %s" % (str(args.name), guess))
+        print("%s gender predicted with multinomialNB is %s" % (str(args.name), du.int2gender(guess)))
         guess = s.guess(args.name, binary=True, ml="bernoulliNB")
-        print("%s gender predicted with bernoulliNB is %s" % (str(args.name), guess))
+        print("%s gender predicted with bernoulliNB is %s" % (str(args.name), du.int2gender(guess)))
         guess = s.guess(args.name, binary=True, ml="forest")
-        print("%s gender predicted with forest is %s" % (str(args.name), guess))
+        print("%s gender predicted with forest is %s" % (str(args.name), du.int2gender(guess)))
         guess = s.guess(args.name, binary=True, ml="tree")
-        print("%s gender predicted with tree is %s" % (str(args.name), guess))
+        print("%s gender predicted with tree is %s" % (str(args.name), du.int2gender(guess)))
         guess = s.guess(args.name, binary=True, ml="mlp")
-        print("%s gender predicted with mlp is %s" % (str(args.name), guess))
+        print("%s gender predicted with mlp is %s" % (str(args.name), du.int2gender(guess)))
 
 else:
     s = DameSexmachine()

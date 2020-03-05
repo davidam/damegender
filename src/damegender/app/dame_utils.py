@@ -178,3 +178,12 @@ class DameUtils():
         else:
             ret = self.yes_or_not("Uhhhh... please enter ")
         return ret
+
+    def int2gender(self, int):
+        if (int == 0):
+            gender = "female"
+        elif (int == 1):
+            gender = "male"
+        else:
+            gender = "unknown"
+        return gender
