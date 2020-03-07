@@ -531,6 +531,8 @@ class Gender(object):
                 self.print_measures(gl, sl, measure, api)
             else:
                 print("Names in json and csv are differents")
+                print("%s names in csv" % len(self.csv2names(path=path, header=header)))
+                print("%s names in json" % len(self.json2names(jsonf=jsonf, surnames=False)))
                 print("Names in csv: %s:" % self.csv2names(path=path, header=header))
                 print("Names in json: %s:" % self.json2names(jsonf=jsonf, surnames=False))
         else:
