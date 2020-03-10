@@ -89,7 +89,6 @@ $ python3
 >>> nltk.download('names')
 #+END_SRC
 
-
 * Check test
 ** All unit tests
 #+BEGIN_SRC sh
@@ -116,7 +115,7 @@ $ ./testsbycommandsextranet.sh    # You will need api keys
 #+END_SRC
 
 * Execute program
-
+** With a single name
 #+BEGIN_SRC sh
 # Detect gender from a name (INE is the dataset used by default)
 $ python3 main.py David
@@ -130,6 +129,31 @@ Mesa gender is female
 0 males for Mesa from INE.es
 0 females for Mesa from INE.es
 
+# Detect gender from a name (all census and machine learning)
+$ python3 main.py David --verbose
+365196 males for David from INE.es
+0 females for David from INE.es
+1193 males for David from Uruguay census
+5 females for David from Uruguay census
+26645 males for David from United Kingdom census
+0 females for David from United Kingdom census
+3552580 males for David from United States of America census
+12826 females for David from United States of America census
+David gender predicted with nltk is male
+David gender predicted with sgd is male
+David gender predicted with svc is male
+David gender predicted with gaussianNB is male
+David gender predicted with multinomialNB is male
+David gender predicted with bernoulliNB is male
+David gender predicted with forest is male
+David gender predicted with tree is male
+David gender predicted with mlp is male
+
+# Use an api to detect the gender
+$ python3 api2gender.py Leticia --surname="Martin" --api=namsor
+female
+scale: 0.99
+
 # Find your name in different countries
 $ python3 nameincountries.py David
 grep -i " David " files/names/nam_dict.txt > files/grep.tmp
@@ -137,6 +161,67 @@ males: ['Albania', 'Armenia', 'Austria', 'Azerbaijan', 'Belgium', 'Bosnia and He
 females: []
 both: []
 
+# Google popularity for a name
+$ python3 gendergoogle.py Leticia
+Google results of Leticia as male: 42300
+Google results of Leticia as female: 63400
+#+END_SRC
+
+** Statistics
+
+#+BEGIN_SRC sh
+# Give me informative features
+$ python3 infofeatures.py
+Females with last letter a: 0.4705246078961601
+Males with last letter a: 0.048672566371681415
+Females with last letter consonant: 0.2735841767750908
+Males with last letter consonant: 0.6355328972681801
+Females with last letter vocal: 0.7262612995441552
+Males with last letter vocal: 0.3640823393612928
+
+# To measure success
+$ python3 accuracy.py --csv=files/names/min.csv
+################### NLTK!!
+Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
+Guess list:  [1, 1, 1, 1, 0, 1, 0, 0]
+Dame Gender accuracy: 0.875
+
+$ python3 accuracy.py --api="genderize" --csv=files/names/min.csv --jsondownloaded=files/names/genderizefiles_names_min.csv.json
+################### Genderize!!
+Gender list: [1, 1, 1, 1, 1, 0]
+Guess list:  [1, 1, 1, 1, 1, 0]
+Genderize accuracy: 1.0
+
+$ python3 confusion.py --csv="files/names/partial.csv" --api=nameapi --jsondownloaded="files/names/nameapifiles_names_partial.csv.json"
+A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are true positives
+Nameapi confusion matrix:
+
+[[ 3, 0, 0]
+ [ 0, 15, 1]]
+
+# To analyze errors guessing names from a csv
+$ python3 errors.py --csv=files/names/partialnoundefined.csv --jsondownloaded=files/names/genderizefiles_names_partialnoundefined.csv.json --api=genderize
+Genderize with files/names/partialnoundefined.csv has:
++ The error code: 0.02857142857142857
++ The error code without na: 0.02857142857142857
++ The na coded: 0.0
++ The error gender bias: 0.02857142857142857
+
+# To deploy a graph about correlation between variables
+$ python3 corr.py
+$ python3 corr.py --csv="categorical"
+$ python3 corr.py --csv="nocategorical"
+
+# Experiments to determine features with weight (not finished)
+$ python3 pca-components.py --csv='files/features_list.csv' # To determine number of components
+$ python3 pca-features.py --categorical="noletters" --components=3
+The json file is created in files/pca.json
+The html file is created in files/pca.html
+#+END_SRC
+
+** Multiple names
+#+BEGIN_SRC sh
 # Count gender from a git repository
 $ python3 git2gender.py https://github.com/chaoss/grimoirelab-perceval.git --directory="/tmp/clonedir"
 The number of males sending commits is 15
@@ -148,71 +233,23 @@ $ wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
 $ cd ..
 $ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
 
-# Use an api to detect the gender
-$ python3 api2gender.py Leticia --surname="Martin" --api=namsor
-female
-scale: 0.99
-
-# Google popularity for a name
-$ python3 gendergoogle.py Leticia
-Google results of Leticia as male: 42300
-Google results of Leticia as female: 63400
-
-# Give me informative features
-$ python3 infofeatures.py
-Females with last letter a: 0.4705246078961601
-Males with last letter a: 0.048672566371681415
-Females with last letter consonant: 0.2735841767750908
-Males with last letter consonant: 0.6355328972681801
-Females with last letter vocal: 0.7262612995441552
-Males with last letter vocal: 0.3640823393612928
-
-
-# Download results from an api and save in a file
+# Download results from an api and save in a file json (you can use it for accuracies, confusion matrix and errors)
 $ python3 downloadjson --csv=files/names/min.csv --api=genderize
 $ cat files/names/genderizefiles_names_min.csv.json
 
-# To measure success
-$ python3 accuracy.py --csv=files/names/min.csv
-################### NLTK!!
-Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
-Guess list:  [1, 1, 1, 1, 0, 1, 0, 0]
-Dame Gender accuracy: 0.875
+# Build a json guessing names with ML for accuracies, confusion matrix and errors
+$ python3 damegender2json.py --csv=files/names/min.csv --jsonoutput=files/names/out.json --ml=nltk --binary
+################### Dame Gender!!
+Gender list: [1, 1, 1, 1, 1, 0]
+Guess list:  [1, 1, 1, 1, 1, 0]
+#+END_SRC
 
-$ python3 accuracy.py --api="genderize" --csv=files/names/min.csv
-################### Genderize!!
-Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
-Guess list:  [1, 1, 1, 1, 2, 1, 0, 0]
-Genderize accuracy: 1
-
-$ python3 confusion.py --csv="files/names/partial.csv" --api=nameapi --jsondownloaded="files/names/nameapifiles_names_partial.csv.json"
-A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
-If the classifier is nice, the diagonal is high because there are true positives
-Nameapi confusion matrix:
-
-[[ 3, 0, 0]
- [ 0, 15, 1]]
-
-
-# To analyze errors guessing names from a csv
-$ python3 errors.py --csv="files/names/all.csv" --api="genderguesser"
-Gender Guesser with files/names/all.csv has:
-+ The error code: 0.22564457518601835
-+ The error code without na: 0.026539047204698716
-+ The na coded: 0.20453365634192766
-+ The error gender bias: 0.0026103980857080703
-
-# To deploy a graph about correlation between variables
-$ python3 corr.py
-$ python3 corr.py --csv="categorical"
-$ python3 corr.py --csv="nocategorical"
+** Another stuff
+#+BEGIN_SRC sh
 # To create files from scripts. Example: the pickle models, or csv processed from original files.
 $ python3 postinstall.py
-# Experiments to determine features with weight (not finished)
-$ python3 pca-components.py --csv="files/features_list.csv" # To determine number of components
-$ python3 pca-features.py                                   # To understand the weight between variables for a target
-
 #+END_SRC
+
 * Benchmarking
 ** Market Study
 
@@ -296,7 +333,6 @@ In this version of Dame Gender, we are not considering decide names as undefined
 | GenderApi      | 0.16666666666666666 |   0.16666666666666666 |                 0.0 | -0.16666666666666666 |
 | Gender Guesser |  0.2255105572862582 |  0.026962383126766687 | 0.20404984423676012 |   0.0030441400304414 |
 | Namsor         | 0.16666666666666666 |   0.16666666666666666 |                 0.0 |  0.16666666666666666 |
-
 
 ** Performance
 + GenderGuesser accuracy: 0.6902204635387225
