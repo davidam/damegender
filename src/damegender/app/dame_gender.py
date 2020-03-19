@@ -385,7 +385,7 @@ class Gender(object):
         elif (dataset == 'uk'):
             path_males = 'files/names/names_uk/ukmales.csv'
         elif (dataset == 'us'):
-            path_males = 'files/names/names_us/usmales.csv'            
+            path_males = 'files/names/names_us/usmales.csv'
         file_males = open(path_males, 'r')
         readerm = csv.reader(file_males, delimiter=',', quotechar='|')
         males = 0
@@ -393,7 +393,7 @@ class Gender(object):
             if ((len(row) > 1) and (row[0].lower() == name.lower())):
                 males = row[1]
                 males = du.drop_dots(males)
-        path_females = 'files/names/names_es/esfemeninos.csv'                
+        path_females = 'files/names/names_es/esfemeninos.csv'
         if (dataset == 'ine'):
             path_females = 'files/names/names_es/esfemeninos.csv'
         elif (dataset == 'uy'):
@@ -533,6 +533,8 @@ class Gender(object):
                 print("Names in json and csv are differents")
                 print("%s names in csv" % len(self.csv2names(path=path, header=header)))
                 print("%s names in json" % len(self.json2names(jsonf=jsonf, surnames=False)))
+                v = self.first_uneq_json_and_csv_in_names(jsonf=jsonf, path=path)
+                print("The first position finding unmatched names is %s and the name is %s" % (v[1], v[0]))
                 print("Names in csv: %s:" % self.csv2names(path=path, header=header))
                 print("Names in json: %s:" % self.json2names(jsonf=jsonf, surnames=False))
         else:
