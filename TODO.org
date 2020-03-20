@@ -974,21 +974,27 @@ GET https://gender-api.com/get-stats?&key=<your private server key>
   SCHEDULED: <2020-02-05 mié>
 Parece que puede haber bugs si hay en el guess list undefined
 Puedes hacer pruebas con partial.csv
-* TODO Generar los json para damegender
-** TODO Para cada algoritmo de ml generar json para
+* DONE Generar los json para damegender
+  - State "DONE"       from "TODO"       [2020-03-21 sáb 00:12]
+** DONE Para cada algoritmo de ml generar json para
+   - State "DONE"       from "TODO"       [2020-03-21 sáb 00:12]
 *** DONE min.csv
 	- State "DONE"       from "TODO"       [2020-02-05 mié 17:38]
 *** DONE partial.csv
 	- State "DONE"       from "TODO"       [2020-02-05 mié 17:38]
 *** DONE allnoundefined.csv
     - State "DONE"       from "TODO"       [2020-02-07 vie 22:22]
-*** TODO all.csv
+*** DONE all.csv
+    - State "DONE"       from "TODO"       [2020-03-21 sáb 00:12]
 ** DONE json2guesslist eliminar el parámetro ml
    - State "DONE"       from "TODO"       [2020-02-07 vie 15:20]
-* TODO Generar logs de accuracies de los diferentes algoritmos de ML
-* TODO Generar logs de confusion de los diferentes algoritmos de ML
-* TODO En accuracy.py terminar la transición a jsondownloaded required=True
+* DONE Generar logs de accuracies de los diferentes algoritmos de ML
+  - State "DONE"       from "TODO"       [2020-03-21 sáb 00:13]
+* DONE Generar logs de confusion de los diferentes algoritmos de ML
+  - State "DONE"       from "TODO"       [2020-03-21 sáb 00:13]
+* DONE En accuracy.py terminar la transición a jsondownloaded required=True
   SCHEDULED: <2020-02-08 sáb>
+  - State "DONE"       from "TODO"       [2020-03-21 sáb 00:13]
 * DONE Escribir damegender.net
   SCHEDULED: <2020-02-06 jue>
   - State "DONE"       from "TODO"       [2020-02-06 jue 16:36]
@@ -1010,3 +1016,8 @@ Now the next datasets available from main.py in damegender
 + [X] United States of America
 + [X] Uruguay
 + [X] Lucía Santamaría and Helena 
+* TODO Crear un dataset de base de verdad desde los censos
+** TODO con csv2names creamos una lista con todos los nombres donde cada nombre es único
+** TODO para cada nombre sumamos todos los males de los diferentes datasets y todos los females y escribimos en fichero
+** TODO descartamos nombres donde la suma de hombres y mujeres sea menor de 1000 para evitar el problema de apodos en censos
+** TODO comprobamos el accuracy y el confusion tomando como base a lucía y helena
