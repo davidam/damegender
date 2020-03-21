@@ -1078,17 +1078,19 @@ class Gender(object):
         header = kwargs.get('header', True)
         boolean = False
         json = self.json2names(jsonf=jsonf, surnames=False)
+        json_lower = [element.lower() for element in json] ; json
         csv = self.csv2names(path=path, header=header)
+        csv_lower = [element.lower() for element in csv] ; csv
         count = 0
         i = 0
-        maxi = len(json) -1
-        if (maxi < len(csv)):
-            maxi = len(csv) -1
+        maxi = len(json_lower) -1
+        if (maxi < len(csv_lower)):
+            maxi = len(csv_lower) -1
         while (maxi > i):
-            if (json[i] == csv[i]):
+            if (json_lower[i] == csv_lower[i]):
                 count = count +1
             i = i+1
-        boolean = ((len(json) == len(csv)) and ((len(json) -1) == count))
+        boolean = ((len(json_lower) == len(csv_lower)) and ((len(json_lower) -1) == count))
         return boolean
 
     def first_uneq_json_and_csv_in_names(self, jsonf="", path="", *args, **kwargs):
