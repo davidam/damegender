@@ -735,7 +735,8 @@ Editorial: Delta Publicaciones
 + [X] genderize, prob
 + [X] nameapi, confidence
 + [X] namsor, scale
-* POSIBLE pickle dump nltk
+* DONE pickle dump nltk
+  - State "DONE"       from "POSIBLE"    [2020-03-21 sáb 17:42]
 https://pythonprogramming.net/pickle-classifier-save-nltk-tutorial/
 save_classifier = open("naivebayes.pickle","wb")
 pickle.dump(classifier, save_classifier)
@@ -836,8 +837,10 @@ Dado un nombre, tenemos la frecuencia del nombre y la población en
 tres datasets, crear la media ponderada.
 ** DONE Descargar json de las diferentes apis
    - State "DONE"       from "TODO"       [2020-02-05 mié 17:20]
-* TODO Crear una comparativa de eficiencia
+* DONE Comenzar a medir eficiencia
   SCHEDULED: <2019-05-16 jue>
+  - State "DONE"       from "TODO"       [2020-03-21 sáb 16:46]
+Creado script performance.sh
 * TODO Revisar dataset2genderlist con todos los datasets
   SCHEDULED: <2019-05-30 jue>
 * DONE Revisar los métodos males y females para todos los datasets
@@ -1015,7 +1018,7 @@ Now the next datasets available from main.py in damegender
 + [X] United Kingdom
 + [X] United States of America
 + [X] Uruguay
-+ [X] Lucía Santamaría and Helena 
++ [X] Lucía Santamaría and Helena
 * TODO Crear un dataset de base de verdad desde los censos
 ** TODO con csv2names creamos una lista con todos los nombres donde cada nombre es único
 ** TODO para cada nombre sumamos todos los males de los diferentes datasets y todos los females y escribimos en fichero
