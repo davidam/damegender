@@ -130,6 +130,10 @@ class DameUtils():
             result = re.sub(cwd+'/', '', s)
         return result
 
+    def list2lower(self, l):
+        ll = [element.lower() for element in l] ; l
+        return ll
+
     def delete_duplicated(self, l):
         if (len(l) == 0):
             return l
