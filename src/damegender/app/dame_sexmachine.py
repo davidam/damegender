@@ -110,7 +110,15 @@ class DameSexmachine(Gender):
                        labeled_names]
         train_set, test_set = featuresets[500:], featuresets[:500]
         classifier = nltk.NaiveBayesClassifier.train(train_set)
+        filename = 'files/datamodels/nltk_model.sav'
+        pickle.dump(classifier, open(filename, 'wb'))
         return classifier
+
+    def classifier_load(self):
+        pkl_file = open('files/datamodels/nltk_model.sav', 'rb')
+        clf = pickle.load(pkl_file)
+        pkl_file.close()
+        return clf
 
     def svc(self):
         # Scikit svc classifier
@@ -346,6 +354,7 @@ class DameSexmachine(Gender):
                 m = s.mlp_load()
                 predicted = m.predict([vector])
                 guess = predicted[0]
+
             if binary:
                 if (guess == 'female'):
                     guess = 0
