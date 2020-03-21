@@ -168,11 +168,22 @@ class TddInPythonExample(unittest.TestCase):
                          ds.guess_list(path="files/names/partial.csv",
                                        binary=True,
                                        ml="nltk"))
+
     def test_sexmachine_classifier(self):
         s = DameSexmachine()
         classifier = s.classifier()
         n = s.features("David")
         guess = classifier.classify(n)
+        self.assertTrue(1, n)
+
+    def test_sexmachine_classifier_model_exists(self):
+        self.assertTrue(os.path.isfile("files/datamodels/nltk_model.sav"))
+
+    def test_sexmachine_classifier_load(self):
+        s = DameSexmachine()
+        m = s.classifier_load()
+        n = s.features("David")
+        guess = m.classify(n)
         self.assertTrue(1, n)
 
     def test_sexmachine_accuracy(self):
