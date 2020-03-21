@@ -25,6 +25,7 @@ from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
 from app.dame_utils import DameUtils
 import csv
+import nltk
 from pprint import pprint
 import re
 import argparse
@@ -33,6 +34,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
 args = parser.parse_args()
 
+nltk.download('names')
 
 g = Gender()
 
@@ -71,6 +73,7 @@ else:
         print("We are creating .sav files data models in files/datamodels")
         print("This process take a long time, you can rest.")
         s = DameSexmachine()
+        s.classifier()
         s.gaussianNB()
         s.svc()
         s.sgd()
