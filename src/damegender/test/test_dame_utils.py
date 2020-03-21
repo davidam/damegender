@@ -141,6 +141,12 @@ class TddInPythonExample(unittest.TestCase):
              'files/datamodels/gaussianNB_model.sav',
              'files/datamodels/mlp_model.sav',
              'files/datamodels/multinomialNB_model.sav',
+             'files/datamodels/nltk_model.sav',
              'files/datamodels/sgd_model.sav',
              'files/datamodels/svc_model.sav',
              'files/datamodels/tree_model.sav'])
+
+    def test_dame_utils_list2lower(self):
+        du = DameUtils()
+        x = ["Aaa", "bBb", "ccC"]
+        self.assertEqual(du.list2lower(x), ["aaa", "bbb", "ccc"])
