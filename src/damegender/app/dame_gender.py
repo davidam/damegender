@@ -378,7 +378,7 @@ class Gender(object):
         du = DameUtils()
         name = du.drop_accents(name)
         path_males = 'files/names/names_es/esmasculinos.csv'
-        if (dataset == 'ine'):
+        if ((dataset == 'ine') or (dataset == 'es')):
             path_males = 'files/names/names_es/esmasculinos.csv'
         elif (dataset == 'uy'):
             path_males = 'files/names/names_uy/uymasculinos.csv'
@@ -394,7 +394,7 @@ class Gender(object):
                 males = row[1]
                 males = du.drop_dots(males)
         path_females = 'files/names/names_es/esfemeninos.csv'
-        if (dataset == 'ine'):
+        if ((dataset == 'ine') or (dataset == 'es')):
             path_females = 'files/names/names_es/esfemeninos.csv'
         elif (dataset == 'uy'):
             path_females = 'files/names/names_uy/uyfemeninos.csv'
@@ -440,33 +440,31 @@ class Gender(object):
 
 # GUESS #
 
-    def guess(self, name, binary=False):
+    def guess(self, name, binary=False, *args, **kwargs):
+        # guess list method
+        dataset = kwargs.get('dataset', 'es')
         # guess method to check names dictionary
         guess = ''
         name = unidecode.unidecode(name).title()
         name.replace(name, "")
-        m = self.males_list()
-        f = self.females_list()
-        if (name in m) and (name in f):
-            if binary:
-                guess = 2
-            else:
-                guess = 'unknown'
-        elif name in m:
+        dicc = self.name_frec(name, dataset)
+        m = int(dicc['males'])
+        f = int(dicc['females'])
+        if (m > f):
             if binary:
                 guess = 1
             else:
-                guess = 'male'
-        elif name in f:
+                guess = "male"
+        elif (f > m):
             if binary:
                 guess = 0
             else:
-                guess = 'female'
+                guess = "female"
         else:
             if binary:
                 guess = 2
             else:
-                guess = 'unknown'
+                guess = "unknown"
         return guess
 
     def guess_list(self, path='files/names/partial.csv', binary=False, *args, **kwargs):
