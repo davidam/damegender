@@ -69,8 +69,12 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_females_list(self):
         g = Gender()
-        f = g.females_list()
+        f = g.females_list(corpus="es")
         self.assertTrue("Eva" in f)
+        self.assertEqual(len(f), 24818)
+        f2 = g.females_list(corpus="uk")
+        self.assertTrue("Ana" in f2)
+        self.assertEqual(len(f2), 19060)
 
     def test_dame_gender_filenamdict2list(self):
         g = Gender()

@@ -192,22 +192,27 @@ class Gender(object):
             m = du.csvcolumn2list(uk_path)
         elif (corpus == 'us'):
             m = du.csvcolumn2list(us_path)
-        # elif (corpus == 'all'):
-        #     m = du.csvcolumn2list(ine_path, position=0) + du.csvcolumn2list(uk_path, position=0) + du.csvcolumn2list(us_path, position=0)
+        elif (corpus == 'all'):
+            m = du.csvcolumn2list(ine_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path)
+            m = du.delete_duplicated(m)
         return m
 
+    def females_list(self, corpus='es'):
+        ine_path = 'files/names/names_es/femeninos.txt'
+        uk_path = 'files/names/names_uk/ukfemales.txt'
+        us_path = 'files/names/names_us/usfemales.txt'
+        m = ""
+        if ((corpus == 'es') or (corpus == 'ine')):
+            m = du.csvcolumn2list(ine_path)
+        elif (corpus == 'uk'):
+            m = du.csvcolumn2list(uk_path)
+        elif (corpus == 'us'):
+            m = du.csvcolumn2list(us_path)
+        elif (corpus == 'all'):
+            m = du.csvcolumn2list(ine_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path)
+            m = du.delete_duplicated(m)
+        return m
 
-    def females_list(self, corpus='engspa'):
-        path = 'files/names/names_es'
-        my_corpus = nltk.corpus.PlaintextCorpusReader(path, '.*\.txt')
-        if (corpus == 'eng'):
-            f = names.words('female.txt')
-        elif (corpus == 'spa'):
-            f = my_corpus.sents('femeninos.txt')[1]
-        elif (corpus == 'engspa'):
-            f = names.words('female.txt') + my_corpus.sents('femeninos.txt')[1]
-        f = list(OrderedDict.fromkeys(f))
-        return f
 
     def csv2names(self, path='files/names/partial.csv', *args, **kwargs):
         # make a list from a csv file
