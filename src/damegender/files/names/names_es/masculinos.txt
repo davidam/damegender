@@ -1,8 +1,4 @@
-Elaboración propia con datos extraídos del sitio web del INE: www.ine.es
-Fecha: 2018-04-23
-
-
-
+Elaboración propia con datos extraídos del sitio web del INE: www.ine.es. Fecha: 2018-04-23
 Aadel
 Aadil
 Aali
