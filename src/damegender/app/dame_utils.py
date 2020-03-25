@@ -24,7 +24,7 @@
 import unicodedata
 import re
 import os
-
+import csv
 
 class DameUtils():
     def is_not_blank(self, s):
@@ -133,6 +133,18 @@ class DameUtils():
     def list2lower(self, l):
         ll = [element.lower() for element in l] ; l
         return ll
+
+    def csvcolumn2list(self, csvpath, position=0, *args, **kwargs):
+        # make a list from a csv file
+        header = kwargs.get('header', True)
+        l = []
+        with open(csvpath) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            if (header == True):
+                next(sexreader, None)
+            for row in sexreader:
+                l.append(row[position])
+        return l
 
     def delete_duplicated(self, l):
         if (len(l) == 0):
