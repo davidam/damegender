@@ -151,7 +151,8 @@ class TddInPythonExample(unittest.TestCase):
         x = ["Aaa", "bBb", "ccC"]
         self.assertEqual(du.list2lower(x), ["aaa", "bbb", "ccc"])
 
-    def test_dame_utils_list2lower(self):
+    def test_dame_utils_csvcolumn2list(self):
         du = DameUtils()
         l = du.csvcolumn2list('files/names/partial.csv', 0, header=True)
         self.assertEqual(len(l), 21)
+        self.assertEqual(['"pierre"', '"raul"', '"adriano"', '"ralf"', '"teppei"', '"guillermo"', '"catherine"', '"sabina"', '"ralf"', '"karl"', '"sushil"', '"clemens"', '"gregory"', '"lester"', '"claude"', '"martin"', '"vlad"', '"pasquale"', '"lourdes"', '"bruno"', '"thomas"'], l)
