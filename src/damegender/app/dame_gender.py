@@ -181,17 +181,21 @@ class Gender(object):
         fo.close()
         return 1
 
-    def males_list(self, corpus='engspa'):
-        path = 'files/names/names_es'
-        my_corpus = nltk.corpus.PlaintextCorpusReader(path, '.*\.txt')
-        if (corpus == 'eng'):
-            m = names.words('male.txt')
-        elif (corpus == 'spa'):
-            m = my_corpus.sents('masculinos.txt')[1]
-        elif (corpus == 'engspa'):
-            m = names.words('male.txt') + my_corpus.sents('masculinos.txt')[1]
-        m = list(OrderedDict.fromkeys(m))
+    def males_list(self, corpus='es'):
+        ine_path = 'files/names/names_es/masculinos.txt'
+        uk_path = 'files/names/names_uk/ukmales.txt'
+        us_path = 'files/names/names_us/usmales.txt'
+        m = ""
+        if ((corpus == 'es') or (corpus == 'ine')):
+            m = du.csvcolumn2list(ine_path)
+        elif (corpus == 'uk'):
+            m = du.csvcolumn2list(uk_path)
+        elif (corpus == 'us'):
+            m = du.csvcolumn2list(us_path)
+        # elif (corpus == 'all'):
+        #     m = du.csvcolumn2list(ine_path, position=0) + du.csvcolumn2list(uk_path, position=0) + du.csvcolumn2list(us_path, position=0)
         return m
+
 
     def females_list(self, corpus='engspa'):
         path = 'files/names/names_es'
@@ -373,7 +377,9 @@ class Gender(object):
         return genderlist
 
 
-    def name_frec(self, name, dataset='ine'):
+    def name_frec(self, name, *args, **kwargs):
+        # guess list method
+        dataset = kwargs.get('dataset', 'es')
 
         du = DameUtils()
         name = du.drop_accents(name)
