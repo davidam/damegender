@@ -134,8 +134,9 @@ class DameUtils():
         ll = [element.lower() for element in l] ; l
         return ll
 
-    def csvcolumn2list(self, csvpath, position=0, *args, **kwargs):
+    def csvcolumn2list(self, csvpath,  *args, **kwargs):
         # make a list from a csv file
+        position = kwargs.get('position', 0)
         header = kwargs.get('header', True)
         l = []
         with open(csvpath) as csvfile:
