@@ -32,11 +32,89 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
+parser.add_argument('--dataset', choices=['uk', 'us', 'uy'])
 args = parser.parse_args()
 
 nltk.download('names')
 
 g = Gender()
+
+if (args.dataset):
+    uspathmales = "files/names/names_us/usmales.csv"
+    uspathfemales = "files/names/names_us/usfemales.csv"
+    ukpathmales = "files/names/names_uk/ukmales.csv"
+    ukpathfemales = "files/names/names_uk/ukfemales.csv"
+    uypathmales = "files/names/names_uy/uymales.csv"
+    uypathfemales = "files/names/names_uy/uyfemales.csv"
+    if (args.dataset == 'uk'):
+        with open('files/names/names_uk/ukmales.csv') as csvfile:
+            reader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(reader, None)
+            males = []
+            females = []
+            unknowns = []
+            for row in reader:
+                print(row[0])
+                print(g.name_frec(row[0], dataset=args.dataset))
+                dicc = g.name_frec(row[0], dataset=args.dataset)
+                if (int(dicc['females']) > int(dicc['males'])):
+                    females.append(row[0])
+                elif (int(dicc['females']) < int(dicc['males'])):
+                    males.append(row[0])
+                else:
+                    unknowns.append(row[0])
+            # print(males)
+            # print(females)
+            # print(unknowns)
+        fo = open("files/names/names_uk/ukmales.txt", "w")
+        for m in males:
+            fo.write(m+"\n")
+        fo.close()
+#        fo.writelines(males)
+        fo2 = open("files/names/names_uk/ukfemales.txt", "w")
+        for f in females:
+            fo2.write(f+"\n")
+        fo2.close()
+#        fo2.writelines(females)
+        fo3 = open("files/names/names_uk/ukunknown.txt", "w")
+        for u in unknowns:
+            fo3.write(u+"\n")
+        fo3.close()
+    if (args.dataset == 'us'):
+        with open('files/names/names_us/usmales.csv') as csvfile:
+            reader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(reader, None)
+            males = []
+            females = []
+            unknowns = []
+            for row in reader:
+                print(row[0])
+                print(g.name_frec(row[0], dataset=args.dataset))
+                dicc = g.name_frec(row[0], dataset=args.dataset)
+                if (int(dicc['females']) > int(dicc['males'])):
+                    females.append(row[0])
+                elif (int(dicc['females']) < int(dicc['males'])):
+                    males.append(row[0])
+                else:
+                    unknowns.append(row[0])
+            # print(males)
+            # print(females)
+            # print(unknowns)
+        fo = open("files/names/names_us/usmales.txt", "w")
+        for m in males:
+            fo.write(m+"\n")
+        fo.close()
+#        fo.writelines(males)
+        fo2 = open("files/names/names_us/usfemales.txt", "w")
+        for f in females:
+            fo2.write(f+"\n")
+        fo2.close()
+#        fo2.writelines(females)
+        fo3 = open("files/names/names_us/usunknown.txt", "w")
+        for u in unknowns:
+            fo3.write(u+"\n")
+        fo3.close()
+
 
 if (args.ml):
     s = DameSexmachine()
