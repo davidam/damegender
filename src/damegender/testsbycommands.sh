@@ -413,6 +413,8 @@ else
 	echo "damegender2json test svc is ok"
 fi
 
+python3 main.py David --verbose > files/tests/maindavidverbose-$(date "+%Y-%m-%d-%H").txt
+
 if ! cmp files/tests/maindavidverbose.txt files/tests/maindavidverbose-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "maindavidverbose test is failing"
