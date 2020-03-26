@@ -39,12 +39,12 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_namsor_get(self):
         dn = DameNamsor()
         if (dn.config['DEFAULT']['namsor'] == 'yes'):
+            l1 = dn.get("David", "Arroyo", binary=False)
             self.assertEqual(['male', -1.0],
-                         dn.get("David", "Arroyo", binary=False))
-            self.assertEqual(['male', -1.0],
-                         dn.get("David", "Arroyo", binary=True))
+                         [l1[0], round(l1[1])])
+            l2 = dn.get("Karen", "Arroyo", binary=True)
             self.assertEqual(['female', 1.0],
-                         dn.get("Karen", "Arroyo", binary=True))
+                         [l2[0], round(l2[1])])
 
     def test_dame_namsor_scale(self):
         dn = DameNamsor()
@@ -56,7 +56,7 @@ class TddInPythonExample(unittest.TestCase):
         if (dn.config['DEFAULT']['namsor'] == 'yes'):
             self.assertEqual(1, dn.guess("David", "Arroyo", binary=True))
             self.assertEqual(0, dn.guess("Andrea", "Arroyo", binary=True))
-            self.assertEqual(0, dn.guess("Asdf", "qwer", binary=True))
+            self.assertEqual(1, dn.guess("Asdf", "qwer", binary=True))
 
     def test_dame_namsor_gender_list(self):
         dn = DameNamsor()
