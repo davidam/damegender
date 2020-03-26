@@ -45,7 +45,13 @@ class TddInPythonExample(unittest.TestCase):
             self.assertEqual(['male', -1.0], [l2[0], round(l2[1])])
             l3 = dn.get("Karen", "Arroyo", binary=True)
             self.assertEqual(['female', 1.0], [l3[0], round(l3[1])])
-                         
+
+    def test_dame_namsor_getGeo(self):
+        dn = DameNamsor()
+        if (dn.config['DEFAULT']['namsor'] == 'yes'):
+            l1 = dn.get("David", "Arroyo", binary=False)
+            self.assertEqual(['male', -1.0], [l1[0], round(l1[1])])
+
 
     def test_dame_namsor_scale(self):
         dn = DameNamsor()
