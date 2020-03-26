@@ -59,66 +59,66 @@ class TddInPythonExample(unittest.TestCase):
             self.assertEqual(0, dn.guess("Andrea", "Arroyo", binary=True))
             self.assertEqual(1, dn.guess("Asdf", "qwer", binary=True))
 
-    # def test_dame_namsor_gender_list(self):
-    #     dn = DameNamsor()
-    #     gl = dn.gender_list(path="files/names/partial.csv")
-    #     self.assertEqual(gl,
-    #                      [1, 1, 1, 1, 2, 1, 0, 0, 1, 1,
-    #                       2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
-    #     self.assertEqual(len(gl), 21)
-    #     self.assertEqual(dn.females, 3)
-    #     self.assertEqual(dn.males, 16)
-    #     self.assertEqual(dn.unknown, 2)
+    def test_dame_namsor_gender_list(self):
+        dn = DameNamsor()
+        gl = dn.gender_list(path="files/names/partial.csv")
+        self.assertEqual(gl,
+                         [1, 1, 1, 1, 2, 1, 0, 0, 1, 1,
+                          2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
+        self.assertEqual(len(gl), 21)
+        self.assertEqual(dn.females, 3)
+        self.assertEqual(dn.males, 16)
+        self.assertEqual(dn.unknown, 2)
 
-    # def test_dame_namsor_features_list(self):
-    #     dn = DameNamsor()
-    #     fl = dn.features_list()
-    #     self.assertTrue(len(fl) > 20)
+    def test_dame_namsor_features_list(self):
+        dn = DameNamsor()
+        fl = dn.features_list()
+        self.assertTrue(len(fl) > 20)
 
-    # def test_dame_namsor_guess_list(self):
-    #     dn = DameNamsor()
-    #     if (dn.config['DEFAULT']['namsor'] == 'yes'):
-    #         self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male',
-    #                       'female', 'female', 'male', 'male', 'male',
-    #                       'male', 'male', 'male', 'male', 'male', 'male',
-    #                       'male', 'female', 'male', 'male'],
-    #                          dn.guess_list(path="files/names/partial.csv",
-    #                                   binary=False))
-    #         self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0,
-    #                           1, 1, 1, 1, 1, 1, 1, 1,
-    #                           1, 1, 0, 1, 1],
-    #                          dn.guess_list(path="files/names/partial.csv",
-    #                                   binary=True))
+    def test_dame_namsor_guess_list(self):
+        dn = DameNamsor()
+        if (dn.config['DEFAULT']['namsor'] == 'yes'):
+            self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male',
+                          'female', 'female', 'male', 'male', 'male',
+                          'male', 'male', 'male', 'male', 'male', 'male',
+                          'male', 'female', 'male', 'male'],
+                             dn.guess_list(path="files/names/partial.csv",
+                                      binary=False))
+            self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0,
+                              1, 1, 1, 1, 1, 1, 1, 1,
+                              1, 1, 0, 1, 1],
+                             dn.guess_list(path="files/names/partial.csv",
+                                      binary=True))
 
-    # def test_dame_namsor_accuracy_score_dame(self):
-    #     dn = DameNamsor()
-    #     score1 = dn.accuracy_score_dame([1, 1], [1, 1])
-    #     self.assertEqual(score1, 1)
-    #     score2 = dn.accuracy_score_dame([1, 1, 1, 0], [1, 1, 2, 0])
-    #     self.assertEqual(score2, 0.75)
-    #     score3 = dn.accuracy_score_dame([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
-    #     self.assertEqual(score3, 1)
+    def test_dame_namsor_accuracy_score_dame(self):
+        dn = DameNamsor()
+        score1 = dn.accuracy_score_dame([1, 1], [1, 1])
+        self.assertEqual(score1, 1)
+        score2 = dn.accuracy_score_dame([1, 1, 1, 0], [1, 1, 2, 0])
+        self.assertEqual(score2, 0.75)
+        score3 = dn.accuracy_score_dame([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
+        self.assertEqual(score3, 1)
 
 
-    # def test_dame_namsor_download(self):
-    #     dn = DameNamsor()
-    #     du = DameUtils()
-    #     path1 = "files/names/min.csv"
-    #     if (dn.config['DEFAULT']['namsor'] == 'yes'):
-    #         g = dn.download(path1)
-    #         self.assertTrue(
-    #             os.path.isfile(
-    #                 "files/names/namsor"+du.path2file(path1)+".json"))
+    def test_dame_namsor_download(self):
+        dn = DameNamsor()
+        du = DameUtils()
+        path1 = "files/names/min.csv"
+        if (dn.config['DEFAULT']['namsor'] == 'yes'):
+            g = dn.download(path1)
+            self.assertTrue(
+                os.path.isfile(
+                    "files/names/namsor"+du.path2file(path1)+".json"))
 
-    # def test_dame_namsor_json2guess_list(self):
-    #     dn = DameNamsor()
-    #     j2gl = dn.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=False)
-    #     self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], j2gl)
-    #     j2gl = dn.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=True)
-    #     self.assertEqual([1, 1, 1, 1, 1, 0], j2gl)
+    def test_dame_namsor_json2guess_list(self):
+        dn = DameNamsor()
+        j2gl = dn.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=False)
+        self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], j2gl)
+        j2gl = dn.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=True)
+        self.assertEqual([1, 1, 1, 1, 1, 0], j2gl)
 
-    # def test_dame_namsor_json2names(self):
-    #     dn = DameNamsor()
-    #     l = dn.json2names(jsonf="files/names/namsorfiles_names_min.csv.json")
-    #     self.assertEqual(['Pierre', 'Raul', 'Adriano', 'Ralf',
-    #                       'Guillermo', 'Sabina'], l)
+    def test_dame_namsor_json2names(self):
+        dn = DameNamsor()
+        l = dn.json2names(jsonf="files/names/namsorfiles_names_min.csv.json")
+        self.assertEqual(['Pierre', 'Raul', 'Adriano', 'Ralf',
+                          'Guillermo', 'Sabina'], l)
