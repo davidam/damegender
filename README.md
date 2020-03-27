@@ -11,7 +11,7 @@
 <li><a href="#sec-5-1">5.1. Docker Image</a></li>
 <li><a href="#sec-5-2">5.2. Installing Software</a>
 <ul>
-<li><a href="#sec-5-2-1">5.2.1. Posible Debian/Ubuntu dependencies</a></li>
+<li><a href="#sec-5-2-1">5.2.1. Possible Debian/Ubuntu dependencies</a></li>
 <li><a href="#sec-5-2-2">5.2.2. From sources</a></li>
 <li><a href="#sec-5-2-3">5.2.3. With python package</a></li>
 </ul>
@@ -40,9 +40,10 @@
 <ul>
 <li><a href="#sec-8-1">8.1. Market Study</a></li>
 <li><a href="#sec-8-2">8.2. Accuracy</a></li>
-<li><a href="#sec-8-3">8.3. Confusion Matrix</a></li>
-<li><a href="#sec-8-4">8.4. Errors with files/names/all.csv has:</a></li>
-<li><a href="#sec-8-5">8.5. Performance</a></li>
+<li><a href="#sec-8-3">8.3. Accuracy (Damegender ML)</a></li>
+<li><a href="#sec-8-4">8.4. Confusion Matrix</a></li>
+<li><a href="#sec-8-5">8.5. Errors with files/names/all.csv has:</a></li>
+<li><a href="#sec-8-6">8.6. Performance</a></li>
 </ul>
 </li>
 <li><a href="#sec-9">9. Statistics for damegender</a>
@@ -55,7 +56,7 @@
 <li><a href="#sec-9-2-3">9.2.3. Load Dataset</a></li>
 <li><a href="#sec-9-2-4">9.2.4. Standarize the data</a></li>
 <li><a href="#sec-9-2-5">9.2.5. Pca Projection to N Dimensions</a></li>
-<li><a href="#sec-9-2-6">9.2.6. Analize components to determine gender in names</a></li>
+<li><a href="#sec-9-2-6">9.2.6. Analyze components to determine gender in names</a></li>
 </ul>
 </li>
 </ul>
@@ -103,7 +104,7 @@ DAMe Gender is for you!
 
 ## Installing Software<a id="sec-5-2" name="sec-5-2"></a>
 
-### Posible Debian/Ubuntu dependencies<a id="sec-5-2-1" name="sec-5-2-1"></a>
+### Possible Debian/Ubuntu dependencies<a id="sec-5-2-1" name="sec-5-2-1"></a>
 
     $ sudo apt-get install python3-nose-exclude python3-dev dict dict-freedict-eng-spa dict-freedict-spa-eng dictd
 
@@ -131,7 +132,7 @@ To install mailing lists and repositories extra dependencies:
 
     $ pip3 install damegender[mails_and_repositories]
 
-To install all posible dependencies
+To install all possible dependencies
 
     $ pip3 install damegender[all]
 
@@ -194,6 +195,26 @@ To configure your api key
     0 males for Mesa from INE.es
     0 females for Mesa from INE.es
     
+    # Detect gender from a name (all census and machine learning)
+    $ python3 main.py David --verbose
+    365196 males for David from INE.es
+    0 females for David from INE.es
+    1193 males for David from Uruguay census
+    5 females for David from Uruguay census
+    26645 males for David from United Kingdom census
+    0 females for David from United Kingdom census
+    3552580 males for David from United States of America census
+    12826 females for David from United States of America census
+    David gender predicted with nltk is male
+    David gender predicted with sgd is male
+    David gender predicted with svc is male
+    David gender predicted with gaussianNB is male
+    David gender predicted with multinomialNB is male
+    David gender predicted with bernoulliNB is male
+    David gender predicted with forest is male
+    David gender predicted with tree is male
+    David gender predicted with mlp is male
+    
     # Find your name in different countries
     $ python3 nameincountries.py David
     grep -i " David " files/names/nam_dict.txt > files/grep.tmp
@@ -230,7 +251,6 @@ To configure your api key
     Males with last letter consonant: 0.6355328972681801
     Females with last letter vocal: 0.7262612995441552
     Males with last letter vocal: 0.3640823393612928
-    
     
     # Download results from an api and save in a file
     $ python3 downloadjson --csv=files/names/min.csv --api=genderize
@@ -510,19 +530,19 @@ To configure your api key
 
 
 <tr>
-<td class="left">Gender Guesser</td>
-<td class="right">0.7743554248139817</td>
-<td class="right">0.9848151408450704</td>
-<td class="right">0.8715900233826968</td>
+<td class="left">Nameapi</td>
+<td class="right">0.8301886792452831</td>
+<td class="right">0.97420272191753</td>
+<td class="right">0.9054181612233341</td>
 <td class="right">1.0</td>
 </tr>
 
 
 <tr>
-<td class="left">Damegender</td>
-<td class="right">0.7452405676704742</td>
-<td class="right">0.8789548887528067</td>
-<td class="right">0.8789548887528067</td>
+<td class="left">Gender Guesser</td>
+<td class="right">0.7743554248139817</td>
+<td class="right">0.9848151408450704</td>
+<td class="right">0.8715900233826968</td>
 <td class="right">1.0</td>
 </tr>
 </tbody>
@@ -530,50 +550,374 @@ To configure your api key
 
 (Checked: 2019/10 until 2019/12)
 
-In Damegender we are using nltk and INE.es dataset in test. We hope better results
-with more languages.
+These accuracies has been measured thinking in Lucía Santamaría and
+Helena Mihaljevic dataset as base of truth.
+
+## Accuracy (Damegender ML)<a id="sec-8-3" name="sec-8-3"></a>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">Name</td>
+<td class="right">Accuracy</td>
+<td class="right">Precision</td>
+<td class="right">F1score</td>
+<td class="right">Recall</td>
+</tr>
+
+
+<tr>
+<td class="left">SVC</td>
+<td class="right">0.879</td>
+<td class="right">0.972</td>
+<td class="right">0.972</td>
+<td class="right">1.0</td>
+</tr>
+
+
+<tr>
+<td class="left">Random Forest</td>
+<td class="right">0.862</td>
+<td class="right">0.902</td>
+<td class="right">0.902</td>
+<td class="right">1.0</td>
+</tr>
+
+
+<tr>
+<td class="left">NLTK (Bayes)</td>
+<td class="right">0.862</td>
+<td class="right">0.902</td>
+<td class="right">0.902</td>
+<td class="right">1.0</td>
+</tr>
+
+
+<tr>
+<td class="left">MultinomialNB</td>
+<td class="right">0.782</td>
+<td class="right">0.791</td>
+<td class="right">0.791</td>
+<td class="right">1.0</td>
+</tr>
+
+
+<tr>
+<td class="left">Tree</td>
+<td class="right">0.764</td>
+<td class="right">0.821</td>
+<td class="right">0.796</td>
+<td class="right">1.0</td>
+</tr>
+
+
+<tr>
+<td class="left">SGD</td>
+<td class="right">0.709</td>
+<td class="right">0.943</td>
+<td class="right">0.815</td>
+<td class="right">1.0</td>
+</tr>
+
+
+<tr>
+<td class="left">GaussianNB</td>
+<td class="right">0.709</td>
+<td class="right">0.968</td>
+<td class="right">0.887</td>
+<td class="right">1.0</td>
+</tr>
+
+
+<tr>
+<td class="left">BernoulliNB</td>
+<td class="right">0.699</td>
+<td class="right">0.965</td>
+<td class="right">0.816</td>
+<td class="right">1.0</td>
+</tr>
+
+
+<tr>
+<td class="left">MLP</td>
+<td class="right">0.677</td>
+<td class="right">0.819</td>
+<td class="right">0.755</td>
+<td class="right">1.0</td>
+</tr>
+</tbody>
+</table>
+
+In Damegender we are using the next datasets:
+-   INE.es (Spain)
+-   USA
+-   United Kingdom
+-   Uruguay
+
+We hope better results with more languages.
 
 Machine Learning Algorithms in DameGender
 These results are experimental, we are improving the choosing of features.
 
--   Stochastic Gradient Descendent accuracy: 0.5873374788015828
--   Support Vector Machines accuracy: 0.7049180327868853
--   Gaussian Naive Bayes accuracy: 0.5960994912379876
--   Multinomial Naive Bayes accuracy: 0.5876201243640475
--   Bernoulli Naive Bayes accuracy: 0.5962408140192199
--   Dame Gender (nltk bayes) accuracy: 0.6677501413227812
--   Random Forest accuracy: 0.3364895421141888
+## Confusion Matrix<a id="sec-8-4" name="sec-8-4"></a>
 
-## Confusion Matrix<a id="sec-8-3" name="sec-8-3"></a>
+1.  GenderApi
 
-1.  Genderguesser
-
-        [[ 1686, 78, 204]
-        [ 139, 3326, 346]]
-
-2.  Genderize
-
-        [[ 1742, 75, 151]
-         [ 242, 3157, 412]]
-
-3.  Namsor
-
-        [[ 1686, 78, 204]
-         [ 139, 3326, 346]]
-
-4.  Nameapi
-
-        [[ 3126, 93, 592]
-         [75, 1616, 277]]
-
-5.  Dame Gender
-
-        [[ 1692, 276, 0]
-        [ 778, 3033, 0]]
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
     
-    In this version of Dame Gender, we are not considering decide names as undefined.
+    
+    <colgroup>
+    <col  class="left" />
+    
+    <col  class="right" />
+    
+    <col  class="right" />
+    
+    <col  class="right" />
+    </colgroup>
+    <tbody>
+    <tr>
+    <td class="left">&#x2026;</td>
+    <td class="right">male</td>
+    <td class="right">female</td>
+    <td class="right">undefined</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="left">male</td>
+    <td class="right">3589</td>
+    <td class="right">155</td>
+    <td class="right">67</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="left">female</td>
+    <td class="right">211</td>
+    <td class="right">1734</td>
+    <td class="right">23</td>
+    </tr>
+    </tbody>
+    </table>
 
-## Errors with files/names/all.csv has:<a id="sec-8-4" name="sec-8-4"></a>
+2.  Genderguesser
+
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="left" />
+    
+    <col  class="right" />
+    
+    <col  class="right" />
+    
+    <col  class="right" />
+    </colgroup>
+    <tbody>
+    <tr>
+    <td class="left">&#x2026;</td>
+    <td class="right">male</td>
+    <td class="right">female</td>
+    <td class="right">undefided</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="left">male</td>
+    <td class="right">3326</td>
+    <td class="right">139</td>
+    <td class="right">346</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="left">female</td>
+    <td class="right">78</td>
+    <td class="right">1686</td>
+    <td class="right">204</td>
+    </tr>
+    </tbody>
+    </table>
+
+3.  Genderize
+
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="left" />
+    
+    <col  class="right" />
+    
+    <col  class="right" />
+    
+    <col  class="right" />
+    </colgroup>
+    <tbody>
+    <tr>
+    <td class="left">&#x2026;</td>
+    <td class="right">male</td>
+    <td class="right">female</td>
+    <td class="right">undefined</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="left">male</td>
+    <td class="right">3157</td>
+    <td class="right">242</td>
+    <td class="right">412</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="left">female</td>
+    <td class="right">75</td>
+    <td class="right">1742</td>
+    <td class="right">151</td>
+    </tr>
+    </tbody>
+    </table>
+
+4.  Namsor
+
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="left" />
+    
+    <col  class="right" />
+    
+    <col  class="right" />
+    
+    <col  class="right" />
+    </colgroup>
+    <tbody>
+    <tr>
+    <td class="left">&#x2026;</td>
+    <td class="right">male</td>
+    <td class="right">female</td>
+    <td class="right">undefined</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="left">male</td>
+    <td class="right">3325</td>
+    <td class="right">139</td>
+    <td class="right">346</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="left">female</td>
+    <td class="right">78</td>
+    <td class="right">1686</td>
+    <td class="right">204</td>
+    </tr>
+    </tbody>
+    </table>
+
+5.  Nameapi
+
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="left" />
+    
+    <col  class="right" />
+    
+    <col  class="right" />
+    
+    <col  class="right" />
+    </colgroup>
+    <tbody>
+    <tr>
+    <td class="left">&#x2026;</td>
+    <td class="right">male</td>
+    <td class="right">female</td>
+    <td class="right">undefined</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="left">male</td>
+    <td class="right">2627</td>
+    <td class="right">674</td>
+    <td class="right">507</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="left">female</td>
+    <td class="right">667</td>
+    <td class="right">1061</td>
+    <td class="right">240</td>
+    </tr>
+    </tbody>
+    </table>
+
+6.  Dame Gender
+
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="left" />
+    
+    <col  class="right" />
+    
+    <col  class="right" />
+    
+    <col  class="right" />
+    </colgroup>
+    <tbody>
+    <tr>
+    <td class="left">&#x2026;</td>
+    <td class="right">male</td>
+    <td class="right">female</td>
+    <td class="right">undefined</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="left">male</td>
+    <td class="right">3033</td>
+    <td class="right">778</td>
+    <td class="right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="left">female</td>
+    <td class="right">276</td>
+    <td class="right">1692</td>
+    <td class="right">0</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    In this version of Dame Gender, we are not considering decide names as
+    undefined.
+
+## Errors with files/names/all.csv has:<a id="sec-8-5" name="sec-8-5"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -596,6 +940,15 @@ These results are experimental, we are improving the choosing of features.
 <td class="right">error code without na</td>
 <td class="right">na coded</td>
 <td class="right">error gender bias</td>
+</tr>
+
+
+<tr>
+<td class="left">Genderize</td>
+<td class="right">0.0727</td>
+<td class="right">0.053</td>
+<td class="right">0.02</td>
+<td class="right">-0.008</td>
 </tr>
 
 
@@ -633,22 +986,80 @@ These results are experimental, we are improving the choosing of features.
 <td class="right">0.0</td>
 <td class="right">0.16666666666666666</td>
 </tr>
+
+
+<tr>
+<td class="left">Nameapi</td>
+<td class="right">0.361</td>
+<td class="right">0.267</td>
+<td class="right">0.129</td>
+<td class="right">0.001</td>
+</tr>
 </tbody>
 </table>
 
-## Performance<a id="sec-8-5" name="sec-8-5"></a>
+## Performance<a id="sec-8-6" name="sec-8-6"></a>
 
--   GenderGuesser accuracy: 0.6902204635387225
+These performance metrics requires and csv json downloaded
+\\################### Damegender!!
+Gender list: [1, 1, 1, 1, 1, 0]
+Guess list:  [1, 1, 1, 1, 1, 0]
+Damegender accuracy: 1.0
 
-real        160m58.742s
-user        44m47.532s
-sys        0m56.024s
+real        0m1.270s
+user        0m0.876s
+sys        0m0.416s
+\\################### Genderize!!
+Gender list: [1, 1, 1, 1, 1, 0]
+Guess list:  [1, 1, 1, 1, 1, 0]
+Genderize accuracy: 1.0
 
--   Dame Gender accuracy: 0.6677501413227812
+real        0m0.811s
+user        0m0.776s
+sys        0m0.312s
+\\################### Genderapi!!
+Gender list: [1, 1, 1, 1, 1, 0]
+Guess list:  [1, 1, 1, 1, 1, 0]
+Genderapi accuracy: 1.0
 
-real        129m23.082s
-user        53m12.640s
-sys        0m32.040s
+real        0m0.763s
+user        0m0.744s
+sys        0m0.232s
+\\################### Namsor!!
+Gender list: [1, 1, 1, 1, 1, 0]
+Guess list:  [1, 1, 1, 1, 1, 0]
+Namsor accuracy: 1.0
+
+real        0m0.811s
+user        0m0.776s
+sys        0m0.356s
+\\################### Nameapi!!
+Gender list: [1, 1, 1, 1, 1, 0]
+Guess list:  [1, 1, 1, 1, 1, 0]
+Nameapi accuracy: 1.0
+
+real        0m0.832s
+user        0m0.816s
+sys        0m0.336s
+A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are true positives
+Damegender confusion matrix:
+
+[[ 5, 0, 0 ]
+ [ 0, 1, 0 ]]
+
+real        0m0.812s
+user        0m0.784s
+sys        0m0.300s
+Damegender with files/names/partial.csv has:
+-   The error code: 0.10526315789473684
+-   The error code without na: 0.10526315789473684
+-   The na coded: 0.0
+-   The error gender bias: 0.0
+
+real        0m9.099s
+user        0m9.008s
+sys        0m0.412s
 
 # Statistics for damegender<a id="sec-9" name="sec-9"></a>
 
@@ -678,22 +1089,22 @@ So, we can find a vocabulary for measure true, false, success and
 errors. We can make a summary in the gender name context about
 mathematical concepts:
 
-**Precision** is about true positives between true positives plus false
+**Precision** is about true positives divided by true positives plus false
 positives
 
     (femalefemale + malemale ) /
     (femalefemale + malemale + femalemale)
 
-**Recall** is about true positives between true positives plus false
+**Recall** is about true positives divided by true positives plus false
 negatives.
 
     (femalefemale + malemale ) /
     (femalefemale + malemale + malefemale + femaleundefined + maleundefined)
 
-**Accuray** is about true positives between all.
+**Accuray** is about true positives divided by all.
 
     (femalefemale + malemale ) /
-    (femalefemale + malemale + malefemale + femalemale + femaleundefined + maleundefinedxs)
+    (femalefemale + malemale + malefemale + femalemale + femaleundefined + maleundefined)
 
 The **F1 score** is the harmonic mean of precision and recall taking
 both metrics into account in the following equation:
@@ -744,7 +1155,7 @@ but giving a weight to the guessed as undefined.
 
 In Damengeder, we have coded errors.py to implement the different definitions in diffrent apis.
 
-The **confusion matrix** creates a matrix between the true and the
+The **confusion matrix** creates a matrix about the true and the
 guess. If you have this confusion matrix:
 
     [[ 2, 0, 0]
@@ -768,8 +1179,8 @@ with the different apis.
 
 ### Concepts<a id="sec-9-2-1" name="sec-9-2-1"></a>
 
-The dispersion measures between 1 variables are: variance, standard
-deviation, &#x2026;
+The dispersion measures between 1 variable, for instance, variance,
+standard deviation, &#x2026;
 
 ![img](src/damegender/files/images/variance.png)
 
@@ -899,7 +1310,7 @@ Finally, we create the pca transform with 6 dimensions and we add the target com
     
     print(principalDf.join(target))
 
-### Analize components to determine gender in names<a id="sec-9-2-6" name="sec-9-2-6"></a>
+### Analyze components to determine gender in names<a id="sec-9-2-6" name="sec-9-2-6"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -984,11 +1395,11 @@ consonant. If the last letter is vocal we can find a male and if the
 last letter is a consonant we can find a male.
 
 The second component is about the first letter. The last letter is
-determing females and the first letter is determing males.
+determining females and the first letter is determining males.
 
 The third component is not giving relevant information.
 
-The fourth component is giving tha last<sub>letter</sub><sub>a</sub> and the
+The fourth component is giving the last<sub>letter</sub><sub>a</sub> and the
 first<sub>letter</sub><sub>vocal</sub> is for females.
 
 # Speeches, Seminars, Expressions of Support<a id="sec-10" name="sec-10"></a>
