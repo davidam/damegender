@@ -105,7 +105,8 @@ Dado un fichero csv obtener número y porcentaje de hombres y mujeres
 Probar
 $ python3 main.py Inés
 $ python3 main.py Ines
-* FUTURE Hay un problema con los nombres que aparecen en male.txt y female.txt
+* DONE Hay un problema con los nombres que aparecen en male.txt y female.txt
+  - State "DONE"       from "FUTURE"     [2020-03-21 sáb 18:48]
 Probar
 $ python3 main.py Andrea
 Para esto lo mejor es devolver una probabilidad. Usar INE.es puede ser una opción.
@@ -1024,3 +1025,41 @@ Now the next datasets available from main.py in damegender
 ** TODO para cada nombre sumamos todos los males de los diferentes datasets y todos los females y escribimos en fichero
 ** TODO descartamos nombres donde la suma de hombres y mujeres sea menor de 1000 para evitar el problema de apodos en censos
 ** TODO comprobamos el accuracy y el confusion tomando como base a lucía y helena
+* DONE Reescribir males_list atendiendo a corpus
+  - State "DONE"       from "TODO"       [2020-03-27 vie 01:50]
+Debes escribir primero los ficheros males.txt y females.txt de cada dataset
+    def males_list(self, corpus='es'):
+        ine_path = 'files/names/names_es'
+        ine_corpus = nltk.corpus.PlaintextCorpusReader(ine_path, '.*\.txt')
+        uk_path = 'files/names/names_uk'
+        uk_corpus = nltk.corpus.PlaintextCorpusReader(uk_path, '.*\.txt')
+        us_path = 'files/names/names_us'
+        us_corpus = nltk.corpus.PlaintextCorpusReader(us_path, '.*\.txt')
+
+        # if (corpus == 'uk'):
+        #     m = uk_corpus.sents('ukmales.txt')[1]
+        # elif (corpus == 'us'):
+        #     m = us_corpus.sents('usmales.txt')[1]
+
+        m = 0
+        if ((corpus == 'es') or (corpus == 'ine')):
+            m = ine_corpus.sents('masculinos.txt')[1]
+        # elif (corpus == 'all'):
+        #     m = uk_corpus.sents('ukmales.txt')[1] + us_corpus.sents('usmales.txt')[1] + ine_corpus.sents('masculinos.txt')[1]
+        #m = list(OrderedDict.fromkeys(m))
+        return m
+* TODO vsa
+** VSA10 (males names)
++ [ ] vsa10_1~2p.csv (males names and he is male)
++ [ ] vsa10_2~2p.csv (males names, but she is female)
+** VSA11 (females names)
++ [ ] vsa11_1~2p.csv (females names and she is female)
++ [ ] vsa11_2~2p.csv (females names, but he is male)
+** TODO malesbyyears.csv
++ [ ] drop NA fields with """.."""
++ [ ] vsa10_1~2p.csv (males names and he is male)
++ [ ] vsa11_2~2p.csv (females names, but he is male)
+** TODO femalesbyyears.csv
++ [ ] drop NA fields with """.."""
++ [ ] vsa10_2~2p.csv (males names, but she is female)
++ [ ] vsa11_1~2p.csv (females names and she is female)
