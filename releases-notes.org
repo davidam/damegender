@@ -52,3 +52,7 @@ Now the next datasets available from main.py in damegender
 + [X] Lucía Santamaría and Helena 
 
 
+* v0.2.5
+
++ Recreated all datamodels with new datasets. Augmented the accuracies with this feature!
++ Namsor stuff has been updated to Namsor2
