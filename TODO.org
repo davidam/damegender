@@ -1025,8 +1025,7 @@ Now the next datasets available from main.py in damegender
 ** TODO para cada nombre sumamos todos los males de los diferentes datasets y todos los females y escribimos en fichero
 ** TODO descartamos nombres donde la suma de hombres y mujeres sea menor de 1000 para evitar el problema de apodos en censos
 ** TODO comprobamos el accuracy y el confusion tomando como base a lucía y helena
-* DONE Reescribir males_list atendiendo a corpus
-  - State "DONE"       from "TODO"       [2020-03-27 vie 01:50]
+* TODO Reescribir males_list atendiendo a corpus
 Debes escribir primero los ficheros males.txt y females.txt de cada dataset
     def males_list(self, corpus='es'):
         ine_path = 'files/names/names_es'
@@ -1048,6 +1047,19 @@ Debes escribir primero los ficheros males.txt y females.txt de cada dataset
         #     m = uk_corpus.sents('ukmales.txt')[1] + us_corpus.sents('usmales.txt')[1] + ine_corpus.sents('masculinos.txt')[1]
         #m = list(OrderedDict.fromkeys(m))
         return m
+* DONE Crear script bash de logs.sh
+  - State "DONE"       from "TODO"       [2020-03-27 vie 05:57]
+* DONE Revisar logs de ML tras crear logs.sh
+  - State "DONE"       from "TODO"       [2020-03-27 vie 05:57]
++ [X] bernoulli
++ [X] forest
++ [X] gaussian
++ [X] mlp
++ [X] multinomial
++ [X] nltk
++ [X] sgd
++ [X] svc
++ [X] tree
 * TODO vsa
 ** VSA10 (males names)
 + [ ] vsa10_1~2p.csv (males names and he is male)
