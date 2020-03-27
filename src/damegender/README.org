@@ -259,23 +259,35 @@ $ python3 pca-features.py                                   # To understand the 
 | Namsor         | 0.8672551055728626 | 0.9730097087378641 | 0.9236866359447006 |    1.0 |
 | Nameapi        | 0.8301886792452831 |   0.97420272191753 | 0.9054181612233341 |    1.0 |
 | Gender Guesser | 0.7743554248139817 | 0.9848151408450704 | 0.8715900233826968 |    1.0 |
-| Damegender     | 0.7452405676704742 | 0.8789548887528067 | 0.8789548887528067 |    1.0 |
 
 (Checked: 2019/10 until 2019/12)
 
-In Damegender we are using nltk and INE.es dataset in test. We hope better results
-with more languages.
+These accuracies has been measured thinking in Lucía Santamaría and
+Helena Mihaljevic dataset as base of truth.
+
+** Accuracy (Damegender ML)
+
+| Name          | Accuracy | Precision | F1score | Recall |
+| SVC           |    0.879 |     0.972 |   0.972 |    1.0 |
+| Random Forest |    0.862 |     0.902 |   0.902 |    1.0 |
+| NLTK (Bayes)  |    0.862 |     0.902 |   0.902 |    1.0 |
+| MultinomialNB |    0.782 |     0.791 |   0.791 |    1.0 |
+| Tree          |    0.764 |     0.821 |   0.796 |    1.0 |
+| SGD           |    0.709 |     0.943 |   0.815 |    1.0 |
+| GaussianNB    |    0.709 |     0.968 |   0.887 |    1.0 |
+| BernoulliNB   |    0.699 |     0.965 |   0.816 |    1.0 |
+| MLP           |    0.677 |     0.819 |   0.755 |    1.0 |
+
+In Damegender we are using the next datasets:
++ INE.es (Spain)
++ USA 
++ United Kingdom
++ Uruguay
+
+We hope better results with more languages.
 
 Machine Learning Algorithms in DameGender
 These results are experimental, we are improving the choosing of features.
-
-+ Stochastic Gradient Descendent accuracy: 0.5873374788015828
-+ Support Vector Machines accuracy: 0.7049180327868853
-+ Gaussian Naive Bayes accuracy: 0.5960994912379876
-+ Multinomial Naive Bayes accuracy: 0.5876201243640475
-+ Bernoulli Naive Bayes accuracy: 0.5962408140192199
-+ Dame Gender (nltk bayes) accuracy: 0.6677501413227812
-+ Random Forest accuracy: 0.3364895421141888
 
 ** Confusion Matrix
 **** GenderApi
