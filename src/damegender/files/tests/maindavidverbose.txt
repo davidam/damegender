@@ -1,0 +1,17 @@
+365196 males for David from INE.es
+0 females for David from INE.es
+1193 males for David from Uruguay census
+5 females for David from Uruguay census
+26645 males for David from United Kingdom census
+0 females for David from United Kingdom census
+3552580 males for David from United States of America census
+12826 females for David from United States of America census
+David gender predicted with nltk is male
+David gender predicted with sgd is male
+David gender predicted with svc is male
+David gender predicted with gaussianNB is male
+David gender predicted with multinomialNB is male
+David gender predicted with bernoulliNB is male
+David gender predicted with forest is male
+David gender predicted with tree is male
+David gender predicted with mlp is male

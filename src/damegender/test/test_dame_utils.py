@@ -141,7 +141,19 @@ class TddInPythonExample(unittest.TestCase):
              'files/datamodels/gaussianNB_model.sav',
              'files/datamodels/mlp_model.sav',
              'files/datamodels/multinomialNB_model.sav',
+             'files/datamodels/nltk_model.sav',
              'files/datamodels/sgd_model.sav',
              'files/datamodels/svc_model.sav',
              'files/datamodels/tree_model.sav'])
+
+    def test_dame_utils_list2lower(self):
+        du = DameUtils()
+        x = ["Aaa", "bBb", "ccC"]
+        self.assertEqual(du.list2lower(x), ["aaa", "bbb", "ccc"])
+
+    def test_dame_utils_csvcolumn2list(self):
+        du = DameUtils()
+        l = du.csvcolumn2list('files/names/partial.csv', 0, header=True)
+        self.assertEqual(len(l), 21)
+        self.assertEqual(['"pierre"', '"raul"', '"adriano"', '"ralf"', '"teppei"', '"guillermo"', '"catherine"', '"sabina"', '"ralf"', '"karl"', '"sushil"', '"clemens"', '"gregory"', '"lester"', '"claude"', '"martin"', '"vlad"', '"pasquale"', '"lourdes"', '"bruno"', '"thomas"'], l)
 

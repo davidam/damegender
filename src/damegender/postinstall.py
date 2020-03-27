@@ -25,22 +25,81 @@ from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
 from app.dame_utils import DameUtils
 import csv
+import nltk
 from pprint import pprint
 import re
 import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
+parser.add_argument('--dataset', choices=['uk', 'us', 'uy'])
+parser.add_argument('--nltk', default=False, action="store_true")
+parser.add_argument('--allstuff', default=False, action="store_true")
 args = parser.parse_args()
 
+if (args.nltk):
+    nltk.download('names')
+    nltk.download('punkt')
 
 g = Gender()
+
+def create_file(dataset):
+    uspathmales = "files/names/names_us/usmales.csv"
+    uspathfemales = "files/names/names_us/usfemales.csv"
+    ukpathmales = "files/names/names_uk/ukmales.csv"
+    ukpathfemales = "files/names/names_uk/ukfemales.csv"
+    uypathmales = "files/names/names_uy/uymasculinos.csv"
+    uypathfemales = "files/names/names_uy/uyfemeninos.csv"
+    if (dataset == "us"):
+        pathmales = uspathmales
+        pathfemales = uspathfemales
+    elif (dataset == "uk"):
+        pathmales = ukpathmales
+        pathfemales = ukpathfemales
+    elif (dataset == "uy"):
+        print("inside")
+        pathmales = uypathmales
+        pathfemales = uypathfemales
+
+    with open(pathmales) as csvfile:
+        print("males")
+        reader = csv.reader(csvfile, delimiter=',', quotechar='|')
+        next(reader, None)
+        males = []
+        females = []
+        unknowns = []
+        for row in reader:
+            print(row)
+            print(row[0])
+            dicc = g.name_frec(row[0], dataset=dataset)
+            print(dicc)
+            if (int(dicc['females']) > int(dicc['males'])):
+                females.append(row[0])
+            elif (int(dicc['females']) < int(dicc['males'])):
+                males.append(row[0])
+            else:
+                unknowns.append(row[0])
+        print(males)
+        print(females)
+        fo = open(pathmales, "w")
+        for m in males:
+            fo.write(m+"\n")
+        fo.close()
+        fo2 = open(pathfemales, "w")
+        for f in females:
+            fo2.write(f+"\n")
+        fo2.close()
+
+
+if (args.dataset):
+    print(args.dataset)
+    create_file(args.dataset)
 
 if (args.ml):
     s = DameSexmachine()
     if (args.ml == "nltk"):
-        guess = s.guess(args.name, binary=True, ml="nltk")
-    if (args.ml == "sgd"):
+        s.classifier()
+    elif (args.ml == "sgd"):
         s.sgd()
     elif (args.ml == "svc"):
         s.svc()
@@ -57,7 +116,7 @@ if (args.ml):
     elif (args.ml == "mlp"):
         s.mlp()
 
-else:
+if (args.allstuff):
 
     print("You don't need execute this script in normal conditions. We are going to create some data files, in normal conditions you've downloaded these files cloning the repository. But perhaps you need regenerate these files.")
 
@@ -71,6 +130,7 @@ else:
         print("We are creating .sav files data models in files/datamodels")
         print("This process take a long time, you can rest.")
         s = DameSexmachine()
+        s.classifier()
         s.gaussianNB()
         s.svc()
         s.sgd()

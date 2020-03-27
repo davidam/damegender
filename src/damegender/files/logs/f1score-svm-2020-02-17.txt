@@ -1,0 +1,3 @@
+In the path files/names/allnoundefined.csv.svm.json doesn't exist file
+You can create one, but this process can take long time
+Do you want create a json file?  (y/n): 

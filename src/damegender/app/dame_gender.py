@@ -181,29 +181,44 @@ class Gender(object):
         fo.close()
         return 1
 
-    def males_list(self, corpus='engspa'):
-        path = 'files/names/names_es'
-        my_corpus = nltk.corpus.PlaintextCorpusReader(path, '.*\.txt')
-        if (corpus == 'eng'):
-            m = names.words('male.txt')
-        elif (corpus == 'spa'):
-            m = my_corpus.sents('masculinos.txt')[1]
-        elif (corpus == 'engspa'):
-            m = names.words('male.txt') + my_corpus.sents('masculinos.txt')[1]
-        m = list(OrderedDict.fromkeys(m))
+    def males_list(self, corpus='es'):
+        ine_path = 'files/names/names_es/masculinos.txt'
+        uy_path = 'files/names/names_uy/uymasculinos.txt'
+        uk_path = 'files/names/names_uk/ukmales.txt'
+        us_path = 'files/names/names_us/usmales.txt'
+        m = ""
+        if ((corpus == 'es') or (corpus == 'ine')):
+            m = du.csvcolumn2list(ine_path)
+        elif (corpus == 'uk'):
+            m = du.csvcolumn2list(uk_path)
+        elif (corpus == 'us'):
+            m = du.csvcolumn2list(us_path)
+        elif (corpus == 'uy'):
+            m = du.csvcolumn2list(uy_path)
+        elif (corpus == 'all'):
+            m = du.csvcolumn2list(ine_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path)
+            m = du.delete_duplicated(m)
         return m
 
-    def females_list(self, corpus='engspa'):
-        path = 'files/names/names_es'
-        my_corpus = nltk.corpus.PlaintextCorpusReader(path, '.*\.txt')
-        if (corpus == 'eng'):
-            f = names.words('female.txt')
-        elif (corpus == 'spa'):
-            f = my_corpus.sents('femeninos.txt')[1]
-        elif (corpus == 'engspa'):
-            f = names.words('female.txt') + my_corpus.sents('femeninos.txt')[1]
-        f = list(OrderedDict.fromkeys(f))
-        return f
+    def females_list(self, corpus='es'):
+        ine_path = 'files/names/names_es/femeninos.txt'
+        uy_path = 'files/names/names_uy/uyfemeninos.txt'
+        uk_path = 'files/names/names_uk/ukfemales.txt'
+        us_path = 'files/names/names_us/usfemales.txt'
+        m = ""
+        if ((corpus == 'es') or (corpus == 'ine')):
+            m = du.csvcolumn2list(ine_path)
+        elif (corpus == 'uk'):
+            m = du.csvcolumn2list(uk_path)
+        elif (corpus == 'us'):
+            m = du.csvcolumn2list(us_path)
+        elif (corpus == 'uy'):
+            m = du.csvcolumn2list(uy_path)
+        elif (corpus == 'all'):
+            m = du.csvcolumn2list(ine_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path)
+            m = du.delete_duplicated(m)
+        return m
+
 
     def csv2names(self, path='files/names/partial.csv', *args, **kwargs):
         # make a list from a csv file
@@ -373,19 +388,21 @@ class Gender(object):
         return genderlist
 
 
-    def name_frec(self, name, dataset='ine'):
+    def name_frec(self, name, *args, **kwargs):
+        # guess list method
+        dataset = kwargs.get('dataset', 'es')
 
         du = DameUtils()
         name = du.drop_accents(name)
         path_males = 'files/names/names_es/esmasculinos.csv'
-        if (dataset == 'ine'):
+        if ((dataset == 'ine') or (dataset == 'es')):
             path_males = 'files/names/names_es/esmasculinos.csv'
         elif (dataset == 'uy'):
             path_males = 'files/names/names_uy/uymasculinos.csv'
         elif (dataset == 'uk'):
             path_males = 'files/names/names_uk/ukmales.csv'
         elif (dataset == 'us'):
-            path_males = 'files/names/names_us/usmales.csv'            
+            path_males = 'files/names/names_us/usmales.csv'
         file_males = open(path_males, 'r')
         readerm = csv.reader(file_males, delimiter=',', quotechar='|')
         males = 0
@@ -393,8 +410,8 @@ class Gender(object):
             if ((len(row) > 1) and (row[0].lower() == name.lower())):
                 males = row[1]
                 males = du.drop_dots(males)
-        path_females = 'files/names/names_es/esfemeninos.csv'                
-        if (dataset == 'ine'):
+        path_females = 'files/names/names_es/esfemeninos.csv'
+        if ((dataset == 'ine') or (dataset == 'es')):
             path_females = 'files/names/names_es/esfemeninos.csv'
         elif (dataset == 'uy'):
             path_females = 'files/names/names_uy/uyfemeninos.csv'
@@ -440,33 +457,31 @@ class Gender(object):
 
 # GUESS #
 
-    def guess(self, name, binary=False):
+    def guess(self, name, binary=False, *args, **kwargs):
+        # guess list method
+        dataset = kwargs.get('dataset', 'es')
         # guess method to check names dictionary
         guess = ''
         name = unidecode.unidecode(name).title()
         name.replace(name, "")
-        m = self.males_list()
-        f = self.females_list()
-        if (name in m) and (name in f):
-            if binary:
-                guess = 2
-            else:
-                guess = 'unknown'
-        elif name in m:
+        dicc = self.name_frec(name, dataset)
+        m = int(dicc['males'])
+        f = int(dicc['females'])
+        if (m > f):
             if binary:
                 guess = 1
             else:
-                guess = 'male'
-        elif name in f:
+                guess = "male"
+        elif (f > m):
             if binary:
                 guess = 0
             else:
-                guess = 'female'
+                guess = "female"
         else:
             if binary:
                 guess = 2
             else:
-                guess = 'unknown'
+                guess = "unknown"
         return guess
 
     def guess_list(self, path='files/names/partial.csv', binary=False, *args, **kwargs):
@@ -531,6 +546,10 @@ class Gender(object):
                 self.print_measures(gl, sl, measure, api)
             else:
                 print("Names in json and csv are differents")
+                print("%s names in csv" % len(self.csv2names(path=path, header=header)))
+                print("%s names in json" % len(self.json2names(jsonf=jsonf, surnames=False)))
+                v = self.first_uneq_json_and_csv_in_names(jsonf=jsonf, path=path)
+                print("The first position finding unmatched names is %s and the name is %s" % (v[1], v[0]))
                 print("Names in csv: %s:" % self.csv2names(path=path, header=header))
                 print("Names in json: %s:" % self.json2names(jsonf=jsonf, surnames=False))
         else:
@@ -1074,17 +1093,19 @@ class Gender(object):
         header = kwargs.get('header', True)
         boolean = False
         json = self.json2names(jsonf=jsonf, surnames=False)
+        json_lower = [element.lower() for element in json] ; json
         csv = self.csv2names(path=path, header=header)
+        csv_lower = [element.lower() for element in csv] ; csv
         count = 0
         i = 0
-        maxi = len(json) -1
-        if (maxi < len(csv)):
-            maxi = len(csv) -1
+        maxi = len(json_lower) -1
+        if (maxi < len(csv_lower)):
+            maxi = len(csv_lower) -1
         while (maxi > i):
-            if (json[i] == csv[i]):
+            if (json_lower[i] == csv_lower[i]):
                 count = count +1
             i = i+1
-        boolean = ((len(json) == len(csv)) and ((len(json) -1) == count))
+        boolean = ((len(json_lower) == len(csv_lower)) and ((len(json_lower) -1) == count))
         return boolean
 
     def first_uneq_json_and_csv_in_names(self, jsonf="", path="", *args, **kwargs):

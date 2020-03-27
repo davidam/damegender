@@ -105,7 +105,8 @@ Dado un fichero csv obtener número y porcentaje de hombres y mujeres
 Probar
 $ python3 main.py Inés
 $ python3 main.py Ines
-* FUTURE Hay un problema con los nombres que aparecen en male.txt y female.txt
+* DONE Hay un problema con los nombres que aparecen en male.txt y female.txt
+  - State "DONE"       from "FUTURE"     [2020-03-21 sáb 18:48]
 Probar
 $ python3 main.py Andrea
 Para esto lo mejor es devolver una probabilidad. Usar INE.es puede ser una opción.
@@ -735,7 +736,8 @@ Editorial: Delta Publicaciones
 + [X] genderize, prob
 + [X] nameapi, confidence
 + [X] namsor, scale
-* POSIBLE pickle dump nltk
+* DONE pickle dump nltk
+  - State "DONE"       from "POSIBLE"    [2020-03-21 sáb 17:42]
 https://pythonprogramming.net/pickle-classifier-save-nltk-tutorial/
 save_classifier = open("naivebayes.pickle","wb")
 pickle.dump(classifier, save_classifier)
@@ -836,8 +838,10 @@ Dado un nombre, tenemos la frecuencia del nombre y la población en
 tres datasets, crear la media ponderada.
 ** DONE Descargar json de las diferentes apis
    - State "DONE"       from "TODO"       [2020-02-05 mié 17:20]
-* TODO Crear una comparativa de eficiencia
+* DONE Comenzar a medir eficiencia
   SCHEDULED: <2019-05-16 jue>
+  - State "DONE"       from "TODO"       [2020-03-21 sáb 16:46]
+Creado script performance.sh
 * TODO Revisar dataset2genderlist con todos los datasets
   SCHEDULED: <2019-05-30 jue>
 * DONE Revisar los métodos males y females para todos los datasets
@@ -974,21 +978,27 @@ GET https://gender-api.com/get-stats?&key=<your private server key>
   SCHEDULED: <2020-02-05 mié>
 Parece que puede haber bugs si hay en el guess list undefined
 Puedes hacer pruebas con partial.csv
-* TODO Generar los json para damegender
-** TODO Para cada algoritmo de ml generar json para
+* DONE Generar los json para damegender
+  - State "DONE"       from "TODO"       [2020-03-21 sáb 00:12]
+** DONE Para cada algoritmo de ml generar json para
+   - State "DONE"       from "TODO"       [2020-03-21 sáb 00:12]
 *** DONE min.csv
 	- State "DONE"       from "TODO"       [2020-02-05 mié 17:38]
 *** DONE partial.csv
 	- State "DONE"       from "TODO"       [2020-02-05 mié 17:38]
 *** DONE allnoundefined.csv
     - State "DONE"       from "TODO"       [2020-02-07 vie 22:22]
-*** TODO all.csv
+*** DONE all.csv
+    - State "DONE"       from "TODO"       [2020-03-21 sáb 00:12]
 ** DONE json2guesslist eliminar el parámetro ml
    - State "DONE"       from "TODO"       [2020-02-07 vie 15:20]
-* TODO Generar logs de accuracies de los diferentes algoritmos de ML
-* TODO Generar logs de confusion de los diferentes algoritmos de ML
-* TODO En accuracy.py terminar la transición a jsondownloaded required=True
+* DONE Generar logs de accuracies de los diferentes algoritmos de ML
+  - State "DONE"       from "TODO"       [2020-03-21 sáb 00:13]
+* DONE Generar logs de confusion de los diferentes algoritmos de ML
+  - State "DONE"       from "TODO"       [2020-03-21 sáb 00:13]
+* DONE En accuracy.py terminar la transición a jsondownloaded required=True
   SCHEDULED: <2020-02-08 sáb>
+  - State "DONE"       from "TODO"       [2020-03-21 sáb 00:13]
 * DONE Escribir damegender.net
   SCHEDULED: <2020-02-06 jue>
   - State "DONE"       from "TODO"       [2020-02-06 jue 16:36]
@@ -1009,4 +1019,47 @@ Now the next datasets available from main.py in damegender
 + [X] United Kingdom
 + [X] United States of America
 + [X] Uruguay
-+ [X] Lucía Santamaría and Helena 
++ [X] Lucía Santamaría and Helena
+* TODO Crear un dataset de base de verdad desde los censos
+** TODO con csv2names creamos una lista con todos los nombres donde cada nombre es único
+** TODO para cada nombre sumamos todos los males de los diferentes datasets y todos los females y escribimos en fichero
+** TODO descartamos nombres donde la suma de hombres y mujeres sea menor de 1000 para evitar el problema de apodos en censos
+** TODO comprobamos el accuracy y el confusion tomando como base a lucía y helena
+* DONE Reescribir males_list atendiendo a corpus
+  - State "DONE"       from "TODO"       [2020-03-27 vie 01:50]
+Debes escribir primero los ficheros males.txt y females.txt de cada dataset
+    def males_list(self, corpus='es'):
+        ine_path = 'files/names/names_es'
+        ine_corpus = nltk.corpus.PlaintextCorpusReader(ine_path, '.*\.txt')
+        uk_path = 'files/names/names_uk'
+        uk_corpus = nltk.corpus.PlaintextCorpusReader(uk_path, '.*\.txt')
+        us_path = 'files/names/names_us'
+        us_corpus = nltk.corpus.PlaintextCorpusReader(us_path, '.*\.txt')
+
+        # if (corpus == 'uk'):
+        #     m = uk_corpus.sents('ukmales.txt')[1]
+        # elif (corpus == 'us'):
+        #     m = us_corpus.sents('usmales.txt')[1]
+
+        m = 0
+        if ((corpus == 'es') or (corpus == 'ine')):
+            m = ine_corpus.sents('masculinos.txt')[1]
+        # elif (corpus == 'all'):
+        #     m = uk_corpus.sents('ukmales.txt')[1] + us_corpus.sents('usmales.txt')[1] + ine_corpus.sents('masculinos.txt')[1]
+        #m = list(OrderedDict.fromkeys(m))
+        return m
+* TODO vsa
+** VSA10 (males names)
++ [ ] vsa10_1~2p.csv (males names and he is male)
++ [ ] vsa10_2~2p.csv (males names, but she is female)
+** VSA11 (females names)
++ [ ] vsa11_1~2p.csv (females names and she is female)
++ [ ] vsa11_2~2p.csv (females names, but he is male)
+** TODO malesbyyears.csv
++ [ ] drop NA fields with """.."""
++ [ ] vsa10_1~2p.csv (males names and he is male)
++ [ ] vsa11_2~2p.csv (females names, but he is male)
+** TODO femalesbyyears.csv
++ [ ] drop NA fields with """.."""
++ [ ] vsa10_2~2p.csv (males names, but she is female)
++ [ ] vsa11_1~2p.csv (females names and she is female)

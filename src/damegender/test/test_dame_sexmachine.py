@@ -87,23 +87,23 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_sexmachine_guess_list(self):
         ds = DameSexmachine()
-        self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male',
-                          'male', 'female', 'male', 'male', 'male',
-                          'male', 'male', 'male', 'female', 'male',
-                          'male', 'male', 'female', 'male', 'male'],
+        self.assertEqual(['male', 'male', 'male', 'male', 'female', 'male',
+                          'female', 'female', 'male', 'male', 'male',
+                          'male', 'male', 'male', 'male', 'male', 'male',
+                          'male', 'female', 'male', 'male'],
                          ds.guess_list(path="files/names/partial.csv",
                                        binary=False))
-        self.assertEqual([1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1,
-                          1, 1, 1, 0, 1, 1, 1, 0, 1, 1],
+        self.assertEqual([1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1,
+                          1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
                          ds.guess_list(path="files/names/partial.csv",
                                        binary=True))
-        self.assertEqual([1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1,
-                          1, 1, 1, 0, 1, 1, 1, 0, 1, 1],
+        self.assertEqual([1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1,
+                          1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
                          ds.guess_list(path="files/names/partial.csv",
                                        binary=True,
                                        ml="nltk"))
         svc_model = ds.svc_load()
-        self.assertEqual([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1,
                           1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
                          ds.guess_list(path="files/names/partial.csv",
                                        binary=True,
@@ -157,17 +157,18 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_guess_list(self):
         ds = DameSexmachine()
-        self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male',
-                          'male', 'female', 'male', 'male', 'male',
-                          'male', 'male', 'male', 'female', 'male',
+        self.assertEqual(['male', 'male', 'male', 'male', 'female', 'male',
+                          'female', 'female', 'male', 'male', 'male',
+                          'male', 'male', 'male', 'male', 'male',
                           'male', 'male', 'female', 'male', 'male'],
                          ds.guess_list(path="files/names/partial.csv",
                                        binary=False))
-        self.assertEqual([1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,
-                          1, 1, 0, 1, 1, 1, 0, 1, 1],
+        self.assertEqual([1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1,
+                          1, 1, 1, 1, 1, 1, 0, 1, 1],
                          ds.guess_list(path="files/names/partial.csv",
                                        binary=True,
                                        ml="nltk"))
+
     def test_sexmachine_classifier(self):
         s = DameSexmachine()
         classifier = s.classifier()
@@ -175,17 +176,20 @@ class TddInPythonExample(unittest.TestCase):
         guess = classifier.classify(n)
         self.assertTrue(1, n)
 
+    def test_sexmachine_classifier_model_exists(self):
+        self.assertTrue(os.path.isfile("files/datamodels/nltk_model.sav"))
+
+    def test_sexmachine_classifier_load(self):
+        s = DameSexmachine()
+        m = s.classifier_load()
+        n = s.features("David")
+        guess = m.classify(n)
+        self.assertTrue(1, n)
+
     def test_sexmachine_accuracy(self):
         s = DameSexmachine()
         self.assertTrue(s.accuracy(path="files/names/partial.csv") > 0.5)
 
-    def test_sexmachine_confusion_matrix(self):
-        ds = DameSexmachine()
-        cm = ds.confusion_matrix()
-        am = np.array([[2, 1, 0],
-                       [1, 15, 0],
-                       [0, 2, 0]])
-        self.assertTrue(np.array_equal(cm, am))
 
     def test_sexmachine_string2gender(self):
         s = DameSexmachine()
@@ -204,7 +208,7 @@ class TddInPythonExample(unittest.TestCase):
                                 2,  0,  0,  0,  0,  0, 0,  0,  0,  5,
                                 0,  0,  0,  0,  0,  2,  0,  0,  0, 34,
                                 1,  0, 1]])
-        a = np.array([0.6333333333333334])
+        a = np.array([0.65])
         self.assertEqual(predicted, a)
 
     def test_sexmachine_tree(self):
@@ -217,7 +221,7 @@ class TddInPythonExample(unittest.TestCase):
                                 2,  0,  0,  0,  0,  0, 0,  0,  0,  5,
                                 0,  0,  0,  0,  0,  2,  0,  0,  0, 34,
                                 1,  0, 1]])
-        a = np.array([1])
+        a = np.array([0])
         self.assertEqual(predicted, a)
 
     def test_sexmachine_sgd_model_exists(self):
@@ -255,7 +259,7 @@ class TddInPythonExample(unittest.TestCase):
                   0,  0,  5,  0,  0,  1,  0,  0,  1,
                   0,  0,  1, 34,  0,  0]]
         predicted = m.predict(array)
-        n = np.array([0, 0])
+        n = np.array([1, 1])
         self.assertTrue(np.array_equal(predicted, n))
 
     def test_sexmachine_bernoulliNB_load(self):
@@ -277,7 +281,7 @@ class TddInPythonExample(unittest.TestCase):
               2,  0,  0,  0,  0,  0, 0,  0,  0,  5,
               0,  0,  0,  0,  0,  2,  0,  0,  0, 34,
               1,  0, 1]])
-        n = np.array([1])
+        n = np.array([0])
         self.assertTrue(np.array_equal(predicted, n))
 
     def test_dame_gender_confusion_matrix_gender(self):

@@ -82,7 +82,10 @@ elif (args.api == "genderize"):
     d = DameGenderize()
     print("Genderize with %s has: " % args.csv)
     gl1 = d.gender_list(path=args.csv)
-    gl2 = d.guess_list(path=args.csv, binary=True)
+    if (os.path.isfile(args.jsondownloaded)):
+        gl2 = d.json2guess_list(jsonf=args.jsondownloaded, binary=True)
+    else:
+        gl2 = d.guess_list(path=args.csv, binary=True)
     ec = d.error_coded(gl1, gl2)
     print("+ The error code: %s" % ec)
     ecwa = d.error_coded_without_na(gl1, gl2)

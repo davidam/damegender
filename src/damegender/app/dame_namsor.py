@@ -30,16 +30,34 @@ from app.dame_utils import DameUtils
 from app.dame_gender import Gender
 
 
+
 class DameNamsor(Gender):
 
     def get(self, name, surname, binary=False):
         # obtaining data from namsor
-        string = 'https://api.namsor.com/onomastics/api/json/gender/'
-        string = string + name + '/' + surname
-        r = requests.get(string)
+        fichero = open("files/apikeys/namsorpass.txt", "r+")
+        contenido = fichero.readline().rstrip()
+        url = 'https://v2.namsor.com/NamSorAPIv2/api2/json/gender/'
+        url = url + name + '/' + surname
+        headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8', 'X-API-KEY': contenido}
+        r = requests.get(url, headers=headers)
         d = json.loads(r.text)
-        v = [d['gender'], d['scale']]
+        v = [d['likelyGender'], d['genderScale']]
         return v
+
+    def getGeo(self, name, surname, locale, binary=False):
+        du = DameUtils()
+        # obtaining data from namsor
+        fichero = open("files/apikeys/namsorpass.txt", "r+")
+        contenido = fichero.readline().rstrip()
+        url = 'https://v2.namsor.com/NamSorAPIv2/api2/json/genderGeo/'
+        url = url + name + '/' + surname + '/' + locale
+        headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8', 'X-API-KEY': contenido}
+        r = requests.get(url, headers=headers)
+        d = json.loads(r.text)
+        v = [d['likelyGender'], d['genderScale']]
+        return v
+
 
     def guess(self, name, surname, binary=False):
         # guess method to check names dictionary

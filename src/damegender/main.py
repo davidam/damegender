@@ -23,6 +23,7 @@
 
 from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
+from app.dame_utils import DameUtils
 import sys
 import os
 import re
@@ -31,11 +32,16 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
-parser.add_argument('--total', default="ine", choices=['ine', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser'])
+parser.add_argument('--total', default="ine", choices=['ine', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
 parser.add_argument('--version', action='version', version='0.1')
+parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
 
 results = []
+
+s = DameSexmachine()
+du = DameUtils()
+
 if (args.total == "genderguesser"):
         name = args.name.capitalize()
         cmd = 'grep -i "' + name + '" files/names/nam_dict.txt > files/logs/grep.tmp'
@@ -74,6 +80,43 @@ elif (args.total == "luciahelena"):
                 print("female")
         else:
                 print("this name was not classified as male or female")
+elif ((args.verbose) or (args.total == "all")):
+
+        num_males = s.name_frec(args.name, dataset="ine")['males']
+        num_females = s.name_frec(args.name, dataset="ine")['females']
+        print("%s males for %s from INE.es" % (num_males, args.name))
+        print("%s females for %s from INE.es" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="uy")['males']
+        num_females = s.name_frec(args.name, dataset="uy")['females']
+        print("%s males for %s from Uruguay census" % (num_males, args.name))
+        print("%s females for %s from Uruguay census" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="uk")['males']
+        num_females = s.name_frec(args.name, dataset="uk")['females']
+        print("%s males for %s from United Kingdom census" % (num_males, args.name))
+        print("%s females for %s from United Kingdom census" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="us")['males']
+        num_females = s.name_frec(args.name, dataset="us")['females']
+        print("%s males for %s from United States of America census" % (num_males, args.name))
+        print("%s females for %s from United States of America census" % (num_females, args.name))
+        guess = s.guess(args.name, binary=True, ml="nltk")
+        print("%s gender predicted with nltk is %s" % (str(args.name), du.int2gender(guess)))
+        guess = s.guess(args.name, binary=True, ml="sgd")
+        print("%s gender predicted with sgd is %s" % (str(args.name), du.int2gender(guess)))
+        guess = s.guess(args.name, binary=True, ml="svc")
+        print("%s gender predicted with svc is %s" % (str(args.name), du.int2gender(guess)))
+        guess = s.guess(args.name, binary=True, ml="gaussianNB")
+        print("%s gender predicted with gaussianNB is %s" % (str(args.name), du.int2gender(guess)))
+        guess = s.guess(args.name, binary=True, ml="multinomialNB")
+        print("%s gender predicted with multinomialNB is %s" % (str(args.name), du.int2gender(guess)))
+        guess = s.guess(args.name, binary=True, ml="bernoulliNB")
+        print("%s gender predicted with bernoulliNB is %s" % (str(args.name), du.int2gender(guess)))
+        guess = s.guess(args.name, binary=True, ml="forest")
+        print("%s gender predicted with forest is %s" % (str(args.name), du.int2gender(guess)))
+        guess = s.guess(args.name, binary=True, ml="tree")
+        print("%s gender predicted with tree is %s" % (str(args.name), du.int2gender(guess)))
+        guess = s.guess(args.name, binary=True, ml="mlp")
+        print("%s gender predicted with mlp is %s" % (str(args.name), du.int2gender(guess)))
+
 else:
     s = DameSexmachine()
     num_males = s.name_frec(args.name, dataset=args.total)['males']

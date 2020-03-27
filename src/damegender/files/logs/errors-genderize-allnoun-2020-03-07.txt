@@ -1,0 +1,6 @@
+python3 errors.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/genderizefiles_names_allnoundefined.csv.json --api=genderize
+Genderize with files/names/allnoundefined+header.csv has: 
++ The error code: 0.07267693372555806
++ The error code without na: 0.05334746511217099
++ The na coded: 0.02041875757051393
++ The error gender bias: -0.008125772831655184
