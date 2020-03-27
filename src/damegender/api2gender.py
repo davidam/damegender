@@ -31,10 +31,11 @@ from app.dame_all import DameAll
 from app.dame_utils import DameUtils
 import sys
 import argparse
+import requests
 parser = argparse.ArgumentParser()
 parser.add_argument('name',  help="Name to be detected")
 parser.add_argument('--surname', help="Surname to be detected")
-parser.add_argument("--api", choices=['namsor', 'genderize', 'genderguesser', 'genderapi', 'nameapi'], required=True)
+parser.add_argument("--api", choices=['namsor', 'genderize', 'genderguesser', 'genderapi', 'nameapi', 'wikidata'], required=True)
 #parser.add_argument('--prob', default="yes", choices=['yes', 'no'])
 parser.add_argument('--version', action='version', version='0.1')
 
@@ -78,6 +79,27 @@ if (len(sys.argv) > 1):
             print("confidence: " + str(dn.confidence(str(args.name), str(args.surname))))
         else:
             print("You must enable nameapi in config.cfg file")
+    elif (args.api == "wikidata"):
+        sparql_query = """
+        prefix schema: <http://schema.org/>
+        SELECT ?item ?occupation ?genderLabel ?bdayLabel
+        WHERE {
+            <https://en.wikipedia.org/wiki/"""+ args.name +"""> schema:about ?item .
+            ?item wdt:P106 ?occupation .
+            ?item wdt:P21 ?gender .
+            ?item wdt:P569 ?bday .
+            SERVICE wikibase:label { bd:serviceParam wikibase:language "en" }
+        }
+            """
+        url = 'https://query.wikidata.org/sparql'
+
+        r = requests.get(url, params={'format': 'json', 'query': sparql_query})
+
+        data = r.json()
+        print("Wikidata is giving this feature on an experimental way.")
+        print("You can check popular person names such as David, Juan_Carlos_I_of_Spain, Richard_Stallman, Linus_Torvalds and other popular names, but not all names is ok")
+        print(data['results']['bindings'][0]['genderLabel']['value'])
+
 
     # elif (args.api == "average"):
     #     da = DameAll()
