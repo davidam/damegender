@@ -1051,6 +1051,7 @@ Debes escribir primero los ficheros males.txt y females.txt de cada dataset
   - State "DONE"       from "TODO"       [2020-03-27 vie 05:57]
 * DONE Revisar logs de ML tras crear logs.sh
   - State "DONE"       from "TODO"       [2020-03-27 vie 05:57]
+* TODO Revisar logs
 + [X] bernoulli
 + [X] forest
 + [X] gaussian
@@ -1075,3 +1076,8 @@ Debes escribir primero los ficheros males.txt y females.txt de cada dataset
 + [ ] drop NA fields with """.."""
 + [ ] vsa10_2~2p.csv (males names, but she is female)
 + [ ] vsa11_1~2p.csv (females names and she is female)
+
+* FUTURE Morfología de idiomas
+Hay idiomas que los nombres tienen género para llegar a esto es posible revisar la morfología de un idioma:
++ https://en.wikipedia.org/wiki/Polish_morphology#Nouns
+
