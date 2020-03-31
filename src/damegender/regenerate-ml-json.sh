@@ -20,11 +20,54 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 # Boston, MA 02110-1301 USA,
 
+echo "------------------------------------------------------------------------------------------"
+echo "This process is so long. You can rest for hours"
+echo "------------------------------------------------------------------------------------------"
+
 python3 damegender2json.py --ml=sgd --csv=files/names/allnoundefined.csv --jsonoutput=files/names/allnoundefined.csv.sgd.json
+
+echo "------------------------------------------------------------------------------------------"
+echo "SGD ML model is created"
+echo "------------------------------------------------------------------------------------------"
+
 python3 damegender2json.py --ml=svc --csv=files/names/allnoundefined.csv --jsonoutput=files/names/allnoundefined.csv.svc.json
+
+echo "------------------------------------------------------------------------------------------"
+echo "SVC ML model is created"
+echo "------------------------------------------------------------------------------------------"
+
 python3 damegender2json.py --ml=nltk --csv=files/names/allnoundefined.csv --jsonoutput=files/names/allnoundefined.csv.nltk.json
+
+echo "------------------------------------------------------------------------------------------"
+echo "NLTK ML model is created"
+echo "------------------------------------------------------------------------------------------"
+
 python3 damegender2json.py --ml=gaussianNB --csv=files/names/allnoundefined.csv --jsonoutput=files/names/allnoundefined.csv.gaussianNB.json
+
+echo "------------------------------------------------------------------------------------------"
+echo "GAUSSIAN NAIVE BAYES ML model is created"
+echo "------------------------------------------------------------------------------------------"
+
 python3 damegender2json.py --ml=multinomialNB --csv=files/names/allnoundefined.csv --jsonoutput=files/names/allnoundefined.csv.multinomialNB.json
+
+echo "------------------------------------------------------------------------------------------"
+echo "MULTINOMIAL NAIVE BAYES ML model is created"
+echo "------------------------------------------------------------------------------------------"
+
 python3 damegender2json.py --ml=bernoulliNB --csv=files/names/allnoundefined.csv --jsonoutput=files/names/allnoundefined.csv.bernoulliNB.json
+
+echo "------------------------------------------------------------------------------------------"
+echo "BERNOULLI NAIVE BAYES ML model is created"
+echo "------------------------------------------------------------------------------------------"
+
 python3 damegender2json.py --ml=tree --csv=files/names/allnoundefined.csv --jsonoutput=files/names/allnoundefined.csv.tree.json
+
+echo "------------------------------------------------------------------------------------------"
+echo "TREE ML model is created"
+echo "------------------------------------------------------------------------------------------"
+
 python3 damegender2json.py --ml=mlp --csv=files/names/allnoundefined.csv --jsonoutput=files/names/allnoundefined.csv.mlp.json
+
+echo "------------------------------------------------------------------------------------------"
+echo "MULTILAYER PERCEPTRON ML model is created"
+echo "------------------------------------------------------------------------------------------"
