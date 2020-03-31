@@ -16,12 +16,20 @@ print(__doc__)
 # problem. Then, we train a support vector classifier on a training dataset.
 import matplotlib.pyplot as plt
 import numpy as np
-from sklearn.svm import SVC
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import plot_roc_curve
 from sklearn.datasets import load_wine
 from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
 from sklearn.linear_model import SGDClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive_bayes import BernoulliNB
+from sklearn.linear_model import SGDClassifier
+from sklearn.ensemble import RandomForestRegressor
+from sklearn import tree
+from sklearn.neural_network import MLPClassifier
+
+
 from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
 from app.dame_utils import DameUtils
@@ -61,6 +69,20 @@ elif (args.ml == "sgd"):
     clf = SGDClassifier(loss="log").fit(X_train, y_train)
     sgd_disp = plot_roc_curve(clf, X_test, y_test)
 
+elif (args.ml == "gaussianNB"):
+    # Create a Gaussian Classifier
+    model = GaussianNB()
+    # Train the model using the training sets
+    model.fit(X_train, y_train)
+    g_disp = plot_roc_curve(model, X_test, y_test)
+    
+elif (args.ml == "multinomialNB"):
+    # Create a Gaussian Classifier
+    model = MultinomialNB()
+    # Train the model using the training sets
+    model.fit(X_train, y_train)
+    g_disp = plot_roc_curve(model, X_test, y_test)
+    
     
 plt.show()
 
