@@ -21,11 +21,11 @@
 
 #### MLP ALGORITHM
 
-echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.mlp.json --measure=f1score --api=damegender > files/logs/accuracy-mlp-f1score-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-nltk-f1score-$(date "+%Y-%m-%d").txt
+echo "python3 confusion.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.mlp.json --api=damegender > files/logs/confusion-mlp-f1score-"$(date "+%Y-%m-%d")".txt " > files/logs/confusion-nltk-f1score-$(date "+%Y-%m-%d").txt
 
-python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.mlp.json --measure=f1score --api=damegender >> files/logs/accuracy-mlp-f1score-$(date "+%Y-%m-%d").txt
+python3 confusion.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.mlp.json --measure=f1score --api=damegender >> files/logs/confusion-mlp-f1score-$(date "+%Y-%m-%d").txt
 
-echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.mlp.json --measure=accuracy --api=damegender > files/logs/accuracy-mlp-accuracy-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-mlp-accuracy-$(date "+%Y-%m-%d").txt
+echo "python3 confusion.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.mlp.json --measure=accuracy --api=damegender > files/logs/accuracy-mlp-accuracy-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-mlp-accuracy-$(date "+%Y-%m-%d").txt
 
 python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.mlp.json --measure=accuracy --api=damegender >> files/logs/accuracy-mlp-accuracy-$(date "+%Y-%m-%d").txt
 
@@ -169,18 +169,18 @@ python3 accuracy.py --csv=files/names/allnoundefined.csv --jsondownloaded=files/
 
 #### FOREST ALGORITHM
 
-# echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=f1score --api=damegender > files/logs/accuracy-forest-f1score-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-forest-f1score-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=f1score --api=damegender > files/logs/accuracy-forest-f1score-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-forest-f1score-$(date "+%Y-%m-%d").txt
 
-# python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=f1score --api=damegender >> files/logs/accuracy-forest-f1score-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=f1score --api=damegender >> files/logs/accuracy-forest-f1score-$(date "+%Y-%m-%d").txt
 
-# echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=accuracy --api=damegender > files/logs/accuracy-forest-accuracy-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-forest-accuracy-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=accuracy --api=damegender > files/logs/accuracy-forest-accuracy-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-forest-accuracy-$(date "+%Y-%m-%d").txt
 
-# python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=accuracy --api=damegender >> files/logs/accuracy-forest-accuracy-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=accuracy --api=damegender >> files/logs/accuracy-forest-accuracy-$(date "+%Y-%m-%d").txt
 
-# echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=precision --api=damegender > files/logs/accuracy-forest-precision-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-forest-precision-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=precision --api=damegender > files/logs/accuracy-forest-precision-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-forest-precision-$(date "+%Y-%m-%d").txt
 
-# python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=precision --api=damegender >> files/logs/accuracy-forest-precision-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=precision --api=damegender >> files/logs/accuracy-forest-precision-$(date "+%Y-%m-%d").txt
 
-# echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=recall --api=damegender > files/logs/accuracy-forest-recall-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-forest-recall-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=recall --api=damegender > files/logs/accuracy-forest-recall-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-forest-recall-$(date "+%Y-%m-%d").txt
 
-# python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=recall --api=damegender >> files/logs/accuracy-forest-recall-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=recall --api=damegender >> files/logs/accuracy-forest-recall-$(date "+%Y-%m-%d").txt
