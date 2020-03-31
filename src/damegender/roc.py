@@ -21,7 +21,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import plot_roc_curve
 from sklearn.datasets import load_wine
 from sklearn.model_selection import train_test_split
-
+from sklearn.linear_model import SGDClassifier
 from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
 from app.dame_utils import DameUtils
@@ -47,7 +47,7 @@ if (args.ml == "svc"):
     svc = SVC(random_state=42)
     svc.fit(X_train, y_train)
     svc_disp = plot_roc_curve(svc, X_test, y_test)
-    plt.show()
+
 
 elif (args.ml == "forest"):
     rfc = RandomForestClassifier(n_estimators=10, random_state=42)
@@ -55,10 +55,16 @@ elif (args.ml == "forest"):
     ax = plt.gca()
     rfc_disp = plot_roc_curve(rfc, X_test, y_test, ax=ax, alpha=0.8)
     rfc_disp.plot(ax=ax, alpha=0.8)
-    plt.show()
+
     
+elif (args.ml == "sgd"):
+    clf = SGDClassifier(loss="log").fit(X_train, y_train)
+    sgd_disp = plot_roc_curve(clf, X_test, y_test)
 
+    
+plt.show()
 
+    
 ##############################################################################
 # Plotting the ROC Curve
 # ----------------------
