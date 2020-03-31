@@ -21,11 +21,11 @@
 
 #### MLP ALGORITHM
 
-echo "python3 confusion.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.mlp.json --api=damegender > files/logs/confusion-mlp-f1score-"$(date "+%Y-%m-%d")".txt " > files/logs/confusion-nltk-f1score-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.mlp.json --api=damegender > files/logs/accuracy-mlp-f1score-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-nltk-f1score-$(date "+%Y-%m-%d").txt
 
-python3 confusion.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.mlp.json --measure=f1score --api=damegender >> files/logs/confusion-mlp-f1score-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.mlp.json --measure=f1score --api=damegender >> files/logs/accuracy-mlp-f1score-$(date "+%Y-%m-%d").txt
 
-echo "python3 confusion.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.mlp.json --measure=accuracy --api=damegender > files/logs/accuracy-mlp-accuracy-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-mlp-accuracy-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.mlp.json --measure=accuracy --api=damegender > files/logs/accuracy-mlp-accuracy-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-mlp-accuracy-$(date "+%Y-%m-%d").txt
 
 python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.mlp.json --measure=accuracy --api=damegender >> files/logs/accuracy-mlp-accuracy-$(date "+%Y-%m-%d").txt
 
