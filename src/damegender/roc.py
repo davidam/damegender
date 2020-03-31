@@ -56,14 +56,12 @@ if (args.ml == "svc"):
     svc.fit(X_train, y_train)
     svc_disp = plot_roc_curve(svc, X_test, y_test)
 
-
 elif (args.ml == "forest"):
     rfc = RandomForestClassifier(n_estimators=10, random_state=42)
     rfc.fit(X_train, y_train)
     ax = plt.gca()
     rfc_disp = plot_roc_curve(rfc, X_test, y_test, ax=ax, alpha=0.8)
     rfc_disp.plot(ax=ax, alpha=0.8)
-
     
 elif (args.ml == "sgd"):
     clf = SGDClassifier(loss="log").fit(X_train, y_train)
@@ -95,7 +93,12 @@ elif (args.ml == "tree"):
     clf = tree.DecisionTreeClassifier()
     clf = clf.fit(X_train, y_train)
     disp = plot_roc_curve(clf, X_test, y_test)
-    
+
+elif (args.ml == "mlp"):
+    clf = MLPClassifier(solver='lbfgs', alpha=1e-5,
+                    hidden_layer_sizes=(5, 2), random_state=1)
+    clf.fit(X_test, y_test)
+    disp = plot_roc_curve(clf, X_test, y_test)
     
 plt.show()
 
