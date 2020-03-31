@@ -38,6 +38,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
+parser.add_argument('--noshow', dest='noshow', action='store_true')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
 
@@ -99,34 +100,12 @@ elif (args.ml == "mlp"):
                     hidden_layer_sizes=(5, 2), random_state=1)
     clf.fit(X_test, y_test)
     disp = plot_roc_curve(clf, X_test, y_test)
-    
-plt.show()
+
+if (args.noshow):    
+    plt.savefig('files/images/roc_'+ args.ml + '.png')
+else:
+    plt.savefig('files/images/roc_'+ args.ml + '.png')    
+    plt.show()
 
     
-##############################################################################
-# Plotting the ROC Curve
-# ----------------------
-# Next, we plot the ROC curve with a single call to
-# :func:`sklearn.metrics.plot_roc_curve`. The returned `svc_disp` object allows
-# us to continue using the already computed ROC curve for the SVC in future
-# plots.
-
-# svc_disp = plot_roc_curve(svc, X_test, y_test)
-# plt.show()
-
-
-# ##############################################################################
-# # Training a Random Forest and Plotting the ROC Curve
-# # --------------------------------------------------------
-# # We train a random forest classifier and create a plot comparing it to the SVC
-# # ROC curve. Notice how `svc_disp` uses
-# # :func:`~sklearn.metrics.RocCurveDisplay.plot` to plot the SVC ROC curve
-# # without recomputing the values of the roc curve itself. Furthermore, we
-# # pass `alpha=0.8` to the plot functions to adjust the alpha values of the
-# # curves.
-# rfc = RandomForestClassifier(n_estimators=10, random_state=42)
-# rfc.fit(X_train, y_train)
-# ax = plt.gca()
-# rfc_disp = plot_roc_curve(rfc, X_test, y_test, ax=ax, alpha=0.8)
-# svc_disp.plot(ax=ax, alpha=0.8)
-# plt.show()
+ 
