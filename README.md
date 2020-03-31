@@ -70,7 +70,7 @@
 
 # Logo<a id="sec-1" name="sec-1"></a>
 
-![img](src/damegender/files/images/gender.png)
+![img](src/damegender/files/images/CaravaggioDavidGoliathVienna.jpg)
 
 # Name<a id="sec-2" name="sec-2"></a>
 
