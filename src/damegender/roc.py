@@ -29,22 +29,34 @@ from app.dame_utils import DameUtils
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
-parser.add_argument('--version', action='version', version='0.1')
+parser.add_argument('ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
 
 
 ds = DameSexmachine()
 X = np.array(ds.features_list(path="files/names/allnoundefined.csv"))
-print(X)
 y = ds.gender_list(path="files/names/allnoundefined.csv")
-print(y)
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
-svc = SVC(random_state=42)
-svc.fit(X_train, y_train)
+if (args.verbose):
+    print(X)
+    print(y)
 
+if (args.ml == "svc"):
+    svc = SVC(random_state=42)
+    svc.fit(X_train, y_train)
+    svc_disp = plot_roc_curve(svc, X_test, y_test)
+    plt.show()
+
+elif (args.ml == "forest"):
+    rfc = RandomForestClassifier(n_estimators=10, random_state=42)
+    rfc.fit(X_train, y_train)
+    ax = plt.gca()
+    rfc_disp = plot_roc_curve(rfc, X_test, y_test, ax=ax, alpha=0.8)
+    rfc_disp.plot(ax=ax, alpha=0.8)
+    plt.show()
+    
 
 
 ##############################################################################
@@ -54,8 +66,9 @@ svc.fit(X_train, y_train)
 # :func:`sklearn.metrics.plot_roc_curve`. The returned `svc_disp` object allows
 # us to continue using the already computed ROC curve for the SVC in future
 # plots.
-svc_disp = plot_roc_curve(svc, X_test, y_test)
-plt.show()
+
+# svc_disp = plot_roc_curve(svc, X_test, y_test)
+# plt.show()
 
 
 # ##############################################################################
