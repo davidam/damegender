@@ -77,8 +77,15 @@ elif (args.ml == "gaussianNB"):
     g_disp = plot_roc_curve(model, X_test, y_test)
     
 elif (args.ml == "multinomialNB"):
-    # Create a Gaussian Classifier
+    # Create a Multinomial Classifier
     model = MultinomialNB()
+    # Train the model using the training sets
+    model.fit(X_train, y_train)
+    g_disp = plot_roc_curve(model, X_test, y_test)
+    
+elif (args.ml == "bernoulliNB"):
+    # Create a Bernoulli Classifier
+    model = BernoulliNB()
     # Train the model using the training sets
     model.fit(X_train, y_train)
     g_disp = plot_roc_curve(model, X_test, y_test)
