@@ -26,8 +26,13 @@ import os
 from app.dame_utils import DameUtils
 from os.path import expanduser
 
-
 class TddInPythonExample(unittest.TestCase):
+
+    def test_string2array(self):
+        du = DameUtils()
+        array = "muchos    espacios en blanco"
+        arr = du.string2array(array)
+        self.assertEqual(["muchos", "espacios", "en", "blanco"], arr)
 
     def test_is_not_blank(self):
         du = DameUtils()
