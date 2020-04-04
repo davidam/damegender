@@ -23,6 +23,8 @@
 
 from perceval.backends.core.mbox import MBox
 from perceval.backends.core.git import Git
+from app.dame_utils import DameUtils
+
 import re
 
 
@@ -71,11 +73,13 @@ class DamePerceval(object):
         # from a git repository related to the
         # users ordered by commit including
         # repeated users to allow count gender contributions.
+        du = DameUtils()
         repo = Git(uri=url, gitpath=directory)
         list_committers = []
-        for user in repo.fetch():
-            committer = self.removeMail(user['data']['Author'])
+        for r in repo.fetch():
+            committer = self.removeMail(r['data']['Author'])
             list_committers.append(committer)
+        list_committers = du.delete_duplicated(list_committers)
         return list_committers
 
     def list_mailers(self, url, directory="files/mbox"):
