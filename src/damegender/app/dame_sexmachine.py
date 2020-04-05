@@ -276,38 +276,7 @@ class DameSexmachine(Gender):
     #     return clf
 
 
-    def guess_surname(self, string, locale):
-        if (locale == "us"):
-            path = 'files/names/names_us/surnames.csv'
-            surname_position = 0
-            counter_position = 2
-        elif (locale == "es"):
-            path = 'files/names/names_es/apellidos_frecuencia.csv'
-            surname_position = 1
-            counter_position = 2
-        boolean = False
-        with open(path) as csvfile:
-            surnamereader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(surnamereader, None)
-            for row in surnamereader:
-                surname = row[surname_position]
-                if (surname.lower() == string.lower()):
-                    boolean = True
-                    counter = row[counter_position]
-        return [boolean, counter]
 
-    def string2gender(self, string):
-        # TODO: take care with trash strings before the name
-        du = DameUtils()
-        arr = du.string2array(string)
-        name = ""
-        i = 0
-        features_int = self.features_int(string)
-        while ((name == "") and (len(arr) > i)):
-            if (not(self.guess_surname(arr[i])) and (len(string) > 0)):
-                name = arr[i]
-            i = i + 1
-        return self.guess(name)
 
     def guess(self, name, binary=False, ml="nltk"):
         # guess method to check names dictionary and nltk classifier
