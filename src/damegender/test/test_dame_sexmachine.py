@@ -75,10 +75,6 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(s.guess("Nodiccionario", binary=True), 1)
         self.assertEqual(s.guess("Nadiccionaria", binary=True), 0)
 
-    def test_dame_sexmachine_guess_surname(self):
-        s = DameSexmachine()
-        self.assertTrue(s.guess_surname("Smith"))
-
     def test_dame_sexmachine_guess_list(self):
         ds = DameSexmachine()
         self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male',

@@ -259,8 +259,6 @@ class DameSexmachine(Gender):
         return clf
 
 
-
-
     # def xgboost(self):
     #     # Scikit xgboost classifier
     #     X = np.array(self.features_list(path="files/names/all.csv"))
@@ -278,18 +276,25 @@ class DameSexmachine(Gender):
     #     return clf
 
 
-    def guess_surname(self, string):
-        # A first version without ML
-        path = 'files/names/surnames.csv'
+    def guess_surname(self, string, locale):
+        if (locale == "us"):
+            path = 'files/names/names_us/surnames.csv'
+            surname_position = 0
+            counter_position = 2
+        elif (locale == "es"):
+            path = 'files/names/names_es/apellidos_frecuencia.csv'
+            surname_position = 1
+            counter_position = 2
         boolean = False
         with open(path) as csvfile:
             surnamereader = csv.reader(csvfile, delimiter=',', quotechar='|')
             next(surnamereader, None)
             for row in surnamereader:
-                surname = row[0]
+                surname = row[surname_position]
                 if (surname.lower() == string.lower()):
                     boolean = True
-        return boolean
+                    counter = row[counter_position]
+        return [boolean, counter]
 
     def string2gender(self, string):
         # TODO: take care with trash strings before the name
