@@ -21,12 +21,22 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+import unidecode
 import unicodedata
 import re
 import os
 import csv
 
 class DameUtils():
+    
+    def string2array(self, string):
+        res = ""
+        string = unidecode.unidecode(string)
+        if re.search(r' ', string):
+            res = re.sub(r' +', ' ', string)
+        array = res.split(' ')
+        return array
+
     def is_not_blank(self, s):
         return bool(s and s.strip())
 

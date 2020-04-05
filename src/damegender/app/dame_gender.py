@@ -484,6 +484,40 @@ class Gender(object):
                 guess = "unknown"
         return guess
 
+    def guess_surname(self, string, locale):
+        counter = 0
+        if (locale == "us"):
+            path = 'files/names/names_us/surnames.csv'
+            surname_position = 0
+            counter_position = 2
+        elif ((locale == "es") or (locale == "ine")):
+            path = 'files/names/names_es/apellidos_frecuencia.csv'
+            surname_position = 1
+            counter_position = 2
+        boolean = False
+        with open(path) as csvfile:
+            surnamereader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(surnamereader, None)
+            for row in surnamereader:
+                surname = row[surname_position]
+                if (surname.lower() == du.drop_accents(string.lower())):
+                    boolean = True
+                    counter = int(row[counter_position])
+        return [boolean, counter]
+
+    def string2gender(self, string):
+        # TODO: take care with trash strings before the name
+        du = DameUtils()
+        arr = du.string2array(string)
+        name = ""
+        i = 0
+        features_int = self.features_int(string)
+        while ((name == "") and (len(arr) > i)):
+            if (not(self.guess_surname(arr[i], locale="us")[0]) and (len(string) > 0)):
+                name = arr[i]
+            i = i + 1
+        return self.guess(name)
+
     def guess_list(self, path='files/names/partial.csv', binary=False, *args, **kwargs):
         # guess list method
         header = kwargs.get('header', True)

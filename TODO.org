@@ -1025,8 +1025,7 @@ Now the next datasets available from main.py in damegender
 ** TODO para cada nombre sumamos todos los males de los diferentes datasets y todos los females y escribimos en fichero
 ** TODO descartamos nombres donde la suma de hombres y mujeres sea menor de 1000 para evitar el problema de apodos en censos
 ** TODO comprobamos el accuracy y el confusion tomando como base a lucía y helena
-* DONE Reescribir males_list atendiendo a corpus
-  - State "DONE"       from "TODO"       [2020-03-27 vie 01:50]
+* TODO Reescribir males_list atendiendo a corpus
 Debes escribir primero los ficheros males.txt y females.txt de cada dataset
     def males_list(self, corpus='es'):
         ine_path = 'files/names/names_es'
@@ -1048,11 +1047,27 @@ Debes escribir primero los ficheros males.txt y females.txt de cada dataset
         #     m = uk_corpus.sents('ukmales.txt')[1] + us_corpus.sents('usmales.txt')[1] + ine_corpus.sents('masculinos.txt')[1]
         #m = list(OrderedDict.fromkeys(m))
         return m
+* DONE Crear script bash de logs.sh
+  - State "DONE"       from "TODO"       [2020-03-27 vie 05:57]
+* DONE Revisar logs de ML tras crear logs.sh
+  - State "DONE"       from "TODO"       [2020-03-27 vie 05:57]
+* TODO Revisar logs
++ [X] bernoulli
++ [X] forest
++ [X] gaussian
++ [X] mlp
++ [X] multinomial
++ [X] nltk
++ [X] sgd
++ [X] svc
++ [X] tree
 * TODO vsa
 ** VSA10 (males names)
++ https://data.gov.ie/dataset/boys-names-registered-in-ireland-by-name-year-and-statistic
 + [ ] vsa10_1~2p.csv (males names and he is male)
 + [ ] vsa10_2~2p.csv (males names, but she is female)
 ** VSA11 (females names)
++ https://data.gov.ie/dataset/girls-names-registered-in-ireland-by-name-year-and-statistic
 + [ ] vsa11_1~2p.csv (females names and she is female)
 + [ ] vsa11_2~2p.csv (females names, but he is male)
 ** TODO malesbyyears.csv
@@ -1063,3 +1078,34 @@ Debes escribir primero los ficheros males.txt y females.txt de cada dataset
 + [ ] drop NA fields with """.."""
 + [ ] vsa10_2~2p.csv (males names, but she is female)
 + [ ] vsa11_1~2p.csv (females names and she is female)
+
+* TODO Crear un script readme2md.sh
+  SCHEDULED: <2020-04-03 vie>
+* FUTURE Morfología de idiomas
+Hay idiomas que los nombres tienen género para llegar a esto es posible revisar la morfología de un idioma:
++ https://en.wikipedia.org/wiki/Polish_morphology#Nouns
+
+* TODO Tener en cuenta que hay más clasificadores
+** TODO https://scikit-learn.org/stable/modules/ensemble.html#gradient-tree-boosting
++ [ ] DecisionTree
++ [ ] RandomForest
++ [ ] ExtraTrees
++ [ ] AdaBoost
++ [ ] GradientBoostingClassifier
++ [ ] GradientBoostingRegressor
++ [ ] KNeighborsClassifier
+* TODO Escribir delete_similar_in_list
+    # def delete_similar_in_list(self, l, degree):
+    #     if (len(l) == 0):
+    #         return l
+    #     else:
+    #         rest = []
+    #         for i in l:
+    #             if (self.sentence_similarity(i, l[0]) > degree):
+    #                 rest = rest + [i]
+    #     return [l[0]] + self.delete_similar_in_list(rest, degree)
+
+  # def test_delete_similar_in_list(self):
+  #     dn = DameNLTK()
+  #     degree = 0.7
+  #     self.assertTrue(dn.delete_similar_in_list(["This is a good sentence".split(), "This is a bad sentence".split()], degree))

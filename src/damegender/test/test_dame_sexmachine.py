@@ -38,12 +38,6 @@ from app.dame_sexmachine import DameSexmachine
 
 class TddInPythonExample(unittest.TestCase):
 
-    def test_string2array(self):
-        array = "muchos    espacios en blanco"
-        s = DameSexmachine()
-        arr = s.string2array(array)
-        self.assertEqual(["muchos", "espacios", "en", "blanco"], arr)
-
     def test_sexmachine_features(self):
         s = DameSexmachine()
         f = s.features("David")
@@ -81,23 +75,19 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(s.guess("Nodiccionario", binary=True), 1)
         self.assertEqual(s.guess("Nadiccionaria", binary=True), 0)
 
-    def test_dame_sexmachine_guess_surname(self):
-        s = DameSexmachine()
-        self.assertTrue(s.guess_surname("Smith"))
-
     def test_dame_sexmachine_guess_list(self):
         ds = DameSexmachine()
-        self.assertEqual(['male', 'male', 'male', 'male', 'female', 'male',
+        self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male',
                           'female', 'female', 'male', 'male', 'male',
                           'male', 'male', 'male', 'male', 'male', 'male',
                           'male', 'female', 'male', 'male'],
                          ds.guess_list(path="files/names/partial.csv",
                                        binary=False))
-        self.assertEqual([1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1,
+        self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1,
                           1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
                          ds.guess_list(path="files/names/partial.csv",
                                        binary=True))
-        self.assertEqual([1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1,
+        self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1,
                           1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
                          ds.guess_list(path="files/names/partial.csv",
                                        binary=True,
@@ -157,13 +147,13 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_guess_list(self):
         ds = DameSexmachine()
-        self.assertEqual(['male', 'male', 'male', 'male', 'female', 'male',
+        self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male',
                           'female', 'female', 'male', 'male', 'male',
                           'male', 'male', 'male', 'male', 'male',
                           'male', 'male', 'female', 'male', 'male'],
                          ds.guess_list(path="files/names/partial.csv",
                                        binary=False))
-        self.assertEqual([1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1,
+        self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1,
                           1, 1, 1, 1, 1, 1, 0, 1, 1],
                          ds.guess_list(path="files/names/partial.csv",
                                        binary=True,
@@ -171,7 +161,7 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_sexmachine_classifier(self):
         s = DameSexmachine()
-        classifier = s.classifier()
+        classifier = s.classifier(locale="us")
         n = s.features("David")
         guess = classifier.classify(n)
         self.assertTrue(1, n)
@@ -189,14 +179,6 @@ class TddInPythonExample(unittest.TestCase):
     def test_sexmachine_accuracy(self):
         s = DameSexmachine()
         self.assertTrue(s.accuracy(path="files/names/partial.csv") > 0.5)
-
-
-    def test_sexmachine_string2gender(self):
-        s = DameSexmachine()
-        gender1 = s.string2gender("Arroyo Menéndez, David")
-        gender2 = s.string2gender("xxxxx Laura")
-        self.assertTrue(gender1, 'male')
-        self.assertTrue(gender2, 'female')
 
     def test_sexmachine_forest(self):
         self.assertTrue(os.path.isfile("files/datamodels/forest_model.sav"))

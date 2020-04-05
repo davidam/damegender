@@ -29,9 +29,9 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_perceval_numcommits_method_returns_correct_result(self):
         gg = DamePerceval()
-        n = gg.numCommits("https://github.com/davidam/damegender.git",
+        n = gg.numCommits("https://github.com/davidam/davidam.git",
                           "/tmp/clonedir")
-        self.assertTrue(1000 > n)
+        self.assertTrue(50 < n)
 
     def test_dame_perceval_removeMail_method_returns_correct_result(self):
         gg = DamePerceval()
@@ -50,10 +50,10 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_perceval_list_committers_method_returns_correct_result(self):
         gg = DamePerceval()
-        self.assertTrue(
+        self.assertEqual(
             len(gg.list_committers(
-                "https://github.com/davidam/damegender.git",
-                "/tmp/clonedir")) < 100)
+                "https://github.com/davidam/davidam.git",
+                "/tmp/clonedir")), 3)
 
     def test_dame_perceval_list_mailers_method_returns_correct_result(self):
         gg = DamePerceval()

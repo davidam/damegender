@@ -46,6 +46,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 import pickle
 from app.dame_gender import Gender
+from app.dame_utils import DameUtils
 
 
 class DameSexmachine(Gender):
@@ -94,15 +95,17 @@ class DameSexmachine(Gender):
             features_int["last_letter_a"] = 0
         return features_int
 
-    def classifier(self):
+    def classifier(self, locale='us'):
         # NLTK bayesian classifier
 
         labeled_names = []
-        for name in names.words('male.txt'):
+#        for name in names.words('male.txt'):
+        for name in self.males_list(locale):
             elem = [(name, 'male')]
             labeled_names = labeled_names + elem
 
-        for name in names.words('female.txt'):
+#        for name in names.words('female.txt'):
+        for name in self.females_list(locale):
             elem = [(name, 'female')]
             labeled_names = labeled_names + elem
 
@@ -256,8 +259,6 @@ class DameSexmachine(Gender):
         return clf
 
 
-
-
     # def xgboost(self):
     #     # Scikit xgboost classifier
     #     X = np.array(self.features_list(path="files/names/all.csv"))
@@ -274,38 +275,8 @@ class DameSexmachine(Gender):
     #     pkl_file.close()
     #     return clf
 
-    def string2array(self, string):
-        res = ""
-        string = unidecode.unidecode(string)
-        if re.search(r' ', string):
-            res = re.sub(r' +', ' ', string)
-        array = res.split(' ')
-        return array
 
-    def guess_surname(self, string):
-        # A first version without ML
-        path = 'files/names/surnames.csv'
-        boolean = False
-        with open(path) as csvfile:
-            surnamereader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(surnamereader, None)
-            for row in surnamereader:
-                surname = row[0]
-                if (surname.lower() == string.lower()):
-                    boolean = True
-        return boolean
 
-    def string2gender(self, string):
-        # TODO: take care with trash strings before the name
-        arr = self.string2array(string)
-        name = ""
-        i = 0
-        features_int = self.features_int(string)
-        while ((name == "") and (len(arr) > i)):
-            if (not(self.guess_surname(arr[i])) and (len(string) > 0)):
-                name = arr[i]
-            i = i + 1
-        return self.guess(name)
 
     def guess(self, name, binary=False, ml="nltk"):
         # guess method to check names dictionary and nltk classifier

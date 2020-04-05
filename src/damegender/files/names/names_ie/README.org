@@ -1,0 +1,6 @@
+Dataset retrieved from:
++ https://data.gov.ie/dataset/girls-names-registered-in-ireland-by-name-year-and-statistic
++ https://data.gov.ie/dataset/boys-names-registered-in-ireland-by-name-year-and-statistic
+
+License:
+https://creativecommons.org/licenses/by/4.0/

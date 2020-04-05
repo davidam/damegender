@@ -1,0 +1,6 @@
+Retrieved from: 
++ https://catalogodatos.gub.uy/dataset/intendencia-montevideo-partidas-de-registro-civil-de-montevideo
+
+License: Licencia de Datos Abiertos de Uruguay
++ https://www.gub.uy/agencia-gobierno-electronico-sociedad-informacion-conocimiento/sites/agencia-gobierno-electronico-sociedad-informacion-conocimiento/files/documentos/publicaciones/licencia_de_datos_abiertos_0.pd
+
