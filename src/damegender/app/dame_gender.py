@@ -484,6 +484,27 @@ class Gender(object):
                 guess = "unknown"
         return guess
 
+    def guess_surname(self, string, locale):
+        if (locale == "us"):
+            path = 'files/names/names_us/surnames.csv'
+            surname_position = 0
+            counter_position = 2
+        elif (locale == "es"):
+            path = 'files/names/names_es/apellidos_frecuencia.csv'
+            surname_position = 1
+            counter_position = 2
+        boolean = False
+        with open(path) as csvfile:
+            surnamereader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(surnamereader, None)
+            for row in surnamereader:
+                surname = row[surname_position]
+                if (surname.lower() == string.lower()):
+                    boolean = True
+                    counter = int(row[counter_position])
+        return [boolean, counter]
+
+
     def guess_list(self, path='files/names/partial.csv', binary=False, *args, **kwargs):
         # guess list method
         header = kwargs.get('header', True)
