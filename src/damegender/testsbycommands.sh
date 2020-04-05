@@ -422,6 +422,16 @@ else
 	echo "maindavidverbose test is ok"
 fi
 
+python3 surname.py Gil --total=es > files/tests/surnamegil-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/surnamegil.txt files/tests/surnamegil-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "surnamegil test is failing"
+else
+	echo "surnamegil test is ok"
+fi
+
+
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
 
