@@ -180,14 +180,6 @@ class TddInPythonExample(unittest.TestCase):
         s = DameSexmachine()
         self.assertTrue(s.accuracy(path="files/names/partial.csv") > 0.5)
 
-
-    def test_sexmachine_string2gender(self):
-        s = DameSexmachine()
-        gender1 = s.string2gender("Arroyo Menéndez, David")
-        gender2 = s.string2gender("xxxxx Laura")
-        self.assertTrue(gender1, 'male')
-        self.assertTrue(gender2, 'female')
-
     def test_sexmachine_forest(self):
         self.assertTrue(os.path.isfile("files/datamodels/forest_model.sav"))
 
