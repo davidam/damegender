@@ -490,7 +490,7 @@ class Gender(object):
             path = 'files/names/names_us/surnames.csv'
             surname_position = 0
             counter_position = 2
-        elif (locale == "es"):
+        elif ((locale == "es") or (locale == "ine")):
             path = 'files/names/names_es/apellidos_frecuencia.csv'
             surname_position = 1
             counter_position = 2
