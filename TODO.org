@@ -1094,3 +1094,18 @@ Hay idiomas que los nombres tienen género para llegar a esto es posible revisar
 + [ ] GradientBoostingClassifier
 + [ ] GradientBoostingRegressor
 + [ ] KNeighborsClassifier
+* TODO Escribir delete_similar_in_list
+    # def delete_similar_in_list(self, l, degree):
+    #     if (len(l) == 0):
+    #         return l
+    #     else:
+    #         rest = []
+    #         for i in l:
+    #             if (self.sentence_similarity(i, l[0]) > degree):
+    #                 rest = rest + [i]
+    #     return [l[0]] + self.delete_similar_in_list(rest, degree)
+
+  # def test_delete_similar_in_list(self):
+  #     dn = DameNLTK()
+  #     degree = 0.7
+  #     self.assertTrue(dn.delete_similar_in_list(["This is a good sentence".split(), "This is a bad sentence".split()], degree))
