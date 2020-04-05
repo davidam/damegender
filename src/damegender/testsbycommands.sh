@@ -431,6 +431,16 @@ else
 	echo "surnamegil test is ok"
 fi
 
+python3 surname.py López --total=us > files/tests/surnamelopezus-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/surnamelopez.txt files/tests/surnamelopezus-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "surnamelopez test is failing"
+else
+	echo "surnamelopez test is ok"
+fi
+
+
 
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
