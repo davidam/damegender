@@ -1063,9 +1063,11 @@ Debes escribir primero los ficheros males.txt y females.txt de cada dataset
 + [X] tree
 * TODO vsa
 ** VSA10 (males names)
++ https://data.gov.ie/dataset/boys-names-registered-in-ireland-by-name-year-and-statistic
 + [ ] vsa10_1~2p.csv (males names and he is male)
 + [ ] vsa10_2~2p.csv (males names, but she is female)
 ** VSA11 (females names)
++ https://data.gov.ie/dataset/girls-names-registered-in-ireland-by-name-year-and-statistic
 + [ ] vsa11_1~2p.csv (females names and she is female)
 + [ ] vsa11_2~2p.csv (females names, but he is male)
 ** TODO malesbyyears.csv
@@ -1077,7 +1079,18 @@ Debes escribir primero los ficheros males.txt y females.txt de cada dataset
 + [ ] vsa10_2~2p.csv (males names, but she is female)
 + [ ] vsa11_1~2p.csv (females names and she is female)
 
+* TODO Crear un script readme2md.sh
+  SCHEDULED: <2020-04-03 vie>
 * FUTURE Morfología de idiomas
 Hay idiomas que los nombres tienen género para llegar a esto es posible revisar la morfología de un idioma:
 + https://en.wikipedia.org/wiki/Polish_morphology#Nouns
 
+* TODO Tener en cuenta que hay más clasificadores
+** TODO https://scikit-learn.org/stable/modules/ensemble.html#gradient-tree-boosting
++ [ ] DecisionTree
++ [ ] RandomForest
++ [ ] ExtraTrees
++ [ ] AdaBoost
++ [ ] GradientBoostingClassifier
++ [ ] GradientBoostingRegressor
++ [ ] KNeighborsClassifier
