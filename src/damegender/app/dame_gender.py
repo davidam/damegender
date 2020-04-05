@@ -500,7 +500,7 @@ class Gender(object):
             next(surnamereader, None)
             for row in surnamereader:
                 surname = row[surname_position]
-                if (surname.lower() == string.lower()):
+                if (surname.lower() == du.drop_accents(string.lower())):
                     boolean = True
                     counter = int(row[counter_position])
         return [boolean, counter]
