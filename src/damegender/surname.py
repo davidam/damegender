@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2018  David Arroyo Menéndez
+# Copyright (C) 2020  David Arroyo Menéndez
 
 # Author: David Arroyo Menéndez <davidam@gnu.org>
 # Maintainer: David Arroyo Menéndez <davidam@gnu.org>
@@ -29,7 +29,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("surname", help="display the gender")
-parser.add_argument('--total', default="ine", choices=['ine', 'es', 'us'])
+parser.add_argument('--total', required=True, default="ine", choices=['ine', 'es', 'us'])
 parser.add_argument('--version', action='version', version='0.1')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
