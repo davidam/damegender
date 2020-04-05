@@ -1,3 +1,26 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# Copyright (C) 2020  David Arroyo Menéndez
+
+# Author: David Arroyo Menéndez <davidam@gnu.org>
+# Maintainer: David Arroyo Menéndez <davidam@gnu.org>
+
+# This file is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3, or (at your option)
+# any later version.
+
+# This file is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with Damegender; see the file LICENSE.  If not, write to
+# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+# Boston, MA 02110-1301 USA,
+
 """
 ================================
 ROC Curve with Visualization API
@@ -63,7 +86,7 @@ elif (args.ml == "forest"):
     ax = plt.gca()
     rfc_disp = plot_roc_curve(rfc, X_test, y_test, ax=ax, alpha=0.8)
     rfc_disp.plot(ax=ax, alpha=0.8)
-    
+
 elif (args.ml == "sgd"):
     clf = SGDClassifier(loss="log").fit(X_train, y_train)
     sgd_disp = plot_roc_curve(clf, X_test, y_test)
@@ -74,14 +97,14 @@ elif (args.ml == "gaussianNB"):
     # Train the model using the training sets
     model.fit(X_train, y_train)
     disp = plot_roc_curve(model, X_test, y_test)
-    
+
 elif (args.ml == "multinomialNB"):
     # Create a Multinomial Classifier
     model = MultinomialNB()
     # Train the model using the training sets
     model.fit(X_train, y_train)
     disp = plot_roc_curve(model, X_test, y_test)
-    
+
 elif (args.ml == "bernoulliNB"):
     # Create a Bernoulli Classifier
     model = BernoulliNB()
@@ -101,11 +124,8 @@ elif (args.ml == "mlp"):
     clf.fit(X_test, y_test)
     disp = plot_roc_curve(clf, X_test, y_test)
 
-if (args.noshow):    
+if (args.noshow):
     plt.savefig('files/images/roc_'+ args.ml + '.png')
 else:
-    plt.savefig('files/images/roc_'+ args.ml + '.png')    
+    plt.savefig('files/images/roc_'+ args.ml + '.png')
     plt.show()
-
-    
- 
