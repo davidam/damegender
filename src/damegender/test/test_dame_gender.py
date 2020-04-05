@@ -140,6 +140,14 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(g.guess_surname("Smith", "us"), [True, 2376206])
         self.assertEqual(g.guess_surname("Serrano", "es"), [True, 131829])
 
+    def test_dame_gender_string2gender(self):
+        g = Gender()
+        gender1 = g.string2gender("Arroyo Menéndez, David")
+        gender2 = g.string2gender("xxxxx Laura")
+        self.assertTrue(gender1, 'male')
+        self.assertTrue(gender2, 'female')
+
+
     def test_dame_gender_csv2names(self):
         g = Gender()
         names = g.csv2names(path='files/names/partial.csv')

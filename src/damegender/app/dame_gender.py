@@ -485,6 +485,7 @@ class Gender(object):
         return guess
 
     def guess_surname(self, string, locale):
+        counter = 0
         if (locale == "us"):
             path = 'files/names/names_us/surnames.csv'
             surname_position = 0
@@ -504,6 +505,18 @@ class Gender(object):
                     counter = int(row[counter_position])
         return [boolean, counter]
 
+    def string2gender(self, string):
+        # TODO: take care with trash strings before the name
+        du = DameUtils()
+        arr = du.string2array(string)
+        name = ""
+        i = 0
+        features_int = self.features_int(string)
+        while ((name == "") and (len(arr) > i)):
+            if (not(self.guess_surname(arr[i], locale="us")[0]) and (len(string) > 0)):
+                name = arr[i]
+            i = i + 1
+        return self.guess(name)
 
     def guess_list(self, path='files/names/partial.csv', binary=False, *args, **kwargs):
         # guess list method
