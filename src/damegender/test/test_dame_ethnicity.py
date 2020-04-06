@@ -34,3 +34,8 @@ class TddInPythonExample(unittest.TestCase):
         surname = "Smith".upper()
         dicc = de.surname2ethnicity(surname)
         self.assertEqual(dicc["white"], "73.35")
+        self.assertEqual(dicc["black"], "22.22")
+        self.assertEqual(dicc["api"], "0.40")
+        self.assertEqual(dicc["aian"], "0.85")
+        self.assertEqual(dicc["doublerace"], "1.63")
+        self.assertEqual(dicc["hispanic"], "1.56")
