@@ -433,7 +433,7 @@ fi
 
 python3 surname.py López --total=us > files/tests/surnamelopezus-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/surnamelopez.txt files/tests/surnamelopezus-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+if ! cmp files/tests/surnamelopezus.txt files/tests/surnamelopezus-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "surnamelopez test is failing"
 else
