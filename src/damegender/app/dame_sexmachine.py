@@ -34,6 +34,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.linear_model import SGDClassifier
+from sklearn.ensemble import AdaBoostClassifier
 from sklearn.ensemble import RandomForestRegressor
 from sklearn import tree
 from sklearn.neural_network import MLPClassifier
@@ -119,6 +120,21 @@ class DameSexmachine(Gender):
 
     def classifier_load(self):
         pkl_file = open('files/datamodels/nltk_model.sav', 'rb')
+        clf = pickle.load(pkl_file)
+        pkl_file.close()
+        return clf
+
+    def adaboost(self):
+        X = np.array(self.features_list(path="files/names/all.csv"))
+        y = self.gender_list(path="files/names/all.csv")
+        clf = AdaBoostClassifier(n_estimators=100)
+        clf.fit(X, y)
+        filename = 'files/datamodels/adaboost_model.sav'
+        pickle.dump(clf, open(filename, 'wb'))
+        return clf
+
+    def adaboost_load(self):
+        pkl_file = open('files/datamodels/adaboost_model.sav', 'rb')
         clf = pickle.load(pkl_file)
         pkl_file.close()
         return clf
