@@ -440,6 +440,15 @@ else
 	echo "surnamelopez test is ok"
 fi
 
+python3 ethnicity.py Walls > files/tests/ethnicitywalls-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/ethnicitywalls.txt files/tests/ethnicitywalls-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "ethnicitywalls test is failing"
+else
+	echo "ethnicitywalls test is ok"
+fi
+
 
 
 echo "cleaning temporary files"
