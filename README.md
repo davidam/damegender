@@ -295,6 +295,23 @@ To configure your api key
     # Experiments to determine features with weight (not finished)
     $ python3 pca-components.py --csv="files/features_list.csv" # To determine number of components
     $ python3 pca-features.py                                   # To understand the weight between variables for a target
+    
+    # Counting surnames
+    $ python3 surname.py Gil --total=es
+    There are 140004 people using Gil in Spain
+    
+    $ python3 surname.py Lenon --total=us
+    There are 837 people using Lenon in United States of America
+    
+    # Measuring Ethnicity of surnames
+    $ python3 ethnicity.py Smith
+    In United States of America the percentages about the race of Smith surname is:
+    White: 73.35
+    Black: 22.22
+    Hispanic: 1.56
+    Asian Pacific Indian American: 0.40
+    American Indian and Alaska Native: 0.85
+    Various races: 1.63
 
 # Benchmarking<a id="sec-8" name="sec-8"></a>
 
@@ -657,6 +674,10 @@ Helena Mihaljevic dataset as base of truth.
 <td class="right">0.819</td>
 <td class="right">0.755</td>
 <td class="right">1.0</td>
+</tr>
+
+<tbody>
+<tr>
 </tr>
 </tbody>
 </table>
