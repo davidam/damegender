@@ -39,3 +39,5 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(dicc["aian"], "0.85")
         self.assertEqual(dicc["doublerace"], "1.63")
         self.assertEqual(dicc["hispanic"], "1.56")
+        dicc2 = de.surname2ethnicity("JAURENA")
+        self.assertFalse(dicc2)

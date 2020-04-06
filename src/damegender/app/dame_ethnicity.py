@@ -40,7 +40,7 @@ class DameEthnicity(object):
             doublerace = ""
             h = ""
             for row in surnamereader:
-                print(row)
+#                print(row)
                 if (row[0] == surname):
                     # white
                     w = row[5]
@@ -55,7 +55,11 @@ class DameEthnicity(object):
                     # hispanic
                     h = row[10]
         dicc = {"white": w, "black": b, "api": api, "aian": aian, "doublerace": doublerace, "hispanic": h}
-        return dicc
+        if (dicc == {"white": "", "black": "", "api": "", "aian": "", "doublerace": "", "hispanic": ""}):
+            res = False
+        else:
+            res = dicc
+        return res
 
 # de = DameEthnicity()
 # dicc = de.surname2ethnicity("Smith")
