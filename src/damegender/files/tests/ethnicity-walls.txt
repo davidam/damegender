@@ -1,0 +1,8 @@
+files/names/names_us/surnames.csv
+In United States of America the percentages about the race of Walls surname is: 
+White: 70.97
+Black: 25.00
+Hispanic: 1.43
+Asian Pacific Indian American: 0.28
+American Indian and Alaska Native: 0.66
+Various races: 1.65
