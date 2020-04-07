@@ -1,0 +1,7 @@
+python3 confusion.py --csv=files/names/allnoundefined.csv --jsondownloaded=files/names/allnoundefined.csv.adaboost.json --reverse --api=damegender > files/logs/confusion-adaboost-2020-04-07.txt 
+A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are true positives
+Damegender confusion matrix:
+
+[[ 1417, 65, 486 ]
+ [ 147, 2617, 1046 ]]
