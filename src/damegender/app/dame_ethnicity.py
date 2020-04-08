@@ -27,18 +27,14 @@ from app.dame_utils import DameUtils
 class DameEthnicity(object):
 
     def surname2ethnicity(self, surname):
+        du = DameUtils()
+        surname = du.drop_accents(surname).upper()
         path = 'files/names/names_us/surnames.csv'
-        print(path)
         boolean = False
         with open(path) as csvfile:
             surnamereader = csv.reader(csvfile, delimiter=',', quotechar='|')
             next(surnamereader, None)
-            w = ""
-            b = ""
-            api = ""
-            aian = ""
-            doublerace = ""
-            h = ""
+            w, b, api, aian, doublerace, h = ("",)*6
             for row in surnamereader:
 #                print(row)
                 if (row[0] == surname):
