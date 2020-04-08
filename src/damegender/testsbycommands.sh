@@ -308,7 +308,7 @@ else
 	echo "confusion test is ok"
 fi
 
-python3 confusion.py --csv="files/names/min.csv" --ml="nltk" --api=damegender --jsondownloaded=files/names/min.csv.json > files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt
+python3 confusion.py --csv="files/names/min.csv" --api=damegender --jsondownloaded=files/names/min.csv.json > files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/confusionnltk.txt files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "confusion nltk test is failing"
