@@ -89,5 +89,27 @@ class DameEthnicity(object):
         elif (locale == 'dz'):
             self.locale_match(surname=surname, path='files/inesurnames/apellidos-argelia.xls.csv', locale="dz")
             l.append('dz')
+        elif (locale == 'ar'):
+            self.locale_match(surname=surname, path='files/inesurnames/apellidos-argentina.xls.csv', locale="ar")
+            l.append('ar')
+        elif (locale == 'am'):
+            self.locale_match(surname=surname, path='files/inesurnames/apellidos-armenia.xls.csv', locale="am")
+            l.append('am')
+        elif (locale == 'au'):
+            self.locale_match(surname=surname, path='files/inesurnames/apellidos-austria.xls.csv', locale="au")
+            l.append('au')
+        elif (locale == 'az'):
+            self.locale_match(surname=surname, path='files/inesurnames/apellidos-azerbaiyan.xls.csv', locale="az")
+            l.append('az')
+        elif (locale == 'bd'):
+            self.locale_match(surname=surname, path='files/inesurnames/apellidos-bangladesh.xls.csv', locale="bd")
+            l.append('bd')
+        elif (locale == 'by'):
+            self.locale_match(surname=surname, path='files/inesurnames/apellidos-belarus.xls.csv', locale="by")
+            l.append('by')
+        elif (locale == 'be'):
+            self.locale_match(surname=surname, path='files/inesurnames/apellidos-belgica.xls.csv', locale="be")
+            l.append('be')
+
 
         return l
