@@ -69,3 +69,25 @@ class DameEthnicity(object):
                     if (surname in row[1]):
                         string = locale
         return string
+
+    def inesurname2ethnicity(self, surname, locale):
+        du = DameUtils()
+        surname = du.drop_accents(surname).upper()
+        l = []
+        if (locale == 'af'):
+            self.locale_match(surname=surname, path='files/inesurnames/apellidos-afganistan.xls.csv', locale="af")
+            l.append('af')
+        elif (locale == 'al'):
+            self.locale_match(surname=surname, path='files/inesurnames/apellidos-albania.xls.csv', locale="al")
+            l.append('al')
+        elif (locale == 'de'):
+            self.locale_match(surname=surname, path='files/inesurnames/apellidos-alemania.xls.csv', locale="de")
+            l.append('de')
+        elif (locale == 'ad'):
+            self.locale_match(surname=surname, path='files/inesurnames/apellidos-andorra.xls.csv', locale="ad")
+            l.append('ad')
+        elif (locale == 'dz'):
+            self.locale_match(surname=surname, path='files/inesurnames/apellidos-argelia.xls.csv', locale="dz")
+            l.append('dz')
+
+        return l
