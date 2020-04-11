@@ -57,5 +57,15 @@ class DameEthnicity(object):
             res = dicc
         return res
 
-# de = DameEthnicity()
-# dicc = de.surname2ethnicity("Smith")
+    def locale_match(self, surname, path, locale):
+        du = DameUtils()
+        surname = du.drop_accents(surname).upper()
+        string = ""
+        with open(path) as csvfile:
+            freader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(freader, None)
+            for row in freader:
+                if ((len(row)) == 11):
+                    if (surname in row[1]):
+                        string = locale
+        return string

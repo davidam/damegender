@@ -41,3 +41,12 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(dicc["hispanic"], "1.56")
         dicc2 = de.surname2ethnicity("JAURENA")
         self.assertFalse(dicc2)
+
+
+    def test_dame_ethnicity_inesurname2ethnicity(self):
+        de = DameEthnicity()
+        self.assertEqual(de.inesurname2ethnicity(surname="KHAN", locale="af"), ["af"])
+
+    def test_dame_locale_match(self):
+        de = DameEthnicity()
+        self.assertEqual(de.locale_match(surname="KHAN", path='files/inesurnames/apellidos-afganistan.xls.csv', locale="af"), "af")
