@@ -98,6 +98,19 @@ class DameEthnicity(object):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-belarus.xls.csv', locale="by"))
         if ((locale == 'be') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-belgica.xls.csv', locale="be"))
-
+        if ((locale == 'be') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-belice.xls.csv', locale="be"))
+        if ((locale == 'bj') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-benin.xls.csv', locale="bj"))
+        if ((locale == 'bo') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-bolivia.xls.csv', locale="bo"))
+        if ((locale == 'br') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-brasil.xls.csv', locale="br"))
+        if ((locale == 'bg') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-bulgaria.xls.csv', locale="bg"))
+        if ((locale == 'bf') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-burkina.xls.csv', locale="bf"))
+        if ((locale == 'bf') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-cabo-verde.xls.csv', locale="bf"))
 
         return l
