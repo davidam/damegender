@@ -130,6 +130,8 @@ class TddInPythonExample(unittest.TestCase):
             ['H. Peter Anvin',
              'Ram Yalamanchili',
              'Ferenc Wagner'])
+        l1 = ['', '', 'de', '', '', 'ar', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'ca', 'cl', '', '', '']
+        self.assertEqual(du.clean_list(l1), ['de', 'ar', 'ca', 'cl'])
 
     def test_dame_utils_files_one_level(self):
         du = DameUtils()
