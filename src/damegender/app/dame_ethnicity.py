@@ -74,42 +74,30 @@ class DameEthnicity(object):
         du = DameUtils()
         surname = du.drop_accents(surname).upper()
         l = []
-        if (locale == 'af'):
-            self.locale_match(surname=surname, path='files/inesurnames/apellidos-afganistan.xls.csv', locale="af")
-            l.append('af')
-        elif (locale == 'al'):
-            self.locale_match(surname=surname, path='files/inesurnames/apellidos-albania.xls.csv', locale="al")
-            l.append('al')
-        elif (locale == 'de'):
-            self.locale_match(surname=surname, path='files/inesurnames/apellidos-alemania.xls.csv', locale="de")
-            l.append('de')
-        elif (locale == 'ad'):
-            self.locale_match(surname=surname, path='files/inesurnames/apellidos-andorra.xls.csv', locale="ad")
-            l.append('ad')
-        elif (locale == 'dz'):
-            self.locale_match(surname=surname, path='files/inesurnames/apellidos-argelia.xls.csv', locale="dz")
-            l.append('dz')
-        elif (locale == 'ar'):
-            self.locale_match(surname=surname, path='files/inesurnames/apellidos-argentina.xls.csv', locale="ar")
-            l.append('ar')
-        elif (locale == 'am'):
-            self.locale_match(surname=surname, path='files/inesurnames/apellidos-armenia.xls.csv', locale="am")
-            l.append('am')
-        elif (locale == 'au'):
-            self.locale_match(surname=surname, path='files/inesurnames/apellidos-austria.xls.csv', locale="au")
-            l.append('au')
-        elif (locale == 'az'):
-            self.locale_match(surname=surname, path='files/inesurnames/apellidos-azerbaiyan.xls.csv', locale="az")
-            l.append('az')
-        elif (locale == 'bd'):
-            self.locale_match(surname=surname, path='files/inesurnames/apellidos-bangladesh.xls.csv', locale="bd")
-            l.append('bd')
-        elif (locale == 'by'):
-            self.locale_match(surname=surname, path='files/inesurnames/apellidos-belarus.xls.csv', locale="by")
-            l.append('by')
-        elif (locale == 'be'):
-            self.locale_match(surname=surname, path='files/inesurnames/apellidos-belgica.xls.csv', locale="be")
-            l.append('be')
+        if ((locale == 'af') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-afganistan.xls.csv', locale="af"))
+        if ((locale == 'al') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-albania.xls.csv', locale="al"))
+        if ((locale == 'de') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-alemania.xls.csv', locale="de"))
+        if ((locale == 'ad') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-andorra.xls.csv', locale="ad"))
+        if ((locale == 'dz') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-argelia.xls.csv', locale="dz"))
+        if ((locale == 'ar') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-argentina.xls.csv', locale="ar"))
+        if ((locale == 'am') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-armenia.xls.csv', locale="am"))
+        if ((locale == 'au') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-austria.xls.csv', locale="au"))
+        if ((locale == 'az') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-azerbaiyan.xls.csv', locale="az"))
+        if ((locale == 'bd') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-bangladesh.xls.csv', locale="bd"))
+        if ((locale == 'by') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-belarus.xls.csv', locale="by"))
+        if ((locale == 'be') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-belgica.xls.csv', locale="be"))
 
 
         return l
