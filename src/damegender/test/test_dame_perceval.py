@@ -68,3 +68,12 @@ class TddInPythonExample(unittest.TestCase):
                 gg.list_mailers(
                     'http://mail-archives.apache.org/mod_mbox/httpd-announce/')
             ) >= 0)
+
+    def test_dame_perceval_list_committers_method_returns_correct_result(self):
+        dp = DamePerceval()
+        l = dp.list_committers(
+                "https://github.com/davidam/davidam.git",
+                "/tmp/clonedir")
+        arr = dp.count_gender_in_list(l)
+        self.assertEqual(int(arr[0]), 0)
+        self.assertEqual(int(arr[1]), 3)

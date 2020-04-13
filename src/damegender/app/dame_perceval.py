@@ -24,6 +24,7 @@
 from perceval.backends.core.mbox import MBox
 from perceval.backends.core.git import Git
 from app.dame_utils import DameUtils
+from app.dame_gender import Gender
 
 import re
 
@@ -89,3 +90,14 @@ class DamePerceval(object):
         for message in repo.fetch():
             list_mailers.append(message['data']['From'])
         return list_mailers
+
+    def count_gender_in_list(self, l):
+        g = Gender()
+        males = 0
+        females = 0
+        for elem in l:
+            if (int(g.name_frec(str(elem.upper()), 'us')['females']) > int(g.name_frec(str(elem.upper()), 'us')['males'] )):
+                females = females + 1
+            else:
+                males = males + 1
+        return [females, males]
