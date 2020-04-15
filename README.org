@@ -725,6 +725,10 @@ first_letter_vocal is for females.
 
 file:src/damegender/files/images/violet-snake3.png
 
+* Dame Music
+
+[[https://www.youtube.com/playlist?list=PLeobXV-Yyn-LvQydcnr46ZkGh1V6tDGEk][Listen music ...]]
+
 * License
 Copyright (C) 2019 David Arroyo Menendez
     Permission is granted to copy, distribute and/or modify this document
