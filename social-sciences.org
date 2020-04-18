@@ -1,11 +1,10 @@
-#+TITLE: Ciencias Sociales para Damegender
+#+TITLE: Aplicación de Herramientas de Detección de Género a partir del nombre a Ciencias Sociales
 #+h3: David Arroyo Menéndez 
 #+LANGUAGE: es
 #+AUTHOR: David Arroyo Menéndez 
 #+EMAIL: davidam@gnu.org
 #+DATE: 18/04/2020
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/org.css" />
-
 
 * Resumen
 Un estudio sociológico se compone de alguna pregunta de investigación,
@@ -43,6 +42,164 @@ herramientas comerciales tanto para hacer comparativas como para
 utilizarlas desde Damegender. También aporta una solución de
 predicción de nombres basada en algoritmos de Machine Learning de la
 librería Python Scikit. 
+
+* Marco Teórico
+** Interseccionalidad (copia)
+
+La interseccionalidad es un enfoque que subraya que el género, la
+etnia, la clase u orientación sexual, como otras categorías sociales,
+lejos de ser “naturales” o “biológicas”, son construidas y están
+interrelacionadas.1​ Es el estudio de las identidades sociales
+solapadas o intersecadas y sus respectivos sistemas de opresión,
+dominación o discriminación. La teoría sugiere y examina cómo varias
+categorías biológicas, sociales y culturales como el género, la etnia,
+la clase, la discapacidad, la orientación sexual, la religión, la
+casta, la edad, la nacionalidad y otros ejes de identidad
+interaccionan en múltiples y a menudo simultáneos niveles. La teoría
+propone que se debe pensar en cada elemento o rasgo de una persona
+como unido de manera inextricable con todos los demás elementos, para
+poder comprender de forma completa la propia identidad.2​ Este marco
+puede usarse para comprender cómo ocurre la injusticia sistemática y
+la desigualdad social desde una base multidimensional.3​ El término fue
+introducido formalmente en las ciencias sociales por la jurista
+afroamericana Kimberlé Crenshaw en 1989 y permite ver la interacción e
+intersección de los distintos sistemas de opresión y sus consecuencias
+para los derechos humanos de las mujeres.4​
+
+*** TODO Reescribir
+
+** Interculturalidad (copia)
+
+La interculturalidad se puede definir como el proceso de comunicación
+e interacción entre personas y grupos con identidades culturales
+específicas, donde no se permite que las ideas y acciones de una
+persona o grupo cultural esté por encima del otro, favoreciendo en
+todo momento el diálogo, la concertación y, con ello, la integración y
+convivencia enriquecida entre culturas.
+
+Sin embargo, su significado es polisémico y se ha interpretado desde
+varias miradas, en especial en las políticas lingüísticas de México,
+que si bien transformaron la visión en la educación indígena, no han
+logrado integrar de una manera consistente a los estudiantes indígenas
+en el proceso educativo. Este problema ha sido trabajado de manera
+transdiciplinar como autores como Rebeca Barriga Villanueva, María
+Bertely, Yolanda Jiménez Naranjo, y Bruno Baronnet.
+
+Las relaciones interculturales se emplean en el respeto a la
+diversidad y el enriquecimiento mutuo; sin embargo, no es un proceso
+exento de conflictos. Estos pueden resolverse mediante el proceso del
+respeto, la generación de contextos de horizontalidad para la
+comunicación, el diálogo, la escucha mutua, el acceso equitativo y
+oportuno a la información pertinente, la búsqueda de la concertación y
+la sinergia.
+
+La interculturalidad no se refiere tan solo a la interacción que
+ocurre a nivel geográfico sino más bien, en cada una de las
+situaciones en las que se presentan diferencias. Hay que tener en
+cuenta que la interculturalidad depende de múltiples factores, como
+las distintas concepciones de cultura, los obstáculos comunicativos,
+la carencia de políticas estatales, las jerarquías sociales y las
+diferencias económicas. Además de acuerdo a la perspectiva con la que
+sea observada puede entenderse de una u otra forma. Por ejemplo, si se
+analiza el concepto desde la ética podemos descubrir que la forma en
+la que se involucra en el enraizamiento de los valores sociales es a
+través de la promoción del respeto de la diversidad, donde cada
+persona tiene derecho a ser como desea y el mismo paradigma vale para
+los colectivos. La ética intenta inculcar valores afines para
+construir sociedades democráticas, integradas y donde la armonía sea
+protagonista de la interacción social.
+
+*** TODO Reescribir y añadir citas del grupo Inter
+
+** Feminismo (copia)
+
+El feminismo es un conjunto heterogéneo1​ de movimientos políticos,
+culturales, económicos y sociales que tiene como objetivo la búsqueda
+de la igualdad de derechos entre hombres y mujeres,2​3​4​5​ y eliminar la
+dominación y violencia de los varones sobre las mujeres6​ además de una
+teoría social y política.7​
+
+La influencia del feminismo ha conseguido cambios en ámbitos como el
+derecho a la educación, el voto de la mujer, el derecho al trabajo, la
+igualdad ante la ley o los derechos reproductivos, entre muchos
+otros.8​9​ En su vertiente intelectual, la teoría feminista también ha
+influenciado a la teoría crítica, dando lugar a los estudios de
+género,10​ así como a subdisciplinas de estudios de las ciencias
+sociales.11​
+
+El ecofeminismo es la corriente del feminismo que integra la temática
+ecologista. Pero también examina la relación entre género, raza,
+clase, naturaleza, alimentación (vegetariana), especies y
+colonialismo. El término es creado por la ecofeminista francesa
+Françoise d'Eaubonne en 1974 y se desarrolla sobre todo en Estados
+Unidos en el último tercio del siglo XX. Existen una diversidad de
+subcorrientes en el ámbito sociocultural, político y activista.
+
+Así el ecofeminismo, examina de una manera integradora los problemas
+de opresión contra la mujer en coherencia con la teoría
+interseccional.
+
+El contaje de hombres y mujeres no tiene que ser necesariamente a
+favor de uno u otro género, cada persona lo usaría con una
+intención. Lo normal es que las mujeres lo usen a favor de las
+mujeres, pero el machismo puede estar en ambos géneros y el feminismo
+también. Generalmente, abaratar el precio del contaje de hombres y
+mujeres, hace que, por ejemplo, amas de casa, o mujeres obreras puedan
+hacer esas cuentas, facilita el contaje a las personas que tienen el
+problema y el que sea Software Libre aumenta los derechos de la
+usuaria.
+
+*** TODO Reescribir 
+
+
+** Ecofeminismo (copia)
+
+
+*** TODO Reescribir
+
+** Software Libre 
+
+El Software Libre es un concepto acuñado por Richard Stallman que de
+manera resumida otorga 4 libertades a sus usuarios: libertad de uso,
+libertad de copia, libertad de modificar el software y libertad de
+redistribuir el software.
+
+Dentro de quienes construyen Software Libre hay dos posturas fuertes
+en la Industria del Software, quienes lo desarrollan por motivaciones
+éticas y quienes lo desarrollan por motivaciones económicas,
+generalmente empresariales. Quienes lo desarrollan por motivaciones
+éticas suelen estar vinculados a GNU, pero no siempre este es el caso
+de proyectos como Debian, o la Wikipedia. Quienes lo desarrollan por
+motivaciones económicas generalmente prefieren llamar a concepto Open
+Source y guardan la definición y los acuerdos sociales para aceptar o
+no licencias a través de la Open Source Initiative. Las posturas
+feministas se trabajan a través grupos específicos en estas
+comunidades y no de una manera de licencias de software, debido a los
+principios de no discriminación, incluye la no discriminación
+positiva, tantas veces usada en el feminismo.
+
+** Cultura Libre 
+
+Tras el éxito del movimiento del Software Libre, un abogado de Harvard
+(Lawrence Lessig) crea un conjunto de licencias (Creative Commons) que
+con sus diferencias todas ellas estarían de acuerdo con las ideas de
+libertad copia. Estas licencias se aplican en documentos, vídeos,
+música, etc. El concepto de Open Data que manejan los estados para dar
+datasets con licencias de libre copia viene de esas ideas.
+
+** Antirreformismo 
+
+Las asambleas obreras con praxis de sin liberados, ni subvenciones, ni
+representates sindicales, generan unos principios de evitar corrupción
+a través de la estructura, si bien la corrupción de asambleas puede
+darse a través de personas. El antirreformismo puede encontrarse en
+asambleas obreras con objetivos comunistas, anarquistas, o incluso
+podrían ser socialdemócratas, pero los problemas de seguridad de
+corrupción en la estructura es el mismo.
+
+Evitar la corrupción en la estructura mejora la seguridad de las
+personas en el entorno de afectivo de la asamblea.
+
 
 * Herramientas sobre las que aplicar Herramientas de Detección de Género a partir del Nombre
 
@@ -106,7 +263,6 @@ Twitter. Esta herramienta por su amplia difusión hay un número de
 personas suficiente para generar población suficiente para muestreos
 en Internet, por lo que determinar sexo y acercarse estadísticamente a
 la pertenencia a cultura, raza, o nacionalidad.
-
 
 * Aportaciones de las Herramientas de Detección de Género a partir del nombre a diferentes fases de un estudio sociológico
 
