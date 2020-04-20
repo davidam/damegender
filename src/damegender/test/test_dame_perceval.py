@@ -77,3 +77,12 @@ class TddInPythonExample(unittest.TestCase):
         arr = dp.count_gender_in_list(l)
         self.assertEqual(int(arr[0]), 0)
         self.assertEqual(int(arr[1]), 3)
+
+    def test_dame_perceval_github_json_user_method_returns_correct_result(self):
+        dp = DamePerceval()
+        j = dp.get_github_json_user("davidam")
+        self.assertEqual(j["id"], 1023217)
+        self.assertEqual(j["blog"], "http://www.davidam.com")
+        self.assertEqual(j["html_url"], "https://github.com/davidam")
+        self.assertEqual(j["avatar_url"], "https://avatars2.githubusercontent.com/u/1023217?v=4")
+        

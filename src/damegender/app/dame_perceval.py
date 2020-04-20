@@ -21,6 +21,8 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+import requests
+import json
 from perceval.backends.core.mbox import MBox
 from perceval.backends.core.git import Git
 from app.dame_utils import DameUtils
@@ -101,3 +103,12 @@ class DamePerceval(object):
             else:
                 males = males + 1
         return [females, males]
+
+    def get_github_json_user(self, nick):
+        string = 'https://api.github.com/users/'
+        string = string + nick
+        r = requests.get(string)
+        d = json.loads(r.text)
+        return d
+        
+    
