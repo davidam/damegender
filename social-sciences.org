@@ -44,31 +44,7 @@ predicción de nombres basada en algoritmos de Machine Learning de la
 librería Python Scikit. 
 
 * Marco Teórico
-** Interseccionalidad (copia)
-
-La interseccionalidad es un enfoque que subraya que el género, la
-etnia, la clase u orientación sexual, como otras categorías sociales,
-lejos de ser “naturales” o “biológicas”, son construidas y están
-interrelacionadas.1​ Es el estudio de las identidades sociales
-solapadas o intersecadas y sus respectivos sistemas de opresión,
-dominación o discriminación. La teoría sugiere y examina cómo varias
-categorías biológicas, sociales y culturales como el género, la etnia,
-la clase, la discapacidad, la orientación sexual, la religión, la
-casta, la edad, la nacionalidad y otros ejes de identidad
-interaccionan en múltiples y a menudo simultáneos niveles. La teoría
-propone que se debe pensar en cada elemento o rasgo de una persona
-como unido de manera inextricable con todos los demás elementos, para
-poder comprender de forma completa la propia identidad.2​ Este marco
-puede usarse para comprender cómo ocurre la injusticia sistemática y
-la desigualdad social desde una base multidimensional.3​ El término fue
-introducido formalmente en las ciencias sociales por la jurista
-afroamericana Kimberlé Crenshaw en 1989 y permite ver la interacción e
-intersección de los distintos sistemas de opresión y sus consecuencias
-para los derechos humanos de las mujeres.4​
-
-*** TODO Reescribir
-
-** Interculturalidad (copia)
+** Interculturalidad 
 
 La interculturalidad se puede definir como el proceso de comunicación
 e interacción entre personas y grupos con identidades culturales
@@ -109,23 +85,103 @@ los colectivos. La ética intenta inculcar valores afines para
 construir sociedades democráticas, integradas y donde la armonía sea
 protagonista de la interacción social.
 
-*** TODO Reescribir y añadir citas del grupo Inter
+*** CITAS
 
-** Feminismo (copia)
+@article{walsh2010interculturalidad,
+  title={Interculturalidad cr{\'\i}tica y educaci{\'o}n intercultural},
+  author={Walsh, Catherine},
+  journal={Construyendo interculturalidad cr{\'\i}tica},
+  volume={75},
+  pages={96},
+  year={2010}
+}
 
-El feminismo es un conjunto heterogéneo1​ de movimientos políticos,
+@book{grimson2001interculturalidad,
+  title={Interculturalidad y comunicaci{\'o}n},
+  author={Grimson, Alejandro},
+  volume={7},
+  year={2001},
+  publisher={Editorial Norma}
+}
+
+@book{breilh2003epidemiologia,
+  title={Epidemiolog{\'\i}a cr{\'\i}tica: ciencia emancipadora e interculturalidad},
+  author={Breilh, Jaime},
+  volume={17},
+  year={2003},
+  publisher={Lugar Editorial Buenos Aires}
+}
+
+@article{odina1991educacion,
+  title={La educaci{\'o}n intercultural: concepto, paradigmas, realizaciones},
+  author={Odina, M{\textordfeminine} Teresa Aguado and Mar{\'\i}a, T},
+  journal={Lecturas de pedagog{\'\i}a diferencial. Dykinson, Madrid},
+  year={1991}
+}
+
+@article{odina2004investigacion,
+  title={Investigaci{\'o}n en educaci{\'o}n intercultural},
+  author={Odina, Teresa Aguado},
+  journal={Educatio siglo XXI},
+  volume={22},
+  pages={39--57},
+  year={2004}
+}
+
+@article{aguado2008enfoque,
+  title={El enfoque intercultural en la formaci{\'o}n del profesorado: Dilemas y propuestas.(the intercultural approach to teacher training: Dilemmas and proposals)},
+  author={Aguado, Teresa and Gil-Jaurena, In{\'e}s and Mata-Benito, Patricia},
+  journal={Revista complutense de educaci{\'o}n},
+  volume={19},
+  number={2},
+  pages={275--292},
+  year={2008}
+}
+
+** Feminismo 
+
+El feminismo es un conjunto heterogéneo de movimientos políticos,
 culturales, económicos y sociales que tiene como objetivo la búsqueda
-de la igualdad de derechos entre hombres y mujeres,2​3​4​5​ y eliminar la
-dominación y violencia de los varones sobre las mujeres6​ además de una
-teoría social y política.7​
+de la igualdad de derechos entre hombres y mujeres,​ y eliminar la
+dominación y violencia de los varones sobre las mujeres​ además de una
+teoría social y política.
 
 La influencia del feminismo ha conseguido cambios en ámbitos como el
 derecho a la educación, el voto de la mujer, el derecho al trabajo, la
 igualdad ante la ley o los derechos reproductivos, entre muchos
-otros.8​9​ En su vertiente intelectual, la teoría feminista también ha
+otros.​ En su vertiente intelectual, la teoría feminista también ha
 influenciado a la teoría crítica, dando lugar a los estudios de
-género,10​ así como a subdisciplinas de estudios de las ciencias
-sociales.11​
+género,​ así como a subdisciplinas de estudios de las ciencias
+sociales.
+
+El contaje de hombres y mujeres no tiene que ser necesariamente a
+favor de uno u otro género, cada persona lo usaría con una
+intención. Lo normal es que las mujeres lo usen a favor de las
+mujeres, pero el machismo puede estar en ambos géneros y el feminismo
+también. Generalmente, abaratar el precio del contaje de hombres y
+mujeres, hace que, por ejemplo, amas de casa, o mujeres obreras puedan
+hacer esas cuentas, facilita el contaje a las personas que tienen el
+problema y el que sea Software Libre aumenta los derechos de la
+usuaria.
+
+*** TODO Citas
+
+@book{moore1991antropologia,
+  title={Antropolog{\'\i}a y feminismo},
+  author={Moore, Henrietta L},
+  volume={3},
+  year={1991},
+  publisher={Universitat de Val{\`e}ncia}
+}
+
+@book{harding1997ciencia,
+  title={Ciencia y feminismo},
+  author={Harding, Sandra},
+  year={1997},
+  publisher={Ediciones Morata}
+}
+
+** Ecofeminismo
 
 El ecofeminismo es la corriente del feminismo que integra la temática
 ecologista. Pero también examina la relación entre género, raza,
@@ -139,23 +195,125 @@ Así el ecofeminismo, examina de una manera integradora los problemas
 de opresión contra la mujer en coherencia con la teoría
 interseccional.
 
-El contaje de hombres y mujeres no tiene que ser necesariamente a
-favor de uno u otro género, cada persona lo usaría con una
-intención. Lo normal es que las mujeres lo usen a favor de las
-mujeres, pero el machismo puede estar en ambos géneros y el feminismo
-también. Generalmente, abaratar el precio del contaje de hombres y
-mujeres, hace que, por ejemplo, amas de casa, o mujeres obreras puedan
-hacer esas cuentas, facilita el contaje a las personas que tienen el
-problema y el que sea Software Libre aumenta los derechos de la
-usuaria.
+*** CITAS
 
-*** TODO Reescribir 
+@book{shiva2014ecofeminism,
+  title={Ecofeminism},
+  author={Shiva, Vandana and Mies, Maria},
+  year={2014},
+  publisher={Zed Books Ltd.}
+}
+
+@book{warren1997ecofeminism,
+  title={Ecofeminism: Women, culture, nature},
+  author={Warren, Karen J and Warren, Karen and Erkal, Nisvan},
+  year={1997},
+  publisher={Indiana University Press}
+}
+
+@book{salleh2017ecofeminism,
+  title={Ecofeminism as politics: Nature, Marx and the postmodern},
+  author={Salleh, Ariel},
+  year={2017},
+  publisher={Zed Books Ltd.}
+}
+
+@article{spretnak1990ecofeminism,
+  title={Ecofeminism: Our roots and flowering},
+  author={Spretnak, Charlene},
+  journal={Reweaving the world: The emergence of ecofeminism},
+  pages={3--14},
+  year={1990}
+}
+
+@article{gaard2011ecofeminism,
+  title={Ecofeminism revisited: Rejecting essentialism and re-placing species in a material feminist environmentalism},
+  author={Gaard, Greta},
+  journal={Feminist Formations},
+  volume={23},
+  number={2},
+  pages={26--53},
+  year={2011},
+  publisher={Johns Hopkins University Press}
+}
 
 
-** Ecofeminismo (copia)
+** Interseccionalidad
 
+La interseccionalidad es una teoría dentro del feminismo que lo estudia
+sobre todo desde las variables de raza, género y clase social.
+La interseccionalidad es un enfoque que subraya que el género, la
+etnia, la clase u orientación sexual, como otras categorías sociales,
+lejos de ser “naturales” o “biológicas”, son construidas y están
+interrelacionadas.​ Es el estudio de las identidades sociales
+solapadas o intersecadas y sus respectivos sistemas de opresión,
+dominación o discriminación. La teoría sugiere y examina cómo varias
+categorías biológicas, sociales y culturales como el género, la etnia,
+la clase, la discapacidad, la orientación sexual, la religión, la
+casta, la edad, la nacionalidad y otros ejes de identidad
+interaccionan en múltiples y a menudo simultáneos niveles. La teoría
+propone que se debe pensar en cada elemento o rasgo de una persona
+como unido de manera inextricable con todos los demás elementos, para
+poder comprender de forma completa la propia identidad.​ Este marco
+puede usarse para comprender cómo ocurre la injusticia sistemática y
+la desigualdad social desde una base multidimensional. El término fue
+introducido formalmente en las ciencias sociales por la jurista
+afroamericana Kimberlé Crenshaw en 1989 y permite ver la interacción e
+intersección de los distintos sistemas de opresión y sus consecuencias
+para los derechos humanos de las mujeres.​
 
-*** TODO Reescribir
+*** TODO Citas
+
+@article{vigoya2016interseccionalidad,
+  title={La interseccionalidad: una aproximaci{\'o}n situada a la dominaci{\'o}n},
+  author={Vigoya, Mara Viveros},
+  journal={Debate feminista},
+  volume={52},
+  pages={1--17},
+  year={2016},
+  publisher={Elsevier}
+}
+
+@incollection{mccall2008complexity,
+  title={The complexity of intersectionality},
+  author={McCall, Leslie},
+  booktitle={Intersectionality and beyond},
+  pages={65--92},
+  year={2008},
+  publisher={Routledge-Cavendish}
+}
+
+@article{shields2008gender,
+  title={Gender: An intersectionality perspective},
+  author={Shields, Stephanie A},
+  journal={Sex roles},
+  volume={59},
+  number={5-6},
+  pages={301--311},
+  year={2008},
+  publisher={Springer}
+}
+
+@article{yuval2006intersectionality,
+  title={Intersectionality and feminist politics},
+  author={Yuval-Davis, Nira},
+  journal={European journal of women's studies},
+  volume={13},
+  number={3},
+  pages={193--209},
+  year={2006},
+  publisher={Sage Publications London, Thousand Oaks and New Delhi}
+}
+
+*** TODO Reescribir y añadir citas del grupo Inter
+
+@misc{aguado2009intercultural,
+  title={Intercultural education: Perspectives and proposals},
+  author={Aguado, T and Del Olmo, M},
+  year={2009},
+  publisher={Madrid: Proyecto ALFA. Retrieved from http://www.uned.es/grupointer~…}
+}
+
 
 ** Software Libre 
 
@@ -178,6 +336,15 @@ comunidades y no de una manera de licencias de software, debido a los
 principios de no discriminación, incluye la no discriminación
 positiva, tantas veces usada en el feminismo.
 
+*** TODO Citar
+
+@book{stallman2002free,
+  title={Free software, free society: Selected essays of Richard M. Stallman},
+  author={Stallman, Richard},
+  year={2002},
+  publisher={Lulu. com}
+}
+
 ** Cultura Libre 
 
 Tras el éxito del movimiento del Software Libre, un abogado de Harvard
@@ -186,6 +353,15 @@ con sus diferencias todas ellas estarían de acuerdo con las ideas de
 libertad copia. Estas licencias se aplican en documentos, vídeos,
 música, etc. El concepto de Open Data que manejan los estados para dar
 datasets con licencias de libre copia viene de esas ideas.
+
+*** TODO Citar
+
+@book{lessig2004free,
+  title={Free culture},
+  author={Lessig, Lawrence},
+  year={2004},
+  publisher={翔泳社}
+}
 
 ** Antirreformismo 
 
@@ -200,10 +376,9 @@ corrupción en la estructura es el mismo.
 Evitar la corrupción en la estructura mejora la seguridad de las
 personas en el entorno de afectivo de la asamblea.
 
-
 * Herramientas sobre las que aplicar Herramientas de Detección de Género a partir del Nombre
 
-** Git support
+** Repositorios software
 
 Hay muchas comunidades de compartición de código fuente algunas con
 bastantes usuarios son Github, Gitlab, Savannah, ... En un momento en
@@ -341,3 +516,44 @@ herramientas de detección de género a partir del nombre. Esta
 capacidad de hacer inferencia nos permite revisar los pasos de un
 estudio sociológico y pensar cómo hacer mejor cada fase teniendo en
 cuenta esta innovación tecnológica.
+
+* Referencias
+
++ https://www.gnu.org/philosophy/free-sw.html
+
+@book{stallman2002free,
+  title={Free software, free society: Selected essays of Richard M. Stallman},
+  author={Stallman, Richard},
+  year={2002},
+  publisher={Lulu. com}
+}
+
+@book{lessig2004free,
+  title={Free culture},
+  author={Lessig, Lawrence},
+  year={2004},
+  publisher={翔泳社}
+}
+
+@book{moore1991antropologia,
+  title={Antropolog{\'\i}a y feminismo},
+  author={Moore, Henrietta L},
+  volume={3},
+  year={1991},
+  publisher={Universitat de Val{\`e}ncia}
+}
+
+@book{harding1997ciencia,
+  title={Ciencia y feminismo},
+  author={Harding, Sandra},
+  year={1997},
+  publisher={Ediciones Morata}
+}
+
+@book{amoros1997tiempo,
+  title={Tiempo de feminismo: sobre feminismo, proyecto ilustrado y postomodernidad [ie postmodernidad]},
+  author={Amor{\'o}s, Celia},
+  volume={41},
+  year={1997},
+  publisher={Universitat de Val{\`e}ncia}
+}
