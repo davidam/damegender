@@ -142,8 +142,9 @@ class TddInPythonExample(unittest.TestCase):
         du = DameUtils()
         cwd = os.getcwd()
         self.assertEqual(
-            sorted(du.files_one_level_drop_pwd(cwd+"/files/datamodels")),
-            ['files/datamodels/bernoulliNB_model.sav',
+            sorted(du.files_one_level_drop_pwd(cwd+"/files/datamodels/*sav")),
+            ['files/datamodels/adaboost_model.sav',
+             'files/datamodels/bernoulliNB_model.sav',
              'files/datamodels/forest_model.sav',
              'files/datamodels/gaussianNB_model.sav',
              'files/datamodels/mlp_model.sav',
@@ -152,7 +153,7 @@ class TddInPythonExample(unittest.TestCase):
              'files/datamodels/sgd_model.sav',
              'files/datamodels/svc_model.sav',
              'files/datamodels/tree_model.sav'])
-
+        
     def test_dame_utils_list2lower(self):
         du = DameUtils()
         x = ["Aaa", "bBb", "ccC"]
