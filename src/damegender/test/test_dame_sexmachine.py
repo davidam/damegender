@@ -277,7 +277,7 @@ class TddInPythonExample(unittest.TestCase):
               2,  0,  0,  0,  0,  0, 0,  0,  0,  5,
               0,  0,  0,  0,  0,  2,  0,  0,  0, 34,
               1,  0, 1]])
-        n = np.array([0])
+        n = np.array([1])
         self.assertTrue(np.array_equal(predicted, n))
 
     def test_dame_gender_confusion_matrix_gender(self):
