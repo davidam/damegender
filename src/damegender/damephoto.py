@@ -49,7 +49,8 @@ def highlightFace(net, frame, conf_threshold=0.7):
 
 parser=argparse.ArgumentParser()
 parser.add_argument("image", help="display the gender")
-
+parser.add_argument('--noshow', dest='noshow', action='store_true')
+parser.add_argument('--output', dest='output', action='store_true')
 args=parser.parse_args()
 
 faceProto="files/datamodels/opencv_face_detector.pbtxt"
@@ -94,10 +95,13 @@ while cv2.waitKey(1)<0 :
         agePreds=ageNet.forward()
         age=ageList[agePreds[0].argmax()]
         print('Age: %s years' % age[1:-1])
-#        cv2.putText(image,'%s, %s',(10,500), cv2.FONT_HERSHEY_SIMPLEX, 6, (200,255,155), 13, cv2.LINE_AA)
         cv2.putText(image, gender,(10,500), cv2.FONT_HERSHEY_SIMPLEX, 6, (200,255,155), 13, cv2.LINE_AA)
-#        cv2.putText(image,'Age:' + age,(10,500), cv2.FONT_HERSHEY_SIMPLEX, 6, (200,255,155), 13, cv2.LINE_AA)                
-#        cv2.putText(resultImg, f'{gender}, {age}', (faceBox[0], faceBox[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0,255,255), 2, cv2.LINE_AA)
-        cv2.imshow("Detecting age and gender", image)
+        if (args.noshow):
+            cv2.imwrite("files/images/photo-gender.png", image)
+        else:
+            cv2.imwrite("files/images/photo-gender.png", image)
+            cv2.imshow("Detecting age and gender", image)
+
+
 if cv2.waitKey(0) & 0xff == 27:  
     cv2.destroyAllWindows()
