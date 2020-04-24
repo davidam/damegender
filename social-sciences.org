@@ -439,6 +439,13 @@ personas suficiente para generar población suficiente para muestreos
 en Internet, por lo que determinar sexo y acercarse estadísticamente a
 la pertenencia a cultura, raza, o nacionalidad.
 
+** Mapas
+Es posible contar nombres de calles con nombres en masculino, femenino
+y no aplicable para medir dicha tendencia en una ciudad o población.
+
+Esto es posible tanto con Google Maps u Openstreetmap a través de sus
+respectivas APIs
+
 * Aportaciones de las Herramientas de Detección de Género a partir del nombre a diferentes fases de un estudio sociológico
 
 ** TODO Cuali/Cuanti
