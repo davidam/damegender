@@ -129,6 +129,34 @@ class DameEthnicity(object):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-congo.xls.csv', locale="cd"))
         if ((locale == 'kp') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-corea-norte.xls.csv', locale="kp"))
+        if ((locale == 'ci') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-costa-marfil.xls.csv', locale="ci"))
+        if ((locale == 'cr') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-costa-rica.xls.csv', locale="ci"))
+        if ((locale == 'hr') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-croacia.xls.csv', locale="hr"))
+        if ((locale == 'cu') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-cuba.xls.csv', locale="cu"))
+        if ((locale == 'dk') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-dinamarca.xls.csv', locale="dk"))
+        if ((locale == 'dk') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-dinamarca.xls.csv', locale="dk"))
+        if ((locale == 'ec') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-ecuador.xls.csv', locale="ec"))
+        if ((locale == 'eg') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-egipto.xls.csv', locale="eg"))
+        if ((locale == 'sv') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-el-salvador.xls.csv', locale="sv"))
+        if ((locale == 'er') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-eritrea.xls.csv', locale="er"))
+        if ((locale == 'si') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-eslovenia.xls.csv', locale="si"))
+        if ((locale == 'ee') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-estonia.xls.csv', locale="ee"))
+        if ((locale == 'et') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-etiopia.xls.csv', locale="et"))
+        if ((locale == 'ph') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-filipinas.xls.csv', locale="ph"))
             
         return l
 
@@ -185,7 +213,31 @@ class DameEthnicity(object):
         elif (locale == 'cd'):
             string = 'Congo'                                                
         elif (locale == 'kp'):
-            string = 'Republic of Korea'                                                
+            string = 'Democratic Republic of Korea'                                                
+        elif (locale == 'dk'):
+            string = 'Denmark'                                                
+        elif (locale == 'dm'):
+            string = 'Dominica'                                                
+        elif (locale == 'ec'):
+            string = 'Ecuador'                                                
+        elif (locale == 'eg'):
+            string = 'Egypt'                                                
+        elif (locale == 'sv'):
+            string = 'Republic of El Salvador'                                                
+        elif (locale == 'er'):
+            string = 'Eritrea'                                                
+        elif (locale == 'si'):
+            string = 'Slovenia'                                                
+        elif (locale == 'sb'):
+            string = 'Solomon Islands'                                                
+        elif (locale == 'ee'):
+            string = 'Republic of Estonia'                                                
+        elif (locale == 'et'):
+            string = 'Ethiopia'                                                
+        elif (locale == 'et'):
+            string = 'Ethiopia'                                                
+        elif (locale == 'ph'):
+            string = 'Philippines'                                                
             
         return string
 
