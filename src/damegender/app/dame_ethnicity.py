@@ -239,7 +239,9 @@ class DameEthnicity(object):
         elif (locale == 'br'):
             string = 'Brasil'                                                
         elif (locale == 'bg'):
-            string = 'Bulgaria'                                                
+            string = 'Bulgaria'
+        elif (locale == 'bf'):
+            string = 'Burkina Faso'                                                            
         elif (locale == 'cm'):
             string = 'Cameroon'                                                
         elif (locale == 'cm'):
