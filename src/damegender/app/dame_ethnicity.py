@@ -194,14 +194,13 @@ class DameEthnicity(object):
         if ((locale == 'kz') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-kazajstan.xls.csv', locale="kz"))
         if ((locale == 'ke') or (locale == 'all')):
-            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-kenya.xls.csv', locale="ke"))
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-kenia.xls.csv', locale="ke"))
         if ((locale == 'kg') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-kirguistan.xls.csv', locale="kg"))
         if ((locale == 'kw') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-kuwait.xls.csv', locale="kw"))
         if ((locale == 'lv') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-letonia.xls.csv', locale="lv"))
-
             
         return l
 
@@ -247,6 +246,8 @@ class DameEthnicity(object):
             string = 'Cameroon'                                                
         elif (locale == 'ca'):
             string = 'Canada'
+        elif (locale == 'ci'):
+            string = "Côte d'Ivoire"
         elif (locale == 'cl'):
             string = 'Chile'                                                
         elif (locale == 'cn'):
@@ -292,7 +293,9 @@ class DameEthnicity(object):
         elif (locale == 'gm'):
             string = 'Gambia'                                                
         elif (locale == 'gh'):
-            string = 'Ghana'                                                
+            string = 'Ghana'
+        elif (locale == 'ge'):
+            string = 'Georgia'                                                            
         elif (locale == 'gr'):
             string = 'Greece'                                                
         elif (locale == 'gt'):
@@ -329,7 +332,6 @@ class DameEthnicity(object):
             string = 'Kuwait'
         elif (locale == 'lv'):
             string = 'Letonia'
-
             
         return string
 
