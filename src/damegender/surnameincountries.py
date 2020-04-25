@@ -43,5 +43,5 @@ surname = args.surname.upper()
 
 print("In Spain (Instituto Nacional de Estadística) the surname %s is present with people of another countries:" % surname)
 l = de.inesurname2ethnicity(surname, 'all')
-for i in du.clean_list(l):
+for i in sorted(du.clean_list(l)):
     print("+ %s" % de.locale2eng(i))
