@@ -74,6 +74,7 @@ class DameEthnicity(object):
         du = DameUtils()
         surname = du.drop_accents(surname).upper()
         l = []
+        # ISO 3166
         if ((locale == 'af') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-afganistan.xls.csv', locale="af"))
         if ((locale == 'al') or (locale == 'all')):
@@ -112,5 +113,79 @@ class DameEthnicity(object):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-burkina.xls.csv', locale="bf"))
         if ((locale == 'bf') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-cabo-verde.xls.csv', locale="bf"))
-
+        if ((locale == 'cm') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-camerun.xls.csv', locale="cm"))
+        if ((locale == 'ca') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-canada.xls.csv', locale="ca"))
+        if ((locale == 'cl') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-chile.xls.csv', locale="cl"))
+        if ((locale == 'cn') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-china.xls.csv', locale="cn"))
+        if ((locale == 'cy') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-chipre.xls.csv', locale="cy"))
+        if ((locale == 'co') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-colombia.xls.csv', locale="co"))
+        if ((locale == 'cd') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-congo.xls.csv', locale="cd"))
+        if ((locale == 'kp') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-corea-norte.xls.csv', locale="kp"))
+            
         return l
+
+    def locale2eng(self, locale):
+        # ISO 3166        
+        if (locale == 'af'):
+            string = 'Afghanistan'
+        elif (locale == 'al'):
+            string = 'Albania'
+        elif (locale == 'de'):
+            string = 'Germany'
+        elif (locale == 'ad'):
+            string = 'Andorra'
+        elif (locale == 'dz'):
+            string = 'Argelia'                                                
+        elif (locale == 'ar'):
+            string = 'Argentina'                                                
+        elif (locale == 'am'):
+            string = 'Armenia'                                                
+        elif (locale == 'au'):
+            string = 'Austria'                                                
+        elif (locale == 'az'):
+            string = 'Azerbaiyan'                                                
+        elif (locale == 'bd'):
+            string = 'Bangladesh'                                                
+        elif (locale == 'by'):
+            string = 'Belarus'                                                
+        elif (locale == 'be'):
+            string = 'Belgica'                                                
+        elif (locale == 'be'):
+            string = 'Belice'                                                
+        elif (locale == 'bj'):
+            string = 'Benin'                                                
+        elif (locale == 'bo'):
+            string = 'Bolivia'                                                
+        elif (locale == 'br'):
+            string = 'Brasil'                                                
+        elif (locale == 'bg'):
+            string = 'Bulgaria'                                                
+        elif (locale == 'cm'):
+            string = 'Cameroon'                                                
+        elif (locale == 'cm'):
+            string = 'Cameroon'                                                
+        elif (locale == 'ca'):
+            string = 'Canada'
+        elif (locale == 'cl'):
+            string = 'Chile'                                                
+        elif (locale == 'cn'):
+            string = 'China'                                                
+        elif (locale == 'cy'):
+            string = 'Chipre'                                                
+        elif (locale == 'co'):
+            string = 'Colombia'                                                
+        elif (locale == 'cd'):
+            string = 'Congo'                                                
+        elif (locale == 'kp'):
+            string = 'Republic of Korea'                                                
+            
+        return string
+
