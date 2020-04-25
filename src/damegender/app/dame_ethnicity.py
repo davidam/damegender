@@ -139,8 +139,6 @@ class DameEthnicity(object):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-cuba.xls.csv', locale="cu"))
         if ((locale == 'dk') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-dinamarca.xls.csv', locale="dk"))
-        if ((locale == 'dk') or (locale == 'all')):
-            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-dinamarca.xls.csv', locale="dk"))
         if ((locale == 'ec') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-ecuador.xls.csv', locale="ec"))
         if ((locale == 'eg') or (locale == 'all')):
@@ -213,7 +211,9 @@ class DameEthnicity(object):
         elif (locale == 'cd'):
             string = 'Congo'                                                
         elif (locale == 'kp'):
-            string = 'Democratic Republic of Korea'                                                
+            string = 'Democratic Republic of Korea'
+        elif (locale == 'cu'):
+            string = 'Cuba'                                                            
         elif (locale == 'dk'):
             string = 'Denmark'                                                
         elif (locale == 'dm'):
