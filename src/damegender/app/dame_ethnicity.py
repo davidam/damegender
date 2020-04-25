@@ -191,6 +191,17 @@ class DameEthnicity(object):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-japon.xls.csv', locale="jp"))
         if ((locale == 'jo') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-jordania.xls.csv', locale="jo"))
+        if ((locale == 'kz') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-kazajstan.xls.csv', locale="kz"))
+        if ((locale == 'ke') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-kenya.xls.csv', locale="ke"))
+        if ((locale == 'kg') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-kirguistan.xls.csv', locale="kg"))
+        if ((locale == 'kw') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-kuwait.xls.csv', locale="kw"))
+        if ((locale == 'lv') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-letonia.xls.csv', locale="lv"))
+
             
         return l
 
@@ -308,6 +319,17 @@ class DameEthnicity(object):
             string = 'Japan' 
         elif (locale == 'jo'):
             string = 'Jordan' 
+        elif (locale == 'kz'):
+            string = 'Kazakhstan'
+        elif (locale == 'ke'):
+            string = 'Kenya'
+        elif (locale == 'kz'):
+            string = 'Kyrgyzstan'
+        elif (locale == 'kw'):
+            string = 'Kuwait'
+        elif (locale == 'lv'):
+            string = 'Letonia'
+
             
         return string
 
