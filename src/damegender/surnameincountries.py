@@ -46,14 +46,15 @@ l = sorted(du.clean_list(l))
 if (len(l) > 0):
     print("In Spain (Instituto Nacional de Estadística) the surname %s is present with people of another countries:" % surname)
 else:
-    print("In Spain (Instituto Nacional de Estadística) the surname %s is not present with people of another countries")
+    print("In Spain (Instituto Nacional de Estadística) the surname %s is not present with people of another countries" % surname)
 
-
-# print(sorted(du.clean_list(l)))
+#print(l)
 # print(de.locale2eng('ci'))
 # print(de.locale2eng('cu'))
 # print(de.locale2eng('fr'))
 # print(de.locale2eng('gt'))
 # print(de.locale2eng('it'))
+
+
 for i in l:
     print("+ %s" % de.locale2eng(i))
