@@ -458,6 +458,33 @@ else
 	echo "damephoto test is ok"
 fi
 
+python3 surnameincountries.py Arroyo > files/tests/surnameincountries-arroyo-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/surnameincountries-arroyo.txt files/tests/surnameincountries-arroyo-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "surnamearroyo test is failing"
+else
+	echo "surnamearroyo test is ok"
+fi
+
+python3 surnameincountries.py Gil > files/tests/surnameincountries-gil-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/surnameincountries-gil.txt files/tests/surnameincountries-gil-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "surnamegil test is failing"
+else
+	echo "surnamegil test is ok"
+fi
+
+python3 surnameincountries.py Menéndez > files/tests/surnameincountries-menendez-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/surnameincountries-menendez.txt files/tests/surnameincountries-menendez-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "surnamemenendez test is failing"
+else
+	echo "surnamemenendez test is ok"
+fi
+
 
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
