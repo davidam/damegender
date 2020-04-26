@@ -201,6 +201,18 @@ class DameEthnicity(object):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-kuwait.xls.csv', locale="kw"))
         if ((locale == 'lv') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-letonia.xls.csv', locale="lv"))
+        if ((locale == 'lb') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-libano.xls.csv', locale="lb"))
+        if ((locale == 'lr') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-liberia.xls.csv', locale="lr"))
+        if ((locale == 'ly') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-libia.xls.csv', locale="ly"))
+        if ((locale == 'lt') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-lituania.xls.csv', locale="lt"))
+        if ((locale == 'lu') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-luxemburgo.xls.csv', locale="lu"))
+            
+#apellidos-libano.xls.csv
             
         return l
 
@@ -334,6 +346,16 @@ class DameEthnicity(object):
             string = 'Kuwait'
         elif (locale == 'lv'):
             string = 'Letonia'
+        elif (locale == 'lb'):
+            string = 'Lebanon'
+        elif (locale == 'lr'):
+            string = 'Liberia'
+        elif (locale == 'lt'):
+            string = 'Lithuania'
+        elif (locale == 'lu'):
+            string = 'Luxembourg'
+        elif (locale == 'ly'):
+            string = 'Libia'
             
         return string
 
