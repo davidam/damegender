@@ -449,15 +449,6 @@ else
 	echo "ethnicitywalls test is ok"
 fi
 
-python3 damephoto.py files/images/kid1.jpg --noshow > files/tests/damephoto-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/damephoto.txt files/tests/damephoto-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "damephoto test is failing"
-else
-	echo "damephoto test is ok"
-fi
-
 python3 surnameincountries.py Arroyo > files/tests/surnameincountries-arroyo-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/surnameincountries-arroyo.txt files/tests/surnameincountries-arroyo-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
