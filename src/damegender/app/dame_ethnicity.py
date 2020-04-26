@@ -263,6 +263,10 @@ class DameEthnicity(object):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-polonia.xls.csv', locale="pl"))
         if ((locale == 'pt') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-portugal.xls.csv', locale="pt"))
+        if ((locale == 'gb') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-reino-unido.xls.csv', locale="gb"))
+        if ((locale == 'cz') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-republica-checa.xls.csv', locale="cz"))
             
         return l
 
@@ -272,12 +276,8 @@ class DameEthnicity(object):
             string = 'Afghanistan'
         elif (locale == 'al'):
             string = 'Albania'
-        elif (locale == 'de'):
-            string = 'Germany'
         elif (locale == 'ad'):
             string = 'Andorra'
-        elif (locale == 'dz'):
-            string = 'Argelia'                                                
         elif (locale == 'ar'):
             string = 'Argentina'                                                
         elif (locale == 'am'):
@@ -287,123 +287,117 @@ class DameEthnicity(object):
         elif (locale == 'az'):
             string = 'Azerbaiyan'                                                
         elif (locale == 'bd'):
-            string = 'Bangladesh'                                                
-        elif (locale == 'by'):
-            string = 'Belarus'                                                
+            string = 'Bangladesh'
         elif (locale == 'be'):
             string = 'Belgica'                                                
         elif (locale == 'be'):
-            string = 'Belice'                                                
+            string = 'Belice'
+        elif (locale == 'bf'):
+            string = 'Burkina Faso'                                                            
+        elif (locale == 'bg'):
+            string = 'Bulgaria'            
         elif (locale == 'bj'):
-            string = 'Benin'                                                
+            string = 'Benin'
         elif (locale == 'bo'):
             string = 'Bolivia'                                                
         elif (locale == 'br'):
-            string = 'Brasil'                                                
-        elif (locale == 'bg'):
-            string = 'Bulgaria'
-        elif (locale == 'bf'):
-            string = 'Burkina Faso'                                                            
-        elif (locale == 'cm'):
-            string = 'Cameroon'                                                
-        elif (locale == 'cm'):
-            string = 'Cameroon'                                                
+            string = 'Brasil'                                                            
+        elif (locale == 'by'):
+            string = 'Belarus'
         elif (locale == 'ca'):
-            string = 'Canada'
+            string = 'Canada'            
         elif (locale == 'ci'):
             string = "Côte d'Ivoire"
         elif (locale == 'cl'):
             string = 'Chile'                                                
+        elif (locale == 'cm'):
+            string = 'Cameroon'                                                
         elif (locale == 'cn'):
-            string = 'China'                                                
+            string = 'China'
+        elif (locale == 'co'):
+            string = 'Colombia'
+        elif (locale == 'cu'):
+            string = 'Cuba'            
         elif (locale == 'cy'):
             string = 'Chipre'                                                
-        elif (locale == 'co'):
-            string = 'Colombia'                                                
         elif (locale == 'cd'):
-            string = 'Congo'                                                
-        elif (locale == 'kp'):
-            string = 'Democratic Republic of Korea'
-        elif (locale == 'cu'):
-            string = 'Cuba'                                                            
+            string = 'Congo'
+        elif (locale == 'cz'):
+            string = 'Czech Republic'            
+        elif (locale == 'de'):
+            string = 'Germany'
         elif (locale == 'dk'):
-            string = 'Denmark'                                                
+            string = 'Denmark'
         elif (locale == 'dm'):
-            string = 'Dominica'                                                
+            string = 'Dominica'                                                            
+        elif (locale == 'dz'):
+            string = 'Argelia'
         elif (locale == 'ec'):
-            string = 'Ecuador'                                                
-        elif (locale == 'eg'):
-            string = 'Egypt'                                                
-        elif (locale == 'sv'):
-            string = 'Republic of El Salvador'                                                
-        elif (locale == 'er'):
-            string = 'Eritrea'                                                
-        elif (locale == 'si'):
-            string = 'Slovenia'                                                
-        elif (locale == 'sb'):
-            string = 'Solomon Islands'                                                
+            string = 'Ecuador'
         elif (locale == 'ee'):
-            string = 'Republic of Estonia'                                                
+            string = 'Republic of Estonia'                                                            
+        elif (locale == 'eg'):
+            string = 'Egypt'
+        elif (locale == 'er'):
+            string = 'Eritrea'
         elif (locale == 'et'):
-            string = 'Ethiopia'                                                
-        elif (locale == 'et'):
-            string = 'Ethiopia'                                                
-        elif (locale == 'ph'):
-            string = 'Philippines'                                                
+            string = 'Ethiopia'
         elif (locale == 'fi'):
             string = 'Finland'                                                
         elif (locale == 'fr'):
-            string = 'France'                                                
-        elif (locale == 'gm'):
-            string = 'Gambia'                                                
-        elif (locale == 'gh'):
-            string = 'Ghana'
+            string = 'France'
         elif (locale == 'ge'):
             string = 'Georgia'                                                            
+        elif (locale == 'gh'):
+            string = 'Ghana'
+        elif (locale == 'gm'):
+            string = 'Gambia'                                                
+        elif (locale == 'gn'):
+            string = 'Guinea'
+        elif (locale == 'gq'):
+            string = 'Guinea Ecuatorial'             
         elif (locale == 'gr'):
             string = 'Greece'                                                
         elif (locale == 'gt'):
             string = 'Guatemala'                                                
         elif (locale == 'gw'):
-            string = 'Guinea Bissau' 
-        elif (locale == 'gn'):
-            string = 'Guinea' 
-        elif (locale == 'gq'):
-            string = 'Guinea Ecuatorial' 
+            string = 'Guinea Bissau'
+        elif (locale == 'hn'):
+            string = 'Honduras'             
         elif (locale == 'ht'):
             string = 'Haití' 
-        elif (locale == 'hn'):
-            string = 'Honduras' 
         elif (locale == 'hu'):
-            string = 'Hungary' 
+            string = 'Hungary'
+        elif (locale == 'il'):
+            string = 'Israel'
         elif (locale == 'is'):
             string = 'Iceland' 
-        elif (locale == 'il'):
-            string = 'Israel' 
         elif (locale == 'it'):
-            string = 'Italy' 
+            string = 'Italy'
         elif (locale == 'jp'):
             string = 'Japan' 
         elif (locale == 'jo'):
-            string = 'Jordan' 
-        elif (locale == 'kz'):
-            string = 'Kazakhstan'
+            string = 'Jordan'
         elif (locale == 'ke'):
             string = 'Kenya'
-        elif (locale == 'kz'):
+        elif (locale == 'kg'):
             string = 'Kyrgyzstan'
+        elif (locale == 'kp'):
+            string = 'Democratic Republic of Korea'            
+        elif (locale == 'kz'):
+            string = 'Kazakhstan'            
         elif (locale == 'kw'):
             string = 'Kuwait'
-        elif (locale == 'lv'):
-            string = 'Letonia'
         elif (locale == 'lb'):
-            string = 'Lebanon'
+            string = 'Lebanon'            
         elif (locale == 'lr'):
             string = 'Liberia'
         elif (locale == 'lt'):
             string = 'Lithuania'
         elif (locale == 'lu'):
             string = 'Luxembourg'
+        elif (locale == 'lv'):
+            string = 'Letonia'            
         elif (locale == 'ly'):
             string = 'Libia'
         elif (locale == 'my'):
@@ -438,6 +432,8 @@ class DameEthnicity(object):
             string = 'Noruega'
         elif (locale == 'nz'):
             string = 'Nueva Zelanda'
+        elif (locale == 'ph'):
+            string = 'Philippines'
         elif (locale == 'pk'):
             string = 'Pakistan'
         elif (locale == 'pw'):
@@ -453,6 +449,12 @@ class DameEthnicity(object):
         elif (locale == 'pl'):
             string = 'Polonia'
         elif (locale == 'pt'):
-            string = 'Portugal'
+            string = 'Portugal'            
+        elif (locale == 'sb'):
+            string = 'Solomon Islands'                                                            
+        elif (locale == 'sv'):
+            string = 'Republic of El Salvador'                                                
+        elif (locale == 'si'):
+            string = 'Slovenia'                                                
             
         return string
