@@ -267,6 +267,47 @@ class DameEthnicity(object):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-reino-unido.xls.csv', locale="gb"))
         if ((locale == 'cz') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-republica-checa.xls.csv', locale="cz"))
+        if ((locale == 'do') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-republica-dominicana.xls.csv', locale="do"))
+        if ((locale == 'rw') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-ruanda.xls.csv', locale="rw"))
+        if ((locale == 'ro') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-rumania.xls.csv', locale="ro"))
+        if ((locale == 'ru') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-rusia.xls.csv', locale="ru"))
+        if ((locale == 'sn') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-senegal.xls.csv', locale="sn"))
+        if ((locale == 'rs') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-serbia.xls.csv', locale="rs"))
+        if ((locale == 'sl') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-sierra-leona.xls.csv', locale="sl"))
+        if ((locale == 'sg') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-singapur.xls.csv', locale="sg"))
+        if ((locale == 'sy') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-siria.xls.csv', locale="sy"))
+        if ((locale == 'so') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-somalia.xls.csv', locale="so"))
+        if ((locale == 'lk') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-sri-lanka.xls.csv', locale="lk"))
+        if ((locale == 'za') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-sudafrica.xls.csv', locale="za"))
+        if ((locale == 'sd') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-sudan.xls.csv', locale="sd"))
+        if ((locale == 'se') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-suecia.xls.csv', locale="se"))
+        if ((locale == 'ch') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-suiza.xls.csv', locale="ch"))
+        if ((locale == 'th') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-tailandia.xls.csv', locale="th"))
+        if ((locale == 'ua') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-ucrania.xls.csv', locale="ua"))
+        if ((locale == 'us') or (locale == 'usa') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-usa.xls.csv', locale="us"))
+        if ((locale == 'uz') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-uzbekistan.xls.csv', locale="uz"))
+        if ((locale == 'uy') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-uruguay.xls.csv', locale="ua"))
+
             
         return l
 
@@ -330,6 +371,8 @@ class DameEthnicity(object):
             string = 'Denmark'
         elif (locale == 'dm'):
             string = 'Dominica'                                                            
+        elif (locale == 'do'):
+            string = 'Dominican Republic'                                                            
         elif (locale == 'dz'):
             string = 'Argelia'
         elif (locale == 'ec'):
@@ -346,6 +389,8 @@ class DameEthnicity(object):
             string = 'Finland'                                                
         elif (locale == 'fr'):
             string = 'France'
+        elif (locale == 'gb'):
+            string = 'United Kingdom of Great Britain'                                                            
         elif (locale == 'ge'):
             string = 'Georgia'                                                            
         elif (locale == 'gh'):
@@ -455,6 +500,19 @@ class DameEthnicity(object):
         elif (locale == 'sv'):
             string = 'Republic of El Salvador'                                                
         elif (locale == 'si'):
-            string = 'Slovenia'                                                
+            string = 'Slovenia'
+        elif (locale == 'ro'):
+            string = 'Romania'                                                
+        elif (locale == 'rw'):
+            string = 'Rwanda'                                                
+        elif (locale == 'ua'):
+            string = 'Ukraine'                                                
+        elif (locale == 'us'):
+            string = 'United States of America'                                                
+        elif (locale == 'uy'):
+            string = 'Uruguay'                                                
+        elif (locale == 'uz'):
+            string = 'Republic of Uzbekistan'                                                
             
         return string
+
