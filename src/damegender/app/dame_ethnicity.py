@@ -245,6 +245,24 @@ class DameEthnicity(object):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-noruega.xls.csv', locale="no"))
         if ((locale == 'nz') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-nueva-zelanda.xls.csv', locale="nz"))
+        if ((locale == 'nl') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-paises-bajos.xls.csv', locale="nl"))
+        if ((locale == 'pk') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-pakistan.xls.csv', locale="pk"))
+        if ((locale == 'pw') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-palaos.xls.csv', locale="pw"))
+        if ((locale == 'ps') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-palestina.xls.csv', locale="ps"))
+        if ((locale == 'pa') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-panama.xls.csv', locale="pa"))
+        if ((locale == 'py') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-paraguay.xls.csv', locale="py"))
+        if ((locale == 'pe') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-peru.xls.csv', locale="pe"))
+        if ((locale == 'pl') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-polonia.xls.csv', locale="pl"))
+        if ((locale == 'pt') or (locale == 'all')):
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-portugal.xls.csv', locale="pt"))
             
         return l
 
@@ -420,5 +438,21 @@ class DameEthnicity(object):
             string = 'Noruega'
         elif (locale == 'nz'):
             string = 'Nueva Zelanda'
+        elif (locale == 'pk'):
+            string = 'Pakistan'
+        elif (locale == 'pw'):
+            string = 'Palaos'
+        elif (locale == 'ps'):
+            string = 'Palestina'
+        elif (locale == 'pa'):
+            string = 'Panama'
+        elif (locale == 'py'):
+            string = 'Paraguay'
+        elif (locale == 'pe'):
+            string = 'Peru'
+        elif (locale == 'pl'):
+            string = 'Polonia'
+        elif (locale == 'pt'):
+            string = 'Portugal'
             
         return string
