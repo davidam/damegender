@@ -1,4 +1,53 @@
 
+* v0.2.7
++ count-debian-gender.py: add example to count males and females in debian keyring
++ ethnicity.py: race about a name. Source: USA census
++ surname.py: guess surname Spain and United States of America supported
++ surnameincountries.py: about countries where a surname appears. Source: INE
++ readme.sh: now you can convert the readme from org to markdon with this script
++ add adaboost ml algorithm
+
+* v0.2.6
++ roc.py: to deploy roc curves to measure ML
++ regenerate-ml-json.sh: execute all options of damegender2json.py to generate all json needed
++ logs-accuracies.sh: execute all options of accuracy.py to generate all logs needed
++ logs-confusion.sh: execute all options of confusion.py to generate all logs needed
++ api2gender.py: starting the option to use wikidata
+* v0.2.5
+
++ Recreated all datamodels with new datasets. Augmented the accuracies with this feature!
++ Namsor stuff has been updated to Namsor2
+* v0.2.4
+
+Now the next datasets available from main.py in damegender
++ [X] United Kingdom
++ [X] United States of America
++ [X] Uruguay
++ [X] Lucía Santamaría and Helena
+
+* v0.2.3
+
++ Added damegender2json.py to generate files with ML results.
++ Created ML json files
++ Added new ML algorithms: tree and mlp (neural network)
+* v0.2.1
+
++ Added downloadjson.py to download names from csv to one json file we
+  have rewrited accuracy.py, confusion.py and errors.py to make this
+  calculus offline
+* v0.1.9
+
++ Improved the test system with testing from python commands with bash.
++ Added nameincountries.py to guess a name in different countries
++ main.py: added bernoulliNB ML algorithm and support to genderguesser
++ confusion.py: adding support to different dimensions
++ accuracy.py: added bernoulliNB ML algorithm
++ errors.py: adding genderapi and namsor support
++ csv2gender.py: Minor chances
++ rewriting damemodels.py to postinstall.py to recreate all files created with scripts from original files (not only ML models)
++ mail2gender.py: small fix, avoid duplicated
++ infofeatures.py: is related to letter_a, last_letter_a, last_letter_o, last_letter_consonant, last_letter_vocal, first_letter, first_letter_consonant, first_letter_vocal
++ pca support with pca-components.py and pca-features.py
 * v0.0.36
 
 First version packaged.
@@ -16,51 +65,3 @@ First version packaged.
 + mail2gender.py is a prototype to return number of males and females in a mailing list
 + infofeatures.py is related to last_letter_a, last_letter_consonant, last_letter_vocal
 + pca support is only a prototype
-
-* v0.1.9
-
-+ Improved the test system with testing from python commands with bash.
-+ Added nameincountries.py to guess a name in different countries
-+ main.py: added bernoulliNB ML algorithm and support to genderguesser
-+ confusion.py: adding support to different dimensions
-+ accuracy.py: added bernoulliNB ML algorithm
-+ errors.py: adding genderapi and namsor support
-+ csv2gender.py: Minor chances
-+ rewriting damemodels.py to postinstall.py to recreate all files created with scripts from original files (not only ML models)
-+ mail2gender.py: small fix, avoid duplicated
-+ infofeatures.py: is related to letter_a, last_letter_a, last_letter_o, last_letter_consonant, last_letter_vocal, first_letter, first_letter_consonant, first_letter_vocal
-+ pca support with pca-components.py and pca-features.py
-
-* v0.2.1
-
-+ Added downloadjson.py to download names from csv to one json file we
-  have rewrited accuracy.py, confusion.py and errors.py to make this
-  calculus offline
-
-* v0.2.3
-
-+ Added damegender2json.py to generate files with ML results.
-+ Created ML json files
-+ Added new ML algorithms: tree and mlp (neural network)
-
-* v0.2.4
-
-Now the next datasets available from main.py in damegender
-+ [X] United Kingdom
-+ [X] United States of America
-+ [X] Uruguay
-+ [X] Lucía Santamaría and Helena
-
-* v0.2.5
-
-+ Recreated all datamodels with new datasets. Augmented the accuracies with this feature!
-+ Namsor stuff has been updated to Namsor2
-
-* v0.2.6
-+ roc.py: to deploy roc curves to measure ML
-+ regenerate-ml-json.sh: execute all options of damegender2json.py to generate all json needed
-+ logs-accuracies.sh: execute all options of accuracy.py to generate all logs needed
-+ logs-confusion.sh: execute all options of confusion.py to generate all logs needed
-+ api2gender.py: starting the option to use wikidata
-* next release
-+ surname.py: guess surname Spain and United States of America supported

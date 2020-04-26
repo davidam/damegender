@@ -1,0 +1,299 @@
+* Statistics for damegender
+Some theory could be useful to understand some commands
+** Measuring success and fails
+
+To guess the sex, we have an true idea (example: female) and we obtain
+a result with a method (example: using an api, querying a dataset or
+with a machine learning model). The guessed result could be male,
+female or perhaps unknown. Remember some definitions about results
+about this matter:
+
+*True positive* is find a value guessed as true if the value in
+the data source is positive.
+
+*True negative* is find a value guessed as true if the the
+value in the data source is negative.
+
+*False positive* is find a value guessed as false if the the
+value in the data source is positive.
+
+*False negative* is find a value guessed as false if the the
+value in the data source is negative.
+
+So, we can find a vocabulary for measure true, false, success and
+errors. We can make a summary in the gender name context about
+mathematical concepts:
+
+*Precision* is about true positives divided by true positives plus false
+positives
+
+#+BEGIN_SRC
+(femalefemale + malemale ) /
+(femalefemale + malemale + femalemale)
+#+END_SRC
+
+*Recall* is about true positives divided by true positives plus false
+negatives.
+
+#+BEGIN_SRC
+(femalefemale + malemale ) /
+(femalefemale + malemale + malefemale + femaleundefined + maleundefined)
+#+END_SRC
+
+*Accuray* is about true positives divided by all.
+
+#+BEGIN_SRC
+(femalefemale + malemale ) /
+(femalefemale + malemale + malefemale + femalemale + femaleundefined + maleundefined)
+#+END_SRC
+
+The *F1 score* is the harmonic mean of precision and recall taking
+both metrics into account in the following equation:
+
+#+BEGIN_SRC
+2 * (
+(precision * recall) /
+(precision + recall))
+#+END_SRC
+
+In Damengender, we are using accuracy.py to apply these concepts. Take
+a look to practice:
+
+#+BEGIN_SRC bash
+$ python3 accuracy.py --api="damegender" --measure="f1score" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="damegender" --measure="recall" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="damegender" --measure="precision" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="damegender" --measure="accuracy" --csv="files/names/partialnoundefined.csv"
+
+$ python3 accuracy.py --api="genderguesser" --measure="f1score" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="genderguesser" --measure="recall" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="genderguesser" --measure="precision" --csv="files/names/partialnoundefined.csv"
+$ python3 accuracy.py --api="genderguesser" --measure="accuracy" --csv="files/names/partialnoundefined.csv"
+#+END_SRC
+
+
+*Error coded* is about the true is different than the guessed:
+
+#+BEGIN_SRC
+(femalemale + malefemale + maleundefined + femaleundefined) /
+(malemale + femalemale + malefemale +
+femalefemale + maleundefined + femaleundefined)
+#+END_SRC
+
+*Error coded without na* is about the true is different than the
+guessed, but without undefined results.
+
+#+BEGIN_SRC
+(maleundefined + femaleundefined) /
+(malemale + femalemale + malefemale +
+femalefemale + maleundefined + femaleundefined)
+#+END_SRC
+
+*Error gender bias* is to understand if the error is bigger guessing
+males than females or viceversa.
+
+#+BEGIN_SRC
+(malefemale - femalemale) /
+(malemale + femalemale + malefemale + femalefemale)
+#+END_SRC
+
+*The weighted error* is about the true is different than the guessed,
+but giving a weight to the guessed as undefined.
+
+#+BEGIN_SRC
+(femalemale + malefemale +
++ w * (maleundefined + femaleundefined)) /
+(malemale + femalemale + malefemale + femalefemale +
++ w * (maleundefined + femaleundefined))
+#+END_SRC
+
+In Damengeder, we have coded errors.py to implement the different definitions in diffrent apis.
+
+The *confusion matrix* creates a matrix about the true and the
+guess. If you have this confusion matrix:
+
+#+BEGIN_SRC
+[[ 2, 0, 0]
+ [ 0, 5, 0]]
+#+END_SRC
+
+It means, I have 2 females true and I've guessed 2 females and I've 5
+males true and I've guessed 5 males. I don't have errors in my
+classifier.
+
+#+BEGIN_SRC
+[[ 2  1  0]
+[ 2 14  0]
+#+END_SRC
+
+It means, I have 2 females true and I've guessed 2 females and I've 14
+males true and I've guessed 14 males. 1 female was considered male, 2
+males was considered female.
+
+In Damegender, we have coded confusion.py to implement this concept
+with the different apis.
+
+** PCA
+*** Concepts
+The dispersion measures between 1 variable, for instance, variance,
+standard deviation, ...
+
+[[file:src/damegender/files/images/variance.png]]
+
+If you have 2 variables, you can write a formula so similar to variance.
+
+[[file:src/damegender/files/images/covariance.png]]
+
+If you have 3 variables or more, you can write a covariance matrix.
+
+[[file:src/damegender/files/images/matrix-covariance.png]]
+
+In essence, an eigenvector v of a linear transformation T is a
+non-zero vector that, when T is applied to it, does not change
+direction. Applying T to the eigenvector only scales the eigenvector
+by the scalar value λ, called an eigenvalue.
+
+[[file:src/damegender/files/images/eigenvector.png]]
+
+A feature vector is constructed taking the eigenvectors that you want
+to keep from the list of eigenvectors.
+
+The new dataset take the transpose of the vector and multiply it on
+the left of the original data set, transposed.
+
+#+BEGIN_SRC
+FinalData = RowFeatureVector x RowDataAdjust
+#+END_SRC
+
+We can choose PCA using the covariance method as opposed to the
+correlation method.
+
+The [[https://en.wikipedia.org/wiki/Principal_component_analysis#Computing_PCA_using_the_covariance_method][covariance method]] has the next steps:
+1. Organize the data set
+2. Calculate the empirical mean
+3. Calculate the deviations from the mean
+4. Find the covariance matrix
+5. Find the eigenvectors and eigenvalues of the covariance matrix
+6. Rearrange the eigenvectors and eigenvalues
+7. Compute the cumulative energy content for each eigenvector
+8. Select a subset of the eigenvectors as basis vectors
+9. Project the z-scores of the data onto the new basis
+
+The [[https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc552.htm][correlation method]] has the next steps:
+1. Compute the correlation matrix
+2. Solve for the correlation roots of R (product of eigenvalues)
+3. Compute the first column of the V matrix
+4. Compute the remaining columns of the V matrix
+5. Compute the L^(1/2) matrix
+6. Compute the communality
+7. Diagonal elements report how much of the variability is explained
+8. Compute the coefficient matrix
+9. Compute the principal factors
+
+*** Choosing components
+
+We can choose components with:
+
+#+BEGIN_SRC
+import numpy as np
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import MinMaxScaler
+import matplotlib.pyplot as plt
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--csv')
+args = parser.parse_args()
+
+#filepath = 'files/features_list.csv' #your path here
+data = np.genfromtxt(args.csv, delimiter=',', dtype='float64')
+
+scaler = MinMaxScaler(feature_range=[0, 1])
+data_rescaled = scaler.fit_transform(data[1:, 0:8])
+
+#Fitting the PCA algorithm with our Data
+pca = PCA().fit(data_rescaled)
+#Plotting the Cumulative Summation of the Explained Variance
+plt.figure()
+plt.plot(np.cumsum(pca.explained_variance_ratio_))
+plt.xlabel('Number of Components')
+plt.ylabel('Variance (%)') #for each component
+plt.title('Dataset Explained Variance')
+plt.show()
+#+END_SRC
+
+[[file:src/damegender/files/images/pca-number-components.png]]
+
+Taking a look to the image. We can choose 6 components.
+
+*** Load Dataset
+
+We choose the file all.csv to generate features and a list to determine gender (male or female)
+
+#+BEGIN_SRC lisp
+from pprint import pprint
+import pandas as pd
+import matplotlib.pyplot as plt
+from app.dame_sexmachine import DameSexmachine
+from app.dame_gender import Gender
+
+## LOAD DATASET
+g = Gender()
+g.features_list2csv(categorical="both", path="files/names/all.csv")
+features = "files/features_list.csv"
+
+print("STEP1: N COMPONENTS + 1 TARGET")
+
+x = pd.read_csv(features)
+print(x.columns)
+
+y = g.dataset2genderlist(dataset="files/names/all.csv")
+print(y)
+#+END_SRC
+
+*** Standarize the data
+
+#+BEGIN_SRC
+print("STEP2: STANDARIZE THE DATA")
+from sklearn.preprocessing import StandardScaler
+# Standardizing the features
+x = StandardScaler().fit_transform(x)
+#+END_SRC
+
+*** Pca Projection to N Dimensions
+
+Finally, we create the pca transform with 6 dimensions and we add the target component.
+
+#+BEGIN_SRC
+from sklearn.decomposition import PCA
+pca = PCA(n_components=6)
+principalComponents = pca.fit_transform(x)
+print("STEP3: PCA PROJECTION")
+pprint(principalComponents)
+principalDf = pd.DataFrame(data = principalComponents, columns = ['principal component 1', 'principal component 2', 'principal component 3', 'principal component 4', 'principal component 5', 'principal component 6'])
+
+target = pd.DataFrame(data = y, columns = ['target component'])
+
+print(principalDf.join(target))
+#+END_SRC
+*** Analyze components to determine gender in names
+
+| first\_letter   | last\_letter    | last\_letter\_a   | first\_letter\_vocal   | last\_letter\_vocal   | last\_letter\_consonant   | target component   |
+|-----------------+-----------------+-------------------+------------------------+-----------------------+---------------------------+--------------------|
+| -0.2080025204   | -0.3208958517   | 0.2352509625      | 0.2113242731           | *0.6095269139*        | *-0.6095269139*           | -0.1035071139      |
+| *-0.6037951881* | *0.5174873789*  | -0.4252467151     | 0.4278794455           | 0.0388287435          | -0.0388287435             | -0.0265942125      |
+| 0.1049343046    | 0.1158117877    | -0.2867605971     | -0.3473950734          | 0.0901034539          | -0.0901034539             | -0.8697264971      |
+| 0.2026467275    | 0.3142402839    | *0.630802294*     | *0.5325769702*         | -0.1291229841         | 0.1291229841              | -0.3811720011      |
+
+In this analysis, we can observe 4 components.
+
+The first component is about if the last letter is vocal or
+consonant. If the last letter is vocal we can find a male and if the
+last letter is a consonant we can find a male.
+
+The second component is about the first letter. The last letter is
+determining females and the first letter is determining males.
+
+The third component is not giving relevant information.
+
+The fourth component is giving the last_letter_a and the
+first_letter_vocal is for females.

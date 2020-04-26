@@ -41,5 +41,10 @@ v = g.guess_surname(args.surname, args.total)
 if (v[0] == True):
         if ((args.total == 'es') or (args.total == 'ine')):
                 print("There are %s people using %s in Spain" % (v[1], args.surname))
-        if (args.total == 'us'):
+        elif (args.total == 'us'):
                 print("There are %s people using %s in United States of America" % (v[1], args.surname))
+else:
+        if ((args.total == 'es') or (args.total == 'ine')):
+                print("There are not people using %s in Spain" % args.surname)
+        elif (args.total == 'us'):
+                print("There are not people using %s in United States of America" % args.surname)

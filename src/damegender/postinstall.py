@@ -31,7 +31,7 @@ import re
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
+parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp', 'adaboost'])
 parser.add_argument('--dataset', choices=['uk', 'us', 'uy'])
 parser.add_argument('--nltk', default=False, action="store_true")
 parser.add_argument('--allstuff', default=False, action="store_true")
@@ -111,6 +111,8 @@ if (args.ml):
         s.bernoulliNB()
     elif (args.ml == "forest"):
         s.forest()
+    elif (args.ml == "adaboost"):
+        s.adaboost()
     elif (args.ml == "tree"):
         s.tree()
     elif (args.ml == "mlp"):

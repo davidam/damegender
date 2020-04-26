@@ -19,6 +19,12 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+#### ADABOOST ALGORITHM
+
+echo "python3 confusion.py --csv=files/names/allnoundefined.csv --jsondownloaded=files/names/allnoundefined.csv.adaboost.json --reverse --api=damegender > files/logs/confusion-adaboost-"$(date "+%Y-%m-%d")".txt " > files/logs/confusion-adaboost-$(date "+%Y-%m-%d").txt
+
+python3 confusion.py --csv=files/names/allnoundefined.csv --jsondownloaded=files/names/allnoundefined.csv.adaboost.json --reverse --api=damegender >> files/logs/confusion-adaboost-$(date "+%Y-%m-%d").txt
+
 #### MLP ALGORITHM
 
 echo "python3 confusion.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.mlp.json --reverse --api=damegender > files/logs/confusion-mlp-"$(date "+%Y-%m-%d")".txt " > files/logs/confusion-mlp-$(date "+%Y-%m-%d").txt

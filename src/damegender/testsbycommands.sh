@@ -308,7 +308,7 @@ else
 	echo "confusion test is ok"
 fi
 
-python3 confusion.py --csv="files/names/min.csv" --ml="nltk" --api=damegender --jsondownloaded=files/names/min.csv.json > files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt
+python3 confusion.py --csv="files/names/min.csv" --api=damegender --jsondownloaded=files/names/min.csv.json > files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/confusionnltk.txt files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "confusion nltk test is failing"
@@ -440,6 +440,41 @@ else
 	echo "surnamelopez test is ok"
 fi
 
+python3 ethnicity.py Walls > files/tests/ethnicitywalls-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/ethnicitywalls.txt files/tests/ethnicitywalls-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "ethnicitywalls test is failing"
+else
+	echo "ethnicitywalls test is ok"
+fi
+
+python3 surnameincountries.py Arroyo > files/tests/surnameincountries-arroyo-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/surnameincountries-arroyo.txt files/tests/surnameincountries-arroyo-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "surnamearroyo test is failing"
+else
+	echo "surnamearroyo test is ok"
+fi
+
+python3 surnameincountries.py Gil > files/tests/surnameincountries-gil-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/surnameincountries-gil.txt files/tests/surnameincountries-gil-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "surnamegil test is failing"
+else
+	echo "surnamegil test is ok"
+fi
+
+python3 surnameincountries.py Menéndez > files/tests/surnameincountries-menendez-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/surnameincountries-menendez.txt files/tests/surnameincountries-menendez-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "surnamemenendez test is failing"
+else
+	echo "surnamemenendez test is ok"
+fi
 
 
 echo "cleaning temporary files"

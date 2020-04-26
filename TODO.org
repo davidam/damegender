@@ -803,6 +803,11 @@ Nameapi accuracy: 0.18329564725833805
 * POSIBLE Escribir dame_photo
 En https://api.github.com/users/davidam aparece el campo avatar_url y ahí:
 wget -c https://avatars2.githubusercontent.com/u/1023217
+** DONE He creado un script damephoto.py
+   - State "DONE"       from "TODO"       [2020-04-25 sáb 00:15]
+** DONE He comenzado el desarrollo relativo a repositorios en dame_perceval.py
+   - State "DONE"       from "TODO"       [2020-04-25 sáb 00:15]
+** TODO Sacar el script damephoto a un paquete pip
 * DONE dataset2genderlist
   SCHEDULED: <2019-02-23 sáb>
   - State "DONE"       from "TODO"       [2019-03-22 vie 22:53]
@@ -1051,7 +1056,8 @@ Debes escribir primero los ficheros males.txt y females.txt de cada dataset
   - State "DONE"       from "TODO"       [2020-03-27 vie 05:57]
 * DONE Revisar logs de ML tras crear logs.sh
   - State "DONE"       from "TODO"       [2020-03-27 vie 05:57]
-* TODO Revisar logs
+* DONE Revisar logs
+  - State "DONE"       from "TODO"       [2020-04-25 sáb 00:12]
 + [X] bernoulli
 + [X] forest
 + [X] gaussian
@@ -1079,8 +1085,9 @@ Debes escribir primero los ficheros males.txt y females.txt de cada dataset
 + [ ] vsa10_2~2p.csv (males names, but she is female)
 + [ ] vsa11_1~2p.csv (females names and she is female)
 
-* TODO Crear un script readme2md.sh
+* DONE Crear un script readme2md.sh
   SCHEDULED: <2020-04-03 vie>
+  - State "DONE"       from "TODO"       [2020-04-25 sáb 00:12]
 * FUTURE Morfología de idiomas
 Hay idiomas que los nombres tienen género para llegar a esto es posible revisar la morfología de un idioma:
 + https://en.wikipedia.org/wiki/Polish_morphology#Nouns
@@ -1090,7 +1097,7 @@ Hay idiomas que los nombres tienen género para llegar a esto es posible revisar
 + [ ] DecisionTree
 + [ ] RandomForest
 + [ ] ExtraTrees
-+ [ ] AdaBoost
++ [X] AdaBoost
 + [ ] GradientBoostingClassifier
 + [ ] GradientBoostingRegressor
 + [ ] KNeighborsClassifier
