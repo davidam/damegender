@@ -409,6 +409,8 @@ class Gender(object):
             path_males = 'files/names/names_uk/ukmales.csv'
         elif (dataset == 'us'):
             path_males = 'files/names/names_us/usmales.csv'
+        elif (dataset == 'nz'):
+            path_males = 'files/names/names_nz/nzmales.csv'            
         file_males = open(path_males, 'r')
         readerm = csv.reader(file_males, delimiter=',', quotechar='|')
         males = 0
@@ -425,6 +427,8 @@ class Gender(object):
             path_females = 'files/names/names_uk/ukfemales.csv'
         elif (dataset == 'us'):
             path_females = 'files/names/names_us/usfemales.csv'
+        elif (dataset == 'nz'):
+            path_males = 'files/names/names_nz/nzfemales.csv'            
 
         file_females = open(path_females, 'r')
         readerf = csv.reader(file_females, delimiter=',', quotechar='|')
