@@ -24,10 +24,10 @@
 import csv
 import json
 
-nzpathyearsmales = "nznames-boys.csv"
-nzpathyearsmales = "nznames-boys.min.csv"
-nzpathyearsfemales = "nznames-girls.csv"
-nzpathyearsfemales = "nznames-girls.min.csv"
+# nzpathyearsmales = "nznames-boys.csv"
+# nzpathyearsmales = "nznames-boys.min.csv"
+# nzpathyearsfemales = "nznames-girls.csv"
+# nzpathyearsfemales = "nznames-girls.min.csv"
 nzpathyears = "nznames.csv"
 pathmalesjson = "nzmales.json"
 dicc = {}
@@ -47,21 +47,68 @@ with open(nzpathyears) as csvfile:
     next(reader, None)
     l = []
     dicc = {}
-    for row in reader:
+    for row1 in reader:
         # this for is only to set the dicc
-        print(row)
-        dicc[row[3]] = {}
-        dicc[row[3]][row[0]] = {}
-        dicc[row[3]][row[0]]["male"] = {}
-        dicc[row[3]][row[0]]["female"] = {}
-        if (row[1] == 'Girls'):
-            dicc[row[3]][row[0]]["female"] = row[4]
-        elif (row[1] == 'Boys'):
-            dicc[row[3]][row[0]]["male"] = row[4]
-
-print(dicc.keys())
+#        print(row)
+        dicc[row1[3]] = {}
 print(dicc)
-csvfile.close()
+csvfile.close()                
+with open(nzpathyears) as csvfile2:
+    reader2 = csv.reader(csvfile2, delimiter=',', quotechar='|')
+    next(reader2, None)        
+    for row2 in reader2:        
+        dicc[row2[3]][row2[0]] = {}
+        # dicc[row1[3]][row1[0]]["male"] = {}
+        # dicc[row1[3]][row1[0]]["female"] = {}
+csvfile2.close()        
+print(dicc)
+
+with open(nzpathyears) as csvfile3:
+    reader3 = csv.reader(csvfile3, delimiter=',', quotechar='|')
+    next(reader3, None)        
+    for row3 in reader3:        
+#        dicc[row3[3]][row3[0]] = {}
+        dicc[row3[3]][row3[0]]["male"] = {}
+        dicc[row3[3]][row3[0]]["female"] = {}
+csvfile3.close()        
+print(dicc)
+
+with open(nzpathyears) as csvfile4:
+    reader4 = csv.reader(csvfile4, delimiter=',', quotechar='|')
+    next(reader4, None)
+    for row4 in reader4:
+        if (row4[1] == 'Girls'):
+            dicc[row4[3]][row4[0]]["female"] = row4[4]
+        elif (row4[1] == 'Boys'):
+            dicc[row4[3]][row4[0]]["male"] = row4[4]
+
+print(dicc)
+            
+print(dicc.keys())
+for i in dicc.keys():
+    males = 0
+    females = 0
+    for j in dicc[i].keys():
+        if (dicc[i][j]["female"] == {}):
+            num = 0
+        else:
+            num = dicc[i][j]["female"]
+        females = females + int(num)
+        if (dicc[i][j]["male"] == {}):
+            num = 0
+        else:
+            num = dicc[i][j]["male"]
+        males = males + int(num)
+        
+    dicc[i]["females"] = females
+    dicc[i]["males"] = males            
+
+print(dicc["Paula"]["females"])
+jsonvar = json.dumps(dicc)
+fo = open("nznames.json", "w")
+fo.write(jsonvar)
+fo.close()
+
 
 # with open(nzpathyearsmales) as csvfile2:
 #     reader2 = csv.reader(csvfile2, delimiter=',', quotechar='|')
