@@ -24,22 +24,34 @@
 import csv
 import json
 
-# nzpathyearsmales = "nznames-boys.csv"
-# nzpathyearsmales = "nznames-boys.min.csv"
-# nzpathyearsfemales = "nznames-girls.csv"
-# nzpathyearsfemales = "nznames-girls.min.csv"
+nzpathyearsmales = "nznames-boys.csv"
+# # nzpathyearsmales = "nznames-boys.min.csv"
+nzpathyearsfemales = "nznames-girls.csv"
+# # nzpathyearsfemales = "nznames-girls.min.csv"
 nzpathyears = "nznames.csv"
 pathmalesjson = "nzmales.json"
+csvoutmales = "nzmales.csv"
+csvoutfemales = "nzfemales.csv"
 dicc = {}
 
-# dicc["Julia"] = {}
-# dicc["Julia"]["1954"] = {}
-# dicc["Julia"]["1954"]["female"] = 1389
-# dicc["Julia"]["1955"] = {}
-# dicc["Julia"]["1955"]["female"] = 1384
-# dicc["Julia"]["total"] = {}
-# dicc["Julia"]["total"]["female"] = 11384
-# print(dicc)
+dicc["Julia"] = {}
+dicc["Julia"]["1954"] = {}
+dicc["Julia"]["1954"]["female"] = 1389
+dicc["Julia"]["1955"] = {}
+dicc["Julia"]["1955"]["female"] = 1384
+dicc["Julia"]["total"] = {}
+dicc["Julia"]["total"]["female"] = 11384
+print(dicc)
+
+def delete_duplicated(l):
+    if (len(l) == 0):
+        return l
+    else:
+        rest = []
+        for i in l:
+            if (i != l[0]):
+                rest = rest + [i]
+    return [l[0]] + delete_duplicated(rest)
 
 
 with open(nzpathyears) as csvfile:
@@ -108,6 +120,31 @@ jsonvar = json.dumps(dicc)
 fo = open("nznames.json", "w")
 fo.write(jsonvar)
 fo.close()
+
+print(dicc.keys())
+
+file = open(csvoutmales, "w")    
+for i in dicc.keys():
+    line = str(i) + "," + str(dicc[i]["males"]) + "\n"
+    file.write(line)
+file.close()
+
+file = open(csvoutfemales, "w")    
+for i in dicc.keys():
+    line = str(i) + "," + str(dicc[i]["females"]) + "\n"
+    file.write(line)
+file.close()
+
+# file = open(csvoutfemales, "w")    
+# for i in dicc.keys():
+#     for j in dicc[i].keys():
+#         # print("inside")
+#         # print(i)
+#         # print(dicc[i]["females"])        
+#         line = str(i) + "," + str(dicc[i]["females"]) + "\n"
+#         file.write(line)
+# file.close()
+    
 
 
 # with open(nzpathyearsmales) as csvfile2:
