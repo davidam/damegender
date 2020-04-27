@@ -32,7 +32,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
-parser.add_argument('--total', default="ine", choices=['ine', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
+parser.add_argument('--total', default="ine", choices=['ine', 'uy', 'uk', 'us', 'nz', 'luciahelena', 'genderguesser', 'all'])
 parser.add_argument('--version', action='version', version='0.1')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
@@ -94,6 +94,10 @@ elif ((args.verbose) or (args.total == "all")):
         num_females = s.name_frec(args.name, dataset="uk")['females']
         print("%s males for %s from United Kingdom census" % (num_males, args.name))
         print("%s females for %s from United Kingdom census" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="nz")['males']
+        num_females = s.name_frec(args.name, dataset="nz")['females']
+        print("%s males for %s from New Zealand census" % (num_males, args.name))
+        print("%s females for %s from New Zealand census" % (num_females, args.name))
         num_males = s.name_frec(args.name, dataset="us")['males']
         num_females = s.name_frec(args.name, dataset="us")['females']
         print("%s males for %s from United States of America census" % (num_males, args.name))
@@ -173,3 +177,7 @@ else:
     elif (args.total == "us"):
         print("%s males for %s from United States of America census" % (num_males, args.name))
         print("%s females for %s from United States of America census" % (num_females, args.name))
+    elif (args.total == "nz"):
+        print("%s males for %s from New Zealand census" % (num_males, args.name))
+        print("%s females for %s from New Zealand census" % (num_females, args.name))
+        
