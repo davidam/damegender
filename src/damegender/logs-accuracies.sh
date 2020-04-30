@@ -57,7 +57,7 @@ python3 accuracy.py --csv=files/names/allnoundefined.csv --jsondownloaded=files/
 
 #### SVC ALGORITHM
 
-echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.svc.json --measure=f1score --api=damegender > files/logs/accuracy-svc-f1score-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-nltk-f1score-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.svc.json --measure=f1score --api=damegender > files/logs/accuracy-svc-f1score-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-svc-f1score-$(date "+%Y-%m-%d").txt
 
 python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.svc.json --measure=f1score --api=damegender >> files/logs/accuracy-svc-f1score-$(date "+%Y-%m-%d").txt
 
@@ -75,7 +75,7 @@ python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded
 
 #### TREE ALGORITHM
 
-echo "python3 accuracy.py --csv=files/names/allnoundefined.csv --jsondownloaded=files/names/allnoundefined.csv.tree.json --measure=f1score --api=damegender > files/logs/accuracy-tree-f1score-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-nltk-f1score-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --csv=files/names/allnoundefined.csv --jsondownloaded=files/names/allnoundefined.csv.tree.json --measure=f1score --api=damegender > files/logs/accuracy-tree-f1score-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-tree-f1score-$(date "+%Y-%m-%d").txt
 
 python3 accuracy.py --csv=files/names/allnoundefined.csv --jsondownloaded=files/names/allnoundefined.csv.tree.json --measure=f1score --api=damegender >> files/logs/accuracy-tree-f1score-$(date "+%Y-%m-%d").txt
 
@@ -184,3 +184,21 @@ python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded
 echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=recall --api=damegender > files/logs/accuracy-forest-recall-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-forest-recall-$(date "+%Y-%m-%d").txt
 
 python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.csv.forest.json --measure=recall --api=damegender >> files/logs/accuracy-forest-recall-$(date "+%Y-%m-%d").txt
+
+#### ADABOOST ALGORITHM
+
+echo "python3 accuracy.py --csv=files/names/allnoundefined.csv --jsondownloaded=files/names/allnoundefined.csv.adaboost.json --measure=f1score --api=damegender > files/logs/accuracy-forest-f1score-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-adaboost-f1score-$(date "+%Y-%m-%d").txt
+
+python3 accuracy.py --csv=files/names/allnoundefined.csv --jsondownloaded=files/names/allnoundefined.csv.adaboost.json --measure=f1score --api=damegender >> files/logs/accuracy-adaboost-f1score-$(date "+%Y-%m-%d").txt
+
+echo "python3 accuracy.py --csv=files/names/allnoundefined.csv --jsondownloaded=files/names/allnoundefined.csv.adaboost.json --measure=accuracy --api=damegender > files/logs/accuracy-adaboost-accuracy-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-adaboost-accuracy-$(date "+%Y-%m-%d").txt
+
+python3 accuracy.py --csv=files/names/allnoundefined.csv --jsondownloaded=files/names/allnoundefined.csv.adaboost.json --measure=accuracy --api=damegender >> files/logs/accuracy-adaboost-accuracy-$(date "+%Y-%m-%d").txt
+
+echo "python3 accuracy.py --csv=files/names/allnoundefined.csv --jsondownloaded=files/names/allnoundefined.csv.adaboost.json --measure=precision --api=damegender > files/logs/accuracy-adaboost-precision-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-adaboost-precision-$(date "+%Y-%m-%d").txt
+
+python3 accuracy.py --csv=files/names/allnoundefined.csv --jsondownloaded=files/names/allnoundefined.csv.adaboost.json --measure=precision --api=damegender >> files/logs/accuracy-adaboost-precision-$(date "+%Y-%m-%d").txt
+
+echo "python3 accuracy.py --csv=files/names/allnoundefined.csv --jsondownloaded=files/names/allnoundefined.csv.adaboost.json --measure=recall --api=damegender > files/logs/accuracy-adaboost-recall-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-adaboost-recall-$(date "+%Y-%m-%d").txt
+
+python3 accuracy.py --csv=files/names/allnoundefined.csv --jsondownloaded=files/names/allnoundefined.csv.adaboost.json --measure=recall --api=damegender >> files/logs/accuracy-adaboost-recall-$(date "+%Y-%m-%d").txt
