@@ -344,6 +344,7 @@ Helena Mihaljevic dataset as base of truth.
 | SGD           |    0.709 |     0.943 |   0.815 |    1.0 |
 | GaussianNB    |    0.709 |     0.968 |   0.887 |    1.0 |
 | BernoulliNB   |    0.699 |     0.965 |   0.816 |    1.0 |
+| AdaBoost      |    0.698 |     0.965 |   0.815 |    1.0 |
 | MLP           |    0.677 |     0.819 |   0.755 |    1.0 |
 
 In Damegender we are using the next datasets:
