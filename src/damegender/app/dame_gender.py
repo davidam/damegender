@@ -447,7 +447,7 @@ class Gender(object):
         elif (dataset == 'nz'):
             path_females = 'files/names/names_nz/nzfemales.csv'            
         elif (dataset == 'ca'):
-            path_females = 'files/names/names_cac/cafemales.csv'            
+            path_females = 'files/names/names_ca/cafemales.csv'            
         elif (dataset == 'au'):
             path_females = 'files/names/names_au/baby-names-1944-2013/aufemales.csv'            
 

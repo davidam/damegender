@@ -71,6 +71,9 @@ class TddInPythonExample(unittest.TestCase):
         m4 = g.males_list(corpus="uy")
         self.assertTrue("Adrian" in m4)
         self.assertEqual(len(m4), 9107)
+        m6 = g.males_list(corpus="au")
+        self.assertTrue("Adan" in m6)
+        self.assertEqual(len(m6), 24511)
 
 
     def test_dame_gender_females_list(self):
@@ -90,6 +93,9 @@ class TddInPythonExample(unittest.TestCase):
         f5 = g.females_list(corpus="nz")
         self.assertTrue("Anita" in f5)
         self.assertEqual(len(f5), 712)
+        f6 = g.females_list(corpus="au")
+        self.assertTrue("Anita" in f6)
+        self.assertEqual(len(f6), 24818)
 
     def test_dame_gender_filenamdict2list(self):
         g = Gender()
@@ -372,9 +378,9 @@ class TddInPythonExample(unittest.TestCase):
         frec8 = g.name_frec("A", dataset='uk')
         self.assertEqual(int(frec8['males']), 49)
         frec6 = g.name_frec("MARIA", dataset='nz')
-        self.assertEqual(int(frec6['females']), 606048)
+        self.assertEqual(int(frec6['females']), 5541)
         frec6 = g.name_frec("MARIA", dataset='ca')
-        self.assertEqual(int(frec6['females']), 606048)
+        self.assertEqual(int(frec6['females']), 1626)
 
     def test_dame_gender_error_gender_bias(self):
         g = Gender()
