@@ -1,9 +1,9 @@
 
 * v0.2.8
 New names from oficial Open Data census:
-+ Canada (107339 new names)
-+ New Zealand (6600 new names)
-
++ Canada (107339 names)
++ New Zealand (6600 names)
++ Australia (52978 names)
 * v0.2.7
 + count-debian-gender.py: add example to count males and females in debian keyring
 + ethnicity.py: race about a name. Source: USA census
