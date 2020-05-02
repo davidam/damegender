@@ -174,17 +174,20 @@ fo.close()
 
 string = ""
 
-# aumalesf = open("aumales.csv", "w")
+aumalesf = open("aumales.csv", "w")
 
-# for i in diccmales.keys():
-#     count = 0
-#     total = 0
-#     for j in range(1944, 2013):
-#         if (type(int(diccmales[i][j]) == int)):
-#             total = total + int(diccmales[i][j])
-#     string = str(i) + "," + str(total) + "\n"        
-#     aumalesf.write(string)
-#     count = count + 1
+   
+for i in diccmales.keys():
+    count = 0
+    total = 0
+    for j in range(1944, 2013):
+        try: 
+            total = total + int(diccmales[i][j])
+        except ValueError:
+            pass
+    string = str(i) + "," + str(total) + "\n"        
+    aumalesf.write(string)
+    count = count + 1
 
 aufemalesf = open("aufemales.csv", "w")
 
