@@ -32,7 +32,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
-parser.add_argument('--total', default="ine", choices=['ine', 'ca', 'uy', 'uk', 'us', 'nz', 'luciahelena', 'genderguesser', 'all'])
+parser.add_argument('--total', default="ine", choices=['au', 'ca', 'es', 'ine', 'nz', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
 parser.add_argument('--version', action='version', version='0.1')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
@@ -169,7 +169,10 @@ else:
             sex = "unknown"
         print("%s gender predicted is %s" % (str(args.name), sex))
 
-    if (args.total == "ine"):
+    if (args.total == "au"):
+        print("%s males for %s from Australia census" % (num_males, args.name))
+        print("%s females for %s from Australia census" % (num_females, args.name))
+    elif ((args.total == "ine") or (args.total == "es")):
         print("%s males for %s from INE.es" % (num_males, args.name))
         print("%s females for %s from INE.es" % (num_females, args.name))
     elif (args.total == "uy"):
