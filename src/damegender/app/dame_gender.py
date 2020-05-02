@@ -187,9 +187,12 @@ class Gender(object):
         uk_path = 'files/names/names_uk/ukmales.txt'
         us_path = 'files/names/names_us/usmales.txt'
         nz_path = 'files/names/names_nz/nzmales.csv'
-        ca_path = 'files/names/names_ca/camales.csv'                
+        ca_path = 'files/names/names_ca/camales.csv'
+        au_path = 'files/names/names_ca/aumales.csv'                        
         m = ""
-        if ((corpus == 'es') or (corpus == 'ine')):
+        if (corpus == 'au'):
+            m = du.csvcolumn2list(ine_path)
+        elif ((corpus == 'es') or (corpus == 'ine')):
             m = du.csvcolumn2list(ine_path)
         elif (corpus == 'ca'):
             m = du.csvcolumn2list(ca_path)
@@ -202,7 +205,7 @@ class Gender(object):
         elif (corpus == 'uy'):
             m = du.csvcolumn2list(uy_path)
         elif (corpus == 'all'):
-            m = du.csvcolumn2list(ine_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(ca_path)
+            m = du.csvcolumn2list(ine_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(ca_path) + du.csvcolumn2list(au_path)
             m = du.delete_duplicated(m)
         return m
 
@@ -212,9 +215,12 @@ class Gender(object):
         uk_path = 'files/names/names_uk/ukfemales.txt'
         us_path = 'files/names/names_us/usfemales.txt'
         nz_path = 'files/names/names_nz/nzfemales.csv'
-        ca_path = 'files/names/names_ca/cafemales.csv'                        
+        ca_path = 'files/names/names_ca/cafemales.csv'
+        au_path = 'files/names/names_ca/aufemales.csv'                                
         f = ""
-        if ((corpus == 'es') or (corpus == 'ine')):
+        if (corpus == 'au'):
+            f = du.csvcolumn2list(ine_path)
+        elif ((corpus == 'es') or (corpus == 'ine')):
             f = du.csvcolumn2list(ine_path)
         elif (corpus == 'nz'):
             f = du.csvcolumn2list(nz_path)            
@@ -227,7 +233,7 @@ class Gender(object):
         elif (corpus == 'uy'):
             f = du.csvcolumn2list(uy_path)
         elif (corpus == 'all'):
-            f = du.csvcolumn2list(ine_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(ca_path)
+            f = du.csvcolumn2list(ine_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(ca_path) + du.csvcolumn2list(au_path)
             f = du.delete_duplicated(f)
         return f
 
@@ -418,7 +424,10 @@ class Gender(object):
         elif (dataset == 'nz'):
             path_males = 'files/names/names_nz/nzmales.csv'            
         elif (dataset == 'ca'):
-            path_males = 'files/names/names_ca/camales.csv'            
+            path_males = 'files/names/names_ca/camales.csv'
+        elif (dataset == 'au'):
+            path_males = 'files/names/names_au/baby-names-1944-2013/aumales.csv'            
+            
         file_males = open(path_males, 'r')
         readerm = csv.reader(file_males, delimiter=',', quotechar='|')
         males = 0
@@ -436,9 +445,11 @@ class Gender(object):
         elif (dataset == 'us'):
             path_females = 'files/names/names_us/usfemales.csv'
         elif (dataset == 'nz'):
-            path_males = 'files/names/names_nz/nzfemales.csv'            
+            path_females = 'files/names/names_nz/nzfemales.csv'            
         elif (dataset == 'ca'):
-            path_males = 'files/names/names_cac/cafemales.csv'            
+            path_females = 'files/names/names_cac/cafemales.csv'            
+        elif (dataset == 'au'):
+            path_females = 'files/names/names_au/baby-names-1944-2013/aufemales.csv'            
 
         file_females = open(path_females, 'r')
         readerf = csv.reader(file_females, delimiter=',', quotechar='|')
