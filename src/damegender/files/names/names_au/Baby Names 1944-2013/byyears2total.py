@@ -116,6 +116,16 @@ print("-------------------------------------------------------------------------
 print("--------------------------------------------------------------------------")                
 
 
+for i in diccmales.keys():
+    for j in range(1944, 2013):
+        diccmales[i][j] = {}
+
+for i in diccfemales.keys():
+    for j in range(1944, 2013):
+        diccfemales[i][j] = {}
+
+        
+
 for i in range(1944, 2013):
 
     pathyearsmales = "male_cy" + str(i) + "_top.csv"
@@ -135,9 +145,21 @@ for i in range(1944, 2013):
             diccmales[drop_quotes(row2[0])][i] = drop_quotes(row2[1])
     csvfile2.close()
     
-print(diccmales)
-print(diccfemales)
+#print(diccmales)
+#print(diccfemales)
 
+for i in diccmales.keys():
+    total = 0
+    for j in range(1944, 2013):
+        if (diccmales[i][j] =={}):
+            diccmales[i][j] = 0
+
+for i in diccfemales.keys():
+    total = 0
+    for j in range(1944, 2013):
+        if (diccfemales[i][j] =={}):
+            diccfemales[i][j] = 0
+            
 jsonf = json.dumps(diccfemales)
 fo = open("aufemales.json", "w")
 fo.write(jsonf)
@@ -149,4 +171,28 @@ fo = open("aumales.json", "w")
 fo.write(jsonm)
 # Cerramos el archivo fichero.txt
 fo.close()
+
+string = ""
+
+# aumalesf = open("aumales.csv", "w")
+
+# for i in diccmales.keys():
+#     count = 0
+#     total = 0
+#     for j in range(1944, 2013):
+#         if (type(int(diccmales[i][j]) == int)):
+#             total = total + int(diccmales[i][j])
+#     string = str(i) + "," + str(total) + "\n"        
+#     aumalesf.write(string)
+#     count = count + 1
+
+aufemalesf = open("aufemales.csv", "w")
+
+for i in diccfemales.keys():
+    total = 0
+    for j in range(1944, 2013):
+        total = total + int(diccfemales[i][j])
+    string = str(i) + "," + str(total) + "\n"        
+    aufemalesf.write(string)
+
 
