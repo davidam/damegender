@@ -353,9 +353,30 @@ In Damegender we are using the next datasets:
 + United Kingdom
 + Uruguay
 
-We hope better results with more languages.
+We have found better results with more languages:
+(2020/05)
 
-Machine Learning Algorithms in DameGender
+| Name          | Accuracy | Precision | F1score | Recall |
+| SVC           |    0.879 |     0.972 |   0.972 |    1.0 |
+| Random Forest |          |           |         |        |
+| NLTK (Bayes)  |          |           |         |        |
+| MultinomialNB |          |           |         |        |
+| Tree          |          |           |         |        |
+| SGD           |    0.876 |     0.972 |   0.969 |    1.0 |
+| GaussianNB    |          |           |         |        |
+| BernoulliNB   |          |           |         |        |
+| AdaBoost      |          |           |         |        |
+| MLP           |          |           |         |        |
+
+In Damegender (2020/05) we are using the next datasets:
++ INE.es (Spain)
++ USA 
++ United Kingdom
++ Uruguay
++ Canada
++ Australia
++ New Zealand
+
 These results are experimental, we are improving the choosing of features.
 
 *** Confusion Matrix
@@ -368,7 +389,7 @@ These results are experimental, we are improving the choosing of features.
  | male   | 3326 |    139 |       346 |
  | female | 78   |   1686 |       204 |
 
-***** Genderizey
+***** Genderize
  | ...    | male | female | undefined |
  | male   | 3157 |    242 |       412 |
  | female |   75 |   1742 |       151 |
