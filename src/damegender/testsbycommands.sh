@@ -476,6 +476,15 @@ else
 	echo "surnamemenendez test is ok"
 fi
 
+python3 errors.py --csv=files/names/partial.csv --jsondownloaded=files/names/partial.csv.nltk.json > files/tests/errorspartialnltk-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/errorspartialnltk.txt files/tests/errorspartialnltk-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "errors test is failing"
+else
+	echo "errors test is ok"
+fi
+
 
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
