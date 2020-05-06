@@ -359,7 +359,7 @@ We have found better results with more languages:
 | Name          | Accuracy | Precision | F1score | Recall |
 | SVC           |    0.879 |     0.972 |   0.972 |    1.0 |
 | Random Forest |          |           |         |        |
-| NLTK (Bayes)  |          |           |         |        |
+| NLTK (Bayes)  |    0.874 |     0.92  |   0.92  |    1.0 |
 | MultinomialNB |          |           |         |        |
 | Tree          |          |           |         |        |
 | SGD           |    0.876 |     0.972 |   0.969 |    1.0 |
