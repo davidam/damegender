@@ -4,6 +4,17 @@ New names from oficial Open Data census:
 + Canada (107339 names)
 + New Zealand (6600 names)
 + Australia (52978 names)
+
+Create:
++ logs-errors.sh: execute allnoundefined.csv with different ML models of errors.py to generate all logs needed
+
+Refactor: 
++ errors.py
+
+Updating (more names, new calculus and results):
++ articles/damegender.pdf
++ files/datamodels/*sav
+
 * v0.2.7
 + count-debian-gender.py: add example to count males and females in debian keyring
 + ethnicity.py: race about a name. Source: USA census
