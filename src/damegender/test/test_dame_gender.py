@@ -74,6 +74,9 @@ class TddInPythonExample(unittest.TestCase):
         m6 = g.males_list(corpus="au")
         self.assertTrue("Adan" in m6)
         self.assertEqual(len(m6), 24511)
+        m7 = g.males_list(corpus="pt")
+        self.assertTrue("Adan" in m6)
+        self.assertEqual(len(m6), 24511)
 
 
     def test_dame_gender_females_list(self):
@@ -92,11 +95,15 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(len(f4), 13597)
         f5 = g.females_list(corpus="nz")
         self.assertTrue("Anita" in f5)
-        self.assertEqual(len(f5), 712)
+        self.assertEqual(len(f5), 2094)
         f6 = g.females_list(corpus="au")
         self.assertTrue("Anita" in f6)
         self.assertEqual(len(f6), 24818)
+        f7 = g.females_list(corpus="pt")
+        self.assertTrue("Adan" in f7)
+        self.assertEqual(len(f7), 2094)
 
+        
     def test_dame_gender_filenamdict2list(self):
         g = Gender()
         name = g.filenamdict2list()[0]

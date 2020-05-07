@@ -182,13 +182,15 @@ class Gender(object):
         return 1
 
     def males_list(self, corpus='es'):
+        au_path = 'files/names/names_ca/aumales.csv'
+        ca_path = 'files/names/names_ca/camales.csv'        
         ine_path = 'files/names/names_es/masculinos.txt'
+        nz_path = 'files/names/names_nz/nzmales.csv'
+        pt_path = 'files/names/names_pt/ptmales.csv'        
         uy_path = 'files/names/names_uy/uymasculinos.txt'
         uk_path = 'files/names/names_uk/ukmales.txt'
         us_path = 'files/names/names_us/usmales.txt'
-        nz_path = 'files/names/names_nz/nzmales.csv'
-        ca_path = 'files/names/names_ca/camales.csv'
-        au_path = 'files/names/names_ca/aumales.csv'                        
+
         m = ""
         if (corpus == 'au'):
             m = du.csvcolumn2list(ine_path)
@@ -198,6 +200,8 @@ class Gender(object):
             m = du.csvcolumn2list(ca_path)
         elif (corpus == 'nz'):
             m = du.csvcolumn2list(nz_path)
+        elif (corpus == 'pt'):
+            m = du.csvcolumn2list(pt_path)            
         elif (corpus == 'uk'):
             m = du.csvcolumn2list(uk_path)
         elif (corpus == 'us'):
@@ -205,27 +209,31 @@ class Gender(object):
         elif (corpus == 'uy'):
             m = du.csvcolumn2list(uy_path)
         elif (corpus == 'all'):
-            m = du.csvcolumn2list(ine_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(ca_path) + du.csvcolumn2list(au_path)
+            m = du.csvcolumn2list(au_path) + du.csvcolumn2list(ca_path) + du.csvcolumn2list(ine_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(pt_path) + du.csvcolumn2list(uk_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path) 
             m = du.delete_duplicated(m)
         return m
 
     def females_list(self, corpus='es'):
+        au_path = 'files/names/names_ca/aufemales.csv'
+        ca_path = 'files/names/names_ca/cafemales.csv'        
         ine_path = 'files/names/names_es/femeninos.txt'
-        uy_path = 'files/names/names_uy/uyfemeninos.txt'
-        uk_path = 'files/names/names_uk/ukfemales.txt'
-        us_path = 'files/names/names_us/usfemales.txt'
         nz_path = 'files/names/names_nz/nzfemales.csv'
-        ca_path = 'files/names/names_ca/cafemales.csv'
-        au_path = 'files/names/names_ca/aufemales.csv'                                
+        nz_path = 'files/names/names_pt/ptfemales.csv'        
+        uk_path = 'files/names/names_uk/ukfemales.txt'
+        us_path = 'files/names/names_us/usfemales.txt'        
+        uy_path = 'files/names/names_uy/uyfemeninos.txt'
+
         f = ""
         if (corpus == 'au'):
             f = du.csvcolumn2list(ine_path)
+        elif (corpus == 'ca'):
+            f = du.csvcolumn2list(nz_path)                        
         elif ((corpus == 'es') or (corpus == 'ine')):
             f = du.csvcolumn2list(ine_path)
         elif (corpus == 'nz'):
-            f = du.csvcolumn2list(nz_path)            
-        elif (corpus == 'ca'):
-            f = du.csvcolumn2list(nz_path)            
+            f = du.csvcolumn2list(nz_path)
+        elif (corpus == 'pt'):
+            f = du.csvcolumn2list(nz_path)                        
         elif (corpus == 'uk'):
             f = du.csvcolumn2list(uk_path)
         elif (corpus == 'us'):
@@ -233,7 +241,7 @@ class Gender(object):
         elif (corpus == 'uy'):
             f = du.csvcolumn2list(uy_path)
         elif (corpus == 'all'):
-            f = du.csvcolumn2list(ine_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(ca_path) + du.csvcolumn2list(au_path)
+            f = du.csvcolumn2list(au_path) + du.csvcolumn2list(ca_path) + du.csvcolumn2list(ine_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(pt_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path) 
             f = du.delete_duplicated(f)
         return f
 
