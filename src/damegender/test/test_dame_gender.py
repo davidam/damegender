@@ -75,8 +75,8 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue("Adan" in m6)
         self.assertEqual(len(m6), 24511)
         m7 = g.males_list(corpus="pt")
-        self.assertTrue("Adan" in m6)
-        self.assertEqual(len(m6), 24511)
+        self.assertTrue("Adan" in m7)
+        self.assertEqual(len(m7), 24511)
 
 
     def test_dame_gender_females_list(self):
