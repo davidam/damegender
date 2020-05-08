@@ -32,7 +32,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
-parser.add_argument('--total', default="ine", choices=['au', 'ca', 'es', 'ine', 'nz', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
+parser.add_argument('--total', default="ine", choices=['au', 'ca', 'es', 'ine', 'nz', 'pt', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
 parser.add_argument('--version', action='version', version='0.1')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
@@ -102,10 +102,18 @@ elif ((args.verbose) or (args.total == "all")):
         num_females = s.name_frec(args.name, dataset="ca")['females']
         print("%s males for %s from Canada census" % (num_males, args.name))
         print("%s females for %s from Canada census" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="pt")['males']
+        num_females = s.name_frec(args.name, dataset="pt")['females']
+        print("%s males for %s from Portugal census" % (num_males, args.name))
+        print("%s females for %s from Portugal census" % (num_females, args.name))        
         num_males = s.name_frec(args.name, dataset="us")['males']
         num_females = s.name_frec(args.name, dataset="us")['females']
         print("%s males for %s from United States of America census" % (num_males, args.name))
         print("%s females for %s from United States of America census" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="au")['males']
+        num_females = s.name_frec(args.name, dataset="au")['females']
+        print("%s males for %s from Australia census" % (num_males, args.name))
+        print("%s females for %s from Australia census" % (num_females, args.name))        
         guess = s.guess(args.name, binary=True, ml="nltk")
         print("%s gender predicted with nltk is %s" % (str(args.name), du.int2gender(guess)))
         guess = s.guess(args.name, binary=True, ml="sgd")
@@ -190,4 +198,6 @@ else:
     elif (args.total == "ca"):
         print("%s males for %s from Canada census" % (num_males, args.name))
         print("%s females for %s from Canada census" % (num_females, args.name))
-        
+    elif (args.total == "pt"):
+        print("%s males for %s from Portugal census" % (num_males, args.name))
+        print("%s females for %s from Portugal census" % (num_females, args.name))        
