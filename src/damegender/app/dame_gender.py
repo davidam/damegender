@@ -182,7 +182,7 @@ class Gender(object):
         return 1
 
     def males_list(self, corpus='es'):
-        au_path = 'files/names/names_ca/aumales.csv'
+        au_path = 'files/names/names_au/baby-names-1944-2013/aumales.csv'
         ca_path = 'files/names/names_ca/camales.csv'        
         ine_path = 'files/names/names_es/masculinos.txt'
         nz_path = 'files/names/names_nz/nzmales.csv'
@@ -214,11 +214,11 @@ class Gender(object):
         return m
 
     def females_list(self, corpus='es'):
-        au_path = 'files/names/names_ca/aufemales.csv'
+        au_path = 'files/names/names_au/baby-names-1944-2013/aufemales.csv'
         ca_path = 'files/names/names_ca/cafemales.csv'        
         ine_path = 'files/names/names_es/femeninos.txt'
         nz_path = 'files/names/names_nz/nzfemales.csv'
-        nz_path = 'files/names/names_pt/ptfemales.csv'        
+        pt_path = 'files/names/names_pt/ptfemales.csv'        
         uk_path = 'files/names/names_uk/ukfemales.txt'
         us_path = 'files/names/names_us/usfemales.txt'        
         uy_path = 'files/names/names_uy/uyfemeninos.txt'
