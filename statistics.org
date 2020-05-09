@@ -335,17 +335,19 @@ Helena Mihaljevic dataset as base of truth.
 
 *** Accuracy (Damegender ML)
 
-| Name          | Accuracy | Precision | F1score | Recall |
-| SVC           |    0.879 |     0.972 |   0.972 |    1.0 |
-| Random Forest |    0.862 |     0.902 |   0.902 |    1.0 |
-| NLTK (Bayes)  |    0.862 |     0.902 |   0.902 |    1.0 |
-| MultinomialNB |    0.782 |     0.791 |   0.791 |    1.0 |
-| Tree          |    0.764 |     0.821 |   0.796 |    1.0 |
-| SGD           |    0.709 |     0.943 |   0.815 |    1.0 |
-| GaussianNB    |    0.709 |     0.968 |   0.887 |    1.0 |
-| BernoulliNB   |    0.699 |     0.965 |   0.816 |    1.0 |
-| AdaBoost      |    0.698 |     0.965 |   0.815 |    1.0 |
-| MLP           |    0.677 |     0.819 |   0.755 |    1.0 |
+| Name          |   Accuracy | Precision | F1score | Recall |
+| SVC           |      0.879 |     0.972 |   0.972 |    1.0 |
+| Random Forest |      0.862 |     0.902 |   0.902 |    1.0 |
+| NLTK (Bayes)  |      0.862 |     0.902 |   0.902 |    1.0 |
+| MultinomialNB |      0.782 |     0.791 |   0.791 |    1.0 |
+| Tree          |      0.764 |     0.821 |   0.796 |    1.0 |
+| SGD           |      0.709 |     0.943 |   0.815 |    1.0 |
+| GaussianNB    |      0.709 |     0.968 |   0.887 |    1.0 |
+| BernoulliNB   |      0.699 |     0.965 |   0.816 |    1.0 |
+| AdaBoost      |      0.698 |     0.965 |   0.815 |    1.0 |
+| MLP           |      0.677 |     0.819 |   0.755 |    1.0 |
+| Average       | 0.76489182 |   0.90558 |  0.8451 |     1. |
+#+TBLFM: @12$2=vmean(@2$2..@12$2)::@12$3=vmean(@2$3..@12$3)::@12$4=vmean(@2$4..@12$4)::@12$5=vmean(@2$5..@12$5)
 
 In Damegender we are using the next datasets:
 + INE.es (Spain)
@@ -359,14 +361,16 @@ We have found better results with more languages:
 | Name          | Accuracy | Precision | F1score | Recall |
 | SVC           |    0.879 |     0.972 |   0.972 |    1.0 |
 | Random Forest |          |           |         |        |
-| NLTK (Bayes)  |    0.874 |     0.92  |   0.92  |    1.0 |
-| MultinomialNB |          |           |         |        |
+| NLTK (Bayes)  |    0.874 |      0.92 |    0.92 |    1.0 |
+| MultinomialNB |    0.879 |     0.972 |   0.972 |    1.0 |
 | Tree          |          |           |         |        |
 | SGD           |    0.876 |     0.972 |   0.969 |    1.0 |
 | GaussianNB    |          |           |         |        |
 | BernoulliNB   |          |           |         |        |
 | AdaBoost      |          |           |         |        |
 | MLP           |          |           |         |        |
+| Average       |    0.877 |     0.959 | 0.95825 |    1.0 |
+#+TBLFM: @12$2=vmean(@2$2..@12$2)::@12$3=vmean(@2$3..@12$3)::@12$4=vmean(@2$4..@12$4)::@12$5=vmean(@2$5..@12$5)
 
 In Damegender (2020/05) we are using the next datasets:
 + INE.es (Spain)
