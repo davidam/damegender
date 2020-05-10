@@ -191,7 +191,7 @@ class Gender(object):
         uk_path = 'files/names/names_uk/ukmales.txt'
         us_path = 'files/names/names_us/usmales.txt'
 
-        m = ""
+        m = []
         if (corpus == 'au'):
             m = du.csvcolumn2list(ine_path)
         elif ((corpus == 'es') or (corpus == 'ine')):
@@ -223,7 +223,7 @@ class Gender(object):
         us_path = 'files/names/names_us/usfemales.txt'        
         uy_path = 'files/names/names_uy/uyfemeninos.txt'
 
-        f = ""
+        f = []
         if (corpus == 'au'):
             f = du.csvcolumn2list(ine_path)
         elif (corpus == 'ca'):
@@ -233,7 +233,7 @@ class Gender(object):
         elif (corpus == 'nz'):
             f = du.csvcolumn2list(nz_path)
         elif (corpus == 'pt'):
-            f = du.csvcolumn2list(nz_path)                        
+            f = du.csvcolumn2list(pt_path)                        
         elif (corpus == 'uk'):
             f = du.csvcolumn2list(uk_path)
         elif (corpus == 'us'):
@@ -887,67 +887,85 @@ class Gender(object):
             cmd = self.confusion_matrix_gender(path)
         if (dimensions == "1x1"):
             if (reverse == False):
-                print("[[ %s ]]" % (cmd[1][1]))
+                print("      M    ")                
+                print("M  [[ %s ]]" % (cmd[1][1]))
             elif (reverse == True):
-                print("[[ %s ]]" % (cmd[0][0]))
+                print("      F    ")
+                print("F  [[ %s ]]" % (cmd[0][0]))
         elif (dimensions == "1x2"):
             if (reverse == False):
-                print("[[ %s, %s ]]" % (cmd[1][1], cmd[1][0]))
+                print("      M    F   ")
+                print("M  [[ %s,   %s ]]" % (cmd[1][1], cmd[1][0]))
             elif (reverse == True):
-                print("[[ %s, %s ]]" % (cmd[0][0], cmd[0][1]))
+                print("      F    M   ")                
+                print("F  [[ %s,   %s ]]" % (cmd[0][0], cmd[0][1]))
         elif (dimensions == "1x3"):
             if (reverse == False):
-                print("[[ %s, %s, %s ]]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
+                print("      M    F   U   ")                
+                print("M  [[ %s, %s, %s ]]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
             elif (reverse == True):
-                print("[[ %s, %s, %s ]]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print("     F  M  U   ")                                
+                print("F [[ %s, %s, %s ]]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
         elif (dimensions == "2x1"):
             if (reverse == False):
-                print("[[ %s ]" % (cmd[1][1]))
-                print(" [ %s ]]" % (cmd[1][0]))
+                print("      M  ")
+                print("M  [[ %s ]" % (cmd[1][1]))
+                print("F   [ %s ]]" % (cmd[1][0]))
             elif (reverse == True):
-                print("[[ %s ]" % (cmd[0][0]))
-                print(" [ %s ]]" % (cmd[0][1]))
+                print("      F   ")
+                print("F  [[ %s ] " % (cmd[0][0]))
+                print("M   [ %s ]]" % (cmd[0][1]))
         elif (dimensions == "2x2"):
             if (reverse == False):
-                print("[[ %s , %s ]" % (cmd[1][1], cmd[1][0]))
-                print(" [ %s , %s ]]" % (cmd[0][1], cmd[0][0]))
+                print("      M    F  ")
+                print("M  [[ %s , %s ]" % (cmd[1][1], cmd[1][0]))
+                print("F   [ %s , %s ]]" % (cmd[0][1], cmd[0][0]))
             if (reverse == True):
-                print("[[ %s , %s ]" % (cmd[0][0], cmd[0][1]))
-                print(" [ %s , %s ]]" % (cmd[1][0], cmd[1][1]))
+                print("      F   M  ")
+                print("F  [[ %s , %s ]" % (cmd[0][0], cmd[0][1]))
+                print("M   [ %s , %s ]]" % (cmd[1][0], cmd[1][1]))
         elif (dimensions == "2x3"):
             if (reverse == False):
-                print("[[ %s, %s, %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
-                print(" [ %s, %s, %s ]]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
+                print("      M   F   U  ")
+                print("M  [[ %s,  %s,  %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
+                print("F   [ %s,  %s,  %s ]]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
             if (reverse == True):
-                print("[[ %s, %s, %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-                print(" [ %s, %s, %s ]]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+                print("      F   M   U  ")
+                print("F  [[ %s,  %s,  %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print("M   [ %s,  %s,  %s ]]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
         elif (dimensions == "3x1"):
             if (reverse == False):
-                print("[[ %s ]" % (cmd[1][1]))
-                print(" [ %s ]" % (cmd[0][1]))
-                print(" [ %s ]]" % (cmd[2][1]))
+                print("       M   ")
+                print("M  [[ %s ]" % (cmd[1][1]))
+                print("F   [ %s ]" % (cmd[0][1]))
+                print("U   [ %s ]]" % (cmd[2][1]))
             elif (reverse == True):
-                print("[[ %s ]," % (cmd[0][0]))
-                print(" [ %s ]" % (cmd[1][0]))
-                print(" [ %s ]]" % (cmd[2][0]))
+                print("       F   ")                
+                print("F   [[ %s ]" % (cmd[0][0]))
+                print("M    [ %s ]" % (cmd[1][0]))
+                print("U    [ %s ]]" % (cmd[2][0]))
         elif (dimensions == "3x2"):
             if (reverse == False):
-                print("[[ %s , %s ]" % (cmd[1][1], cmd[1][0]))
-                print(" [ %s , %s ]" % (cmd[0][1], cmd[0][0]))
-                print(" [ %s , %s ]]" % (cmd[2][1], cmd[2][0]))
+                print("      M    F  ")
+                print("M  [[ %s ,  %s ]" % (cmd[1][1], cmd[1][0]))
+                print("F   [ %s ,  %s ]" % (cmd[0][1], cmd[0][0]))
+                print("U   [ %s ,  %s ]]" % (cmd[2][1], cmd[2][0]))
             if (reverse == True):
-                print("[[ %s, %s ]" % (cmd[0][0], cmd[0][1]))
-                print(" [ %s, %s ]" % (cmd[1][0], cmd[1][1]))
-                print(" [ %s, %s ]]" % (cmd[2][0], cmd[2][1]))
+                print("      F   M  ")                
+                print("F  [[ %s,  %s ]" % (cmd[0][0], cmd[0][1]))
+                print("M   [ %s,  %s ]" % (cmd[1][0], cmd[1][1]))
+                print("U   [ %s,  %s ]]" % (cmd[2][0], cmd[2][1]))
         elif (dimensions == "3x3"):
             if (reverse == False):
-                print("[[ %s, %s, %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
-                print(" [ %s, %s, %s ]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
-                print(" [ %s, %s, %s ]]" % (cmd[2][1], cmd[2][0], cmd[2][2]))
+                print("      M  F  U   ")
+                print("M  [[ %s, %s, %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
+                print("F   [ %s, %s, %s ]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
+                print("U   [ %s, %s, %s ]]" % (cmd[2][1], cmd[2][0], cmd[2][2]))
             if (reverse == True):
-                print("[[ %s, %s, %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-                print(" [ %s, %s, %s ]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
-                print(" [ %s, %s, %s ]]" % (cmd[2][0], cmd[2][1], cmd[2][2]))
+                print("      F   M   U   ")
+                print("F  [[ %s, %s, %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print("M   [ %s, %s, %s ]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+                print("U   [ %s, %s, %s ]]" % (cmd[2][0], cmd[2][1], cmd[2][2]))
         return ""
 
 
