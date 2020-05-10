@@ -328,6 +328,155 @@ accuracy.py, confusion.py, or errors.py, but perhaps you need to
 understand more theory about statistics to understand why this commands
 is being interesting for you.
 
+@section Measuring success and error
+
+To guess the sex, we have an true idea (example: female) and we obtain
+a result with a method (example: using an api, querying a dataset or
+with a machine learning model). The guessed result could be male,
+female or perhaps unknown. Remember some definitions about results
+about this matter:
+
+@strong{True positive} is to find a value guessed as true if the value
+in the data source is positive.
+
+@strong{True negative} is to find a value guessed as true if the the
+value in the data source is negative.
+
+@strong{False positive} is to find a value guessed as false if the the
+value in the data source is positive.
+
+@strong{False negative} is to find a value guessed as false if the the
+value in the data source is negative.
+
+So, we can find a vocabulary for measure true, false, success and
+errors. We can make a summary in the gender name context about
+mathematical concepts:
+
+@strong{Precision} is about true positives divided by true positives plus false
+positives
+
+@example
+(femalefemale + malemale ) /
+(femalefemale + malemale + femalemale)
+@end example
+
+Recall is about true positives divided by true positives plus false negatives.
+
+@example
+(femalefemale + malemale ) /
+(femalefemale + malemale + malefemale + femaleundefined + maleundefined)
+@end example
+
+Accuray is about true positives divided by all.
+
+@example
+(femalefemale + malemale ) /
+(femalefemale + malemale + malefemale + femalemale + femaleundefined + maleundefined)
+@end example
+
+The F1 score is the harmonic mean of precision and recall taking both metrics into account in the following equation:
+
+@example
+2 * (
+(precision * recall) /
+(precision + recall))
+@end example
+
+In Damengender, we are using accuracy.py to apply these concepts. Take a look to practice:
+
+@example
+$ python3 accuracy.py --api="damegender" --measure="f1score" --csv="files/names/partialnoundefined.csv" --jsondownloaded=files/names/partialnoundefined.csv.json
+################### Damegender!!
+Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]
+Damegender f1score: 0.9090909090909091
+
+$ python3 accuracy.py --api="damegender" --measure="recall" --csv="files/names/partialnoundefined.csv" --jsondownloaded=files/names/partialnoundefined.csv.json
+################### Damegender!!
+Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]
+Damegender recall: 1.0
+
+$ python3 accuracy.py --api="damegender" --measure="accuracy" --csv="files/names/partialnoundefined.csv" --jsondownloaded=files/names/partialnoundefined.csv.json
+################### Damegender!!
+Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]
+Damegender accuracy: 0.8571428571428571
+
+$ python3 accuracy.py --api="genderguesser" --measure="accuracy" --csv="files/names/partialnoundefined.csv" --jsondownloaded=files/names/partialnoundefined.csv.json
+################### Genderguesser!!
+Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]
+Genderguesser accuracy: 0.8571428571428571
+
+$ python3 accuracy.py --api="genderguesser" --measure="precision" --csv="files/names/partialnoundefined.csv" --jsondownloaded=files/names/partialnoundefined.csv.json
+################### Genderguesser!!
+Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]
+Genderguesser precision: 0.9090909090909091
+
+$ python3 accuracy.py --api="genderguesser" --measure="recall" --csv="files/names/partialnoundefined.csv" --jsondownloaded=files/names/partialnoundefined.csv.json
+################### Genderguesser!!
+Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]
+Genderguesser recall: 1.0
+
+$ python3 accuracy.py --api="genderguesser" --measure="f1score" --csv="files/names/partialnoundefined.csv" --jsondownloaded=files/names/partialnoundefined.csv.json
+################### Genderguesser!!
+Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]
+Genderguesser f1score: 0.9090909090909091
+@end example
+
+@strong{Error coded} is about the true is different than the guessed:
+
+@example
+(femalemale + malefemale + maleundefined + femaleundefined) /
+(malemale + femalemale + malefemale +
+femalefemale + maleundefined + femaleundefined)
+@end example
+
+@strong{Error coded without na} is about the true is different than
+the guessed, but without undefined results.
+
+@example
+(maleundefined + femaleundefined) /
+(malemale + femalemale + malefemale +
+femalefemale + maleundefined + femaleundefined)
+@end example
+
+@strong{Error gender bias} is to understand if the error is bigger guessing males than females or viceversa.
+
+The @strong{weighted error} is about the true is different than the guessed, but giving a weight to the guessed as undefined.
+
+@example
+(femalemale + malefemale +
++ w * (maleundefined + femaleundefined)) /
+(malemale + femalemale + malefemale + femalefemale +
++ w * (maleundefined + femaleundefined))
+@end example
+
+In Damengeder, we have coded errors.py to implement the different definitions in diffrent apis.
+
+The confusion matrix creates a matrix about the true and the guess. If you have this confusion matrix:
+
+@example
+[[ 2, 0, 0]
+ [ 0, 5, 0]]
+@end example
+
+It means, I have 2 females true and I’ve guessed 2 females and I’ve 5 males true and I’ve guessed 5 males. I don’t have errors in my classifier.
+
+@example
+[[ 2  1  0]
+[ 2 14  0]]
+@end example
+
+It means, I have 2 females true and I’ve guessed 2 females and I’ve 14 males true and I’ve guessed 14 males. 1 female was considered male, 2 males was considered female.
+
+In Damegender, we have coded confusion.py to implement this concept with the different apis.
+
+@section Principal Component Analysis (PCA)
 
 
 
