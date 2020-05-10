@@ -21,10 +21,6 @@ Texts.  A copy of the license is included in the section entitled
 @end quotation
 @end copying
 
-@dircategory Damegender
-@direntry
-* installation: (installation)Installation.
-@end direntry
 
 @titlepage
 @title Damegender Manual: Counting Males and Females in Internet Communities
@@ -48,6 +44,7 @@ This manual is for Damegender (version @value{VERSION}, @value{UPDATED}).
 * Introduction::
 * Installation::
 * Commands::
+* Statistics::
 * GNU Free Documentation License::
 * Index::
 @end menu
@@ -61,6 +58,9 @@ Damegender is a gender detection tool from the name coded by David Arroyo MEnén
 
 @node Installation
 @chapter Installation
+@cindex Installation
+@cindex Python Virtual Environment
+@cindex Configuring Api Keys
 
 Possible Debian/Ubuntu dependencies:
 @example
@@ -124,6 +124,11 @@ $ python3 apikeyadd.py
 
 @node Commands
 @chapter Commands
+@cindex Commands
+@cindex Executing tests
+@cindex Regenerating files in post installation
+@cindex Perceval
+@cindex Commands about Statistics
 
 You must start to check tests to understand that all is ok:
 
@@ -314,6 +319,19 @@ Asian Pacific Indian American: 0.40
 American Indian and Alaska Native: 0.85
 Various races: 1.63
 @end example
+
+@node Statistics 
+@chapter Statistics
+
+In the last chapter we were learning to execute some commands such as
+accuracy.py, confusion.py, or errors.py, but perhaps you need to
+understand more theory about statistics to understand why this commands
+is being interesting for you.
+
+
+
+
+
 
 @node GNU Free Documentation License
 @appendix GNU Free Documentation License
