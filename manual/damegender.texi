@@ -258,7 +258,7 @@ $ python3 downloadjson.py --csv=files/names/min.csv --api=genderize
 $ cat files/names/genderizefiles_names_min.csv.json
 @end example
 
-Now we are going to explain some commands for measure the successful of our solution
+Now we are going to learn some commands for measure the successful of our solution
 
 @example
 $ python3 accuracy.py --csv=files/names/min.csv
@@ -285,6 +285,14 @@ Gender Guesser with files/names/all.csv has:
 + The error code without na: 0.026539047204698716
 + The na coded: 0.20453365634192766
 + The error gender bias: 0.0026103980857080703
+@end example
+
+You can generate a lot of logs about errors, accuracies and/or confusion:
+
+@example
+$ ./logs-accuracies.sh
+$ ./logs-confusion.sh
+$ ./logs-errors.sh
 @end example
 
 Perhaps you are interested on reproduce experiments to determine features:
@@ -319,6 +327,7 @@ Asian Pacific Indian American: 0.40
 American Indian and Alaska Native: 0.85
 Various races: 1.63
 @end example
+
 
 @node Statistics 
 @chapter Statistics
@@ -456,7 +465,7 @@ The @strong{weighted error} is about the true is different than the guessed, but
 + w * (maleundefined + femaleundefined))
 @end example
 
-In Damengeder, we have coded errors.py to implement the different definitions in diffrent apis.
+In Damegender, we have coded errors.py to implement the different definitions in diffrent apis.
 
 The confusion matrix creates a matrix about the true and the guess. If you have this confusion matrix:
 
