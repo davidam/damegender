@@ -112,14 +112,14 @@ else
 	echo "mainelenaluciahelena test is ok"
 fi
 
-python3 main.py Mesa --ml=nltk > files/tests/mainmesa-$(date "+%Y-%m-%d-%H").txt
+# python3 main.py Mesa --ml=nltk > files/tests/mainmesa-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/mainmesa.txt files/tests/mainmesa-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-    echo "mainmesa test is failing"
-else
-    echo "mainmesa test is ok"
-fi
+# if ! cmp files/tests/mainmesa.txt files/tests/mainmesa-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+# then
+#     echo "mainmesa test is failing"
+# else
+#     echo "mainmesa test is ok"
+# fi
 
 python3 main.py Julia --total=us > files/tests/mainjuliaus-$(date "+%Y-%m-%d-%H").txt
 
@@ -148,6 +148,7 @@ else
 	echo "mainjuliauy test is ok"
 fi
 
+echo "I am launching a ml test is slow. Please wait"
 
 python3 main.py silla --ml=forest > files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/mainsilla.txt files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -308,8 +309,8 @@ else
 	echo "confusion test is ok"
 fi
 
-python3 confusion.py --csv="files/names/min.csv" --api=damegender --jsondownloaded=files/names/min.csv.json > files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt
-if ! cmp files/tests/confusionnltk.txt files/tests/confusionnltk-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+python3 confusion.py --csv="files/names/min.csv" --api=damegender --jsondownloaded=files/names/min.csv.json > files/tests/confusiondamegender-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/confusiondamegender.txt files/tests/confusiondamegender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "confusion nltk test is failing"
 else
@@ -394,24 +395,24 @@ else
 fi
 
 
-python3 damegender2json.py --notoutput --csv=files/names/min.csv --jsonoutput=files/names/min.csv.$(date "+%Y-%m-%d-%H").json
+# python3 damegender2json.py --notoutput --csv=files/names/min.csv --jsonoutput=files/names/min.csv.$(date "+%Y-%m-%d-%H").json
 
-if ! cmp files/names/min.csv.json files/names/min.csv.$(date "+%Y-%m-%d-%H").json
-then
-	echo "damegender2json test is failing"
-else
-	echo "damegender2json test is ok"
-fi
+# if ! cmp files/names/min.csv.json files/names/min.csv.$(date "+%Y-%m-%d-%H").json
+# then
+# 	echo "damegender2json test is failing"
+# else
+# 	echo "damegender2json test is ok"
+# fi
 
 
-python3 damegender2json.py --notoutput --csv=files/names/partial.csv --ml=svc --jsonoutput=files/names/partial.csv.svc.$(date "+%Y-%m-%d-%H").json
+# python3 damegender2json.py --notoutput --csv=files/names/partial.csv --ml=svc --jsonoutput=files/names/partial.csv.svc.$(date "+%Y-%m-%d-%H").json
 
-if ! cmp files/names/partial.csv.svc.json files/names/partial.csv.svc.$(date "+%Y-%m-%d-%H").json
-then
-	echo "damegender2json test svc is failing"
-else
-	echo "damegender2json test svc is ok"
-fi
+# if ! cmp files/names/partial.csv.svc.json files/names/partial.csv.svc.$(date "+%Y-%m-%d-%H").json
+# then
+# 	echo "damegender2json test svc is failing"
+# else
+# 	echo "damegender2json test svc is ok"
+# fi
 
 python3 main.py David --verbose > files/tests/maindavidverbose-$(date "+%Y-%m-%d-%H").txt
 
