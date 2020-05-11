@@ -146,6 +146,7 @@ $ python3 infofeatures.py ine
 
 Take a look to the results with the different datasets:
 
+|--------------------------+----------+---------------+---------------+-----------------------+-------------------+------------------------+--------------------|
 | Dataset                  | letter a | last letter a | last letter o | last letter consonant | last letter vocal | first letter consonant | first letter vocal |
 |--------------------------+----------+---------------+---------------+-----------------------+-------------------+------------------------+--------------------|
 | Uruguay (females)        |    0.816 |         0.456 |         0.007 |                 0.287 |             0.712 |                  0.823 |              0.177 |
@@ -155,16 +156,17 @@ Take a look to the results with the different datasets:
 | Australia (males)        |    0.818 |          0.03 |         0.269 |                  0.57 |              0.43 |                  0.763 |              0.237 |
 |--------------------------+----------+---------------+---------------+-----------------------+-------------------+------------------------+--------------------|
 | Canada (females)         |    0.659 |         0.189 |         0.005 |                 0.591 |             0.408 |                  0.838 |              0.161 |
-| Canada (males)           |    0.752 |         0.22  |         0.025 |                 0.54  |             0.456 |                  0.818 |              0.181 |
+| Canada (males)           |    0.752 |          0.22 |         0.025 |                  0.54 |             0.456 |                  0.818 |              0.181 |
 |--------------------------+----------+---------------+---------------+-----------------------+-------------------+------------------------+--------------------|
-| Spain (females)          |    0.922 |         0.588 |         0.03  |                 0.271 |             0.728 |                  0.772 |              0.228 |
-| Spain (males)            |    0.818 |         0.03  |         0.268 |                 0.569 |             0.43  |                  0.763 |              0.236 |
+| Spain (females)          |    0.922 |         0.588 |          0.03 |                 0.271 |             0.728 |                  0.772 |              0.228 |
+| Spain (males)            |    0.818 |          0.03 |         0.268 |                 0.569 |              0.43 |                  0.763 |              0.236 |
 |--------------------------+----------+---------------+---------------+-----------------------+-------------------+------------------------+--------------------|
 | United Kingdom (females) |    0.825 |         0.374 |         0.013 |                 0.322 |             0.674 |                  0.765 |              0.235 |
-| United Kingdom (males)   |    0.716 |         0.036 |         0.039 |                  0.78 |             0.218 |                  0.799 |              0.2   |
+| United Kingdom (males)   |    0.716 |         0.036 |         0.039 |                  0.78 |             0.218 |                  0.799 |                0.2 |
 |--------------------------+----------+---------------+---------------+-----------------------+-------------------+------------------------+--------------------|
 | USA (females)            |    0.816 |         0.456 |         0.007 |                 0.287 |             0.712 |                  0.823 |              0.177 |
-| USA (males)              |    0.643 |         0.02  |         0.061 |                 0.765 |             0.234 |                  0.84  |              0.159 |
+| USA (males)              |    0.643 |          0.02 |         0.061 |                 0.765 |             0.234 |                   0.84 |              0.159 |
+|--------------------------+----------+---------------+---------------+-----------------------+-------------------+------------------------+--------------------|
 
 The countries where the main language is spanish (Uruguay + Spain) and
 english (USA + United Kingdom + Australia) are having very similar
@@ -178,9 +180,13 @@ and 0.1 from males to females (United Kingdom, Australia and
 Spain). The last letter a is varying 0.5 from males to females in
 (Australia, Spain) around 0.4 in (USA, United Kingdom) and 0.2 in
 Uruguay. The last letter o from females to males is varying 0.2 in
-(Spain, Australia) and is equal in (Uruguay, USA, United Kingdom). The
-last letter consonant all countries is giving the result that is for
-males, but with different results.
+(Spain, Australia) and is equal in (Uruguay, USA, United Kingdom). For
+the last letter consonant all countries is giving the result that is
+for males, with results from 0.2 to 0.5: Uruguay and USA (0.5), United
+Kingdom (0.4), Australia and Spain (0.3). So last letter vocal is
+reverse tha last letter consonant. First letter consonant or first
+letter vocal is a non significative feature due to so similar results
+in english and spanish.
 
 Surely, the rules it's a coincidence but we think that is a
 coincidence between languages due to that there are a good number of
