@@ -52,9 +52,34 @@ This manual is for Damegender (version @value{VERSION}, @value{UPDATED}).
 @node Introduction
 @chapter Introduction
 
-Damegender is a gender detection tool from the name coded by David Arroyo MEnéndez (DAME)
+Damegender is a gender detection tool from the name coded by David
+Arroyo MEnéndez (DAME).
 
-...
+The gender detection tools from the names are being used usually with
+commercial APIs. But many countries has been doing efforts in the last
+years for contribute names and a number of people using each name with
+Open Data Licenses. So, this software is collecting this effort on an
+original way (we are using Machine Learning algorithms for predict
+names that is not appearing in our database).
+
+Damegender is giving measures to compare in any moment our solution
+with the commercial APIs. So, the user can understand when it's useful
+to invest money or not depending of the dataset. Damegender allows to
+the users download a big number of names from a csv file.
+
+This software is written oriented to tests. So you can check the right
+behaivour of the software with python tests for the classes and
+methods and with shell tests for the python commands.
+
+Damegender is using Perceval for count males and females in a lot of
+Internet Communities (wikis, mailing lists, software repositories, bug
+tracking systems, ...). We shows source for count males and females in
+different situations (Ex: count-debian-gender.py)
+
+This software is taking into account the power to predict nations and
+ethnicity from the surnames (Ex: surname.py, surnameincountries.py and
+ethnicity.py).
+
 
 @node Installation
 @chapter Installation
@@ -258,7 +283,7 @@ $ python3 downloadjson.py --csv=files/names/min.csv --api=genderize
 $ cat files/names/genderizefiles_names_min.csv.json
 @end example
 
-Now we are going to learn some commands for measure the successful of our solution
+Now we are going to learn some commands for measure the successful of our solution:
 
 @example
 $ python3 accuracy.py --csv=files/names/min.csv
@@ -327,7 +352,6 @@ Asian Pacific Indian American: 0.40
 American Indian and Alaska Native: 0.85
 Various races: 1.63
 @end example
-
 
 @node Statistics 
 @chapter Statistics
@@ -487,8 +511,7 @@ In Damegender, we have coded confusion.py to implement this concept with the dif
 
 @section Principal Component Analysis (PCA)
 
-
-
+We have choosen a features selection in 
 
 
 @node GNU Free Documentation License
