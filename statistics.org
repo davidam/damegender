@@ -133,8 +133,60 @@ males was considered female.
 In Damegender, we have coded confusion.py to implement this concept
 with the different apis.
 
+
+
 ** PCA
-*** Concepts
+*** Counting features in a datasets
+We have developed a script infofeatures.py with our datasets to
+visualize data about some features chosen by us.
+
+#+BEGIN_SRC bash
+$ python3 infofeatures.py ine
+#+END_SRC
+
+Take a look to the results with the different datasets:
+
+| Dataset                  | letter a | last letter a | last letter o | last letter consonant | last letter vocal | first letter consonant | first letter vocal |
+|--------------------------+----------+---------------+---------------+-----------------------+-------------------+------------------------+--------------------|
+| Uruguay (females)        |    0.816 |         0.456 |         0.007 |                 0.287 |             0.712 |                  0.823 |              0.177 |
+| Uruguay (males)          |    0.643 |         0.249 |         0.062 |                 0.766 |             0.234 |                  0.771 |              0.228 |
+|--------------------------+----------+---------------+---------------+-----------------------+-------------------+------------------------+--------------------|
+| Australia (females)      |    0.922 |         0.588 |         0.033 |                 0.272 |             0.728 |                  0.772 |              0.228 |
+| Australia (males)        |    0.818 |          0.03 |         0.269 |                  0.57 |              0.43 |                  0.763 |              0.237 |
+|--------------------------+----------+---------------+---------------+-----------------------+-------------------+------------------------+--------------------|
+| Canada (females)         |    0.659 |         0.189 |         0.005 |                 0.591 |             0.408 |                  0.838 |              0.161 |
+| Canada (males)           |    0.752 |         0.22  |         0.025 |                 0.54  |             0.456 |                  0.818 |              0.181 |
+|--------------------------+----------+---------------+---------------+-----------------------+-------------------+------------------------+--------------------|
+| Spain (females)          |    0.922 |         0.588 |         0.03  |                 0.271 |             0.728 |                  0.772 |              0.228 |
+| Spain (males)            |    0.818 |         0.03  |         0.268 |                 0.569 |             0.43  |                  0.763 |              0.236 |
+|--------------------------+----------+---------------+---------------+-----------------------+-------------------+------------------------+--------------------|
+| United Kingdom (females) |    0.825 |         0.374 |         0.013 |                 0.322 |             0.674 |                  0.765 |              0.235 |
+| United Kingdom (males)   |    0.716 |         0.036 |         0.039 |                  0.78 |             0.218 |                  0.799 |              0.2   |
+|--------------------------+----------+---------------+---------------+-----------------------+-------------------+------------------------+--------------------|
+| USA (females)            |    0.816 |         0.456 |         0.007 |                 0.287 |             0.712 |                  0.823 |              0.177 |
+| USA (males)              |    0.643 |         0.02  |         0.061 |                 0.765 |             0.234 |                  0.84  |              0.159 |
+
+The countries where the main language is spanish (Uruguay + Spain) and
+english (USA + United Kingdom + Australia) are having very similar
+variation with the features chosen between males and females with
+these datasets (remember is the datasets extracted from official
+statistics provided by the states). Canada, a country french centric
+has different rules with this features. 
+
+The letter a is varying 0.2 from males to females in (USA and Uruguay)
+and 0.1 from males to females (United Kingdom, Australia and
+Spain). The last letter a is varying 0.5 from males to females in
+(Australia, Spain) around 0.4 in (USA, United Kingdom) and 0.2 in
+Uruguay. The last letter o from females to males is varying 0.2 in
+(Spain, Australia) and is equal in (Uruguay, USA, United Kingdom). The
+last letter consonant all countries is giving the result that is for
+males, but with different results.
+
+Surely, the rules it's a coincidence but we think that is a
+coincidence between languages due to that there are a good number of
+names to think different.
+
+*** Statistical Concepts
 The dispersion measures between 1 variable, for instance, variance,
 standard deviation, ...
 
@@ -274,7 +326,7 @@ principalDf = pd.DataFrame(data = principalComponents, columns = ['principal com
 target = pd.DataFrame(data = y, columns = ['target component'])
 
 print(principalDf.join(target))
-#+END_SRC
+#+END_SRC 
 *** Analyze components to determine gender in names
 
 | first\_letter   | last\_letter    | last\_letter\_a   | first\_letter\_vocal   | last\_letter\_vocal   | last\_letter\_consonant   | target component   |
@@ -346,7 +398,7 @@ Helena Mihaljevic dataset as base of truth.
 | BernoulliNB   |      0.699 |     0.965 |   0.816 |    1.0 |
 | AdaBoost      |      0.698 |     0.965 |   0.815 |    1.0 |
 | MLP           |      0.677 |     0.819 |   0.755 |    1.0 |
-| Average       | 0.76489182 |   0.90558 |  0.8451 |     1. |
+| Average       | 0.76489182 |   0.90558 |  0.8451 |    1.0 |
 #+TBLFM: @12$2=vmean(@2$2..@12$2)::@12$3=vmean(@2$3..@12$3)::@12$4=vmean(@2$4..@12$4)::@12$5=vmean(@2$5..@12$5)
 
 In Damegender we are using the next datasets:
@@ -366,7 +418,7 @@ We have found better results with more languages:
 | Tree          |          |           |         |        |
 | SGD           |    0.876 |     0.972 |   0.969 |    1.0 |
 | GaussianNB    |          |           |         |        |
-| BernoulliNB   |          |           |         |        |
+| BernoulliNB   |    0.699 |     0.964 |   0.816 |    1.0 |
 | AdaBoost      |          |           |         |        |
 | MLP           |          |           |         |        |
 | Average       |    0.877 |     0.959 | 0.95825 |    1.0 |
@@ -490,4 +542,5 @@ Damegender with files/names/partial.csv has:
 real	0m9.099s
 user	0m9.008s
 sys	0m0.412s
+
 
