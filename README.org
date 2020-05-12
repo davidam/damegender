@@ -23,14 +23,6 @@ DAMe Gender is for you!
 + [[https://tv.urjc.es/video/5d895319d68b148f7a8c0da6][Damegender in URJC (English)]]
 
 * Install
-** Docker Image
-#+BEGIN_SRC
-# Build the container image
-$ docker build . -t damegender/damegender:latest
-
-# Run the container
-$ docker run -ti damegender/damegender:latest main.py David
-#+END_SRC
 ** Installing Software
 *** Possible Debian/Ubuntu dependencies
 #+BEGIN_SRC
