@@ -8,16 +8,15 @@
 <li><a href="#sec-4">4. Tell me about DAMe Gender on Video</a></li>
 <li><a href="#sec-5">5. Install</a>
 <ul>
-<li><a href="#sec-5-1">5.1. Docker Image</a></li>
-<li><a href="#sec-5-2">5.2. Installing Software</a>
+<li><a href="#sec-5-1">5.1. Installing Software</a>
 <ul>
-<li><a href="#sec-5-2-1">5.2.1. Possible Debian/Ubuntu dependencies</a></li>
-<li><a href="#sec-5-2-2">5.2.2. From sources</a></li>
-<li><a href="#sec-5-2-3">5.2.3. With python package</a></li>
+<li><a href="#sec-5-1-1">5.1.1. Possible Debian/Ubuntu dependencies</a></li>
+<li><a href="#sec-5-1-2">5.1.2. From sources</a></li>
+<li><a href="#sec-5-1-3">5.1.3. With python package</a></li>
 </ul>
 </li>
-<li><a href="#sec-5-3">5.3. Obtaining an api key</a></li>
-<li><a href="#sec-5-4">5.4. Configuring nltk</a></li>
+<li><a href="#sec-5-2">5.2. Obtaining an api key</a></li>
+<li><a href="#sec-5-3">5.3. Configuring nltk</a></li>
 </ul>
 </li>
 <li><a href="#sec-6">6. Speeches, Seminars, Expressions of Support</a></li>
@@ -56,27 +55,19 @@ DAMe Gender is for you!
 
 # Install<a id="sec-5" name="sec-5"></a>
 
-## Docker Image<a id="sec-5-1" name="sec-5-1"></a>
+## Installing Software<a id="sec-5-1" name="sec-5-1"></a>
 
-    # Build the container image
-    $ docker build . -t damegender/damegender:latest
-    
-    # Run the container
-    $ docker run -ti damegender/damegender:latest main.py David
-
-## Installing Software<a id="sec-5-2" name="sec-5-2"></a>
-
-### Possible Debian/Ubuntu dependencies<a id="sec-5-2-1" name="sec-5-2-1"></a>
+### Possible Debian/Ubuntu dependencies<a id="sec-5-1-1" name="sec-5-1-1"></a>
 
     $ sudo apt-get install python3-nose-exclude python3-dev dict dict-freedict-eng-spa dict-freedict-spa-eng dictd
 
-### From sources<a id="sec-5-2-2" name="sec-5-2-2"></a>
+### From sources<a id="sec-5-1-2" name="sec-5-1-2"></a>
 
     $ git clone https://github.com/davidam/damegender
     $ cd damegender
     $ pip3 install -r requirements.txt
 
-### With python package<a id="sec-5-2-3" name="sec-5-2-3"></a>
+### With python package<a id="sec-5-1-3" name="sec-5-1-3"></a>
 
     $ python3 -m venv /tmp/d
     $ cd /tmp/d
@@ -98,7 +89,7 @@ To install all possible dependencies
 
     $ pip3 install damegender[all]
 
-## Obtaining an api key<a id="sec-5-3" name="sec-5-3"></a>
+## Obtaining an api key<a id="sec-5-2" name="sec-5-2"></a>
 
 Currently you can need an api key from:
 -   <https://store.genderize.io/documentation>
@@ -112,7 +103,7 @@ You can execute:
 
 To configure your api key
 
-## Configuring nltk<a id="sec-5-4" name="sec-5-4"></a>
+## Configuring nltk<a id="sec-5-3" name="sec-5-3"></a>
 
     $ python3
     >>> import nltk
