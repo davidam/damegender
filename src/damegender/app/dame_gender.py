@@ -510,7 +510,10 @@ class Gender(object):
         m = int(dicc['males'])
         f = int(dicc['females'])
         if ((m == 0) and (f == 0)):
-            guess = "unknown"
+            if binary:
+                guess = 2
+            else:
+                guess = "unknown"
         elif (m > f):
             if binary:
                 guess = 1
