@@ -8,6 +8,8 @@
 0 females for David from New Zealand census
 8201 males for David from Canada census
 1 females for David from Canada census
+365196 males for David from Portugal census
+0 females for David from Portugal census
 3552580 males for David from United States of America census
 12826 females for David from United States of America census
 5604 males for David from Australia census
