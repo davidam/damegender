@@ -45,6 +45,7 @@ This manual is for Damegender (version @value{VERSION}, @value{UPDATED}).
 * Installation::
 * Commands::
 * Statistics::
+* Use Cases:
 * GNU Free Documentation License::
 * Index::
 @end menu
@@ -511,7 +512,49 @@ In Damegender, we have coded confusion.py to implement this concept with the dif
 
 @section Principal Component Analysis (PCA)
 
-We have choosen a features selection in 
+To be written
+
+@node Use Cases
+@chapter Use Cases
+
+@section Introduction
+
+There are many research studies count males and females in specific
+communities such as Twitter, StackOverflow, ... We hope that with this
+manual software
+
+A specific community has some clues to determine male or female, for
+example, in Twitter you observe the photo, nickname, real name, ...
+
+@section Counting males and females in Debian
+
+In the Debian community all member must have a gpg key to collaborate,
+so we can count males and females from the keyring. With gpg commands
+you can import a the debian keyring and dump the debian keyring in a
+csv file.
+
+We have generated a script to count males and females:
+
+@example
+~/git/damegender/src/damegender$ python3 count-debian-gender.py 
+Perhaps you need wait some minutes. You can take a tea or coffe now
+debian males: 795
+debian females: 24
+@end example
+
+In the dump of the debian keyring dataset we have divided name,
+surname and email in different fields. So, it's easy detect the name,
+although some names has several emails
+
+We have choosen the United States of America dataset and we are using
+the method name_frec to decide for male or female in the row.
+
+The United States of America dataset is a good choice for Free
+Software communities, due to that this communities is based on english
+as main language and United States of America is a leader country in
+software development. United States of America hosts people from
+different countries due to migrations towards good companies and
+universities.
 
 
 @node GNU Free Documentation License
