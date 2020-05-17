@@ -32,6 +32,7 @@ import os
 import re
 import sys
 import json
+import datetime
 
 from collections import OrderedDict
 from sklearn.metrics import accuracy_score
@@ -635,20 +636,8 @@ class Gender(object):
                 print("Names in json: %s:" % self.json2names(jsonf=jsonf, surnames=False))
         else:
             print("In the path %s doesn't exist file" % jsonf)
-            print("You can create one, but this process can take long time")
-            yes_or_not = du.yes_or_not("Do you want create a json file? ")
-            if yes_or_not:
-                sl = self.guess_list(path=path, binary=binary, ml=ml)
-                self.csv2json(path=path, l=sl, jsonf=jsonf)
-                if (self.json_eq_csv_in_names(jsonf=jsonf, path=args.csv)):
-                    print("################### "+ api +"!!")
-                    print("Gender list: " + str(gl))
-                    print("Guess list:  " +str(sl))
-                    self.print_measures(gl, sl, measure, api)
-                else:
-                    print("Names in json and csv are differents")
-                    print("Names in csv: %s:" % self.csv2names(path=path, header=header))
-                    print("Names in json: %s:" % self.json2names(jsonf=jsonf, surnames=False))
+            print("You can create one with:")
+            print("$ python3 damegender2json.py --csv=%s --ml=%s --jsonoutput=files/names/partial.csv.%s.json" % (path, ml, ml))
         return 1
 
     def pretty_cm(self, path, jsonf, *args, **kwargs):
