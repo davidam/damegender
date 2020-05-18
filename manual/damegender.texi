@@ -533,6 +533,10 @@ so we can count males and females from the keyring. With gpg commands
 you can import a the debian keyring and dump the debian keyring in a
 csv file.
 
+@example
+$ rsync -az --progress keyring.debian.org::keyrings/keyrings/ .
+@end example
+
 We have generated a script to count males and females:
 
 @example
@@ -555,6 +559,83 @@ as main language and United States of America is a leader country in
 software development. United States of America hosts people from
 different countries due to migrations towards good companies and
 universities.
+
+@section Counting males and females in a git repository
+
+We can think a simple version of git2gender.py:
+
+@example
+from app.dame_sexmachine import DameSexmachine
+from app.dame_perceval import DamePerceval
+from app.dame_utils import DameUtils
+import sys
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("url", help="Uniform Resource Link")
+parser.add_argument('--directory')
+parser.add_argument('--version', action='version', version='0.1')
+args = parser.parse_args()
+if (len(sys.argv) > 1):
+    ds = DameSexmachine()
+    du = DameUtils()
+    dp = DamePerceval()
+    l1 = dp.list_committers(args.url, args.directory)
+    l2 = du.delete_duplicated(l1)
+    l3 = du.clean_list(l2)
+
+    females = 0
+    males = 0
+    unknowns = 0
+    for g in l3:
+        sm = ds.guess(g, binary=True)
+        if (sm == 0):
+            females = females + 1
+        elif (sm == 1):
+            males = males + 1
+        else:
+            unknowns = unknowns + 1
+
+    print("The number of males sending commits is %s" % males)
+    print("The number of females sending commits is %s" % females)
+@end example
+
+Try to execute this script:
+
+@example
+$ python3 git2gender.py https://github.com/davidam/davidam.git --directory="/tmp/clonedir"
+The number of males sending commits is 3
+The number of females sending commits is 0
+@end example
+
+This count is not so good because in a git repository the same person
+can have been called with the same name:
+
+@example
+['David Arroyo Menéndez <davidam@es.gnu.org>', 'David Arroyo Menendez <davidam@gmail.com>', 'David Arroyo Menéndez <d.arroyome@alumnos.urjc.es>', 'David Arroyo <davidam@gmail.com>']
+@end example
+
+If you look up 'David Arroyo' in Google Scholar you can find several
+researchers, but David Arroyo Menéndez is unique in this context. If
+appears with accent or not could a trouble about spelling, but could
+be the same person. On other hand, if you find 'David Arroyo' and
+'David Arroyo Menéndez' with the same, the he is the same person, but
+in some data centers several people with different names can be using
+the same email account.
+
+def same_email(string1, string2):
+    firstName
+    
+def same_identity(string1, string2):
+    same_identity = false
+    string1 = remove_accents(string1)
+    string2 = remove_accents(string2)
+    if (same_email(string1, string2) and ((contains(string1, string2)) or (contains(string2, string1)))):
+        same_identity = true
+    else:
+        same_identity = false
+    return same_identity
+
+
 
 
 @node GNU Free Documentation License
