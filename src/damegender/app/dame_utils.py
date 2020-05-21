@@ -157,16 +157,27 @@ class DameUtils():
                 l.append(row[position])
         return l
 
+    # def delete_duplicated(self, l):
+    #     if (len(l) == 0):
+    #         return l
+    #     else:
+    #         rest = []
+    #         for i in l:
+    #             if (i != l[0]):
+    #                 rest = rest + [i]
+    #     return [l[0]] + self.delete_duplicated(rest)
+
     def delete_duplicated(self, l):
         if (len(l) == 0):
-            return l
+            return []
         else:
-            rest = []
+            nodup = []
             for i in l:
-                if (i != l[0]):
-                    rest = rest + [i]
-        return [l[0]] + self.delete_duplicated(rest)
-
+                if (not( i in nodup)):
+                    nodup.append(i)
+        return nodup
+                                      
+    
     def clean_list(self, l):
         if (len(l) == 0):
             print([])

@@ -12,6 +12,9 @@ $ ./testsbycommandsextralocal.sh
 $ ./testsbycommandsextranet.sh
 $ pycodestyle src/damegender
 
+If you have troubles, perhaps you are interested on execute and fix a simple test:
+$ nosetests3 tests/test_dame_sexmachine.py:TddInPythonExample.test_dame_sexmachine_features_int
+
 Later, you can upload the development to master:
 $ git branch
 dev

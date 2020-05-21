@@ -1,0 +1,5 @@
+Damegender with files/names/partial.csv has: 
++ The error code: 0.10526315789473684
++ The error code without na: 0.10526315789473684
++ The na coded: 0.0
++ The error gender bias: 0.0

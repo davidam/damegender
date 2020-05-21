@@ -57,11 +57,10 @@ def drop_pwd(s):
     return result
 
 setup(name='damegender',
-      python_requires='>3.5',
-      version='0.2.7rc3',
+      python_requires='>3.6',
+      version='0.2.8',
       description='Gender Detection Tool by David Arroyo MEnéndez',
       long_description=long_description,
-      long_description_content_type='text/markdown',
       classifiers=[
           "Programming Language :: Python :: 3",
           "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
@@ -99,9 +98,9 @@ setup(name='damegender',
       ],
       extras_require = {
           'mails_and_repositories' : ["perceval"],
-          'apis': ["gender_guesser", "genderize", "google-api-python-client"],
-          'all' : ["perceval", "gender_guesser", "genderize", "google-api-python-client"],
-          'all_extended' : ["perceval", "gender_guesser", "genderize", "google-api-python-client", 'xgboost'],
+          'apis': ["genderize", "google-api-python-client"],
+          'all' : ["perceval", "genderize, google-api-python-client"],
+          'all_extended' : ["perceval", "gender_guesser", "genderize", "google-api-python-client", "xgboost"],
       },
       test_suite='nose.collector',
       tests_require=['nose', 'nose-cover3'],

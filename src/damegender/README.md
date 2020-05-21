@@ -1,64 +1,83 @@
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Logo</a></li>
+<li><a href="#sec-2">2. Name</a></li>
+<li><a href="#sec-3">3. Why?</a></li>
+<li><a href="#sec-4">4. Tell me about DAMe Gender on Youtube</a></li>
+<li><a href="#sec-5">5. Install</a>
+<ul>
+<li><a href="#sec-5-1">5.1. Docker Image</a></li>
+<li><a href="#sec-5-2">5.2. Installing Software</a>
+<ul>
+<li><a href="#sec-5-2-1">5.2.1. Possible Debian/Ubuntu dependencies</a></li>
+<li><a href="#sec-5-2-2">5.2.2. From sources</a></li>
+<li><a href="#sec-5-2-3">5.2.3. With python package</a></li>
+</ul>
+</li>
+<li><a href="#sec-5-3">5.3. Obtaining an api key</a></li>
+<li><a href="#sec-5-4">5.4. Configuring nltk</a></li>
+</ul>
+</li>
+<li><a href="#sec-6">6. Check test</a>
+<ul>
+<li><a href="#sec-6-1">6.1. All unit tests</a>
+<ul>
+<li><a href="#sec-6-1-1">6.1.1. Using Docker image</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-2">6.2. Single unit test</a>
+<ul>
+<li><a href="#sec-6-2-1">6.2.1. Using Docker image</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-3">6.3. Tests from commands</a></li>
+</ul>
+</li>
+<li><a href="#sec-7">7. Execute program</a></li>
+<li><a href="#sec-8">8. Benchmarking</a>
+<ul>
+<li><a href="#sec-8-1">8.1. Market Study</a></li>
+<li><a href="#sec-8-2">8.2. Accuracy</a></li>
+<li><a href="#sec-8-3">8.3. Accuracy (Damegender ML)</a></li>
+<li><a href="#sec-8-4">8.4. Confusion Matrix</a></li>
+<li><a href="#sec-8-5">8.5. Errors with files/names/all.csv has:</a></li>
+<li><a href="#sec-8-6">8.6. Performance</a></li>
+</ul>
+</li>
+<li><a href="#sec-9">9. Statistics for damegender</a>
+<ul>
+<li><a href="#sec-9-1">9.1. Measuring success and fails</a></li>
+<li><a href="#sec-9-2">9.2. PCA</a>
+<ul>
+<li><a href="#sec-9-2-1">9.2.1. Concepts</a></li>
+<li><a href="#sec-9-2-2">9.2.2. Choosing components</a></li>
+<li><a href="#sec-9-2-3">9.2.3. Load Dataset</a></li>
+<li><a href="#sec-9-2-4">9.2.4. Standarize the data</a></li>
+<li><a href="#sec-9-2-5">9.2.5. Pca Projection to N Dimensions</a></li>
+<li><a href="#sec-9-2-6">9.2.6. Analyze components to determine gender in names</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-10">10. Speeches, Seminars, Expressions of Support</a></li>
+<li><a href="#sec-11">11. Beautiful Snakes</a></li>
+<li><a href="#sec-12">12. Dame Music</a></li>
+<li><a href="#sec-13">13. License</a></li>
+</ul>
+</div>
+</div>
 
-# Table of Contents
-
-1.  [Logo](#org5dc9778)
-2.  [Name](#orga02e621)
-3.  [Why?](#orgb4337c6)
-4.  [Tell me about DAMe Gender on Youtube](#org580eb02)
-5.  [Install](#org49eac8d)
-    1.  [Docker Image](#org6ad3f45)
-    2.  [Installing Software](#orgb908e7d)
-        1.  [Possible Debian/Ubuntu dependencies](#orga51cbd2)
-        2.  [From sources](#orga956618)
-        3.  [With python package](#orge6fba01)
-    3.  [Obtaining an api key](#orga2af7da)
-    4.  [Configuring nltk](#org970e67a)
-6.  [Check test](#org862f5af)
-    1.  [All unit tests](#org9bb857a)
-        1.  [Using Docker image](#org60cf798)
-    2.  [Single unit test](#orgc9bb15e)
-        1.  [Using Docker image](#org62594c1)
-    3.  [Tests from commands](#orga5513b6)
-7.  [Execute program](#orge828861)
-8.  [Benchmarking](#orgca16723)
-    1.  [Market Study](#orgf55f944)
-    2.  [Accuracy](#orgb6c60b6)
-    3.  [Accuracy (Damegender ML)](#org0bff294)
-    4.  [Confusion Matrix](#org07a2c75)
-    5.  [Errors with files/names/all.csv has:](#org12fc7f0)
-    6.  [Performance](#org56aaef7)
-9.  [Statistics for damegender](#org79b212f)
-    1.  [Measuring success and fails](#org8c8cf96)
-    2.  [PCA](#orgfb83d99)
-        1.  [Concepts](#orge1790bb)
-        2.  [Choosing components](#orgb5231b5)
-        3.  [Load Dataset](#orgc3decdd)
-        4.  [Standarize the data](#orgfa130da)
-        5.  [Pca Projection to N Dimensions](#org6caf71c)
-        6.  [Analyze components to determine gender in names](#orgd2268fe)
-10. [Speeches, Seminars, Expressions of Support](#org0b03af4)
-11. [Beautiful Snakes](#org6c584e3)
-12. [Dame Music](#org64c405a)
-13. [License](#org23c90b4)
-
-
-<a id="org5dc9778"></a>
-
-# Logo
+# Logo<a id="sec-1" name="sec-1"></a>
 
 ![img](src/damegender/files/images/CaravaggioDavidGoliathVienna.jpg)
 
-
-<a id="orga02e621"></a>
-
-# Name
+# Name<a id="sec-2" name="sec-2"></a>
 
 damegender is a gender detection tool from the name coded by David Arroyo MEnéndez (DAME)
 
-
-<a id="orgb4337c6"></a>
-
-# Why?
+# Why?<a id="sec-3" name="sec-3"></a>
 
 -   If you want determine gender gap in free software projects or mailing lists.
 -   If you don't know the gender about a name
@@ -70,22 +89,13 @@ damegender is a gender detection tool from the name coded by David Arroyo MEnén
 
 DAMe Gender is for you!
 
-
-<a id="org580eb02"></a>
-
-# Tell me about DAMe Gender on Youtube
+# Tell me about DAMe Gender on Youtube<a id="sec-4" name="sec-4"></a>
 
 [![img](src/damegender/files/images/damegender-front-youtube.png)](https://www.youtube.com/embed/dvN0lMgQ9Pc)
 
+# Install<a id="sec-5" name="sec-5"></a>
 
-<a id="org49eac8d"></a>
-
-# Install
-
-
-<a id="org6ad3f45"></a>
-
-## Docker Image
+## Docker Image<a id="sec-5-1" name="sec-5-1"></a>
 
     # Build the container image
     $ docker build . -t damegender/damegender:latest
@@ -93,31 +103,19 @@ DAMe Gender is for you!
     # Run the container
     $ docker run -ti damegender/damegender:latest main.py David
 
+## Installing Software<a id="sec-5-2" name="sec-5-2"></a>
 
-<a id="orgb908e7d"></a>
-
-## Installing Software
-
-
-<a id="orga51cbd2"></a>
-
-### Possible Debian/Ubuntu dependencies
+### Possible Debian/Ubuntu dependencies<a id="sec-5-2-1" name="sec-5-2-1"></a>
 
     $ sudo apt-get install python3-nose-exclude python3-dev dict dict-freedict-eng-spa dict-freedict-spa-eng dictd
 
-
-<a id="orga956618"></a>
-
-### From sources
+### From sources<a id="sec-5-2-2" name="sec-5-2-2"></a>
 
     $ git clone https://github.com/davidam/damegender
     $ cd damegender
     $ pip3 install -r requirements.txt
 
-
-<a id="orge6fba01"></a>
-
-### With python package
+### With python package<a id="sec-5-2-3" name="sec-5-2-3"></a>
 
     $ python3 -m venv /tmp/d
     $ cd /tmp/d
@@ -139,13 +137,9 @@ To install all possible dependencies
 
     $ pip3 install damegender[all]
 
-
-<a id="orga2af7da"></a>
-
-## Obtaining an api key
+## Obtaining an api key<a id="sec-5-3" name="sec-5-3"></a>
 
 Currently you can need an api key from:
-
 -   <https://store.genderize.io/documentation>
 -   <https://gender-api.com>
 -   <https://www.nameapi.org/>
@@ -157,62 +151,38 @@ You can execute:
 
 To configure your api key
 
-
-<a id="org970e67a"></a>
-
-## Configuring nltk
+## Configuring nltk<a id="sec-5-4" name="sec-5-4"></a>
 
     $ python3
     >>> import nltk
     >>> nltk.download('names')
 
+# Check test<a id="sec-6" name="sec-6"></a>
 
-<a id="org862f5af"></a>
-
-# Check test
-
-
-<a id="org9bb857a"></a>
-
-## All unit tests
+## All unit tests<a id="sec-6-1" name="sec-6-1"></a>
 
     $ nosetest3 test
 
-
-<a id="org60cf798"></a>
-
-### Using Docker image
+### Using Docker image<a id="sec-6-1-1" name="sec-6-1-1"></a>
 
     $ docker run -ti --entrypoint nosetests damegender/damegender:latest test
 
-
-<a id="orgc9bb15e"></a>
-
-## Single unit test
+## Single unit test<a id="sec-6-2" name="sec-6-2"></a>
 
     $ nosetests3 test/test_dame_sexmachine.py:TddInPythonExample.test_string2array_method_returns_correct_result
 
-
-<a id="org62594c1"></a>
-
-### Using Docker image
+### Using Docker image<a id="sec-6-2-1" name="sec-6-2-1"></a>
 
     $ docker run -ti --entrypoint nosetests damegender/damegender:latest test/test_dame_sexmachine.py:TddInPythonExample.test_string2array_method_returns_correct_result
 
-
-<a id="orga5513b6"></a>
-
-## Tests from commands
+## Tests from commands<a id="sec-6-3" name="sec-6-3"></a>
 
     $ cd src/damegender
     $ ./testsbycommands.sh         # It must run for you
     $ ./testsbycommandsextralocal.sh    # You will need all dependencies with: $ pip3 install damegender[all]
     $ ./testsbycommandsextranet.sh    # You will need api keys
 
-
-<a id="orge828861"></a>
-
-# Execute program
+# Execute program<a id="sec-7" name="sec-7"></a>
 
     # Detect gender from a name (INE is the dataset used by default)
     $ python3 main.py David
@@ -344,263 +314,254 @@ To configure your api key
     American Indian and Alaska Native: 0.85
     Various races: 1.63
 
+# Benchmarking<a id="sec-8" name="sec-8"></a>
 
-<a id="orgca16723"></a>
-
-# Benchmarking
-
-
-<a id="orgf55f944"></a>
-
-## Market Study
+## Market Study<a id="sec-8-1" name="sec-8-1"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-left" />
+<col  class="left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Gender API</td>
-<td class="org-left">gender-guesser</td>
-<td class="org-left">genderize.io</td>
-<td class="org-left">NameAPI</td>
-<td class="org-left">NamSor</td>
-<td class="org-left">damegender</td>
+<td class="left">&#xa0;</td>
+<td class="left">Gender API</td>
+<td class="left">gender-guesser</td>
+<td class="left">genderize.io</td>
+<td class="left">NameAPI</td>
+<td class="left">NamSor</td>
+<td class="left">damegender</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Database size</td>
-<td class="org-left">431322102</td>
-<td class="org-left">45376</td>
-<td class="org-left">114541298</td>
-<td class="org-left">1428345</td>
-<td class="org-left">4407502834</td>
-<td class="org-left">57282</td>
+<td class="left">Database size</td>
+<td class="left">431322102</td>
+<td class="left">45376</td>
+<td class="left">114541298</td>
+<td class="left">1428345</td>
+<td class="left">4407502834</td>
+<td class="left">57282</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Regular data updates</td>
-<td class="org-left">yes</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes, developing</td>
+<td class="left">Regular data updates</td>
+<td class="left">yes</td>
+<td class="left">no</td>
+<td class="left">no</td>
+<td class="left">yes</td>
+<td class="left">yes</td>
+<td class="left">yes, developing</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Handles unstructured full name strings</td>
-<td class="org-left">yes</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-<td class="org-left">yes</td>
-<td class="org-left">no</td>
-<td class="org-left">yes</td>
+<td class="left">Handles unstructured full name strings</td>
+<td class="left">yes</td>
+<td class="left">no</td>
+<td class="left">no</td>
+<td class="left">yes</td>
+<td class="left">no</td>
+<td class="left">yes</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Handles surnames</td>
-<td class="org-left">yes</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes</td>
+<td class="left">Handles surnames</td>
+<td class="left">yes</td>
+<td class="left">no</td>
+<td class="left">no</td>
+<td class="left">yes</td>
+<td class="left">yes</td>
+<td class="left">yes</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Handles non-Latin alphabets</td>
-<td class="org-left">partially</td>
-<td class="org-left">no</td>
-<td class="org-left">partially</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes</td>
-<td class="org-left">no</td>
+<td class="left">Handles non-Latin alphabets</td>
+<td class="left">partially</td>
+<td class="left">no</td>
+<td class="left">partially</td>
+<td class="left">yes</td>
+<td class="left">yes</td>
+<td class="left">no</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Implicit geo-localization</td>
-<td class="org-left">yes</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes</td>
-<td class="org-left">no</td>
+<td class="left">Implicit geo-localization</td>
+<td class="left">yes</td>
+<td class="left">no</td>
+<td class="left">no</td>
+<td class="left">yes</td>
+<td class="left">yes</td>
+<td class="left">no</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Exists locale</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes</td>
+<td class="left">Exists locale</td>
+<td class="left">yes</td>
+<td class="left">yes</td>
+<td class="left">yes</td>
+<td class="left">yes</td>
+<td class="left">yes</td>
+<td class="left">yes</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Assingment type</td>
-<td class="org-left">probilistic</td>
-<td class="org-left">binary</td>
-<td class="org-left">probabilistic</td>
-<td class="org-left">probabilistic</td>
-<td class="org-left">probabilistic</td>
-<td class="org-left">probabilistic</td>
+<td class="left">Assingment type</td>
+<td class="left">probilistic</td>
+<td class="left">binary</td>
+<td class="left">probabilistic</td>
+<td class="left">probabilistic</td>
+<td class="left">probabilistic</td>
+<td class="left">probabilistic</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Free parameters</td>
-<td class="org-left">total<sub>names</sub>, probability</td>
-<td class="org-left">gender</td>
-<td class="org-left">probability, count</td>
-<td class="org-left">confidence</td>
-<td class="org-left">scale</td>
-<td class="org-left">total<sub>names</sub>, count</td>
+<td class="left">Free parameters</td>
+<td class="left">total<sub>names</sub>, probability</td>
+<td class="left">gender</td>
+<td class="left">probability, count</td>
+<td class="left">confidence</td>
+<td class="left">scale</td>
+<td class="left">total<sub>names</sub>, count</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Prediction</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-<td class="org-left">yes</td>
+<td class="left">Prediction</td>
+<td class="left">no</td>
+<td class="left">no</td>
+<td class="left">no</td>
+<td class="left">no</td>
+<td class="left">no</td>
+<td class="left">yes</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Free license</td>
-<td class="org-left">no</td>
-<td class="org-left">yes</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-<td class="org-left">no</td>
-<td class="org-left">yes</td>
+<td class="left">Free license</td>
+<td class="left">no</td>
+<td class="left">yes</td>
+<td class="left">no</td>
+<td class="left">no</td>
+<td class="left">no</td>
+<td class="left">yes</td>
 </tr>
 
 
 <tr>
-<td class="org-left">API</td>
-<td class="org-left">yes</td>
-<td class="org-left">no</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes</td>
-<td class="org-left">future</td>
+<td class="left">API</td>
+<td class="left">yes</td>
+<td class="left">no</td>
+<td class="left">yes</td>
+<td class="left">yes</td>
+<td class="left">yes</td>
+<td class="left">future</td>
 </tr>
 
 
 <tr>
-<td class="org-left">free requests limited</td>
-<td class="org-left">yes (200)</td>
-<td class="org-left">unlimited</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes</td>
-<td class="org-left">yes</td>
-<td class="org-left">unlimited</td>
+<td class="left">free requests limited</td>
+<td class="left">yes (200)</td>
+<td class="left">unlimited</td>
+<td class="left">yes</td>
+<td class="left">yes</td>
+<td class="left">yes</td>
+<td class="left">unlimited</td>
 </tr>
 </tbody>
 </table>
 
 (Checked: 2019/06/27)
 
-
-<a id="orgb6c60b6"></a>
-
-## Accuracy
+## Accuracy<a id="sec-8-2" name="sec-8-2"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-right" />
+<col  class="right" />
 
-<col  class="org-right" />
+<col  class="right" />
 
-<col  class="org-right" />
+<col  class="right" />
 
-<col  class="org-right" />
+<col  class="right" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">Name</td>
-<td class="org-right">Accuracy</td>
-<td class="org-right">Precision</td>
-<td class="org-right">F1score</td>
-<td class="org-right">Recall</td>
+<td class="left">Name</td>
+<td class="right">Accuracy</td>
+<td class="right">Precision</td>
+<td class="right">F1score</td>
+<td class="right">Recall</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Genderapi</td>
-<td class="org-right">0.9687686966482124</td>
-<td class="org-right">0.9717050018254838</td>
-<td class="org-right">0.9637877964874163</td>
-<td class="org-right">1.0</td>
+<td class="left">Genderapi</td>
+<td class="right">0.9687686966482124</td>
+<td class="right">0.9717050018254838</td>
+<td class="right">0.9637877964874163</td>
+<td class="right">1.0</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Genderize</td>
-<td class="org-right">0.926775</td>
-<td class="org-right">0.9761303240374678</td>
-<td class="org-right">0.9655113956503119</td>
-<td class="org-right">1.0</td>
+<td class="left">Genderize</td>
+<td class="right">0.926775</td>
+<td class="right">0.9761303240374678</td>
+<td class="right">0.9655113956503119</td>
+<td class="right">1.0</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Namsor</td>
-<td class="org-right">0.8672551055728626</td>
-<td class="org-right">0.9730097087378641</td>
-<td class="org-right">0.9236866359447006</td>
-<td class="org-right">1.0</td>
+<td class="left">Namsor</td>
+<td class="right">0.8672551055728626</td>
+<td class="right">0.9730097087378641</td>
+<td class="right">0.9236866359447006</td>
+<td class="right">1.0</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Nameapi</td>
-<td class="org-right">0.8301886792452831</td>
-<td class="org-right">0.97420272191753</td>
-<td class="org-right">0.9054181612233341</td>
-<td class="org-right">1.0</td>
+<td class="left">Nameapi</td>
+<td class="right">0.8301886792452831</td>
+<td class="right">0.97420272191753</td>
+<td class="right">0.9054181612233341</td>
+<td class="right">1.0</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Gender Guesser</td>
-<td class="org-right">0.7743554248139817</td>
-<td class="org-right">0.9848151408450704</td>
-<td class="org-right">0.8715900233826968</td>
-<td class="org-right">1.0</td>
+<td class="left">Gender Guesser</td>
+<td class="right">0.7743554248139817</td>
+<td class="right">0.9848151408450704</td>
+<td class="right">0.8715900233826968</td>
+<td class="right">1.0</td>
 </tr>
 </tbody>
 </table>
@@ -610,113 +571,110 @@ To configure your api key
 These accuracies has been measured thinking in Lucía Santamaría and
 Helena Mihaljevic dataset as base of truth.
 
-
-<a id="org0bff294"></a>
-
-## Accuracy (Damegender ML)
+## Accuracy (Damegender ML)<a id="sec-8-3" name="sec-8-3"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-right" />
+<col  class="right" />
 
-<col  class="org-right" />
+<col  class="right" />
 
-<col  class="org-right" />
+<col  class="right" />
 
-<col  class="org-right" />
+<col  class="right" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">Name</td>
-<td class="org-right">Accuracy</td>
-<td class="org-right">Precision</td>
-<td class="org-right">F1score</td>
-<td class="org-right">Recall</td>
+<td class="left">Name</td>
+<td class="right">Accuracy</td>
+<td class="right">Precision</td>
+<td class="right">F1score</td>
+<td class="right">Recall</td>
 </tr>
 
 
 <tr>
-<td class="org-left">SVC</td>
-<td class="org-right">0.879</td>
-<td class="org-right">0.972</td>
-<td class="org-right">0.972</td>
-<td class="org-right">1.0</td>
+<td class="left">SVC</td>
+<td class="right">0.879</td>
+<td class="right">0.972</td>
+<td class="right">0.972</td>
+<td class="right">1.0</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Random Forest</td>
-<td class="org-right">0.862</td>
-<td class="org-right">0.902</td>
-<td class="org-right">0.902</td>
-<td class="org-right">1.0</td>
+<td class="left">Random Forest</td>
+<td class="right">0.862</td>
+<td class="right">0.902</td>
+<td class="right">0.902</td>
+<td class="right">1.0</td>
 </tr>
 
 
 <tr>
-<td class="org-left">NLTK (Bayes)</td>
-<td class="org-right">0.862</td>
-<td class="org-right">0.902</td>
-<td class="org-right">0.902</td>
-<td class="org-right">1.0</td>
+<td class="left">NLTK (Bayes)</td>
+<td class="right">0.862</td>
+<td class="right">0.902</td>
+<td class="right">0.902</td>
+<td class="right">1.0</td>
 </tr>
 
 
 <tr>
-<td class="org-left">MultinomialNB</td>
-<td class="org-right">0.782</td>
-<td class="org-right">0.791</td>
-<td class="org-right">0.791</td>
-<td class="org-right">1.0</td>
+<td class="left">MultinomialNB</td>
+<td class="right">0.782</td>
+<td class="right">0.791</td>
+<td class="right">0.791</td>
+<td class="right">1.0</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Tree</td>
-<td class="org-right">0.764</td>
-<td class="org-right">0.821</td>
-<td class="org-right">0.796</td>
-<td class="org-right">1.0</td>
+<td class="left">Tree</td>
+<td class="right">0.764</td>
+<td class="right">0.821</td>
+<td class="right">0.796</td>
+<td class="right">1.0</td>
 </tr>
 
 
 <tr>
-<td class="org-left">SGD</td>
-<td class="org-right">0.709</td>
-<td class="org-right">0.943</td>
-<td class="org-right">0.815</td>
-<td class="org-right">1.0</td>
+<td class="left">SGD</td>
+<td class="right">0.709</td>
+<td class="right">0.943</td>
+<td class="right">0.815</td>
+<td class="right">1.0</td>
 </tr>
 
 
 <tr>
-<td class="org-left">GaussianNB</td>
-<td class="org-right">0.709</td>
-<td class="org-right">0.968</td>
-<td class="org-right">0.887</td>
-<td class="org-right">1.0</td>
+<td class="left">GaussianNB</td>
+<td class="right">0.709</td>
+<td class="right">0.968</td>
+<td class="right">0.887</td>
+<td class="right">1.0</td>
 </tr>
 
 
 <tr>
-<td class="org-left">BernoulliNB</td>
-<td class="org-right">0.699</td>
-<td class="org-right">0.965</td>
-<td class="org-right">0.816</td>
-<td class="org-right">1.0</td>
+<td class="left">BernoulliNB</td>
+<td class="right">0.699</td>
+<td class="right">0.965</td>
+<td class="right">0.816</td>
+<td class="right">1.0</td>
 </tr>
 
 
 <tr>
-<td class="org-left">MLP</td>
-<td class="org-right">0.677</td>
-<td class="org-right">0.819</td>
-<td class="org-right">0.755</td>
-<td class="org-right">1.0</td>
+<td class="left">MLP</td>
+<td class="right">0.677</td>
+<td class="right">0.819</td>
+<td class="right">0.755</td>
+<td class="right">1.0</td>
 </tr>
 
 <tbody>
@@ -726,7 +684,6 @@ Helena Mihaljevic dataset as base of truth.
 </table>
 
 In Damegender we are using the next datasets:
-
 -   INE.es (Spain)
 -   USA
 -   United Kingdom
@@ -737,10 +694,7 @@ We hope better results with more languages.
 Machine Learning Algorithms in DameGender
 These results are experimental, we are improving the choosing of features.
 
-
-<a id="org07a2c75"></a>
-
-## Confusion Matrix
+## Confusion Matrix<a id="sec-8-4" name="sec-8-4"></a>
 
 1.  GenderApi
 
@@ -748,36 +702,36 @@ These results are experimental, we are improving the choosing of features.
     
     
     <colgroup>
-    <col  class="org-left" />
+    <col  class="left" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">&#x2026;</td>
-    <td class="org-right">male</td>
-    <td class="org-right">female</td>
-    <td class="org-right">undefined</td>
+    <td class="left">&#x2026;</td>
+    <td class="right">male</td>
+    <td class="right">female</td>
+    <td class="right">undefined</td>
     </tr>
     
     
     <tr>
-    <td class="org-left">male</td>
-    <td class="org-right">3589</td>
-    <td class="org-right">155</td>
-    <td class="org-right">67</td>
+    <td class="left">male</td>
+    <td class="right">3589</td>
+    <td class="right">155</td>
+    <td class="right">67</td>
     </tr>
     
     
     <tr>
-    <td class="org-left">female</td>
-    <td class="org-right">211</td>
-    <td class="org-right">1734</td>
-    <td class="org-right">23</td>
+    <td class="left">female</td>
+    <td class="right">211</td>
+    <td class="right">1734</td>
+    <td class="right">23</td>
     </tr>
     </tbody>
     </table>
@@ -788,36 +742,36 @@ These results are experimental, we are improving the choosing of features.
     
     
     <colgroup>
-    <col  class="org-left" />
+    <col  class="left" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">&#x2026;</td>
-    <td class="org-right">male</td>
-    <td class="org-right">female</td>
-    <td class="org-right">undefided</td>
+    <td class="left">&#x2026;</td>
+    <td class="right">male</td>
+    <td class="right">female</td>
+    <td class="right">undefided</td>
     </tr>
     
     
     <tr>
-    <td class="org-left">male</td>
-    <td class="org-right">3326</td>
-    <td class="org-right">139</td>
-    <td class="org-right">346</td>
+    <td class="left">male</td>
+    <td class="right">3326</td>
+    <td class="right">139</td>
+    <td class="right">346</td>
     </tr>
     
     
     <tr>
-    <td class="org-left">female</td>
-    <td class="org-right">78</td>
-    <td class="org-right">1686</td>
-    <td class="org-right">204</td>
+    <td class="left">female</td>
+    <td class="right">78</td>
+    <td class="right">1686</td>
+    <td class="right">204</td>
     </tr>
     </tbody>
     </table>
@@ -828,36 +782,36 @@ These results are experimental, we are improving the choosing of features.
     
     
     <colgroup>
-    <col  class="org-left" />
+    <col  class="left" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">&#x2026;</td>
-    <td class="org-right">male</td>
-    <td class="org-right">female</td>
-    <td class="org-right">undefined</td>
+    <td class="left">&#x2026;</td>
+    <td class="right">male</td>
+    <td class="right">female</td>
+    <td class="right">undefined</td>
     </tr>
     
     
     <tr>
-    <td class="org-left">male</td>
-    <td class="org-right">3157</td>
-    <td class="org-right">242</td>
-    <td class="org-right">412</td>
+    <td class="left">male</td>
+    <td class="right">3157</td>
+    <td class="right">242</td>
+    <td class="right">412</td>
     </tr>
     
     
     <tr>
-    <td class="org-left">female</td>
-    <td class="org-right">75</td>
-    <td class="org-right">1742</td>
-    <td class="org-right">151</td>
+    <td class="left">female</td>
+    <td class="right">75</td>
+    <td class="right">1742</td>
+    <td class="right">151</td>
     </tr>
     </tbody>
     </table>
@@ -868,36 +822,36 @@ These results are experimental, we are improving the choosing of features.
     
     
     <colgroup>
-    <col  class="org-left" />
+    <col  class="left" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">&#x2026;</td>
-    <td class="org-right">male</td>
-    <td class="org-right">female</td>
-    <td class="org-right">undefined</td>
+    <td class="left">&#x2026;</td>
+    <td class="right">male</td>
+    <td class="right">female</td>
+    <td class="right">undefined</td>
     </tr>
     
     
     <tr>
-    <td class="org-left">male</td>
-    <td class="org-right">3325</td>
-    <td class="org-right">139</td>
-    <td class="org-right">346</td>
+    <td class="left">male</td>
+    <td class="right">3325</td>
+    <td class="right">139</td>
+    <td class="right">346</td>
     </tr>
     
     
     <tr>
-    <td class="org-left">female</td>
-    <td class="org-right">78</td>
-    <td class="org-right">1686</td>
-    <td class="org-right">204</td>
+    <td class="left">female</td>
+    <td class="right">78</td>
+    <td class="right">1686</td>
+    <td class="right">204</td>
     </tr>
     </tbody>
     </table>
@@ -908,36 +862,36 @@ These results are experimental, we are improving the choosing of features.
     
     
     <colgroup>
-    <col  class="org-left" />
+    <col  class="left" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">&#x2026;</td>
-    <td class="org-right">male</td>
-    <td class="org-right">female</td>
-    <td class="org-right">undefined</td>
+    <td class="left">&#x2026;</td>
+    <td class="right">male</td>
+    <td class="right">female</td>
+    <td class="right">undefined</td>
     </tr>
     
     
     <tr>
-    <td class="org-left">male</td>
-    <td class="org-right">2627</td>
-    <td class="org-right">674</td>
-    <td class="org-right">507</td>
+    <td class="left">male</td>
+    <td class="right">2627</td>
+    <td class="right">674</td>
+    <td class="right">507</td>
     </tr>
     
     
     <tr>
-    <td class="org-left">female</td>
-    <td class="org-right">667</td>
-    <td class="org-right">1061</td>
-    <td class="org-right">240</td>
+    <td class="left">female</td>
+    <td class="right">667</td>
+    <td class="right">1061</td>
+    <td class="right">240</td>
     </tr>
     </tbody>
     </table>
@@ -948,36 +902,36 @@ These results are experimental, we are improving the choosing of features.
     
     
     <colgroup>
-    <col  class="org-left" />
+    <col  class="left" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     
-    <col  class="org-right" />
+    <col  class="right" />
     </colgroup>
     <tbody>
     <tr>
-    <td class="org-left">&#x2026;</td>
-    <td class="org-right">male</td>
-    <td class="org-right">female</td>
-    <td class="org-right">undefined</td>
+    <td class="left">&#x2026;</td>
+    <td class="right">male</td>
+    <td class="right">female</td>
+    <td class="right">undefined</td>
     </tr>
     
     
     <tr>
-    <td class="org-left">male</td>
-    <td class="org-right">3033</td>
-    <td class="org-right">778</td>
-    <td class="org-right">0</td>
+    <td class="left">male</td>
+    <td class="right">3033</td>
+    <td class="right">778</td>
+    <td class="right">0</td>
     </tr>
     
     
     <tr>
-    <td class="org-left">female</td>
-    <td class="org-right">276</td>
-    <td class="org-right">1692</td>
-    <td class="org-right">0</td>
+    <td class="left">female</td>
+    <td class="right">276</td>
+    <td class="right">1692</td>
+    <td class="right">0</td>
     </tr>
     </tbody>
     </table>
@@ -985,136 +939,130 @@ These results are experimental, we are improving the choosing of features.
     In this version of Dame Gender, we are not considering decide names as
     undefined.
 
-
-<a id="org12fc7f0"></a>
-
-## Errors with files/names/all.csv has:
+## Errors with files/names/all.csv has:<a id="sec-8-5" name="sec-8-5"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-right" />
+<col  class="right" />
 
-<col  class="org-right" />
+<col  class="right" />
 
-<col  class="org-right" />
+<col  class="right" />
 
-<col  class="org-right" />
+<col  class="right" />
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">API</td>
-<td class="org-right">error code</td>
-<td class="org-right">error code without na</td>
-<td class="org-right">na coded</td>
-<td class="org-right">error gender bias</td>
+<td class="left">API</td>
+<td class="right">error code</td>
+<td class="right">error code without na</td>
+<td class="right">na coded</td>
+<td class="right">error gender bias</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Genderize</td>
-<td class="org-right">0.0727</td>
-<td class="org-right">0.053</td>
-<td class="org-right">0.02</td>
-<td class="org-right">-0.008</td>
+<td class="left">Genderize</td>
+<td class="right">0.0727</td>
+<td class="right">0.053</td>
+<td class="right">0.02</td>
+<td class="right">-0.008</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Damegender</td>
-<td class="org-right">0.2547594323295258</td>
-<td class="org-right">0.2547594323295258</td>
-<td class="org-right">0.0</td>
-<td class="org-right">-0.04949809622706819</td>
+<td class="left">Damegender</td>
+<td class="right">0.2547594323295258</td>
+<td class="right">0.2547594323295258</td>
+<td class="right">0.0</td>
+<td class="right">-0.04949809622706819</td>
 </tr>
 
 
 <tr>
-<td class="org-left">GenderApi</td>
-<td class="org-right">0.16666666666666666</td>
-<td class="org-right">0.16666666666666666</td>
-<td class="org-right">0.0</td>
-<td class="org-right">-0.16666666666666666</td>
+<td class="left">GenderApi</td>
+<td class="right">0.16666666666666666</td>
+<td class="right">0.16666666666666666</td>
+<td class="right">0.0</td>
+<td class="right">-0.16666666666666666</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Gender Guesser</td>
-<td class="org-right">0.2255105572862582</td>
-<td class="org-right">0.026962383126766687</td>
-<td class="org-right">0.20404984423676012</td>
-<td class="org-right">0.0030441400304414</td>
+<td class="left">Gender Guesser</td>
+<td class="right">0.2255105572862582</td>
+<td class="right">0.026962383126766687</td>
+<td class="right">0.20404984423676012</td>
+<td class="right">0.0030441400304414</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Namsor</td>
-<td class="org-right">0.16666666666666666</td>
-<td class="org-right">0.16666666666666666</td>
-<td class="org-right">0.0</td>
-<td class="org-right">0.16666666666666666</td>
+<td class="left">Namsor</td>
+<td class="right">0.16666666666666666</td>
+<td class="right">0.16666666666666666</td>
+<td class="right">0.0</td>
+<td class="right">0.16666666666666666</td>
 </tr>
 
 
 <tr>
-<td class="org-left">Nameapi</td>
-<td class="org-right">0.361</td>
-<td class="org-right">0.267</td>
-<td class="org-right">0.129</td>
-<td class="org-right">0.001</td>
+<td class="left">Nameapi</td>
+<td class="right">0.361</td>
+<td class="right">0.267</td>
+<td class="right">0.129</td>
+<td class="right">0.001</td>
 </tr>
 </tbody>
 </table>
 
-
-<a id="org56aaef7"></a>
-
-## Performance
+## Performance<a id="sec-8-6" name="sec-8-6"></a>
 
 These performance metrics requires and csv json downloaded
-\################### Damegender!!
+\\################### Damegender!!
 Gender list: [1, 1, 1, 1, 1, 0]
 Guess list:  [1, 1, 1, 1, 1, 0]
 Damegender accuracy: 1.0
 
-real	0m1.270s
-user	0m0.876s
-sys	0m0.416s
-\################### Genderize!!
+real        0m1.270s
+user        0m0.876s
+sys        0m0.416s
+\\################### Genderize!!
 Gender list: [1, 1, 1, 1, 1, 0]
 Guess list:  [1, 1, 1, 1, 1, 0]
 Genderize accuracy: 1.0
 
-real	0m0.811s
-user	0m0.776s
-sys	0m0.312s
-\################### Genderapi!!
+real        0m0.811s
+user        0m0.776s
+sys        0m0.312s
+\\################### Genderapi!!
 Gender list: [1, 1, 1, 1, 1, 0]
 Guess list:  [1, 1, 1, 1, 1, 0]
 Genderapi accuracy: 1.0
 
-real	0m0.763s
-user	0m0.744s
-sys	0m0.232s
-\################### Namsor!!
+real        0m0.763s
+user        0m0.744s
+sys        0m0.232s
+\\################### Namsor!!
 Gender list: [1, 1, 1, 1, 1, 0]
 Guess list:  [1, 1, 1, 1, 1, 0]
 Namsor accuracy: 1.0
 
-real	0m0.811s
-user	0m0.776s
-sys	0m0.356s
-\################### Nameapi!!
+real        0m0.811s
+user        0m0.776s
+sys        0m0.356s
+\\################### Nameapi!!
 Gender list: [1, 1, 1, 1, 1, 0]
 Guess list:  [1, 1, 1, 1, 1, 0]
 Nameapi accuracy: 1.0
 
-real	0m0.832s
-user	0m0.816s
-sys	0m0.336s
+real        0m0.832s
+user        0m0.816s
+sys        0m0.336s
 A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
 If the classifier is nice, the diagonal is high because there are true positives
 Damegender confusion matrix:
@@ -1122,31 +1070,24 @@ Damegender confusion matrix:
 [[ 5, 0, 0 ]
  [ 0, 1, 0 ]]
 
-real	0m0.812s
-user	0m0.784s
-sys	0m0.300s
+real        0m0.812s
+user        0m0.784s
+sys        0m0.300s
 Damegender with files/names/partial.csv has:
-
 -   The error code: 0.10526315789473684
 -   The error code without na: 0.10526315789473684
 -   The na coded: 0.0
 -   The error gender bias: 0.0
 
-real	0m9.099s
-user	0m9.008s
-sys	0m0.412s
+real        0m9.099s
+user        0m9.008s
+sys        0m0.412s
 
-
-<a id="org79b212f"></a>
-
-# Statistics for damegender
+# Statistics for damegender<a id="sec-9" name="sec-9"></a>
 
 Some theory could be useful to understand some commands
 
-
-<a id="org8c8cf96"></a>
-
-## Measuring success and fails
+## Measuring success and fails<a id="sec-9-1" name="sec-9-1"></a>
 
 To guess the sex, we have an true idea (example: female) and we obtain
 a result with a method (example: using an api, querying a dataset or
@@ -1256,15 +1197,9 @@ males was considered female.
 In Damegender, we have coded confusion.py to implement this concept
 with the different apis.
 
+## PCA<a id="sec-9-2" name="sec-9-2"></a>
 
-<a id="orgfb83d99"></a>
-
-## PCA
-
-
-<a id="orge1790bb"></a>
-
-### Concepts
+### Concepts<a id="sec-9-2-1" name="sec-9-2-1"></a>
 
 The dispersion measures between 1 variable, for instance, variance,
 standard deviation, &#x2026;
@@ -1298,7 +1233,6 @@ We can choose PCA using the covariance method as opposed to the
 correlation method.
 
 The [covariance method](https://en.wikipedia.org/wiki/Principal_component_analysis#Computing_PCA_using_the_covariance_method) has the next steps:
-
 1.  Organize the data set
 2.  Calculate the empirical mean
 3.  Calculate the deviations from the mean
@@ -1310,7 +1244,6 @@ The [covariance method](https://en.wikipedia.org/wiki/Principal_component_analys
 9.  Project the z-scores of the data onto the new basis
 
 The [correlation method](https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc552.htm) has the next steps:
-
 1.  Compute the correlation matrix
 2.  Solve for the correlation roots of R (product of eigenvalues)
 3.  Compute the first column of the V matrix
@@ -1321,10 +1254,7 @@ The [correlation method](https://www.itl.nist.gov/div898/handbook/pmc/section5/p
 8.  Compute the coefficient matrix
 9.  Compute the principal factors
 
-
-<a id="orgb5231b5"></a>
-
-### Choosing components
+### Choosing components<a id="sec-9-2-2" name="sec-9-2-2"></a>
 
 We can choose components with:
 
@@ -1357,10 +1287,7 @@ We can choose components with:
 
 Taking a look to the image. We can choose 6 components.
 
-
-<a id="orgc3decdd"></a>
-
-### Load Dataset
+### Load Dataset<a id="sec-9-2-3" name="sec-9-2-3"></a>
 
 We choose the file all.csv to generate features and a list to determine gender (male or female)
 
@@ -1383,20 +1310,14 @@ We choose the file all.csv to generate features and a list to determine gender (
     y = g.dataset2genderlist(dataset="files/names/all.csv")
     print(y)
 
-
-<a id="orgfa130da"></a>
-
-### Standarize the data
+### Standarize the data<a id="sec-9-2-4" name="sec-9-2-4"></a>
 
     print("STEP2: STANDARIZE THE DATA")
     from sklearn.preprocessing import StandardScaler
     # Standardizing the features
     x = StandardScaler().fit_transform(x)
 
-
-<a id="org6caf71c"></a>
-
-### Pca Projection to N Dimensions
+### Pca Projection to N Dimensions<a id="sec-9-2-5" name="sec-9-2-5"></a>
 
 Finally, we create the pca transform with 6 dimensions and we add the target component.
 
@@ -1411,83 +1332,80 @@ Finally, we create the pca transform with 6 dimensions and we add the target com
     
     print(principalDf.join(target))
 
-
-<a id="orgd2268fe"></a>
-
-### Analyze components to determine gender in names
+### Analyze components to determine gender in names<a id="sec-9-2-6" name="sec-9-2-6"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="org-right" />
+<col  class="right" />
 
-<col  class="org-right" />
+<col  class="right" />
 
-<col  class="org-right" />
+<col  class="right" />
 
-<col  class="org-right" />
+<col  class="right" />
 
-<col  class="org-right" />
+<col  class="right" />
 
-<col  class="org-right" />
+<col  class="right" />
 
-<col  class="org-right" />
+<col  class="right" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-right">first\\<sub>letter</sub></th>
-<th scope="col" class="org-right">last\\<sub>letter</sub></th>
-<th scope="col" class="org-right">last\\<sub>letter</sub>\\<sub>a</sub></th>
-<th scope="col" class="org-right">first\\<sub>letter</sub>\\<sub>vocal</sub></th>
-<th scope="col" class="org-right">last\\<sub>letter</sub>\\<sub>vocal</sub></th>
-<th scope="col" class="org-right">last\\<sub>letter</sub>\\<sub>consonant</sub></th>
-<th scope="col" class="org-right">target component</th>
+<th scope="col" class="right">first\\<sub>letter</sub></th>
+<th scope="col" class="right">last\\<sub>letter</sub></th>
+<th scope="col" class="right">last\\<sub>letter\\</sub><sub>a</sub></th>
+<th scope="col" class="right">first\\<sub>letter\\</sub><sub>vocal</sub></th>
+<th scope="col" class="right">last\\<sub>letter\\</sub><sub>vocal</sub></th>
+<th scope="col" class="right">last\\<sub>letter\\</sub><sub>consonant</sub></th>
+<th scope="col" class="right">target component</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-<td class="org-right">-0.2080025204</td>
-<td class="org-right">-0.3208958517</td>
-<td class="org-right">0.2352509625</td>
-<td class="org-right">0.2113242731</td>
-<td class="org-right">**0.6095269139**</td>
-<td class="org-right">**-0.6095269139**</td>
-<td class="org-right">-0.1035071139</td>
+<td class="right">-0.2080025204</td>
+<td class="right">-0.3208958517</td>
+<td class="right">0.2352509625</td>
+<td class="right">0.2113242731</td>
+<td class="right">**0.6095269139**</td>
+<td class="right">**-0.6095269139**</td>
+<td class="right">-0.1035071139</td>
 </tr>
 
 
 <tr>
-<td class="org-right">**-0.6037951881**</td>
-<td class="org-right">**0.5174873789**</td>
-<td class="org-right">-0.4252467151</td>
-<td class="org-right">0.4278794455</td>
-<td class="org-right">0.0388287435</td>
-<td class="org-right">-0.0388287435</td>
-<td class="org-right">-0.0265942125</td>
+<td class="right">**-0.6037951881**</td>
+<td class="right">**0.5174873789**</td>
+<td class="right">-0.4252467151</td>
+<td class="right">0.4278794455</td>
+<td class="right">0.0388287435</td>
+<td class="right">-0.0388287435</td>
+<td class="right">-0.0265942125</td>
 </tr>
 
 
 <tr>
-<td class="org-right">0.1049343046</td>
-<td class="org-right">0.1158117877</td>
-<td class="org-right">-0.2867605971</td>
-<td class="org-right">-0.3473950734</td>
-<td class="org-right">0.0901034539</td>
-<td class="org-right">-0.0901034539</td>
-<td class="org-right">-0.8697264971</td>
+<td class="right">0.1049343046</td>
+<td class="right">0.1158117877</td>
+<td class="right">-0.2867605971</td>
+<td class="right">-0.3473950734</td>
+<td class="right">0.0901034539</td>
+<td class="right">-0.0901034539</td>
+<td class="right">-0.8697264971</td>
 </tr>
 
 
 <tr>
-<td class="org-right">0.2026467275</td>
-<td class="org-right">0.3142402839</td>
-<td class="org-right">**0.630802294**</td>
-<td class="org-right">**0.5325769702**</td>
-<td class="org-right">-0.1291229841</td>
-<td class="org-right">0.1291229841</td>
-<td class="org-right">-0.3811720011</td>
+<td class="right">0.2026467275</td>
+<td class="right">0.3142402839</td>
+<td class="right">**0.630802294**</td>
+<td class="right">**0.5325769702**</td>
+<td class="right">-0.1291229841</td>
+<td class="right">0.1291229841</td>
+<td class="right">-0.3811720011</td>
 </tr>
 </tbody>
 </table>
@@ -1506,34 +1424,22 @@ The third component is not giving relevant information.
 The fourth component is giving the last<sub>letter</sub><sub>a</sub> and the
 first<sub>letter</sub><sub>vocal</sub> is for females.
 
-
-<a id="org0b03af4"></a>
-
-# Speeches, Seminars, Expressions of Support
+# Speeches, Seminars, Expressions of Support<a id="sec-10" name="sec-10"></a>
 
 -   [MadSeSe](http://gregoriorobles.github.io/MadSESE/201906.html)
 -   [Python Barcelona](https://www.meetup.com/es-ES/python-185/events/261405719/)
 -   [Taller de Periodismo de Datos (Medialab Prado, Madrid). NLTK & Damegender](https://www.medialab-prado.es/noticias/taller-de-periodismo-de-datos-2019-sesiones-formativas)
 -   [Software Freedom Day (URJC, Móstoles). Damegender](https://tv.urjc.es/video/5d895319d68b148f7a8c0da6)
 
-
-<a id="org6c584e3"></a>
-
-# Beautiful Snakes
+# Beautiful Snakes<a id="sec-11" name="sec-11"></a>
 
 ![img](src/damegender/files/images/violet-snake3.png)
 
-
-<a id="org64c405a"></a>
-
-# Dame Music
+# Dame Music<a id="sec-12" name="sec-12"></a>
 
 [Listen music &#x2026;](https://www.youtube.com/playlist?list=PLeobXV-Yyn-LvQydcnr46ZkGh1V6tDGEk)
 
-
-<a id="org23c90b4"></a>
-
-# License
+# License<a id="sec-13" name="sec-13"></a>
 
 Copyright (C) 2019 David Arroyo Menendez
     Permission is granted to copy, distribute and/or modify this document
@@ -1543,4 +1449,3 @@ Copyright (C) 2019 David Arroyo Menendez
     A copy of the license is included in [GNU Free Documentation License](https://www.gnu.org/copyleft/fdl.html).
 
 [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/GFDL_Logo.svg/200px-GFDL_Logo.svg.png)](https://www.gnu.org/copyleft/fdl.html)
-

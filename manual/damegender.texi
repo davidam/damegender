@@ -1,0 +1,652 @@
+\input texinfo   @c -*-texinfo-*-
+@comment $Id@w{$}
+@comment %**start of header
+@include version.texi
+@settitle Damegender Manual @value{VERSION}
+@syncodeindex pg cp
+@comment %**end of header
+@copying
+This manual is for Damegender (version @value{VERSION}, @value{UPDATED}),
+which is an example in the Texinfo documentation.
+
+Copyright @copyright{} 2020 David Arroyo Men@'endez
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts.  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+@end quotation
+@end copying
+
+
+@titlepage
+@title Damegender Manual: Counting Males and Females in Internet Communities
+@subtitle for version @value{VERSION}, @value{UPDATED}
+@author David Arroyo Men@'endez (@email{davidam@@gnu.org})
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+
+@ifnottex
+@node Top
+@top Damegender
+
+This manual is for Damegender (version @value{VERSION}, @value{UPDATED}).
+@end ifnottex
+
+@menu
+* Introduction::
+* Installation::
+* Commands::
+* Statistics::
+* Use Cases:
+* GNU Free Documentation License::
+* Index::
+@end menu
+
+@node Introduction
+@chapter Introduction
+
+Damegender is a gender detection tool from the name coded by David
+Arroyo MEnéndez (DAME).
+
+The gender detection tools from the names are being used usually with
+commercial APIs. But many countries has been doing efforts in the last
+years for contribute names and a number of people using each name with
+Open Data Licenses. So, this software is collecting this effort on an
+original way (we are using Machine Learning algorithms for predict
+names that is not appearing in our database).
+
+Damegender is giving measures to compare in any moment our solution
+with the commercial APIs. So, the user can understand when it's useful
+to invest money or not depending of the dataset. Damegender allows to
+the users download a big number of names from a csv file.
+
+This software is written oriented to tests. So you can check the right
+behaivour of the software with python tests for the classes and
+methods and with shell tests for the python commands.
+
+Damegender is using Perceval for count males and females in a lot of
+Internet Communities (wikis, mailing lists, software repositories, bug
+tracking systems, ...). We shows source for count males and females in
+different situations (Ex: count-debian-gender.py)
+
+This software is taking into account the power to predict nations and
+ethnicity from the surnames (Ex: surname.py, surnameincountries.py and
+ethnicity.py).
+
+
+@node Installation
+@chapter Installation
+@cindex Installation
+@cindex Python Virtual Environment
+@cindex Configuring Api Keys
+
+Possible Debian/Ubuntu dependencies:
+@example
+$ sudo apt-get install python3-nose-exclude python3-dev dict dict-freedict-eng-spa dict-freedict-spa-eng dictd
+@end example
+
+Now, to install damegender from sources:
+@example
+$ git clone https://github.com/davidam/damegender
+$ cd damegender
+$ pip3 install -r requirements.txt
+@end example
+
+Now, to install damegender with python package:
+@example
+$ python3 -m venv /tmp/d
+$ cd /tmp/d
+$ source bin/activate
+$ pip install --upgrade pip
+$ pip3 install damegender
+$ cd lib/python3.5/site-packages/damegender
+$ python3 main.py David
+@end example
+
+To install apis extra dependencies:
+@example
+$ pip3 install damegender[apis]
+@end example
+
+To install mailing lists and repositories extra dependencies:
+@example
+$ pip3 install damegender[mails_and_repositories]
+@end example
+
+To install all possible dependencies
+
+@example
+$ pip3 install damegender[all]
+@end example
+
+Currently you can need an api key from:
+
+@itemize @bullet
+@item
+https://store.genderize.io/documentation 
+
+@item
+https://gender-api.com
+
+@item
+https://www.nameapi.org/
+
+@item
+https://v2.namsor.com/NamSorAPIv2/sign-in.html
+@end itemize
+
+To configure your api key you can execute:
+@example
+$ python3 apikeyadd.py
+@end example
+
+@node Commands
+@chapter Commands
+@cindex Commands
+@cindex Executing tests
+@cindex Regenerating files in post installation
+@cindex Perceval
+@cindex Commands about Statistics
+
+You must start to check tests to understand that all is ok:
+
+@example
+$ cd src/damegender
+$ ./testsbycommands.sh         # It must run for you
+$ ./testsbycommandsextralocal.sh  # You will need all dependencies
+                                  # with: $ pip3 install damegender[all]
+$ ./testsbycommandsextranet.sh    # You will need api keys
+@end example
+
+You can continue check python tests:
+
+Execute all tests:
+@example
+$ nosetests3 tests
+@end example
+
+Execute one file:
+@example
+$ nosetests3 tests/test_basics.py
+@end example
+
+Execute one test:
+@example
+$ nosetests3 tests/test_basics.py:TestBasics.test_indexing
+@end example
+
+If you are in a fresh installation, perhaps you want regenerate by
+your own risk some files downloaded to understand how it has been
+generated:
+
+@example
+$ python3 postinstall.py
+@end example
+
+You can find an big list of commands to execute this shell
+scripts. Now a detailed execution of some selected examples:
+
+The first command to learn is main.py. You can play now with this command:
+
+@example
+# Detect gender from a name (INE is the dataset used by default)
+$ python3 main.py David
+David gender is male
+ 363559  males for David from INE.es
+0 females for David from INE.es
+
+# Detect gender from a name only using machine learning (experimental way)
+$ python3 main.py Mesa --ml=nltk
+Mesa gender is female
+0 males for Mesa from INE.es
+0 females for Mesa from INE.es
+
+# Detect gender from a name (all census and machine learning)
+$ python3 main.py David --verbose
+365196 males for David from INE.es
+0 females for David from INE.es
+1193 males for David from Uruguay census
+5 females for David from Uruguay census
+26645 males for David from United Kingdom census
+0 females for David from United Kingdom census
+3552580 males for David from United States of America census
+12826 females for David from United States of America census
+David gender predicted with nltk is male
+David gender predicted with sgd is male
+David gender predicted with svc is male
+David gender predicted with gaussianNB is male
+David gender predicted with multinomialNB is male
+David gender predicted with bernoulliNB is male
+David gender predicted with forest is male
+David gender predicted with tree is male
+David gender predicted with mlp is male
+@end example
+
+The first Free Software for gender detection tool was created in C
+language program and you can look for a python version with the name
+genderguesser. Some people was working in a Free dataset called
+name_dict.txt with 48500 names. I want to give thanks to this effort
+with nameincountries.py due to the good work organizing many names in
+different countries.
+
+@example
+$ python3 nameincountries.py David
+grep -i " David " files/names/nam_dict.txt > files/grep.tmp
+males: ['Albania', 'Armenia', 'Austria', 'Azerbaijan', 'Belgium', 'Bosnia and Herzegovina', 'Czech Republic', 'Denmark', 'East Frisia', 'France', 'Georgia', 'Germany', 'Great Britain', 'Iceland', 'Ireland', 'Israel', 'Italy', 'Kazakhstan/Uzbekistan', 'Luxembourg', 'Malta', 'Norway', 'Portugal', 'Romania', 'Slovenia', 'Spain', 'Sweden', 'Swiss', 'The Netherlands', 'USA', 'Ukraine']
+females: []
+both: []
+@end example
+
+This Free Software has been developed in the frame of a Phd in the
+Universidad Rey Juan Carlos I with the Phd director Jesús González
+Barahona, so I have developed some commands to use Perceval (Free
+Software where he has done good contributions)
+
+To count gender from a git repository:
+
+@example
+$ python3 git2gender.py https://github.com/chaoss/grimoirelab-perceval.git --directory="/tmp/clonedir"
+The number of males sending commits is 15
+The number of females sending commits is 7
+@end example
+
+To count gender from a mailing list:
+
+@example
+$ cd files/mbox
+$ wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
+$ cd ..
+$ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
+@end example
+
+Perhaps you don't know a name, but you have obtained an free key for
+an api to retrieve it:
+
+@example
+$ python3 api2gender.py Leticia --surname="Martin" --api=namsor
+female
+scale: 0.99
+@end example
+
+If you want to know the gender of a good number of names you can
+download results from an api and save in a file with downloadjson.py
+
+@example
+$ python3 downloadjson.py --csv=files/names/min.csv --api=genderize
+$ cat files/names/genderizefiles_names_min.csv.json
+@end example
+
+Now we are going to learn some commands for measure the successful of our solution:
+
+@example
+$ python3 accuracy.py --csv=files/names/min.csv
+################### NLTK!!
+Gender list: [1, 1, 1, 1, 2, 1, 0, 0]
+Guess list:  [1, 1, 1, 1, 0, 1, 0, 0]
+Dame Gender accuracy: 0.875
+@end example
+
+@example
+$ python3 confusion.py --csv="files/names/partial.csv" --api=nameapi --jsondownloaded="files/names/nameapifiles_names_partial.csv.json"
+A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are true positives
+Nameapi confusion matrix:
+
+[[ 3, 0, 0]
+ [ 0, 15, 1]]
+@end example
+
+@example
+$ python3 errors.py --csv="files/names/all.csv" --api="genderguesser"
+Gender Guesser with files/names/all.csv has:
++ The error code: 0.22564457518601835
++ The error code without na: 0.026539047204698716
++ The na coded: 0.20453365634192766
++ The error gender bias: 0.0026103980857080703
+@end example
+
+You can generate a lot of logs about errors, accuracies and/or confusion:
+
+@example
+$ ./logs-accuracies.sh
+$ ./logs-confusion.sh
+$ ./logs-errors.sh
+@end example
+
+Perhaps you are interested on reproduce experiments to determine features:
+
+@example
+$ python3 infofeatures.py
+Females with last letter a: 0.4705246078961601
+Males with last letter a: 0.048672566371681415
+Females with last letter consonant: 0.2735841767750908
+Males with last letter consonant: 0.6355328972681801
+Females with last letter vocal: 0.7262612995441552
+Males with last letter vocal: 0.3640823393612928
+$ python3 pca-components.py --csv="files/features_list.csv" # To determine number of components
+$ python3 pca-features.py                                   # To understand the weight between variables for a target
+@end example
+
+Now we can go to play with surnames:
+
+@example
+$ python3 surname.py Gil --total=es
+There are 140004 people using Gil in Spain
+
+$ python3 surname.py Lenon --total=us
+There are 837 people using Lenon in United States of America
+
+$ python3 ethnicity.py Smith
+In United States of America the percentages about the race of Smith surname is:
+White: 73.35
+Black: 22.22
+Hispanic: 1.56
+Asian Pacific Indian American: 0.40
+American Indian and Alaska Native: 0.85
+Various races: 1.63
+@end example
+
+@node Statistics 
+@chapter Statistics
+
+In the last chapter we were learning to execute some commands such as
+accuracy.py, confusion.py, or errors.py, but perhaps you need to
+understand more theory about statistics to understand why this commands
+is being interesting for you.
+
+@section Measuring success and error
+
+To guess the sex, we have an true idea (example: female) and we obtain
+a result with a method (example: using an api, querying a dataset or
+with a machine learning model). The guessed result could be male,
+female or perhaps unknown. Remember some definitions about results
+about this matter:
+
+@strong{True positive} is to find a value guessed as true if the value
+in the data source is positive.
+
+@strong{True negative} is to find a value guessed as true if the the
+value in the data source is negative.
+
+@strong{False positive} is to find a value guessed as false if the the
+value in the data source is positive.
+
+@strong{False negative} is to find a value guessed as false if the the
+value in the data source is negative.
+
+So, we can find a vocabulary for measure true, false, success and
+errors. We can make a summary in the gender name context about
+mathematical concepts:
+
+@strong{Precision} is about true positives divided by true positives plus false
+positives
+
+@example
+(femalefemale + malemale ) /
+(femalefemale + malemale + femalemale)
+@end example
+
+Recall is about true positives divided by true positives plus false negatives.
+
+@example
+(femalefemale + malemale ) /
+(femalefemale + malemale + malefemale + femaleundefined + maleundefined)
+@end example
+
+Accuray is about true positives divided by all.
+
+@example
+(femalefemale + malemale ) /
+(femalefemale + malemale + malefemale + femalemale + femaleundefined + maleundefined)
+@end example
+
+The F1 score is the harmonic mean of precision and recall taking both metrics into account in the following equation:
+
+@example
+2 * (
+(precision * recall) /
+(precision + recall))
+@end example
+
+In Damengender, we are using accuracy.py to apply these concepts. Take a look to practice:
+
+@example
+$ python3 accuracy.py --api="damegender" --measure="f1score" --csv="files/names/partialnoundefined.csv" --jsondownloaded=files/names/partialnoundefined.csv.json
+################### Damegender!!
+Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]
+Damegender f1score: 0.9090909090909091
+
+$ python3 accuracy.py --api="damegender" --measure="recall" --csv="files/names/partialnoundefined.csv" --jsondownloaded=files/names/partialnoundefined.csv.json
+################### Damegender!!
+Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]
+Damegender recall: 1.0
+
+$ python3 accuracy.py --api="damegender" --measure="accuracy" --csv="files/names/partialnoundefined.csv" --jsondownloaded=files/names/partialnoundefined.csv.json
+################### Damegender!!
+Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]
+Damegender accuracy: 0.8571428571428571
+
+$ python3 accuracy.py --api="genderguesser" --measure="accuracy" --csv="files/names/partialnoundefined.csv" --jsondownloaded=files/names/partialnoundefined.csv.json
+################### Genderguesser!!
+Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]
+Genderguesser accuracy: 0.8571428571428571
+
+$ python3 accuracy.py --api="genderguesser" --measure="precision" --csv="files/names/partialnoundefined.csv" --jsondownloaded=files/names/partialnoundefined.csv.json
+################### Genderguesser!!
+Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]
+Genderguesser precision: 0.9090909090909091
+
+$ python3 accuracy.py --api="genderguesser" --measure="recall" --csv="files/names/partialnoundefined.csv" --jsondownloaded=files/names/partialnoundefined.csv.json
+################### Genderguesser!!
+Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]
+Genderguesser recall: 1.0
+
+$ python3 accuracy.py --api="genderguesser" --measure="f1score" --csv="files/names/partialnoundefined.csv" --jsondownloaded=files/names/partialnoundefined.csv.json
+################### Genderguesser!!
+Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]
+Genderguesser f1score: 0.9090909090909091
+@end example
+
+@strong{Error coded} is about the true is different than the guessed:
+
+@example
+(femalemale + malefemale + maleundefined + femaleundefined) /
+(malemale + femalemale + malefemale +
+femalefemale + maleundefined + femaleundefined)
+@end example
+
+@strong{Error coded without na} is about the true is different than
+the guessed, but without undefined results.
+
+@example
+(maleundefined + femaleundefined) /
+(malemale + femalemale + malefemale +
+femalefemale + maleundefined + femaleundefined)
+@end example
+
+@strong{Error gender bias} is to understand if the error is bigger guessing males than females or viceversa.
+
+The @strong{weighted error} is about the true is different than the guessed, but giving a weight to the guessed as undefined.
+
+@example
+(femalemale + malefemale +
++ w * (maleundefined + femaleundefined)) /
+(malemale + femalemale + malefemale + femalefemale +
++ w * (maleundefined + femaleundefined))
+@end example
+
+In Damegender, we have coded errors.py to implement the different definitions in diffrent apis.
+
+The confusion matrix creates a matrix about the true and the guess. If you have this confusion matrix:
+
+@example
+[[ 2, 0, 0]
+ [ 0, 5, 0]]
+@end example
+
+It means, I have 2 females true and I’ve guessed 2 females and I’ve 5 males true and I’ve guessed 5 males. I don’t have errors in my classifier.
+
+@example
+[[ 2  1  0]
+[ 2 14  0]]
+@end example
+
+It means, I have 2 females true and I’ve guessed 2 females and I’ve 14 males true and I’ve guessed 14 males. 1 female was considered male, 2 males was considered female.
+
+In Damegender, we have coded confusion.py to implement this concept with the different apis.
+
+@section Principal Component Analysis (PCA)
+
+To be written
+
+@node Use Cases
+@chapter Use Cases
+
+@section Introduction
+
+There are many research studies count males and females in specific
+communities such as Twitter, StackOverflow, ... We hope that with this
+manual software
+
+A specific community has some clues to determine male or female, for
+example, in Twitter you observe the photo, nickname, real name, ...
+
+@section Counting males and females in Debian
+
+In the Debian community all member must have a gpg key to collaborate,
+so we can count males and females from the keyring. With gpg commands
+you can import a the debian keyring and dump the debian keyring in a
+csv file.
+
+@example
+$ rsync -az --progress keyring.debian.org::keyrings/keyrings/ .
+@end example
+
+We have generated a script to count males and females:
+
+@example
+~/git/damegender/src/damegender$ python3 count-debian-gender.py 
+Perhaps you need wait some minutes. You can take a tea or coffe now
+debian males: 795
+debian females: 24
+@end example
+
+In the dump of the debian keyring dataset we have divided name,
+surname and email in different fields. So, it's easy detect the name,
+although some names has several emails
+
+We have choosen the United States of America dataset and we are using
+the method name_frec to decide for male or female in the row.
+
+The United States of America dataset is a good choice for Free
+Software communities, due to that this communities is based on english
+as main language and United States of America is a leader country in
+software development. United States of America hosts people from
+different countries due to migrations towards good companies and
+universities.
+
+@section Counting males and females in a git repository
+
+We can think a simple version of git2gender.py:
+
+@example
+from app.dame_sexmachine import DameSexmachine
+from app.dame_perceval import DamePerceval
+from app.dame_utils import DameUtils
+import sys
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("url", help="Uniform Resource Link")
+parser.add_argument('--directory')
+parser.add_argument('--version', action='version', version='0.1')
+args = parser.parse_args()
+if (len(sys.argv) > 1):
+    ds = DameSexmachine()
+    du = DameUtils()
+    dp = DamePerceval()
+    l1 = dp.list_committers(args.url, args.directory)
+    l2 = du.delete_duplicated(l1)
+    l3 = du.clean_list(l2)
+
+    females = 0
+    males = 0
+    unknowns = 0
+    for g in l3:
+        sm = ds.guess(g, binary=True)
+        if (sm == 0):
+            females = females + 1
+        elif (sm == 1):
+            males = males + 1
+        else:
+            unknowns = unknowns + 1
+
+    print("The number of males sending commits is %s" % males)
+    print("The number of females sending commits is %s" % females)
+@end example
+
+Try to execute this script:
+
+@example
+$ python3 git2gender.py https://github.com/davidam/davidam.git --directory="/tmp/clonedir"
+The number of males sending commits is 3
+The number of females sending commits is 0
+@end example
+
+This count is not so good because in a git repository the same person
+can have been called with the same name:
+
+@example
+['David Arroyo Menéndez <davidam@es.gnu.org>', 'David Arroyo Menendez <davidam@gmail.com>', 'David Arroyo Menéndez <d.arroyome@alumnos.urjc.es>', 'David Arroyo <davidam@gmail.com>']
+@end example
+
+If you look up 'David Arroyo' in Google Scholar you can find several
+researchers, but David Arroyo Menéndez is unique in this context. If
+appears with accent or not could a trouble about spelling, but could
+be the same person. On other hand, if you find 'David Arroyo' and
+'David Arroyo Menéndez' with the same, the he is the same person, but
+in some data centers several people with different names can be using
+the same email account.
+
+def same_email(string1, string2):
+    firstName
+    
+def same_identity(string1, string2):
+    same_identity = false
+    string1 = remove_accents(string1)
+    string2 = remove_accents(string2)
+    if (same_email(string1, string2) and ((contains(string1, string2)) or (contains(string2, string1)))):
+        same_identity = true
+    else:
+        same_identity = false
+    return same_identity
+
+
+
+
+@node GNU Free Documentation License
+@appendix GNU Free Documentation License
+
+@include fdl.texi
+
+
+@node Index
+@unnumbered Index
+
+@printindex cp
+
+@bye

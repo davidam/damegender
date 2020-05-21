@@ -24,6 +24,7 @@
 import unittest
 import os
 from app.dame_utils import DameUtils
+from app.dame_gender import Gender
 from os.path import expanduser
 
 class TddInPythonExample(unittest.TestCase):
@@ -115,9 +116,13 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual("Hola Mexico", u.drop_quotes("Hola' 'Mexico"))
 
     def test_dame_utils_delete_duplicated(self):
+        g = Gender()        
         du = DameUtils()
-        self.assertEqual(du.delete_duplicated([1, 2, 2, 1, 3]), [1, 2, 3])
-
+        self.assertEqual(sorted(du.delete_duplicated([1, 5, 2, 2, 1, 3, 5, 5, 5 , 5])), [1, 2, 3, 5])
+        # f = g.females_list(corpus="es")
+        # m = g.males_list(corpus="es")        
+        # self.assertEqual(len(du.delete_duplicated(f + m)), 48654)
+        
     def test_dame_utils_clean_list(self):
         du = DameUtils()
         self.assertEqual(

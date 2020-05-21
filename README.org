@@ -1,7 +1,7 @@
 
 * Logo
 
-file:src/damegender/files/images/CaravaggioDavidGoliathVienna.jpg
+file:https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/CaravaggioDavidGoliathVienna.jpg/620px-CaravaggioDavidGoliathVienna.jpg
 
 * Name
 damegender is a gender detection tool from the name coded by David Arroyo MEnéndez (DAME)
@@ -17,18 +17,12 @@ damegender is a gender detection tool from the name coded by David Arroyo MEnén
 
 DAMe Gender is for you!
 
-* Tell me about DAMe Gender on Youtube
-[[https://www.youtube.com/embed/dvN0lMgQ9Pc][file:src/damegender/files/images/damegender-front-youtube.png]]
+* Tell me about DAMe Gender on Video
++ [[https://www.youtube.com/embed/dvN0lMgQ9Pc][Python Barcelona (Spanish)]]
++ [[https://tv.urjc.es/iframe/5d895319d68b148f7a8c0da6][Damegender in Software Freedom Day (Spanish)]]
++ [[https://tv.urjc.es/video/5d895319d68b148f7a8c0da6][Damegender in URJC (English)]]
 
 * Install
-** Docker Image
-#+BEGIN_SRC
-# Build the container image
-$ docker build . -t damegender/damegender:latest
-
-# Run the container
-$ docker run -ti damegender/damegender:latest main.py David
-#+END_SRC
 ** Installing Software
 *** Possible Debian/Ubuntu dependencies
 #+BEGIN_SRC
@@ -97,7 +91,7 @@ $ python3
 
 * Beautiful Snakes
 
-file:src/damegender/files/images/violet-snake3.png
+file:https://raw.githubusercontent.com/davidam/damegender/master/src/damegender/files/images/violet-snake3.png
 
 * Dame Music
 

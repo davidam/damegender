@@ -31,7 +31,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.linear_model import SGDClassifier
-from xgboost import XGBClassifier
+#from xgboost import XGBClassifier
 from sklearn import svm
 from app.dame_sexmachine import DameSexmachine
 
@@ -55,25 +55,25 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_sexmachine_guess(self):
         s = DameSexmachine()
         self.assertEqual(s.guess("David"), 'male')
+        self.assertEqual(s.guess("Laura"), 'female')
+        self.assertEqual(s.guess("David", binary=True), 1)
+        self.assertEqual(s.guess("Laura", binary=True), 0)        
         self.assertEqual(s.guess("David", binary=True, ml="svc"), 1)
         self.assertEqual(s.guess("Laura", binary=True, ml="svc"), 0)
-        self.assertEqual(s.guess("Palabra", binary=True, ml="svc"), 1)
         self.assertEqual(s.guess("Laura", binary=True, ml="sgd"), 0)
-        self.assertEqual(s.guess("Palabra", binary=True, ml="svc"), 1)
         self.assertEqual(s.guess("David", binary=True, ml="gaussianNB"), 1)
         self.assertEqual(s.guess("David", binary=True, ml="multinomialNB"), 1)
-        self.assertEqual(s.guess("David", binary=True, ml="bernoulliNB"), 1)
-        self.assertEqual(s.guess("Laura"), 'female')
-        # With accents:
-        self.assertEqual(s.guess("Inés"), 'female')
-        # Without accents:
-        self.assertEqual(s.guess("Ines"), 'female')
-        self.assertEqual(s.guess("Nodiccionario"), 'male')
-        self.assertEqual(s.guess("Nadiccionaria"), 'female')
-        self.assertEqual(s.guess("David", binary=True), 1)
-        self.assertEqual(s.guess("Laura", binary=True), 0)
-        self.assertEqual(s.guess("Nodiccionario", binary=True), 1)
+        self.assertEqual(s.guess("David", binary=True, ml="bernoulliNB"), 1)        
+        self.assertEqual(s.guess("Palabra", binary=True, ml="svc"), 1)
+        self.assertEqual(s.guess("Nodiccionario", ml="nltk"), 'male')
+        self.assertEqual(s.guess("Nodiccionaria", ml="nltk"), 'female')
         self.assertEqual(s.guess("Nadiccionaria", binary=True), 0)
+        self.assertEqual(s.guess("Nadiccionaria"), 'female')        
+#        With accents:
+        self.assertEqual(s.guess("Inés"), 'female')
+#        Without accents:
+        self.assertEqual(s.guess("Ines"), 'female')
+
 
     def test_dame_sexmachine_guess_list(self):
         ds = DameSexmachine()
@@ -92,12 +92,11 @@ class TddInPythonExample(unittest.TestCase):
                          ds.guess_list(path="files/names/partial.csv",
                                        binary=True,
                                        ml="nltk"))
-        svc_model = ds.svc_load()
         self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1,
                           1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
                          ds.guess_list(path="files/names/partial.csv",
                                        binary=True,
-                                       ml="svc"))
+                                      ml="svc"))
 
     def test_sexmachine_features_int(self):
         s = DameSexmachine()
@@ -145,20 +144,6 @@ class TddInPythonExample(unittest.TestCase):
         gl = s.gender_list(path="files/names/all.csv")
         self.assertTrue(len(gl) > 1000)
 
-    def test_dame_gender_guess_list(self):
-        ds = DameSexmachine()
-        self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male',
-                          'female', 'female', 'male', 'male', 'male',
-                          'male', 'male', 'male', 'male', 'male',
-                          'male', 'male', 'female', 'male', 'male'],
-                         ds.guess_list(path="files/names/partial.csv",
-                                       binary=False))
-        self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1,
-                          1, 1, 1, 1, 1, 1, 0, 1, 1],
-                         ds.guess_list(path="files/names/partial.csv",
-                                       binary=True,
-                                       ml="nltk"))
-
     def test_sexmachine_classifier(self):
         s = DameSexmachine()
         classifier = s.classifier(locale="us")
@@ -176,9 +161,9 @@ class TddInPythonExample(unittest.TestCase):
         guess = m.classify(n)
         self.assertTrue(1, n)
 
-    def test_sexmachine_accuracy(self):
-        s = DameSexmachine()
-        self.assertTrue(s.accuracy(path="files/names/partial.csv") > 0.5)
+    # def test_sexmachine_accuracy(self):
+    #     s = DameSexmachine()
+    #     self.assertTrue(s.accuracy(path="files/names/partial.csv") > 0.5)
 
     def test_sexmachine_forest(self):
         self.assertTrue(os.path.isfile("files/datamodels/forest_model.sav"))
@@ -269,16 +254,16 @@ class TddInPythonExample(unittest.TestCase):
     def test_sexmachine_adaboost_model_exists(self):
         self.assertTrue(os.path.isfile("files/datamodels/adaboost_model.sav"))
 
-    def test_sexmachine_adaboost_load(self):
-        s = DameSexmachine()
-        m = s.adaboost_load()
-        predicted = m.predict(
-            [[0,  0,  1,  0, 21,  0,  0,  0,  0, 34,
-              2,  0,  0,  0,  0,  0, 0,  0,  0,  5,
-              0,  0,  0,  0,  0,  2,  0,  0,  0, 34,
-              1,  0, 1]])
-        n = np.array([1])
-        self.assertTrue(np.array_equal(predicted, n))
+    # def test_sexmachine_adaboost_load(self):
+    #     s = DameSexmachine()
+    #     m = s.adaboost_load()
+    #     predicted = m.predict(
+    #         [[0,  0,  1,  0, 21,  0,  0,  0,  0, 34,
+    #           2,  0,  0,  0,  0,  0, 0,  0,  0,  5,
+    #           0,  0,  0,  0,  0,  2,  0,  0,  0, 34,
+    #           1,  0, 1]])
+    #     n = np.array([1])
+    #     self.assertTrue(np.array_equal(predicted, n))
 
     def test_dame_gender_confusion_matrix_gender(self):
         ds = DameSexmachine()
@@ -294,28 +279,28 @@ class TddInPythonExample(unittest.TestCase):
 
 
 
-    # def test_dame_sexmachine_json2guess_list(self):
-    #     ds = DameSexmachine()
-    #     j2gl = ds.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=False)
-    #     self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], j2gl)
-    #     j2gl = ds.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=True)
-    #     self.assertEqual([1, 1, 1, 1, 1, 0], j2gl)
-    #     j2gl = ds.json2guess_list(jsonf="files/names/min.csv.json", binary=False)
-    #     self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], j2gl)
-    #     j2gl = ds.json2guess_list(jsonf="files/names/min.csv.json", binary=True)
-    #     self.assertEqual([1, 1, 1, 1, 1, 0], j2gl)
+    def test_dame_sexmachine_json2guess_list(self):
+        ds = DameSexmachine()
+        j2gl = ds.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=False)
+        self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], j2gl)
+        j2gl = ds.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=True)
+        self.assertEqual([1, 1, 1, 1, 1, 0], j2gl)
+        j2gl = ds.json2guess_list(jsonf="files/names/min.csv.json", binary=False)
+        self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], j2gl)
+        j2gl = ds.json2guess_list(jsonf="files/names/min.csv.json", binary=True)
+        self.assertEqual([1, 1, 1, 1, 1, 0], j2gl)
 
 
-    # def test_sexmachine_xgboost(self):
-    #     self.assertTrue(os.path.isfile("files/datamodels/xgboost_model.sav"))
+    # # def test_sexmachine_xgboost(self):
+    # #     self.assertTrue(os.path.isfile("files/datamodels/xgboost_model.sav"))
 
-    # def test_sexmachine_xgboost_load(self):
-    #     s = DameSexmachine()
-    #     m = s.xgboost_load()
-    #     predicted = m.predict(
-    #         [[0,  0,  1,  0, 21,  0,  0,  0,  0, 34,
-    #           2,  0,  0,  0, 0,  0, 0,  0,  0,  5,
-    #           0,  0,  0,  0,  0,  2,  0,  0, 0, 34,
-    #           1,  0, 1]])
-    #     n = np.array([0])
-    #     self.assertTrue(np.array_equal(predicted, n))
+    # # def test_sexmachine_xgboost_load(self):
+    # #     s = DameSexmachine()
+    # #     m = s.xgboost_load()
+    # #     predicted = m.predict(
+    # #         [[0,  0,  1,  0, 21,  0,  0,  0,  0, 34,
+    # #           2,  0,  0,  0, 0,  0, 0,  0,  0,  5,
+    # #           0,  0,  0,  0,  0,  2,  0,  0, 0, 34,
+    # #           1,  0, 1]])
+    # #     n = np.array([0])
+    # #     self.assertTrue(np.array_equal(predicted, n))

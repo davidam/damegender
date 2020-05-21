@@ -22,7 +22,7 @@
 # Boston, MA 02110-1301 USA,
 
 from pprint import pprint
-from nltk.corpus import names
+#from nltk.corpus import names
 import json
 import os
 import csv
@@ -274,7 +274,6 @@ class DameSexmachine(Gender):
         clf_file.close()
         return clf
 
-
     # def xgboost(self):
     #     # Scikit xgboost classifier
     #     X = np.array(self.features_list(path="files/names/all.csv"))
@@ -291,9 +290,6 @@ class DameSexmachine(Gender):
     #     pkl_file.close()
     #     return clf
 
-
-
-
     def guess(self, name, binary=False, ml="nltk"):
         # guess method to check names dictionary and nltk classifier
         guess = 2
@@ -301,32 +297,31 @@ class DameSexmachine(Gender):
         vector = self.features_int(name)
         if ((guess == 'unknown') | (guess == 2)):
             classifier = self.classifier()
-            s = DameSexmachine()
-            vector = list(s.features_int(name).values())
+            vector = list(self.features_int(name).values())
             if (ml == "nltk"):
                 guess = classifier.classify(self.features(name))
             elif (ml == "svc"):
-                m = s.svc_load()
+                m = self.svc_load()
                 predicted = m.predict([vector])
                 guess = predicted[0]
             elif (ml == "sgd"):
-                m = s.sgd_load()
+                m = self.sgd_load()
                 predicted = m.predict([vector])
                 guess = predicted[0]
             elif (ml == "gaussianNB"):
-                m = s.gaussianNB_load()
+                m = self.gaussianNB_load()
                 predicted = m.predict([vector])
                 guess = predicted[0]
             elif (ml == "multinomialNB"):
-                m = s.multinomialNB_load()
+                m = self.multinomialNB_load()
                 predicted = m.predict([vector])
                 guess = predicted[0]
             elif (ml == "bernoulliNB"):
-                m = s.bernoulliNB_load()
+                m = self.bernoulliNB_load()
                 predicted = m.predict([vector])
                 guess = predicted[0]
             elif (ml == "forest"):
-                m = s.forest_load()
+                m = self.forest_load()
                 predicted = m.predict([vector])
                 guess = predicted[0]
             # elif (ml == "xgboost"):
@@ -334,11 +329,11 @@ class DameSexmachine(Gender):
             #     predicted = m.predict([vector])
             #     guess = predicted[0]
             elif (ml == "tree"):
-                m = s.tree_load()
+                m = self.tree_load()
                 predicted = m.predict([vector])
                 guess = predicted[0]
             elif (ml == "mlp"):
-                m = s.mlp_load()
+                m = self.mlp_load()
                 predicted = m.predict([vector])
                 guess = predicted[0]
 

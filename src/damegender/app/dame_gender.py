@@ -21,8 +21,8 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
-from nltk.corpus import names
-import nltk
+#from nltk.corpus import names
+#import nltk
 import csv
 import unidecode
 import unicodedata
@@ -32,6 +32,7 @@ import os
 import re
 import sys
 import json
+import datetime
 
 from collections import OrderedDict
 from sklearn.metrics import accuracy_score
@@ -182,13 +183,26 @@ class Gender(object):
         return 1
 
     def males_list(self, corpus='es'):
+        au_path = 'files/names/names_au/baby-names-1944-2013/aumales.csv'
+        ca_path = 'files/names/names_ca/camales.csv'        
         ine_path = 'files/names/names_es/masculinos.txt'
+        nz_path = 'files/names/names_nz/nzmales.csv'
+#        pt_path = 'files/names/names_pt/ptmales.csv'        
         uy_path = 'files/names/names_uy/uymasculinos.txt'
         uk_path = 'files/names/names_uk/ukmales.txt'
         us_path = 'files/names/names_us/usmales.txt'
-        m = ""
-        if ((corpus == 'es') or (corpus == 'ine')):
+
+        m = []
+        if (corpus == 'au'):
             m = du.csvcolumn2list(ine_path)
+        elif ((corpus == 'es') or (corpus == 'ine')):
+            m = du.csvcolumn2list(ine_path)
+        elif (corpus == 'ca'):
+            m = du.csvcolumn2list(ca_path)
+        elif (corpus == 'nz'):
+            m = du.csvcolumn2list(nz_path)
+        # elif (corpus == 'pt'):
+        #     m = du.csvcolumn2list(pt_path)            
         elif (corpus == 'uk'):
             m = du.csvcolumn2list(uk_path)
         elif (corpus == 'us'):
@@ -196,28 +210,41 @@ class Gender(object):
         elif (corpus == 'uy'):
             m = du.csvcolumn2list(uy_path)
         elif (corpus == 'all'):
-            m = du.csvcolumn2list(ine_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path)
-            m = du.delete_duplicated(m)
+            m = du.csvcolumn2list(au_path) + du.csvcolumn2list(ca_path) + du.csvcolumn2list(ine_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(uk_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path) 
+        m = du.delete_duplicated(m)
         return m
 
     def females_list(self, corpus='es'):
+        au_path = 'files/names/names_au/baby-names-1944-2013/aufemales.csv'
+        ca_path = 'files/names/names_ca/cafemales.csv'        
         ine_path = 'files/names/names_es/femeninos.txt'
-        uy_path = 'files/names/names_uy/uyfemeninos.txt'
+        nz_path = 'files/names/names_nz/nzfemales.csv'
+#        pt_path = 'files/names/names_pt/ptfemales.csv'        
         uk_path = 'files/names/names_uk/ukfemales.txt'
-        us_path = 'files/names/names_us/usfemales.txt'
-        m = ""
-        if ((corpus == 'es') or (corpus == 'ine')):
-            m = du.csvcolumn2list(ine_path)
+        us_path = 'files/names/names_us/usfemales.txt'        
+        uy_path = 'files/names/names_uy/uyfemeninos.txt'
+
+        f = []
+        if (corpus == 'au'):
+            f = du.csvcolumn2list(ine_path)
+        elif (corpus == 'ca'):
+            f = du.csvcolumn2list(nz_path)                        
+        elif ((corpus == 'es') or (corpus == 'ine')):
+            f = du.csvcolumn2list(ine_path)
+        elif (corpus == 'nz'):
+            f = du.csvcolumn2list(nz_path)
+        # elif (corpus == 'pt'):
+        #     f = du.csvcolumn2list(pt_path)                        
         elif (corpus == 'uk'):
-            m = du.csvcolumn2list(uk_path)
+            f = du.csvcolumn2list(uk_path)
         elif (corpus == 'us'):
-            m = du.csvcolumn2list(us_path)
+            f = du.csvcolumn2list(us_path)
         elif (corpus == 'uy'):
-            m = du.csvcolumn2list(uy_path)
+            f = du.csvcolumn2list(uy_path)
         elif (corpus == 'all'):
-            m = du.csvcolumn2list(ine_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path)
-            m = du.delete_duplicated(m)
-        return m
+            f = du.csvcolumn2list(au_path) + du.csvcolumn2list(ca_path) + du.csvcolumn2list(ine_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path) 
+        f = du.delete_duplicated(f)
+        return f
 
 
     def csv2names(self, path='files/names/partial.csv', *args, **kwargs):
@@ -403,6 +430,15 @@ class Gender(object):
             path_males = 'files/names/names_uk/ukmales.csv'
         elif (dataset == 'us'):
             path_males = 'files/names/names_us/usmales.csv'
+        elif (dataset == 'nz'):
+            path_males = 'files/names/names_nz/nzmales.csv'            
+        elif (dataset == 'ca'):
+            path_males = 'files/names/names_ca/camales.csv'
+        elif (dataset == 'au'):
+            path_males = 'files/names/names_au/baby-names-1944-2013/aumales.csv'            
+        # elif (dataset == 'pt'):
+        #     path_males = 'files/names/names_pt/ptmales.csv'            
+            
         file_males = open(path_males, 'r')
         readerm = csv.reader(file_males, delimiter=',', quotechar='|')
         males = 0
@@ -419,6 +455,14 @@ class Gender(object):
             path_females = 'files/names/names_uk/ukfemales.csv'
         elif (dataset == 'us'):
             path_females = 'files/names/names_us/usfemales.csv'
+        elif (dataset == 'nz'):
+            path_females = 'files/names/names_nz/nzfemales.csv'            
+        elif (dataset == 'ca'):
+            path_females = 'files/names/names_ca/cafemales.csv'            
+        elif (dataset == 'au'):
+            path_females = 'files/names/names_au/baby-names-1944-2013/aufemales.csv'            
+        # elif (dataset == 'pt'):
+        #     path_females = 'files/names/names_pt/ptfemales.csv'            
 
         file_females = open(path_females, 'r')
         readerf = csv.reader(file_females, delimiter=',', quotechar='|')
@@ -428,7 +472,6 @@ class Gender(object):
                 females = row[1]
                 females = du.drop_dots(females)
         dicc = {"females": females, "males": males}
-
         return dicc
 
     def namdict2file(self):
@@ -467,7 +510,12 @@ class Gender(object):
         dicc = self.name_frec(name, dataset)
         m = int(dicc['males'])
         f = int(dicc['females'])
-        if (m > f):
+        if ((m == 0) and (f == 0)):
+            if binary:
+                guess = 2
+            else:
+                guess = "unknown"
+        elif (m > f):
             if binary:
                 guess = 1
             else:
@@ -588,20 +636,8 @@ class Gender(object):
                 print("Names in json: %s:" % self.json2names(jsonf=jsonf, surnames=False))
         else:
             print("In the path %s doesn't exist file" % jsonf)
-            print("You can create one, but this process can take long time")
-            yes_or_not = du.yes_or_not("Do you want create a json file? ")
-            if yes_or_not:
-                sl = self.guess_list(path=path, binary=binary, ml=ml)
-                self.csv2json(path=path, l=sl, jsonf=jsonf)
-                if (self.json_eq_csv_in_names(jsonf=jsonf, path=args.csv)):
-                    print("################### "+ api +"!!")
-                    print("Gender list: " + str(gl))
-                    print("Guess list:  " +str(sl))
-                    self.print_measures(gl, sl, measure, api)
-                else:
-                    print("Names in json and csv are differents")
-                    print("Names in csv: %s:" % self.csv2names(path=path, header=header))
-                    print("Names in json: %s:" % self.json2names(jsonf=jsonf, surnames=False))
+            print("You can create one with:")
+            print("$ python3 damegender2json.py --csv=%s --ml=%s --jsonoutput=files/names/partial.csv.%s.json" % (path, ml, ml))
         return 1
 
     def pretty_cm(self, path, jsonf, *args, **kwargs):
@@ -844,67 +880,85 @@ class Gender(object):
             cmd = self.confusion_matrix_gender(path)
         if (dimensions == "1x1"):
             if (reverse == False):
-                print("[[ %s ]]" % (cmd[1][1]))
+                print("      M    ")                
+                print("M  [[ %s ]]" % (cmd[1][1]))
             elif (reverse == True):
-                print("[[ %s ]]" % (cmd[0][0]))
+                print("      F    ")
+                print("F  [[ %s ]]" % (cmd[0][0]))
         elif (dimensions == "1x2"):
             if (reverse == False):
-                print("[[ %s, %s ]]" % (cmd[1][1], cmd[1][0]))
+                print("      M    F   ")
+                print("M  [[ %s,   %s ]]" % (cmd[1][1], cmd[1][0]))
             elif (reverse == True):
-                print("[[ %s, %s ]]" % (cmd[0][0], cmd[0][1]))
+                print("      F    M   ")                
+                print("F  [[ %s,   %s ]]" % (cmd[0][0], cmd[0][1]))
         elif (dimensions == "1x3"):
             if (reverse == False):
-                print("[[ %s, %s, %s ]]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
+                print("      M    F   U   ")                
+                print("M  [[ %s, %s, %s ]]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
             elif (reverse == True):
-                print("[[ %s, %s, %s ]]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print("     F  M  U   ")                                
+                print("F [[ %s, %s, %s ]]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
         elif (dimensions == "2x1"):
             if (reverse == False):
-                print("[[ %s ]" % (cmd[1][1]))
-                print(" [ %s ]]" % (cmd[1][0]))
+                print("      M  ")
+                print("M  [[ %s ]" % (cmd[1][1]))
+                print("F   [ %s ]]" % (cmd[1][0]))
             elif (reverse == True):
-                print("[[ %s ]" % (cmd[0][0]))
-                print(" [ %s ]]" % (cmd[0][1]))
+                print("      F   ")
+                print("F  [[ %s ] " % (cmd[0][0]))
+                print("M   [ %s ]]" % (cmd[0][1]))
         elif (dimensions == "2x2"):
             if (reverse == False):
-                print("[[ %s , %s ]" % (cmd[1][1], cmd[1][0]))
-                print(" [ %s , %s ]]" % (cmd[0][1], cmd[0][0]))
+                print("      M    F  ")
+                print("M  [[ %s , %s ]" % (cmd[1][1], cmd[1][0]))
+                print("F   [ %s , %s ]]" % (cmd[0][1], cmd[0][0]))
             if (reverse == True):
-                print("[[ %s , %s ]" % (cmd[0][0], cmd[0][1]))
-                print(" [ %s , %s ]]" % (cmd[1][0], cmd[1][1]))
+                print("      F   M  ")
+                print("F  [[ %s , %s ]" % (cmd[0][0], cmd[0][1]))
+                print("M   [ %s , %s ]]" % (cmd[1][0], cmd[1][1]))
         elif (dimensions == "2x3"):
             if (reverse == False):
-                print("[[ %s, %s, %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
-                print(" [ %s, %s, %s ]]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
+                print("      M   F   U  ")
+                print("M  [[ %s,  %s,  %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
+                print("F   [ %s,  %s,  %s ]]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
             if (reverse == True):
-                print("[[ %s, %s, %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-                print(" [ %s, %s, %s ]]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+                print("      F   M   U  ")
+                print("F  [[ %s,  %s,  %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print("M   [ %s,  %s,  %s ]]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
         elif (dimensions == "3x1"):
             if (reverse == False):
-                print("[[ %s ]" % (cmd[1][1]))
-                print(" [ %s ]" % (cmd[0][1]))
-                print(" [ %s ]]" % (cmd[2][1]))
+                print("       M   ")
+                print("M  [[ %s ]" % (cmd[1][1]))
+                print("F   [ %s ]" % (cmd[0][1]))
+                print("U   [ %s ]]" % (cmd[2][1]))
             elif (reverse == True):
-                print("[[ %s ]," % (cmd[0][0]))
-                print(" [ %s ]" % (cmd[1][0]))
-                print(" [ %s ]]" % (cmd[2][0]))
+                print("       F   ")                
+                print("F   [[ %s ]" % (cmd[0][0]))
+                print("M    [ %s ]" % (cmd[1][0]))
+                print("U    [ %s ]]" % (cmd[2][0]))
         elif (dimensions == "3x2"):
             if (reverse == False):
-                print("[[ %s , %s ]" % (cmd[1][1], cmd[1][0]))
-                print(" [ %s , %s ]" % (cmd[0][1], cmd[0][0]))
-                print(" [ %s , %s ]]" % (cmd[2][1], cmd[2][0]))
+                print("      M    F  ")
+                print("M  [[ %s ,  %s ]" % (cmd[1][1], cmd[1][0]))
+                print("F   [ %s ,  %s ]" % (cmd[0][1], cmd[0][0]))
+                print("U   [ %s ,  %s ]]" % (cmd[2][1], cmd[2][0]))
             if (reverse == True):
-                print("[[ %s, %s ]" % (cmd[0][0], cmd[0][1]))
-                print(" [ %s, %s ]" % (cmd[1][0], cmd[1][1]))
-                print(" [ %s, %s ]]" % (cmd[2][0], cmd[2][1]))
+                print("      F   M  ")                
+                print("F  [[ %s,  %s ]" % (cmd[0][0], cmd[0][1]))
+                print("M   [ %s,  %s ]" % (cmd[1][0], cmd[1][1]))
+                print("U   [ %s,  %s ]]" % (cmd[2][0], cmd[2][1]))
         elif (dimensions == "3x3"):
             if (reverse == False):
-                print("[[ %s, %s, %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
-                print(" [ %s, %s, %s ]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
-                print(" [ %s, %s, %s ]]" % (cmd[2][1], cmd[2][0], cmd[2][2]))
+                print("      M  F  U   ")
+                print("M  [[ %s, %s, %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
+                print("F   [ %s, %s, %s ]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
+                print("U   [ %s, %s, %s ]]" % (cmd[2][1], cmd[2][0], cmd[2][2]))
             if (reverse == True):
-                print("[[ %s, %s, %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-                print(" [ %s, %s, %s ]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
-                print(" [ %s, %s, %s ]]" % (cmd[2][0], cmd[2][1], cmd[2][2]))
+                print("      F   M   U   ")
+                print("F  [[ %s, %s, %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print("M   [ %s, %s, %s ]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+                print("U   [ %s, %s, %s ]]" % (cmd[2][0], cmd[2][1], cmd[2][2]))
         return ""
 
 
