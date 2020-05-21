@@ -23,13 +23,11 @@
 
 import requests
 import json
+import re
 from perceval.backends.core.mbox import MBox
 from perceval.backends.core.git import Git
 from app.dame_utils import DameUtils
 from app.dame_gender import Gender
-
-import re
-
 
 class DamePerceval(object):
 
@@ -71,20 +69,21 @@ class DamePerceval(object):
             second = ""
         return second
 
-    def list_committers(self, url, directory):
-        # Return the list containing the strings
-        # from a git repository related to the
-        # users ordered by commit including
-        # repeated users to allow count gender contributions.
+    def list_committers(self, url, directory, *args, **kwargs):
+        # make a list from a csv file
+        mail = kwargs.get('mail', False)
         du = DameUtils()
         repo = Git(uri=url, gitpath=directory)
         list_committers = []
         for r in repo.fetch():
-            committer = self.removeMail(r['data']['Author'])
+            if (mail == True):
+                committer = r['data']['Author']
+            else:
+                committer = self.removeMail(r['data']['Author'])                
             list_committers.append(committer)
-        list_committers = du.delete_duplicated(list_committers)
+        list_committers = du.delete_duplicated(list_committers)            
         return list_committers
-
+    
     def list_mailers(self, url, directory="files/mbox"):
         repo = MBox(uri=url, dirpath=directory)
         count = 0
