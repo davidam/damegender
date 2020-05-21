@@ -22,7 +22,7 @@
 # Boston, MA 02110-1301 USA,
 
 from pprint import pprint
-from nltk.corpus import names
+#from nltk.corpus import names
 import json
 import os
 import csv
