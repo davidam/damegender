@@ -560,6 +560,20 @@ software development. United States of America hosts people from
 different countries due to migrations towards good companies and
 universities.
 
+@section Deciding for males and females in images
+
+There are many free software tools for decide gender in images files,
+we have selected the next tool:
+
+@example
+$ git clone https://github.com/davidam/damephoto
+$ cd damephoto/bin
+$ python3 damephoto.py girl1.jpg
+@end example
+
+We can use this tool to decide gender about images from Twitter,
+Github, ...
+
 @section Counting males and females in a git repository
 
 We can think a simple version of git2gender.py:
