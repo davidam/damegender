@@ -32,7 +32,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
-parser.add_argument('--total', default="ine", choices=['au', 'ca', 'es', 'ine', 'nz', 'pt', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
+parser.add_argument('--total', default="ine", choices=['au', 'ca', 'es', 'fi', 'ine', 'nz', 'pt', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
 parser.add_argument('--version', action='version', version='0.1')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
@@ -86,6 +86,10 @@ elif ((args.verbose) or (args.total == "all")):
         num_females = s.name_frec(args.name, dataset="ine")['females']
         print("%s males for %s from INE.es" % (num_males, args.name))
         print("%s females for %s from INE.es" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="fi")['males']
+        num_females = s.name_frec(args.name, dataset="fi")['females']
+        print("%s males for %s from Finish" % (num_males, args.name))
+        print("%s females for %s from Finish" % (num_females, args.name))        
         num_males = s.name_frec(args.name, dataset="uy")['males']
         num_females = s.name_frec(args.name, dataset="uy")['females']
         print("%s males for %s from Uruguay census" % (num_males, args.name))
@@ -183,6 +187,9 @@ else:
     elif ((args.total == "ine") or (args.total == "es")):
         print("%s males for %s from INE.es" % (num_males, args.name))
         print("%s females for %s from INE.es" % (num_females, args.name))
+    elif (args.total == "fi"):
+        print("%s males for %s from Finish" % (num_males, args.name))
+        print("%s females for %s from Finish" % (num_females, args.name))        
     elif (args.total == "uy"):
         print("%s males for %s from Uruguay census" % (num_males, args.name))
         print("%s females for %s from Uruguay census" % (num_females, args.name))
