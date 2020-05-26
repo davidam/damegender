@@ -1,131 +1,116 @@
 Female names 1 January 2019,,
 ,,
-,Number,Frequency
-Guðrún (1),4656,3
-Anna (2),4654,3
-Kristín (4),3487,2
-Sigríður (3),3343,2
-Margrét/Margrjet/Margret (5),2886,2
-Helga (6),2713,2
-Sigrún (7),2532,1
-Ingibjörg (8),2136,1
-María (10),1962,1
-Jóhanna (9),1915,1
-Elín (11),1639,1
-Katrín (12),1568,1
-Hildur (13),1432,1
-Eva (19),1357,1
-Lilja (18),1332,1
-Ragnheiður (14),1283,1
-Ásta (16),1272,1
-Guðbjörg (15),1266,1
-Elísabet/Elísabeth (21),1247,1
-Erla (17),1241,1
-Sara (29),1205,1
-Guðný (20),1141,1
-Ólöf (22),1118,1
-Steinunn (23),1110,1
-Auður (25),1100,1
-Kolbrún (30-31),1065,1
-Sólveig/Solveig (26),1056,1
-Bryndís (27),1047,1
-Inga (28),1039,1
-Berglind (32),1038,1
-Hulda (24),1036,1
-Íris (36),1018,1
-Ásdís (34),1008,1
-Þórunn (30-31),1000,1
-Unnur (33),995,1
-Hrafnhildur (37),987,1
-Þóra (35),983,1
-Rakel (40),939,1
-Birna (39),894,1
-Þórdís (42),889,1
-Jóna (38),844,0
-Halldóra (41),829,0
-Erna (43),813,0
-Karen (48),801,0
-Linda (44),798,0
-Hanna (47),798,0
-Edda (49),786,0
-Telma/Thelma (55),771,0
-Harpa (54),760,0
-Sandra (52),758,0
-Valgerður (45-46),753,0
-Hafdís (53),737,0
-Tinna (57-59),711,0
-Emilía/Emelía (77),708,0
-Andrea (65),707,0
-Sigurbjörg (50),695,0
-Guðlaug (51),693,0
-Jónína (45-46),672,0
-Brynja (60),670,0
-Helena (61),664,0
-Kristjana (56),658,0
-Lára (57-59),653,0
-Hjördís (57-59),652,0
-Sóley (74),651,0
-Aníta/Anita (71),641,0
-Arna (62),637,0
-Stefanía (63),606,0
-Ragnhildur (70),579,0
-Hólmfríður (67),570,0
-Hrefna (64),566,0
-Aðalheiður (66),563,0
-Rósa (68),558,0
-Áslaug (72),557,0
-Björg (69),555,0
-Laufey (75),551,0
-Dagný (78),539,0
-Sunna (81),539,0
-Halla (73),538,0
-Marta/Martha (83),536,0
-Ágústa (76),524,0
-Ingunn (79-80),518,0
-Agnes (87),516,0
-Viktoría (106),514,0
-Sigurlaug (79-80),508,0
-Freyja (108),502,0
-Elsa (82),494,0
-Elva/Elfa (89-90),493,0
-Júlía (98-99),493,0
-Soffía/Sofie (84),482,0
-Birta (105),479,0
-Rannveig (85),475,0
-Þorbjörg/Torbjörg (86),474,0
-Alexandra (103),462,0
-Ása (89-90),460,0
-Svava/Svafa (88),456,0
-Vigdís (92),449,0
-Ester/Esther (91),449,0
-Fanney (93),448,0
-Katla (128),446,0
-Rebekka (100),438,0
-,,
-Sum of single names and first name of multiple names.,,
-Rank:,,
-Numbers in parenthesis show the ranking five years previously,,
-,,
-,,
-Latest update:,,
-20191209 09:00,,
-,,
-,,
-,,
-Copyright,,
-,,
-Units:,,
-"Number, Frequency",,
-,,
-,,
-Reference period:,,
-2019,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-Internal reference code:,,
-MAN11111,,
+Name,Frequency
+Guðrún,4656
+Anna,4654
+Kristín,3487
+Sigríður,3343
+Margrét,2886
+Margrjet,2886
+Margret,2886
+Helga,2713
+Sigrún,2532
+Ingibjörg,2136
+María,1962
+Jóhanna,1915
+Elín,1639
+Katrín,1568
+Hildur,1432
+Eva,1357
+Lilja,1332
+Ragnheiður,1283
+Ásta,1272
+Guðbjörg,1266
+Elísabet,1247
+Elísabeth,1247
+Erla,1241
+Sara,1205
+Guðný,1141
+Ólöf,1118
+Steinunn,1110
+Auður,1100
+Kolbrún,1065
+Sólveig,1056
+Solveig,1056
+Bryndís,1047
+Inga,1039
+Berglind,1038
+Hulda,1036
+Íris,1018
+Ásdís,1008
+Þórunn,1000
+Unnur,995
+Hrafnhildur,987
+Þóra,983
+Rakel,931
+Birna,891
+Þórdís,8
+Jóna,844
+Halldóra,8
+Erna,813
+Karen,801
+Linda,798
+Hanna,798
+Edda,786
+Telma,7
+Thelma,7
+Harpa,760
+Sandra,758
+Valgerður,7
+Hafdís,737
+Tinna,711
+Emilía,8
+Emelía,8
+Andrea,707
+Sigurbjörg,695
+Guðlaug,693
+Jónína,672
+Brynja,670
+Helenae,664
+Kristjana,658
+Lára,653
+Hjördís,652
+Sóley,651
+Aníta,640
+Anita,640
+Arna,637
+Stefanía,606
+Ragnhildur,579
+Hólmfríður,570
+Hrefna,566
+Aðalheiður,563
+Rósa,558
+Áslaug,557
+Björg,555
+Laufey,551
+Dagný,539
+Sunna,539
+Halla,538
+Marta,5
+Martha,5
+Ágústa,524
+Ingunn,518
+Agnes,516
+Viktoría,514
+Sigurlaug,5
+Freyja,502
+Elsa,494
+Elva,4
+Elfa,4
+Júlía,493
+Soffía,4
+Sofie,4
+Birta,479
+Rannveig,475
+Þorbjörg,474
+Torbjörg,474
+Alexandra,462
+Ása,460
+Svava,450
+Svafa,450
+Vigdís,449
+Ester,4
+Esther,4
+Fanney,448
+Katla,446
+Rebekka,438
