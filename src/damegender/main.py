@@ -88,8 +88,8 @@ elif ((args.verbose) or (args.total == "all")):
         print("%s females for %s from INE.es" % (num_females, args.name))
         num_males = s.name_frec(args.name, dataset="fi")['males']
         num_females = s.name_frec(args.name, dataset="fi")['females']
-        print("%s males for %s from Finish" % (num_males, args.name))
-        print("%s females for %s from Finish" % (num_females, args.name))        
+        print("%s males for %s from Finland" % (num_males, args.name))
+        print("%s females for %s from Finland" % (num_females, args.name))        
         num_males = s.name_frec(args.name, dataset="uy")['males']
         num_females = s.name_frec(args.name, dataset="uy")['females']
         print("%s males for %s from Uruguay census" % (num_males, args.name))
@@ -188,8 +188,8 @@ else:
         print("%s males for %s from INE.es" % (num_males, args.name))
         print("%s females for %s from INE.es" % (num_females, args.name))
     elif (args.total == "fi"):
-        print("%s males for %s from Finish" % (num_males, args.name))
-        print("%s females for %s from Finish" % (num_females, args.name))        
+        print("%s males for %s from Finland" % (num_males, args.name))
+        print("%s females for %s from Finland" % (num_females, args.name))        
     elif (args.total == "uy"):
         print("%s males for %s from Uruguay census" % (num_males, args.name))
         print("%s females for %s from Uruguay census" % (num_females, args.name))
