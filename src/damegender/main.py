@@ -32,7 +32,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
-parser.add_argument('--total', default="ine", choices=['au', 'ca', 'es', 'fi', 'ine', 'nz', 'pt', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
+parser.add_argument('--total', default="ine", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'nz', 'pt', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
 parser.add_argument('--version', action='version', version='0.1')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
@@ -86,6 +86,10 @@ elif ((args.verbose) or (args.total == "all")):
         num_females = s.name_frec(args.name, dataset="ine")['females']
         print("%s males for %s from INE.es" % (num_males, args.name))
         print("%s females for %s from INE.es" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="ie")['males']
+        num_females = s.name_frec(args.name, dataset="ie")['females']
+        print("%s males for %s from Ireland" % (num_males, args.name))
+        print("%s females for %s from Ireland" % (num_females, args.name))
         num_males = s.name_frec(args.name, dataset="fi")['males']
         num_females = s.name_frec(args.name, dataset="fi")['females']
         print("%s males for %s from Finland" % (num_males, args.name))
@@ -184,6 +188,9 @@ else:
     if (args.total == "au"):
         print("%s males for %s from Australia census" % (num_males, args.name))
         print("%s females for %s from Australia census" % (num_females, args.name))
+    elif (args.total == "ie"):
+        print("%s males for %s from Ireland census" % (num_males, args.name))
+        print("%s females for %s from Ireland census" % (num_females, args.name))
     elif ((args.total == "ine") or (args.total == "es")):
         print("%s males for %s from INE.es" % (num_males, args.name))
         print("%s females for %s from INE.es" % (num_females, args.name))
