@@ -1,106 +1,124 @@
 Male names 1 January 2019,,
 ,,
 ,Number,Frequency
-Jón (1),5177,3
-Sigurður (2),4187,2
-Guðmundur (3),3927,2
-Gunnar (4),3130,2
-Ólafur/Olav (5),2776,2
-Einar (6),2443,1
-Kristján/Kristian/Christian (7),2436,1
-Magnús (8),2325,1
-Stefán/Stefan (9),2243,1
-Jóhann (10),2040,1
-Björn (11),1715,1
-Arnar (13),1684,1
-Árni (12),1587,1
-Bjarni (14),1498,1
-Helgi (15),1469,1
-Halldór (16),1415,1
-Pétur/Pjetur (17),1412,1
-Daníel (19),1398,1
-Kristinn (18),1302,1
-Ragnar (21),1277,1
-Gísli (20),1238,1
-Þorsteinn (22),1223,1
-Guðjón (23),1189,1
-Aron (29),1163,1
-Sveinn/Svend (25),1144,1
-Róbert/Robert (34),1082,1
-Páll (24),1063,1
-Óskar (27),1045,1
-Birgir (26),1043,1
-Davíð (28),1043,1
-Andri (30),1042,1
-Alexander (42),1032,1
-Viktor/Victor (41),1028,1
-Bjarki (37),981,1
-Tómas (36),957,1
-Haukur (31),923,1
-Jóhannes (32),902,0
-Ágúst (35),889,0
-Karl/Carl (33),863,0
-Ásgeir (38),853,0
-Brynjar (45),848,0
-Benedikt (49),833,0
-Haraldur (39),829,0
-Atli (43),814,0
-Kjartan (40),808,0
-Sigurjón (44),786,0
-Friðrik (46),784,0
-Baldur (52),780,0
-Þórður (47),778,0
-Hilmar (50),774,0
-Kristófer (57),771,0
-Kári (58),756,0
-Hörður (48),743,0
-Rúnar (53),734,0
-Jónas (51),716,0
-Egill (55),704,0
-Eiríkur (54),685,0
-Sindri (56),672,0
-Björgvin (59),646,0
-Sævar/Sævarr (62),624,0
-Guðni (60-61),614,0
-Elvar/Elfar (68),604,0
-Hlynur (65),601,0
-Sverrir (60-61),594,0
-Örn (63),590,0
-Ómar (64),588,0
-Ari (80),577,0
-Ísak (77-78),576,0
-Ingvar (66),572,0
-Jakob/Jakop (71),572,0
-Snorri (67),557,0
-Dagur (95-96),554,0
-Reynir (69),551,0
-Ingólfur (70),550,0
-Matthías/Mattías/Mathías (82),548,0
-Ívar (73),535,0
-Arnór (79),532,0
-Anton (84),532,0
-Hafsteinn (76),532,0
-Birkir (91),531,0
-Garðar (75),530,0
-Þórarinn (74),526,0
-Eyþór (88-89),518,0
-Axel (86-87),515,0
-Þórir (72),515,0
-Grétar/Gretar (77-78),508,0
-Tryggvi (81),504,0
-Emil (101),499,0
-Steinar (88-89),498,0
-Valdimar/Valdemar (85),497,0
-Vilhjálmur (83),492,0
-Mikael/Mikkael/Mikkel (105),491,0
-Ingi (86-87),488,0
-Hjalti (90),477,0
-Hákon (97),470,0
-Adam (113-114),462,0
-Hermann (93),461,0
-Hjörtur (95-96),454,0
-Aðalsteinn (92),451,0
-Gunnlaugur (94),442,0
+Jón,5177
+Sigurður,4187
+Guðmundur,3927
+Gunnar,3130
+Ólafur,2776
+Olav,2776
+Einar,2443
+Kristján,2436
+Kristian,2436,
+Christian,2436
+Magnús,2325
+Stefán,2243
+Stefan,2243
+Jóhann,2040
+Björn,1715
+Arnar,1684
+Árni,1587
+Bjarni,1498
+Helgi,1469
+Halldór,1415
+Pétur,1412
+Pjetur,1412
+Daníel,1398
+Kristinn,1302
+Ragnar,1277
+Gísli,1238
+Þorsteinn,1223
+Guðjón,1189
+Aron,1163
+Sveinn,1144
+Svend,1144
+Róbert,1082
+Robert,1082
+Páll,1063
+Óskar,1045
+Birgir,1043
+Davíð,1043
+Andri,1042
+Alexander,1032
+Viktor,1028
+Victor,1028
+Bjarki,981
+Tómas,957
+Haukur,923
+Jóhannes,902
+Ágúst,889
+Karl,863
+Carl,863
+Ásgeir,853
+Brynjar,848
+Benedikt,833
+Haraldur,829
+Atli,814
+Kjartan,808
+Sigurjón,786
+Friðrik,784
+Baldur,780
+Þórður,778
+Hilmar,774
+Kristófer,771
+Kári,756
+Hörður,743
+Rúnar,734
+Jónas,716
+Egill,704
+Eiríkur,685
+Sindri,672
+Björgvin,646
+Sævar,624
+Sævarr,624
+Guðni,614
+Elvar,604
+Elfar,604
+Hlynur,601
+Sverrir,594
+Örn,590
+Ómar,588
+Ari,577
+Ísak,576
+Ingvar,572
+Jakob,572
+Jakop,572
+Snorri,557
+Dagur,554
+Reynir,551
+Ingólfur,550
+Matthías,548
+Mattías,548
+Mathías,548
+Ívar,535
+Arnór,532
+Anton,532
+Hafsteinn,532
+Birkir,531
+Garðar,530
+Þórarinn,526
+Eyþór,518
+Axel,515
+Þórir,515
+Grétar,508
+Gretar,508
+Tryggvi,504
+Emil,499
+Steinar,498
+Valdimar,497
+Valdemar,497
+Vilhjálmur,492
+Mikael,491
+Mikkael,491
+Mikkel,491
+Ingi,488
+Hjalti,477
+Hákon,470
+Adam,462
+Hermann,461
+Hjörtur,454
+Aðalsteinn,451
+Gunnlaugur,442
 ,,
 Sum of single names and first name of multiple names.,,
 Rank:,,
