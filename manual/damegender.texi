@@ -200,14 +200,14 @@ The first command to learn is main.py. You can play now with this command:
 # Detect gender from a name (INE is the dataset used by default)
 $ python3 main.py David
 David gender is male
- 363559  males for David from INE.es
+363559  males for David from INE.es
 0 females for David from INE.es
 
 # Detect gender from a name only using machine learning (experimental way)
-$ python3 main.py Mesa --ml=nltk
-Mesa gender is female
-0 males for Mesa from INE.es
-0 females for Mesa from INE.es
+$ python3 main.py Agua --ml=nltk
+Agua gender is female
+0 males for Agua from INE.es
+0 females for Agua from INE.es
 
 # Detect gender from a name (all census and machine learning)
 $ python3 main.py David --verbose
@@ -632,6 +632,7 @@ Surely, the rules it’s a coincidence but we think that is a coincidence betwee
 @subsection Statistical Concepts
 
 To be written
+
 
 @node Use Cases
 @chapter Use Cases
