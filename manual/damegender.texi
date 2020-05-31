@@ -512,7 +512,7 @@ In Damegender, we have coded confusion.py to implement this concept with the dif
 
 @section Principal Component Analysis (PCA)
 
-@subsection Counting features in a datasets
+@subsection Counting features in names
 
 We have developed a script infofeatures.py with our datasets to
 visualize data about some features chosen by us.
@@ -622,6 +622,14 @@ Take a look to the results with the different datasets:
 @tab 0.84
 @tab 0.159
 @end multitable
+
+The countries where the main language is spanish (Uruguay + Spain) and english (USA + United Kingdom + Australia) are having very similar variation with the features chosen between males and females with these datasets (remember is the datasets extracted from official statistics provided by the states). Canada, a country french centric has different rules with this features.
+
+The letter a is varying 0.2 from males to females in (USA and Uruguay) and 0.1 from males to females (United Kingdom, Australia and Spain). The last letter a is varying 0.5 from males to females in (Australia, Spain) around 0.4 in (USA, United Kingdom) and 0.2 in Uruguay. The last letter o from females to males is varying 0.2 in (Spain, Australia) and is equal in (Uruguay, USA, United Kingdom). For the last letter consonant all countries is giving the result that is for males, with results from 0.2 to 0.5: Uruguay and USA (0.5), United Kingdom (0.4), Australia and Spain (0.3). So last letter vocal is reverse tha last letter consonant. First letter consonant or first letter vocal is a non significative feature due to so similar results in english and spanish.
+
+Surely, the rules it’s a coincidence but we think that is a coincidence between languages due to that there are a good number of names to think different.
+
+@subsection Statistical Concepts
 
 To be written
 
