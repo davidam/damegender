@@ -112,15 +112,6 @@ else
 	echo "mainelenaluciahelena test is ok"
 fi
 
-# python3 main.py Mesa --ml=nltk > files/tests/mainmesa-$(date "+%Y-%m-%d-%H").txt
-
-# if ! cmp files/tests/mainmesa.txt files/tests/mainmesa-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-# then
-#     echo "mainmesa test is failing"
-# else
-#     echo "mainmesa test is ok"
-# fi
-
 python3 main.py Julia --total=us > files/tests/mainjuliaus-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainjuliaus.txt files/tests/mainjuliaus-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -150,15 +141,13 @@ fi
 
 echo "I am launching a ml test is slow. Please wait"
 
-python3 main.py silla --ml=forest > files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt
-if ! cmp files/tests/mainsilla.txt files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+python3 main.py Antorcha --ml=sgd > files/tests/mainantorcha-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/mainantorcha.txt files/tests/mainantorcha-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-    echo "mainsilla test is failing"
+    echo "mainantorcha test is failing"
 else
-    echo "mainsilla test is ok"
+    echo "mainantorcha test is ok"
 fi
-
-
 
 python3 nameincountries.py David > files/tests/nameincountriesdavid-$(date "+%Y-%m-%d-%H").txt
 
