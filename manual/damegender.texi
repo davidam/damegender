@@ -512,6 +512,117 @@ In Damegender, we have coded confusion.py to implement this concept with the dif
 
 @section Principal Component Analysis (PCA)
 
+@subsection Counting features in a datasets
+
+We have developed a script infofeatures.py with our datasets to
+visualize data about some features chosen by us.
+
+@example
+$ python3 infofeatures.py ine
+@end example
+
+Take a look to the results with the different datasets:
+
+@multitable @columnfractions .12 .12 .12 .12 .12 .12 .12 .12 
+@headitem Dataset @tab Letter A @tab Last Letter A @tab Last Letter O @tab Last Letter Consonant @tab Last Letter Vocal @tab First Letter Consonant @tab First Letter Vocal 
+@item Uruguay (females)
+@tab 0.816
+@tab 0.456
+@tab 0.007
+@tab 0.287
+@tab 0.712
+@tab 0.823
+@tab 0.177
+@item Uruguay (males)
+@tab 0.643
+@tab 0.249
+@tab 0.062
+@tab 0.766
+@tab 0.234
+@tab 0.771
+@tab 0.228
+@item Australia (females)
+@tab 0.922
+@tab 0.588
+@tab 0.033
+@tab 0.272
+@tab 0.728
+@tab 0.772
+@tab 0.228
+@item Australia (males)
+@tab 0.818
+@tab 0.03
+@tab 0.269
+@tab 0.57
+@tab 0.43
+@tab 0.763
+@tab 0.237
+@item Canada (females)
+@tab 0.659
+@tab 0.189
+@tab 0.005
+@tab 0.591
+@tab 0.408
+@tab 0.838
+@tab 0.161
+@item Canada (males)
+@tab 0.752
+@tab 0.22
+@tab 0.025
+@tab 0.54
+@tab 0.456
+@tab 0.818
+@tab 0.181
+@item Spain (females)
+@tab 0.922
+@tab 0.588
+@tab 0.03
+@tab 0.271
+@tab 0.728
+@tab 0.772
+@tab 0.228
+@item Spain (males)
+@tab 0.818
+@tab 0.03
+@tab 0.268
+@tab 0.569
+@tab 0.43
+@tab 0.763
+@tab 0.236
+@item United Kingdom (females)
+@tab 0.825
+@tab 0.374
+@tab 0.013
+@tab 0.322
+@tab 0.674
+@tab 0.765
+@tab 0.235
+@item United Kingdom (males)
+@tab 0.716
+@tab 0.036
+@tab 0.039
+@tab 0.78
+@tab 0.218
+@tab 0.799
+@tab 0.2
+@item USA (females)
+@tab 0.816
+@tab 0.456
+@tab 0.007
+@tab 0.287
+@tab 0.712
+@tab 0.823
+@tab 0.177
+@item USA (males)
+@tab 0.643
+@tab 0.02
+@tab 0.061
+@tab 0.765
+@tab 0.234
+@tab 0.84
+@tab 0.159
+@end multitable
+
 To be written
 
 @node Use Cases
@@ -625,7 +736,7 @@ This count is not so good because in a git repository the same person
 can have been called with the same name:
 
 @example
-['David Arroyo Menéndez <davidam@es.gnu.org>', 'David Arroyo Menendez <davidam@gmail.com>', 'David Arroyo Menéndez <d.arroyome@alumnos.urjc.es>', 'David Arroyo <davidam@gmail.com>']
+['David Arroyo Menéndez <davidam@@es.gnu.org>', 'David Arroyo Menendez <davidam@@gmail.com>', 'David Arroyo Menéndez <d.arroyome@@alumnos.urjc.es>', 'David Arroyo <davidam@@gmail.com>']
 @end example
 
 If you look up 'David Arroyo' in Google Scholar you can find several
