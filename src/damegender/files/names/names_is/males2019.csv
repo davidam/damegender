@@ -1,6 +1,4 @@
-Male names 1 January 2019,,
-,,
-,Number,Frequency
+Number,Frequency
 Jón,5177
 Sigurður,4187
 Guðmundur,3927
@@ -9,7 +7,7 @@ Gunnar,3130
 Olav,2776
 Einar,2443
 Kristján,2436
-Kristian,2436,
+Kristian,2436
 Christian,2436
 Magnús,2325
 Stefán,2243
@@ -119,31 +117,3 @@ Hermann,461
 Hjörtur,454
 Aðalsteinn,451
 Gunnlaugur,442
-,,
-Sum of single names and first name of multiple names.,,
-Rank:,,
-Numbers in parenthesis show the ranking five years previously,,
-,,
-,,
-Latest update:,,
-20191209 09:00,,
-,,
-,,
-,,
-Copyright,,
-,,
-Units:,,
-"Number, Frequency",,
-,,
-,,
-Reference period:,,
-2016,,
-,,
-,,
-,,
-,,
-,,
-,,
-,,
-Internal reference code:,,
-MAN11101,,
