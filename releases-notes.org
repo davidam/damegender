@@ -1,4 +1,10 @@
 
+* v0.2.9
+New names from oficial Open Data census:
++ Ireland (382 names)
++ Iceland (326 names)
++ Finland (11449 names)
+
 * v0.2.8
 New names from oficial Open Data census:
 + Canada (107339 names)
@@ -8,6 +14,7 @@ New names from oficial Open Data census:
 
 Create:
 + logs-errors.sh: execute allnoundefined.csv with different ML models of errors.py to generate all logs needed
++ manual/damegender.texi, manual/damegender.pdf: we have grouped some articles and ideas in a book format (not finished)
 
 Refactor: 
 + errors.py
@@ -15,6 +22,7 @@ Refactor:
 Updating (more names, new calculus and results):
 + articles/damegender.pdf
 + files/datamodels/*sav
+
 
 * v0.2.7
 + count-debian-gender.py: add example to count males and females in debian keyring
