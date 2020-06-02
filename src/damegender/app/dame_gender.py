@@ -221,7 +221,7 @@ class Gender(object):
         nz_path = 'files/names/names_nz/nzfemales.csv'
 #        pt_path = 'files/names/names_pt/ptfemales.csv'        
         uk_path = 'files/names/names_uk/ukfemales.txt'
-        us_path = 'files/names/names_us/usfemales.txt'        
+        us_path = 'files/names/names_us/usfemales.txt'
         uy_path = 'files/names/names_uy/uyfemeninos.txt'
 
         f = []
@@ -424,6 +424,10 @@ class Gender(object):
         path_males = 'files/names/names_es/esmasculinos.csv'
         if ((dataset == 'ine') or (dataset == 'es')):
             path_males = 'files/names/names_es/esmasculinos.csv'
+        elif (dataset == 'ie'):
+            path_males = 'files/names/names_ie/iemales.csv'            
+        elif (dataset == 'is'):
+            path_males = 'files/names/names_is/ismales.csv'            
         elif (dataset == 'uy'):
             path_males = 'files/names/names_uy/uymasculinos.csv'
         elif (dataset == 'uk'):
@@ -434,10 +438,12 @@ class Gender(object):
             path_males = 'files/names/names_nz/nzmales.csv'            
         elif (dataset == 'ca'):
             path_males = 'files/names/names_ca/camales.csv'
+        elif (dataset == 'fi'):
+            path_males = 'files/names/names_fi/fimales.csv'            
         elif (dataset == 'au'):
             path_males = 'files/names/names_au/baby-names-1944-2013/aumales.csv'            
-        # elif (dataset == 'pt'):
-        #     path_males = 'files/names/names_pt/ptmales.csv'            
+        elif (dataset == 'pt'):
+            path_males = 'files/names/names_pt/ptmales.csv'            
             
         file_males = open(path_males, 'r')
         readerm = csv.reader(file_males, delimiter=',', quotechar='|')
@@ -449,6 +455,10 @@ class Gender(object):
         path_females = 'files/names/names_es/esfemeninos.csv'
         if ((dataset == 'ine') or (dataset == 'es')):
             path_females = 'files/names/names_es/esfemeninos.csv'
+        elif (dataset == 'ie'):
+            path_females = 'files/names/names_ie/iefemales.csv'
+        elif (dataset == 'is'):
+            path_females = 'files/names/names_is/isfemales.csv'                        
         elif (dataset == 'uy'):
             path_females = 'files/names/names_uy/uyfemeninos.csv'
         elif (dataset == 'uk'):
@@ -458,11 +468,13 @@ class Gender(object):
         elif (dataset == 'nz'):
             path_females = 'files/names/names_nz/nzfemales.csv'            
         elif (dataset == 'ca'):
-            path_females = 'files/names/names_ca/cafemales.csv'            
+            path_females = 'files/names/names_ca/cafemales.csv'
+        elif (dataset == 'fi'):
+            path_females = 'files/names/names_fi/fifemales.csv'                        
         elif (dataset == 'au'):
             path_females = 'files/names/names_au/baby-names-1944-2013/aufemales.csv'            
-        # elif (dataset == 'pt'):
-        #     path_females = 'files/names/names_pt/ptfemales.csv'            
+        elif (dataset == 'pt'):
+            path_females = 'files/names/names_pt/ptfemales.csv'            
 
         file_females = open(path_females, 'r')
         readerf = csv.reader(file_females, delimiter=',', quotechar='|')
