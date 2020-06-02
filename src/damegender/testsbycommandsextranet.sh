@@ -26,21 +26,21 @@ echo "We need enable apis to execute this script, we are trying to do it for you
 
 echo "
 [DEFAULT]
-" > config.cfg
+ 
+genderapi = yes
+genderize = yes
+nameapi = yes
+namsor = yes
+customsearch = yes
 
-# genderapi = yes
-# genderize = yes
-# nameapi = yes
-# namsor = yes
-# customsearch = yes
-
-# [FILES]
-# genderapi = files/apikeys/genderapipass.txt
-# genderize = files/apikeys/genderizepass.txt
-# genderguesser = files/apikeys/genderguesserpass.txt
-# namsor = files/apikeys/namsorpass.txt
-# nameapi = files/apikeys/nameapipass.txt
-# "
+[FILES]
+genderapi = files/apikeys/genderapipass.txt
+genderize = files/apikeys/genderizepass.txt
+genderguesser = files/apikeys/genderguesserpass.txt
+namsor = files/apikeys/namsorpass.txt
+nameapi = files/apikeys/nameapipass.txt
+"
+> config.cfg
 
 if [ -a files/apikeys/genderapipass.txt ]; then
     echo "genderapi = yes" >> config.cfg
