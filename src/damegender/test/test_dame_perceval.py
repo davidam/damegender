@@ -24,7 +24,6 @@
 import unittest
 from app.dame_perceval import DamePerceval
 
-
 class TddInPythonExample(unittest.TestCase):
 
     def test_dame_perceval_numcommits_method_returns_correct_result(self):
@@ -53,7 +52,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(
             len(gg.list_committers(
                 "https://github.com/davidam/davidam.git",
-                "/tmp/clonedir")), 3)
+                "/tmp/clonedir")), 4)
 
     def test_dame_perceval_list_mailers_method_returns_correct_result(self):
         gg = DamePerceval()
@@ -71,12 +70,10 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_perceval_list_committers_method_returns_correct_result(self):
         dp = DamePerceval()
-        l = dp.list_committers(
-                "https://github.com/davidam/davidam.git",
-                "/tmp/clonedir")
-        arr = dp.count_gender_in_list(l)
-        self.assertEqual(int(arr[0]), 0)
-        self.assertEqual(int(arr[1]), 3)
+        l0 = dp.list_committers(
+            "https://github.com/davidam/davidam.git",
+            "/tmp/clonedir", mail=True)
+        self.assertEqual(['David Arroyo Menéndez <davidam@es.gnu.org>', 'David Arroyo Menendez <davidam@gmail.com>', 'David Arroyo Menéndez <d.arroyome@alumnos.urjc.es>', 'David Arroyo <davidam@gmail.com>'], l0)                
 
     def test_dame_perceval_github_json_user_method_returns_correct_result(self):
         dp = DamePerceval()
@@ -85,4 +82,5 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(j["blog"], "http://www.davidam.com")
         self.assertEqual(j["html_url"], "https://github.com/davidam")
         self.assertEqual(j["avatar_url"], "https://avatars2.githubusercontent.com/u/1023217?v=4")
+        
         
