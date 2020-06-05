@@ -185,7 +185,7 @@ class DameUtils():
             aux = []
             for i in l:
                 if ((i != "") and (not(re.search(r' ?.*@.*\..*', i)))):
-                    aux = aux + [i]
+                    aux =  aux + [i]
         return aux
 
     def files_one_level(self, directory):
@@ -225,3 +225,12 @@ class DameUtils():
         else:
             gender = "unknown"
         return gender
+
+    def round_and_not_zero_division(self, x, y):
+        if ((x == 0) and (y == 0)):
+            return 0
+        elif (y == 0):
+            return 0
+        else:
+            division = x / y
+            return (round(division, 3))

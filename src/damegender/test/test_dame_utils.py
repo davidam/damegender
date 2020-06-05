@@ -169,3 +169,11 @@ class TddInPythonExample(unittest.TestCase):
         l = du.csvcolumn2list('files/names/partial.csv', 0, header=True)
         self.assertEqual(len(l), 21)
         self.assertEqual(['"pierre"', '"raul"', '"adriano"', '"ralf"', '"teppei"', '"guillermo"', '"catherine"', '"sabina"', '"ralf"', '"karl"', '"sushil"', '"clemens"', '"gregory"', '"lester"', '"claude"', '"martin"', '"vlad"', '"pasquale"', '"lourdes"', '"bruno"', '"thomas"'], l)
+
+
+    def test_dame_utils_round_and_not_zero_division(self):
+        du = DameUtils()
+        self.assertEqual(du.round_and_not_zero_division(4, 2), 2)
+        self.assertEqual(du.round_and_not_zero_division(3, 2), 1.5)
+        self.assertEqual(du.round_and_not_zero_division(8, 7), 1.143)        
+        
