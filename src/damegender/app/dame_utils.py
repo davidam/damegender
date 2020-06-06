@@ -147,7 +147,7 @@ class DameUtils():
         return [fullname, email]
 
     def same_identity(self, string1, string2):
-        same_identity = false
+        same_identity = False
         string1 = self.drop_accents(string1)
         string2 = self.drop_accents(string2)
         identity1 = self.identity2name_email(string1)
@@ -156,12 +156,14 @@ class DameUtils():
         identity2 = self.identity2name_email(string2)
         fullname2 = identity2[0]
         email2 = identity2[1]
-        if ((email1 == email2) and ((contains(fullname1, fullname2)) or (contains(fullname2, fullname1)))):
-            same_identity = true
+        if (string1 == string2):
+            same_identity = True
         elif (fullname1 == fullname2):
-            same_identity = true
+            same_identity = True
+        elif ((email1 == email2) and ((contains(fullname1, fullname2)) or (contains(fullname2, fullname1)))):
+            same_identity = True
         else:
-            same_identity = false
+            same_identity = False
         return same_identity
 
     def list2lower(self, l):
