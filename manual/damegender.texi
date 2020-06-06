@@ -131,7 +131,7 @@ Currently you can need an api key from:
 
 @itemize @bullet
 @item
-https://store.genderize.io/documentation 
+https://store.genderize.io/documentation
 
 @item
 https://gender-api.com
@@ -354,7 +354,7 @@ American Indian and Alaska Native: 0.85
 Various races: 1.63
 @end example
 
-@node Statistics 
+@node Statistics
 @chapter Statistics
 
 In the last chapter we were learning to execute some commands such as
@@ -523,8 +523,8 @@ $ python3 infofeatures.py ine
 
 Take a look to the results with the different datasets:
 
-@multitable @columnfractions .12 .12 .12 .12 .12 .12 .12 .12 
-@headitem Dataset @tab Letter A @tab Last Letter A @tab Last Letter O @tab Last Letter Consonant @tab Last Letter Vocal @tab First Letter Consonant @tab First Letter Vocal 
+@multitable @columnfractions .12 .12 .12 .12 .12 .12 .12 .12
+@headitem Dataset @tab Letter A @tab Last Letter A @tab Last Letter O @tab Last Letter Consonant @tab Last Letter Vocal @tab First Letter Consonant @tab First Letter Vocal
 @item Uruguay (females)
 @tab 0.816
 @tab 0.456
@@ -660,7 +660,7 @@ $ rsync -az --progress keyring.debian.org::keyrings/keyrings/ .
 We have generated a script to count males and females:
 
 @example
-~/git/damegender/src/damegender$ python3 count-debian-gender.py 
+~/git/damegender/src/damegender$ python3 count-debian-gender.py
 Perhaps you need wait some minutes. You can take a tea or coffe now
 debian males: 795
 debian females: 24
@@ -694,7 +694,7 @@ $ python3 damephoto.py girl1.jpg
 We can use this tool to decide gender about images from Twitter,
 Github, ...
 
-@section Webscraping and Damegender because we want count scientifics 
+@section Webscraping and Damegender because we want count scientifics
 
 Sometimes, we can reach the database of names from a website, for
 example, we can retrieve a list of scientifics from Spain thanks to
@@ -750,7 +750,7 @@ for i in l:
     ll.append(i.split())
 
 
-ten = ll[0:10]    
+ten = ll[0:10]
 hundred = ll[0:100]
 thousand = ll[0:1000]
 
@@ -786,8 +786,16 @@ for j in thousand:
             females = females + 1
 
 print("Number of females scientifics: %s" % females)
-print("Number of males scientifics: %s" % males)            
+print("Number of males scientifics: %s" % males)
 @end example
+
+And the results are:
+
+@example
+Number of females scientifics: 31425
+Number of males scientifics: 47945
+@end example
+
 
 @section Counting males and females in a git repository
 
@@ -853,7 +861,7 @@ the same email account.
 
 def same_email(string1, string2):
     firstName
-    
+
 def same_identity(string1, string2):
     same_identity = false
     string1 = remove_accents(string1)
