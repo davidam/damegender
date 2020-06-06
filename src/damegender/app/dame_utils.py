@@ -141,7 +141,7 @@ class DameUtils():
         return result
 
     def identity2name_email(self, s):
-        r0 = re.match(r"([\w+ ]*)<([\w\.\+\-]+\@[\w]+\.[a-z]{2,3})>", "David Arroyo Menéndez <davidam@gnu.org>")
+        r0 = re.match(r"([\w+ ]*)<([\w\.\+\-]+\@[\w]+\.[a-z]{2,3})>", s)
         fullname = r0.group(1)
         email = r0.group(2)
         return [fullname, email]
@@ -160,7 +160,7 @@ class DameUtils():
             same_identity = True
         elif (fullname1 == fullname2):
             same_identity = True
-        elif ((email1 == email2) and ((contains(fullname1, fullname2)) or (contains(fullname2, fullname1)))):
+        elif ((email1 == email2) and (fullname1 in fullname2) or (fullname2 in fullname1)):
             same_identity = True
         else:
             same_identity = False
@@ -202,6 +202,13 @@ class DameUtils():
                 if (not( i in nodup)):
                     nodup.append(i)
         return nodup
+
+    def delete_duplicated_identities(self, l):
+        s = []
+        for i in l:
+            if not(self.same_identity(i, s)):
+                s.append(i)
+
 
 
     def clean_list(self, l):
