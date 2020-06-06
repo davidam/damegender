@@ -116,13 +116,13 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual("Hola Mexico", u.drop_quotes("Hola' 'Mexico"))
 
     def test_dame_utils_delete_duplicated(self):
-        g = Gender()        
+        g = Gender()
         du = DameUtils()
         self.assertEqual(sorted(du.delete_duplicated([1, 5, 2, 2, 1, 3, 5, 5, 5 , 5])), [1, 2, 3, 5])
         # f = g.females_list(corpus="es")
-        # m = g.males_list(corpus="es")        
+        # m = g.males_list(corpus="es")
         # self.assertEqual(len(du.delete_duplicated(f + m)), 48654)
-        
+
     def test_dame_utils_clean_list(self):
         du = DameUtils()
         self.assertEqual(
@@ -158,7 +158,7 @@ class TddInPythonExample(unittest.TestCase):
              'files/datamodels/sgd_model.sav',
              'files/datamodels/svc_model.sav',
              'files/datamodels/tree_model.sav'])
-        
+
     def test_dame_utils_list2lower(self):
         du = DameUtils()
         x = ["Aaa", "bBb", "ccC"]
@@ -175,5 +175,12 @@ class TddInPythonExample(unittest.TestCase):
         du = DameUtils()
         self.assertEqual(du.round_and_not_zero_division(4, 2), 2)
         self.assertEqual(du.round_and_not_zero_division(3, 2), 1.5)
-        self.assertEqual(du.round_and_not_zero_division(8, 7), 1.143)        
-        
+        self.assertEqual(du.round_and_not_zero_division(8, 7), 1.143)
+
+
+    def test_dame_utils_identity2name_email(self):
+        du = DameUtils()
+        s = "David Arroyo Menéndez <davidam@gnu.org>"
+        identity = du.identity2name_email(s)
+        self.assertEqual(identity[0], "David Arroyo Menéndez ")
+        self.assertEqual(identity[1], "davidam@gnu.org")
