@@ -28,7 +28,7 @@ import os
 import csv
 
 class DameUtils():
-    
+
     def string2array(self, string):
         res = ""
         string = unidecode.unidecode(string)
@@ -140,6 +140,30 @@ class DameUtils():
             result = re.sub(cwd+'/', '', s)
         return result
 
+    def identity2name_email(self, s):
+        r0 = re.match(r"([\w+ ]*)<([\w\.\+\-]+\@[\w]+\.[a-z]{2,3})>", "David Arroyo Menéndez <davidam@gnu.org>")
+        fullname = r0.group(1)
+        email = r0.group(2)
+        return [fullname, email]
+
+    def same_identity(self, string1, string2):
+        same_identity = false
+        string1 = self.drop_accents(string1)
+        string2 = self.drop_accents(string2)
+        identity1 = self.identity2name_email(string1)
+        fullname1 = identity1[0]
+        email1 = identity1[1]
+        identity2 = self.identity2name_email(string2)
+        fullname2 = identity2[0]
+        email2 = identity2[1]
+        if ((email1 == email2) and ((contains(fullname1, fullname2)) or (contains(fullname2, fullname1)))):
+            same_identity = true
+        elif (fullname1 == fullname2):
+            same_identity = true
+        else:
+            same_identity = false
+        return same_identity
+
     def list2lower(self, l):
         ll = [element.lower() for element in l] ; l
         return ll
@@ -176,8 +200,8 @@ class DameUtils():
                 if (not( i in nodup)):
                     nodup.append(i)
         return nodup
-                                      
-    
+
+
     def clean_list(self, l):
         if (len(l) == 0):
             print([])
