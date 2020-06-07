@@ -54,21 +54,26 @@ x = 0
 y = 0
 males = 0
 females = 0
-for j in hundred:
-    if (len(j[0]) == 1):
+for i in hundred:
+    if (len(i[0]) == 1):
         x = x + 1
     else:
-        sex = g.guess(j[0], binary=False)
+        sex = g.guess(i[0], binary=False)
         y = y +1
         if (sex == "male"):
             males = males + 1
         elif (sex == "female"):
             females = females + 1
 
-print("Number of scientifics with a single letter as first name: %s" % x)
-print("Number of scientifics with the first name normal: %s" % y)
+# print("Number of scientifics with a single letter as first name: %s" % x)
+# print("Number of scientifics with the first name normal: %s" % y)
+
+print("##### Checking for 100 scientifics ##########")
 print("Number of females scientifics: %s" % females)
 print("Number of males scientifics: %s" % males)
+
+males = 0
+females = 0
 
 for j in thousand:
     if (len(j[0]) == 1):
@@ -81,6 +86,25 @@ for j in thousand:
         else:
             females = females + 1
 
+print("##### Checking for 1000 scientifics ##########")            
+print("Number of females scientifics: %s" % females)
+print("Number of males scientifics: %s" % males)
+            
+males = 0
+females = 0
+
+for k in ll:
+    if (len(k[0]) == 1):
+        x = x + 1
+    else:
+        sex = g.guess(k[0], binary=False)
+        y = y +1
+        if (sex == "male"):
+            males = males + 1
+        else:
+            females = females + 1
+
+print("##### Checking for all scientifics ##########")                        
 print("Number of females scientifics: %s" % females)
 print("Number of males scientifics: %s" % males)
             
