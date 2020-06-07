@@ -38,11 +38,12 @@ if (len(sys.argv) > 1):
     l1 = dp.list_committers(args.url, args.directory)
     l2 = du.delete_duplicated(l1)
     l3 = du.clean_list(l2)
-
+    l4 = du.delete_duplicated_identities(l3)    
+    
     females = 0
     males = 0
     unknowns = 0
-    for g in l3:
+    for g in l4:
         sm = ds.guess(g, binary=True)
         if (sm == 0):
             females = females + 1
