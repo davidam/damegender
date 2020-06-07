@@ -206,10 +206,13 @@ class DameUtils():
     def delete_duplicated_identities(self, l):
         s = []
         for i in l:
-            if not(self.same_identity(i, s)):
-                s.append(i)
-
-
+            if not(i in s):
+                identity_duplicated = False
+                for j in s:
+                    identity_duplicated = (identity_duplicated or self.same_identity(i, j))
+                if (not(identity_duplicated)):
+                    s.append(i)
+        return s
 
     def clean_list(self, l):
         if (len(l) == 0):

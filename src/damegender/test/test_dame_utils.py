@@ -115,14 +115,17 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual('Hola Mexico', u.drop_quotes('Hola "Mexico'))
         self.assertEqual("Hola Mexico", u.drop_quotes("Hola' 'Mexico"))
 
+    def test_dame_utils_delete_duplicated_identities(self):
+        g = Gender()
+        du = DameUtils()
+        self.assertEqual(du.delete_duplicated_identities(["David Arroyo Menéndez <davidam@gnu.org>", "David Arroyo Menéndez <davidam@gmail.com>"]), ['David Arroyo Menéndez <davidam@gnu.org>'])
+        self.assertEqual(du.delete_duplicated_identities(["David Arroyo Menéndez <davidam@gnu.org>", "David Arroyo Menendez <davidam@gnu.org>"]), ['David Arroyo Menéndez <davidam@gnu.org>'])
+
     def test_dame_utils_delete_duplicated(self):
         g = Gender()
         du = DameUtils()
-        self.assertEqual(sorted(du.delete_duplicated([1, 5, 2, 2, 1, 3, 5, 5, 5 , 5])), [1, 2, 3, 5])
-        # f = g.females_list(corpus="es")
-        # m = g.males_list(corpus="es")
-        # self.assertEqual(len(du.delete_duplicated(f + m)), 48654)
-
+        self.assertEqual(sorted(du.delete_duplicated([1, 5, 2, 2, 1, 3, 5, 5, 5 , 5])), [1, 2, 3, 5])        
+        
     def test_dame_utils_clean_list(self):
         du = DameUtils()
         self.assertEqual(
@@ -195,3 +198,9 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(s2)
         s4 = du.same_identity("David <davidam@gnu.org>", "David Arroyo Menéndez <davidam@gnu.org>")
         self.assertTrue(s4)
+
+    # def test_dame_utils_delete_duplicated_identities(self):
+    #     du = DameUtils()
+    #     l = ['David Arroyo Menéndez <davidam@es.gnu.org>', 'David Arroyo Menendez <davidam@gmail.com>', 'David Arroyo Menéndez <d.arroyome@alumnos.urjc.es>', 'David Arroyo <davidam@gmail.com>']
+    #     s = du.delete_duplicated_identities(l)
+    #     self.assertEqual(s, 'David Arroyo Menéndez <davidam@es.gnu.org>')xs
