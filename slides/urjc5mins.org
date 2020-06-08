@@ -21,12 +21,16 @@ as male or female
 Understand the impact about open data in census about names and gender
 versus datasets created by companies or free software communities.
 
+Apply this tools to the scientific communities or communities based on
+Internet.
+
 ** Activities
 
-We have presented this working in progress in
+We have presented this working in progress in:
 
 *** One scientific event:
 + Madrilenian Software Research
++ Group Retreat 2019 Workshop (October)
 
 *** Event to master students:
 + Periodismo de Datos (Medialab Prado)
@@ -36,10 +40,10 @@ We have presented this working in progress in
 + Open South Code
 
 *** Publications
-Our idea is present an article finished this academic year.
++ Damegender: Writing and Comparing Gender Detection Tools (Preprint)
 
 ** Results
 
-Software liberado con GPLv3 integrado en la industria
+Free Software released with GPLv3 integrated in the industry
 + git clone https://github.com/davidam/damegender.git
-+ pip3 install damegender
++ pip3 install damegender (more than 3000 downloads by month)
