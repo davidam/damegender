@@ -54,57 +54,70 @@ x = 0
 y = 0
 males = 0
 females = 0
+unknowns = 0
+count = 0
 for i in hundred:
+    count = count +1
     if (len(i[0]) == 1):
-        x = x + 1
+        unknowns = unknowns + 1
     else:
         sex = g.guess(i[0], binary=False)
-        y = y +1
         if (sex == "male"):
             males = males + 1
         elif (sex == "female"):
             females = females + 1
-
+        else:
+            unknowns = unknowns + 1
 # print("Number of scientifics with a single letter as first name: %s" % x)
 # print("Number of scientifics with the first name normal: %s" % y)
 
 print("##### Checking for 100 scientifics ##########")
+print(count)
 print("Number of females scientifics: %s" % females)
 print("Number of males scientifics: %s" % males)
+print("Number of scientifics with gender unknown: %s" % unknowns)
+print("In this dataset the gender unknown is due overall to use initials and not names")
 
 males = 0
 females = 0
-
+unknowns = 0
 for j in thousand:
     if (len(j[0]) == 1):
-        x = x + 1
+        unknowns = unknowns + 1        
     else:
         sex = g.guess(j[0], binary=False)
         y = y +1
         if (sex == "male"):
             males = males + 1
-        else:
+        elif (sex == "female"):
             females = females + 1
+        else:
+            unknowns = unknowns + 1
 
 print("##### Checking for 1000 scientifics ##########")            
 print("Number of females scientifics: %s" % females)
 print("Number of males scientifics: %s" % males)
+print("Number of scientifics with gender unknown: %s" % unknowns)
+print("In this dataset the gender unknown is due overall to use initials and not names")
             
 males = 0
 females = 0
-
+unknowns = 0
 for k in ll:
     if (len(k[0]) == 1):
-        x = x + 1
+        unknowns = unknowns + 1                
     else:
         sex = g.guess(k[0], binary=False)
         y = y +1
         if (sex == "male"):
             males = males + 1
-        else:
+        elif (sex == "female"):
             females = females + 1
+        else:
+            unknowns = unknowns + 1
 
 print("##### Checking for all scientifics ##########")                        
 print("Number of females scientifics: %s" % females)
 print("Number of males scientifics: %s" % males)
-            
+print("Number of scientifics with gender unknown: %s" % unknowns)
+print("In this dataset the gender unknown is due overall to use initials and not names")
