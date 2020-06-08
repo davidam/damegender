@@ -28,9 +28,9 @@ Internet.
 
 We have presented this working in progress in:
 
-*** One scientific event:
+*** Scientific events:
 + Madrilenian Software Research
-+ Group Retreat 2019 Workshop (October)
++ Group Retreat 2019 Workshop
 
 *** Event to master students:
 + Periodismo de Datos (Medialab Prado)
@@ -39,11 +39,13 @@ We have presented this working in progress in:
 + Python Barcelona
 + Open South Code
 
-*** Publications
-+ Damegender: Writing and Comparing Gender Detection Tools (Preprint)
-
 ** Results
 
+*** Software
 Free Software released with GPLv3 integrated in the industry
 + git clone https://github.com/davidam/damegender.git
 + pip3 install damegender (more than 3000 downloads by month)
+
+*** Publications
++ Damegender: Writing and Comparing Gender Detection Tools (Preprint)
++ Damegender Manual: Counting Males and Females in Internet Communities (On working)
