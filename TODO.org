@@ -1116,3 +1116,27 @@ Hay idiomas que los nombres tienen género para llegar a esto es posible revisar
   #     dn = DameNLTK()
   #     degree = 0.7
   #     self.assertTrue(dn.delete_similar_in_list(["This is a good sentence".split(), "This is a bad sentence".split()], degree))
+* TODO Escribir un método download_free_names 
+  SCHEDULED: <2020-05-14 jue>
+1. Se podría ejecutar en la instalación
+2. Tendría un argumento locale que por defecto es all
+3. Habría que sacar de la instalación pip los locale no gpl compatible
+
+* TODO Escribir el comando top para mostrar, por ejemplo, los 10 nombres más utilizados en USA
+** Parámetros
+*** country (US por defecto)
+*** sex (male, female or all)
+*** n (number of names)
+*** less (to show paginate)
+    def less(data):
+        process = Popen(["less"], stdin=PIPE)
+        try:
+            process.stdin.write(data)
+            process.communicate()
+        except IOError as e:
+            pass
+
+* POSIBLE Plantearse descargar los nombres italianos con web scraping
++ [ ] https://www.istat.it/en/analysis-and-products/interactive-contents/baby-names
+* DONE Escribir count-scientifics.py
+  - State "DONE"       from "TODO"       [2020-06-08 lun 12:31]
