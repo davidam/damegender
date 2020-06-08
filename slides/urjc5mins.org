@@ -13,22 +13,22 @@
 + Thesis Director: Jesús González Barahona
 + Objectives:
 
-Compare APIs to detect gender from a name
+To compare APIs to detect gender from a name
 
-Apply machine learning to classify nicknames, diminutives or new names
+To apply machine learning to classify nicknames, diminutives or new names
 as male or female
 
-Understand the impact about open data in census about names and gender
+To understand the impact about open data in census about names and gender
 versus datasets created by companies or free software communities.
 
-Apply this tools to the scientific communities or communities based on
+To apply this tools to the scientific communities or communities based on
 Internet.
 
 ** Steps in the development
 
-0. Packaging and python tests with the basic features
-1. Statistical tools and bash tests
-2. Datasets: add 11 countries with features to download and unify formats
+0. To develop the packaging and python tests with the basic features
+1. To develop statistical tools and bash tests
+2. To add 11 countries datasets with features to download and unify formats
 
 ** Activities
 
