@@ -633,6 +633,48 @@ Surely, the rules it’s a coincidence but we think that is a coincidence betwee
 
 To be written
 
+@subsection Choosing components
+
+After, to choose features for our machine learning task, we can
+understand if this features makes sense with Principal Component
+Analysis. We have written 2 scripts for this task
+@code{pca-components.py} and @code{pca-features.py}. With
+@code{pca-components.py} we are giving a csv (files/features_list.csv,
+files/features_list_no_cat.csv, ...) and the output is an image where
+we can visualize a curve to determine when this curve stops the growth
+the number of components.
+
+@image{images/pca_components_files_features_list_no_cat.csv,6in,,PCA Curve about the number of components}
+
+In the image, we can see that the curve stops the growth in the fourth
+component.
+
+When you know the components you can execute @code{pca-features.py} so:
+
+@example
+$ python3 pca-features.py  --categorical=both --components=4
+The json file is created in files/pca.json
+The html file is created in files/pca.html
+@end example
+
+@image{images/pca-analysis,6in,,Analyze components to determine gender in names}
+
+To simplify and to learn, we can observe this analysis without
+letters. In this analysis, we can observe 4 components.
+
+The first component is about if the last letter is vocal or
+consonant. If the last letter is vocal we can find a male and if the
+last letter is a consonant we can find a male.
+
+The second component is about the first letter. The last letter is
+determining females and the first letter is determining males.
+
+The third component is not giving relevant information.
+
+The fourth component is giving the last_letter_a and the
+first_letter_vocal is for females.
+
+
 
 @node Use Cases
 @chapter Use Cases
