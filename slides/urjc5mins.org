@@ -24,6 +24,12 @@ versus datasets created by companies or free software communities.
 Apply this tools to the scientific communities or communities based on
 Internet.
 
+** Steps in the development
+
+0. Packaging and python tests with the basic features
+1. Statistical tools and bash tests
+2. Datasets: add 11 countries with features to download and unify formats
+
 ** Activities
 
 We have presented this working in progress in:
