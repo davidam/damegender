@@ -170,6 +170,14 @@ class DameUtils():
         ll = [element.lower() for element in l] ; l
         return ll
 
+    def num_columns_in_csv(self, csvpath):
+        with open(csvpath, 'r') as csvfile:
+            first_line = csvfile.readline()
+            # print(first_line)
+            ncol = first_line.count(',') + 1
+            # print("Number of columns: %s" % ncol)
+        return ncol
+   
     def csvcolumn2list(self, csvpath,  *args, **kwargs):
         # make a list from a csv file
         position = kwargs.get('position', 0)
@@ -270,3 +278,4 @@ class DameUtils():
         else:
             division = x / y
             return (round(division, 3))
+        
