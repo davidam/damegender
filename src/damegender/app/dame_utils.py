@@ -195,8 +195,7 @@ class DameUtils():
         with open(csvpath) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
             for row in sexreader:
-                print(row)
-            l.append(row)
+                l.append(row)
         return l
         
     
