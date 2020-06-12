@@ -173,13 +173,11 @@ class DameUtils():
     def num_columns_in_csv(self, csvpath):
         with open(csvpath, 'r') as csvfile:
             first_line = csvfile.readline()
-            # print(first_line)
             ncol = first_line.count(',') + 1
-            # print("Number of columns: %s" % ncol)
         return ncol
-   
+
     def csvcolumn2list(self, csvpath,  *args, **kwargs):
-        # make a list from a csv file
+        # make a list from a column in a csv file
         position = kwargs.get('position', 0)
         header = kwargs.get('header', True)
         l = []
@@ -191,6 +189,17 @@ class DameUtils():
                 l.append(row[position])
         return l
 
+    def csv2list(self, csvpath):
+        # make a list from a csv file        
+        l = []
+        with open(csvpath) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            for row in sexreader:
+                print(row)
+            l.append(row)
+        return l
+        
+    
     # def delete_duplicated(self, l):
     #     if (len(l) == 0):
     #         return l

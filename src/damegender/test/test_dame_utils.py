@@ -173,6 +173,10 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(len(l), 21)
         self.assertEqual(['"pierre"', '"raul"', '"adriano"', '"ralf"', '"teppei"', '"guillermo"', '"catherine"', '"sabina"', '"ralf"', '"karl"', '"sushil"', '"clemens"', '"gregory"', '"lester"', '"claude"', '"martin"', '"vlad"', '"pasquale"', '"lourdes"', '"bruno"', '"thomas"'], l)
 
+    def test_dame_utils_csv2list(self):
+        du = DameUtils()
+        l = du.csv2list('files/names/min.csv')
+        self.assertEqual(['"sabina"', '""', '"pannek"', '"sabina pannek"', '"f"', '"zbmath"'], l[0])
 
     def test_dame_utils_num_columns_in_csv(self):
         du = DameUtils()
