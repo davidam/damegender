@@ -86,9 +86,9 @@ elif ((args.country == "usa") | (args.country == "usa")):
     c2lmales = du.csv2list("files/names/names_us/usmales.csv")
 
 if (args.reverse):    
-    c2lmales = sorted(c2lmales, key=getKey1, reverse=True)
-else:
     c2lmales = sorted(c2lmales, key=getKey1)
+else:
+    c2lmales = sorted(c2lmales, key=getKey1, reverse=True)
 # FEMALES
 
 if (args.country == "au"):
@@ -115,9 +115,9 @@ elif ((args.country == "usa") | (args.country == "usa")):
     c2lfemales = du.csv2list("files/names/names_us/usfemales.csv")
 
 if (args.reverse):    
-    c2lfemales = sorted(c2lfemales, key=getKey1, reverse=True)
-else:
     c2lfemales = sorted(c2lfemales, key=getKey1)
+else:
+    c2lfemales = sorted(c2lfemales, key=getKey1, reverse=True)
     
 n = int(args.number)
 if (args.sex == "male"):
@@ -134,9 +134,9 @@ elif (args.sex == "all"):
 
     c2l = c2lfemales + c2lmales
     if (args.reverse):
-        c2l = sorted(c2l, key=getKey1, reverse=True)
-    else:
         c2l = sorted(c2l, key=getKey1)
+    else:
+        c2l = sorted(c2l, key=getKey1, reverse=True)
     n = args.number
     for i in c2l[0:n]:
         print(i[0] + ": " + i[1])
