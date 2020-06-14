@@ -33,7 +33,7 @@ import csv
 parser = argparse.ArgumentParser()
 parser.add_argument("country", default="usa", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'usa'], help="Countries with 2 letter, example, es is Spain")
 parser.add_argument('--number', default=10)
-parser.add_argument('--sex', default="all", choices=["male", "female", "all"])
+parser.add_argument('--sex', default="female", choices=["male", "female", "all"])
 #parser.add_argument('--reverse', default=False, action="store_reverse")
 #parser.add_argument('--less', default=False, action="store_less")
 #parser.add_argument('--version', action='version', version='0.1')
@@ -128,6 +128,7 @@ elif (args.sex == "female"):
 elif (args.sex == "all"):
 
     c2l = c2lfemales + c2lmales
+    c2l = sorted(c2l, key=getKey1)
     for i in c2l:
         print(i[0] + ": " + i[1])
     
