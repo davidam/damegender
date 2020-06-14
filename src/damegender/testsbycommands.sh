@@ -475,6 +475,15 @@ else
 	echo "errors test is ok"
 fi
 
+python3 top.py es > files/tests/topes-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/topes.txt files/tests/topes-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "top test is failing"
+else
+	echo "top test is ok"
+fi
+
 
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
