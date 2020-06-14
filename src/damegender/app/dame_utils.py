@@ -189,11 +189,14 @@ class DameUtils():
                 l.append(row[position])
         return l
 
-    def csv2list(self, csvpath):
-        # make a list from a csv file        
+    def csv2list(self, csvpath,  *args, **kwargs):
+        # make a list from a csv file
+        header = kwargs.get('header', False)        
         l = []
         with open(csvpath) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            if (header == True):
+                next(sexreader, None)            
             for row in sexreader:
                 l.append(row)
         return l
@@ -286,4 +289,5 @@ class DameUtils():
         else:
             division = x / y
             return (round(division, 3))
+        
         
