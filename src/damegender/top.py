@@ -66,8 +66,8 @@ if (args.country == "au"):
     c2lmales = du.csv2list("files/names/names_au/baby-names-1944-2013/aumales.csv")
 elif (args.country == "ca"):
     c2lmales = du.csv2list("files/names/names_ca/camales.csv")
-elif ((args.country == "es") | (args.country == "es")):
-    c2lmales = du.csv2list("files/names/names_es/esmales.csv")
+elif ((args.country == "es") | (args.country == "ine")):
+    c2lmales = du.csv2list("files/names/names_es/esmasculinos.csv", header=True)
 elif (args.country == "fi"):
     c2lmales = du.csv2list("files/names/names_fi/fimales.csv")
 elif (args.country == "ie"):
@@ -94,8 +94,8 @@ if (args.country == "au"):
     c2lfemales = du.csv2list("files/names/names_au/baby-names-1944-2013/aufemales.csv")
 elif (args.country == "ca"):
     c2lfemales = du.csv2list("files/names/names_ca/cafemales.csv")
-elif ((args.country == "es") | (args.country == "es")):
-    c2lfemales = du.csv2list("files/names/names_es/esfemales.csv")
+elif ((args.country == "es") | (args.country == "ine")):
+    c2lfemales = du.csv2list("files/names/names_es/esfemeninos.csv", header=True)
 elif (args.country == "fi"):
     c2lfemales = du.csv2list("files/names/names_fi/fifemales.csv")
 elif (args.country == "ie"):
@@ -131,9 +131,4 @@ elif (args.sex == "all"):
     for i in c2l:
         print(i[0] + ": " + i[1])
     
-#print(sorted(c2lmales))
-    
-# print(g.guess("Kora"))
-# print(g.guess("Koro"))
-# print(g.guess("Sarita"))
 
