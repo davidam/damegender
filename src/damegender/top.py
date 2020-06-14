@@ -119,15 +119,15 @@ if (args.reverse):
 else:
     c2lfemales = sorted(c2lfemales, key=getKey1)
     
-
+n = int(args.number)
 if (args.sex == "male"):
 
-    for i in c2lmales:
+    for i in c2lmales[0:n]:
         print(i[0] + ": " + i[1])
 
 elif (args.sex == "female"):        
 
-    for i in c2lfemales:
+    for i in c2lfemales[0:n]:
         print(i[0] + ": " + i[1])
 
 elif (args.sex == "all"):
@@ -136,8 +136,9 @@ elif (args.sex == "all"):
     if (args.reverse):
         c2l = sorted(c2l, key=getKey1, reverse=True)
     else:
-        c2l = sorted(c2l, key=getKey1)        
-    for i in c2l:
+        c2l = sorted(c2l, key=getKey1)
+    n = args.number
+    for i in c2l[0:n]:
         print(i[0] + ": " + i[1])
     
 
