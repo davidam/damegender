@@ -69,7 +69,7 @@ elif (args.country == "ca"):
 elif ((args.country == "es") | (args.country == "ine")):
     c2lmales = du.csv2list("files/names/names_es/esmasculinos.csv", header=True)
 elif (args.country == "fi"):
-    c2lmales = du.csv2list("files/names/names_fi/fimales.csv")
+    c2lmales = du.csv2list("files/names/names_fi/fimales.csv", header=True)
 elif (args.country == "ie"):
     c2lmales = du.csv2list("files/names/names_ie/iemales.csv")
 elif (args.country == "is"):
@@ -79,7 +79,7 @@ elif (args.country == "nz"):
 elif (args.country == "pt"):
     c2lmales = du.csv2list("files/names/names_pt/ptmales.csv")
 elif (args.country == "uy"):
-    c2lmales = du.csv2list("files/names/names_uy/uymales.csv")
+    c2lmales = du.csv2list("files/names/names_uy/uymasculinos.csv", header=True)
 elif (args.country == "uk"):
     c2lmales = du.csv2list("files/names/names_uk/ukmales.csv")
 elif ((args.country == "usa") | (args.country == "us")):
@@ -98,7 +98,7 @@ elif (args.country == "ca"):
 elif ((args.country == "es") | (args.country == "ine")):
     c2lfemales = du.csv2list("files/names/names_es/esfemeninos.csv", header=True)
 elif (args.country == "fi"):
-    c2lfemales = du.csv2list("files/names/names_fi/fifemales.csv")
+    c2lfemales = du.csv2list("files/names/names_fi/fifemales.csv", header=True)
 elif (args.country == "ie"):
     c2lfemales = du.csv2list("files/names/names_ie/iefemales.csv")
 elif (args.country == "is"):
@@ -108,7 +108,7 @@ elif (args.country == "nz"):
 elif (args.country == "pt"):
     c2lfemales = du.csv2list("files/names/names_pt/ptfemales.csv")
 elif (args.country == "uy"):
-    c2lfemales = du.csv2list("files/names/names_uy/uyfemales.csv")
+    c2lfemales = du.csv2list("files/names/names_uy/uyfemeninos.csv", header=True)
 elif (args.country == "uk"):
     c2lfemales = du.csv2list("files/names/names_uk/ukfemales.csv")
 elif ((args.country == "usa") | (args.country == "us")):
