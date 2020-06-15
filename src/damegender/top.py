@@ -37,7 +37,7 @@ import subprocess, tempfile
 parser = argparse.ArgumentParser()
 parser.add_argument("country", default="usa", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'usa'], help="Countries with 2 letter, example, es is Spain")
 parser.add_argument('--number', default=10)
-parser.add_argument('--sex', default="female", choices=["male", "female", "all"])
+parser.add_argument('--sex', default="female", choices=["male", "female"])
 parser.add_argument('--reverse', default=False, action="store_true")
 parser.add_argument('--less', default=False, action="store_true")
 #parser.add_argument('--version', action='version', version='0.1')
@@ -166,22 +166,20 @@ elif (args.sex == "female"):
             print(str(count) + ") " + i[0] + ": " + i[1])
         count = count + 1
             
-elif (args.sex == "all"):
+# elif (args.sex == "all"):
 
-    c2l = c2lfemales + c2lmales
-    if (args.reverse):
-        c2l = sorted(c2l, key=getKey1)
-    else:
-        c2l = sorted(c2l, key=getKey1, reverse=True)
-    n = args.number
+#     c2l = c2lfemales + c2lmales
+#     if (args.reverse):
+#         c2l = sorted(c2l, key=getKey1)
+#     else:
+#         c2l = sorted(c2l, key=getKey1, reverse=True)
+#     n = args.number
     
-    count = 1            
-    for i in c2l[0:n]:
-        if args.less:
-            printc(str(count) + ") " + i[0] + ": " + i[1], sep='/')
-        else:
-            print(str(count) + ") " + i[0] + ": " + i[1])
-        count = count + 1
+#     count = 1
+
+#     for i in c2l[0:n]:
+#         print(str(count) + ") " + i[0] + ": " + i[1])
+#         count = count + 1
             
 # Paging of the current contents of the temp file:
 if args.less:
