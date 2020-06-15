@@ -21,21 +21,25 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+from __future__ import print_function
 from operator import itemgetter, attrgetter
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
+
 import sys
 import os
 import re
 import argparse
 import csv
+import subprocess, tempfile
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument("country", default="usa", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'usa'], help="Countries with 2 letter, example, es is Spain")
 parser.add_argument('--number', default=10)
 parser.add_argument('--sex', default="female", choices=["male", "female", "all"])
 parser.add_argument('--reverse', default=False, action="store_true")
-#parser.add_argument('--less', default=False, action="store_less")
+parser.add_argument('--less', default=False, action="store_true")
 #parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 
@@ -43,6 +47,23 @@ results = []
 
 g = Gender()
 du = DameUtils()
+
+# PAGINATION STUFF
+
+#page = True  # For tests
+
+# Definition of a printc() function that prints to the correct output
+if args.less:
+    tmp_file = open(tempfile.mkstemp()[1], 'w')  # No need to store the name in a specific variable
+    def printc(*largs, **kwargs):
+        if 'file' not in kwargs:  # The code can still use the usual file argument of print()
+            kwargs['file'] = tmp_file  # Forces the output to go to the temp file
+        print(*largs, **kwargs)
+else:
+    printc = print  # Regular print
+
+
+
 
 # MALES
 def c2l(csvpath):
@@ -118,17 +139,28 @@ if (args.reverse):
     c2lfemales = sorted(c2lfemales, key=getKey1)
 else:
     c2lfemales = sorted(c2lfemales, key=getKey1, reverse=True)
+
+
+#printc('...some text...', 'some more text', sep='/')  # Python3 syntax
+
+
     
 n = int(args.number)
 if (args.sex == "male"):
 
     for i in c2lmales[0:n]:
-        print(i[0] + ": " + i[1])
+        if args.less:
+            printc(i[0] + ": " + i[1], sep='/')
+        else:
+            print(i[0] + ": " + i[1])
 
 elif (args.sex == "female"):        
 
     for i in c2lfemales[0:n]:
-        print(i[0] + ": " + i[1])
+        if args.less:
+            printc(i[0] + ": " + i[1], sep='/')
+        else:
+            print(i[0] + ": " + i[1])
 
 elif (args.sex == "all"):
 
@@ -139,6 +171,12 @@ elif (args.sex == "all"):
         c2l = sorted(c2l, key=getKey1, reverse=True)
     n = args.number
     for i in c2l[0:n]:
-        print(i[0] + ": " + i[1])
+        if args.less:
+            printc(i[0] + ": " + i[1], sep='/')
+        else:
+            print(i[0] + ": " + i[1])
     
-
+# Paging of the current contents of the temp file:
+if args.less:
+    tmp_file.flush()  # No need to close the file: you can keep printing to it
+    subprocess.call(['less', tmp_file.name])  # Simpler than a full Popen()
