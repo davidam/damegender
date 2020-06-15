@@ -82,8 +82,8 @@ elif (args.country == "uy"):
     c2lmales = du.csv2list("files/names/names_uy/uymales.csv")
 elif (args.country == "uk"):
     c2lmales = du.csv2list("files/names/names_uk/ukmales.csv")
-elif ((args.country == "usa") | (args.country == "usa")):
-    c2lmales = du.csv2list("files/names/names_us/usmales.csv")
+elif ((args.country == "usa") | (args.country == "us")):
+    c2lmales = du.csv2list("files/names/names_us/usmales.csv", header=True)
 
 if (args.reverse):    
     c2lmales = sorted(c2lmales, key=getKey1)
@@ -111,8 +111,8 @@ elif (args.country == "uy"):
     c2lfemales = du.csv2list("files/names/names_uy/uyfemales.csv")
 elif (args.country == "uk"):
     c2lfemales = du.csv2list("files/names/names_uk/ukfemales.csv")
-elif ((args.country == "usa") | (args.country == "usa")):
-    c2lfemales = du.csv2list("files/names/names_us/usfemales.csv")
+elif ((args.country == "usa") | (args.country == "us")):
+    c2lfemales = du.csv2list("files/names/names_us/usfemales.csv", header=True)
 
 if (args.reverse):    
     c2lfemales = sorted(c2lfemales, key=getKey1)
