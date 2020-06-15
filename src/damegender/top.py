@@ -148,20 +148,24 @@ else:
 n = int(args.number)
 if (args.sex == "male"):
 
+    count = 1    
     for i in c2lmales[0:n]:
         if args.less:
-            printc(i[0] + ": " + i[1], sep='/')
+            printc(str(count) + ") " + i[0] + ": " + i[1], sep='/')
         else:
-            print(i[0] + ": " + i[1])
-
+            print(str(count) + ") " + i[0] + ": " + i[1])
+        count = count + 1
+            
 elif (args.sex == "female"):        
 
+    count = 1        
     for i in c2lfemales[0:n]:
         if args.less:
-            printc(i[0] + ": " + i[1], sep='/')
+            printc(str(count) + ") " + i[0] + ": " + i[1], sep='/')
         else:
-            print(i[0] + ": " + i[1])
-
+            print(str(count) + ") " + i[0] + ": " + i[1])
+        count = count + 1
+            
 elif (args.sex == "all"):
 
     c2l = c2lfemales + c2lmales
@@ -170,12 +174,15 @@ elif (args.sex == "all"):
     else:
         c2l = sorted(c2l, key=getKey1, reverse=True)
     n = args.number
+    
+    count = 1            
     for i in c2l[0:n]:
         if args.less:
-            printc(i[0] + ": " + i[1], sep='/')
+            printc(str(count) + ") " + i[0] + ": " + i[1], sep='/')
         else:
-            print(i[0] + ": " + i[1])
-    
+            print(str(count) + ") " + i[0] + ": " + i[1])
+        count = count + 1
+            
 # Paging of the current contents of the temp file:
 if args.less:
     tmp_file.flush()  # No need to close the file: you can keep printing to it
