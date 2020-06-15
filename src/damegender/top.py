@@ -81,7 +81,7 @@ elif (args.country == "pt"):
 elif (args.country == "uy"):
     c2lmales = du.csv2list("files/names/names_uy/uymasculinos.csv", header=True)
 elif (args.country == "uk"):
-    c2lmales = du.csv2list("files/names/names_uk/ukmales.csv")
+    c2lmales = du.csv2list("files/names/names_uk/ukmales.csv", header=True)
 elif ((args.country == "usa") | (args.country == "us")):
     c2lmales = du.csv2list("files/names/names_us/usmales.csv", header=True)
 
@@ -110,7 +110,7 @@ elif (args.country == "pt"):
 elif (args.country == "uy"):
     c2lfemales = du.csv2list("files/names/names_uy/uyfemeninos.csv", header=True)
 elif (args.country == "uk"):
-    c2lfemales = du.csv2list("files/names/names_uk/ukfemales.csv")
+    c2lfemales = du.csv2list("files/names/names_uk/ukfemales.csv", header=True)
 elif ((args.country == "usa") | (args.country == "us")):
     c2lfemales = du.csv2list("files/names/names_us/usfemales.csv", header=True)
 
