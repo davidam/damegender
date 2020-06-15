@@ -1,6 +1,7 @@
 
 * v0.2.10
 + top.py: print lists about the most used names in different countries
++ count-scientifics.py: counting scientifics in Spain
 
 * v0.2.9
 New names from oficial Open Data census:
