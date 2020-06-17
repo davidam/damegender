@@ -486,6 +486,31 @@ class Gender(object):
         dicc = {"females": females, "males": males}
         return dicc
 
+    def name_prob_countries(self, name):
+        du = DameUtils()
+        es = self.name_frec(name,dataset="es")
+        ie = self.name_frec(name,dataset="ie")
+        isl = self.name_frec(name,dataset="is")        
+        uy = self.name_frec(name,dataset="uy")
+        uk = self.name_frec(name,dataset="uk")
+        us = self.name_frec(name,dataset="us")
+        nz = self.name_frec(name,dataset="nz")
+        ca = self.name_frec(name,dataset="ca")                                        
+        fi = self.name_frec(name,dataset="fi")
+        au = self.name_frec(name,dataset="au")
+        pt = self.name_frec(name,dataset="pt")    
+        females = int(es["females"]) + int(ie["females"]) + int(isl["females"]) + int(uy["females"]) + int(uk["females"]) + int(us["females"]) + int(nz["females"]) + int(ca["females"]) + int(fi["females"]) + int(au["females"]) + int(pt["females"])
+        males = int(es["males"]) + int(ie["males"]) + int(isl["males"]) + int(uy["males"]) + int(uk["males"]) + int(us["males"])  + int(nz["males"]) + int(ca["males"]) + int(fi["males"]) + int(au["males"]) + int(pt["males"])
+
+        prob_females = {"es": du.round_and_not_zero_division(int(es["females"]), int(females)), "ie": du.round_and_not_zero_division(int(ie["females"]), int(females)), "is": du.round_and_not_zero_division(int(isl["females"]), int(females)), "uy": du.round_and_not_zero_division(int(uy["females"]), int(females)), "uk": du.round_and_not_zero_division(int(uk["females"]), int(females)), "us": du.round_and_not_zero_division(int(us["females"]), int(females)), "nz": du.round_and_not_zero_division(int(nz["females"]), int(females)), "ca": du.round_and_not_zero_division(int(ca["females"]), int(females)), "fi": du.round_and_not_zero_division(int(fi["females"]), int(females)), "au": du.round_and_not_zero_division(int(au["females"]), int(females)), "pt": du.round_and_not_zero_division(int(pt["females"]), int(females))}
+        
+        prob_males = {"es": du.round_and_not_zero_division(int(es["males"]), int(males)), "ie": du.round_and_not_zero_division(int(ie["males"]), int(males)), "is": du.round_and_not_zero_division(int(isl["males"]), int(males)), "uy": du.round_and_not_zero_division(int(uy["males"]), int(males)), "uk": du.round_and_not_zero_division(int(uk["males"]), int(males)), "us": du.round_and_not_zero_division(int(us["males"]), int(males)), "nz": du.round_and_not_zero_division(int(nz["males"]), int(males)), "ca": du.round_and_not_zero_division(int(ca["males"]), int(males)), "fi": du.round_and_not_zero_division(int(fi["males"]), int(males)), "au": du.round_and_not_zero_division(int(au["males"]), int(males)), "pt": du.round_and_not_zero_division(int(pt["males"]), int(males))}
+
+        prob = [{"females": prob_females, "males": prob_males}]
+        
+        return prob
+
+    
     def namdict2file(self):
         filepath = 'files/names/nam_dict.txt'
         mylist = []

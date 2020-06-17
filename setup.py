@@ -58,7 +58,7 @@ def drop_pwd(s):
 
 setup(name='damegender',
       python_requires='>3.6',
-      version='0.2.9rc6',
+      version='0.2.10',
       description='Gender Detection Tool by David Arroyo MEnéndez',
       long_description=long_description,
       classifiers=[

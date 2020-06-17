@@ -131,7 +131,7 @@ Currently you can need an api key from:
 
 @itemize @bullet
 @item
-https://store.genderize.io/documentation 
+https://store.genderize.io/documentation
 
 @item
 https://gender-api.com
@@ -354,7 +354,7 @@ American Indian and Alaska Native: 0.85
 Various races: 1.63
 @end example
 
-@node Statistics 
+@node Statistics
 @chapter Statistics
 
 In the last chapter we were learning to execute some commands such as
@@ -523,8 +523,8 @@ $ python3 infofeatures.py ine
 
 Take a look to the results with the different datasets:
 
-@multitable @columnfractions .12 .12 .12 .12 .12 .12 .12 .12 
-@headitem Dataset @tab Letter A @tab Last Letter A @tab Last Letter O @tab Last Letter Consonant @tab Last Letter Vocal @tab First Letter Consonant @tab First Letter Vocal 
+@multitable @columnfractions .12 .12 .12 .12 .12 .12 .12 .12
+@headitem Dataset @tab Letter A @tab Last Letter A @tab Last Letter O @tab Last Letter Consonant @tab Last Letter Vocal @tab First Letter Consonant @tab First Letter Vocal
 @item Uruguay (females)
 @tab 0.816
 @tab 0.456
@@ -629,7 +629,48 @@ The letter a is varying 0.2 from males to females in (USA and Uruguay) and 0.1 f
 
 Surely, the rules it’s a coincidence but we think that is a coincidence between languages due to that there are a good number of names to think different.
 
-@subsection Statistical Concepts
+@subsection Choosing components
+
+After, to choose features for our machine learning task, we can
+understand if this features makes sense with Principal Component
+Analysis. We have written 2 scripts for this task
+@code{pca-components.py} and @code{pca-features.py}. With
+@code{pca-components.py} we are giving a csv (files/features_list.csv,
+files/features_list_no_cat.csv, ...) and the output is an image where
+we can visualize a curve to determine when this curve stops the growth
+the number of components.
+
+@image{images/pca_components_files_features_list_no_cat.csv,6in,,PCA Curve about the number of components}
+
+In the image, we can see that the curve stops the growth in the fourth
+component.
+
+When you know the components you can execute @code{pca-features.py} so:
+
+@example
+$ python3 pca-features.py  --categorical=both --components=4
+The json file is created in files/pca.json
+The html file is created in files/pca.html
+@end example
+
+@image{images/pca-analysis,6in,,Analyze components to determine gender in names}
+
+To simplify and to learn, we can observe this analysis without
+letters. In this analysis, we can observe 4 components.
+
+The first component is about if the last letter is vocal or
+consonant. If the last letter is vocal we can find a male and if the
+last letter is a consonant we can find a male.
+
+The second component is about the first letter. The last letter is
+determining females and the first letter is determining males.
+
+The third component is not giving relevant information.
+
+The fourth component is giving the last_letter_a and the
+first_letter_vocal is for females.
+
+@subsection Receiver Operating Characteristic (ROC)
 
 To be written
 
@@ -660,7 +701,7 @@ $ rsync -az --progress keyring.debian.org::keyrings/keyrings/ .
 We have generated a script to count males and females:
 
 @example
-~/git/damegender/src/damegender$ python3 count-debian-gender.py 
+~/git/damegender/src/damegender$ python3 count-debian-gender.py
 Perhaps you need wait some minutes. You can take a tea or coffe now
 debian males: 795
 debian females: 24
@@ -693,6 +734,109 @@ $ python3 damephoto.py girl1.jpg
 
 We can use this tool to decide gender about images from Twitter,
 Github, ...
+
+@section Webscraping and Damegender because we want count scientifics
+
+Sometimes, we can reach the database of names from a website, for
+example, we can retrieve a list of scientifics from Spain thanks to
+webometrics and the next script:
+
+@example
+from lxml import html
+import requests
+
+print("Introduce an url from webometrics, for example, https://www.webometrics.info/en/GoogleScholar/Spain")
+
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("url", help="display the gender")
+args = parser.parse_args()
+
+page = requests.get(args.url)
+tree = html.fromstring(page.content)
+
+scientifics = tree.xpath('//tr/td/a/strong/text()')
+
+print('Scientifics: %s' % scientifics)
+@end example
+
+If you have retrieved the list of names in a file
+@code{files/scientifics.txt}, you could count males and females with
+the next script called @code{count-scientifics.py}:
+
+@example
+import csv
+import unicodedata
+import unidecode
+import re
+
+from pprint import pprint
+from app.dame_gender import Gender
+from app.dame_utils import DameUtils
+from ast import literal_eval
+from app.dame_sexmachine import DameSexmachine
+
+du = DameUtils()
+g = Gender()
+s = DameSexmachine()
+
+with open('files/scientifics.txt') as f:
+    mainlist = [list(literal_eval(line)) for line in f]
+
+l = mainlist[0]
+
+ll = []
+for i in l:
+    ll.append(i.split())
+
+
+ten = ll[0:10]
+hundred = ll[0:100]
+thousand = ll[0:1000]
+
+x = 0
+y = 0
+males = 0
+females = 0
+for j in hundred:
+    if (len(j[0]) == 1):
+        x = x + 1
+    else:
+        sex = g.guess(j[0], binary=False)
+        y = y +1
+        if (sex == "male"):
+            males = males + 1
+        elif (sex == "female"):
+            females = females + 1
+
+print("Number of scientifics with a single letter as first name: %s" % x)
+print("Number of scientifics with the first name normal: %s" % y)
+print("Number of females scientifics: %s" % females)
+print("Number of males scientifics: %s" % males)
+
+for j in thousand:
+    if (len(j[0]) == 1):
+        x = x + 1
+    else:
+        sex = g.guess(j[0], binary=False)
+        y = y +1
+        if (sex == "male"):
+            males = males + 1
+        else:
+            females = females + 1
+
+print("Number of females scientifics: %s" % females)
+print("Number of males scientifics: %s" % males)
+@end example
+
+And the results are:
+
+@example
+Number of females scientifics: 31425
+Number of males scientifics: 47945
+@end example
+
 
 @section Counting males and females in a git repository
 
@@ -758,7 +902,7 @@ the same email account.
 
 def same_email(string1, string2):
     firstName
-    
+
 def same_identity(string1, string2):
     same_identity = false
     string1 = remove_accents(string1)

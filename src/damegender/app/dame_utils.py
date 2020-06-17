@@ -28,7 +28,7 @@ import os
 import csv
 
 class DameUtils():
-    
+
     def string2array(self, string):
         res = ""
         string = unidecode.unidecode(string)
@@ -140,12 +140,44 @@ class DameUtils():
             result = re.sub(cwd+'/', '', s)
         return result
 
+    def identity2name_email(self, s):
+        r0 = re.match(r"([\w+ ]*)<([\w\.\+\-]+\@[\w]+\.[a-z]{2,3})>", s)
+        fullname = r0.group(1)
+        email = r0.group(2)
+        return [fullname, email]
+
+    def same_identity(self, string1, string2):
+        same_identity = False
+        string1 = self.drop_accents(string1)
+        string2 = self.drop_accents(string2)
+        identity1 = self.identity2name_email(string1)
+        fullname1 = identity1[0]
+        email1 = identity1[1]
+        identity2 = self.identity2name_email(string2)
+        fullname2 = identity2[0]
+        email2 = identity2[1]
+        if (string1 == string2):
+            same_identity = True
+        elif (fullname1 == fullname2):
+            same_identity = True
+        elif ((email1 == email2) and (fullname1 in fullname2) or (fullname2 in fullname1)):
+            same_identity = True
+        else:
+            same_identity = False
+        return same_identity
+
     def list2lower(self, l):
         ll = [element.lower() for element in l] ; l
         return ll
 
+    def num_columns_in_csv(self, csvpath):
+        with open(csvpath, 'r') as csvfile:
+            first_line = csvfile.readline()
+            ncol = first_line.count(',') + 1
+        return ncol
+
     def csvcolumn2list(self, csvpath,  *args, **kwargs):
-        # make a list from a csv file
+        # make a list from a column in a csv file
         position = kwargs.get('position', 0)
         header = kwargs.get('header', True)
         l = []
@@ -157,6 +189,19 @@ class DameUtils():
                 l.append(row[position])
         return l
 
+    def csv2list(self, csvpath,  *args, **kwargs):
+        # make a list from a csv file
+        header = kwargs.get('header', False)        
+        l = []
+        with open(csvpath) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            if (header == True):
+                next(sexreader, None)            
+            for row in sexreader:
+                l.append(row)
+        return l
+        
+    
     # def delete_duplicated(self, l):
     #     if (len(l) == 0):
     #         return l
@@ -176,8 +221,18 @@ class DameUtils():
                 if (not( i in nodup)):
                     nodup.append(i)
         return nodup
-                                      
-    
+
+    def delete_duplicated_identities(self, l):
+        s = []
+        for i in l:
+            if not(i in s):
+                identity_duplicated = False
+                for j in s:
+                    identity_duplicated = (identity_duplicated or self.same_identity(i, j))
+                if (not(identity_duplicated)):
+                    s.append(i)
+        return s
+
     def clean_list(self, l):
         if (len(l) == 0):
             print([])
@@ -185,7 +240,7 @@ class DameUtils():
             aux = []
             for i in l:
                 if ((i != "") and (not(re.search(r' ?.*@.*\..*', i)))):
-                    aux = aux + [i]
+                    aux =  aux + [i]
         return aux
 
     def files_one_level(self, directory):
@@ -225,3 +280,14 @@ class DameUtils():
         else:
             gender = "unknown"
         return gender
+
+    def round_and_not_zero_division(self, x, y):
+        if ((x == 0) and (y == 0)):
+            return 0
+        elif (y == 0):
+            return 0
+        else:
+            division = x / y
+            return (round(division, 3))
+        
+        

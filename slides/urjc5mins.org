@@ -13,20 +13,30 @@
 + Thesis Director: Jesús González Barahona
 + Objectives:
 
-Compare APIs to detect gender from a name
+To compare APIs to detect gender from a name
 
-Apply machine learning to classify nicknames, diminutives or new names
+To apply machine learning to classify nicknames, diminutives or new names
 as male or female
 
-Understand the impact about open data in census about names and gender
+To understand the impact about open data in census about names and gender
 versus datasets created by companies or free software communities.
+
+To apply this tools to the scientific communities or communities based on
+Internet.
+
+** Steps in the development
+
+0. To develop the packaging and python tests with the basic features
+1. To develop statistical tools and bash tests
+2. To add 11 countries datasets with features to download and unify formats
 
 ** Activities
 
-We have presented this working in progress in
+We have presented this working in progress in:
 
-*** One scientific event:
+*** Scientific events:
 + Madrilenian Software Research
++ Group Retreat 2019 Workshop
 
 *** Event to master students:
 + Periodismo de Datos (Medialab Prado)
@@ -35,11 +45,13 @@ We have presented this working in progress in
 + Python Barcelona
 + Open South Code
 
-*** Publications
-Our idea is present an article finished this academic year.
-
 ** Results
 
-Software liberado con GPLv3 integrado en la industria
+*** Software
+Free Software released with GPLv3 integrated in the industry
 + git clone https://github.com/davidam/damegender.git
-+ pip3 install damegender
++ pip3 install damegender (more than 3000 downloads by month)
+
+*** Publications
++ Damegender: Writing and Comparing Gender Detection Tools (Preprint)
++ Damegender Manual: Counting Males and Females in Internet Communities (On working)
