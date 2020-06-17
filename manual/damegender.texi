@@ -629,10 +629,6 @@ The letter a is varying 0.2 from males to females in (USA and Uruguay) and 0.1 f
 
 Surely, the rules it’s a coincidence but we think that is a coincidence between languages due to that there are a good number of names to think different.
 
-@subsection Statistical Concepts
-
-To be written
-
 @subsection Choosing components
 
 After, to choose features for our machine learning task, we can
@@ -674,6 +670,9 @@ The third component is not giving relevant information.
 The fourth component is giving the last_letter_a and the
 first_letter_vocal is for females.
 
+@subsection Receiver Operating Characteristic (ROC)
+
+To be written
 
 
 @node Use Cases
