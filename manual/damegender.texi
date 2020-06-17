@@ -510,6 +510,32 @@ It means, I have 2 females true and I’ve guessed 2 females and I’ve 14 males
 
 In Damegender, we have coded confusion.py to implement this concept with the different apis.
 
+@example
+python3 confusion.py --csv=files/names/min.csv --api=damegender --jsondownloaded=files/names/min.csv.json 
+A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are true positives
+Damegender confusion matrix:
+
+      M   F   U  
+M  [[ 5,  0,  0 ]
+F   [ 0,  1,  0 ]]
+@end example
+
+Similar to confusion is ROC (Receiver Operating Characteristic) is a
+graphical plot that illustrates the diagnostic ability of a binary
+classifier system as its discrimination threshold is varied. The ROC
+curve is created by plotting the true positive rate (TPR) against the
+false positive rate (FPR) at various threshold settings.
+
+In Damegender, you can use ROC relative to machine learning algorithms
+with the next command:
+
+@example
+$ python3 roc.py svc
+@end example
+
+@image{images/roc-svc,6in,,Analyze components to determine gender in names}
+
 @section Principal Component Analysis (PCA)
 
 @subsection Counting features in names
