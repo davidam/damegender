@@ -484,6 +484,16 @@ else
 	echo "top test is ok"
 fi
 
+if [ -a files/images/roc_gaussianNB.png ]; then
+    rm files/images/roc_gaussianNB.png
+fi
+
+python3 roc.py gaussianNB --noshow
+if [ -a files/images/roc_gaussianNB.png ]; then
+	echo "roc test is ok"
+else
+	echo "roc test is failing"
+fi
 
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
