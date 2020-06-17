@@ -60,7 +60,7 @@ from app.dame_utils import DameUtils
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
+parser.add_argument('ml', choices=['svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
 parser.add_argument('--noshow', dest='noshow', action='store_true')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
