@@ -1,0 +1,45 @@
+#+TITLE: Frequently Answers and Questions about Damegender
+#+h3: David Arroyo Menéndez 
+#+LANGUAGE: es
+#+AUTHOR: David Arroyo Menéndez 
+#+EMAIL: davidam@gnu.org
+#+DATE: 17/06/2020
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/org.css" />
+
+* Ethical Values
+** Is Damegender reducing the gender gap? 
+We use say Damegender can reduce the gender gap. To reduce the gender
+gap is an [[https://www.un.org/sustainabledevelopment/gender-equality/][objective in United Nations]], so the states must help to this
+objective. To reduce the gender gap we must measure where it is
+happening. Damegender is Free Software with data extracted from the states 
+
+** Can I guess the sexual orientation with Damegender? 
+Not, you can't. You only guess the gender, such as the states is
+registering it. All states is using a binary ideology about the gender
+(male and female) and in Damegender too.
+
+** Is Damegender Free Software?
+
+Yes, it's. We are using GPLv3. You can read the license in all files
+and the full text in LICENSE file.
+
+* Installation
+** How can I install it?
+
+#+BEGIN_SRC bash
+$ pip3 install damegender[all]
+#+END_SRC
+
+** Where is the scripts to execute Damegender?
+
+In my GNU/Linux installation you can access to Damegender from:
+
+#+BEGIN_SRC bash
+/usr/local/lib/python3.7/site-packages/damegender
+#+END_SRC
+
+You can guess a name with
+
+#+BEGIN_SRC bash
+$ python3 main.py Clara
+#+END_SRC
