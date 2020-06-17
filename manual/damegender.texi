@@ -534,7 +534,8 @@ with the next command:
 $ python3 roc.py svc
 @end example
 
-@image{images/roc-svc,6in,,Analyze components to determine gender in names}
+@image{images/roc_svc,6in,,ROC about SVC}
+                                                                     
 
 @section Principal Component Analysis (PCA)
 
