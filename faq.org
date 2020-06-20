@@ -23,15 +23,6 @@ registering it. All states is using a binary ideology about the gender
 Yes, it's. We are using GPLv3. You can read the license in all files
 and the full text in LICENSE file.
 
-* Motivation
-** Why must I use Damegender?
-+ If you want determine gender gap in free software projects or mailing lists.
-+ If you don't know the gender about a name
-+ If you want research with statistics about why a name is related with males or females.
-+ If you want use a free gender detection tool from a name from a command with open data.
-+ If you want use the main solutions in gender detection (genderize,
-  genderapi, namsor, nameapi and gender guesser) from a command.
-
 * Installation
 ** How can I install it?
 
@@ -51,4 +42,54 @@ You can guess a name with
 
 #+BEGIN_SRC bash
 $ python3 main.py Clara
+#+END_SRC
+* Using it
+** Why must I use Damegender?
++ If you want determine gender gap in free software projects or mailing lists.
++ If you don't know the gender about a name
++ If you want research with statistics about why a name is related with males or females.
++ If you want use a free gender detection tool from a name from a command with open data.
++ If you want use the main solutions in gender detection (genderize,
+  genderapi, namsor, nameapi and gender guesser) from a command.
+** How can I determine gender gap in free software projects or mailing lists.
+** How can I determine gender about a name?
+#+BEGIN_SRC 
+$ python3 main.py David
+#+END_SRC
+** What's the scripts to research with statistics?
++ confusion.py
++ accuracy.py
++ errors.py
++ roc.py
++ pca-components.py and pca-features.py
++ infofeatures.py
+
+** How can I know the most used names?
+#+BEGIN_SRC bash
+$ python3 top.py es --sex=female
+#+END_SRC
+** Give me the race about a name in USA!
+#+BEGIN_SRC bash
+$ python3 ethnicity.py David
+#+END_SRC
+** What countries are related about a name?
+#+BEGIN_SRC bash
+$ python3 nameincountries.py David
+#+END_SRC
+** What countries are related about a surname?
+#+BEGIN_SRC bash
+$ python3 surnameincountries.py David
+#+END_SRC
+** How many people are using a surname?
+#+BEGIN_SRC bash
+$ python3 surname.py Menéndez --total=us
+#+END_SRC
+** Give me some real examples about count males and females in communities
+#+BEGIN_SRC bash
+$ python3 count-debian-gender.py
+$ python3 count-scientifics.py
+#+END_SRC
+** How can I use another solutions in gender detection from damegender?
+#+BEGIN_SRC bash
+$ python3 api2gender.py David --api=genderize
 #+END_SRC
