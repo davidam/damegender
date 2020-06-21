@@ -142,10 +142,14 @@ class DameUtils():
 
     def identity2name_email(self, s):
         r0 = re.match(r"([\w+ ]*)<([\w\.\+\-]+\@[\w]+\.[a-z]{2,3})>", s)
-        fullname = r0.group(1)
-        email = r0.group(2)
+        if r0:
+            fullname = r0.group(1)
+            email = r0.group(2)
+        else:
+            fullname = s
+            email = ""
         return [fullname, email]
-
+        
     def same_identity(self, string1, string2):
         same_identity = False
         string1 = self.drop_accents(string1)
