@@ -295,7 +295,7 @@ class DameUtils():
             return (round(division, 3))
         
     def initial_letters(self, s):
-        match = re.search(r'([A-Z][\.| ]){1,2}', s)
+        match = re.search(r'(([A-Z][\.| ]){1,2})|([A-Z]{2})', s)
         if match:
             return True
         else:

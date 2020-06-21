@@ -227,6 +227,9 @@ class TddInPythonExample(unittest.TestCase):
         self.assertFalse(s)
         s = du.initial_letters("J.L.")        
         self.assertTrue(s)
+        s = du.initial_letters("JL")        
+        self.assertTrue(s)
+
         
     # def test_dame_utils_delete_duplicated_identities(self):
     #     du = DameUtils()
