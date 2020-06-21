@@ -25,6 +25,15 @@ registering it. All states is using a binary ideology about the gender
 Yes, it's. We are using GPLv3. You can read the license in all files
 and the full text in LICENSE file.
 
+** Why are you guessing male or female?
+Some aplications are guessing unknown, but in Damegender we are
+thinking that this option is ok if the name is not in database. In
+this case, we are providing a binary response using machine learning.
+
+Some LGTB associations are claiming by non binary options about
+gender, that is not an option for us due to there not states
+acknowledging this need. The states are providing us the datasets.
+
 * Installation
 ** How can I install it?
 
@@ -117,5 +126,4 @@ Later, you can guess the name choosing the rigth api:
 #+BEGIN_SRC bash 
 $ python3 api2gender.py David --api=genderize
 #+END_SRC
-
 
