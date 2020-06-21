@@ -30,9 +30,10 @@ Some aplications are guessing unknown, but in Damegender we are
 thinking that this option is ok if the name is not in database. In
 this case, we are providing a binary response using machine learning.
 
-Some LGTB associations are claiming by non binary options about
-gender, that is not an option for us due to there not states
-acknowledging this need. The states are providing us the datasets.
+Some radical LGTB associations are claiming by non binary options
+about gender, that is not an option for us due to there not states
+acknowledging this need and providing Open Datasets about names and
+gender. The states are providing us the datasets.
 
 * Installation
 ** How can I install it?
