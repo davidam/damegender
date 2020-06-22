@@ -49,6 +49,9 @@ person is talking about a male or a female, but you must understand
 that you must not self reference or reference to another people as
 things. Please be careful, it's your responsability.
 
+More about Afghanistan and names:
++ https://www.afghanistan-analysts.org/en/reports/rights-freedom/whats-in-a-womans-name-no-name-no-public-persona/
+
 * Installation
 ** How can I install it?
 
