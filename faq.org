@@ -52,6 +52,12 @@ things. Please be careful, it's your responsability.
 More about Afghanistan and names:
 + https://www.afghanistan-analysts.org/en/reports/rights-freedom/whats-in-a-womans-name-no-name-no-public-persona/
 
+** Is Damegender helping to preserve the cultural identity?
+Yes it's. When you can find in what countries are being used names and
+surnames you can understand the cultural identity with numbers. For
+example, the spanish names and surnames can be find in many countries
+in South America, but don't with the same quantities. 
+
 * Installation
 ** How can I install it?
 
