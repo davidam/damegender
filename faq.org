@@ -35,6 +35,20 @@ about gender, that is not an option for us due to there not states
 acknowledging this need and providing Open Datasets about names and
 gender. The states are providing us the datasets.
 
+** Are you predicting ethical problems using machine learning for guess names?
+Machine learning is similar than statistics, so you don't be afraid
+using maths when you are coding. Damegender can be used on a laptop,
+so that you are not depending of a very big company as Amazon for use
+the machine learning. 
+
+If you introduce a word such as chair, table, etc. you could have a
+gender ethical problem because you are giving a gender to a thing. In
+Afghanistan there are women with no names referenced as things, so the
+problem is dangerous. You can use Damegender to understand if the
+person is talking about a male or a female, but you must understand
+that you must not self reference or reference to another people as
+things. Please be careful, it's your responsability.
+
 * Installation
 ** How can I install it?
 
