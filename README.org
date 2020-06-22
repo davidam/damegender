@@ -1,8 +1,4 @@
 
-* Logo
-
-file:https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/CaravaggioDavidGoliathVienna.jpg/620px-CaravaggioDavidGoliathVienna.jpg
-
 * Name
 damegender is a gender detection tool from the name coded by David Arroyo MEnéndez (DAME)
 
