@@ -67,21 +67,12 @@ else
 fi
 
 
-# xgboost is disabled for now
-# python3 main.py silla --ml=xgboost > files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt
-# if ! cmp files/tests/mainsilla.txt files/tests/mainsilla-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-# then
-#     echo "mainsilla test is failing"
-# else
-#     echo "mainsilla test is ok"
-# fi
-
-python3 main.py casa --ml=forest > files/tests/maincasa-$(date "+%Y-%m-%d-%H").txt
-if ! cmp files/tests/maincasa.txt files/tests/maincasa-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+python3 main.py casa --ml=forest > files/tests/mainaire-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/mainaire.txt files/tests/mainaire-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-    echo "maincasa test is failing"
+    echo "mainaire test is failing"
 else
-    echo "maincasa test is ok"
+    echo "mainaire test is ok"
 fi
 
 python3 api2gender.py David --api="genderguesser" > files/tests/api2genderDavidgenderguesser-$(date "+%Y-%m-%d-%H").txt
