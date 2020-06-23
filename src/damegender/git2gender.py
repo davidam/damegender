@@ -35,10 +35,9 @@ if (len(sys.argv) > 1):
     ds = DameSexmachine()
     du = DameUtils()
     dp = DamePerceval()
-    l1 = dp.list_committers(args.url, args.directory)
+    l1 = dp.list_committers(args.url, args.directory, mail=True)
     l2 = du.delete_duplicated(l1)
-    l3 = du.clean_list(l2)
-    l4 = du.delete_duplicated_identities(l3)    
+    l4 = du.delete_duplicated_identities(l2)    
     
     females = 0
     males = 0
