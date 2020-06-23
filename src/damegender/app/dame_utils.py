@@ -141,7 +141,7 @@ class DameUtils():
         return result
 
     def identity2name_email(self, s):
-        r0 = re.match(r"([\w+ ]*)<([\w\.\+\-]+\@[\w]+\.[a-z]{2,3})>", s)
+        r0 = re.match(r"([\w+ ]*)<([\w\.\+\-]+\@[\w\.\+\-]+\.[a-z]{2,3})>", s)
         if r0:
             fullname = r0.group(1)
             email = r0.group(2)

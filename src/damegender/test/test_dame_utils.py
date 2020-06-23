@@ -200,10 +200,21 @@ class TddInPythonExample(unittest.TestCase):
         identity = du.identity2name_email(s)
         self.assertEqual(identity[0], "David Arroyo Menéndez ")
         self.assertEqual(identity[1], "davidam@gnu.org")
-        # s2 = "David Arroyo Menéndez"
-        # identity2 = du.identity2name_email(s)
-        # self.assertEqual(identity2[0], "David Arroyo Menéndez")
-        # self.assertEqual(identity2[1], "")
+
+        s2 = "David Arroyo Menéndez <david.am@gnu.org>"
+        identity2 = du.identity2name_email(s2)
+        self.assertEqual(identity2[0], "David Arroyo Menéndez ")
+        self.assertEqual(identity2[1], "david.am@gnu.org")
+        
+        s3 = "David Arroyo Menéndez <david@alumnos.urjc.es>"
+        identity3 = du.identity2name_email(s3)
+        self.assertEqual(identity3[0], "David Arroyo Menéndez ")
+        self.assertEqual(identity3[1], "david@alumnos.urjc.es")
+
+        s4 = "David Arroyo Menéndez <d.arroyome@alumnos.urjc.es>"
+        identity4 = du.identity2name_email(s4)
+        self.assertEqual(identity4[0], "David Arroyo Menéndez ")
+        self.assertEqual(identity4[1], "d.arroyome@alumnos.urjc.es")
 
         
     def test_dame_utils_same_identity(self):
