@@ -457,7 +457,16 @@ else
 	echo "surnamegil test is ok"
 fi
 
-python3 surnameincountries.py Menéndez > files/tests/surnameincountries-menendez-$(date "+%Y-%m-%d-%H").txt
+python3 surname.py Menendez --total=es --spanish_provinces > files/tests/surnamemenendezprovinces-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/surnamemenendezprovinces.txt files/tests/surnamemenendezprovinces-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "surnamemenendezprovinces test is failing"
+else
+	echo "surnamemenendezprovinces test is ok"
+fi
+
+python3 surnameincountries.py Menéndez > surnameincountries-menendez-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/surnameincountries-menendez.txt files/tests/surnameincountries-menendez-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -465,6 +474,8 @@ then
 else
 	echo "surnamemenendez test is ok"
 fi
+
+
 
 python3 errors.py --csv=files/names/partial.csv --jsondownloaded=files/names/partial.csv.nltk.json > files/tests/errorspartialnltk-$(date "+%Y-%m-%d-%H").txt
 
