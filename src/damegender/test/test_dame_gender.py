@@ -365,6 +365,21 @@ class TddInPythonExample(unittest.TestCase):
         v2 = [2, 0, 1, 1]
         self.assertEqual(g.na_coded(v1, v2), 0.25)
 
+    def test_dame_gender_inesurname_province_and_frec(self):
+        g = Gender()
+        frec1 = g.inesurname_province_and_frec("GIL", province='madrid')
+        frec2 = g.inesurname_province_and_frec("GIL", province='alava')
+        frec3 = g.inesurname_province_and_frec("GIL", province='bizkaia')
+        frec4 = g.inesurname_province_and_frec("GIL", province='guipuzkoa')                
+        frec5 = g.inesurname_province_and_frec("GIL", province='navarra')
+
+        self.assertEqual(frec1, 19961)
+        self.assertEqual(frec2, 1003)
+        self.assertEqual(frec3, 2829)
+        self.assertEqual(frec4, 1389)
+        self.assertEqual(frec5, 2462)                                
+
+        
     def test_dame_gender_name_frec(self):
         g = Gender()
         frec1 = g.name_frec("INES", dataset='ine')
