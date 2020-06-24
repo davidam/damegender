@@ -198,24 +198,34 @@ class TddInPythonExample(unittest.TestCase):
         du = DameUtils()
         s = "David Arroyo Menéndez <davidam@gnu.org>"
         identity = du.identity2name_email(s)
-        self.assertEqual(identity[0], "David Arroyo Menéndez ")
+        self.assertEqual(identity[0], "David Arroyo Menendez")
         self.assertEqual(identity[1], "davidam@gnu.org")
 
         s2 = "David Arroyo Menéndez <david.am@gnu.org>"
         identity2 = du.identity2name_email(s2)
-        self.assertEqual(identity2[0], "David Arroyo Menéndez ")
+        self.assertEqual(identity2[0], "David Arroyo Menendez")
         self.assertEqual(identity2[1], "david.am@gnu.org")
         
         s3 = "David Arroyo Menéndez <david@alumnos.urjc.es>"
         identity3 = du.identity2name_email(s3)
-        self.assertEqual(identity3[0], "David Arroyo Menéndez ")
+        self.assertEqual(identity3[0], "David Arroyo Menendez")
         self.assertEqual(identity3[1], "david@alumnos.urjc.es")
 
         s4 = "David Arroyo Menéndez <d.arroyome@alumnos.urjc.es>"
         identity4 = du.identity2name_email(s4)
-        self.assertEqual(identity4[0], "David Arroyo Menéndez ")
+        self.assertEqual(identity4[0], "David Arroyo Menendez")
         self.assertEqual(identity4[1], "d.arroyome@alumnos.urjc.es")
 
+        s5 = "Jim Jagielski <jim@jaguNET.com>"
+        identity5 = du.identity2name_email(s5)
+        self.assertEqual(identity5[0], "Jim Jagielski")
+        self.assertEqual(identity5[1], "jim@jaguNET.com")
+
+        s6 = '"Jim Jagielski" <jim@jaguNET.com>'
+        identity6 = du.identity2name_email(s6)
+        self.assertEqual(identity6[0], 'Jim Jagielski')
+        self.assertEqual(identity6[1], 'jim@jaguNET.com')
+        
         
     def test_dame_utils_same_identity(self):
         du = DameUtils()
