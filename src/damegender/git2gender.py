@@ -29,6 +29,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("url", help="Uniform Resource Link")
 parser.add_argument('--directory')
+parser.add_argument('--show', choices=['males', 'females', 'unknowns', 'all'])
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 if (len(sys.argv) > 1):
@@ -42,14 +43,36 @@ if (len(sys.argv) > 1):
     females = 0
     males = 0
     unknowns = 0
+
+    list_females = []
+    list_males = []
+    list_unknowns = []            
+    
     for g in l4:
         sm = ds.guess(g, binary=True)
         if (sm == 0):
             females = females + 1
+            list_females.append(g)
         elif (sm == 1):
             males = males + 1
+            list_males.append(g)            
         else:
             unknowns = unknowns + 1
-
+            list_unknowns.append(g)
+            
     print("The number of males sending commits is %s" % males)
+    if ((args.show=='males') or (args.show=='all')):
+        print("The list of males sending mails is:" % list_males)
+        print(list_males)
+    
     print("The number of females sending commits is %s" % females)
+    if ((args.show=='females') or (args.show=='all')):
+        print("The list of females sending mails is:" % list_females)
+        print(list_females)
+    
+    print("The number of people with unknown gender sending commits is %s" % unknowns)    
+    if ((args.show=='unknowns') or (args.show=='all')):
+        print("The list of people with unknown gender sending mails is:" % list_unknowns)
+        print(list_unknowns)
+
+    
