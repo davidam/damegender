@@ -24,16 +24,23 @@
 from app.dame_sexmachine import DameSexmachine
 from app.dame_perceval import DamePerceval
 from app.dame_utils import DameUtils
+from app.dame_gender import Gender
 import sys
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("url", help="Uniform Resource Link")
 parser.add_argument('--directory')
 parser.add_argument('--show', choices=['males', 'females', 'unknowns', 'all'])
+parser.add_argument('--ml', default='none', choices=['none', 'nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
+
 if (len(sys.argv) > 1):
-    ds = DameSexmachine()
+    if (args.ml == 'none'):
+        g = Gender()
+        print("You are not using ml the process is not very slow, but perhaps you are not finding good results")
+    else:
+        g = DameSexmachine()
     du = DameUtils()
     dp = DamePerceval()
     l1 = dp.list_committers(args.url, args.directory, mail=True)
@@ -48,17 +55,24 @@ if (len(sys.argv) > 1):
     list_males = []
     list_unknowns = []            
     
-    for g in l4:
-        sm = ds.guess(g, binary=True)
+    for row in l4:
+        vector = du.identity2name_email(row)
+        fullname = vector[0]
+        vector2 = fullname.split()
+        name = vector2[0]
+        if (args.ml == 'none'):
+            sm = g.guess(name, binary=True, dataset='usa')
+        else:
+            sm = g.guess(name, binary=True, dataset='usa', ml=args.ml)
         if (sm == 0):
             females = females + 1
-            list_females.append(g)
+            list_females.append(fullname)
         elif (sm == 1):
             males = males + 1
-            list_males.append(g)            
+            list_males.append(fullname)            
         else:
             unknowns = unknowns + 1
-            list_unknowns.append(g)
+            list_unknowns.append(fullname)
             
     print("The number of males sending commits is %s" % males)
     if ((args.show=='males') or (args.show=='all')):
