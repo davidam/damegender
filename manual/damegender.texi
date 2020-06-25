@@ -697,11 +697,6 @@ The third component is not giving relevant information.
 The fourth component is giving the last_letter_a and the
 first_letter_vocal is for females.
 
-@subsection Receiver Operating Characteristic (ROC)
-
-To be written
-
-
 @node Use Cases
 @chapter Use Cases
 
@@ -739,7 +734,54 @@ surname and email in different fields. So, it's easy detect the name,
 although some names has several emails
 
 We have choosen the United States of America dataset and we are using
-the method name_frec to decide for male or female in the row.
+the method name_frec to decide for male or female in the row. Take a
+look to the source:
+
+@example
+import csv
+import unicodedata
+import unidecode
+from pprint import pprint
+import re
+from app.dame_gender import Gender
+from app.dame_utils import DameUtils
+
+du = DameUtils()
+g = Gender()
+
+result=""
+dm = []
+
+with open('files/debian-maintainers-gpg-2020-04-01.csv') as csvfile:
+    reader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    aux = ""
+    cnt = 0
+    for row in reader:
+        cnt = cnt +1
+        if (aux != row[0]):
+            dm.append(row[0])
+        aux = row[0]
+
+print("Perhaps you need wait some minutes. You can take a tea or coffe now")
+
+females = 0
+males = 0
+for rowdm in dm:
+    if (int(g.name_frec(str(rowdm.upper()), 'us')['females']) > int(g.name_frec(str(rowdm.upper()), 'us')['males'] )):
+        females = females + 1
+    else:
+        males = males + 1
+
+print("debian males: %s" % males)
+print("debian females: %s" % females)
+
+csvfile.close()
+@end example
+
+The advantage using name_frec is about to understand how you are
+deciding male or female in the script counting males and females. In
+this script the decision is simple: a name is male if there are more
+males than females and female if there are more females than males.
 
 The United States of America dataset is a good choice for Free
 Software communities, due to that this communities is based on english
@@ -747,6 +789,51 @@ as main language and United States of America is a leader country in
 software development. United States of America hosts people from
 different countries due to migrations towards good companies and
 universities.
+
+@section Counting males and females in Forbes
+
+In the second example, we are using guess without machine learning
+instead of name_frec. If you are using guess you are trusting on
+damegender to take the decision, but perhaps you are not agree.
+
+Please take a look about our guess method in the current state:
+
+@example
+    def guess(self, name, binary=False, *args, **kwargs):
+        # guess list method
+        dataset = kwargs.get('dataset', 'es')
+        # guess method to check names dictionary
+        guess = ''
+        name = unidecode.unidecode(name).title()
+        name.replace(name, "")
+        dicc = self.name_frec(name, dataset)
+        m = int(dicc['males'])
+        f = int(dicc['females'])
+        if ((m == 0) and (f == 0)):
+            if binary:
+                guess = 2
+            else:
+                guess = "unknown"
+        elif (m > f):
+            if binary:
+                guess = 1
+            else:
+                guess = "male"
+        elif (f > m):
+            if binary:
+                guess = 0
+            else:
+                guess = "female"
+        else:
+            if binary:
+                guess = 2
+            else:
+                guess = "unknown"
+        return guess
+@end example
+
+We are using the spanish dataset by default and the rest is the same
+idea that in the last script: more people using the name.
 
 @section Deciding for males and females in images
 
@@ -939,8 +1026,6 @@ def same_identity(string1, string2):
     else:
         same_identity = false
     return same_identity
-
-
 
 
 @node GNU Free Documentation License
