@@ -417,8 +417,7 @@ class Gender(object):
 
     def name_frec(self, name, *args, **kwargs):
         # guess list method
-        dataset = kwargs.get('dataset', 'es')
-
+        dataset = kwargs.get('dataset',"us")
         du = DameUtils()
         name = du.drop_accents(name)
         path_males = 'files/names/names_es/esmasculinos.csv'
@@ -432,7 +431,7 @@ class Gender(object):
             path_males = 'files/names/names_uy/uymasculinos.csv'
         elif (dataset == 'uk'):
             path_males = 'files/names/names_uk/ukmales.csv'
-        elif (dataset == 'us'):
+        elif ((dataset == 'us') or (dataset=='usa')):
             path_males = 'files/names/names_us/usmales.csv'
         elif (dataset == 'nz'):
             path_males = 'files/names/names_nz/nzmales.csv'            
@@ -463,7 +462,7 @@ class Gender(object):
             path_females = 'files/names/names_uy/uyfemeninos.csv'
         elif (dataset == 'uk'):
             path_females = 'files/names/names_uk/ukfemales.csv'
-        elif (dataset == 'us'):
+        elif ((dataset == 'us') or (dataset=='usa')):
             path_females = 'files/names/names_us/usfemales.csv'
         elif (dataset == 'nz'):
             path_females = 'files/names/names_nz/nzfemales.csv'            
