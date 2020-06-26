@@ -399,7 +399,7 @@ class Gender(object):
                     elif (guess == 'u'):
                         guess = 2
                     genderlist.append(guess)
-        if (dataset == "files/names/yob2017.txt"):
+        if (dataset == "files/names/names_uk/orig/yob2017.txt"):
             with open(dataset) as csvfile:
                 sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
                 next(sexreader, None)
