@@ -596,11 +596,11 @@ class Gender(object):
             path_surnames = 'files/inesurnames/provincias/residencia/zaragoza.csv'
         file_surnames = open(path_surnames, 'r')
         readerf = csv.reader(file_surnames, delimiter=',', quotechar='|')
-        females = 0
+        quantity = 0
         for row in readerf:
             if ((len(row) > 1) and (row[0].lower() == surname.lower())):
-                quantity = row[1]
-                quantity = int(du.drop_dots(quantity))
+                aux = row[1]
+                quantity = int(du.drop_dots(aux))
         return quantity
 
             
