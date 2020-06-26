@@ -1,2099 +1,2099 @@
-   Mail:     Steffen Klassert <klassert@kernel.org>
-    Mail:     David Dillow <dave@thedillows.org>
-    Mail:     Adam Radford <aradford@gmail.com>
-    Mail:     “James E.J. Bottomley” <James.Bottomley@HansenPartnership.com>
-  Mail:    Alexander Aring <alex.aring@gmail.com>, Jukka Rissanen <jukka.
-    Mail:     Andreas Koensgen <ajk@comnets.uni-bremen.de>
-  Mail:   Johannes Berg <johannes@sipsolutions.net>
-  Mail:    Realtek linux nic maintainers <nic_swsd@realtek.com>, Heiner
-    Mail:     Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-  Mail:    Eric Van Hensbergen <ericvh@gmail.com>, Latchesar Ionkov <lucho@
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Adaptec OEM Raid Solutions <aacraid@microsemi.com>
-    Mail:     Hans de Goede <hdegoede@redhat.com>
-    Mail:     Alistair John Strachan <alistair@devzero.co.uk>
-    Mail:     William Breathitt Gray <vilhelm.gray@gmail.com>
-    Mail:     “William Breathitt Gray” <vilhelm.gray@gmail.com>
-    Mail:     “William Breathitt Gray” <vilhelm.gray@gmail.com>
- Mail:  William Breathitt Gray <vilhelm.gray@gmail.com>, Syed Nayyar Waris <
-    Mail:     William Breathitt Gray <vilhelm.gray@gmail.com>
-    Mail:     William Breathitt Gray <vilhelm.gray@gmail.com>
-    Mail:     Jes Sorensen <jes@trained-monkey.org>
-    Mail:     Peter Kaestle <peter@piie.net>
-    Mail:     “Lee, Chun-Yi” <jlee@suse.com>
-  Mail:    “Rafael J. Wysocki” <rjw@rjwysocki.net>, Len Brown <lenb@kernel.org>
-  Mail:   “Rafael J. Wysocki” <rjw@rjwysocki.net>, Len Brown <lenb@kernel.org>
-  Mail:    Robert Moore <robert.moore@intel.com>, Erik Kaneda <erik.kaneda@
-    Mail:     Zhang Rui <rui.zhang@intel.com>
- Mail:   Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, Hanjun Guo <guohanjun@
-    Mail:     Hans de Goede <hdegoede@redhat.com>
-  Mail:    “Rafael J. Wysocki” <rjw@rjwysocki.net>, Len Brown <lenb@kernel.org>
-    Mail:     Zhang Rui <rui.zhang@intel.com>
-    Mail:     Zhang Rui <rui.zhang@intel.com>
-  Mail:   Michael Hennerich <michael.hennerich@analog.com>
-  Mail:   Michael Hennerich <michael.hennerich@analog.com>
-  Mail:   Michael Hennerich <michael.hennerich@analog.com>
-  Mail:   Michael Hennerich <michael.hennerich@analog.com>
-  Mail:   Michael Hennerich <michael.hennerich@analog.com>
- Mail:  Jiri Kosina <jikos@kernel.org>
-  Mail:    Michael Hennerich <michael.hennerich@analog.com>
-    Mail:     Jean Delvare <jdelvare@suse.com>
-    Mail:     Corentin Labbe <clabbe.montjoie@gmail.com>
-    Mail:     Sakari Ailus <sakari.ailus@iki.fi>
-  Mail:   Michael Hennerich <michael.hennerich@analog.com>
-  Mail:   Michael Hennerich <michael.hennerich@analog.com>
-  Mail:   Michael Hennerich <michael.hennerich@analog.com>
- Mail:  Colin Leroy <colin@colino.net>
-    Mail:     Jean Delvare <jdelvare@suse.com>
-   Mail:     Matthew Wilcox <willy@infradead.org>, Hannes Reinecke <hare@suse.
-  Mail:   Michael Hennerich <michael.hennerich@analog.com>
-  Mail:   Michael Hennerich <michael.hennerich@analog.com>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     David Sterba <dsterba@suse.com>
-    Mail:     David Howells <dhowells@redhat.com>
- Mail:  David Airlie <airlied@linux.ie>
-    Mail:     “Juergen E. Fischer” <fischer@norbit.de>
-    Mail:     Hannes Reinecke <hare@suse.com>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-    Mail:     Benjamin LaHaise <bcrl@kvack.org>
-    Mail:     Antti Palosaari <crope@iki.fi>
- Mail:  Lino Sanfilippo <LinoSanfilippo@gmx.de>
-    Mail:     Duncan Sands <duncan.sands@free.fr>
- Mail:  Manuel Lauss <manuel.lauss@gmail.com>
-    Mail:     Rudolf Marek <r.marek@assembler.cz>
-  Mail:    Tomislav Denis <tomislav.denis@avl.com>
-    Mail:     Michael Tretter <m.tretter@pengutronix.de>
-  Mail:   Maxime Ripard <mripard@kernel.org>
- Mail:   Yangtao Li <tiny.windzz@gmail.com>
-    Mail:     Corentin Labbe <clabbe.montjoie@gmail.com>
-  Mail:   Vasily Khoruzhick <anarsoul@gmail.com>, Yangtao Li <tiny.windzz@gmail
-  Mail:    Maxime Ripard <mripard@kernel.org>, Paul Kocialkowski <paul.
- Mail:   Richard Henderson <rth@twiddle.net>, Ivan Kokshaysky <ink@jurassic.
- Mail:  Thor Thayer <thor.thayer@linux.intel.com>
- Mail:  Ley Foon Tan <ley.foon.tan@intel.com>
-    Mail:     Joyce Ooi <joyce.ooi@intel.com>
- Mail:  Thor Thayer <thor.thayer@linux.intel.com>
- Mail:  Thor Thayer <thor.thayer@linux.intel.com>
-    Mail:     Thor Thayer <thor.thayer@linux.intel.com>
- Mail:   Tobias Klauser <tklauser@distanz.ch>
- Mail:  Talel Shenhar <talel@amazon.com>
- Mail:  Talel Shenhar <talel@amazon.com>
-  Mail:   Netanel Belgazal <netanel@amazon.com>, Arthur Kiyanovski <akiyano@
-    Mail:     Gal Pressman <galpress@amazon.com>
-    Mail:     Tom Lendacky <thomas.lendacky@amd.com>
-    Mail:     Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.
-    Mail:     Naveen Krishna Chatradhi <nchatrad@amd.com>
-    Mail:     Huang Rui <ray.huang@amd.com>
-   Mail:     Enrico Weigelt, metux IT consult <info@metux.net>
-  Mail:   Andres Salomon <dilinger@queued.net>
-    Mail:     Joerg Roedel <joro@8bytes.org>
- Mail:  Felix Kuehling <Felix.Kuehling@amd.com>
- Mail:  Sanjay R Mehta <sanju.mehta@amd.com>
- Mail:   Elie Morisse <syniurge@gmail.com>, Nehal Shah <nehal-bakulchandra.shah
-    Mail:     Evan Quan <evan.quan@amd.com>
- Mail:  Brijesh Singh <brijeshkumar.singh@amd.com>, Suravee Suthikulpanit <
-   Mail:    Tom Lendacky <thomas.lendacky@amd.com>
-    Mail:     Michael Hennerich <Michael.Hennerich@analog.com>
-   Mail:    Michael Hennerich <Michael.Hennerich@analog.com>
-  Mail:    Beniamin Bia <beniamin.bia@analog.com>
-   Mail:    Michael Hennerich <Michael.Hennerich@analog.com>
-   Mail:    Alexandru Tachici <alexandru.tachici@analog.com>
-   Mail:    Marcelo Schmitt <marcelo.schmitt1@gmail.com>
-  Mail:    Michael Hennerich <Michael.Hennerich@analog.com>, Beniamin Bia <
-  Mail:    Michael Hennerich <Michael.Hennerich@analog.com>
-  Mail:    Michael Hennerich <Michael.Hennerich@analog.com>, Renato Lui Geh <
-    Mail:     Hans Verkuil <hverkuil-cisco@xs4all.nl>
- Mail:  Mircea Caprioru <mircea.caprioru@analog.com>
-   Mail:     Alexandru Ardelean <alexaundru.ardelean@analog.com>
-    Mail:     Alexandru Ardelean <alexandru.ardelean@analog.com>
-  Mail:    Dragos Bogdan <dragos.bogdan@analog.com>
-  Mail:    Nuno Sa <nuno.sa@analog.com>
-  Mail:    Beniamin Bia <beniamin.bia@analog.com>, Michael Hennerich <Michael.
-    Mail:     Michael Hennerich <Michael.Hennerich@analog.com>
-    Mail:     Lars-Peter Clausen <lars@metafoo.de>
-    Mail:     Kieran Bingham <kieran.bingham@ideasonboard.com>
-    Mail:     Hans Verkuil <hverkuil-cisco@xs4all.nl>
-    Mail:     Hans Verkuil <hverkuil-cisco@xs4all.nl>
-    Mail:     Hans Verkuil <hverkuil-cisco@xs4all.nl>
-  Mail:   Lars-Peter Clausen <lars@metafoo.de>, Nuno Sá <nuno.sa@analog.com>
-  Mail:   Lars-Peter Clausen <lars@metafoo.de>
-  Mail:   Beniamin Bia <beniamin.bia@analog.com>, Michael Hennerich <michael.
-  Mail:   Lars-Peter Clausen <lars@metafoo.de>, Michael Hennerich <Michael.
- Mail:  Paul Walmsley <paul.walmsley@sifive.com>
- Mail:   Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
- Mail:  Rob Herring <robh@kernel.org>
- Mail:  android.com>, Todd Kjos <tkjos@android.com>, Martijn Coenen <maco@
- Mail:  Miodrag Dinic <miodrag.dinic@mips.com>
- Mail:  Miodrag Dinic <miodrag.dinic@mips.com>
- Mail:   Laura Abbott <labbott@redhat.com>, Sumit Semwal <sumit.semwal@linaro.
-  Mail:    Johannes Berg <johannes@sipsolutions.net>
-    Mail:     William Breathitt Gray <vilhelm.gray@gmail.com>
- Mail:  Jiri Kosina <jikos@kernel.org>
-    Mail:     John Johansen <john.johansen@canonical.com>
-    Mail:     Henrik Rydberg <rydberg@bitmath.org>
-    Mail:     Henrik Rydberg <rydberg@bitmath.org>
- Mail:  Khuong Dinh <khuong@os.amperecomputing.com>
- Mail:  Khuong Dinh <khuong@os.amperecomputing.com>
- Mail:  Iyappan Subramanian <iyappan@os.amperecomputing.com>, Keyur Chudgar <
- Mail:  keyur@os.amperecomputing.com>, Quan Nguyen <quan@os.amperecomputing.com
- Mail:  Khuong Dinh <khuong@os.amperecomputing.com>
-    Mail:     Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-   Mail:    Igor Russkikh <irusskikh@marvell.com>
-    Mail:     Egor Pomozov <epomozov@marvell.com>
-  Mail:   Naga Sureshkumar Relli <nagasure@xilinx.com>
- Mail:  Jaya Kumar <jayalk@intworks.biz>
- Mail:  Alexey Brodkin <abrodkin@synopsys.com>
-    Mail:     Michael Grzeschik <m.grzeschik@pengutronix.de>
-  Mail:   Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>
- Mail:  Liviu Dudau <liviu.dudau@arm.com>
- Mail:  Linus Walleij <linus.walleij@linaro.org>
- Mail:  James (Qian) Wang <james.qian.wang@arm.com>, Liviu Dudau <liviu.dudau@
-  Mail:    Rob Herring <robh@kernel.org>, Tomeu Vizoso <tomeu.vizoso@collabora.
-  Mail:    Liviu Dudau <liviu.dudau@arm.com>, Brian Starkey <brian.starkey@arm.
- Mail:  Ian Molton <spyro@f2s.com>
- Mail:  Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>
-    Mail:     Russell King <linux@armlinux.org.uk>
- Mail:  Russell King <linux@armlinux.org.uk>
- Mail:  Russell King <linux@armlinux.org.uk>
- Mail:  Russell King <linux@armlinux.org.uk>
- Mail:  Russell King <linux@armlinux.org.uk>
- Mail:  Russell King <linux@armlinux.org.uk>
-   Mail:    Linus Walleij <linus.walleij@linaro.org>
- Mail:  Russell King <linux@armlinux.org.uk>
-  Mail:    Linus Walleij <linus.walleij@linaro.org>
-  Mail:   Julius Werner <jwerner@chromium.org>
-  Mail:   Will Deacon <will@kernel.org>
- Mail:  Andreas Färber <afaerber@suse.de>, Manivannan Sadhasivam <manivannan.
-    Mail:     Lennert Buytenhek <kernel@wantstofly.org>
-    Mail:     Sergey Lapin <slapin@ossfans.org>
-    Mail:     Lennert Buytenhek <kernel@wantstofly.org>
- Mail:  Emilio López <emilio@elopez.com.ar>
- Mail:   Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>
- Mail:   Neil Armstrong <narmstrong@baylibre.com>, Jerome Brunet <jbrunet@
-   Mail:     Corentin Labbe <clabbe@baylibre.com>
-    Mail:     Jerome Brunet <jbrunet@baylibre.com>
-  Mail:   Kevin Hilman <khilman@baylibre.com>
-  Mail:    Tsahee Zidenberg <tsahee@annapurnalabs.com>, Antoine Tenart <antoine
- Mail:  Jesper Nilsson <jesper.nilsson@axis.com>, Lars Persson <lars.persson@
-  Mail:   Brendan Higgins <brendanhiggins@google.com>
-  Mail:    Joel Stanley <joel@jms.id.au>
- Mail:  Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-   Mail:    Andre Przywara <andre.przywara@arm.com>
- Mail:  Krzysztof Halasa <khalasa@piap.pl>
-   Mail:     Sunil Goutham <sgoutham@marvell.com>, Robert Richter <rrichter@
-    Mail:     Lukasz Majewski <lukma@denx.de>
-    Mail:     Alexander Shiyan <shc_work@mail.ru>
-    Mail:     Lennert Buytenhek <kernel@wantstofly.org>
-  Mail:   Hartley Sweeten <hsweeten@visionengravers.com>, Alexander Sverdlin <
-    Mail:     Russell King <linux@armlinux.org.uk>
-    Mail:     Baruch Siach <baruch@tkos.co.il>
- Mail:  Hubert Feurstein <hubert.feurstein@contec.at>
-  Mail:   Mathieu Poirier <mathieu.poirier@linaro.org>
- Mail:  Richard Purdie <rpurdie@rpsys.net>
- Mail:  Hans Ulli Kroll <ulli.kroll@googlemail.com>, Linus Walleij <linus.
-  Mail:   Barry Song <baohua@kernel.org>
-  Mail:   Marek Behun <marek.behun@nic.cz>
-    Mail:     Russell King <linux@armlinux.org.uk>
-    Mail:     Uwe Kleine-König <u.kleine-koenig@pengutronix.de>
-    Mail:     Robert Jarzmik <robert.jarzmik@free.fr>
-    Mail:     Hans Ulli Kroll <ulli.kroll@googlemail.com>
-    Mail:     Russell King <linux@armlinux.org.uk>
-  Mail:   Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de
-  Mail:   Shawn Guo <shawnguo@kernel.org>, Li Yang <leoyang.li@nxp.com>
-   Mail:    Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.
-    Mail:     Lennert Buytenhek <kernel@wantstofly.org>
-    Mail:     Steve Sakoman <sakoman@gmail.com>
-  Mail:    Philipp Zabel <philipp.zabel@gmail.com>, Paul Parsons <lost.distance
-  Mail:   Wei Xu <xuwei5@hisilicon.com>
-  Mail:   Kristoffer Ericson <kristoffer.ericson@gmail.com>
-  Mail:   Enric Balletbo i Serra <eballetbo@gmail.com>, Javier Martinez
-    Mail:     Marek Vasut <marek.vasut@gmail.com>
-    Mail:     Lennert Buytenhek <kernel@wantstofly.org>
-    Mail:     Lennert Buytenhek <kernel@wantstofly.org>
-    Mail:     Lennert Buytenhek <kernel@wantstofly.org>
- Mail:  Linus Walleij <linusw@kernel.org>, Imre Kaloz <kaloz@openwrt.org>,
-    Mail:     Jonathan Cameron <jic23@cam.ac.uk>
-    Mail:     Lennert Buytenhek <kernel@wantstofly.org>
-    Mail:     Lennert Buytenhek <kernel@wantstofly.org>
-    Mail:     Chanho Min <chanho.min@lge.com>
-    Mail:     Lennert Buytenhek <kernel@wantstofly.org>
- Mail:  Vladimir Zapolskiy <vz@mleia.com>
- Mail:  Vladimir Zapolskiy <vz@mleia.com>, Sylvain Lemieux <slemieux.tyco@gmail
- Mail:  Philipp Zabel <philipp.zabel@gmail.com>
- Mail:  Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Gregory
- Mail:  Gregory Clement <gregory.clement@bootlin.com>, Sebastian Hesselbarth <
- Mail:  Eddie Huang <eddie.huang@mediatek.com>, Sean Wang <sean.wang@mediatek.
-  Mail:   Matthias Brugger <matthias.bgg@gmail.com>
- Mail:  Chunfeng Yun <chunfeng.yun@mediatek.com>
-  Mail:   alexandre.belloni@bootlin.com>, Ludovic Desroches <ludovic.desroches@
-    Mail:     Robert Jarzmik <robert.jarzmik@free.fr>
- Mail:  Michael Petchkovsky <mkpetch@internode.on.net>
- Mail:  Linus Walleij <linus.walleij@linaro.org>
-  Mail:   Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.
-    Mail:     Alexander Clouter <alex@digriz.org.uk>
- Mail:   Neil Armstrong <narmstrong@baylibre.com>
-    Mail:     Tomas Cech <sleep_walker@suse.com>
-  Mail:   Marek Vasut <marek.vasut@gmail.com>
-    Mail:     Sergey Lapin <slapin@ossfans.org>
-  Mail:   Peter Chubb <pleb@gelato.unsw.edu.au>
-    Mail:     Stefan Eletzhofer <stefan.eletzhofer@eletztrick.de>
- Mail:  Andy Gross <agross@kernel.org>, Bjorn Andersson <bjorn.andersson@linaro
-    Mail:     Lennert Buytenhek <kernel@wantstofly.org>
- Mail:  Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
- Mail:  Andreas Färber <afaerber@suse.de>
-  Mail:    Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.
-  Mail:   Russell King <linux@armlinux.org.uk>
- Mail:  Heiko Stuebner <heiko@sntech.de>
-  Mail:    Kukjin Kim <kgene@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
-    Mail:     Kyungmin Park <kyungmin.park@samsung.com>
-  Mail:   Kyungmin Park <kyungmin.park@samsung.com>, Kamil Debski <kamil@wypas.
-  Mail:    Marek Szyprowski <m.szyprowski@samsung.com>
- Mail:  jacek.anaszewski@gmail.com>, Sylwester Nawrocki <s.nawrocki@samsung.com
- Mail:  org>, Jeongtae Park <jtp.park@samsung.com>, Andrzej Hajda <a.hajda@
-  Mail:    Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.
-  Mail:   Dinh Nguyen <dinguyen@kernel.org>
- Mail:  Dinh Nguyen <dinguyen@kernel.org>
- Mail:  Thor Thayer <thor.thayer@linux.intel.com>
- Mail:  Orson Zhai <orsonzhai@gmail.com>, Baolin Wang <baolin.wang7@gmail.com>,
-  Mail:   Patrice Chotard <patrice.chotard@st.com>
- Mail:  Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <
-  Mail:   Jisheng Zhang <Jisheng.Zhang@synaptics.com>, Sebastian Hesselbarth <
-   Mail:     Marc Gonzalez <marc.w.gonzalez@free.fr>, Mans Rullgard <mans@mansr
-    Mail:     Lennert Buytenhek <kernel@wantstofly.org>
-  Mail:    Hans Verkuil <hverkuil-cisco@xs4all.nl>
-    Mail:     “Mark F. Brown” <mark.brown314@gmail.com>
-    Mail:     Santosh Shilimkar <ssantosh@kernel.org>
-   Mail:    Santosh Shilimkar <ssantosh@kernel.org>
-    Mail:     Santosh Shilimkar <ssantosh@kernel.org>
-  Mail:   Santosh Shilimkar <ssantosh@kernel.org>
-    Mail:     Santosh Shilimkar <ssantosh@kernel.org>
- Mail:  Tero Kristo <t-kristo@ti.com>, Nishanth Menon <nm@ti.com>
-    Mail:     Lennert Buytenhek <kernel@wantstofly.org>
- Mail:  Dmitry Eremin-Solenikov <dbaryshkov@gmail.com>, Dirk Opfer <dirk@
- Mail:  Masahiro Yamada <yamada.masahiro@socionext.com>
- Mail:  Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
-    Mail:     Russell King <linux@armlinux.org.uk>
-    Mail:     Marek Vasut <marek.vasut@gmail.com>
- Mail:  Tony Prisk <linux@prisktech.co.nz>
-    Mail:     Marek Vasut <marek.vasut@gmail.com>
- Mail:  Jun Nie <jun.nie@linaro.org>, Shawn Guo <shawnguo@kernel.org>
-  Mail:   Michal Simek <michal.simek@xilinx.com>
-   Mail:     Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@
-    Mail:     Sakari Ailus <sakari.ailus@iki.fi>
-   Mail:    Tianshu Qiu <tian.shu.qiu@intel.com>
-    Mail:     Linus Walleij <linus.walleij@linaro.org>
-    Mail:     George Joseph <george.joseph@fairview5.com>
- Mail:  Andrew Jeffery <andrew@aj.id.au>
- Mail:  Eddie James <eajames@linux.ibm.com>
-  Mail:    Eddie James <eajames@linux.ibm.com>
-   Mail:     Corentin Chary <corentin.chary@gmail.com>
-    Mail:     João Paulo Rechi Vita <jprvita@gmail.com>
- Mail:  David Howells <dhowells@redhat.com>
-   Mail:    Bartosz Golaszewski <bgolaszewski@baylibre.com>
-  Mail:   “Justin Sanders” <justin@coraid.com>
-  Mail:   Alban Bedel <albeu@free.fr>
-  Mail:   Alban Bedel <albeu@free.fr>
-    Mail:     Kalle Valo <kvalo@codeaurora.org>
-  Mail:   Jiri Slaby <jirislaby@gmail.com>, Nick Kossifidis <mickflemm@gmail.
-    Mail:     Kalle Valo <kvalo@codeaurora.org>
- Mail:  Ville Syrjala <syrjala@sci.fi>
-    Mail:     Luca Tettamanti <kronos.it@gmail.com>
-   Mail:     Jay Cliburn <jcliburn@gmail.com>, Chris Snook <chris.snook@gmail.
-  Mail:   Chas Williams <3chas3@gmail.com>
- Mail:  Nicolas Ferre <nicolas.ferre@microchip.com>
- Mail:  Nick Dyer <nick@shmanahar.org>
-   Mail:     Simon Kelley <simon@thekelleys.org.uk>
-    Mail:     Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.
-    Mail:     Bradley Grove <linuxdrivers@attotech.com>
-  Mail:   Stefan Schmidt <stefan@datenfreihafen.org>
-    Mail:     Paul Moore <paul@paul-moore.com>, Eric Paris <eparis@redhat.com>
- Mail:  Miguel Ojeda Sandonis <miguel.ojeda.sandonis@gmail.com>
-   Mail:    Andreas Klinger <ak@it-klinger.de>
-    Mail:     Ralf Baechle <ralf@linux-mips.org>
- Mail:  Peter Rosin <peda@axentia.se>
-   Mail:    Peter Rosin <peda@axentia.se>
-  Mail:   Nuno Sá <nuno.sa@analog.com>
-   Mail:    Krzysztof Adamski <krzysztof.adamski@nokia.com>
-    Mail:     Mauro Carvalho Chehab <mchehab@kernel.org>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-    Mail:     Larry Finger <Larry.Finger@lwfinger.net>
- Mail:  Lee Jones <lee.jones@linaro.org>, Daniel Thompson <daniel.thompson@
-  Mail:    simonwunderlich.de>, Antonio Quartulli <a@unstable.cc>, Sven
-    Mail:     Thomas Sailer <t.sailer@alumni.ethz.ch>
-   Mail:     Coly Li <colyli@suse.de>, Kent Overstreet <kent.overstreet@gmail.
-    Mail:     Fabien Dessenne <fabien.dessenne@st.com>
-    Mail:     Dariusz Marcinkiewicz <reksio@newterm.pl>
- Mail:  Luis de Bethencourt <luisbg@kernel.org>, Salah Triki <salah.triki@gmail
-   Mail:     Paolo Valente <paolo.valente@linaro.org>, Jens Axboe <axboe@kernel
- Mail:  “Tigran A. Aivazian” <aivazian.tigran@gmail.com>
- Mail:  Jan-Simon Moeller <jansimon.moeller@gmx.de>
-   Mail:     Jens Axboe <axboe@kernel.dk>
-    Mail:     Joern Engel <joern@lazybastard.org>
-  Mail:   Marcel Holtmann <marcel@holtmann.org>, Johan Hedberg <johan.hedberg@
-  Mail:   Marcel Holtmann <marcel@holtmann.org>, Johan Hedberg <johan.hedberg@
-  Mail:   Jay Vosburgh <j.vosburgh@gmail.com>, Veaceslav Falico <vfalico@gmail.
-  Mail:    Dan Robertson <dan@dlrobertson.com>
-  Mail:    Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@
-    Mail:     Shubham Bansal <illusionist.neo@gmail.com>
-  Mail:   Daniel Borkmann <daniel@iogearbox.net>, Alexei Starovoitov <ast@
-    Mail:     Paul Burton <paulburton@kernel.org>
-    Mail:     Jakub Kicinski <kuba@kernel.org>
-   Mail:    Naveen N. Rao <naveen.n.rao@linux.ibm.com>, Sandipan Das <sandipan@
-    Mail:     Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>
-    Mail:     Björn Töpel <bjorn.topel@gmail.com>
-  Mail:   Ilya Leoshkevich <iii@linux.ibm.com>, Heiko Carstens <heiko.carstens@
-    Mail:     David S. Miller <davem@davemloft.net>
-    Mail:     Wang YanQing <udknight@gmail.com>
-   Mail:     Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@
-    Mail:     Michael Chan <michael.chan@broadcom.com>
-   Mail:     Florian Fainelli <f.fainelli@gmail.com>
- Mail:  Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
- Mail:  Scott Branden <sbranden@broadcom.com>, bcm-kernel-feedback-list@
-  Mail:   Hauke Mehrtens <hauke@hauke-m.de>, Rafał Miłecki <zajec5@gmail.com>
- Mail:   Hauke Mehrtens <hauke@hauke-m.de>, Rafał Miłecki <zajec5@gmail.com>,
-   Mail:     Rafał Miłecki <rafal@milecki.pl>
-   Mail:    Florian Fainelli <f.fainelli@gmail.com>, bcm-kernel-feedback-list@
-    Mail:     Kevin Cernekee <cernekee@gmail.com>
- Mail:  Florian Fainelli <f.fainelli@gmail.com>, bcm-kernel-feedback-list@
-   Mail:     Markus Mayer <mmayer@broadcom.com>, bcm-kernel-feedback-list@
- Mail:  Florian Fainelli <f.fainelli@gmail.com>
-   Mail:     Rasesh Mody <rmody@marvell.com>, GR-Linux-NIC-Dev@marvell.com
-    Mail:     QLogic-Storage-Upstream@qlogic.com
-    Mail:     QLogic-Storage-Upstream@qlogic.com
-  Mail:   Ariel Elior <aelior@marvell.com>, Sudarsana Kalluru <skalluru@marvell
-    Mail:     Michael Chan <michael.chan@broadcom.com>
- Mail:  @broadcom.com>, Hante Meuleman <hante.meuleman@broadcom.com>, Chi-Hsien
-  Mail:    Gregory Fong <gregory.0xf0@gmail.com>
-  Mail:    Kamal Dasu <kdasu.kdev@gmail.com>
-  Mail:    Al Cooper <alcooperx@gmail.com>
-    Mail:     Al Cooper <alcooperx@gmail.com>
-   Mail:     Doug Berger <opendmb@gmail.com>, Florian Fainelli <f.fainelli@
- Mail:  Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-  Mail:    Ray Jui <rjui@broadcom.com>
-  Mail:   sharma@broadcom.com>, Somnath Kotur <somnath.kotur@broadcom.com>,
-    Mail:     Rafał Miłecki <zajec5@gmail.com>
-    Mail:     Rafał Miłecki <zajec5@gmail.com>
- Mail:  Kamal Dasu <kdasu.kdev@gmail.com>, bcm-kernel-feedback-list@broadcom.
-  Mail:    Markus Mayer <mmayer@broadcom.com>, bcm-kernel-feedback-list@
-  Mail:    Markus Mayer <mmayer@broadcom.com>, bcm-kernel-feedback-list@
-  Mail:   Markus Mayer <mmayer@broadcom.com>, bcm-kernel-feedback-list@broadcom
-   Mail:    Brian Norris <computersforpeace@gmail.com>, Kamal Dasu <kdasu.kdev@
-    Mail:     Florian Fainelli <f.fainelli@gmail.com>
- Mail:   Siva Reddy Kallam <siva.kallam@broadcom.com>, Prashant Sreedharan <
-  Mail:    Anil Gurumurthy <anil.gurumurthy@qlogic.com>, Sudarsana Kalluru <
-  Mail:   Rasesh Mody <rmody@marvell.com>, Sudarsana Kalluru <skalluru@marvell.
-    Mail:     FUJITA Tomonori <fujita.tomonori@lab.ntt.co.jp>
-    Mail:     Clemens Ladisch <clemens@ladisch.de>
-  Mail:   Michael Buesch <m@bues.ch>
-  Mail:    Chris Mason <clm@fb.com>, Josef Bacik <josef@toxicpanda.com>, David
-   Mail:     Mauro Carvalho Chehab <mchehab@kernel.org>
-  Mail:    Chanwoo Choi <cw00.choi@samsung.com>
-    Mail:     Khalid Aziz <khalid@gonehiking.org>
-    Mail:     Clemens Ladisch <clemens@ladisch.de>
- Mail:  Guo Ren <guoren@kernel.org>
-   Mail:    Mark Salter <msalter@redhat.com>, Aurelien Jacquiot <jacquiot.
-  Mail:    Harry Morris <h.morris@cascoda.com>
-    Mail:     David Howells <dhowells@redhat.com>
-  Mail:    Maxime Ripard <mripard@kernel.org>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-   Mail:    Jonathan Corbet <corbet@lwn.net>
-    Mail:     Toke Høiland-Jørgensen <toke@toke.dk>
-  Mail:   Wolfgang Grandegger <wg@grandegger.com>, Marc Kleine-Budde <mkl@
-  Mail:   Oliver Hartkopp <socketcan@hartkopp.net>, Marc Kleine-Budde <mkl@
-   Mail:    Robin van der Gracht <robin@protonic.nl>, Oleksij Rempel <o.rempel@
-  Mail:   Serge Hallyn <serge@hallyn.com>
- Mail:  Kevin Tsai <ktsai@capellamicro.com>
-    Mail:     Christian Lamparter <chunkeey@googlemail.com>
-  Mail:   Robert Richter <rrichter@marvell.com>
-  Mail:   Derek Chickles <dchickles@marvell.com>, Satanand Burla <sburla@
-  Mail:   Robert Richter <rrichter@marvell.com>
-    Mail:     George Cherian <gcherian@marvell.com>
-  Mail:   Robert Richter <rrichter@marvell.com>
- Mail:   Varka Bhadram <varkabhadram@gmail.com>
-  Mail:    Gilad Ben-Yossef <gilad@benyossef.com>
-  Mail:   Hadar Gat <hadar.gat@arm.com>
-  Mail:   Hans Verkuil <hverkuil-cisco@xs4all.nl>
-  Mail:    Hans Verkuil <hverkuil-cisco@xs4all.nl>
-  Mail:   Arnd Bergmann <arnd@arndb.de>
- Mail:  Tobias Schrammm <t.schramm@manjaro.org>
-    Mail:     Ilya Dryomov <idryomov@gmail.com>, Jeff Layton <jlayton@kernel.
-    Mail:     Jeff Layton <jlayton@kernel.org>, Ilya Dryomov <idryomov@gmail.
-   Mail:    David Howells <dhowells@redhat.com>, David Woodhouse <dwmw2@
- Mail:  Miguel Ojeda Sandonis <miguel.ojeda.sandonis@gmail.com>
- Mail:  Miguel Ojeda Sandonis <miguel.ojeda.sandonis@gmail.com>
- Mail:  Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@
- Mail:  Andy Whitcroft <apw@canonical.com>, Joe Perches <joe@perches.com>
-   Mail:     Harry Wei <harryxiyou@gmail.com>, Alex Shi <alex.shi@linux.alibaba
-    Mail:     Peter Chen <Peter.Chen@nxp.com>
- Mail:   Hans de Goede <hdegoede@redhat.com>
-    Mail:     Hans de Goede <hdegoede@redhat.com>
- Mail:  Benson Leung <bleung@chromium.org>, Enric Balletbo i Serra <enric.
-  Mail:   Cheng-Yi Chiang <cychiang@chromium.org>
-  Mail:   Benson Leung <bleung@chromium.org>, Enric Balletbo i Serra <enric.
-   Mail:    James Schulman <james.schulman@cirrus.com>, David Rhodes <david.
-    Mail:     Hartley Sweeten <hsweeten@visionengravers.com>
- Mail:  Charles Keepax <ckeepax@opensource.cirrus.com>, Richard Fitzgerald <rf@
-  Mail:   Charles Keepax <ckeepax@opensource.cirrus.com>, Richard Fitzgerald <
- Mail:   Satish Kharat <satishkh@cisco.com>, Sesidhar Baddela <sebaddel@cisco.
-   Mail:    Karan Tilak Kumar <kartilak@cisco.com>, Sesidhar Baddela <sebaddel@
- Mail:  Christian Benvenuti <benve@cisco.com>, Govindarajulu Varadarajan <
- Mail:  Christian Benvenuti <benve@cisco.com>, Nelson Escobar <neescoba@cisco.
- Mail:  Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-    Mail:     Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
-    Mail:     Russell King <linux@armlinux.org.uk>
-   Mail:    Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@
-  Mail:   Thadeu Lima de Souza Cascardo <cascardo@holoscopio.com>, Daniel
-    Mail:     Hans Verkuil <hverkuil-cisco@xs4all.nl>
-  Mail:   lip6.fr>, Nicolas Palix <nicolas.palix@imag.fr>, Michal Marek <michal
-   Mail:     Jan Harkes <jaharkes@cs.cmu.edu>, coda@cs.cmu.edu
-   Mail:    Philipp Zabel <p.zabel@pengutronix.de>
- Mail:  Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-  Mail:    Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@
-  Mail:    Steve French <sfrench@samba.org>
-    Mail:     Scott Murray <scott@spiteful.org>
-    Mail:     Scott Murray <scott@spiteful.org>
-    Mail:     Scott Murray <scott@spiteful.org>
-    Mail:     Cezary Jackiewicz <cezary.jackiewicz@gmail.com>
- Mail:  Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
- Mail:  Joel Becker <jlbec@evilplan.org>, Christoph Hellwig <hch@lst.de>
-    Mail:     Evgeniy Polyakov <zbr@ioremap.net>
-  Mail:   Tejun Heo <tj@kernel.org>, Li Zefan <lizefan@huawei.com>, Johannes
- Mail:  Tejun Heo <tj@kernel.org>, Jens Axboe <axboe@kernel.dk>
-   Mail:     Li Zefan <lizefan@huawei.com>
- Mail:   Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org
-    Mail:     Fenghua Yu <fenghua.yu@intel.com>
-  Mail:   Jan “Yenya” Kasprzak <kas@fi.muni.cz>
- Mail:  William Breathitt Gray <vilhelm.gray@gmail.com>
-    Mail:     Florian Fainelli <f.fainelli@gmail.com>
-   Mail:     Viresh Kumar <viresh.kumar@linaro.org>, Sudeep Holla <sudeep.holla
- Mail:  “Rafael J. Wysocki” <rjw@rjwysocki.net>, Viresh Kumar <viresh.kumar@
-  Mail:    “Rafael J. Wysocki” <rjw@rjwysocki.net>, Daniel Lezcano <daniel.
-  Mail:   Thomas Renninger <trenn@suse.com>, Shuah Khan <shuah@kernel.org>,
- Mail:  “H. Peter Anvin” <hpa@zytor.com>
-  Mail:    Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, Daniel Lezcano <
- Mail:   Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>, Daniel Lezcano <
-   Mail:    Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, Sudeep Holla <sudeep
- Mail:  Nicolas Pitre <nico@fluxnic.net>
-    Mail:     Bastien Nocera <hadess@hadess.net>
- Mail:  Herbert Xu <herbert@gondor.apana.org.au>, “David S. Miller” <davem@
-    Mail:     Neil Horman <nhorman@tuxdriver.com>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
- Mail:  Jaya Kumar <jayakumar.alsa@gmail.com>
-  Mail:   Yong Deng <yong.deng@magewell.com>
- Mail:  Solomon Peachy <pizza@shaftnet.org>
-    Mail:     Andy Walls <awalls@md.metrocast.net>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-   Mail:    Jemma Denson <jdenson@gmail.com>, Patrick Boettcher <patrick.
-    Mail:     Mauro Carvalho Chehab <mchehab@kernel.org>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Vishal Kulkarni <vishal@chelsio.com>
-    Mail:     Karen Xie <kxie@chelsio.com>
-  Mail:   Ayush Sawal <ayush.sawal@chelsio.com>, Vinay Kumar Yadav <vinay.yadav
-    Mail:     Vishal Kulkarni <vishal@chelsio.com>
-    Mail:     Karen Xie <kxie@chelsio.com>
-    Mail:     Potnuri Bharat Teja <bharat@chelsio.com>
-    Mail:     Vishal Kulkarni <vishal@gmail.com>
- Mail:  Frederic Barrat <fbarrat@linux.ibm.com>, Andrew Donnellan <ajd@linux.
- Mail:   Manoj N. Kumar <manoj@linux.ibm.com>, Matthew R. Ochs <mrochs@linux.
-    Mail:     Russell King <linux@armlinux.org.uk>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Linus Walleij <linus.walleij@linaro.org>
-    Mail:     Ferruh Yigit <fery@cypress.com>
-    Mail:     Linus Walleij <linus.walleij@linaro.org>
- Mail:  Joshua Kinard <kumba@gentoo.org>
-  Mail:   Joerg Reuter <jreuter@yaina.de>
-    Mail:     Hannes Reinecke <hare@suse.com>
-  Mail:   Oliver Neukum <oliver@neukum.org>, Ali Akcaagac <aliakc@web.de>,
-   Mail:    Gerrit Renker <gerrit@erg.abdn.ac.uk>
-   Mail:     “Maciej W. Rozycki” <macro@linux-mips.org>
- Mail:  “Maciej W. Rozycki” <macro@linux-mips.org>
- Mail:  “Maciej W. Rozycki” <macro@linux-mips.org>
- Mail:   Jernej Skrabec <jernej.skrabec@siol.net>
-    Mail:     Matthew Garrett <mjg59@srcf.ucam.org>, Pali Rohár <pali@kernel.
- Mail:  Pali Rohár <pali@kernel.org>
- Mail:  Pali Rohár <pali@kernel.org>
- Mail:  Pali Rohár <pali@kernel.org>
-    Mail:     Stuart Hayes <stuart.w.hayes@gmail.com>
-   Mail:    Pali Rohár <pali@kernel.org>, Mario Limonciello <mario.limonciello@
-    Mail:     Mario Limonciello <mario.limonciello@dell.com>
-   Mail:     Mario Limonciello <mario.limonciello@dell.com>
-    Mail:     Stuart Hayes <stuart.w.hayes@gmail.com>
- Mail:  Mario Limonciello <mario.limonciello@dell.com>
- Mail:  Matthew Garrett <mjg59@srcf.ucam.org>, Pali Rohár <pali@kernel.org>
-    Mail:     Hugues Fruchet <hugues.fruchet@st.com>
-    Mail:     Masahiro Yamada <yamada.masahiro@socionext.com>
-    Mail:     Gustavo Pimentel <gustavo.pimentel@synopsys.com>
-    Mail:     Minas Harutyunyan <hminas@synopsys.com>
-    Mail:     Felipe Balbi <balbi@kernel.org>
-   Mail:    Andreas Klinger <ak@it-klinger.de>
-    Mail:     Johannes Berg <johannes@sipsolutions.net>
- Mail:   Dan Williams <dan.j.williams@intel.com>, Vishal Verma <vishal.l.verma@
- Mail:   MyungJoo Ham <myungjoo.ham@samsung.com>, Kyungmin Park <kyungmin.park@
- Mail:  Chanwoo Choi <cw00.choi@samsung.com>
-  Mail:   Torben Mathiasen <device@lanana.org>
-  Mail:    Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@redhat.com>,
-  Mail:   Jiri Pirko <jiri@mellanox.com>
-  Mail:   Support Opensource <support.opensource@diasemi.com>
-    Mail:     William Breathitt Gray <vilhelm.gray@gmail.com>
-    Mail:     Guenter Roeck <linux@roeck-us.net>
-    Mail:     Jan Kara <jack@suse.cz>
-  Mail:   Andries Brouwer <aeb@cwi.nl>
- Mail:  Jan Kara <jack@suse.com>
-    Mail:     Bernie Thompson <bernie@plugable.com>
-   Mail:    Christine Caulfield <ccaulfie@redhat.com>, David Teigland <teigland
- Mail:   Sumit Semwal <sumit.semwal@linaro.org>
-  Mail:    Vinod Koul <vkoul@kernel.org>
-  Mail:   Christoph Hellwig <hch@lst.de>, Marek Szyprowski <m.szyprowski@
-  Mail:   Sumit Semwal <sumit.semwal@linaro.org>
-  Mail:   Lukasz Luba <lukasz.luba@arm.com>
-    Mail:     Juerg Haefliger <juergh@gmail.com>
- Mail:  Jean Delvare <jdelvare@suse.com>
-  Mail:   Jonathan Corbet <corbet@lwn.net>
-  Mail:   Mauro Carvalho Chehab <mchehab@kernel.org>
-    Mail:     Federico Vaga <federico.vaga@vaga.pv.it>
-  Mail:    Sakari Ailus <sakari.ailus@linux.intel.com>
-  Mail:   Sakari Ailus <sakari.ailus@linux.intel.com>
-    Mail:     “James R. Van Zandt” <jrv@vanzandt.mv.com>
-    Mail:     Roy Pledge <Roy.Pledge@nxp.com>
- Mail:  Ioana Ciornei <ioana.ciornei@nxp.com>, Ioana Radulescu <ruxandra.
-   Mail:    Ioana Radulescu <ruxandra.radulescu@nxp.com>, Ioana Ciornei <ioana.
-    Mail:     Adaptec OEM Raid Solutions <aacraid@microsemi.com>
-  Mail:    Philipp Reisner <philipp.reisner@linbit.com>, Lars Ellenberg <lars.
-  Mail:   Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-    Mail:     Kevin Hilman <khilman@kernel.org>, Nishanth Menon <nm@ti.com>
-    Mail:     Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>
- Mail:  Eric Anholt <eric@anholt.net>
- Mail:  Linus Walleij <linus.walleij@linaro.org>
-   Mail:    Joel Stanley <joel@jms.id.au>
- Mail:  Dave Airlie <airlied@redhat.com>
-    Mail:     Gerd Hoffmann <kraxel@redhat.com>
- Mail:  Jerry Han <hanxu5@huaqin.corp-partner.google.com>
- Mail:  Linus Walleij <linus.walleij@linaro.org>
- Mail:  Icenowy Zheng <icenowy@aosc.io>
- Mail:  Jagan Teki <jagan@amarulasolutions.com>
- Mail:  Hans de Goede <hdegoede@redhat.com>
- Mail:  Eric Anholt <eric@anholt.net>
- Mail:  David Lechner <david@lechnology.com>
- Mail:  Kamlesh Gurudasani <kamlesh.gurudasani@gmail.com>
-  Mail:    Laurent Pinchart <laurent.pinchart@ideasonboard.com>
- Mail:  Dave Airlie <airlied@redhat.com>
- Mail:  Noralf Trønnes <noralf@tronnes.org>
-  Mail:   Rob Clark <robdclark@gmail.com>, Sean Paul <sean@poorly.run>
- Mail:  Linus Walleij <linus.walleij@linaro.org>
-    Mail:     Ben Skeggs <bskeggs@redhat.com>
- Mail:  Stefan Mavrodiev <stefan@olimex.com>
- Mail:  Noralf Trønnes <noralf@tronnes.org>
-   Mail:     Dave Airlie <airlied@redhat.com>, Gerd Hoffmann <kraxel@redhat.com
-   Mail:    Dave Airlie <airlied@redhat.com>, Gerd Hoffmann <kraxel@redhat.com>
- Mail:  Robert Chiras <robert.chiras@nxp.com>
-  Mail:   Guido Günther <agx@sigxcpu.org>
- Mail:  David Lechner <david@lechnology.com>
- Mail:  Jagan Teki <jagan@amarulasolutions.com>
- Mail:  David Lechner <david@lechnology.com>
- Mail:  Linus Walleij <linus.walleij@linaro.org>
- Mail:  Linus Walleij <linus.walleij@linaro.org>
- Mail:  Linus Walleij <linus.walleij@linaro.org>
-    Mail:     Dave Airlie <airlied@redhat.com>
-   Mail:     Rodrigo Siqueira <rodrigosiqueiramelo@gmail.com>
-    Mail:     Hans de Goede <hdegoede@redhat.com>
-  Mail:   “VMware Graphics” <linux-graphics-maintainer@vmware.com>, Roland
- Mail:  David Airlie <airlied@linux.ie>, Daniel Vetter <daniel@ffwll.ch>
-  Mail:   Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
-   Mail:     Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>
-  Mail:   Neil Armstrong <narmstrong@baylibre.com>
-   Mail:    Sam Ravnborg <sam@ravnborg.org>, Boris Brezillon <bbrezillon@kernel
-  Mail:   Andrzej Hajda <a.hajda@samsung.com>, Neil Armstrong <narmstrong@
- Mail:  com>, Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.
- Mail:   Stefan Agner <stefan@agner.ch>, Alison Wang <alison.wang@nxp.com>
-  Mail:    Philipp Zabel <p.zabel@pengutronix.de>
-    Mail:     Patrik Jakobsson <patrik.r.jakobsson@gmail.com>
-  Mail:   Xinliang Liu <xinliang.liu@linaro.org>, Rongrong Zou <zourongrong@
-  Mail:    Qiang Yu <yuq825@gmail.com>
-   Mail:    Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@
- Mail:  Thierry Reding <thierry.reding@gmail.com>
- Mail:  Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Kieran Bingham <
-   Mail:    Sandy Huang <hjc@rock-chips.com>, Heiko Stübner <heiko@sntech.de>
-  Mail:    Benjamin Gaignard <benjamin.gaignard@linaro.org>, Vincent Abriou <
- Mail:  st.com>, Benjamin Gaignard <benjamin.gaignard@linaro.org>, Vincent
- Mail:  Jyri Sarha <jsarha@ti.com>, Tomi Valkeinen <tomi.valkeinen@ti.com>
-   Mail:     Jyri Sarha <jsarha@ti.com>
-   Mail:     Tomi Valkeinen <tomi.valkeinen@ti.com>
- Mail:  Eric Anholt <eric@anholt.net>
- Mail:  Eric Anholt <eric@anholt.net>
-  Mail:   Lucas Stach <l.stach@pengutronix.de>
-  Mail:   Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>
-   Mail:     Shawn Guo <shawnguo@kernel.org>
-  Mail:   Thierry Reding <thierry.reding@gmail.com>
-   Mail:     Christian Koenig <christian.koenig@amd.com>, Huang Rui <ray.huang@
-    Mail:     Alexey Klimov <klimov.linux@gmail.com>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Michael Krufky <mkrufky@linuxtv.org>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Michael Krufky <mkrufky@linuxtv.org>
-    Mail:     Antti Palosaari <crope@iki.fi>
-   Mail:    Antti Palosaari <crope@iki.fi>
- Mail:  Jason Baron <jbaron@akamai.com>
- Mail:  Tal Gilboa <talgi@mellanox.com>
- Mail:  “Maciej W. Rozycki” <macro@linux-mips.org>
-  Mail:    Moritz Fischer <moritz.fischer@ettus.com>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Akihiro Tsukada <tskd08@gmail.com>
-    Mail:     Akihiro Tsukada <tskd08@gmail.com>
-    Mail:     Antti Palosaari <crope@iki.fi>
-   Mail:     Tyler Hicks <code@tyhicks.com>
-    Mail:     Borislav Petkov <bp@alien8.de>
-    Mail:     Jan Luebbe <jlu@pengutronix.de>
- Mail:  Stefan Schaeckeler <sschaeck@cisco.com>
- Mail:  Shravan Kumar Ramani <sramani@mellanox.com>
-    Mail:     Robert Richter <rric@kernel.org>
-   Mail:     Ralf Baechle <ralf@linux-mips.org>, Robert Richter <rrichter@
-    Mail:     Robert Richter <rrichter@marvell.com>
-  Mail:   Borislav Petkov <bp@alien8.de>, Mauro Carvalho Chehab <mchehab@kernel
-    Mail:     Lei Wang <lewan@microsoft.com>
-    Mail:     Mark Gross <mark.gross@intel.com>
-    Mail:     York Sun <york.sun@nxp.com>
-    Mail:     Mauro Carvalho Chehab <mchehab@kernel.org>
-    Mail:     Tony Luck <tony.luck@intel.com>
-    Mail:     Mauro Carvalho Chehab <mchehab@kernel.org>
-    Mail:     Mauro Carvalho Chehab <mchehab@kernel.org>
-    Mail:     Mauro Carvalho Chehab <mchehab@kernel.org>
-    Mail:     Tim Small <tim@buttersideup.com>
-    Mail:     “Arvind R.” <arvino55@gmail.com>
-    Mail:     Jason Baron <jbaron@akamai.com>
-    Mail:     Johannes Thumshirn <morbidrsa@gmail.com>
-    Mail:     Egor Martovetsky <egor@pasemi.com>
-    Mail:     Tony Luck <tony.luck@intel.com>
-  Mail:   Channagoud Kadabi <ckadabi@codeaurora.org>, Venkata Narendra Kumar
-    Mail:     Tim Small <tim@buttersideup.com>
-    Mail:     Tony Luck <tony.luck@intel.com>
-    Mail:     Yash Shah <yash.shah@sifive.com>
-    Mail:     Tony Luck <tony.luck@intel.com>
-    Mail:     Tero Kristo <t-kristo@ti.com>
-    Mail:     Clemens Ladisch <clemens@ladisch.de>
-    Mail:     Ivan Hu <ivan.hu@canonical.com>, Ard Biesheuvel <ardb@kernel.org>
-  Mail:   Matthew Garrett <matthew.garrett@nebula.com>, Jeremy Kerr <jk@ozlabs.
-    Mail:     Peter Jones <pjones@redhat.com>
-    Mail:     Douglas Miller <dougmill@linux.ibm.com>
-    Mail:     Mauro Carvalho Chehab <mchehab@kernel.org>
- Mail:   Paul Gortmaker <paul.gortmaker@windriver.com>, Matt Mackall <mpm@
- Mail:   Adrian Hunter <adrian.hunter@intel.com>, Ritesh Harjani <riteshh@
-  Mail:   ketan.mukadam@broadcom.com>, Jitendra Bhivare <jitendra.bhivare@
-  Mail:   sriharsha.basavapatna@broadcom.com>, Somnath Kotur <somnath.kotur@
-  Mail:    Selvin Xavier <selvin.xavier@broadcom.com>, Devesh Sharma <devesh.
-   Mail:    James Smart <james.smart@broadcom.com>, Dick Kennedy <dick.kennedy@
- Mail:  Michał Mirosław <mirq-linux@rere.qmqm.pl>
- Mail:  Maxim Levitsky <maximlevitsky@gmail.com>
-    Mail:     Laurentiu Tudor <laurentiu.tudor@nxp.com>
- Mail:  Kristoffer Ericson <kristoffer.ericson@gmail.com>
-    Mail:     Gao Xiang <xiang@kernel.org>, Chao Yu <yuchao0@huawei.com>
- Mail:  Jeff Layton <jlayton@kernel.org>
- Mail:  Mark Einon <mark.einon@gmail.com>
-  Mail:    Roopa Prabhu <roopa@cumulusnetworks.com>, Nikolay Aleksandrov <
-  Mail:   Andrew Lunn <andrew@lunn.ch>, Florian Fainelli <f.fainelli@gmail.com
-   Mail:    Namjae Jeon <namjae.jeon@samsung.com>, Sungjong Seo <sj1557.seo@
-    Mail:     Jan Kara <jack@suse.com>
-   Mail:     “Theodore Ts’o” <tytso@mit.edu>, Andreas Dilger <adilger.kernel@
-    Mail:     Mimi Zohar <zohar@linux.ibm.com>
- Mail:  Ard Biesheuvel <ardb@kernel.org>
- Mail:  MyungJoo Ham <myungjoo.ham@samsung.com>, Chanwoo Choi <cw00.choi@
- Mail:  Masami Hiramatsu <mhiramat@kernel.org>
-    Mail:     Jingoo Han <jingoohan1@gmail.com>
-    Mail:     Marek Szyprowski <m.szyprowski@samsung.com>
- Mail:  Vineet Gupta <vgupta@synopsys.com>, Ofer Levi <oferle@mellanox.com>
-  Mail:   Jaegeuk Kim <jaegeuk@kernel.org>, Chao Yu <yuchao0@huawei.com>
-    Mail:     Jean Delvare <jdelvare@suse.com>
- Mail:  Josh Poimboeuf <jpoimboe@redhat.com>
-    Mail:     Sridhar Samudrala <sridhar.samudrala@intel.com>
-   Mail:     Jan Kara <jack@suse.cz>
-  Mail:   Kevin Curtis <kevin.curtis@farsite.co.uk>
- Mail:  Akinobu Mita <akinobu.mita@gmail.com>
-    Mail:     Michael Buesch <m@bues.ch>
-    Mail:     Antti Palosaari <crope@iki.fi>
-  Mail:   Hannes Reinecke <hare@suse.de>
-   Mail:     Jeff Layton <jlayton@kernel.org>, “J. Bruce Fields” <bfields@
-    Mail:     Dan Williams <dan.j.williams@intel.com>
-  Mail:   Alexander Viro <viro@zeniv.linux.org.uk>
-    Mail:     Riku Voipio <riku.voipio@iki.fi>
-   Mail:    Clemens Ladisch <clemens@ladisch.de>, Takashi Sakamoto <o-takashi@
-   Mail:     Stefan Richter <stefanr@s5r6.in-berlin.de>
-  Mail:   Chris Boot <bootc@bootc.net>
-  Mail:    Stefan Richter <stefanr@s5r6.in-berlin.de>
-  Mail:    Luis Chamberlain <mcgrof@kernel.org>
- Mail:  Joshua Morris <josh.h.morris@us.ibm.com>, Philip Kelleher <pjk1939@
- Mail:  Patrick Havelange <patrick.havelange@essensium.com>
-    Mail:     Denis Efremov <efremov@linux.com>
-    Mail:     Markus Koch <markus@notsyncing.net>
-   Mail:     Rain River <rain.1986.08.12@gmail.com>, Zhu Yanjun <zyjzyj2000@
-    Mail:     Wu Hao <hao.wu@intel.com>
-  Mail:    Moritz Fischer <mdf@kernel.org>
-  Mail:   Bill Metzenthen <billm@melbpc.org.au>
-  Mail:    Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>
-   Mail:     Horia Geantă <horia.geanta@nxp.com>, Aymen Sghaier <aymen.sghaier@
-   Mail:    Angelo Dureghello <angelo.dureghello@timesys.com>
-    Mail:     Timur Tabi <timur@kernel.org>
-    Mail:     Li Yang <leoyang.li@nxp.com>, Zhang Wei <zw@zh-kernel.org>
-    Mail:     Claudiu Manoil <claudiu.manoil@nxp.com>
-  Mail:    Claudiu Manoil <claudiu.manoil@nxp.com>
-    Mail:     Han Xu <han.xu@nxp.com>
-    Mail:     Jochen Friedrich <jochen@scram.de>
- Mail:  Fugang Duan <fugang.duan@nxp.com>
-  Mail:   Sascha Hauer <s.hauer@pengutronix.de>
- Mail:   Frank Li <Frank.li@nxp.com>
-   Mail:    Oleksij Rempel <o.rempel@pengutronix.de>
-  Mail:    Dong Aisheng <aisheng.dong@nxp.com>
-    Mail:     Madalin Bucur <madalin.bucur@nxp.com>
-  Mail:    Madalin Bucur <madalin.bucur@nxp.com>
- Mail:  Yangbo Lu <yangbo.lu@nxp.com>
-    Mail:     Han Xu <han.xu@nxp.com>
-    Mail:     Qiang Zhao <qiang.zhao@nxp.com>
-    Mail:     Li Yang <leoyang.li@nxp.com>
-    Mail:     Zhao Qiang <qiang.zhao@nxp.com>
-    Mail:     Timur Tabi <timur@kernel.org>
- Mail:  Li Yang <leoyang.li@nxp.com>
-    Mail:     Pantelis Antoniou <pantelis.antoniou@gmail.com>
-  Mail:   Timur Tabi <timur@kernel.org>, Nicolin Chen <nicoleotsuka@gmail.com>,
-    Mail:     Li Yang <leoyang.li@nxp.com>
-  Mail:   Christoph Hellwig <hch@infradead.org>
-    Mail:     “Rafael J. Wysocki” <rjw@rjwysocki.net>, Pavel Machek <pavel@ucw.
-    Mail:     Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
-   Mail:     David Howells <dhowells@redhat.com>
-  Mail:    Theodore Y. Ts’o <tytso@mit.edu>, Jaegeuk Kim <jaegeuk@kernel.org>,
-   Mail:     Jeremy Kerr <jk@ozlabs.org>, Joel Stanley <joel@jms.id.au>
-   Mail:    Eddie James <eajames@linux.ibm.com>
-   Mail:    Eddie James <eajames@linux.ibm.com>
-   Mail:    Jan Kara <jack@suse.cz>
-  Mail:    Eric Biggers <ebiggers@kernel.org>, Theodore Y. Ts’o <tytso@mit.edu>
-    Mail:     Jonathan Woithe <jwoithe@just42.net>
-   Mail:    Kyungmin Park <kyungmin.park@samsung.com>, Heungjun Kim <riverful.
-    Mail:     Robert Gerlach <khnz@gmx.de>
-    Mail:     Miklos Szeredi <miklos@szeredi.hu>
-  Mail:   Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>
- Mail:  Tim Harvey <tharvey@gateworks.com>, Robert Jones <rjones@gateworks.com>
- Mail:  Rob Springer <rspringer@google.com>, Todd Poynor <toddpoynor@google.com
-  Mail:    Kees Cook <keescook@chromium.org>
- Mail:  Peter Oberparleiter <oberpar@linux.ibm.com>
- Mail:  Jan Kiszka <jan.kiszka@siemens.com>, Kieran Bingham <kbingham@kernel.
-    Mail:     Achim Leubner <achim_leubner@adaptec.com>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-    Mail:     Sudeep Holla <sudeep.holla@arm.com>
- Mail:  Wolfram Sang <wsa+renesas@sang-engineering.com>
-  Mail:   Peter Korsgaard <peter.korsgaard@barco.com>
-  Mail:   Krzysztof Halasa <khc@pm.waw.pl>
-   Mail:     Arnd Bergmann <arnd@arndb.de>
-   Mail:     Kishon Vijay Abraham I <kishon@ti.com>, Vinod Koul <vkoul@kernel.
- Mail:  Wolfram Sang <wsa+renesas@sang-engineering.com>
- Mail:   “Rafael J. Wysocki” <rjw@rjwysocki.net>, Kevin Hilman <khilman@kernel.
-    Mail:     Eugen Hristev <eugen.hristev@microchip.com>
-    Mail:     “Michael S. Tsirkin” <mst@redhat.com>
- Mail:   Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de
- Mail:  Frank Haverkamp <haver@linux.ibm.com>
- Mail:  Joe Perches <joe@perches.com>
-   Mail:    Bob Peterson <rpeterso@redhat.com>, Andreas Gruenbacher <agruenba@
- Mail:  Johan Hovold <johan@kernel.org>
-    Mail:     Hans Verkuil <hverkuil-cisco@xs4all.nl>
-    Mail:     Bastien Nocera <hadess@hadess.net>
-    Mail:     Catherine Sullivan <csully@google.com>
-    Mail:     Hans de Goede <hdegoede@redhat.com>
-  Mail:   Mika Westerberg <mika.westerberg@linux.intel.com>, Andy Shevchenko <
-    Mail:     Geert Uytterhoeven <geert+renesas@glider.be>
-    Mail:     Sean Young <sean@mess.org>
-    Mail:     Bamvor Jian Zhang <bamv2005@gmail.com>
- Mail:  Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <
-    Mail:     Dmitry Kozlov <xeb@mail.ru>
-    Mail:     Andreas Larsson <andreas@gaisler.com>
- Mail:  Vaibhav Agarwal <vaibhav.sr@gmail.com>, Mark Greer <mgreer@animalcreek.
- Mail:  Viresh Kumar <vireshk@kernel.org>
- Mail:  Bryan O’Donoghue <pure.logic@nexus-software.ie>
- Mail:  Vaibhav Hiremath <hvaibhav.linux@gmail.com>
- Mail:  Rui Miguel Silva <rmfrfs@gmail.com>
-  Mail:   Johan Hovold <johan@kernel.org>, Alex Elder <elder@kernel.org>, Greg
- Mail:  David Lin <dtwlin@gmail.com>
-    Mail:     Charles-Antoine Couret <charles-antoine.couret@nexvision.fr>
-    Mail:     Frank Zago <frank@zago.net>
-    Mail:     Olivier Lorin <o.lorin@laposte.net>
-    Mail:     Erik Andren <erik.andren@gmail.com>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-    Mail:     Brian Johnson <brijohn@gmail.com>
-    Mail:     Leandro Costantino <lcostantino@gmail.com>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-   Mail:    Pablo Neira Ayuso <pablo@netfilter.org>, Harald Welte <laforge@
-    Mail:     Davidlohr Bueso <dave@stgolabs.net>
-  Mail:    Yoshinori Sato <ysato@users.sourceforge.jp>
- Mail:  Oded Gabbay <oded.gabbay@gmail.com>
-    Mail:     Antti Palosaari <crope@iki.fi>
- Mail:  Ezequiel Garcia <ezequiel@collabora.com>, Philipp Zabel <p.zabel@
-    Mail:     Frank Seidel <frank@f-seidel.de>
-  Mail:   Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>
-  Mail:   Matt Mackall <mpm@selenic.com>, Herbert Xu <herbert@gondor.apana.org.
-  Mail:   Ohad Ben-Cohen <ohad@wizery.com>, Bjorn Andersson <bjorn.andersson@
- Mail:  Alexander Shishkin <alexander.shishkin@linux.intel.com>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
- Mail:  Jerry Hoemann <jerry.hoemann@hpe.com>
-  Mail:    Don Brace <don.brace@microsemi.com>
-  Mail:   Mike Marciniszyn <mike.marciniszyn@intel.com>, Dennis Dalessandro <
-    Mail:     Ferenc Bakonyi <fero@drama.obuda.kando.hu>
- Mail:  “Rafael J. Wysocki” <rjw@rjwysocki.net>, Pavel Machek <pavel@ucw.cz>
-   Mail:    Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <benjamin.
- Mail:   Jiri Kosina <jikos@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
- Mail:  Thomas Gleixner <tglx@linutronix.de>
-  Mail:   HighPoint Linux Team <linux@highpoint-tech.com>
-  Mail:    Jes Sorensen <jes@trained-monkey.org>
-    Mail:     Zhou Wang <wangzhou1@hisilicon.com>
- Mail:  Zaibo Xu <xuzaibo@huawei.com>
-  Mail:   john.garry@huawei.com
-   Mail:    Yisen Zhuang <yisen.zhuang@huawei.com>, Salil Mehta <salil.mehta@
-  Mail:    Yisen Zhuang <yisen.zhuang@huawei.com>, Salil Mehta <salil.mehta@
-  Mail:   Shaokun Zhang <zhangshaokun@hisilicon.com>
- Mail:  Zhou Wang <wangzhou1@hisilicon.com>
-  Mail:   Lijun Ou <oulijun@huawei.com>, Wei Hu(Xavier) <huwei87@hisilicon.com
-  Mail:   John Garry <john.garry@huawei.com>
- Mail:  Zaibo Xu <xuzaibo@huawei.com>
- Mail:  Zaibo Xu <xuzaibo@huawei.com>
-  Mail:   John Garry <john.garry@huawei.com>
-   Mail:    Jérôme Glisse <jglisse@redhat.com>
-    Mail:     Jouni Malinen <j@w1.fi>
- Mail:  Clemens Ladisch <clemens@ladisch.de>
-  Mail:   Mikulas Patocka <mikulas@artax.karlin.mff.cuni.cz>
- Mail:  Sebastian Reichel <sre@kernel.org>
- Mail:  Robin van der Gracht <robin@protonic.nl>
-    Mail:     Pau Oliva Fora <pof@eslack.org>
-  Mail:    Lorenzo Bianconi <lorenzo.bianconi83@gmail.com>
-    Mail:     Bin Luo <luobin9@huawei.com>
- Mail:  Mike Kravetz <mike.kravetz@oracle.com>
-    Mail:     Jean-Christophe Trotin <jean-christophe.trotin@st.com>
-    Mail:     Naoya Horiguchi <naoya.horiguchi@nec.com>
-    Mail:     Pu Wen <puwen@hygon.cn>
-    Mail:     Shawn Tu <shawnx.tu@intel.com>
- Mail:  microsoft.com>, Stephen Hemminger <sthemmin@microsoft.com>, Wei Liu <
-  Mail:    Vignesh Raghavendra <vigneshr@ti.com>
-    Mail:     Mika Westerberg <mika.westerberg@linux.intel.com>
-    Mail:     Ajay Gupta <ajayg@nvidia.com>
- Mail:  Peter Rosin <peda@axentia.se>
-  Mail:   Gregory CLEMENT <gregory.clement@bootlin.com>
-    Mail:     Jean Delvare <jdelvare@suse.com>
-  Mail:    Wolfram Sang <wsa@kernel.org>
-    Mail:     Jean Delvare <jdelvare@suse.com>
-    Mail:     Till Harbaum <till@harbaum.org>
- Mail:  Jean Delvare <jdelvare@suse.com>
-    Mail:     Hans de Goede <hdegoede@redhat.com>
-   Mail:     Seth Heasley <seth.heasley@intel.com>, Neil Horman <nhorman@
-    Mail:     Jean Delvare <jdelvare@suse.com>
- Mail:  Przemysław Gaj <pgaj@cadence.com>
- Mail:  Vitor Soares <vitor.soares@synopsys.com>
- Mail:  Boris Brezillon <bbrezillon@kernel.org>
-    Mail:     Tony Luck <tony.luck@intel.com>, Fenghua Yu <fenghua.yu@intel.com
- Mail:  Haren Myneni <haren@us.ibm.com>
- Mail:  Breno Leitão <leitao@debian.org>, Nayna Jain <nayna@linux.ibm.com>,
-    Mail:     Tyrel Datwyler <tyreld@linux.ibm.com>
- Mail:  Brian King <brking@us.ibm.com>
-    Mail:     Tyrel Datwyler <tyreld@linux.ibm.com>
-   Mail:     Thomas Falcon <tlfalcon@linux.ibm.com>, John Allen <jallen@linux.
-  Mail:   Sukadev Bhattiprolu <sukadev@linux.ibm.com>
-    Mail:     Thomas Falcon <tlfalcon@linux.ibm.com>
-    Mail:     Tyrel Datwyler <tyreld@linux.ibm.com>
- Mail:  Steven Royer <seroyer@linux.ibm.com>
-    Mail:     Tyrel Datwyler <tyreld@linux.ibm.com>
-    Mail:     Michael Cyr <mikecyr@linux.ibm.com>
- Mail:  Breno Leitão <leitao@debian.org>, Nayna Jain <nayna@linux.ibm.com>,
- Mail:  Peter Tyser <ptyser@xes-inc.com>
-    Mail:     Max Staudt <max@enpas.org>
-    Mail:     “David S. Miller” <davem@davemloft.net>
-    Mail:     Borislav Petkov <bp@alien8.de>
-    Mail:     Ike Panhc <ike.pan@canonical.com>
-    Mail:     Andrey Moiseev <o2g.org.ru@gmail.com>
- Mail:  Marek Vasut <marek.vasut@gmail.com>
-  Mail:   Alexander Aring <alex.aring@gmail.com>, Stefan Schmidt <stefan@
-Mail:  Yotam Gigi <yotam.gi@gmail.com>, Jamal Hadi Salim <jhs@mojatatu.com>
-    Mail:     Sean Young <sean@mess.org>
-    Mail:     Sean Young <sean@mess.org>
- Mail:   Peter Rosin <peda@axentia.se>
- Mail:  Peter Rosin <peda@axentia.se>
-  Mail:   Peter Rosin <peda@axentia.se>
-  Mail:   Jonathan Cameron <jic23@kernel.org>
- Mail:  Peter Rosin <peda@axentia.se>
- Mail:  Matthieu Castet <castet.matthieu@free.fr>, Stanislaw Gruszka <stf_xl@wp
- Mail:  Paul Burton <paulburton@kernel.org>
-    Mail:     Sean Young <sean@mess.org>
-  Mail:    Guenter Roeck <linux@roeck-us.net>
-   Mail:     Guenter Roeck <linux@roeck-us.net>
-  Mail:   .taprogge@taprogge.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.
-    Mail:     Eddie James <eajames@linux.ibm.com>
-  Mail:    Doug Ledford <dledford@redhat.com>, Jason Gunthorpe <jgg@mellanox.
- Mail:  Zubair Lutfullah Kakakhel <Zubair.Kakakhel@imgtec.com>
-    Mail:     Harvey Hunt <harveyhuntnexus@gmail.com>
- Mail:  Paul Cercueil <paul@crapouillou.net>
-  Mail:    Jan Kara <jack@suse.cz>
-  Mail:    Dmitry Torokhov <dmitry.torokhov@gmail.com>
-    Mail:      Henrik Rydberg <rydberg@bitmath.org>
-    Mail:     Antoine Tenart <antoine.tenart@bootlin.com>
-   Mail:    Mimi Zohar <zohar@linux.ibm.com>, Dmitry Kasatkin <dmitry.kasatkin@
-    Mail:     Antonino Daplas <adaplas@gmail.com>
- Mail:  pierre-louis.bossart@linux.intel.com>, Liam Girdwood <liam.r.girdwood@
-    Mail:     Hans de Goede <hdegoede@redhat.com>
- Mail:  Mika Westerberg <mika.westerberg@linux.intel.com>, Zha Qipeng <qipeng.
-  Mail:   Intel SCU Linux support <intel-linux-scu@intel.com>, Artur
-    Mail:     Tony Luck <tony.luck@intel.com>, x86@kernel.org
-  Mail:    Jani Nikula <jani.nikula@linux.intel.com>, Joonas Lahtinen <joonas.
-  Mail:    Jeff Kirsher <jeffrey.t.kirsher@intel.com>
-    Mail:     Maik Broemme <mbroemme@libmpq.org>
- Mail:  Andy Shevchenko <andy@kernel.org>
-   Mail:     Zhenyu Wang <zhenyuw@linux.intel.com>, Zhi Wang <zhi.a.wang@intel.
-    Mail:     Alex Hung <alex.hung@canonical.com>
-    Mail:     Dave Jiang <dave.jiang@intel.com>
-    Mail:     Dave Jiang <dave.jiang@intel.com>
-   Mail:     Jacob Pan <jacob.jun.pan@linux.intel.com>, Len Brown <lenb@kernel.
-  Mail:    Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>, Jiri
-   Mail:     David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.
-  Mail:   Yong Zhi <yong.zhi@intel.com>, Sakari Ailus <sakari.ailus@linux.intel
-  Mail:   Sakari Ailus <sakari.ailus@linux.intel.com>
- Mail:  Krzysztof Halasa <khalasa@piap.pl>
- Mail:  Deepak Saxena <dsaxena@plexity.net>
- Mail:  Tomas Winkler <tomas.winkler@intel.com>
-    Mail:     Sujith Thomas <sujith.thomas@intel.com>
-  Mail:   Sudeep Dutt <sudeep.dutt@intel.com>, Ashutosh Dixit <ashutosh.dixit@
-   Mail:    Zha Qipeng <qipeng.zha@intel.com>
-  Mail:   Rajneesh Bhardwaj <rajneesh.bhardwaj@intel.com>, Vishwanath Somayaji
- Mail:  Andy Shevchenko <andy@kernel.org>
- Mail:   Stanislav Yakovlev <stas.yakovlev@gmail.com>
-  Mail:    Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>, Len Brown
-   Mail:    Faisal Latif <faisal.latif@intel.com>, Shiraz Saleem <shiraz.saleem
- Mail:  Mika Westerberg <mika.westerberg@linux.intel.com>
-  Mail:   Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
- Mail:  Richard Gong <richard.gong@linux.intel.com>
-  Mail:   Rajneesh Bhardwaj <rajneesh.bhardwaj@linux.intel.com>, “David E. Box”
-    Mail:     Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
-    Mail:     AceLan Kao <acelan.kao@canonical.com>
-    Mail:     Stanislaw Gruszka <stf_xl@wp.pl>
-  Mail:   grumbach@intel.com>, Luca Coelho <luciano.coelho@intel.com>, Intel
-  Mail:    Inaky Perez-Gonzalez <inaky.perez-gonzalez@intel.com>, linux-wimax@
-  Mail:   Jithu Joseph <jithu.joseph@intel.com>
- Mail:  Mario Limonciello <mario.limonciello@dell.com>
- Mail:  Alexander Shishkin <alexander.shishkin@linux.intel.com>
-    Mail:     Ning Sun <ning.sun@intel.com>
- Mail:  Georgi Djakov <georgi.djakov@linaro.org>
-  Mail:   Linus Walleij <linus.walleij@linaro.org>
-    Mail:     Ralf Baechle <ralf@linux-mips.org>
- Mail:  Christoph Hellwig <hch@infradead.org>, Darrick J. Wong <darrick.wong@
- Mail:   Joerg Roedel <joro@8bytes.org>
-    Mail:     Jens Axboe <axboe@kernel.dk>
-  Mail:   Corey Minyard <minyard@acm.org>
-    Mail:     Adaptec OEM Raid Solutions <aacraid@microsemi.com>
- Mail:   Wensong Zhang <wensong@linux-vs.org>, Simon Horman <horms@verge.net.au
- Mail:  Jiri Kosina <jikos@kernel.org>, David Sterba <dsterba@suse.com>
- Mail:  Marc Zyngier <maz@kernel.org>
-   Mail:     Thomas Gleixner <tglx@linutronix.de>
-  Mail:   Thomas Gleixner <tglx@linutronix.de>, Jason Cooper <jason@lakedaemon.
- Mail:  William Breathitt Gray <vilhelm.gray@gmail.com>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
- Mail:  Jaroslav Kysela <perex@perex.cz>
-    Mail:     Lee Duncan <lduncan@suse.com>, Chris Leech <cleech@redhat.com>
- Mail:  Peter Jones <pjones@redhat.com>, Konrad Rzeszutek Wilk <konrad@kernel.
-    Mail:     Sagi Grimberg <sagi@grimberg.me>, Max Gurtovoy <maxg@mellanox.com
-   Mail:    Sagi Grimberg <sagi@grimberg.me>
-  Mail:   Karsten Keil <isdn@linux-pingi.de>
-  Mail:    Karsten Keil <isdn@linux-pingi.de>
-    Mail:     Jean Delvare <jdelvare@suse.com>
-    Mail:     Antti Palosaari <crope@iki.fi>
-  Mail:    Andy Walls <awalls@md.metrocast.net>
-    Mail:     Malcolm Priestley <tvboxspy@gmail.com>
-    Mail:     Jan Kiszka <jan.kiszka@siemens.com>
-    Mail:     Guenter Roeck <linux@roeck-us.net>
-    Mail:     Dave Kleikamp <shaggy@kernel.org>
-    Mail:     Guo-Fu Tseng <cooldavid@cooldavid.org>
-   Mail:     David Woodhouse <dwmw2@infradead.org>, Richard Weinberger <richard
-    Mail:     “Theodore Ts’o” <tytso@mit.edu>, Jan Kara <jack@suse.com>
-    Mail:     Mikhail Ulyanov <mikhail.ulyanov@cogentembedded.com>
-    Mail:     Clemens Ladisch <clemens@ladisch.de>
-    Mail:     Rudolf Marek <r.marek@assembler.cz>
-  Mail:   Andrey Ryabinin <aryabinin@virtuozzo.com>
-  Mail:    Masahiro Yamada <masahiroy@kernel.org>
-  Mail:    Marco Elver <elver@google.com>
-  Mail:   Dave Young <dyoung@redhat.com>, Baoquan He <bhe@redhat.com>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-    Mail:     Ian Kent <raven@themaw.net>
- Mail:  Masahiro Yamada <masahiroy@kernel.org>, Michal Marek <michal.lkml@
-  Mail:   “J. Bruce Fields” <bfields@fieldses.org>, Chuck Lever <chuck.lever@
-   Mail:     Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.
-   Mail:    Brendan Higgins <brendanhiggins@google.com>
-    Mail:     Luis Chamberlain <mcgrof@kernel.org>
-  Mail:   Paolo Bonzini <pbonzini@redhat.com>
-  Mail:   Marc Zyngier <maz@kernel.org>
-  Mail:   Paul Mackerras <paulus@ozlabs.org>
-  Mail:   Christian Borntraeger <borntraeger@de.ibm.com>, Janosch Frank <
-  Mail:   Paolo Bonzini <pbonzini@redhat.com>
- Mail:  Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Tejun Heo <tj@kernel.
-    Mail:     Eric Biederman <ebiederm@xmission.com>
-  Mail:    Mimi Zohar <zohar@linux.ibm.com>
- Mail:   James Bottomley <jejb@linux.ibm.com>, Jarkko Sakkinen <jarkko.sakkinen
- Mail:  David Howells <dhowells@redhat.com>, Jarkko Sakkinen <jarkko.sakkinen@
- Mail:  Stefani Seibold <stefani@seibold.net>
-  Mail:   Jason Wessel <jason.wessel@windriver.com>, Daniel Thompson <daniel.
- Mail:  Catalin Marinas <catalin.marinas@arm.com>
-   Mail:    Luis Chamberlain <mcgrof@kernel.org>
- Mail:  s.keshavamurthy@intel.com>, “David S. Miller” <davem@davemloft.net>,
- Mail:  Miguel Ojeda Sandonis <miguel.ojeda.sandonis@gmail.com>
-    Mail:     David Ahern <dsahern@kernel.org>
- Mail:  iogearbox.net>, Jakub Sitnicki <jakub@cloudflare.com>, Lorenz Bauer <
- Mail:   Hauke Mehrtens <hauke@hauke-m.de>
-    Mail:     John Crispin <john@phrozen.org>
-    Mail:     “James E.J. Bottomley” <James.Bottomley@HansenPartnership.com>
-    Mail:     Tobin C. Harding <me@tobin.cc>, Tycho Andersen <tycho@tycho.ws>
-  Mail:   Jacek Anaszewski <jacek.anaszewski@gmail.com>, Pavel Machek <pavel@
- Mail:  Jean Delvare <jdelvare@suse.com>
-    Mail:     Juergen Stuber <starblue@users.sourceforge.net>
- Mail:   Matan Ziv-Av <matan@svgalib.org>
-    Mail:     Michael Krufky <mkrufky@linuxtv.org>
-    Mail:     Michael Krufky <mkrufky@linuxtv.org>
-   Mail:     Viresh Kumar <vireshk@kernel.org>
-   Mail:    Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>, Jens Axboe <
-   Mail:    Linus Walleij <linus.walleij@linaro.org>
-  Mail:    Hans de Goede <hdegoede@redhat.com>, Jens Axboe <axboe@kernel.dk>
-   Mail:     Mikael Pettersson <mikpelinux@gmail.com>
-  Mail:    Jens Axboe <axboe@kernel.dk>
- Mail:  Sasha Levin <alexander.levin@microsoft.com>
-  Mail:    Dan Williams <dan.j.williams@intel.com>, Vishal Verma <vishal.l.
-  Mail:    Vishal Verma <vishal.l.verma@intel.com>, Dan Williams <dan.j.
-  Mail:    Dan Williams <dan.j.williams@intel.com>, Vishal Verma <vishal.l.
-   Mail:    Oliver O’Halloran <oohall@gmail.com>
-  Mail:    verma@intel.com>, Dave Jiang <dave.jiang@intel.com>, Ira Weiny <ira.
-  Mail:    Thomas Gleixner <tglx@linutronix.de>, Greg Kroah-Hartman <gregkh@
-   Mail:     Matias Bjorling <mb@lightnvm.io>
-  Mail:   Mark Brown <broonie@kernel.org>
-    Mail:     Benjamin Herrenschmidt <benh@kernel.crashing.org>
-  Mail:    Michael Ellerman <mpe@ellerman.id.au>
-    Mail:     Anatolij Gustschin <agust@denx.de>
-  Mail:   Scott Wood <oss@buserror.net>
-    Mail:     Christophe Leroy <christophe.leroy@csgroup.eu>
- Mail:  Kees Cook <keescook@chromium.org>
-  Mail:   infradead.org>, Boqun Feng <boqun.feng@gmail.com>, Nicholas Piggin <
- Mail:  Eric Piel <eric.piel@tremplin-utc.net>
-    Mail:     David Gow <davidgow@google.com>
-  Mail:   Josh Poimboeuf <jpoimboe@redhat.com>, Jiri Kosina <jikos@kernel.org>,
-    Mail:     Guillaume Ligneul <guillaume.ligneul@gmail.com>
-    Mail:     Jean Delvare <jdelvare@suse.com>
-    Mail:     Jean Delvare <jdelvare@suse.com>
- Mail:   Jean Delvare <jdelvare@suse.com>
-    Mail:     Guenter Roeck <linux@roeck-us.net>
-    Mail:     Malcolm Priestley <tvboxspy@gmail.com>
- Mail:  Kees Cook <keescook@chromium.org>
-  Mail:   Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com
-    Mail:     “Richard Russon (FlatCap)” <ldm@flatcap.org>
-    Mail:     Hans de Goede <hdegoede@redhat.com>
-  Mail:   sreekanth.reddy@broadcom.com>, Suganath Prabu Subramani <
-    Mail:     Matthew Wilcox <willy@infradead.org>
-  Mail:    Marcus Folkesson <marcus.folkesson@gmail.com>
-  Mail:   Nuno Sá <nuno.sa@analog.com>
-  Mail:   Nuno Sá <nuno.sa@analog.com>
-    Mail:     Guenter Roeck <linux@roeck-us.net>
-  Mail:    Michael Hennerich <michael.hennerich@analog.com>
-  Mail:   Wanlong Gao <wanlong.gao@gmail.com>, Jan Stancek <jstancek@redhat.com
-   Mail:     Geert Uytterhoeven <geert@linux-m68k.org>
-    Mail:     Joshua Thompson <funaho@jurai.org>
-  Mail:   Philip Blundell <philb@gnu.org>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Malcolm Priestley <tvboxspy@gmail.com>
-    Mail:     Alexey Klimov <klimov.linux@gmail.com>
-  Mail:   Johannes Berg <johannes@sipsolutions.net>
-   Mail:    Jassi Brar <jassisinghbrar@gmail.com>
-    Mail:     Michael Kerrisk <mtk.manpages@gmail.com>
-    Mail:     Rahul Bedarkar <rahulbedarkar89@gmail.com>
- Mail:  Andrew Lunn <andrew@lunn.ch>, Vivien Didelot <vivien.didelot@gmail.com>
- Mail:  Miquel Raynal <miquel.raynal@bootlin.com>
- Mail:  Russell King <linux@armlinux.org.uk>
- Mail:   Boris Brezillon <bbrezillon@kernel.org>, Arnaud Ebalard <arno@natisbad
-  Mail:    Mirko Lindner <mlindner@marvell.com>, Stephen Hemminger <stephen@
-    Mail:     Russell King <linux@armlinux.org.uk>
-    Mail:     Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
-    Mail:     Russell King <linux@armlinux.org.uk>
- Mail:  Miquel Raynal <miquel.raynal@bootlin.com>
-    Mail:     Thomas Petazzoni <thomas.petazzoni@bootlin.com>
- Mail:   Amitkumar Karwar <amitkarwar@gmail.com>, Ganapathi Bhat <ganapathi.
-    Mail:     Lennert Buytenhek <buytenh@wantstofly.org>
-  Mail:    Miquel Raynal <miquel.raynal@bootlin.com>
- Mail:  com>, Subbaraya Sundeep <sbhatta@marvell.com>, hariprasad <hkelam@
- Mail:  com>, Geetha sowjanya <gakula@marvell.com>, Jerin Jacob <jerinj@marvell
- Mail:  Nicolas Pitre <nico@fluxnic.net>
-  Mail:    Tobias Waldekranz <tobias@waldekranz.com>
-  Mail:    Hu Ziji <huziji@marvell.com>
-    Mail:     Guenter Roeck <linux@roeck-us.net>
- Mail:  Ramesh Shanmugasundaram <rashanmu@gmail.com>
- Mail:   Guenter Roeck <linux@roeck-us.net>
-   Mail:    Peter Rosin <peda@axentia.se>
-  Mail:   Andreas Klinger <ak@it-klinger.de>
- Mail:  Bartosz Golaszewski <bgolaszewski@baylibre.com>
- Mail:   Javier Martinez Canillas <javier@dowhile0.org>
-  Mail:    Krzysztof Kozlowski <krzk@kernel.org>, Bartlomiej Zolnierkiewicz <b.
- Mail:  Chanwoo Choi <cw00.choi@samsung.com>, Krzysztof Kozlowski <krzk@kernel.
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
- Mail:  Dan Murphy <dmurphy@ti.com>, Sriram Dash <sriram.dash@samsung.com>
-    Mail:     Rishi Gupta <gupt21@gmail.com>
- Mail:   Peter Rosin <peda@axentia.se>
-  Mail:   Xue Liu <liuxuenetmail@gmail.com>
-    Mail:     William Breathitt Gray <vilhelm.gray@gmail.com>
-  Mail:   Sakari Ailus <sakari.ailus@linux.intel.com>, Laurent Pinchart <
-    Mail:     Philipp Zabel <p.zabel@pengutronix.de>
-    Mail:     Sergey Kozlov <serjk@netup.ru>, Abylay Ospan <aospan@netup.ru>
-    Mail:     Jasmin Jessich <jasmin@anw.at>
-    Mail:     Sergey Kozlov <serjk@netup.ru>, Abylay Ospan <aospan@netup.ru>
-    Mail:     Yasunari Takiguchi <Yasunari.Takiguchi@sony.com>
- Mail:  Steve Longerbeam <slongerbeam@gmail.com>, Philipp Zabel <p.zabel@
- Mail:  Rui Miguel Silva <rmfrfs@gmail.com>
-    Mail:     Abylay Ospan <aospan@netup.ru>
-    Mail:     Sergey Kozlov <serjk@netup.ru>, Abylay Ospan <aospan@netup.ru>
-    Mail:     Sergey Kozlov <serjk@netup.ru>, Abylay Ospan <aospan@netup.ru>
-    Mail:     Sergey Kozlov <serjk@netup.ru>, Abylay Ospan <aospan@netup.ru>
-  Mail:    Dmitry Osipenko <digetx@gmail.com>
- Mail:   Jacopo Mondi <jacopo@jmondi.org>
-  Mail:    Ramesh Shanmugasundaram <rashanmu@gmail.com>
- Mail:   Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-  Mail:    Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
- Mail:  Niklas Söderlund <niklas.soderlund@ragnatech.se>
-  Mail:   Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Kieran Bingham
-  Mail:   Hugues Fruchet <hugues.fruchet@st.com>
-  Mail:    Mauro Carvalho Chehab <mchehab@kernel.org>
-  Mail:   Sean Wang <sean.wang@mediatek.com>
-  Mail:   Sean Wang <sean.wang@mediatek.com>
- Mail:  Sean Wang <sean.wang@mediatek.com>
- Mail:  Sean Wang <sean.wang@mediatek.com>
- Mail:  Felix Fietkau <nbd@openwrt.org>, John Crispin <john@phrozen.org>, Sean
-  Mail:    Qii Wang <qii.wang@mediatek.com>
- Mail:  Rick Chang <rick.chang@mediatek.com>, Bin Liu <bin.liu@mediatek.com>
- Mail:  Minghsiu Tsai <minghsiu.tsai@mediatek.com>, Houlong Wei <houlong.wei@
- Mail:  Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen <andrew-ct.chen@
- Mail:  Chaotian Jing <chaotian.jing@mediatek.com>
-   Mail:    Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo.bianconi83@
-    Mail:     Jakub Kicinski <kubakici@wp.pl>
-  Mail:    Stefan Roese <sr@denx.de>
- Mail:  Sean Wang <sean.wang@mediatek.com>
- Mail:  Sean Wang <sean.wang@mediatek.com>
-    Mail:     Sean Wang <sean.wang@mediatek.com>
- Mail:  Chunfeng Yun <chunfeng.yun@mediatek.com>
- Mail:  Peter Senna Tschudin <peter.senna@gmail.com>, Martin Donnelly <martin.
-  Mail:   saxena@broadcom.com>, Shivasharan S <shivasharan.srikanteshwara@
-    Mail:     Crt Mori <cmo@melexis.com>
-    Mail:     Crt Mori <cmo@melexis.com>
-  Mail:   Sangwon Jee <jeesw@melfas.com>
-    Mail:     Tariq Toukan <tariqt@mellanox.com>
-    Mail:     Saeed Mahameed <saeedm@mellanox.com>
-   Mail:    Jiri Pirko <jiri@mellanox.com>, Ido Schimmel <idosch@mellanox.com>
-    Mail:     mlxsw@mellanox.com
- Mail:   Andy Shevchenko <andy@infradead.org>, Darren Hart <dvhart@infradead.
-    Mail:     Tariq Toukan <tariqt@mellanox.com>
-   Mail:    Yishai Hadas <yishaih@mellanox.com>
-  Mail:    Saeed Mahameed <saeedm@mellanox.com>, Leon Romanovsky <leonro@
-   Mail:    Leon Romanovsky <leonro@mellanox.com>
-  Mail:    Vadim Pasternak <vadimp@mellanox.com>, Michael Shych <michaelsh@
-   Mail:     Vadim Pasternak <vadimp@mellanox.com>
-    Mail:     Vadim Pasternak <vadimp@mellanox.com>
-  Mail:   Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, “Paul E.
-    Mail:     Mike Rapoport <rppt@linux.ibm.com>
-  Mail:   Andrew Morton <akpm@linux-foundation.org>
-  Mail:    Miquel Raynal <miquel.raynal@bootlin.com>, Richard Weinberger <
-    Mail:     Johannes Thumshirn <morbidrsa@gmail.com>
- Mail:  Johannes Thumshirn <morbidrsa@gmail.com>
- Mail:  Andreas Werner <andreas.werner@men.de>
-    Mail:     Johannes Thumshirn <jth@kernel.org>
-  Mail:   Neil Armstrong <narmstrong@baylibre.com>
-  Mail:    Liang Yang <liang.yang@amlogic.com>
-  Mail:    Maxime Jourdan <mjourdan@baylibre.com>, Neil Armstrong <narmstrong@
- Mail:  Vladimir Vid <vladimir.vid@sartura.hr>
-  Mail:   Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Hemant
-  Mail:   Michal Simek <monstr@monstr.eu>
- Mail:  Richard Genoud <richard.genoud@gmail.com>
- Mail:   Radu Pirea <radu_nicolae.pirea@upb.ro>
-   Mail:    Radu Pirea <radu_nicolae.pirea@upb.ro>
-    Mail:     Codrin Ciubotariu <codrin.ciubotariu@microchip.com>
- Mail:  Ludovic Desroches <ludovic.desroches@microchip.com>
-    Mail:     Tudor Ambarus <tudor.ambarus@microchip.com>
-    Mail:     Ludovic Desroches <ludovic.desroches@microchip.com>
- Mail:  Eugen Hristev <eugen.hristev@microchip.com>
-   Mail:    Eugen Hristev <eugen.hristev@microchip.com>
- Mail:  Woojung Huh <woojung.huh@microchip.com>, Microchip Linux Driver Support
-  Mail:   Bryan Whitehead <bryan.whitehead@microchip.com>, Microchip Linux
-    Mail:     Nicolas Ferre <nicolas.ferre@microchip.com>
-  Mail:   Andrei Stefanescu <andrei.stefanescu@microchip.com>
-  Mail:    Marcus Folkesson <marcus.folkesson@gmail.com>, Kent Gustavsson <kent
- Mail:  Ludovic Desroches <ludovic.desroches@microchip.com>
-   Mail:    Tudor Ambarus <tudor.ambarus@microchip.com>
-  Mail:   Claudiu Beznea <claudiu.beznea@microchip.com>
- Mail:  Ludovic Desroches <ludovic.desroches@microchip.com>, Eugen Hristev <
- Mail:  Nicolas Ferre <nicolas.ferre@microchip.com>
- Mail:  Nicolas Ferre <nicolas.ferre@microchip.com>
-    Mail:     Nicolas Ferre <nicolas.ferre@microchip.com>
-   Mail:    Richard Leitner <richard.leitner@skidata.com>
-    Mail:     Cristian Birsan <cristian.birsan@microchip.com>
-    Mail:     Ludovic Desroches <ludovic.desroches@microchip.com>
- Mail:  Alexandre Belloni <alexandre.belloni@bootlin.com>, Microchip Linux
- Mail:  Don Brace <don.brace@microsemi.com>
-    Mail:     Chen Yu <yu.c.chen@intel.com>
- Mail:  Oliver Neukum <oliver@neukum.org>
-  Mail:    Thomas Bogendoerfer <tsbogend@alpha.franken.de>
- Mail:  Paul Burton <paulburton@kernel.org>
- Mail:   Paul Burton <paulburton@kernel.org>
-    Mail:     Aleksandar Markovic <aleksandar.markovic@mips.com>
-  Mail:   Keguang Zhang <keguang.zhang@gmail.com>
-  Mail:   Jiaxun Yang <jiaxun.yang@flygoat.com>
- Mail:  Huacai Chen <chenhc@lemote.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
- Mail:  ibm.com>, Andrew Morton <akpm@linux-foundation.org>, Nick Piggin <
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Antti Palosaari <crope@iki.fi>
- Mail:  Jessica Yu <jeyu@kernel.org>
- Mail:  Saravanan Sekar <sravanhome@gmail.com>
- Mail:  Jiri Slaby <jirislaby@gmail.com>
-    Mail:     Alexey Klimov <klimov.linux@gmail.com>
-  Mail:   Alan Ott <alan@signal11.us>
-    Mail:     “Lee, Chun-Yi” <jlee@suse.com>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Robert Jarzmik <robert.jarzmik@free.fr>
-    Mail:     Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-    Mail:     Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-    Mail:     Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-    Mail:     Jacopo Mondi <jacopo@jmondi.org>
-  Mail:   Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-  Mail:    Jacopo Mondi <jacopo@jmondi.org>
- Mail:  Lee Jones <lee.jones@linaro.org>
-  Mail:    Ulf Hansson <ulf.hansson@linaro.org>
- Mail:  Peter Rosin <peda@axentia.se>
-    Mail:     Bin Liu <b-liu@ti.com>
-    Mail:     Akihiro Tsukada <tskd08@gmail.com>
-    Mail:     Michael Krufky <mkrufky@linuxtv.org>
-   Mail:     Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>
-    Mail:     Hannes Reinecke <hare@kernel.org>
-    Mail:     Chris Lee <christopher.lee@cspi.com>
-   Mail:     Miquel Raynal <miquel.raynal@bootlin.com>
-    Mail:     Daniel Mack <zonque@gmail.com>
- Mail:  Finn Thain <fthain@telegraphics.com.au>, Michael Schmitz <schmitzmic@
- Mail:  Samuel Mendoza-Jonas <sam@mendozajonas.com>
-    Mail:     Guenter Roeck <linux@roeck-us.net>
- Mail:  Jakub Kicinski <kuba@kernel.org>
-    Mail:     Stephen Hemminger <stephen@networkplumber.org>
-  Mail:   Jon Mason <jdmason@kudzu.us>
-  Mail:    Pablo Neira Ayuso <pablo@netfilter.org>, Jozsef Kadlecsik <kadlec@
-    Mail:     Ralf Baechle <ralf@linux-mips.org>
-    Mail:     Jakub Kicinski <kuba@kernel.org>
-  Mail:   Josef Bacik <josef@toxicpanda.com>
-   Mail:    Neil Horman <nhorman@tuxdriver.com>
-  Mail:    “David S. Miller” <davem@davemloft.net>, Jakub Kicinski <kuba@kernel
-  Mail:    Kalle Valo <kvalo@codeaurora.org>
- Mail:  Andrew Lunn <andrew@lunn.ch>, Vivien Didelot <vivien.didelot@gmail.com
-  Mail:    “David S. Miller” <davem@davemloft.net>, Jakub Kicinski <kuba@kernel
- Mail:  Steffen Klassert <steffen.klassert@secunet.com>, Herbert Xu <herbert@
- Mail:   “David S. Miller” <davem@davemloft.net>, Alexey Kuznetsov <kuznet@ms2.
-  Mail:   Paul Moore <paul@paul-moore.com>
-  Mail:   Mat Martineau <mathew.j.martineau@linux.intel.com>, Matthieu Baerts <
- Mail:  Eric Dumazet <edumazet@google.com>
- Mail:  com>, John Fastabend <john.fastabend@gmail.com>, Daniel Borkmann <
-  Mail:   Manish Chopra <manishc@marvell.com>, Rahul Verma <rahulv@marvell.com
-   Mail:    Sridhar Samudrala <sridhar.samudrala@intel.com>
-  Mail:   David Ahern <dsahern@kernel.org>
-  Mail:   Trond Myklebust <trond.myklebust@hammerspace.com>, Anna Schumaker <
-  Mail:   Ryusuke Konishi <konishi.ryusuke@gmail.com>
-  Mail:   YOKOTA Hiroshi <yokota@netlab.is.tsukuba.ac.jp>
-  Mail:   GOTO Masanori <gotom@debian.or.jp>, YOKOTA Hiroshi <yokota@netlab.is.
- Mail:  Ley Foon Tan <ley.foon.tan@intel.com>
-  Mail:   Frederic Weisbecker <fweisbec@gmail.com>, Thomas Gleixner <tglx@
-    Mail:     Pavel Machek <pavel@ucw.cz>, Sakari Ailus <sakari.ailus@iki.fi>
- Mail:  Willy Tarreau <w@1wt.eu>
- Mail:  Matthias Maennich <maennich@google.com>
-   Mail:    Sanjay R Mehta <sanju.mehta@amd.com>, Shyam Sundar S K <
-  Mail:   Jon Mason <jdmason@kudzu.us>, Dave Jiang <dave.jiang@intel.com>,
-    Mail:     Serge Semin <fancer.lancer@gmail.com>
-    Mail:     Dave Jiang <dave.jiang@intel.com>
-    Mail:     Anton Altaparmakov <anton@tuxera.com>
-  Mail:    Finn Thain <fthain@telegraphics.com.au>
-    Mail:     Antonino Daplas <adaplas@gmail.com>
-  Mail:   Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@fb.com>, Christoph
- Mail:   James Smart <james.smart@broadcom.com>
-  Mail:   Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
- Mail:  Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
-   Mail:    Ashish Kumar <ashish.kumar@nxp.com>
- Mail:  Rui Miguel Silva <rmfrfs@gmail.com>
-   Mail:    Fabio Estevam <festevam@gmail.com>
-    Mail:     Vladimir Oltean <olteanv@gmail.com>
- Mail:   Russell King <linux@armlinux.org.uk>
-   Mail:    Peter Rosin <peda@axentia.se>
-    Mail:     Clément Perrochaud <clement.perrochaud@effinnov.com>
-    Mail:     Jiri Pirko <jiri@mellanox.com>
- Mail:  Josh Poimboeuf <jpoimboe@redhat.com>, Peter Zijlstra <peterz@infradead.
- Mail:  Oltean <vladimir.oltean@nxp.com>, Claudiu Manoil <claudiu.manoil@nxp.
- Mail:  Frederic Barrat <fbarrat@linux.ibm.com>, Andrew Donnellan <ajd@linux.
-  Mail:    Peter Ujfalusi <peter.ujfalusi@ti.com>, Jarkko Nikula <jarkko.nikula
-    Mail:     Paul Walmsley <paul@pwsan.com>
- Mail:  Benoît Cousson <bcousson@baylibre.com>, Tony Lindgren <tony@atomide.com
-    Mail:     Roger Quadros <rogerq@ti.com>, Tony Lindgren <tony@atomide.com>
- Mail:   Grygorii Strashko <grygorii.strashko@ti.com>, Santosh Shilimkar <
-    Mail:     Ohad Ben-Cohen <ohad@wizery.com>
-    Mail:     Paul Walmsley <paul@pwsan.com>
-    Mail:     Benoît Cousson <bcousson@baylibre.com>
-   Mail:     Benoît Cousson <bcousson@baylibre.com>, Paul Walmsley <paul@pwsan.
-   Mail:    Vignesh R <vigneshr@ti.com>
- Mail:   Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-    Mail:     Aaro Koskinen <aaro.koskinen@iki.fi>
-    Mail:     Kevin Hilman <khilman@kernel.org>
-   Mail:     Rajendra Nayak <rnayak@codeaurora.org>, Paul Walmsley <paul@pwsan.
- Mail:  Deepak Saxena <dsaxena@plexity.net>
-    Mail:     Mark Jackson <mpfj@newflow.co.uk>
-  Mail:    Aaro Koskinen <aaro.koskinen@iki.fi>, Tony Lindgren <tony@atomide.
-  Mail:    Tony Lindgren <tony@atomide.com>
-    Mail:     Bob Copeland <me@bobcopeland.com>
- Mail:  Harald Welte <laforge@gnumonks.org>
- Mail:  Harald Welte <laforge@gnumonks.org>
-    Mail:     Sakari Ailus <sakari.ailus@linux.intel.com>
-   Mail:    Rui Miguel Silva <rmfrfs@gmail.com>
-    Mail:     Shunqian Zheng <zhengsq@rock-chips.com>
-    Mail:     Tianshu Qiu <tian.shu.qiua@intel.com>
-    Mail:     Steve Longerbeam <slongerbeam@gmail.com>
-    Mail:     Luis Oliveira <lolivei@synopsys.com>
-  Mail:    Chiranjeevi Rapolu <chiranjeevi.rapolu@intel.com>, Hyungwoo Yang <
-    Mail:     Shawn Tu <shawnx.tu@intel.com>
-    Mail:     Shunqian Zheng <zhengsq@rock-chips.com>
-   Mail:    Jonathan Corbet <corbet@lwn.net>
-  Mail:   Jacopo Mondi <jacopo@jmondi.org>
-   Mail:    Wenyou Yang <wenyou.yang@microchip.com>
-   Mail:    Dongchun Zhu <dongchun.zhu@mediatek.com>
-    Mail:     Petr Cvek <petrcvekcz@gmail.com>
-   Mail:    Sakari Ailus <sakari.ailus@linux.intel.com>
-    Mail:     Kyungmin Park <kyungmin.park@samsung.com>
-    Mail:     Harvey Hunt <harveyhuntnexus@gmail.com>
-    Mail:     Jens Wiklander <jens.wiklander@linaro.org>
-    Mail:     Sumit Garg <sumit.garg@linaro.org>
- Mail:   Dennis Dalessandro <dennis.dalessandro@intel.com>, Niranjana
-  Mail:    Pantelis Antoniou <pantelis.antoniou@konsulko.com>, Frank Rowand <
-  Mail:    Rob Herring <robh+dt@kernel.org>, Frank Rowand <frowand.list@gmail.
-    Mail:     Rob Herring <robh+dt@kernel.org>
- Mail:  Peter Korsgaard <peter@korsgaard.com>, Andrew Lunn <andrew@lunn.ch>
-  Mail:   Jonas Bonn <jonas@southpole.se>, Stefan Kristiansson <stefan.
-    Mail:     Pravin B Shelar <pshelar@ovn.org>
-  Mail:    Viresh Kumar <vireshk@kernel.org>, Nishanth Menon <nm@ti.com>,
-    Mail:     Clemens Ladisch <clemens@ladisch.de>
-  Mail:    Robert Richter <rric@kernel.org>
-  Mail:   Mark Fasheh <mark@fasheh.com>, Joel Becker <jlbec@evilplan.org>,
-    Mail:     Mike Marshall <hubcap@omnibond.com>
-    Mail:     “Lad, Prabhakar” <prabhakar.csengg@gmail.com>
-    Mail:     Miklos Szeredi <miklos@szeredi.hu>
-    Mail:     Christian Lamparter <chunkeey@googlemail.com>
-    Mail:     Vladimir Oltean <olteanv@gmail.com>
-    Mail:     Steffen Klassert <steffen.klassert@secunet.com>
-  Mail:    Jesper Dangaard Brouer <hawk@kernel.org>, Ilias Apalodimas <ilias.
-    Mail:     Harald Welte <laforge@gnumonks.org>
-  Mail:   Andreas Klinger <ak@it-klinger.de>
- Mail:  Willy Tarreau <willy@haproxy.com>, Ksenija Stanojevic <ksenija.
- Mail:   Sudip Mukherjee <sudipm.mukherjee@gmail.com>, Sudip Mukherjee <sudip.
-  Mail:   Juergen Gross <jgross@suse.com>, Deep Shah <sdeep@vmware.com>,
-    Mail:     Tim Waugh <tim@cyberelk.net>
-  Mail:    “James E.J. Bottomley” <James.Bottomley@HansenPartnership.com>,
-    Mail:     Jiri Pirko <jiri@mellanox.com>
- Mail:  Enrico Weigelt, metux IT consult <info@metux.net>
-    Mail:     Jim Cromie <jim.cromie@gmail.com>
- Mail:  Jim Cromie <jim.cromie@gmail.com>
-    Mail:     Jean Delvare <jdelvare@suse.com>
- Mail:  Riku Voipio <riku.voipio@iki.fi>
-    Mail:     Guenter Roeck <linux@roeck-us.net>
- Mail:  Khalid Aziz <khalid@gonehiking.org>
-  Mail:   Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-  Mail:    Ley Foon Tan <ley.foon.tan@intel.com>
-  Mail:    Toan Le <toan@os.amperecomputing.com>
-  Mail:    Rob Herring <robh@kernel.org>
-  Mail:   Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-   Mail:    Tom Joseph <tjoseph@cadence.com>
-  Mail:   Minghuan Lian <minghuan.Lian@nxp.com>, Mingkai Hu <mingkai.hu@nxp.com
- Mail:  Will Deacon <will@kernel.org>
-  Mail:   Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.
-    Mail:     Jonathan Derrick <jonathan.derrick@intel.com>
- Mail:  Kurt Schwemmer <kurt.schwemmer@microsemi.com>, Logan Gunthorpe <logang@
-  Mail:   Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, Hou Zhiqiang <
-  Mail:   Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Jason Cooper <jason@
-  Mail:   Thierry Reding <thierry.reding@gmail.com>
- Mail:   Hou Zhiqiang <Zhiqiang.Hou@nxp.com>
-  Mail:   Marek Vasut <marek.vasut+renesas@gmail.com>, Yoshihiro Shimoda <
- Mail:  Jingoo Han <jingoohan1@gmail.com>
-  Mail:   Jingoo Han <jingoohan1@gmail.com>, Gustavo Pimentel <gustavo.pimentel
-  Mail:    Kishon Vijay Abraham I <kishon@ti.com>
-  Mail:   Murali Karicheri <m-karicheri2@ti.com>
-  Mail:    Linus Walleij <linus.walleij@linaro.org>
-  Mail:    Kishon Vijay Abraham I <kishon@ti.com>, Lorenzo Pieralisi <lorenzo.
- Mail:  Russell Currey <ruscur@russell.cc>, Sam Bobroff <sbobroff@linux.ibm.com
-    Mail:     Linas Vepstas <linasvepstas@gmail.com>
-  Mail:   Ley Foon Tan <ley.foon.tan@intel.com>
-  Mail:    Toan Le <toan@os.amperecomputing.com>
-   Mail:     Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>
-  Mail:    Bjorn Helgaas <bhelgaas@google.com>
-  Mail:    Jonathan Chocron <jonnyc@amazon.com>
-    Mail:     Yue Wang <yue.wang@Amlogic.com>
-  Mail:    Jesper Nilsson <jesper.nilsson@axis.com>
-  Mail:   Robert Richter <rrichter@marvell.com>
-  Mail:   Zhou Wang <wangzhou1@hisilicon.com>
-  Mail:    Xiaowei Song <songxiaowei@hisilicon.com>, Binghui Wang <wangbinghui@
-  Mail:   Shawn Guo <shawn.guo@linaro.org>
-   Mail:    Ryder Lee <ryder.lee@mediatek.com>
-    Mail:     Stanimir Varbanov <svarbanov@mm-sol.com>
-  Mail:    Shawn Lin <shawn.lin@rock-chips.com>
-  Mail:    Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-    Mail:     Pratyush Anand <pratyush.anand@gmail.com>
- Mail:  Dominik Brodowski <linux@dominikbrodowski.net>
-    Mail:     Don Fry <pcnet32@frontier.com>
-    Mail:     Steffen Klassert <steffen.klassert@secunet.com>
-    Mail:     Hans de Goede <hdegoede@redhat.com>
-   Mail:    Shannon Nelson <snelson@pensando.io>, Pensando Drivers <drivers@
- Mail:  Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>, Christoph
- Mail:  Balbir Singh <bsingharora@gmail.com>
-  Mail:   Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com
-    Mail:     Christoph Hellwig <hch@infradead.org>
-    Mail:     Marcus Folkesson <marcus.folkesson@gmail.com>
- Mail:  Remi Denis-Courmont <courmisch@gmail.com>
-    Mail:     Joern Engel <joern@lazybastard.org>
-    Mail:     Bruno Prémont <bonbons@linux-vserver.org>
-   Mail:    Jamie Iles <jamie@jamieiles.com>
-  Mail:   Christian Brauner <christian@brauner.io>
-  Mail:   Linus Walleij <linus.walleij@linaro.org>
-  Mail:   Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.
- Mail:  Mika Westerberg <mika.westerberg@linux.intel.com>, Andy Shevchenko <
- Mail:  Sean Wang <sean.wang@kernel.org>
-  Mail:   Ludovic Desroches <ludovic.desroches@microchip.com>
-   Mail:     Bjorn Andersson <bjorn.andersson@linaro.org>
-  Mail:   Geert Uytterhoeven <geert+renesas@glider.be>
-  Mail:    Tomasz Figa <tomasz.figa@gmail.com>, Krzysztof Kozlowski <krzk@
-  Mail:   Tony Lindgren <tony@atomide.com>, Haojian Zhuang <haojian.zhuang@
-    Mail:     Viresh Kumar <vireshk@kernel.org>
- Mail:   James Hartley <james.hartley@sondrel.com>
- Mail:  linux-block@vger.kernel.org
-  Mail:   Guan Xuetao <gxt@pku.edu.cn>
- Mail:  Tomasz Duszynski <tduszyns@gmail.com>
- Mail:  Logan Gunthorpe <logang@deltatee.com>
-   Mail:     “Todd E Brandt” <todd.e.brandt@linux.intel.com>
-  Mail:   Guenter Roeck <linux@roeck-us.net>
-    Mail:     Jack Wang <jinpu.wang@cloud.ionos.com>
-  Mail:   Song Qiang <songqiang1304521@gmail.com>
-    Mail:     “Rafael J. Wysocki” <rafael.j.wysocki@intel.com>
-  Mail:   Thomas Gleixner <tglx@linutronix.de>
- Mail:  “Rafael J. Wysocki” <rjw@rjwysocki.net>
-   Mail:    Mark Rutland <mark.rutland@arm.com>, Lorenzo Pieralisi <lorenzo.
- Mail:  Sebastian Reichel <sre@kernel.org>
-    Mail:     Suraj Jitindar Singh <sjitindarsingh@gmail.com>
- Mail:  Mitchell Blank Jr <mitch@sfgoth.com>
- Mail:  Michal Ostrowski <mostrows@earthlink.net>
- Mail:  James Chapman <jchapman@katalix.com>
-    Mail:     Paul Mackerras <paulus@samba.org>
-  Mail:   Rodolfo Giometti <giometti@enneenne.com>
-    Mail:     Dmitry Kozlov <xeb@mail.ru>
- Mail:  Johannes Weiner <hannes@cmpxchg.org>
-  Mail:   Petr Mladek <pmladek@suse.com>, Sergey Senozhatsky <sergey.
-    Mail:     Luis Chamberlain <mcgrof@kernel.org>
- Mail:   Luis Chamberlain <mcgrof@kernel.org>, Kees Cook <keescook@chromium.org
-    Mail:     Geoff Levand <geoff@infradead.org>
- Mail:  Geoff Levand <geoff@infradead.org>
-    Mail:     Jim Paris <jim@jtan.com>, Geoff Levand <geoff@infradead.org>
- Mail:  Yotam Gigi <yotam.gi@gmail.com>
- Mail:  Kees Cook <keescook@chromium.org>, Anton Vorontsov <anton@enomsg.org>,
-  Mail:   Richard Cochran <richardcochran@gmail.com>
- Mail:  Oleg Nesterov <oleg@redhat.com>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-   Mail:     Mike Isely <isely@pobox.com>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-  Mail:    Kamil Debski <kamil@wypas.org>, Bartlomiej Zolnierkiewicz <b.
-    Mail:     Sean Young <sean@mess.org>
-  Mail:    Thierry Reding <thierry.reding@gmail.com>
-  Mail:    Lee Jones <lee.jones@linaro.org>
-    Mail:     Robert Jarzmik <robert.jarzmik@free.fr>
-    Mail:     Robert Jarzmik <robert.jarzmik@free.fr>
- Mail:  Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.
-    Mail:     Giovanni Cabiddu <giovanni.cabiddu@intel.com>
-   Mail:    Patrick Lai <plai@codeaurora.org>, Banajit Goswami <bgoswami@
-    Mail:     Alex Elder <elder@kernel.org>
-    Mail:     Gabriel Somlo <somlo@cmu.edu>, “Michael S. Tsirkin” <mst@redhat.
-  Mail:   Dennis Dalessandro <dennis.dalessandro@intel.com>, Mike Marciniszyn <
-    Mail:     QLogic-Storage-Upstream@cavium.com
-    Mail:     QLogic-Storage-Upstream@cavium.com
-  Mail:    Ariel Elior <aelior@marvell.com>, GR-everest-linux-l2@marvell.com
-   Mail:     Michal Kalderon <mkalderon@marvell.com>, Ariel Elior <aelior@
-    Mail:     Michael Reed <mdr@sgi.com>
-   Mail:     Nilesh Javali <njavali@marvell.com>, GR-QLogic-Storage-Upstream@
-  Mail:   GR-Linux-NIC-Dev@marvell.com
-    Mail:     QLogic-Storage-Upstream@qlogic.com
-  Mail:   Shahed Shaikh <shshaikh@marvell.com>, Manish Chopra <manishc@marvell.
-    Mail:     Manish Chopra <manishc@marvell.com>, GR-Linux-NIC-Dev@marvell.com
-    Mail:     Akihiro Tsukada <tskd08@gmail.com>
-    Mail:     Akihiro Tsukada <tskd08@gmail.com>
-  Mail:   Anders Larsen <al@alarsen.net>
- Mail:   Stuart Yoder <stuyoder@gmail.com>, Laurentiu Tudor <laurentiu.tudor@
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Kalle Valo <kvalo@codeaurora.org>
-    Mail:     Kalle Valo <kvalo@codeaurora.org>
-    Mail:     QCA ath9k Development <ath9k-devel@qca.qualcomm.com>
- Mail:   Todor Tomov <todor.too@gmail.com>
-  Mail:    Niklas Cassel <nks@flawful.org>
-  Mail:   Ilia Lin <ilia.lin@kernel.org>
-    Mail:     Timur Tabi <timur@kernel.org>
-  Mail:   Vinod Koul <vkoul@kernel.org>
-    Mail:     Alok Chauhan <alokc@codeaurora.org>
-    Mail:     Brian Cain <bcain@codeaurora.org>
-  Mail:    Sinan Kaya <okaya@kernel.org>
-  Mail:    Loic Poulain <loic.poulain@linaro.org>, Robert Foss <robert.foss@
-    Mail:     Rob Clark <robdclark@gmail.com>
- Mail:   Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-  Mail:   Subash Abhinov Kasiviswanathan <subashab@codeaurora.org>, Sean
-   Mail:    Amit Kucheria <amit.kucheria@linaro.org>
-   Mail:    Stanimir Varbanov <stanimir.varbanov@linaro.org>
-    Mail:     Kalle Valo <kvalo@codeaurora.org>
-    Mail:     Igor Mitsyanko <imitsyanko@quantenna.com>
-  Mail:   Alex Deucher <alexander.deucher@amd.com>, Christian König <christian.
-    Mail:     Benjamin Herrenschmidt <benh@kernel.crashing.org>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-   Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-  Mail:    Ilya Dryomov <idryomov@gmail.com>
-    Mail:     Paul Mackerras <paulus@samba.org>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-    Mail:     John Crispin <john@phrozen.org>
-   Mail:    Stanislaw Gruszka <stf_xl@wp.pl>, Helmut Schaa <helmut.schaa@
- Mail:  Jens Axboe <axboe@kernel.dk>
-   Mail:    Miodrag Dinic <miodrag.dinic@mips.com>
- Mail:  “Theodore Ts’o” <tytso@mit.edu>
- Mail:  Matt Porter <mporter@kernel.crashing.org>, Alexandre Bounine <alex.bou9
-   Mail:     Tony Luck <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>
- Mail:  Patrick Lerda <patrick9876@free.fr>
-  Mail:   “Paul E. McKenney” <paulmck@kernel.org>, Josh Triplett <josh@
- Mail:  Florian Fainelli <florian@openwrt.org>
-    Mail:     Florian Fainelli <f.fainelli@gmail.com>
-  Mail:   Dennis Dalessandro <dennis.dalessandro@intel.com>, Mike Marciniszyn <
-  Mail:   Santosh Shilimkar <santosh.shilimkar@oracle.com>
- Mail:   Fenghua Yu <fenghua.yu@intel.com>, Reinette Chatre <reinette.chatre@
-  Mail:   “Paul E. McKenney” <paulmck@kernel.org>, Josh Triplett <josh@
-  Mail:    Alessandro Zummo <a.zummo@towertech.it>, Alexandre Belloni <
- Mail:  Oder Chiou <oder_chiou@realtek.com>
- Mail:  Linus Walleij <linus.walleij@linaro.org>
-   Mail:    Ping-Ke Shih <pkshih@realtek.com>
-    Mail:     Yan-Hsuan Chuang <yhchuang@realtek.com>
-   Mail:    Amitkumar Karwar <amitkarwar@gmail.com>, Siva Rebbagondla <siva8118
-  Mail:    Mark Brown <broonie@kernel.org>
- Mail:  Ohad Ben-Cohen <ohad@wizery.com>, Bjorn Andersson <bjorn.andersson@
- Mail:  Ohad Ben-Cohen <ohad@wizery.com>, Bjorn Andersson <bjorn.andersson@
-  Mail:    Geert Uytterhoeven <geert+renesas@glider.be>
- Mail:  Wolfram Sang <wsa+renesas@sang-engineering.com>
-  Mail:    Marek Vasut <marek.vasut@gmail.com>
- Mail:  Wolfram Sang <wsa+renesas@sang-engineering.com>
- Mail:  Niklas Söderlund <niklas.soderlund@ragnatech.se>
- Mail:  Chris Brandt <chris.brandt@renesas.com>
-    Mail:     Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
- Mail:  Philipp Zabel <p.zabel@pengutronix.de>
- Mail:  peterz@infradead.org>, “Paul E. McKenney” <paulmck@kernel.org>, Boqun
-  Mail:   Johannes Berg <johannes@sipsolutions.net>
-  Mail:   Thomas Graf <tgraf@suug.ch>, Herbert Xu <herbert@gondor.apana.org.au>
- Mail:  Maxim Levitsky <maximlevitsky@gmail.com>
- Mail:  Maxim Levitsky <maximlevitsky@gmail.com>
-  Mail:   Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@
-   Mail:    Danil Kipnis <danil.kipnis@cloud.ionos.com>, Jack Wang <jinpu.wang@
-  Mail:   Stefan Achatz <erazor_de@users.sourceforge.net>
-    Mail:     Helen Koike <helen.koike@collabora.com>
-  Mail:    Jacob Chen <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@
-  Mail:    Ezequiel Garcia <ezequiel@collabora.com>
-    Mail:     Jiri Pirko <jiri@resnulli.us>
-    Mail:     Kevin Cernekee <cernekee@gmail.com>
- Mail:  Tomasz Duszynski <tduszyns@gmail.com>
- Mail:  Marek Vasut <marek.vasut+renesas@gmail.com>
-    Mail:     Ralf Baechle <ralf@linux-mips.org>
- Mail:   Jernej Skrabec <jernej.skrabec@siol.net>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Antti Palosaari <crope@iki.fi>
-  Mail:   htl10@users.sourceforge.net>, Larry Finger <Larry.Finger@lwfinger.net
-   Mail:    Jes Sorensen <Jes.Sorensen@gmail.com>
-   Mail:    Danil Kipnis <danil.kipnis@cloud.ionos.com>, Jack Wang <jinpu.wang@
-  Mail:   David Howells <dhowells@redhat.com>
-    Mail:     Antonino Daplas <adaplas@gmail.com>
-  Mail:   Heiko Carstens <heiko.carstens@de.ibm.com>, Vasily Gorbik <gor@linux.
-  Mail:    Vineeth Vijayan <vneethv@linux.ibm.com>, Peter Oberparleiter <
-   Mail:     Stefan Haberland <sth@linux.ibm.com>, Jan Hoeppner <hoeppner@linux
-    Mail:     Gerald Schaefer <gerald.schaefer@de.ibm.com>
-  Mail:   Julian Wiedmann <jwi@linux.ibm.com>, Karsten Graul <kgraul@linux.ibm.
-  Mail:   Julian Wiedmann <jwi@linux.ibm.com>, Karsten Graul <kgraul@linux.ibm.
-  Mail:    Niklas Schnelle <schnelle@linux.ibm.com>, Gerald Schaefer <gerald.
-  Mail:   Tony Krowiak <akrowiak@linux.ibm.com>, Pierre Morel <pmorel@linux.ibm
-   Mail:     Cornelia Huck <cohuck@redhat.com>, Eric Farman <farman@linux.ibm.
-    Mail:     Harald Freudenberger <freude@linux.ibm.com>
-   Mail:     Steffen Maier <maier@linux.ibm.com>, Benjamin Block <bblock@linux.
-    Mail:     Ben Dooks <ben-linux@fluff.org>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-   Mail:     Mauro Carvalho Chehab <mchehab@kernel.org>
-  Mail:    Hans Verkuil <hverkuil@xs4all.nl>
- Mail:  Micah Morton <mortonm@chromium.org>
- Mail:   Krzysztof Kozlowski <krzk@kernel.org>, Sangbeom Kim <sbkim73@samsung.
-  Mail:    Krzysztof Kozlowski <krzk@kernel.org>
-  Mail:   Łukasz Stelmach <l.stelmach@samsung.com>
-    Mail:     Jingoo Han <jingoohan1@gmail.com>
-    Mail:     Corentin Chary <corentin.chary@gmail.com>
- Mail:  Sangbeom Kim <sbkim73@samsung.com>, Krzysztof Kozlowski <krzk@kernel.
-  Mail:    Sylwester Nawrocki <sylvester.nawrocki@gmail.com>
-   Mail:    Robert Baldyga <r.baldyga@samsung.com>, Krzysztof Opasiak <k.
-   Mail:    Kyungmin Park <kyungmin.park@samsung.com>, Andrzej Hajda <a.hajda@
-   Mail:    Kyungmin Park <kyungmin.park@samsung.com>, Andrzej Hajda <a.hajda@
- Mail:  Krzysztof Kozlowski <krzk@kernel.org>, Vladimir Zapolskiy <vz@mleia.com
-  Mail:    Kyungmin Park <kyungmin.park@samsung.com>, Sylwester Nawrocki <s.
- Mail:  Sylwester Nawrocki <s.nawrocki@samsung.com>, Tomasz Figa <tomasz.figa@
- Mail:   Kukjin Kim <kgene@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
-    Mail:     Byungho An <bh74.an@samsung.com>
-    Mail:     Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>
- Mail:  Kamil Debski <kamil@wypas.org>, Sylwester Nawrocki <s.nawrocki@samsung.
- Mail:  Zwane Mwaikambo <zwanem@gmail.com>
-  Mail:   >, Juri Lelli <juri.lelli@redhat.com> (SCHED_DEADLINE), Vincent
- Mail:  Lubomir Rintel <lkundrak@v3.sk>
-    Mail:     Jens Axboe <axboe@kernel.dk>
-    Mail:     Bart Van Assche <bvanassche@acm.org>
-    Mail:     Bart Van Assche <bvanassche@acm.org>
-    Mail:     Doug Gilbert <dgilbert@interlog.com>
-  Mail:    “James E.J. Bottomley” <jejb@linux.ibm.com>, “Martin K. Petersen” <
-    Mail:     Kai Mäkisara <Kai.Makisara@kolumbus.fi>
-    Mail:     “Martin K. Petersen” <martin.petersen@oracle.com>
-  Mail:   Vlad Yasevich <vyasevich@gmail.com>, Neil Horman <nhorman@tuxdriver.
- Mail:  Jim Cromie <jim.cromie@gmail.com>
- Mail:  Jim Cromie <jim.cromie@gmail.com>
- Mail:  Jim Cromie <jim.cromie@gmail.com>
-    Mail:     Sascha Sommer <saschasommer@freenet.de>
- Mail:  Ettore Chimenti <ek5.chimenti@gmail.com>
-  Mail:   Kees Cook <keescook@chromium.org>
-    Mail:     Al Cooper <alcooperx@gmail.com>
-    Mail:     Adrian Hunter <adrian.hunter@intel.com>
-    Mail:     Ludovic Desroches <ludovic.desroches@microchip.com>
-   Mail:     Ben Dooks <ben-linux@fluff.org>, Jaehoon Chung <jh80.chung@samsung
-    Mail:     Viresh Kumar <vireshk@kernel.org>
-    Mail:     Kishon Vijay Abraham I <kishon@ti.com>
-  Mail:   Jonathan Derrick <jonathan.derrick@intel.com>, Revanth Rajashekar <
- Mail:  Security Officers <security@kernel.org>
-   Mail:    James Morris <jmorris@namei.org>, “Serge E. Hallyn” <serge@hallyn.
-  Mail:   Paul Moore <paul@paul-moore.com>, Stephen Smalley <stephen.smalley.
- Mail:  Jiri Slaby <jirislaby@gmail.com>
- Mail:  Tomasz Duszynski <tduszyns@gmail.com>
-  Mail:   Rob Herring <robh@kernel.org>
-    Mail:     Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-    Mail:     Sean Young <sean@mess.org>
-   Mail:    Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
- Mail:  Solarflare linux maintainers <linux-net-drivers@solarflare.com>, Edward
-   Mail:    Russell King <linux@armlinux.org.uk>
- Mail:  Dimitri Sivanich <sivanich@sgi.com>
- Mail:  Cliff Whickman <cpw@sgi.com>, Robin Holt <robinmholt@gmail.com>
-   Mail:     Ursula Braun <ubraun@linux.ibm.com>, Karsten Graul <kgraul@linux.
-  Mail:    Linus Walleij <linus.walleij@linaro.org>
-    Mail:     Jacopo Mondi <jacopo@jmondi.org>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Matthias Schwarzott <zzam@gentoo.org>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-  Mail:   Hans Verkuil <hverkuil@xs4all.nl>
-    Mail:     Eduardo Valentin <edubezval@gmail.com>
-    Mail:     Eduardo Valentin <edubezval@gmail.com>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-  Mail:   Mauro Carvalho Chehab <mchehab@kernel.org>
-   Mail:     Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@
-   Mail:     Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@
- Mail:  Green Wan <green.wan@sifive.com>
-   Mail:     Hans de Goede <hdegoede@redhat.com>
- Mail:  Jérôme Pouiller <jerome.pouiller@silabs.com>
- Mail:  Sudip Mukherjee <sudipm.mukherjee@gmail.com>, Teddy Wang <teddy.wang@
- Mail:   Hans de Goede <hdegoede@redhat.com>
-  Mail:   Vincent Sanders <vince@simtec.co.uk>, Simtec Linux Team <linux@simtec
-  Mail:   Vincent Sanders <vince@simtec.co.uk>, Simtec Linux Team <linux@simtec
-  Mail:   Thorsten Scherer <t.scherer@eckelmann.de>, Uwe Kleine-König <u.
- Mail:  Jason A. Donenfeld <Jason@zx2c4.com>
-    Mail:     Francois Romieu <romieu@fr.zoreil.com>
-    Mail:     Daniele Venzano <venza@brownhat.org>
-  Mail:   Thomas Winischhofer <thomas@winischhofer.net>
-  Mail:   Thomas Winischhofer <thomas@winischhofer.net>
- Mail:  David Rientjes <rientjes@google.com>, Joonsoo Kim <iamjoonsoo.kim@lge.
-  Mail:   Lai Jiangshan <jiangshanlai@gmail.com>, “Paul E. McKenney” <paulmck@
-    Mail:     Casey Schaufler <casey@schaufler-ca.com>
- Mail:  Nicolas Pitre <nico@fluxnic.net>
- Mail:   Mark Rutland <mark.rutland@arm.com>, Lorenzo Pieralisi <lorenzo.
- Mail:  Sakari Ailus <sakari.ailus@linux.intel.com>
-    Mail:     Guenter Roeck <linux@roeck-us.net>
-    Mail:     Steve Glendinning <steve.glendinning@shawell.net>
-    Mail:     Hans de Goede <hdegoede@redhat.com>
-    Mail:     Steve Glendinning <steve.glendinning@shawell.net>
-    Mail:     Jean Delvare <jdelvare@suse.com>
-    Mail:     Steve Glendinning <steve.glendinning@shawell.net>
-    Mail:     Steve Glendinning <steve.glendinning@shawell.net>
-  Mail:   Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-  Mail:   Jassi Brar <jaswinder.singh@linaro.org>, Ilias Apalodimas <ilias.
-  Mail:    Masahisa Kojima <masahisa.kojima@linaro.org>, Jassi Brar <jaswinder.
-  Mail:    Ard Biesheuvel <ardb@kernel.org>
- Mail:  Chris Boot <bootc@bootc.net>
-    Mail:     Bernard Metzler <bmt@zurich.ibm.com>
-    Mail:     Zhu Yanjun <yanjunz@mellanox.com>
- Mail:  Sviridenko <anton@corp.bluecherry.net>, Andrey Utkin <andrey.utkin@corp
- Mail:  James Morse <james.morse@arm.com>
- Mail:   Song Liu <song@kernel.org>
- Mail:  Russell King <linux@armlinux.org.uk>
- Mail:  Russell King <linux@armlinux.org.uk>
-    Mail:     Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-    Mail:     Michael Buesch <m@bues.ch>
-  Mail:    Ricardo Ribalda <ribalda@kernel.org>
-   Mail:    Dave Stevenson <dave.stevenson@raspberrypi.com>
-    Mail:     Sakari Ailus <sakari.ailus@linux.intel.com>
-   Mail:    Leon Luo <leonl@leopardimaging.com>
-   Mail:    Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-    Mail:     Bingbu Cao <bingbu.cao@intel.com>
-    Mail:     Tianshu Qiu <tian.shu.qiu@intel.com>
-  Mail:   Maxim Levitsky <maximlevitsky@gmail.com>, Alex Dubov <oakad@yahoo.com
-  Mail:   Mattia Dongili <malattia@linux.it>
-    Mail:     Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
- Mail:  Vinod Koul <vkoul@kernel.org>
- Mail:  Lars-Peter Clausen <lars@metafoo.de>
-  Mail:   Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
-  Mail:   Girdwood <lgirdwood@gmail.com>, Ranjani Sridharan <ranjani.sridharan@
-   Mail:    Vinod Koul <vkoul@kernel.org>, Sanyog Kale <sanyog.r.kale@intel.com
-    Mail:     Olli Salonen <olli.salonen@iki.fi>
-  Mail:    “David S. Miller” <davem@davemloft.net>
- Mail:  “David S. Miller” <davem@davemloft.net>
-    Mail:     “Luc Van Oostenryck” <luc.vanoostenryck@gmail.com>
-    Mail:     Viresh Kumar <vireshk@kernel.org>
-   Mail:    Viresh Kumar <vireshk@kernel.org>, Shiraz Hashim <shiraz.linux.
-   Mail:    Tudor Ambarus <tudor.ambarus@microchip.com>
-  Mail:    Mark Brown <broonie@kernel.org>
-  Mail:    Ishizaki Kou <kou.ishizaki@toshiba.co.jp>
-    Mail:     Jeremy Kerr <jk@ozlabs.org>
-   Mail:     Phillip Lougher <phillip@squashfs.org.uk>
- Mail:  Jan-Benedict Glaw <jbglaw@lug-owl.de>
-  Mail:    Lorenzo Bianconi <lorenzo.bianconi83@gmail.com>
-  Mail:    Mickael Guene <mickael.guene@st.com>
-    Mail:     Pierre-Yves MORDRET <pierre-yves.mordret@st.com>
-  Mail:   Song Qiang <songqiang1304521@gmail.com>
-   Mail:    Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Sasha Levin <
-    Mail:     Mauro Carvalho Chehab <mchehab@kernel.org>
- Mail:  Ian Abbott <abbotti@mev.co.uk>, H Hartley Sweeten <hsweeten@
- Mail:  Sven Van Asbroeck <TheSven73@gmail.com>
- Mail:  Sven Van Asbroeck <TheSven73@gmail.com>
-    Mail:     Jonathan Cameron <jic23@kernel.org>
-  Mail:    Marc Dietrich <marvin24@gmx.de>
-  Mail:   Jens Frederich <jfrederich@gmail.com>, Daniel Drake <dsd@laptop.org>,
- Mail:  Larry Finger <Larry.Finger@lwfinger.net>
- Mail:  Larry Finger <Larry.Finger@lwfinger.net>, Florian Schilhabel <florian.c
-  Mail:    Michael Hennerich <michael.hennerich@analog.com>, Beniamin Bia <
- Mail:  Sudip Mukherjee <sudipm.mukherjee@gmail.com>, Teddy Wang <teddy.wang@
-  Mail:   the-brannons.com>, Kirk Reiser <kirk@reisers.ca>, Samuel Thibault <
- Mail:  Forest Bond <forest@alittletooquiet.net>
-  Mail:    Adham Abozaeid <adham.abozaeid@microchip.com>, Ajay Singh <ajay.
-    Mail:     Greg Kroah-Hartman <gregkh@linuxfoundation.org>
- Mail:  Ion Badulescu <ionut@badula.org>
-    Mail:     Damien Le Moal <Damien.LeMoal@wdc.com>
-   Mail:     Arnaud Pouliquen <arnaud.pouliquen@st.com>
- Mail:  Benjamin Gaignard <benjamin.gaignard@linaro.org>
-    Mail:     Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
-   Mail:    Olivier Moysan <olivier.moysan@st.com>, Arnaud Pouliquen <arnaud.
- Mail:  Fabrice Gasnier <fabrice.gasnier@st.com>
-  Mail:   Giuseppe Cavallaro <peppe.cavallaro@st.com>, Alexandre Torgue <
-  Mail:   Sam Creasey <sammy@sammy.net>
- Mail:   Hans de Goede <hdegoede@redhat.com>
-    Mail:     Denis Kirjanov <kda@linux-powerpc.org>
-   Mail:     Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@
- Mail:  “Rafael J. Wysocki” <rjw@rjwysocki.net>, Len Brown <len.brown@intel.com
-    Mail:     Martin Mares <mj@ucw.cz>
-   Mail:     Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
-    Mail:     Jiri Pirko <jiri@resnulli.us>, Ivan Vecera <ivecera@redhat.com>
- Mail:  Icenowy Zheng <icenowy@aosc.io>
-  Mail:   Sumit Semwal <sumit.semwal@linaro.org>
- Mail:  Vineet Gupta <vgupta@synopsys.com>
- Mail:  Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>
- Mail:  Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>
- Mail:  Alexey Brodkin <abrodkin@synopsys.com>
- Mail:  Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>
- Mail:  Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>
-  Mail:    Hoan Tran <hoan@os.amperecomputing.com>, Serge Semin <fancer.lancer@
- Mail:  Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>
-  Mail:   Viresh Kumar <vireshk@kernel.org>
-    Mail:     Jose Abreu <Jose.Abreu@synopsys.com>
-    Mail:     Jose Abreu <Jose.Abreu@synopsys.com>
-  Mail:   Jarkko Nikula <jarkko.nikula@linux.intel.com>
-    Mail:     Jaehoon Chung <jh80.chung@samsung.com>
- Mail:  Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>
-   Mail:    Prabu Thangamuthu <prabu.t@synopsys.com>, Manjunath M B <manjumb@
- Mail:  Lee Jones <lee.jones@linaro.org>, Arnd Bergmann <arnd@arndb.de>
- Mail:  Sudeep Holla <sudeep.holla@arm.com>
-   Mail:    Sebastian Reichel <sre@kernel.org>
- Mail:  Alexander Shishkin <alexander.shishkin@linux.intel.com>
-  Mail:    Jeremy Soller <jeremy@system76.com>, System76 Product Development <
- Mail:  Christoph Hellwig <hch@infradead.org>
- Mail:  Balbir Singh <bsingharora@gmail.com>
- Mail:  Jamal Hadi Salim <jhs@mojatatu.com>, Cong Wang <xiyou.wangcong@gmail.
-    Mail:     Akihiro Tsukada <tskd08@gmail.com>
-  Mail:   “Wong Hoi Sing, Edison” <hswong3i@gmail.com>, “Hung Hing Lun, Mike” <
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Olli Salonen <olli.salonen@iki.fi>
-    Mail:     Michael Krufky <mkrufky@linuxtv.org>
-    Mail:     Tim Harvey <tharvey@gateworks.com>
-    Mail:     Michael Krufky <mkrufky@linuxtv.org>
-    Mail:     Michael Krufky <mkrufky@linuxtv.org>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-    Mail:     Mauro Carvalho Chehab <mchehab@kernel.org>
-    Mail:     Mauro Carvalho Chehab <mchehab@kernel.org>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-   Mail:     Jiri Pirko <jiri@resnulli.us>
- Mail:  “Savoir-faire Linux Inc.” <kernel@savoirfairelinux.com>
-    Mail:     Sean Young <sean@mess.org>
-   Mail:    Jens Wiklander <jens.wiklander@linaro.org>
-   Mail:    Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <
- Mail:  Peter De Schrijver <pdeschrijver@nvidia.com>, Prashant Gaikwad <
- Mail:  Laxman Dewangan <ldewangan@nvidia.com>, Jon Hunter <jonathanh@nvidia.
-  Mail:   Laxman Dewangan <ldewangan@nvidia.com>
-    Mail:     Thierry Reding <thierry.reding@gmail.com>
- Mail:  Laxman Dewangan <ldewangan@nvidia.com>
- Mail:  Stefan Agner <stefan@agner.ch>, Lucas Stach <dev@lynxeye.de>
- Mail:  Thierry Reding <thierry.reding@gmail.com>
- Mail:  Laxman Dewangan <ldewangan@nvidia.com>
- Mail:  Laxman Dewangan <ldewangan@nvidia.com>
- Mail:   Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@
- Mail:  JC Kuo <jckuo@nvidia.com>
-    Mail:     Andy Gospodarek <andy@greyhouse.net>
- Mail:  Mark Gross <mark.gross@intel.com>
- Mail:  Steven Eckhoff <steven.eckhoff.opensource@gmail.com>
-    Mail:     Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com
-    Mail:     Peter Ujfalusi <peter.ujfalusi@ti.com>
-  Mail:    Ricardo Ribalda <ribalda@kernel.org>
- Mail:  Nishanth Menon <nm@ti.com>, Tero Kristo <t-kristo@ti.com>, Santosh
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-  Mail:    Zhang Rui <rui.zhang@intel.com>, Daniel Lezcano <daniel.lezcano@
-  Mail:   Guillaume La Roque <glaroque@baylibre.com>
- Mail:  lezcano@linaro.org>, Viresh Kumar <viresh.kumar@linaro.org>, Javi
-   Mail:     Henrique de Moraes Holschuh <ibm-acpi@hmh.eng.br>
- Mail:  @intel.com>, Mika Westerberg <mika.westerberg@linux.intel.com>,
- Mail:   Michael Jamet <michael.jamet@intel.com>, Mika Westerberg <mika.
- Mail:  Robert Richter <rrichter@marvell.com>
-    Mail:     “Lad, Prabhakar” <prabhakar.csengg@gmail.com>
-    Mail:     Eduardo Valentin <edubezval@gmail.com>, Keerthy <j-keerthy@ti.com
- Mail:  Max Filippov <jcmvbkbc@gmail.com>
-    Mail:     Tero Kristo <t-kristo@ti.com>
-  Mail:   Sekhar Nori <nsekhar@ti.com>
-  Mail:   David Lechner <david@lechnology.com>
-   Mail:    Keerthy <j-keerthy@ti.com>
-    Mail:     “Lad, Prabhakar” <prabhakar.csengg@gmail.com>
-  Mail:   Alex Dubov <oakad@yahoo.com>
-  Mail:   Santosh Shilimkar <ssantosh@kernel.org>
-  Mail:    M R Swami Reddy <mr.swami.reddy@ti.com>, Vishwas A Deshpande <
- Mail:  Milo Kim <milo.kim@ti.com>
- Mail:  Milo Kim <milo.kim@ti.com>
- Mail:  Milo Kim <milo.kim@ti.com>
-   Mail:     Wingman Kwok <w-kwok2@ti.com>, Murali Karicheri <m-karicheri2@ti.
-   Mail:    Kirill Marinushkin <kmarinushkin@birdec.com>
-    Mail:     Kevin Cernekee <cernekee@chromium.org>
-  Mail:    Dan Murphy <dmurphy@ti.com>
-  Mail:    Mark Greer <mgreer@animalcreek.com>
-    Mail:     Peter Ujfalusi <peter.ujfalusi@ti.com>
-  Mail:    Benoit Parrot <bparrot@ti.com>
-  Mail:   John Stultz <john.stultz@linaro.org>, Thomas Gleixner <tglx@
-  Mail:   Jon Maloy <jmaloy@redhat.com>, Ying Xue <ying.xue@windriver.com>
-    Mail:     Samuel Chessman <chessman@tux.org>
-    Mail:     Mauro Carvalho Chehab <mchehab@kernel.org>
-   Mail:    Wolfram Sang <wsa+renesas@sang-engineering.com>
-    Mail:     Guenter Roeck <linux@roeck-us.net>
-    Mail:     Eric Tremblay <etremblay@distech-controls.com>
-    Mail:     Hugh Dickins <hughd@google.com>
-  Mail:   Kentaro Takeda <takedakn@nttdata.co.jp>, Tetsuo Handa <penguin-kernel
-    Mail:     Herton Ronaldo Krzesinski <herton@canonical.com>
- Mail:   Davidlohr Bueso <dave@stgolabs.net>, “Paul E. McKenney” <paulmck@
-    Mail:     Azael Avalos <coproscefalo@gmail.com>
-    Mail:     Azael Avalos <coproscefalo@gmail.com>
-    Mail:     Azael Avalos <coproscefalo@gmail.com>
-  Mail:   Jonathan Buzzard <jonathan@buzzard.org.uk>
-    Mail:     Mats Randgaard <matrandg@cisco.com>
-    Mail:     Azael Avalos <coproscefalo@gmail.com>
-   Mail:    Peter Huewe <peterhuewe@gmx.de>, Jarkko Sakkinen <jarkko.sakkinen@
- Mail:  Steven Rostedt <rostedt@goodmis.org>, Ingo Molnar <mingo@redhat.com>
-  Mail:   Steven Rostedt <rostedt@goodmis.org>, Ingo Molnar <mingo@kernel.org>
-    Mail:     Jiri Kosina <trivial@kernel.org>
- Mail:  Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jslaby@
-    Mail:     Antti Palosaari <crope@iki.fi>
-  Mail:   Maxim Krasnyansky <maxk@qti.qualcomm.com>
-   Mail:    “Maciej W. Rozycki” <macro@linux-mips.org>, Ralf Baechle <ralf@
-   Mail:     “Len Brown” <lenb@kernel.org>
- Mail:  Sviridenko <anton@corp.bluecherry.net>, Andrey Utkin <andrey.utkin@corp
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-    Mail:     Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
- Mail:   Zhangfei Gao <zhangfei.gao@linaro.org>, Zhou Wang <wangzhou1@hisilicon
-  Mail:   Richard Weinberger <richard@nod.at>
-   Mail:    Greg Ungerer <gerg@linux-m68k.org>
- Mail:  Jan Kara <jack@suse.com>
-    Mail:     Bastien Nocera <hadess@hadess.net>
- Mail:  Evgeniy Dushistov <dushistov@mail.ru>
-    Mail:     David Herrmann <dh.herrmann@googlemail.com>
-    Mail:     Heikki Krogerus <heikki.krogerus@linux.intel.com>
-    Mail:     Gabriel Krisman Bertazi <krisman@collabora.com>
-  Mail:   Guan Xuetao <gxt@pku.edu.cn>
-  Mail:   Tony Finch <dot@dotat.at>
-  Mail:   Jens Axboe <axboe@kernel.dk>
-    Mail:     David Kershner <david.kershner@unisys.com>
-    Mail:     Pedro Sousa <pedrom.sousa@synopsys.com>
-  Mail:    Stanley Chu <stanley.chu@mediatek.com>
-  Mail:   Richard Weinberger <richard@nod.at>
-    Mail:     Oliver Neukum <oneukum@suse.com>
-    Mail:     Oliver Neukum <oneukum@suse.com>
-    Mail:     Bastien Nocera <hadess@hadess.net>
-    Mail:     Pontus Fuchs <pontus.fuchs@gmail.com>
-    Mail:     Oliver Neukum <oneukum@suse.com>
-    Mail:     Oliver Neukum <oliver@neukum.org>
-    Mail:     Keith Packard <keithp@keithp.com>
-    Mail:     Peter Korsgaard <jacmet@sunsite.dk>
-    Mail:     Peter Korsgaard <jacmet@sunsite.dk>
-    Mail:     Alan Stern <stern@rowland.harvard.edu>
-    Mail:     Felipe Balbi <balbi@kernel.org>
-   Mail:    Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <benjamin.
-    Mail:     Hans de Goede <hdegoede@redhat.com>
-  Mail:   Yu Chen <chenyu56@huawei.com>, Binghui Wang <wangbinghui@hisilicon.
-    Mail:     Olav Kongas <ok@artecdesign.ee>
- Mail:   Woojung Huh <woojung.huh@microchip.com>, Microchip Linux Driver
-    Mail:     Alan Stern <stern@rowland.harvard.edu>
-    Mail:     Clemens Ladisch <clemens@ladisch.de>
-    Mail:     Alan Stern <stern@rowland.harvard.edu>
-    Mail:     Peter Chen <Peter.Chen@nxp.com>
- Mail:   Valentina Manea <valentina.manea.m@gmail.com>, Shuah Khan <shuah@
-    Mail:     Petko Manolov <petkan@nucleusys.com>
-    Mail:     Felipe Balbi <balbi@kernel.org>
-    Mail:     Pete Zaitcev <zaitcev@redhat.com>
-   Mail:     Bjørn Mork <bjorn@mork.no>
-    Mail:     Petko Manolov <petkan@nucleusys.com>
-   Mail:     Johan Hovold <johan@kernel.org>
-    Mail:     Steve Glendinning <steve.glendinning@shawell.net>
- Mail:   Steve Glendinning <steve.glendinning@shawell.net>, Microchip Linux
-  Mail:   Greg Kroah-Hartman <gregkh@linuxfoundation.org>
- Mail:   Heikki Krogerus <heikki.krogerus@linux.intel.com>
-  Mail:   Heikki Krogerus <heikki.krogerus@linux.intel.com>
-   Mail:     Heikki Krogerus <heikki.krogerus@linux.intel.com>
-    Mail:     Hans de Goede <hdegoede@redhat.com>
-    Mail:     Guenter Roeck <linux@roeck-us.net>
-    Mail:     Alan Stern <stern@rowland.harvard.edu>
-  Mail:    Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-  Mail:   Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-    Mail:     Jussi Kivilinna <jussi.kivilinna@iki.fi>
-    Mail:     Mathias Nyman <mathias.nyman@intel.com>
-    Mail:     Antoine Jacquet <royale@zerezo.com>
-  Mail:    Jeff Dike <jdike@addtoit.com>, Richard Weinberger <richard@nod.at>,
- Mail:  Alexander Viro <viro@zeniv.linux.org.uk>
-    Mail:     Gerd Hoffmann <kraxel@redhat.com>
- Mail:  Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-    Mail:     Karel Zak <kzak@redhat.com>
-   Mail:     Christoph Hellwig <hch@lst.de>
-    Mail:     Michal Januszewski <spock@gentoo.org>
-  Mail:   Ulf Hansson <ulf.hansson@linaro.org>
-    Mail:     Stefan Agner <stefan@agner.ch>
- Mail:  OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>
-   Mail:    Alex Williamson <alex.williamson@redhat.com>
-  Mail:    Kirti Wankhede <kwankhede@nvidia.com>
-    Mail:     Eric Auger <eric.auger@redhat.com>
- Mail:  Bruce Chang <brucechang@via.com.tw>, Harald Welte <HaraldWelte@viatech.
-  Mail:   Florian Tobias Schandinat <FlorianSchandinat@gmx.de>
-    Mail:     Francois Romieu <romieu@fr.zoreil.com>
-    Mail:     Hans Verkuil <hverkuil-cisco@xs4all.nl>
-    Mail:     Matt Ranostay <matt.ranostay@konsulko.com>
-    Mail:     Philipp Zabel <p.zabel@pengutronix.de>
-  Mail:   Pawel Osciak <pawel@osciak.com>, Marek Szyprowski <m.szyprowski@
-    Mail:     Helen Koike <helen.koike@collabora.com>
-   Mail:    Alex Williamson <alex.williamson@redhat.com>, Paolo Bonzini <
- Mail:  Stefan Hajnoczi <stefanha@redhat.com>, Stefano Garzarella <sgarzare@
-  Mail:   “Michael S. Tsirkin” <mst@redhat.com>, Jason Wang <jasowang@redhat.
-  Mail:   Amit Shah <amit@kernel.org>
- Mail:  “Michael S. Tsirkin” <mst@redhat.com>, Jason Wang <jasowang@redhat.com>
- Mail:   “Michael S. Tsirkin” <mst@redhat.com>, David Hildenbrand <david@redhat
-   Mail:     Gonglei <arei.gonglei@huawei.com>
-  Mail:    Cornelia Huck <cohuck@redhat.com>, Halil Pasic <pasic@linux.ibm.com>
-  Mail:   Vivek Goyal <vgoyal@redhat.com>, Stefan Hajnoczi <stefanha@redhat.com
-   Mail:     David Airlie <airlied@linux.ie>, Gerd Hoffmann <kraxel@redhat.com>
-  Mail:    “Michael S. Tsirkin” <mst@redhat.com>, Jason Wang <jasowang@redhat.
- Mail:  Gerd Hoffmann <kraxel@redhat.com>
-    Mail:     Jean-Philippe Brucker <jean-philippe@linaro.org>
-    Mail:     David Hildenbrand <david@redhat.com>
- Mail:  Hans de Goede <hdegoede@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
-    Mail:     Hans de Goede <hdegoede@redhat.com>
- Mail:  Stephen Chandler Paul <thatslyude@gmail.com>
-    Mail:     Hans Verkuil <hverkuil@xs4all.nl>
-    Mail:     Florian Fainelli <f.fainelli@gmail.com>
- Mail:   Martyn Welch <martyn@welchs.me.uk>, Manohar Vanga <manohar.vanga@gmail
-   Mail:     Nadav Amit <namit@vmware.com>, “VMware, Inc.” <pv-drivers@vmware.
-    Mail:     Deep Shah <sdeep@vmware.com>, “VMware, Inc.” <pv-drivers@vmware.
-   Mail:     Adit Ranadive <aditr@vmware.com>, VMware PV-Drivers <pv-drivers@
-   Mail:     Jim Gill <jgill@vmware.com>, VMware PV-Drivers <pv-drivers@vmware.
-   Mail:     Vivek Thampi <vithampi@vmware.com>, “VMware, Inc.” <pv-drivers@
-  Mail:   “VMware Graphics” <linux-graphics-maintainer@vmware.com>, “VMware,
-   Mail:     Ronak Doshi <doshir@vmware.com>, “VMware, Inc.” <pv-drivers@vmware
-    Mail:     Harvey Hunt <harveyhuntnexus@gmail.com>
-  Mail:   Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
-   Mail:     David Ahern <dsahern@kernel.org>, Shrijeet Mukherjee <shrijeet@
-  Mail:   Petr Mladek <pmladek@suse.com>, Steven Rostedt <rostedt@goodmis.org>,
-    Mail:     Juerg Haefliger <juergh@gmail.com>
-    Mail:     Roger Lucas <vt8231@hiddenengine.co.uk>
- Mail:  Evgeniy Polyakov <zbr@ioremap.net>
-    Mail:     Marc Hulsman <m.hulsman@tudelft.nl>
-    Mail:     Rudolf Marek <r.marek@assembler.cz>
-    Mail:     Jean Delvare <jdelvare@suse.com>
- Mail:  Pierre Ossman <pierre@ossman.eu>
-   Mail:     Julian Squires <julian@cipht.net>, Hans de Goede <hdegoede@redhat.
-  Mail:   Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@
-   Mail:     Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel
-    Mail:     Dianlong Li <long17.cool@163.com>
-    Mail:     David Herrmann <dh.herrmann@googlemail.com>
-    Mail:     Maya Erez <merez@codeaurora.org>
-  Mail:   Inaky Perez-Gonzalez <inaky.perez-gonzalez@intel.com>, linux-wimax@
- Mail:  David Härdeman <david@hardeman.nu>
-    Mail:     William Breathitt Gray <vilhelm.gray@gmail.com>
-    Mail:     William Breathitt Gray <vilhelm.gray@gmail.com>
-    Mail:     Jason A. Donenfeld <Jason@zx2c4.com>
- Mail:  Miloslav Trmac <mitr@volny.cz>
-  Mail:   Tejun Heo <tj@kernel.org>
- Mail:  Hans de Goede <hdegoede@redhat.com>
-    Mail:     Chen-Yu Tsai <wens@csie.org>
-    Mail:     Andrew Hendry <andrew.hendry@gmail.com>
-  Mail:   Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-   Mail:     Andy Lutomirski <luto@kernel.org>
-    Mail:     Tony Luck <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>
- Mail:  Borislav Petkov <bp@alien8.de>
- Mail:   Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@
-   Mail:     Darren Hart <dvhart@infradead.org>, Andy Shevchenko <andy@
-   Mail:     Andy Lutomirski <luto@kernel.org>
-  Mail:   Matthew Wilcox <willy@infradead.org>
- Mail:  Benjamin Valentin <benpicco@googlemail.com>
-    Mail:     Mauro Carvalho Chehab <mchehab@kernel.org>
- Mail:  net>, David S. Miller <davem@davemloft.net>, Jakub Kicinski <kuba@
-  Mail:   Björn Töpel <bjorn.topel@intel.com>, Magnus Karlsson <magnus.karlsson
-  Mail:    Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>, Roger Pau Monné <
-    Mail:     Stefano Stabellini <sstabellini@kernel.org>
-    Mail:     Stefano Stabellini <sstabellini@kernel.org>
-  Mail:   Boris Ostrovsky <boris.ostrovsky@oracle.com>, Juergen Gross <jgross@
-  Mail:    Wei Liu <wei.liu@kernel.org>, Paul Durrant <paul@xen.org>
-    Mail:     Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
-  Mail:    Juergen Gross <jgross@suse.com>
- Mail:   Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>
-  Mail:   Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
-  Mail:   Darrick J. Wong <darrick.wong@oracle.com>, linux-xfs@vger.kernel.org
- Mail:  Radhey Shyam Pandey <radhey.shyam.pandey@xilinx.com>
-  Mail:    Appana Durga Kedareswara rao <appana.durga.rao@xilinx.com>
- Mail:  Derek Kiernan <derek.kiernan@xilinx.com>, Dragan Cvetic <dragan.cvetic@
-    Mail:     Peter Korsgaard <jacmet@sunsite.dk>
- Mail:   Hyun Kwon <hyun.kwon@xilinx.com>, Laurent Pinchart <laurent.pinchart@
-    Mail:     Eli Billauer <eli.billauer@gmail.com>
-  Mail:    George Cherian <gcherian@marvell.com>
-   Mail:    Nandor Han <nandor.han@ge.com>, Semi Malinen <semi.malinen@ge.com>
-    Mail:     Max Filippov <jcmvbkbc@gmail.com>
-    Mail:     Jean-Paul Roubelat <jpr@f6fbb.org>
- Mail:  Kees Cook <keescook@chromium.org>
-    Mail:     Henk Vergonet <Henk.Vergonet@gmail.com>
-   Mail:    Joerg Reuter <jreuter@yaina.de>
-   Mail:     Seth Jennings <sjenning@redhat.com>, Dan Streetman <ddstreet@ieee.
-  Mail:    Daniel Drake <dsd@gentoo.org>, Ulrich Kunitz <kune@deine-taler.de>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Antti Palosaari <crope@iki.fi>
-    Mail:     Tony W Wang-oc <TonyWWang-oc@zhaoxin.com>
-   Mail:     Damien Le Moal <damien.lemoal@wdc.com>, Naohiro Aota <naohiro.aota
-    Mail:     Dan Streetman <ddstreet@ieee.org>
-    Mail:     Minchan Kim <minchan@kernel.org>, Nitin Gupta <ngupta@vflare.org>
- Mail:  “Maciej W. Rozycki” <macro@linux-mips.org>
-    Mail:     Minchan Kim <minchan@kernel.org>, Nitin Gupta <ngupta@vflare.org>
-  Mail:   Seth Jennings <sjenning@redhat.com>, Dan Streetman <ddstreet@ieee.org
-    Mail:     Linus Torvalds <torvalds@linux-foundation.org>
+Steffen Klassert
+David Dillow
+Adam Radford
+James E.J. Bottomley
+Alexander Aring
+Andreas Koensgen
+Johannes Berg
+Realtek linux nic maintainers
+Greg Kroah-Hartman
+Eric Van Hensbergen
+Antti Palosaari
+Adaptec OEM Raid Solutions
+Hans de Goede
+Alistair John Strachan
+William Breathitt Gray
+William Breathitt Gray
+William Breathitt Gray
+William Breathitt Gray
+William Breathitt Gray
+William Breathitt Gray
+Jes Sorensen
+Peter Kaestle
+Lee
+Rafael J. Wysocki
+Rafael J. Wysocki
+Robert Moore
+Zhang Rui
+Lorenzo Pieralisi
+Hans de Goede
+Rafael J. Wysocki
+Zhang Rui
+Zhang Rui
+Michael Hennerich
+Michael Hennerich
+Michael Hennerich
+Michael Hennerich
+Michael Hennerich
+Jiri Kosina
+Michael Hennerich
+Jean Delvare
+Corentin Labbe
+Sakari Ailus
+Michael Hennerich
+Michael Hennerich
+Michael Hennerich
+Colin Leroy
+Jean Delvare
+Matthew Wilcox
+Michael Hennerich
+Michael Hennerich
+Antti Palosaari
+Antti Palosaari
+David Sterba
+David Howells
+David Airlie
+Juergen E. Fischer
+Hannes Reinecke
+Hans Verkuil
+Benjamin LaHaise
+Antti Palosaari
+Lino Sanfilippo
+Duncan Sands
+Manuel Lauss
+Rudolf Marek
+Tomislav Denis
+Michael Tretter
+Maxime Ripard
+Yangtao Li
+Corentin Labbe
+Vasily Khoruzhick
+Maxime Ripard
+Richard Henderson
+Thor Thayer
+Ley Foon Tan
+Joyce Ooi
+Thor Thayer
+Thor Thayer
+Thor Thayer
+Tobias Klauser
+Talel Shenhar
+Talel Shenhar
+Netanel Belgazal
+Gal Pressman
+Tom Lendacky
+Harry Wentland
+Naveen Krishna Chatradhi
+Huang Rui
+Enrico Weigelt
+Andres Salomon
+Joerg Roedel
+Felix Kuehling
+Sanjay R Mehta
+Elie Morisse
+Evan Quan
+Brijesh Singh
+Tom Lendacky
+Michael Hennerich
+Michael Hennerich
+Beniamin Bia
+Michael Hennerich
+Alexandru Tachici
+Marcelo Schmitt
+Michael Hennerich
+Michael Hennerich
+Michael Hennerich
+Hans Verkuil
+Mircea Caprioru
+Alexandru Ardelean
+Alexandru Ardelean
+Dragos Bogdan
+Nuno Sa
+Beniamin Bia
+Michael Hennerich
+Lars-Peter Clausen
+Kieran Bingham
+Hans Verkuil
+Hans Verkuil
+Hans Verkuil
+Lars-Peter Clausen
+Lars-Peter Clausen
+Beniamin Bia
+Lars-Peter Clausen
+Paul Walmsley
+Nick Hu
+Rob Herring
+Greg Kroah-Hartman
+Miodrag Dinic
+Miodrag Dinic
+Laura Abbott
+Johannes Berg
+William Breathitt Gray
+Jiri Kosina
+John Johansen
+Henrik Rydberg
+Henrik Rydberg
+Khuong Dinh
+Khuong Dinh
+Iyappan Subramanian
+Iyappan Subramanian
+Khuong Dinh
+Laurent Pinchart
+Igor Russkikh
+Egor Pomozov
+Naga Sureshkumar Relli
+Jaya Kumar
+Alexey Brodkin
+Michael Grzeschik
+Mark Rutland
+Liviu Dudau
+Linus Walleij
+James (Qian) Wang
+Rob Herring
+Liviu Dudau
+Ian Molton
+Will Deacon
+Russell King
+Russell King
+Russell King
+Russell King
+Russell King
+Russell King
+Linus Walleij
+Russell King
+Linus Walleij
+Julius Werner
+Will Deacon
+Andreas Färber
+Lennert Buytenhek
+Sergey Lapin
+Lennert Buytenhek
+Emilio López
+Maxime Ripard
+Neil Armstrong
+Corentin Labbe
+Jerome Brunet
+Kevin Hilman
+Tsahee Zidenberg
+Jesper Nilsson
+Brendan Higgins
+Joel Stanley
+Manivannan Sadhasivam
+Andre Przywara
+Krzysztof Halasa
+Sunil Goutham
+Lukasz Majewski
+Alexander Shiyan
+Lennert Buytenhek
+Hartley Sweeten
+Russell King
+Baruch Siach
+Hubert Feurstein
+Mathieu Poirier
+Richard Purdie
+Hans Ulli Kroll
+Barry Song
+Marek Behun
+Russell King
+Uwe Kleine-König
+Robert Jarzmik
+Hans Ulli Kroll
+Russell King
+Shawn Guo
+Shawn Guo
+Shawn Guo
+Lennert Buytenhek
+Steve Sakoman
+Philipp Zabel
+Wei Xu
+Kristoffer Ericson
+Enric Balletbo i Serra
+Marek Vasut
+Lennert Buytenhek
+Lennert Buytenhek
+Lennert Buytenhek
+Linus Walleij
+Jonathan Cameron
+Lennert Buytenhek
+Lennert Buytenhek
+Chanho Min
+Lennert Buytenhek
+Vladimir Zapolskiy
+Vladimir Zapolskiy
+Philipp Zabel
+Jason Cooper
+Jason Cooper
+Eddie Huang
+Matthias Brugger
+Chunfeng Yun
+Nicolas Ferre
+Robert Jarzmik
+Michael Petchkovsky
+Linus Walleij
+Avi Fishman
+Alexander Clouter
+Neil Armstrong
+Tomas Cech
+Marek Vasut
+Sergey Lapin
+Peter Chubb
+Stefan Eletzhofer
+Andy Gross
+Lennert Buytenhek
+Manivannan Sadhasivam
+Andreas Färber
+Geert Uytterhoeven
+Russell King
+Heiko Stuebner
+Kukjin Kim
+Kyungmin Park
+Kyungmin Park
+Marek Szyprowski
+Andrzej Pietrasiewicz
+Kyungmin Park
+Geert Uytterhoeven
+Dinh Nguyen
+Dinh Nguyen
+Thor Thayer
+Orson Zhai
+Patrice Chotard
+Maxime Coquelin
+Jisheng Zhang
+Marc Gonzalez
+Lennert Buytenhek
+Hans Verkuil
+Mark F. Brown
+Santosh Shilimkar
+Santosh Shilimkar
+Santosh Shilimkar
+Santosh Shilimkar
+Santosh Shilimkar
+Tero Kristo
+Lennert Buytenhek
+Dmitry Eremin-Solenikov
+Masahiro Yamada
+Liviu Dudau
+Russell King
+Marek Vasut
+Tony Prisk
+Marek Vasut
+Jun Nie
+Michal Simek
+Catalin Marinas
+Sakari Ailus
+Tianshu Qiu
+Linus Walleij
+George Joseph
+Andrew Jeffery
+Eddie James
+Eddie James
+Corentin Chary
+João Paulo Rechi Vita
+David Howells
+Bartosz Golaszewski
+Justin Sanders
+Alban Bedel
+Alban Bedel
+Kalle Valo
+Jiri Slaby
+Kalle Valo
+Ville Syrjala
+Luca Tettamanti
+Jay Cliburn
+Chas Williams
+Nicolas Ferre
+Nick Dyer
+Simon Kelley
+Will Deacon
+Bradley Grove
+Stefan Schmidt
+Paul Moore
+Miguel Ojeda Sandonis
+Andreas Klinger
+Ralf Baechle
+Peter Rosin
+Peter Rosin
+Nuno Sá
+Krzysztof Adamski
+Mauro Carvalho Chehab
+Hans Verkuil
+Larry Finger
+Lee Jones
+Marek Lindner
+Thomas Sailer
+Coly Li
+Fabien Dessenne
+Dariusz Marcinkiewicz
+Luis de Bethencourt
+Paolo Valente
+Tigran A. Aivazian
+Jan-Simon Moeller
+Jens Axboe
+Joern Engel
+Marcel Holtmann
+Marcel Holtmann
+Jay Vosburgh
+Dan Robertson
+Alexei Starovoitov
+Shubham Bansal
+Daniel Borkmann
+Paul Burton
+Jakub Kicinski
+Naveen N. Rao
+Luke Nelson
+Björn Töpel
+Ilya Leoshkevich
+David S. Miller
+Wang YanQing
+Alexei Starovoitov
+Michael Chan
+Florian Fainelli
+Nicolas Saenz Julienne
+Florian Fainelli
+Hauke Mehrtens
+Hauke Mehrtens
+Rafał Miłecki
+Florian Fainelli
+Kevin Cernekee
+Florian Fainelli
+Markus Mayer
+Florian Fainelli
+Rasesh Mody
+<a class="reference external" href="mailto:QLogic-Storage-Upstream%40qlogic.com">QLogic-Storage-Upstream<span>@</span>qlogic<span>.</span>com</a></td>
+<a class="reference external" href="mailto:QLogic-Storage-Upstream%40qlogic.com">QLogic-Storage-Upstream<span>@</span>qlogic<span>.</span>com</a></td>
+Ariel Elior
+Michael Chan
+Arend van Spriel
+Gregory Fong
+Kamal Dasu
+Al Cooper
+Al Cooper
+Doug Berger
+Ray Jui
+Ray Jui
+Selvin Xavier
+Rafał Miłecki
+Rafał Miłecki
+Kamal Dasu
+Markus Mayer
+Markus Mayer
+Markus Mayer
+Brian Norris
+Florian Fainelli
+Siva Reddy Kallam
+Anil Gurumurthy
+Rasesh Mody
+FUJITA Tomonori
+Clemens Ladisch
+Michael Buesch
+Chris Mason
+Mauro Carvalho Chehab
+Chanwoo Choi
+Khalid Aziz
+Clemens Ladisch
+Guo Ren
+Mark Salter
+Harry Morris
+David Howells
+Maxime Ripard
+Hans Verkuil
+Jonathan Corbet
+Toke Høiland-Jørgensen
+Wolfgang Grandegger
+Oliver Hartkopp
+Robin van der Gracht
+Serge Hallyn
+Kevin Tsai
+Christian Lamparter
+Robert Richter
+Derek Chickles
+Robert Richter
+George Cherian
+Robert Richter
+Varka Bhadram
+Gilad Ben-Yossef
+Hadar Gat
+Hans Verkuil
+Hans Verkuil
+Arnd Bergmann
+Tobias Schrammm
+Ilya Dryomov
+Jeff Layton
+David Howells
+Miguel Ojeda Sandonis
+Miguel Ojeda Sandonis
+Arnd Bergmann
+Andy Whitcroft
+Harry Wei
+Peter Chen
+Hans de Goede
+Hans de Goede
+Benson Leung
+Cheng-Yi Chiang
+Benson Leung
+James Schulman
+Hartley Sweeten
+Charles Keepax
+Charles Keepax
+Satish Kharat
+Karan Tilak Kumar
+Christian Benvenuti
+Christian Benvenuti
+Miguel Ojeda
+Konrad Rzeszutek Wilk
+Russell King
+Daniel Lezcano
+Thadeu Lima de Souza Cascardo
+Hans Verkuil
+Julia Lawall
+Jan Harkes
+Philipp Zabel
+Greg Kroah-Hartman
+Michael Turquette
+Steve French
+Scott Murray
+Scott Murray
+Scott Murray
+Cezary Jackiewicz
+Miguel Ojeda
+Joel Becker
+Evgeniy Polyakov
+Tejun Heo
+Tejun Heo
+Li Zefan
+Johannes Weiner
+Fenghua Yu
+Jan Yenya Kasprzak
+William Breathitt Gray
+Florian Fainelli
+Viresh Kumar
+Rafael J. Wysocki
+Rafael J. Wysocki
+Thomas Renninger
+H. Peter Anvin
+Lorenzo Pieralisi
+Bartlomiej Zolnierkiewicz
+Lorenzo Pieralisi
+Nicolas Pitre
+Bastien Nocera
+Herbert Xu
+Neil Horman
+Hans Verkuil
+Jaya Kumar
+Yong Deng
+Solomon Peachy
+Andy Walls
+Hans Verkuil
+Jemma Denson
+Mauro Carvalho Chehab
+Antti Palosaari
+Vishal Kulkarni
+Karen Xie
+Ayush Sawal
+Vishal Kulkarni
+Karen Xie
+Potnuri Bharat Teja
+Vishal Kulkarni
+Frederic Barrat
+Manoj N. Kumar
+Russell King
+Antti Palosaari
+Linus Walleij
+Ferruh Yigit
+Linus Walleij
+Joshua Kinard
+Joerg Reuter
+Hannes Reinecke
+Oliver Neukum
+Gerrit Renker
+Maciej W. Rozycki
+Maciej W. Rozycki
+Maciej W. Rozycki
+Jernej Skrabec
+Matthew Garrett
+Pali Rohár
+Pali Rohár
+Pali Rohár
+Stuart Hayes
+Pali Rohár
+Mario Limonciello
+Mario Limonciello
+Stuart Hayes
+Mario Limonciello
+Matthew Garrett
+Hugues Fruchet
+Masahiro Yamada
+Gustavo Pimentel
+Minas Harutyunyan
+Felipe Balbi
+Andreas Klinger
+Johannes Berg
+Dan Williams
+MyungJoo Ham
+Chanwoo Choi
+Torben Mathiasen
+Alasdair Kergon
+Jiri Pirko
+Support Opensource
+William Breathitt Gray
+Guenter Roeck
+Jan Kara
+Andries Brouwer
+Jan Kara
+Bernie Thompson
+Christine Caulfield
+Sumit Semwal
+Vinod Koul
+Christoph Hellwig
+Sumit Semwal
+Lukasz Luba
+Juerg Haefliger
+Jean Delvare
+Jonathan Corbet
+Mauro Carvalho Chehab
+Federico Vaga
+Sakari Ailus
+Sakari Ailus
+James R. Van Zandt
+Roy Pledge
+Ioana Ciornei
+Ioana Radulescu
+Adaptec OEM Raid Solutions
+Philipp Reisner
+Greg Kroah-Hartman
+Kevin Hilman
+Maxime Ripard
+Eric Anholt
+Linus Walleij
+Joel Stanley
+Dave Airlie
+Gerd Hoffmann
+Jerry Han
+Linus Walleij
+Icenowy Zheng
+Jagan Teki
+Hans de Goede
+Eric Anholt
+David Lechner
+Kamlesh Gurudasani
+Laurent Pinchart
+Dave Airlie
+Noralf Trønnes
+Rob Clark
+Linus Walleij
+Ben Skeggs
+Stefan Mavrodiev
+Noralf Trønnes
+Dave Airlie
+Dave Airlie
+Robert Chiras
+Guido Günther
+David Lechner
+Jagan Teki
+David Lechner
+Linus Walleij
+Linus Walleij
+Linus Walleij
+Dave Airlie
+Rodrigo Siqueira
+Hans de Goede
+VMware Graphics
+David Airlie
+Maarten Lankhorst
+Maxime Ripard
+Neil Armstrong
+Sam Ravnborg
+Andrzej Hajda
+Inki Dae
+Stefan Agner
+Philipp Zabel
+Patrik Jakobsson
+Xinliang Liu
+Qiang Yu
+Chun-Kuang Hu
+Thierry Reding
+Laurent Pinchart
+Sandy Huang
+Benjamin Gaignard
+Yannick Fertre
+Jyri Sarha
+Jyri Sarha
+Tomi Valkeinen
+Eric Anholt
+Eric Anholt
+Lucas Stach
+Oleksandr Andrushchenko
+Shawn Guo
+Thierry Reding
+Christian Koenig
+Alexey Klimov
+Hans Verkuil
+Antti Palosaari
+Antti Palosaari
+Antti Palosaari
+Antti Palosaari
+Antti Palosaari
+Michael Krufky
+Antti Palosaari
+Antti Palosaari
+Michael Krufky
+Antti Palosaari
+Antti Palosaari
+Jason Baron
+Tal Gilboa
+Maciej W. Rozycki
+Moritz Fischer
+Antti Palosaari
+Akihiro Tsukada
+Akihiro Tsukada
+Antti Palosaari
+Tyler Hicks
+Borislav Petkov
+Jan Luebbe
+Stefan Schaeckeler
+Shravan Kumar Ramani
+Robert Richter
+Ralf Baechle
+Robert Richter
+Borislav Petkov
+Lei Wang
+Mark Gross
+York Sun
+Mauro Carvalho Chehab
+Tony Luck
+Mauro Carvalho Chehab
+Mauro Carvalho Chehab
+Mauro Carvalho Chehab
+Tim Small
+Arvind R.
+Jason Baron
+Johannes Thumshirn
+Egor Martovetsky
+Tony Luck
+Channagoud Kadabi
+Tim Small
+Tony Luck
+Yash Shah
+Tony Luck
+Tero Kristo
+Clemens Ladisch
+Ivan Hu
+Matthew Garrett
+Peter Jones
+Douglas Miller
+Mauro Carvalho Chehab
+Paul Gortmaker
+Adrian Hunter
+Subbu Seetharaman
+Ajit Khaparde
+Selvin Xavier
+James Smart
+Michał Mirosław
+Maxim Levitsky
+Laurentiu Tudor
+Kristoffer Ericson
+Gao Xiang
+Jeff Layton
+Mark Einon
+Roopa Prabhu
+Andrew Lunn
+Namjae Jeon
+Jan Kara
+Theodore Ts’o
+Mimi Zohar
+Ard Biesheuvel
+MyungJoo Ham
+Masami Hiramatsu
+Jingoo Han
+Marek Szyprowski
+Vineet Gupta
+Jaegeuk Kim
+Jean Delvare
+Josh Poimboeuf
+Sridhar Samudrala
+Jan Kara
+Kevin Curtis
+Akinobu Mita
+Michael Buesch
+Antti Palosaari
+Hannes Reinecke
+Jeff Layton
+Dan Williams
+Alexander Viro
+Riku Voipio
+Clemens Ladisch
+Stefan Richter
+Chris Boot
+Stefan Richter
+Luis Chamberlain
+Joshua Morris
+Patrick Havelange
+Denis Efremov
+Markus Koch
+Rain River
+Wu Hao
+Moritz Fischer
+Bill Metzenthen
+Bartlomiej Zolnierkiewicz
+Horia Geantă
+Angelo Dureghello
+Timur Tabi
+Li Yang
+Claudiu Manoil
+Claudiu Manoil
+Han Xu
+Jochen Friedrich
+Fugang Duan
+Sascha Hauer
+Frank Li
+Oleksij Rempel
+Dong Aisheng
+Madalin Bucur
+Madalin Bucur
+Yangbo Lu
+Han Xu
+Qiang Zhao
+Li Yang
+Zhao Qiang
+Timur Tabi
+Li Yang
+Pantelis Antoniou
+Timur Tabi
+Li Yang
+Christoph Hellwig
+Rafael J. Wysocki
+Konrad Rzeszutek Wilk
+David Howells
+Theodore Y. Ts’o
+Jeremy Kerr
+Eddie James
+Eddie James
+Jan Kara
+Eric Biggers
+Jonathan Woithe
+Kyungmin Park
+Robert Gerlach
+Miklos Szeredi
+Thomas Gleixner
+Tim Harvey
+Rob Springer
+Kees Cook
+Peter Oberparleiter
+Jan Kiszka
+Achim Leubner
+Hans Verkuil
+Sudeep Holla
+Wolfram Sang
+Peter Korsgaard
+Krzysztof Halasa
+Arnd Bergmann
+Kishon Vijay Abraham I
+Wolfram Sang
+Rafael J. Wysocki
+Eugen Hristev
+Michael S. Tsirkin
+Andy Lutomirski
+Frank Haverkamp
+Joe Perches
+Bob Peterson
+Johan Hovold
+Hans Verkuil
+Bastien Nocera
+Catherine Sullivan
+Hans de Goede
+Mika Westerberg
+Geert Uytterhoeven
+Sean Young
+Bamvor Jian Zhang
+Linus Walleij
+Dmitry Kozlov
+Andreas Larsson
+Vaibhav Agarwal
+Viresh Kumar
+Bryan O’Donoghue
+Vaibhav Hiremath
+Rui Miguel Silva
+Johan Hovold
+David Lin
+Charles-Antoine Couret
+Frank Zago
+Olivier Lorin
+Erik Andren
+Hans Verkuil
+Brian Johnson
+Leandro Costantino
+Hans Verkuil
+Pablo Neira Ayuso
+Davidlohr Bueso
+Yoshinori Sato
+Oded Gabbay
+Antti Palosaari
+Ezequiel Garcia
+Frank Seidel
+Jean Delvare
+Matt Mackall
+Ohad Ben-Cohen
+Alexander Shishkin
+Hans Verkuil
+Jerry Hoemann
+Don Brace
+Mike Marciniszyn
+Ferenc Bakonyi
+Rafael J. Wysocki
+Jiri Kosina
+Jiri Kosina
+Thomas Gleixner
+HighPoint Linux Team
+Jes Sorensen
+Zhou Wang
+Zaibo Xu
+<a class="reference external" href="mailto:john.garry%40huawei.com">john<span>.</span>garry<span>@</span>huawei<span>.</span>com</a></td>
+Yisen Zhuang
+Yisen Zhuang
+Shaokun Zhang
+Zhou Wang
+Lijun Ou
+John Garry
+Zaibo Xu
+Zaibo Xu
+John Garry
+Jérôme Glisse
+Jouni Malinen
+Clemens Ladisch
+Mikulas Patocka
+Sebastian Reichel
+Robin van der Gracht
+Pau Oliva Fora
+Lorenzo Bianconi
+Bin Luo
+Mike Kravetz
+Jean-Christophe Trotin
+Naoya Horiguchi
+Pu Wen
+Shawn Tu
+K. Y. Srinivasan
+Vignesh Raghavendra
+Mika Westerberg
+Ajay Gupta
+Peter Rosin
+Gregory CLEMENT
+Jean Delvare
+Wolfram Sang
+Jean Delvare
+Till Harbaum
+Jean Delvare
+Hans de Goede
+Seth Heasley
+Jean Delvare
+Przemysław Gaj
+Vitor Soares
+Boris Brezillon
+Tony Luck
+Haren Myneni
+Breno Leitão
+Tyrel Datwyler
+Brian King
+Tyrel Datwyler
+Thomas Falcon
+Sukadev Bhattiprolu
+Thomas Falcon
+Tyrel Datwyler
+Steven Royer
+Tyrel Datwyler
+Michael Cyr
+Breno Leitão
+Peter Tyser
+Max Staudt
+David S. Miller
+Borislav Petkov
+Ike Panhc
+Andrey Moiseev
+Marek Vasut
+Alexander Aring
+Yotam Gigi
+Sean Young
+Sean Young
+Peter Rosin
+Peter Rosin
+Peter Rosin
+Jonathan Cameron
+Peter Rosin
+Matthieu Castet
+Paul Burton
+Sean Young
+Guenter Roeck
+Guenter Roeck
+Samuel Iglesias Gonsalvez
+Eddie James
+Doug Ledford
+Zubair Lutfullah Kakakhel
+Harvey Hunt
+Paul Cercueil
+Jan Kara
+Dmitry Torokhov
+Henrik Rydberg
+Antoine Tenart
+Mimi Zohar
+Antonino Daplas
+Cezary Rojewski
+Hans de Goede
+Mika Westerberg
+Intel SCU Linux support
+Tony Luck
+Jani Nikula
+Jeff Kirsher
+Maik Broemme
+Andy Shevchenko
+Zhenyu Wang
+Alex Hung
+Dave Jiang
+Dave Jiang
+Jacob Pan
+Srinivas Pandruvada
+David Woodhouse
+Yong Zhi
+Sakari Ailus
+Krzysztof Halasa
+Deepak Saxena
+Tomas Winkler
+Sujith Thomas
+Sudeep Dutt
+Zha Qipeng
+Rajneesh Bhardwaj
+Andy Shevchenko
+Stanislav Yakovlev
+Srinivas Pandruvada
+Faisal Latif
+Mika Westerberg
+Srinivas Pandruvada
+Richard Gong
+Rajneesh Bhardwaj
+Srinivas Pandruvada
+AceLan Kao
+Stanislaw Gruszka
+Johannes Berg
+Inaky Perez-Gonzalez
+Jithu Joseph
+Mario Limonciello
+Alexander Shishkin
+Ning Sun
+Georgi Djakov
+Linus Walleij
+Ralf Baechle
+Christoph Hellwig
+Joerg Roedel
+Jens Axboe
+Corey Minyard
+Adaptec OEM Raid Solutions
+Wensong Zhang
+Jiri Kosina
+Marc Zyngier
+Thomas Gleixner
+Thomas Gleixner
+William Breathitt Gray
+Hans Verkuil
+Jaroslav Kysela
+Lee Duncan
+Peter Jones
+Sagi Grimberg
+Sagi Grimberg
+Karsten Keil
+Karsten Keil
+Jean Delvare
+Antti Palosaari
+Andy Walls
+Malcolm Priestley
+Jan Kiszka
+Guenter Roeck
+Dave Kleikamp
+Guo-Fu Tseng
+David Woodhouse
+Theodore Ts’o
+Mikhail Ulyanov
+Clemens Ladisch
+Rudolf Marek
+Andrey Ryabinin
+Masahiro Yamada
+Marco Elver
+Dave Young
+Hans Verkuil
+Ian Kent
+Masahiro Yamada
+J. Bruce Fields
+Shuah Khan
+Brendan Higgins
+Luis Chamberlain
+Paolo Bonzini
+Marc Zyngier
+Paul Mackerras
+Christian Borntraeger
+Paolo Bonzini
+Greg Kroah-Hartman
+Eric Biederman
+Mimi Zohar
+James Bottomley
+David Howells
+Stefani Seibold
+Jason Wessel
+Catalin Marinas
+Luis Chamberlain
+Naveen N. Rao
+Miguel Ojeda Sandonis
+David Ahern
+John Fastabend
+Hauke Mehrtens
+John Crispin
+James E.J. Bottomley
+Tobin C. Harding
+Jacek Anaszewski
+Jean Delvare
+Juergen Stuber
+Matan Ziv-Av
+Michael Krufky
+Michael Krufky
+Viresh Kumar
+Bartlomiej Zolnierkiewicz
+Linus Walleij
+Hans de Goede
+Mikael Pettersson
+Jens Axboe
+Sasha Levin
+Dan Williams
+Vishal Verma
+Dan Williams
+Oliver O’Halloran
+Dan Williams
+Thomas Gleixner
+Matias Bjorling
+Mark Brown
+Benjamin Herrenschmidt
+Michael Ellerman
+Anatolij Gustschin
+Scott Wood
+Christophe Leroy
+Kees Cook
+Alan Stern
+Eric Piel
+David Gow
+Josh Poimboeuf
+Guillaume Ligneul
+Jean Delvare
+Jean Delvare
+Jean Delvare
+Guenter Roeck
+Malcolm Priestley
+Kees Cook
+Peter Zijlstra
+Richard Russon (FlatCap)
+Hans de Goede
+Sathya Prakash
+Matthew Wilcox
+Marcus Folkesson
+Nuno Sá
+Nuno Sá
+Guenter Roeck
+Michael Hennerich
+Mike Frysinger
+Geert Uytterhoeven
+Joshua Thompson
+Philip Blundell
+Antti Palosaari
+Malcolm Priestley
+Alexey Klimov
+Johannes Berg
+Jassi Brar
+Michael Kerrisk
+Rahul Bedarkar
+Andrew Lunn
+Miquel Raynal
+Russell King
+Boris Brezillon
+Mirko Lindner
+Russell King
+Sebastian Hesselbarth
+Russell King
+Miquel Raynal
+Thomas Petazzoni
+Amitkumar Karwar
+Lennert Buytenhek
+Miquel Raynal
+Sunil Goutham
+Sunil Goutham
+Nicolas Pitre
+Tobias Waldekranz
+Hu Ziji
+Guenter Roeck
+Ramesh Shanmugasundaram
+Guenter Roeck
+Peter Rosin
+Andreas Klinger
+Bartosz Golaszewski
+Javier Martinez Canillas
+Krzysztof Kozlowski
+Chanwoo Choi
+Hans Verkuil
+Dan Murphy
+Rishi Gupta
+Peter Rosin
+Xue Liu
+William Breathitt Gray
+Sakari Ailus
+Philipp Zabel
+Sergey Kozlov
+Jasmin Jessich
+Sergey Kozlov
+Yasunari Takiguchi
+Steve Longerbeam
+Rui Miguel Silva
+Abylay Ospan
+Sergey Kozlov
+Sergey Kozlov
+Sergey Kozlov
+Dmitry Osipenko
+Jacopo Mondi
+Ramesh Shanmugasundaram
+Laurent Pinchart
+Kieran Bingham
+Niklas Söderlund
+Laurent Pinchart
+Hugues Fruchet
+Mauro Carvalho Chehab
+Sean Wang
+Sean Wang
+Sean Wang
+Sean Wang
+Felix Fietkau
+Qii Wang
+Rick Chang
+Minghsiu Tsai
+Tiffany Lin
+Chaotian Jing
+Felix Fietkau
+Jakub Kicinski
+Stefan Roese
+Sean Wang
+Sean Wang
+Sean Wang
+Chunfeng Yun
+Peter Senna Tschudin
+Kashyap Desai
+Crt Mori
+Crt Mori
+Sangwon Jee
+Tariq Toukan
+Saeed Mahameed
+Jiri Pirko
+<a class="reference external" href="mailto:mlxsw%40mellanox.com">mlxsw<span>@</span>mellanox<span>.</span>com</a></td>
+Andy Shevchenko
+Tariq Toukan
+Yishai Hadas
+Saeed Mahameed
+Leon Romanovsky
+Vadim Pasternak
+Vadim Pasternak
+Vadim Pasternak
+Mathieu Desnoyers
+Mike Rapoport
+Andrew Morton
+Miquel Raynal
+Johannes Thumshirn
+Johannes Thumshirn
+Andreas Werner
+Johannes Thumshirn
+Neil Armstrong
+Liang Yang
+Maxime Jourdan
+Vladimir Vid
+Manivannan Sadhasivam
+Michal Simek
+Richard Genoud
+Radu Pirea
+Radu Pirea
+Codrin Ciubotariu
+Ludovic Desroches
+Tudor Ambarus
+Ludovic Desroches
+Eugen Hristev
+Eugen Hristev
+Woojung Huh
+Bryan Whitehead
+Nicolas Ferre
+Andrei Stefanescu
+Marcus Folkesson
+Ludovic Desroches
+Tudor Ambarus
+Claudiu Beznea
+Ludovic Desroches
+Nicolas Ferre
+Nicolas Ferre
+Nicolas Ferre
+Richard Leitner
+Cristian Birsan
+Ludovic Desroches
+Alexandre Belloni
+Don Brace
+Chen Yu
+Oliver Neukum
+Thomas Bogendoerfer
+Paul Burton
+Paul Burton
+Aleksandar Markovic
+Keguang Zhang
+Jiaxun Yang
+Huacai Chen
+Hans Verkuil
+Will Deacon
+Antti Palosaari
+Antti Palosaari
+Jessica Yu
+Saravanan Sekar
+Jiri Slaby
+Alexey Klimov
+Alan Ott
+Lee
+Antti Palosaari
+Antti Palosaari
+Robert Jarzmik
+Laurent Pinchart
+Laurent Pinchart
+Laurent Pinchart
+Jacopo Mondi
+Laurent Pinchart
+Jacopo Mondi
+Lee Jones
+Ulf Hansson
+Peter Rosin
+Bin Liu
+Akihiro Tsukada
+Michael Krufky
+Marek Vasut
+Hannes Reinecke
+Chris Lee
+Miquel Raynal
+Daniel Mack
+Finn Thain
+Samuel Mendoza-Jonas
+Guenter Roeck
+Jakub Kicinski
+Stephen Hemminger
+Jon Mason
+Pablo Neira Ayuso
+Ralf Baechle
+Jakub Kicinski
+Josef Bacik
+Neil Horman
+David S. Miller
+Kalle Valo
+Andrew Lunn
+David S. Miller
+Steffen Klassert
+David S. Miller
+Paul Moore
+Mat Martineau
+Eric Dumazet
+Boris Pismenny
+Manish Chopra
+Sridhar Samudrala
+David Ahern
+Trond Myklebust
+Ryusuke Konishi
+YOKOTA Hiroshi
+GOTO Masanori
+Ley Foon Tan
+Frederic Weisbecker
+Pavel Machek
+Willy Tarreau
+Matthias Maennich
+Sanjay R Mehta
+Jon Mason
+Serge Semin
+Dave Jiang
+Anton Altaparmakov
+Finn Thain
+Antonino Daplas
+Keith Busch
+James Smart
+Christoph Hellwig
+Srinivas Kandagatla
+Ashish Kumar
+Rui Miguel Silva
+Fabio Estevam
+Vladimir Oltean
+Russell King
+Peter Rosin
+Clément Perrochaud
+Jiri Pirko
+Josh Poimboeuf
+Microchip Linux Driver Support
+Frederic Barrat
+Peter Ujfalusi
+Paul Walmsley
+Benoît Cousson
+Roger Quadros
+Grygorii Strashko
+Ohad Ben-Cohen
+Paul Walmsley
+Benoît Cousson
+Benoît Cousson
+Vignesh R
+Laurent Pinchart
+Aaro Koskinen
+Kevin Hilman
+Rajendra Nayak
+Deepak Saxena
+Mark Jackson
+Aaro Koskinen
+Tony Lindgren
+Bob Copeland
+Harald Welte
+Harald Welte
+Sakari Ailus
+Rui Miguel Silva
+Shunqian Zheng
+Tianshu Qiu
+Steve Longerbeam
+Luis Oliveira
+Chiranjeevi Rapolu
+Shawn Tu
+Shunqian Zheng
+Jonathan Corbet
+Jacopo Mondi
+Wenyou Yang
+Dongchun Zhu
+Petr Cvek
+Sakari Ailus
+Kyungmin Park
+Harvey Hunt
+Jens Wiklander
+Sumit Garg
+Dennis Dalessandro
+Pantelis Antoniou
+Rob Herring
+Rob Herring
+Peter Korsgaard
+Jonas Bonn
+Pravin B Shelar
+Viresh Kumar
+Clemens Ladisch
+Robert Richter
+Mark Fasheh
+Mike Marshall
+Lad
+Miklos Szeredi
+Christian Lamparter
+Vladimir Oltean
+Steffen Klassert
+Jesper Dangaard Brouer
+Harald Welte
+Andreas Klinger
+Willy Tarreau
+Sudip Mukherjee
+Juergen Gross
+Tim Waugh
+James E.J. Bottomley
+Jiri Pirko
+Enrico Weigelt
+Jim Cromie
+Jim Cromie
+Jean Delvare
+Riku Voipio
+Guenter Roeck
+Khalid Aziz
+Thomas Petazzoni
+Ley Foon Tan
+Toan Le
+Rob Herring
+Thomas Petazzoni
+Tom Joseph
+Minghuan Lian
+Will Deacon
+Richard Zhu
+Jonathan Derrick
+Kurt Schwemmer
+Karthikeyan Mitran
+Thomas Petazzoni
+Thierry Reding
+Hou Zhiqiang
+Marek Vasut
+Jingoo Han
+Jingoo Han
+Kishon Vijay Abraham I
+Murali Karicheri
+Linus Walleij
+Kishon Vijay Abraham I
+Russell Currey
+Linas Vepstas
+Ley Foon Tan
+Toan Le
+Lorenzo Pieralisi
+Bjorn Helgaas
+Jonathan Chocron
+Yue Wang
+Jesper Nilsson
+Robert Richter
+Zhou Wang
+Xiaowei Song
+Shawn Guo
+Ryder Lee
+Stanimir Varbanov
+Shawn Lin
+Kunihiko Hayashi
+Pratyush Anand
+Dominik Brodowski
+Don Fry
+Steffen Klassert
+Hans de Goede
+Shannon Nelson
+Dennis Zhou
+Balbir Singh
+Peter Zijlstra
+Christoph Hellwig
+Marcus Folkesson
+Remi Denis-Courmont
+Joern Engel
+Bruno Prémont
+Jamie Iles
+Christian Brauner
+Linus Walleij
+Dong Aisheng
+Mika Westerberg
+Sean Wang
+Ludovic Desroches
+Bjorn Andersson
+Geert Uytterhoeven
+Tomasz Figa
+Tony Lindgren
+Viresh Kumar
+James Hartley
+<a class="reference external" href="mailto:linux-block%40vger.kernel.org">linux-block<span>@</span>vger<span>.</span>kernel<span>.</span>org</a></td>
+Guan Xuetao
+Tomasz Duszynski
+Logan Gunthorpe
+Todd E Brandt
+Guenter Roeck
+Jack Wang
+Song Qiang
+Rafael J. Wysocki
+Thomas Gleixner
+Rafael J. Wysocki
+Mark Rutland
+Sebastian Reichel
+Suraj Jitindar Singh
+Mitchell Blank Jr
+Michal Ostrowski
+James Chapman
+Paul Mackerras
+Rodolfo Giometti
+Dmitry Kozlov
+Johannes Weiner
+Petr Mladek
+Luis Chamberlain
+Luis Chamberlain
+Geoff Levand
+Geoff Levand
+Jim Paris
+Yotam Gigi
+Kees Cook
+Richard Cochran
+Oleg Nesterov
+Hans Verkuil
+Mike Isely
+Hans Verkuil
+Kamil Debski
+Sean Young
+Thierry Reding
+Lee Jones
+Robert Jarzmik
+Robert Jarzmik
+Daniel Mack
+Giovanni Cabiddu
+Patrick Lai
+Alex Elder
+Gabriel Somlo
+Dennis Dalessandro
+<a class="reference external" href="mailto:QLogic-Storage-Upstream%40cavium.com">QLogic-Storage-Upstream<span>@</span>cavium<span>.</span>com</a></td>
+<a class="reference external" href="mailto:QLogic-Storage-Upstream%40cavium.com">QLogic-Storage-Upstream<span>@</span>cavium<span>.</span>com</a></td>
+Ariel Elior
+Michal Kalderon
+Michael Reed
+Nilesh Javali
+<a class="reference external" href="mailto:GR-Linux-NIC-Dev%40marvell.com">GR-Linux-NIC-Dev<span>@</span>marvell<span>.</span>com</a></td>
+<a class="reference external" href="mailto:QLogic-Storage-Upstream%40qlogic.com">QLogic-Storage-Upstream<span>@</span>qlogic<span>.</span>com</a></td>
+Shahed Shaikh
+Manish Chopra
+Akihiro Tsukada
+Akihiro Tsukada
+Anders Larsen
+Stuart Yoder
+Antti Palosaari
+Kalle Valo
+Kalle Valo
+QCA ath9k Development
+Todor Tomov
+Niklas Cassel
+Ilia Lin
+Timur Tabi
+Vinod Koul
+Alok Chauhan
+Brian Cain
+Sinan Kaya
+Loic Poulain
+Rob Clark
+Manivannan Sadhasivam
+Subash Abhinov Kasiviswanathan
+Amit Kucheria
+Stanimir Varbanov
+Kalle Valo
+Igor Mitsyanko
+Alex Deucher
+Benjamin Herrenschmidt
+Hans Verkuil
+Hans Verkuil
+Ilya Dryomov
+Paul Mackerras
+Hans Verkuil
+John Crispin
+Stanislaw Gruszka
+Jens Axboe
+Miodrag Dinic
+Theodore Ts’o
+Matt Porter
+Tony Luck
+Patrick Lerda
+Paul E. McKenney
+Florian Fainelli
+Florian Fainelli
+Dennis Dalessandro
+Santosh Shilimkar
+Fenghua Yu
+Paul E. McKenney
+Alessandro Zummo
+Oder Chiou
+Linus Walleij
+Ping-Ke Shih
+Yan-Hsuan Chuang
+Amitkumar Karwar
+Mark Brown
+Ohad Ben-Cohen
+Ohad Ben-Cohen
+Geert Uytterhoeven
+Wolfram Sang
+Marek Vasut
+Wolfram Sang
+Niklas Söderlund
+Chris Brandt
+Yoshihiro Shimoda
+Philipp Zabel
+Mathieu Desnoyers
+Johannes Berg
+Thomas Graf
+Maxim Levitsky
+Maxim Levitsky
+Paul Walmsley
+Danil Kipnis
+Stefan Achatz
+Helen Koike
+Jacob Chen
+Ezequiel Garcia
+Jiri Pirko
+Kevin Cernekee
+Tomasz Duszynski
+Marek Vasut
+Ralf Baechle
+Jernej Skrabec
+Antti Palosaari
+Antti Palosaari
+Antti Palosaari
+Herton Ronaldo Krzesinski
+Jes Sorensen
+Danil Kipnis
+David Howells
+Antonino Daplas
+Heiko Carstens
+Vineeth Vijayan
+Stefan Haberland
+Gerald Schaefer
+Julian Wiedmann
+Julian Wiedmann
+Niklas Schnelle
+Tony Krowiak
+Cornelia Huck
+Harald Freudenberger
+Steffen Maier
+Ben Dooks
+Hans Verkuil
+Mauro Carvalho Chehab
+Hans Verkuil
+Micah Morton
+Krzysztof Kozlowski
+Krzysztof Kozlowski
+Łukasz Stelmach
+Jingoo Han
+Corentin Chary
+Sangbeom Kim
+Sylwester Nawrocki
+Robert Baldyga
+Kyungmin Park
+Kyungmin Park
+Krzysztof Kozlowski
+Kyungmin Park
+Sylwester Nawrocki
+Kukjin Kim
+Byungho An
+Bartlomiej Zolnierkiewicz
+Kamil Debski
+Zwane Mwaikambo
+Ingo Molnar
+Lubomir Rintel
+Jens Axboe
+Bart Van Assche
+Bart Van Assche
+Doug Gilbert
+James E.J. Bottomley
+Kai Mäkisara
+Martin K. Petersen
+Vlad Yasevich
+Jim Cromie
+Jim Cromie
+Jim Cromie
+Sascha Sommer
+Ettore Chimenti
+Kees Cook
+Al Cooper
+Adrian Hunter
+Ludovic Desroches
+Ben Dooks
+Viresh Kumar
+Kishon Vijay Abraham I
+Jonathan Derrick
+Security Officers
+James Morris
+Paul Moore
+Jiri Slaby
+Tomasz Duszynski
+Rob Herring
+Greg Kroah-Hartman
+Sean Young
+Srinivas Kandagatla
+Solarflare linux maintainers
+Russell King
+Dimitri Sivanich
+Cliff Whickman
+Ursula Braun
+Linus Walleij
+Jacopo Mondi
+Antti Palosaari
+Matthias Schwarzott
+Antti Palosaari
+Hans Verkuil
+Hans Verkuil
+Eduardo Valentin
+Eduardo Valentin
+Hans Verkuil
+Mauro Carvalho Chehab
+Palmer Dabbelt
+Paul Walmsley
+Green Wan
+Hans de Goede
+Jérôme Pouiller
+Sudip Mukherjee
+Hans de Goede
+Vincent Sanders
+Vincent Sanders
+Thorsten Scherer
+Jason A. Donenfeld
+Francois Romieu
+Daniele Venzano
+Thomas Winischhofer
+Thomas Winischhofer
+Christoph Lameter
+Lai Jiangshan
+Casey Schaufler
+Nicolas Pitre
+Mark Rutland
+Sakari Ailus
+Guenter Roeck
+Steve Glendinning
+Hans de Goede
+Steve Glendinning
+Jean Delvare
+Steve Glendinning
+Steve Glendinning
+Kunihiko Hayashi
+Jassi Brar
+Masahisa Kojima
+Ard Biesheuvel
+Chris Boot
+Bernard Metzler
+Zhu Yanjun
+Bluecherry Maintainers
+James Morse
+Song Liu
+Russell King
+Russell King
+Thomas Bogendoerfer
+Michael Buesch
+Ricardo Ribalda
+Dave Stevenson
+Sakari Ailus
+Leon Luo
+Manivannan Sadhasivam
+Bingbu Cao
+Tianshu Qiu
+Maxim Levitsky
+Mattia Dongili
+Jaroslav Kysela
+Vinod Koul
+Lars-Peter Clausen
+Liam Girdwood
+Pierre-Louis Bossart
+Vinod Koul
+Olli Salonen
+David S. Miller
+David S. Miller
+Luc Van Oostenryck
+Viresh Kumar
+Viresh Kumar
+Tudor Ambarus
+Mark Brown
+Ishizaki Kou
+Jeremy Kerr
+Phillip Lougher
+Jan-Benedict Glaw
+Lorenzo Bianconi
+Mickael Guene
+Pierre-Yves MORDRET
+Song Qiang
+Greg Kroah-Hartman
+Mauro Carvalho Chehab
+Ian Abbott
+Sven Van Asbroeck
+Sven Van Asbroeck
+Jonathan Cameron
+Marc Dietrich
+Jens Frederich
+Larry Finger
+Larry Finger
+Michael Hennerich
+Sudip Mukherjee
+William Hubbs
+Forest Bond
+Adham Abozaeid
+Greg Kroah-Hartman
+Ion Badulescu
+Damien Le Moal
+Arnaud Pouliquen
+Benjamin Gaignard
+Ezequiel Garcia
+Olivier Moysan
+Fabrice Gasnier
+Giuseppe Cavallaro
+Sam Creasey
+Hans de Goede
+Denis Kirjanov
+Yoshinori Sato
+Rafael J. Wysocki
+Martin Mares
+Konrad Rzeszutek Wilk
+Jiri Pirko
+Icenowy Zheng
+Sumit Semwal
+Vineet Gupta
+Eugeniy Paltsev
+Eugeniy Paltsev
+Alexey Brodkin
+Eugeniy Paltsev
+Eugeniy Paltsev
+Hoan Tran
+Eugeniy Paltsev
+Viresh Kumar
+Jose Abreu
+Jose Abreu
+Jarkko Nikula
+Jaehoon Chung
+Eugeniy Paltsev
+Prabu Thangamuthu
+Lee Jones
+Sudeep Holla
+Sebastian Reichel
+Alexander Shishkin
+Jeremy Soller
+Christoph Hellwig
+Balbir Singh
+Jamal Hadi Salim
+Akihiro Tsukada
+Wong Hoi Sing
+Antti Palosaari
+Antti Palosaari
+Antti Palosaari
+Olli Salonen
+Michael Krufky
+Tim Harvey
+Michael Krufky
+Michael Krufky
+Hans Verkuil
+Mauro Carvalho Chehab
+Mauro Carvalho Chehab
+Hans Verkuil
+Hans Verkuil
+Jiri Pirko
+Savoir-faire Linux Inc.
+Sean Young
+Jens Wiklander
+Thierry Reding
+Peter De Schrijver
+Laxman Dewangan
+Laxman Dewangan
+Thierry Reding
+Laxman Dewangan
+Stefan Agner
+Thierry Reding
+Laxman Dewangan
+Laxman Dewangan
+Thierry Reding
+JC Kuo
+Andy Gospodarek
+Mark Gross
+Steven Eckhoff
+Chris Zankel
+Peter Ujfalusi
+Ricardo Ribalda
+Nishanth Menon
+Hans Verkuil
+Zhang Rui
+Guillaume La Roque
+Amit Daniel Kachhap
+Henrique de Moraes Holschuh
+Andreas Noever
+Michael Jamet
+Robert Richter
+Lad
+Eduardo Valentin
+Max Filippov
+Tero Kristo
+Sekhar Nori
+David Lechner
+Keerthy
+Lad
+Alex Dubov
+Santosh Shilimkar
+M R Swami Reddy
+Milo Kim
+Milo Kim
+Milo Kim
+Wingman Kwok
+Kirill Marinushkin
+Kevin Cernekee
+Dan Murphy
+Mark Greer
+Peter Ujfalusi
+Benoit Parrot
+John Stultz
+Jon Maloy
+Samuel Chessman
+Mauro Carvalho Chehab
+Wolfram Sang
+Guenter Roeck
+Eric Tremblay
+Hugh Dickins
+Kentaro Takeda
+Herton Ronaldo Krzesinski
+Davidlohr Bueso
+Azael Avalos
+Azael Avalos
+Azael Avalos
+Jonathan Buzzard
+Mats Randgaard
+Azael Avalos
+Peter Huewe
+Steven Rostedt
+Steven Rostedt
+Jiri Kosina
+Greg Kroah-Hartman
+Antti Palosaari
+Maxim Krasnyansky
+Maciej W. Rozycki
+Len Brown
+Bluecherry Maintainers
+Hans Verkuil
+Ezequiel Garcia
+Zhangfei Gao
+Richard Weinberger
+Greg Ungerer
+Jan Kara
+Bastien Nocera
+Evgeniy Dushistov
+David Herrmann
+Heikki Krogerus
+Gabriel Krisman Bertazi
+Guan Xuetao
+Tony Finch
+Jens Axboe
+David Kershner
+Pedro Sousa
+Stanley Chu
+Richard Weinberger
+Oliver Neukum
+Oliver Neukum
+Bastien Nocera
+Pontus Fuchs
+Oliver Neukum
+Oliver Neukum
+Keith Packard
+Peter Korsgaard
+Peter Korsgaard
+Alan Stern
+Felipe Balbi
+Jiri Kosina
+Hans de Goede
+Yu Chen
+Olav Kongas
+Woojung Huh
+Alan Stern
+Clemens Ladisch
+Alan Stern
+Peter Chen
+Valentina Manea
+Petko Manolov
+Felipe Balbi
+Pete Zaitcev
+Bjørn Mork
+Petko Manolov
+Johan Hovold
+Steve Glendinning
+Steve Glendinning
+Greg Kroah-Hartman
+Heikki Krogerus
+Heikki Krogerus
+Heikki Krogerus
+Hans de Goede
+Guenter Roeck
+Alan Stern
+Laurent Pinchart
+Hans Verkuil
+Laurent Pinchart
+Jussi Kivilinna
+Mathias Nyman
+Antoine Jacquet
+Jeff Dike
+Alexander Viro
+Gerd Hoffmann
+Greg Kroah-Hartman
+Karel Zak
+Christoph Hellwig
+Michal Januszewski
+Ulf Hansson
+Stefan Agner
+OGAWA Hirofumi
+Alex Williamson
+Kirti Wankhede
+Eric Auger
+Bruce Chang
+Florian Tobias Schandinat
+Francois Romieu
+Hans Verkuil
+Matt Ranostay
+Philipp Zabel
+Pawel Osciak
+Helen Koike
+Alex Williamson
+Stefan Hajnoczi
+Michael S. Tsirkin
+Amit Shah
+Michael S. Tsirkin
+Michael S. Tsirkin
+Gonglei
+Cornelia Huck
+Vivek Goyal
+David Airlie
+Michael S. Tsirkin
+Gerd Hoffmann
+Jean-Philippe Brucker
+David Hildenbrand
+Hans de Goede
+Hans de Goede
+Stephen Chandler Paul
+Hans Verkuil
+Florian Fainelli
+Martyn Welch
+Nadav Amit
+Deep Shah
+Adit Ranadive
+Jim Gill
+Vivek Thampi
+VMware Graphics
+Ronak Doshi
+Harvey Hunt
+Liam Girdwood
+David Ahern
+Petr Mladek
+Juerg Haefliger
+Roger Lucas
+Evgeniy Polyakov
+Marc Hulsman
+Rudolf Marek
+Jean Delvare
+Pierre Ossman
+Julian Squires
+Wim Van Sebroeck
+Kuppuswamy Sathyanarayanan
+Dianlong Li
+David Herrmann
+Maya Erez
+Inaky Perez-Gonzalez
+David Härdeman
+William Breathitt Gray
+William Breathitt Gray
+Jason A. Donenfeld
+Miloslav Trmac
+Tejun Heo
+Hans de Goede
+Chen-Yu Tsai
+Andrew Hendry
+Thomas Gleixner
+Andy Lutomirski
+Tony Luck
+Borislav Petkov
+Dave Hansen
+Darren Hart
+Andy Lutomirski
+Matthew Wilcox
+Benjamin Valentin
+Mauro Carvalho Chehab
+Alexei Starovoitov
+Björn Töpel
+Konrad Rzeszutek Wilk
+Stefano Stabellini
+Stefano Stabellini
+Boris Ostrovsky
+Wei Liu
+Konrad Rzeszutek Wilk
+Juergen Gross
+Oleksandr Andrushchenko
+Konrad Rzeszutek Wilk
+Darrick J. Wong
+Radhey Shyam Pandey
+Appana Durga Kedareswara rao
+Derek Kiernan
+Peter Korsgaard
+Hyun Kwon
+Eli Billauer
+George Cherian
+Nandor Han
+Max Filippov
+Jean-Paul Roubelat
+Kees Cook
+Henk Vergonet
+Joerg Reuter
+Seth Jennings
+Daniel Drake
+Antti Palosaari
+Antti Palosaari
+Tony W Wang-oc
+Damien Le Moal
+Dan Streetman
+Minchan Kim
+Maciej W. Rozycki
+Minchan Kim
+Seth Jennings
+Linus Torvalds
