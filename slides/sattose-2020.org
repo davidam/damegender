@@ -25,29 +25,28 @@ versus datasets created by companies or free software communities.
 To apply this tools to the scientific communities or communities based on
 Internet.
 
-** Abstract
+** Damegender in few words (I)
 
-Diversity in software development teams has been identified as one of
-the main ingredients of a more productive and healthy software
-community. Thus, the interest of the research community in identifying
-who is contributing to a project has increased in the last years. In
-the software domain, and although other types of diversity exist, this
-is particularly important for the case of gender.  Given the large
-amount of publicly available data on the software development process
-that can be retrieved and analyzed from the Internet (e.g., GitHub,
-StackOverflow), the importance of having methods and tools that help
-to identify the participation of women within large amounts of data is
-desirable. In this paper we present a free software tool, called
-damegender, which we have conceived to infer the gender from the name
-of a participant.  damegender is based on open databases from official
-census and uses Machine Learning. An experimental branch is currently
-under development for those cases where instead of names we have
-*diminutives or nicknames*. We have compared damegender with other
-name-to-gender inference tools, obtaining good results.  We hope the
-damegender tool can become a cornerstone for the scientific
-advancement of the study of gender (including the gender gap) and
-diversity in Information Technology (IT), and in particular in the
-*free software community*.
+Damegender *is*:
++ A gender detection tool from the name
++ Open datasets from official statistics
++ Free Software
+
+Damegender *can be applied for*:
++ Gender classification in datasets (Software Repositories, Science,
+  Wikipedia, Mailing Lists, ...)
+
+** Damegender in few words (II)
+
+The *main innovations* with similar propietary tools are:
++ Detect gender in dimininutives and nicknames using ML
++ Integration with Perceval to be applied in Internet Communities
+
+The *social impact* is about:
++ Due to the importance about sex variable in sociology
++ It's an important problem in Natural Language Processing
++ To reduce the gender is an objective in United Nations. You need
+  data and calculus to reach it.!
 
 ** Download source and article to a make a good tracing
 
@@ -55,8 +54,7 @@ diversity in Information Technology (IT), and in particular in the
 
 ** Introduction (I): Gender detection tools in the bibliography
 
-+ The most used method to infer the gender of participants
-is by looking at their name.
++ The most used method to infer the gender of participants looking for their name.
 + To infer the gender from faces in images [RPC17], 
 + To infer gender from hand-written annotations [LSB11], 
 + To infer gender from speeches [KAS02].
@@ -112,7 +110,17 @@ is by looking at their name.
 Note: the results in this paper has been reached with Spain, Uruguay, USA and
 United Kingdom official statistics.
 
-** 
+** Comparison of the different features that name-to-gender inference services
+
+file:img/table1.png
+
+** Comparison of measures of the quality of the results for the tools under study
+
+file:img/table2.png
+
+** Comparison of machine learning algorithms and accuracies
+
+file:img/table5.png
 
 ** Conclusions
 
@@ -124,4 +132,5 @@ new in this field, it's *an incentive for researchers* in computer
 science create free software tools.
 
 These advances in computer science could be giving support to study
-the gender gap in repositories and mailing lists.
+the gender gap in repositories and mailing lists. So, the application
+of Damegender in real cases is the next step in this research.
