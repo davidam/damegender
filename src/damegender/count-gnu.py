@@ -87,3 +87,10 @@ if ((args.show=='unknowns') or (args.show=='all')):
     print("The list of GNU people with unknown gender is:")
     print(unknows_list)
 
+import matplotlib.pyplot as plt
+
+data = [len(males_list), len(females_list), len(unknows_list)]
+gender = ["Males","Females","Unknows"]
+plt.pie(data, labels=gender, autopct="%0.1f %%")
+plt.axis("equal")
+plt.show()
