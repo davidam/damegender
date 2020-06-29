@@ -1,0 +1,4 @@
+The list has been retrieved from https://www.gnu.org/people/people.html
+The number of gnu males is 203
+The number of gnu females is 11
+The number of people with unknown gender in GNU is 21
