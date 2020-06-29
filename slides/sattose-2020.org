@@ -1,5 +1,5 @@
 #+TITLE: Damegender: Writing and Comparing Gender Detection Tools
-#+AUTHOR: David Arroyo Menéndez
+#+AUTHOR: David Arroyo Menéndez, Jesús M. González Barahona and Gregorio Robles
 #+OPTIONS: H:2 toc:nil num:t
 #+LATEX_CLASS: beamer
 #+LATEX_CLASS_OPTIONS: [presentation]
@@ -19,8 +19,9 @@ To compare APIs to detect gender from a name
 To apply machine learning to classify nicknames, diminutives or new names
 as male or female
 
-To understand the impact about open data in census about names and gender
-versus datasets created by companies or free software communities.
+To understand the impact about open data in statistics about names and
+gender versus datasets created by companies or free software
+communities.
 
 To apply this tools to the scientific communities or communities based on
 Internet.
@@ -114,9 +115,18 @@ United Kingdom official statistics.
 
 file:img/table1.png
 
-** Comparison of measures of the quality of the results for the tools under study
+** Comparison of measures of the quality of the results for the tools under study (I)
 
 file:img/table2.png
+
+** Comparison of measures of the quality of the results for the tools under study (II)
+
+file:img/table3.png
+
+** Comparison of measures of the quality of the results for the tools under study (III)
+
+file:img/table4.png
+
 
 ** Comparison of machine learning algorithms and accuracies
 
