@@ -70,6 +70,8 @@ for k in gnulist:
 # print("gnu females: %s" % females)
 # print("unknow gender about gnu people: %s" % unknowns)
 
+print("The list has been retrieved from https://www.gnu.org/people/people.html")
+
 print("The number of gnu males is %s" % str(len(males_list)))
 if ((args.show=='males') or (args.show=='all')):
     print("The list of gnu males is:")
