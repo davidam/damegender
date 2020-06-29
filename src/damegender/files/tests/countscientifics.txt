@@ -1,0 +1,16 @@
+##### Checking for 100 scientifics ##########
+100
+Number of females scientifics: 7
+Number of males scientifics: 78
+Number of scientifics with gender unknown: 15
+In this dataset the gender unknown is due overall to use initials and not names
+##### Checking for 1000 scientifics ##########
+Number of females scientifics: 167
+Number of males scientifics: 732
+Number of scientifics with gender unknown: 101
+In this dataset the gender unknown is due overall to use initials and not names
+##### Checking for all scientifics ##########
+Number of females scientifics: 28676
+Number of males scientifics: 45679
+Number of scientifics with gender unknown: 7663
+In this dataset the gender unknown is due overall to use initials and not names
