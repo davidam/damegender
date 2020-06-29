@@ -1,0 +1,5 @@
+Perhaps you need wait some minutes. You can take a tea or coffe now
+this kernel maintainers list is about 1914 people
+kernel maintainers males: 1467
+kernel maintainers females: 118
+kernel maintainers not classified: 329
