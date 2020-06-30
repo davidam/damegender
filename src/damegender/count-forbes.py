@@ -55,7 +55,7 @@ print("Perhaps you need wait some minutes. You can take a tea or coffe now")
 
 females = 0
 males = 0
-unknowns = 0
+unknows = 0
 for rowdm in dm:
     sex = g.guess(rowdm.upper(), binary=False)
     
@@ -64,11 +64,21 @@ for rowdm in dm:
     elif (sex == 'male'):
         males = males + 1
     else:
-        unknowns = unknowns + 1
+        unknows = unknows + 1
         
 print("this forbes list is about %s people" % len(dm))        
 print("forbes males: %s" % males)
 print("forbes females: %s" % females)
-print("forbes not classified people: %s" % unknowns)
+print("forbes not classified people: %s" % unknows)
 
 csvfile.close()
+
+import matplotlib.pyplot as plt
+
+data = [males, females, unknows]
+gender = ["Males","Females","Unknows"]
+plt.title("Top 119 Forbes people grouped by gender")
+plt.pie(data, labels=gender, autopct="%0.1f %%")
+plt.axis("equal")
+plt.savefig('files/images/forbes119_by_gender.png')
+plt.show()
