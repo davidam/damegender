@@ -67,12 +67,12 @@ else
 fi
 
 
-python3 main.py casa --ml=forest > files/tests/mainaire-$(date "+%Y-%m-%d-%H").txt
-if ! cmp files/tests/mainaire.txt files/tests/mainaire-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+python3 main.py casa --ml=forest > files/tests/maincasa-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/maincasa.txt files/tests/maincasa-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-    echo "mainaire test is failing"
+    echo "maincasa test is failing"
 else
-    echo "mainaire test is ok"
+    echo "maincasa test is ok"
 fi
 
 python3 api2gender.py David --api="genderguesser" > files/tests/api2genderDavidgenderguesser-$(date "+%Y-%m-%d-%H").txt
