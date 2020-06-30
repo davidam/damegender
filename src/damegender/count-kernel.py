@@ -32,7 +32,7 @@ from app.dame_gender import Gender
 from app.dame_utils import DameUtils
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--show', choices=['males', 'females', 'unknowns', 'all'])
+parser.add_argument('--show', choices=['males', 'females', 'unknows', 'all'])
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 
@@ -58,11 +58,11 @@ print("Perhaps you need wait some minutes. You can take a tea or coffe now")
 
 females = 0
 males = 0
-unknowns = 0
+unknows = 0
 
 list_males = []
 list_females = []
-list_unknowns = []
+list_unknows = []
 for rowdm in dm:
     listfullname = rowdm.split()
     name = listfullname[0]
@@ -75,13 +75,13 @@ for rowdm in dm:
         males = males + 1
         list_males.append(name)        
     else:
-        unknowns = unknowns + 1
-        list_unknowns.append(name)
+        unknows = unknows + 1
+        list_unknows.append(name)
         
 print("this kernel maintainers list is about %s people" % len(dm))        
 print("kernel maintainers males: %s" % males)
 print("kernel maintainers females: %s" % females)
-print("kernel maintainers not classified: %s" % unknowns)
+print("kernel maintainers not classified: %s" % unknows)
 
 if ((args.show=='males') or (args.show=='all')):
     print("The list of kernel maintainers males:" % list_males)
@@ -91,8 +91,20 @@ if ((args.show=='females') or (args.show=='all')):
     print("The list of kernel maintainers females:" % list_females)
     print(list_females)
     
-if ((args.show=='unknowns') or (args.show=='all')):
-    print("The list of people with unknown gender as kernel maintainers:" % list_unknowns)
-    print(list_unknowns)
+if ((args.show=='unknows') or (args.show=='all')):
+    print("The list of people with unknown gender as kernel maintainers:" % list_unknows)
+    print(list_unknows)
 
 csvfile.close()
+
+
+
+import matplotlib.pyplot as plt
+
+data = [len(list_males), len(list_females), len(list_unknows)]
+gender = ["Males","Females", "Unknows"]
+plt.pie(data, labels=gender, autopct="%0.1f %%")
+plt.title("Kernel people grouped by gender")
+plt.savefig('files/images/kernel_by_gender.png')
+plt.axis("equal")
+plt.show()
