@@ -42,29 +42,45 @@ with open('files/debian-maintainers-gpg-2020-04-01.csv') as csvfile:
     cnt = 0
     for row in reader:
         cnt = cnt +1
-#        print(row[0])
         if (aux != row[0]):
             dm.append(row[0])
         aux = row[0]
 
-    #print(dm)
-    #print(len(dm))
-    #print(cnt)
 
 print("Perhaps you need wait some minutes. You can take a tea or coffe now")
 
 females = 0
 males = 0
-for rowdm in dm:
-    #print(g.name_frec(str(rowdm.upper()), 'us'))
-    if (int(g.name_frec(str(rowdm.upper()), 'us')['females']) > int(g.name_frec(str(rowdm.upper()), 'us')['males'] )):
-        #print("female")
-        females = females + 1
-    else:
-        #print("male")
-        males = males + 1
+unknows = 0
 
-print("debian males: %s" % males)
-print("debian females: %s" % females)
+list_males = []
+list_females = []
+list_unknows = []
+for rowdm in dm:
+    sex = g.guess(rowdm.upper(), binary=False)
+    
+    if (sex == 'female'):
+        females = females + 1
+        list_females.append(rowdm)
+    elif (sex == 'male'):
+        males = males + 1
+        list_males.append(rowdm)        
+    else:
+        unknows = unknows + 1
+        list_unknows.append(rowdm)
+
+print("debian males: %s" % len(list_males))
+print("debian females: %s" % len(list_females))
+print("debian unknows: %s" % len(list_unknows))
 
 csvfile.close()
+
+
+import matplotlib.pyplot as plt
+
+data = [len(list_males), len(list_females), len(list_unknows)]
+gender = ["Males","Females", "Unknows"]
+plt.pie(data, labels=gender, autopct="%0.1f %%")
+plt.title("Debian people grouped by gender")
+plt.axis("equal")
+plt.show()
