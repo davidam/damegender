@@ -40,7 +40,7 @@ namsor = files/apikeys/namsorpass.txt
 nameapi = files/apikeys/nameapipass.txt
 " > config.cfg
 
-python3 main.py David > files/tests/maindavid-$(date "+%Y-%m-%d-%H").txt
+python3 main.py David --total=es > files/tests/maindavid-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/maindavid.txt files/tests/maindavid-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -49,7 +49,7 @@ else
     echo "maindavid test is ok"
 fi
 
-python3 main.py Jesús > files/tests/mainjesus-$(date "+%Y-%m-%d-%H").txt
+python3 main.py Jesús --total=es > files/tests/mainjesus-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainjesus.txt files/tests/mainjesus-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -58,7 +58,7 @@ else
     echo "mainjesus test is ok"
 fi
 
-python3 main.py Inés > files/tests/mainines-$(date "+%Y-%m-%d-%H").txt
+python3 main.py Inés --total=es > files/tests/mainines-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainines.txt files/tests/mainines-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -67,7 +67,7 @@ else
 	echo "mainines test is ok"
 fi
 
-python3 main.py Alex > files/tests/mainalex-$(date "+%Y-%m-%d-%H").txt
+python3 main.py Alex --total=es > files/tests/mainalex-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainalex.txt files/tests/mainalex-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -76,7 +76,7 @@ else
 	echo "mainalex test is ok"
 fi
 
-python3 main.py Andrea > files/tests/mainandrea-$(date "+%Y-%m-%d-%H").txt
+python3 main.py Andrea --total=es > files/tests/mainandrea-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainandrea.txt files/tests/mainandrea-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -85,7 +85,7 @@ else
 	echo "mainandrea test is ok"
 fi
 
-python3 main.py "Jesús María" > files/tests/mainjesusmaria-$(date "+%Y-%m-%d-%H").txt
+python3 main.py "Jesús María" --total=es > files/tests/mainjesusmaria-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainjesusmaria.txt files/tests/mainjesusmaria-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -94,7 +94,7 @@ else
 	echo "mainjesusmaria test is ok"
 fi
 
-python3 main.py "José María" > files/tests/mainjosemaria-$(date "+%Y-%m-%d-%H").txt
+python3 main.py "José María" --total=es > files/tests/mainjosemaria-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainjosemaria.txt files/tests/mainjosemaria-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
