@@ -82,5 +82,6 @@ data = [len(list_males), len(list_females), len(list_unknows)]
 gender = ["Males","Females", "Unknows"]
 plt.pie(data, labels=gender, autopct="%0.1f %%")
 plt.title("Debian people grouped by gender")
+plt.savefig('files/images/debian_by_gender.png')
 plt.axis("equal")
 plt.show()
