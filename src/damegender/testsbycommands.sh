@@ -141,12 +141,12 @@ fi
 
 echo "I am launching a ml test is slow. Please wait"
 
-python3 main.py Antorcha --ml=sgd > files/tests/mainantorcha-$(date "+%Y-%m-%d-%H").txt
-if ! cmp files/tests/mainantorcha.txt files/tests/mainantorcha-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+python3 main.py Amorosa --ml=sgd > files/tests/mainamorosa-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/mainamorosa.txt files/tests/mainamorosa-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-    echo "mainantorcha test is failing"
+    echo "mainamorosa test is failing"
 else
-    echo "mainantorcha test is ok"
+    echo "mainamorosa test is ok"
 fi
 
 python3 nameincountries.py David > files/tests/nameincountriesdavid-$(date "+%Y-%m-%d-%H").txt
