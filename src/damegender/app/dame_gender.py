@@ -663,7 +663,7 @@ class Gender(object):
         guess = ''
         name = unidecode.unidecode(name).title()
         name.replace(name, "")
-        dicc = self.name_frec(name, dataset)
+        dicc = self.name_frec(name, dataset=dataset)
         m = int(dicc['males'])
         f = int(dicc['females'])
         if ((m == 0) and (f == 0)):
