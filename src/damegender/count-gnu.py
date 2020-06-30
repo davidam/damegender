@@ -91,6 +91,8 @@ import matplotlib.pyplot as plt
 
 data = [len(males_list), len(females_list), len(unknows_list)]
 gender = ["Males","Females","Unknows"]
+plt.title("GNU people grouped by gender")
 plt.pie(data, labels=gender, autopct="%0.1f %%")
 plt.axis("equal")
+plt.savefig('files/images/gnu_by_gender.png')
 plt.show()
