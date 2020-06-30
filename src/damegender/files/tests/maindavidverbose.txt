@@ -21,11 +21,3 @@
 5604 males for David from Australia census
 7 females for David from Australia census
 David gender predicted with nltk is male
-David gender predicted with sgd is male
-David gender predicted with svc is male
-David gender predicted with gaussianNB is male
-David gender predicted with multinomialNB is male
-David gender predicted with bernoulliNB is male
-David gender predicted with forest is male
-David gender predicted with tree is male
-David gender predicted with mlp is male
