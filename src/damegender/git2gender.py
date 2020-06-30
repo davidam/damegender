@@ -30,6 +30,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("url", help="Uniform Resource Link")
 parser.add_argument('--directory')
+parser.add_argument('--language', default="us", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us'])
 parser.add_argument('--show', choices=['males', 'females', 'unknowns', 'all'])
 parser.add_argument('--ml', default='none', choices=['none', 'nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
 parser.add_argument('--version', action='version', version='0.1')
@@ -61,9 +62,9 @@ if (len(sys.argv) > 1):
         vector2 = fullname.split()
         name = vector2[0]
         if (args.ml == 'none'):
-            sm = g.guess(name, binary=True, dataset='usa')
+            sm = g.guess(name, binary=True, dataset=args.language)
         else:
-            sm = g.guess(name, binary=True, dataset='usa', ml=args.ml)
+            sm = g.guess(name, binary=True, dataset=args.language, ml=args.ml)
         if (sm == 0):
             females = females + 1
             list_females.append(fullname)
