@@ -136,6 +136,21 @@ class DameGenderGuesser(Gender):
             guess = get
         return guess
 
+
+    def guess_list(self, path='files/names/partial.csv', binary=False, *args, **kwargs):
+        # guess list method
+        header = kwargs.get('header', True)
+        slist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            if (header == True):
+                next(sexreader, None)
+            for row in sexreader:
+                name = row[0].title()
+                name = name.replace('\"', '')
+                slist.append(self.guess(name, binary))
+        return slist
+
     
     # def print_confusion_matrix_gender(self, path='files/names/partial.csv', dimensions="2x3"):
     #     cmd = self.confusion_matrix_gender(path, dimensions)
