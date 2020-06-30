@@ -790,6 +790,28 @@ software development. United States of America hosts people from
 different countries due to migrations towards good companies and
 universities.
 
+@image{images/debian_by_gender,6in,,Debian by gender}
+
+@section Counting males and females in Linux Kernel
+
+When I'm writing this book the Linux Kernels maintainers appears in
+https://www.kernel.org/doc/html/latest/process/maintainers.html. Then
+I have downloaded the file and applied a single command:
+
+@example
+ cat maintainers.html | w3m -dump -T text/html | grep "Mail:" > maintainers.txt
+@end example
+
+You can makes fixes to this command from GNU/Emacs or with shell
+scripting. Later, you can apply:
+
+@example
+$ python3 count-kernel.py
+@end example
+
+@image{images/kernel_by_gender,6in,,Kernel by gender}
+
+
 @section Counting males and females in Forbes
 
 In the second example, we are using guess without machine learning
@@ -834,6 +856,8 @@ Please take a look about our guess method in the current state:
 
 We are using the spanish dataset by default and the rest is the same
 idea that in the last script: more people using the name.
+
+@image{images/forbes119_by_gender,6in,,Forbes by gender}
 
 @section Deciding for males and females in images
 
@@ -951,6 +975,7 @@ Number of females scientifics: 31425
 Number of males scientifics: 47945
 @end example
 
+@image{images/scientifics_by_gender,6in,,Scientifics by gender}
 
 @section Counting males and females in a git repository
 
@@ -999,33 +1024,6 @@ The number of males sending commits is 3
 The number of females sending commits is 0
 @end example
 
-This count is not so good because in a git repository the same person
-can have been called with the same name:
-
-@example
-['David Arroyo Menéndez <davidam@@es.gnu.org>', 'David Arroyo Menendez <davidam@@gmail.com>', 'David Arroyo Menéndez <d.arroyome@@alumnos.urjc.es>', 'David Arroyo <davidam@@gmail.com>']
-@end example
-
-If you look up 'David Arroyo' in Google Scholar you can find several
-researchers, but David Arroyo Menéndez is unique in this context. If
-appears with accent or not could a trouble about spelling, but could
-be the same person. On other hand, if you find 'David Arroyo' and
-'David Arroyo Menéndez' with the same, the he is the same person, but
-in some data centers several people with different names can be using
-the same email account.
-
-def same_email(string1, string2):
-    firstName
-
-def same_identity(string1, string2):
-    same_identity = false
-    string1 = remove_accents(string1)
-    string2 = remove_accents(string2)
-    if (same_email(string1, string2) and ((contains(string1, string2)) or (contains(string2, string1)))):
-        same_identity = true
-    else:
-        same_identity = false
-    return same_identity
 
 
 @node GNU Free Documentation License
