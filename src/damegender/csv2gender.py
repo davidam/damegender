@@ -32,11 +32,11 @@ parser.add_argument('--first_name_position', required=True, type=int, choices=[0
 # parser.add_argument('--second_name_position', type=int, default=1)
 # parser.add_argument('--first_surname_position', type=int, default=2)
 # parser.add_argument('--second_surname_position', type=int, default=3)
+parser.add_argument('--dataset', default="us", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
 #parser.add_argument('--sex_position', required=True, type=int, choices=[0, 1, 2, 3, 4], default=4)
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 
-print(args.first_name_position)
 #print(args.sex_position)
 
 du = DameUtils()
@@ -54,7 +54,7 @@ nameslist = du.csvcolumn2list(args.path)
 l = []
 
 for firstname in nameslist:
-    sex = s.guess(firstname, binary=False, dataset='us')
+    sex = s.guess(firstname, binary=False, dataset=args.dataset)
     if (sex == "male"):
         males_list.append(firstname)
     elif (sex == "female"):
@@ -62,7 +62,6 @@ for firstname in nameslist:
     else:
         unknows_list.append(firstname)
     l.append([firstname, sex])
-print(l)
     
 if (len(sys.argv) > 1):
     print("The number of males in %s is %s" % (str(args.path), str(len(males_list))))
