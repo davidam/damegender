@@ -29,16 +29,11 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("path", help="csv file")
 parser.add_argument('--first_name_position', required=True, type=int, choices=[0, 1, 2, 3, 4], default=0)
-# parser.add_argument('--second_name_position', type=int, default=1)
-# parser.add_argument('--first_surname_position', type=int, default=2)
-# parser.add_argument('--second_surname_position', type=int, default=3)
 parser.add_argument('--dataset', default="us", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser'])
 parser.add_argument('--output', default="files/names/out.csv")
-#parser.add_argument('--sex_position', required=True, type=int, choices=[0, 1, 2, 3, 4], default=4)
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 
-#print(args.sex_position)
 
 du = DameUtils()
 s = Gender()
@@ -69,8 +64,6 @@ for i in l:
     file.write(str(i[0])+","+str(i[1]) + "\n")
 
 file.close()
-# for i in l:
-#     file.write(i + "\n")
     
 if (len(sys.argv) > 1):
     print("The number of males in %s is %s" % (str(args.path), str(len(males_list))))
