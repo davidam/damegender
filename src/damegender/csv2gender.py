@@ -32,7 +32,7 @@ parser.add_argument('--first_name_position', required=True, type=int, choices=[0
 # parser.add_argument('--second_name_position', type=int, default=1)
 # parser.add_argument('--first_surname_position', type=int, default=2)
 # parser.add_argument('--second_surname_position', type=int, default=3)
-parser.add_argument('--dataset', default="us", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
+parser.add_argument('--dataset', default="us", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser'])
 #parser.add_argument('--sex_position', required=True, type=int, choices=[0, 1, 2, 3, 4], default=4)
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
