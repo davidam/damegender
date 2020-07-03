@@ -33,27 +33,27 @@ fi
 
 rm -rf /tmp/clonedir2
 
-python3 git2gender.py https://github.com/davidam/damegender.git --directory="/tmp/clonedir2" --language=es > files/tests/git2damegender-$(date "+%Y-%m-%d-%H").txt
+python3 git2gender.py https://github.com/davidam/damegender.git --directory="/tmp/clonedir2" --language=es > files/tests/git2genderdamegender-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/git2damegender.txt files/tests/git2damegender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+if ! cmp files/tests/git2genderdamegender.txt files/tests/git2genderdamegender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-	echo "git2damegender test is failing"
+	echo "git2genderdamegender test is failing"
 else
-	echo "git2damegender test is ok"
+	echo "git2genderdamegender test is ok"
 fi
 
 
-# cd files/mbox
-# wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
-# cd ../..
-# python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/ > files/tests/mail2gender-$(date "+%Y-%m-%d-%H").txt
+cd files/mbox
+wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
+cd ../..
+python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/ > files/tests/mail2gender-$(date "+%Y-%m-%d-%H").txt
 
-# if ! cmp files/tests/mail2gender.txt files/tests/mail2gender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-# then
-# 	echo "mail2gender test is failing"
-# else
-# 	echo "mail2gender test is ok"
-# fi
+if ! cmp files/tests/mail2gender.txt files/tests/mail2gender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "mail2gender test is failing"
+else
+	echo "mail2gender test is ok"
+fi
 
 rm -rf /tmp/clonedir
 echo "cleaning temporary files"
