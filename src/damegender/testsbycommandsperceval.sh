@@ -31,15 +31,15 @@ else
 	echo "git2gender1 test is ok"
 fi
 
-rm -rf /tmp/clonedir2
+rm -rf /tmp/clonedrupal
 
-python3 git2gender.py https://github.com/davidam/damegender.git --directory="/tmp/clonedir2" --language=es > files/tests/git2genderdamegender-$(date "+%Y-%m-%d-%H").txt
+python3 git2gender.py  https://git.drupalcode.org/project/orgmode.git --directory="/tmp/clonedrupal" --language=us > files/tests/git2genderdrupal-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/git2genderdamegender.txt files/tests/git2genderdamegender-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+if ! cmp files/tests/git2genderdrupal.txt files/tests/git2genderdrupal-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-	echo "git2genderdamegender test is failing"
+	echo "git2genderdrupal test is failing"
 else
-	echo "git2genderdamegender test is ok"
+	echo "git2genderdrupal test is ok"
 fi
 
 
