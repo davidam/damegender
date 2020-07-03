@@ -26,21 +26,26 @@ echo "We need enable apis to execute this script, we are trying to do it for you
 
 cp config.enabled.cfg config.cfg
 
-python3 api2gender.py David --api="genderize" > files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt
+if [ -a files/apikeys/genderizepass.txt ]; then
 
-if ! cmp files/tests/api2genderDavidgenderize.txt files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
+    python3 api2gender.py David --api="genderize" > files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt
+
+    if ! cmp files/tests/api2genderDavidgenderize.txt files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+    then
 	echo "api2genderDavidgenderize test is failing"
-else
+    else
 	echo "api2genderDavidgenderize test is ok"
-fi
+    fi
 
-python3 downloadjson.py --api=genderize --csv=files/names/min.csv
+    python3 downloadjson.py --api=genderize --csv=files/names/min.csv
 
-if [ -a files/names/genderizefiles_names_min.csv.json ]; then
-    echo "download genderize files names min is ok"
+    if [ -a files/names/genderizefiles_names_min.csv.json ]; then
+	echo "download genderize files names min is ok"
+    else
+	echo "download genderize files names min is failing"
+    fi
 else
-    echo "download genderize files names min is failing"
+    echo "Doesn't exist files/apikeys/genderizepass.txt. You must introduce the api key in this file"
 fi
 
 if [ -a files/apikeys/namsorpass.txt ]; then
@@ -60,7 +65,8 @@ if [ -a files/apikeys/namsorpass.txt ]; then
     else
 	echo "download namsor files names min is failing"
     fi
-
+else
+    echo "Doesn't exist files/apikeys/namsorpass.txt. You must introduce the api key in this file"
 
 fi
 
@@ -83,18 +89,19 @@ if [ -a files/apikeys/genderapipass.txt ]; then
 	echo "api2genderInésgenderapi test is ok"
     fi
 
-    python3 accuracy.py --api="genderapi" --csv="files/names/min.csv" > files/tests/accuracygenderapi-$(date "+%Y-%m-%d-%H").txt
+    # python3 accuracy.py --api="genderapi" --csv="files/names/min.csv" > files/tests/accuracygenderapi-$(date "+%Y-%m-%d-%H").txt
 
-    if ! cmp files/tests/accuracygenderapi.txt files/tests/accuracygenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-    then
-	echo "accuracygenderapi test is failing"
-    else
-	echo "accuracygenderapi test is ok"
-    fi
+    # if ! cmp files/tests/accuracygenderapi.txt files/tests/accuracygenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+    # then
+    # 	echo "accuracygenderapi test is failing"
+    # else
+    # 	echo "accuracygenderapi test is ok"
+    # fi
+else
+    echo "Doesn't exist files/apikeys/genderapipass.txt. You must introduce the api key in this file"
 
 fi
 
-rm -rf /tmp/clonedir
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
 
