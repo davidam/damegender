@@ -50,6 +50,7 @@ nameslist = du.csvcolumn2list(args.path)
 l = []
 
 for firstname in nameslist:
+    firstname = du.drop_quotes(firstname)
     sex = s.guess(firstname, binary=False, dataset=args.dataset)
     if (sex == "male"):
         males_list.append(firstname)
