@@ -187,18 +187,9 @@ fi
 # 	echo "infofeatures test is ok"
 # fi
 
-python3 csv2gender.py files/names/all.csv > files/tests/csv2genderall-$(date "+%Y-%m-%d-%H").txt
+python3 csv2gender.py files/names/partial.csv --first_name_position=0 --dataset=us > files/tests/csv2genderpartial-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/csv2genderall.txt files/tests/csv2genderall-$(date "+%Y-%m-%d-%H").txt
-then
-	echo "csv2genderall test is failing"
-else
-	echo "csv2genderall test is ok"
-fi
-
-python3 csv2gender.py files/names/partial.csv > files/tests/csv2genderpartial-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/csv2genderpartial.txt files/tests/csv2genderpartial-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+if ! cmp files/tests/csv2genderpartial.txt files/tests/csv2genderpartial-$(date "+%Y-%m-%d-%H").txt
 then
 	echo "csv2genderpartial test is failing"
 else
