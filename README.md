@@ -1,68 +1,40 @@
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1. Name</a></li>
-<li><a href="#sec-2">2. Why?</a></li>
-<li><a href="#sec-3">3. Tell me about DAMe Gender on Video</a></li>
-<li><a href="#sec-4">4. Install</a>
-<ul>
-<li><a href="#sec-4-1">4.1. Installing Software</a>
-<ul>
-<li><a href="#sec-4-1-1">4.1.1. Possible Debian/Ubuntu dependencies</a></li>
-<li><a href="#sec-4-1-2">4.1.2. From sources</a></li>
-<li><a href="#sec-4-1-3">4.1.3. With python package</a></li>
-</ul>
-</li>
-<li><a href="#sec-4-2">4.2. Obtaining an api key</a></li>
-<li><a href="#sec-4-3">4.3. Configuring nltk</a></li>
-</ul>
-</li>
-<li><a href="#sec-5">5. Speeches, Seminars, Expressions of Support</a></li>
-<li><a href="#sec-6">6. Beautiful Snakes</a></li>
-<li><a href="#sec-7">7. Dame Music</a></li>
-<li><a href="#sec-8">8. License</a></li>
-</ul>
-</div>
-</div>
-
-# Name<a id="sec-1" name="sec-1"></a>
+# Name
 
 damegender is a gender detection tool from the name coded by David Arroyo MEnéndez (DAME)
 
-# Why?<a id="sec-2" name="sec-2"></a>
+# Why?
 
--   If you want determine gender gap in free software projects or mailing lists.
--   If you don't know the gender about a name
--   If you want research with statistics about why a name is related with males or females.
--   If you want use a free gender detection tool from a name from a command with
-    open data.
--   If you want use the main solutions in gender detection (genderize,
-    genderapi, namsor, nameapi and gender guesser) from a command.
+- If you want determine gender gap in free software projects or mailing lists.
+- If you don't know the gender about a name
+- If you want research with statistics about why a name is related with males or females.
+- If you want use a free gender detection tool from a name from a command with
+  open data.
+- If you want use the main solutions in gender detection (genderize,
+  genderapi, namsor, nameapi and gender guesser) from a command.
 
 DAMe Gender is for you!
 
-# Tell me about DAMe Gender on Video<a id="sec-3" name="sec-3"></a>
+# Tell me about DAMe Gender on Video
 
 -   [Python Barcelona (Spanish)](https://www.youtube.com/embed/dvN0lMgQ9Pc)
 -   [Damegender in Software Freedom Day (Spanish)](https://tv.urjc.es/iframe/5d895319d68b148f7a8c0da6)
 -   [Damegender in URJC (English)](https://tv.urjc.es/video/5d895319d68b148f7a8c0da6)
 
-# Install<a id="sec-4" name="sec-4"></a>
+# Install
 
-## Installing Software<a id="sec-4-1" name="sec-4-1"></a>
+## Installing Software
 
-### Possible Debian/Ubuntu dependencies<a id="sec-4-1-1" name="sec-4-1-1"></a>
+### Possible Debian/Ubuntu dependencies
 
     $ sudo apt-get install python3-nose-exclude python3-dev dict dict-freedict-eng-spa dict-freedict-spa-eng dictd
 
-### From sources<a id="sec-4-1-2" name="sec-4-1-2"></a>
+### From sources
 
     $ git clone https://github.com/davidam/damegender
     $ cd damegender
     $ pip3 install -r requirements.txt
 
-### With python package<a id="sec-4-1-3" name="sec-4-1-3"></a>
+### With python package
 
     $ python3 -m venv /tmp/d
     $ cd /tmp/d
@@ -84,7 +56,7 @@ To install all possible dependencies
 
     $ pip3 install damegender[all]
 
-## Obtaining an api key<a id="sec-4-2" name="sec-4-2"></a>
+## Obtaining an api key
 
 Currently you can need an api key from:
 -   <https://store.genderize.io/documentation>
@@ -98,28 +70,28 @@ You can execute:
 
 To configure your api key
 
-## Configuring nltk<a id="sec-4-3" name="sec-4-3"></a>
+## Configuring nltk
 
     $ python3
     >>> import nltk
     >>> nltk.download('names')
 
-# Speeches, Seminars, Expressions of Support<a id="sec-5" name="sec-5"></a>
+# Speeches, Seminars, Expressions of Support
 
 -   [MadSeSe](http://gregoriorobles.github.io/MadSESE/201906.html)
 -   [Python Barcelona](https://www.meetup.com/es-ES/python-185/events/261405719/)
 -   [Taller de Periodismo de Datos (Medialab Prado, Madrid). NLTK & Damegender](https://www.medialab-prado.es/noticias/taller-de-periodismo-de-datos-2019-sesiones-formativas)
 -   [Software Freedom Day (URJC, Móstoles). Damegender](https://tv.urjc.es/video/5d895319d68b148f7a8c0da6)
 
-# Beautiful Snakes<a id="sec-6" name="sec-6"></a>
+# Beautiful Snakes
 
 ![img](https://raw.githubusercontent.com/davidam/damegender/master/src/damegender/files/images/violet-snake3.png)
 
-# Dame Music<a id="sec-7" name="sec-7"></a>
+# Dame Music
 
 [Listen music &#x2026;](https://www.youtube.com/playlist?list=PLeobXV-Yyn-LvQydcnr46ZkGh1V6tDGEk)
 
-# License<a id="sec-8" name="sec-8"></a>
+# License
 
 Copyright (C) 2019 David Arroyo Menéndez
     Permission is granted to copy, distribute and/or modify this document
