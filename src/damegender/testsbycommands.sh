@@ -177,15 +177,14 @@ else
 	echo "nameincountries jesus test is ok"
 fi
 
+python3 infofeatures.py es > files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt
 
-# python3 infofeatures.py > files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt
-
-# if ! cmp files/tests/infofeatures.txt files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-# then
-# 	echo "infofeatures test is failing"
-# else
-# 	echo "infofeatures test is ok"
-# fi
+if ! cmp files/tests/infofeatures.txt files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "infofeatures test is failing"
+else
+	echo "infofeatures test is ok"
+fi
 
 python3 csv2gender.py files/names/partial.csv --first_name_position=0 --dataset=us > files/tests/csv2genderpartial-$(date "+%Y-%m-%d-%H").txt
 
