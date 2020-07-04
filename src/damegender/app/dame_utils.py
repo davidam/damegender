@@ -141,11 +141,18 @@ class DameUtils():
         return result
 
     def identity2name_email(self, s):
-        r0 = re.match(r"([\w+ ]*)<([\w\.\+\-]+\@[\w]+\.[a-z]{2,3})>", s)
-        fullname = r0.group(1)
-        email = r0.group(2)
+        string1 = self.drop_accents(s)
+        string2 = self.drop_quotes(string1)
+        r0 = re.match(r"([\w+ ]*)<([\w\.\+\-]+\@[\w\.\+\-]+\.[a-z]{2,3})>", string2)
+        if r0:
+            fullname = r0.group(1)
+            email = r0.group(2)
+        else:
+            fullname = s
+            email = ""
+        fullname = self.drop_white_space_around(fullname)        
         return [fullname, email]
-
+        
     def same_identity(self, string1, string2):
         same_identity = False
         string1 = self.drop_accents(string1)
@@ -290,4 +297,11 @@ class DameUtils():
             division = x / y
             return (round(division, 3))
         
+    def initial_letters(self, s):
+        match = re.search(r'(([A-Z][\.| ]){1,2})|([A-Z]{2})', s)
+        if match:
+            return True
+        else:
+            return False
+
         

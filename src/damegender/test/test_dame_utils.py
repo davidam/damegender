@@ -101,7 +101,9 @@ class TddInPythonExample(unittest.TestCase):
                          u.drop_white_space_around(
                              u.drop_accents("Inés ")))
         self.assertEqual("Ana", u.drop_white_space_around(" Ana"))
+        self.assertEqual("David Arroyo Menéndez ", u.drop_white_space_around("David Arroyo Menéndez "))
 
+        
     def test_drop_white_space_around(self):
         u = DameUtils()
         self.assertEqual(
@@ -196,9 +198,35 @@ class TddInPythonExample(unittest.TestCase):
         du = DameUtils()
         s = "David Arroyo Menéndez <davidam@gnu.org>"
         identity = du.identity2name_email(s)
-        self.assertEqual(identity[0], "David Arroyo Menéndez ")
+        self.assertEqual(identity[0], "David Arroyo Menendez")
         self.assertEqual(identity[1], "davidam@gnu.org")
 
+        s2 = "David Arroyo Menéndez <david.am@gnu.org>"
+        identity2 = du.identity2name_email(s2)
+        self.assertEqual(identity2[0], "David Arroyo Menendez")
+        self.assertEqual(identity2[1], "david.am@gnu.org")
+        
+        s3 = "David Arroyo Menéndez <david@alumnos.urjc.es>"
+        identity3 = du.identity2name_email(s3)
+        self.assertEqual(identity3[0], "David Arroyo Menendez")
+        self.assertEqual(identity3[1], "david@alumnos.urjc.es")
+
+        s4 = "David Arroyo Menéndez <d.arroyome@alumnos.urjc.es>"
+        identity4 = du.identity2name_email(s4)
+        self.assertEqual(identity4[0], "David Arroyo Menendez")
+        self.assertEqual(identity4[1], "d.arroyome@alumnos.urjc.es")
+
+        s5 = "Jim Jagielski <jim@jaguNET.com>"
+        identity5 = du.identity2name_email(s5)
+        self.assertEqual(identity5[0], "Jim Jagielski")
+        self.assertEqual(identity5[1], "jim@jaguNET.com")
+
+        s6 = '"Jim Jagielski" <jim@jaguNET.com>'
+        identity6 = du.identity2name_email(s6)
+        self.assertEqual(identity6[0], 'Jim Jagielski')
+        self.assertEqual(identity6[1], 'jim@jaguNET.com')
+        
+        
     def test_dame_utils_same_identity(self):
         du = DameUtils()
         s = du.same_identity("David Arroyo Menendez <davidam@gnu.org>", "David Arroyo Menendez <davidam@gnu.org>")
@@ -210,6 +238,20 @@ class TddInPythonExample(unittest.TestCase):
         s4 = du.same_identity("David <davidam@gnu.org>", "David Arroyo Menéndez <davidam@gnu.org>")
         self.assertTrue(s4)
 
+    def test_dame_utils_initial_letters(self):
+        du = DameUtils()
+        s = du.initial_letters("D ")
+        self.assertTrue(s)
+        s = du.initial_letters("D. ")
+        self.assertTrue(s)        
+        s = du.initial_letters("David")
+        self.assertFalse(s)
+        s = du.initial_letters("J.L.")        
+        self.assertTrue(s)
+        s = du.initial_letters("JL")        
+        self.assertTrue(s)
+
+        
     # def test_dame_utils_delete_duplicated_identities(self):
     #     du = DameUtils()
     #     l = ['David Arroyo Menéndez <davidam@es.gnu.org>', 'David Arroyo Menendez <davidam@gmail.com>', 'David Arroyo Menéndez <d.arroyome@alumnos.urjc.es>', 'David Arroyo <davidam@gmail.com>']

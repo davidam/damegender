@@ -1,4 +1,15 @@
 
+* v0.2.11
+We are starting to count males and females in Internet Communities:
++ count-debian-gender.py: Debian Project (https://www.debian.org)
++ count-forbes.py: Forbes list about most richest people (https://www.forbes.com/)
++ count-gnu.py: GNU Project (https://www.gnu.org)
++ count-kernel.py: Kernel Project (https://www.kernel.org/)
++ count-scientifics.py: Scientifics in Spain (https://www.webometrics.info/en/GoogleScholar/Spain)
++ csv2gender.py: improved for any dataset, not only the Lucia and Helena dataset.
++ git2gender.py: we have fixed a lot of bugs
++ surname.py: we have added --spanish_provinces using top 50 surnames per province datasets
++ divide testsbycommandsextranet in testsbycommandsperceval and testsbycommandsextraapis
 * v0.2.10
 + top.py: print lists about the most used names in different countries
 + count-scientifics.py: counting scientifics in Spain

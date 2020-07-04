@@ -40,7 +40,7 @@ namsor = files/apikeys/namsorpass.txt
 nameapi = files/apikeys/nameapipass.txt
 " > config.cfg
 
-python3 main.py David > files/tests/maindavid-$(date "+%Y-%m-%d-%H").txt
+python3 main.py David --total=es > files/tests/maindavid-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/maindavid.txt files/tests/maindavid-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -49,7 +49,7 @@ else
     echo "maindavid test is ok"
 fi
 
-python3 main.py Jesús > files/tests/mainjesus-$(date "+%Y-%m-%d-%H").txt
+python3 main.py Jesús --total=es > files/tests/mainjesus-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainjesus.txt files/tests/mainjesus-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -58,7 +58,7 @@ else
     echo "mainjesus test is ok"
 fi
 
-python3 main.py Inés > files/tests/mainines-$(date "+%Y-%m-%d-%H").txt
+python3 main.py Inés --total=es > files/tests/mainines-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainines.txt files/tests/mainines-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -67,7 +67,7 @@ else
 	echo "mainines test is ok"
 fi
 
-python3 main.py Alex > files/tests/mainalex-$(date "+%Y-%m-%d-%H").txt
+python3 main.py Alex --total=es > files/tests/mainalex-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainalex.txt files/tests/mainalex-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -76,7 +76,7 @@ else
 	echo "mainalex test is ok"
 fi
 
-python3 main.py Andrea > files/tests/mainandrea-$(date "+%Y-%m-%d-%H").txt
+python3 main.py Andrea --total=es > files/tests/mainandrea-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainandrea.txt files/tests/mainandrea-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -85,7 +85,7 @@ else
 	echo "mainandrea test is ok"
 fi
 
-python3 main.py "Jesús María" > files/tests/mainjesusmaria-$(date "+%Y-%m-%d-%H").txt
+python3 main.py "Jesús María" --total=es > files/tests/mainjesusmaria-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainjesusmaria.txt files/tests/mainjesusmaria-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -94,7 +94,7 @@ else
 	echo "mainjesusmaria test is ok"
 fi
 
-python3 main.py "José María" > files/tests/mainjosemaria-$(date "+%Y-%m-%d-%H").txt
+python3 main.py "José María" --total=es > files/tests/mainjosemaria-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/mainjosemaria.txt files/tests/mainjosemaria-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -141,12 +141,12 @@ fi
 
 echo "I am launching a ml test is slow. Please wait"
 
-python3 main.py Antorcha --ml=sgd > files/tests/mainantorcha-$(date "+%Y-%m-%d-%H").txt
-if ! cmp files/tests/mainantorcha.txt files/tests/mainantorcha-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+python3 main.py Amorosa --ml=sgd > files/tests/mainamorosa-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/mainamorosa.txt files/tests/mainamorosa-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-    echo "mainantorcha test is failing"
+    echo "mainamorosa test is failing"
 else
-    echo "mainantorcha test is ok"
+    echo "mainamorosa test is ok"
 fi
 
 python3 nameincountries.py David > files/tests/nameincountriesdavid-$(date "+%Y-%m-%d-%H").txt
@@ -187,18 +187,9 @@ fi
 # 	echo "infofeatures test is ok"
 # fi
 
-python3 csv2gender.py files/names/all.csv > files/tests/csv2genderall-$(date "+%Y-%m-%d-%H").txt
+python3 csv2gender.py files/names/partial.csv --first_name_position=0 --dataset=us > files/tests/csv2genderpartial-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/csv2genderall.txt files/tests/csv2genderall-$(date "+%Y-%m-%d-%H").txt
-then
-	echo "csv2genderall test is failing"
-else
-	echo "csv2genderall test is ok"
-fi
-
-python3 csv2gender.py files/names/partial.csv > files/tests/csv2genderpartial-$(date "+%Y-%m-%d-%H").txt
-
-if ! cmp files/tests/csv2genderpartial.txt files/tests/csv2genderpartial-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+if ! cmp files/tests/csv2genderpartial.txt files/tests/csv2genderpartial-$(date "+%Y-%m-%d-%H").txt
 then
 	echo "csv2genderpartial test is failing"
 else
@@ -457,6 +448,15 @@ else
 	echo "surnamegil test is ok"
 fi
 
+python3 surname.py Menendez --total=es --spanish_provinces > files/tests/surnamemenendezprovinces-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/surnamemenendezprovinces.txt files/tests/surnamemenendezprovinces-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "surnamemenendezprovinces test is failing"
+else
+	echo "surnamemenendezprovinces test is ok"
+fi
+
 python3 surnameincountries.py Menéndez > files/tests/surnameincountries-menendez-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/surnameincountries-menendez.txt files/tests/surnameincountries-menendez-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
@@ -465,6 +465,7 @@ then
 else
 	echo "surnamemenendez test is ok"
 fi
+
 
 python3 errors.py --csv=files/names/partial.csv --jsondownloaded=files/names/partial.csv.nltk.json > files/tests/errorspartialnltk-$(date "+%Y-%m-%d-%H").txt
 
@@ -484,6 +485,16 @@ else
 	echo "top test is ok"
 fi
 
+if [ -a files/images/roc_gaussianNB.png ]; then
+    rm files/images/roc_gaussianNB.png
+fi
+
+python3 roc.py gaussianNB --noshow
+if [ -a files/images/roc_gaussianNB.png ]; then
+	echo "roc test is ok"
+else
+	echo "roc test is failing"
+fi
 
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt

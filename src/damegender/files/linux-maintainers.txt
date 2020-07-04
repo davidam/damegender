@@ -1,0 +1,2099 @@
+Steffen Klassert
+David Dillow
+Adam Radford
+James E.J. Bottomley
+Alexander Aring
+Andreas Koensgen
+Johannes Berg
+Realtek linux nic maintainers
+Greg Kroah-Hartman
+Eric Van Hensbergen
+Antti Palosaari
+Adaptec OEM Raid Solutions
+Hans de Goede
+Alistair John Strachan
+William Breathitt Gray
+William Breathitt Gray
+William Breathitt Gray
+William Breathitt Gray
+William Breathitt Gray
+William Breathitt Gray
+Jes Sorensen
+Peter Kaestle
+Lee
+Rafael J. Wysocki
+Rafael J. Wysocki
+Robert Moore
+Zhang Rui
+Lorenzo Pieralisi
+Hans de Goede
+Rafael J. Wysocki
+Zhang Rui
+Zhang Rui
+Michael Hennerich
+Michael Hennerich
+Michael Hennerich
+Michael Hennerich
+Michael Hennerich
+Jiri Kosina
+Michael Hennerich
+Jean Delvare
+Corentin Labbe
+Sakari Ailus
+Michael Hennerich
+Michael Hennerich
+Michael Hennerich
+Colin Leroy
+Jean Delvare
+Matthew Wilcox
+Michael Hennerich
+Michael Hennerich
+Antti Palosaari
+Antti Palosaari
+David Sterba
+David Howells
+David Airlie
+Juergen E. Fischer
+Hannes Reinecke
+Hans Verkuil
+Benjamin LaHaise
+Antti Palosaari
+Lino Sanfilippo
+Duncan Sands
+Manuel Lauss
+Rudolf Marek
+Tomislav Denis
+Michael Tretter
+Maxime Ripard
+Yangtao Li
+Corentin Labbe
+Vasily Khoruzhick
+Maxime Ripard
+Richard Henderson
+Thor Thayer
+Ley Foon Tan
+Joyce Ooi
+Thor Thayer
+Thor Thayer
+Thor Thayer
+Tobias Klauser
+Talel Shenhar
+Talel Shenhar
+Netanel Belgazal
+Gal Pressman
+Tom Lendacky
+Harry Wentland
+Naveen Krishna Chatradhi
+Huang Rui
+Enrico Weigelt
+Andres Salomon
+Joerg Roedel
+Felix Kuehling
+Sanjay R Mehta
+Elie Morisse
+Evan Quan
+Brijesh Singh
+Tom Lendacky
+Michael Hennerich
+Michael Hennerich
+Beniamin Bia
+Michael Hennerich
+Alexandru Tachici
+Marcelo Schmitt
+Michael Hennerich
+Michael Hennerich
+Michael Hennerich
+Hans Verkuil
+Mircea Caprioru
+Alexandru Ardelean
+Alexandru Ardelean
+Dragos Bogdan
+Nuno Sa
+Beniamin Bia
+Michael Hennerich
+Lars-Peter Clausen
+Kieran Bingham
+Hans Verkuil
+Hans Verkuil
+Hans Verkuil
+Lars-Peter Clausen
+Lars-Peter Clausen
+Beniamin Bia
+Lars-Peter Clausen
+Paul Walmsley
+Nick Hu
+Rob Herring
+Greg Kroah-Hartman
+Miodrag Dinic
+Miodrag Dinic
+Laura Abbott
+Johannes Berg
+William Breathitt Gray
+Jiri Kosina
+John Johansen
+Henrik Rydberg
+Henrik Rydberg
+Khuong Dinh
+Khuong Dinh
+Iyappan Subramanian
+Iyappan Subramanian
+Khuong Dinh
+Laurent Pinchart
+Igor Russkikh
+Egor Pomozov
+Naga Sureshkumar Relli
+Jaya Kumar
+Alexey Brodkin
+Michael Grzeschik
+Mark Rutland
+Liviu Dudau
+Linus Walleij
+James (Qian) Wang
+Rob Herring
+Liviu Dudau
+Ian Molton
+Will Deacon
+Russell King
+Russell King
+Russell King
+Russell King
+Russell King
+Russell King
+Linus Walleij
+Russell King
+Linus Walleij
+Julius Werner
+Will Deacon
+Andreas Färber
+Lennert Buytenhek
+Sergey Lapin
+Lennert Buytenhek
+Emilio López
+Maxime Ripard
+Neil Armstrong
+Corentin Labbe
+Jerome Brunet
+Kevin Hilman
+Tsahee Zidenberg
+Jesper Nilsson
+Brendan Higgins
+Joel Stanley
+Manivannan Sadhasivam
+Andre Przywara
+Krzysztof Halasa
+Sunil Goutham
+Lukasz Majewski
+Alexander Shiyan
+Lennert Buytenhek
+Hartley Sweeten
+Russell King
+Baruch Siach
+Hubert Feurstein
+Mathieu Poirier
+Richard Purdie
+Hans Ulli Kroll
+Barry Song
+Marek Behun
+Russell King
+Uwe Kleine-König
+Robert Jarzmik
+Hans Ulli Kroll
+Russell King
+Shawn Guo
+Shawn Guo
+Shawn Guo
+Lennert Buytenhek
+Steve Sakoman
+Philipp Zabel
+Wei Xu
+Kristoffer Ericson
+Enric Balletbo i Serra
+Marek Vasut
+Lennert Buytenhek
+Lennert Buytenhek
+Lennert Buytenhek
+Linus Walleij
+Jonathan Cameron
+Lennert Buytenhek
+Lennert Buytenhek
+Chanho Min
+Lennert Buytenhek
+Vladimir Zapolskiy
+Vladimir Zapolskiy
+Philipp Zabel
+Jason Cooper
+Jason Cooper
+Eddie Huang
+Matthias Brugger
+Chunfeng Yun
+Nicolas Ferre
+Robert Jarzmik
+Michael Petchkovsky
+Linus Walleij
+Avi Fishman
+Alexander Clouter
+Neil Armstrong
+Tomas Cech
+Marek Vasut
+Sergey Lapin
+Peter Chubb
+Stefan Eletzhofer
+Andy Gross
+Lennert Buytenhek
+Manivannan Sadhasivam
+Andreas Färber
+Geert Uytterhoeven
+Russell King
+Heiko Stuebner
+Kukjin Kim
+Kyungmin Park
+Kyungmin Park
+Marek Szyprowski
+Andrzej Pietrasiewicz
+Kyungmin Park
+Geert Uytterhoeven
+Dinh Nguyen
+Dinh Nguyen
+Thor Thayer
+Orson Zhai
+Patrice Chotard
+Maxime Coquelin
+Jisheng Zhang
+Marc Gonzalez
+Lennert Buytenhek
+Hans Verkuil
+Mark F. Brown
+Santosh Shilimkar
+Santosh Shilimkar
+Santosh Shilimkar
+Santosh Shilimkar
+Santosh Shilimkar
+Tero Kristo
+Lennert Buytenhek
+Dmitry Eremin-Solenikov
+Masahiro Yamada
+Liviu Dudau
+Russell King
+Marek Vasut
+Tony Prisk
+Marek Vasut
+Jun Nie
+Michal Simek
+Catalin Marinas
+Sakari Ailus
+Tianshu Qiu
+Linus Walleij
+George Joseph
+Andrew Jeffery
+Eddie James
+Eddie James
+Corentin Chary
+João Paulo Rechi Vita
+David Howells
+Bartosz Golaszewski
+Justin Sanders
+Alban Bedel
+Alban Bedel
+Kalle Valo
+Jiri Slaby
+Kalle Valo
+Ville Syrjala
+Luca Tettamanti
+Jay Cliburn
+Chas Williams
+Nicolas Ferre
+Nick Dyer
+Simon Kelley
+Will Deacon
+Bradley Grove
+Stefan Schmidt
+Paul Moore
+Miguel Ojeda Sandonis
+Andreas Klinger
+Ralf Baechle
+Peter Rosin
+Peter Rosin
+Nuno Sá
+Krzysztof Adamski
+Mauro Carvalho Chehab
+Hans Verkuil
+Larry Finger
+Lee Jones
+Marek Lindner
+Thomas Sailer
+Coly Li
+Fabien Dessenne
+Dariusz Marcinkiewicz
+Luis de Bethencourt
+Paolo Valente
+Tigran A. Aivazian
+Jan-Simon Moeller
+Jens Axboe
+Joern Engel
+Marcel Holtmann
+Marcel Holtmann
+Jay Vosburgh
+Dan Robertson
+Alexei Starovoitov
+Shubham Bansal
+Daniel Borkmann
+Paul Burton
+Jakub Kicinski
+Naveen N. Rao
+Luke Nelson
+Björn Töpel
+Ilya Leoshkevich
+David S. Miller
+Wang YanQing
+Alexei Starovoitov
+Michael Chan
+Florian Fainelli
+Nicolas Saenz Julienne
+Florian Fainelli
+Hauke Mehrtens
+Hauke Mehrtens
+Rafał Miłecki
+Florian Fainelli
+Kevin Cernekee
+Florian Fainelli
+Markus Mayer
+Florian Fainelli
+Rasesh Mody
+<a class="reference external" href="mailto:QLogic-Storage-Upstream%40qlogic.com">QLogic-Storage-Upstream<span>@</span>qlogic<span>.</span>com</a></td>
+<a class="reference external" href="mailto:QLogic-Storage-Upstream%40qlogic.com">QLogic-Storage-Upstream<span>@</span>qlogic<span>.</span>com</a></td>
+Ariel Elior
+Michael Chan
+Arend van Spriel
+Gregory Fong
+Kamal Dasu
+Al Cooper
+Al Cooper
+Doug Berger
+Ray Jui
+Ray Jui
+Selvin Xavier
+Rafał Miłecki
+Rafał Miłecki
+Kamal Dasu
+Markus Mayer
+Markus Mayer
+Markus Mayer
+Brian Norris
+Florian Fainelli
+Siva Reddy Kallam
+Anil Gurumurthy
+Rasesh Mody
+FUJITA Tomonori
+Clemens Ladisch
+Michael Buesch
+Chris Mason
+Mauro Carvalho Chehab
+Chanwoo Choi
+Khalid Aziz
+Clemens Ladisch
+Guo Ren
+Mark Salter
+Harry Morris
+David Howells
+Maxime Ripard
+Hans Verkuil
+Jonathan Corbet
+Toke Høiland-Jørgensen
+Wolfgang Grandegger
+Oliver Hartkopp
+Robin van der Gracht
+Serge Hallyn
+Kevin Tsai
+Christian Lamparter
+Robert Richter
+Derek Chickles
+Robert Richter
+George Cherian
+Robert Richter
+Varka Bhadram
+Gilad Ben-Yossef
+Hadar Gat
+Hans Verkuil
+Hans Verkuil
+Arnd Bergmann
+Tobias Schrammm
+Ilya Dryomov
+Jeff Layton
+David Howells
+Miguel Ojeda Sandonis
+Miguel Ojeda Sandonis
+Arnd Bergmann
+Andy Whitcroft
+Harry Wei
+Peter Chen
+Hans de Goede
+Hans de Goede
+Benson Leung
+Cheng-Yi Chiang
+Benson Leung
+James Schulman
+Hartley Sweeten
+Charles Keepax
+Charles Keepax
+Satish Kharat
+Karan Tilak Kumar
+Christian Benvenuti
+Christian Benvenuti
+Miguel Ojeda
+Konrad Rzeszutek Wilk
+Russell King
+Daniel Lezcano
+Thadeu Lima de Souza Cascardo
+Hans Verkuil
+Julia Lawall
+Jan Harkes
+Philipp Zabel
+Greg Kroah-Hartman
+Michael Turquette
+Steve French
+Scott Murray
+Scott Murray
+Scott Murray
+Cezary Jackiewicz
+Miguel Ojeda
+Joel Becker
+Evgeniy Polyakov
+Tejun Heo
+Tejun Heo
+Li Zefan
+Johannes Weiner
+Fenghua Yu
+Jan Yenya Kasprzak
+William Breathitt Gray
+Florian Fainelli
+Viresh Kumar
+Rafael J. Wysocki
+Rafael J. Wysocki
+Thomas Renninger
+H. Peter Anvin
+Lorenzo Pieralisi
+Bartlomiej Zolnierkiewicz
+Lorenzo Pieralisi
+Nicolas Pitre
+Bastien Nocera
+Herbert Xu
+Neil Horman
+Hans Verkuil
+Jaya Kumar
+Yong Deng
+Solomon Peachy
+Andy Walls
+Hans Verkuil
+Jemma Denson
+Mauro Carvalho Chehab
+Antti Palosaari
+Vishal Kulkarni
+Karen Xie
+Ayush Sawal
+Vishal Kulkarni
+Karen Xie
+Potnuri Bharat Teja
+Vishal Kulkarni
+Frederic Barrat
+Manoj N. Kumar
+Russell King
+Antti Palosaari
+Linus Walleij
+Ferruh Yigit
+Linus Walleij
+Joshua Kinard
+Joerg Reuter
+Hannes Reinecke
+Oliver Neukum
+Gerrit Renker
+Maciej W. Rozycki
+Maciej W. Rozycki
+Maciej W. Rozycki
+Jernej Skrabec
+Matthew Garrett
+Pali Rohár
+Pali Rohár
+Pali Rohár
+Stuart Hayes
+Pali Rohár
+Mario Limonciello
+Mario Limonciello
+Stuart Hayes
+Mario Limonciello
+Matthew Garrett
+Hugues Fruchet
+Masahiro Yamada
+Gustavo Pimentel
+Minas Harutyunyan
+Felipe Balbi
+Andreas Klinger
+Johannes Berg
+Dan Williams
+MyungJoo Ham
+Chanwoo Choi
+Torben Mathiasen
+Alasdair Kergon
+Jiri Pirko
+Support Opensource
+William Breathitt Gray
+Guenter Roeck
+Jan Kara
+Andries Brouwer
+Jan Kara
+Bernie Thompson
+Christine Caulfield
+Sumit Semwal
+Vinod Koul
+Christoph Hellwig
+Sumit Semwal
+Lukasz Luba
+Juerg Haefliger
+Jean Delvare
+Jonathan Corbet
+Mauro Carvalho Chehab
+Federico Vaga
+Sakari Ailus
+Sakari Ailus
+James R. Van Zandt
+Roy Pledge
+Ioana Ciornei
+Ioana Radulescu
+Adaptec OEM Raid Solutions
+Philipp Reisner
+Greg Kroah-Hartman
+Kevin Hilman
+Maxime Ripard
+Eric Anholt
+Linus Walleij
+Joel Stanley
+Dave Airlie
+Gerd Hoffmann
+Jerry Han
+Linus Walleij
+Icenowy Zheng
+Jagan Teki
+Hans de Goede
+Eric Anholt
+David Lechner
+Kamlesh Gurudasani
+Laurent Pinchart
+Dave Airlie
+Noralf Trønnes
+Rob Clark
+Linus Walleij
+Ben Skeggs
+Stefan Mavrodiev
+Noralf Trønnes
+Dave Airlie
+Dave Airlie
+Robert Chiras
+Guido Günther
+David Lechner
+Jagan Teki
+David Lechner
+Linus Walleij
+Linus Walleij
+Linus Walleij
+Dave Airlie
+Rodrigo Siqueira
+Hans de Goede
+VMware Graphics
+David Airlie
+Maarten Lankhorst
+Maxime Ripard
+Neil Armstrong
+Sam Ravnborg
+Andrzej Hajda
+Inki Dae
+Stefan Agner
+Philipp Zabel
+Patrik Jakobsson
+Xinliang Liu
+Qiang Yu
+Chun-Kuang Hu
+Thierry Reding
+Laurent Pinchart
+Sandy Huang
+Benjamin Gaignard
+Yannick Fertre
+Jyri Sarha
+Jyri Sarha
+Tomi Valkeinen
+Eric Anholt
+Eric Anholt
+Lucas Stach
+Oleksandr Andrushchenko
+Shawn Guo
+Thierry Reding
+Christian Koenig
+Alexey Klimov
+Hans Verkuil
+Antti Palosaari
+Antti Palosaari
+Antti Palosaari
+Antti Palosaari
+Antti Palosaari
+Michael Krufky
+Antti Palosaari
+Antti Palosaari
+Michael Krufky
+Antti Palosaari
+Antti Palosaari
+Jason Baron
+Tal Gilboa
+Maciej W. Rozycki
+Moritz Fischer
+Antti Palosaari
+Akihiro Tsukada
+Akihiro Tsukada
+Antti Palosaari
+Tyler Hicks
+Borislav Petkov
+Jan Luebbe
+Stefan Schaeckeler
+Shravan Kumar Ramani
+Robert Richter
+Ralf Baechle
+Robert Richter
+Borislav Petkov
+Lei Wang
+Mark Gross
+York Sun
+Mauro Carvalho Chehab
+Tony Luck
+Mauro Carvalho Chehab
+Mauro Carvalho Chehab
+Mauro Carvalho Chehab
+Tim Small
+Arvind R.
+Jason Baron
+Johannes Thumshirn
+Egor Martovetsky
+Tony Luck
+Channagoud Kadabi
+Tim Small
+Tony Luck
+Yash Shah
+Tony Luck
+Tero Kristo
+Clemens Ladisch
+Ivan Hu
+Matthew Garrett
+Peter Jones
+Douglas Miller
+Mauro Carvalho Chehab
+Paul Gortmaker
+Adrian Hunter
+Subbu Seetharaman
+Ajit Khaparde
+Selvin Xavier
+James Smart
+Michał Mirosław
+Maxim Levitsky
+Laurentiu Tudor
+Kristoffer Ericson
+Gao Xiang
+Jeff Layton
+Mark Einon
+Roopa Prabhu
+Andrew Lunn
+Namjae Jeon
+Jan Kara
+Theodore Ts’o
+Mimi Zohar
+Ard Biesheuvel
+MyungJoo Ham
+Masami Hiramatsu
+Jingoo Han
+Marek Szyprowski
+Vineet Gupta
+Jaegeuk Kim
+Jean Delvare
+Josh Poimboeuf
+Sridhar Samudrala
+Jan Kara
+Kevin Curtis
+Akinobu Mita
+Michael Buesch
+Antti Palosaari
+Hannes Reinecke
+Jeff Layton
+Dan Williams
+Alexander Viro
+Riku Voipio
+Clemens Ladisch
+Stefan Richter
+Chris Boot
+Stefan Richter
+Luis Chamberlain
+Joshua Morris
+Patrick Havelange
+Denis Efremov
+Markus Koch
+Rain River
+Wu Hao
+Moritz Fischer
+Bill Metzenthen
+Bartlomiej Zolnierkiewicz
+Horia Geantă
+Angelo Dureghello
+Timur Tabi
+Li Yang
+Claudiu Manoil
+Claudiu Manoil
+Han Xu
+Jochen Friedrich
+Fugang Duan
+Sascha Hauer
+Frank Li
+Oleksij Rempel
+Dong Aisheng
+Madalin Bucur
+Madalin Bucur
+Yangbo Lu
+Han Xu
+Qiang Zhao
+Li Yang
+Zhao Qiang
+Timur Tabi
+Li Yang
+Pantelis Antoniou
+Timur Tabi
+Li Yang
+Christoph Hellwig
+Rafael J. Wysocki
+Konrad Rzeszutek Wilk
+David Howells
+Theodore Y. Ts’o
+Jeremy Kerr
+Eddie James
+Eddie James
+Jan Kara
+Eric Biggers
+Jonathan Woithe
+Kyungmin Park
+Robert Gerlach
+Miklos Szeredi
+Thomas Gleixner
+Tim Harvey
+Rob Springer
+Kees Cook
+Peter Oberparleiter
+Jan Kiszka
+Achim Leubner
+Hans Verkuil
+Sudeep Holla
+Wolfram Sang
+Peter Korsgaard
+Krzysztof Halasa
+Arnd Bergmann
+Kishon Vijay Abraham I
+Wolfram Sang
+Rafael J. Wysocki
+Eugen Hristev
+Michael S. Tsirkin
+Andy Lutomirski
+Frank Haverkamp
+Joe Perches
+Bob Peterson
+Johan Hovold
+Hans Verkuil
+Bastien Nocera
+Catherine Sullivan
+Hans de Goede
+Mika Westerberg
+Geert Uytterhoeven
+Sean Young
+Bamvor Jian Zhang
+Linus Walleij
+Dmitry Kozlov
+Andreas Larsson
+Vaibhav Agarwal
+Viresh Kumar
+Bryan O’Donoghue
+Vaibhav Hiremath
+Rui Miguel Silva
+Johan Hovold
+David Lin
+Charles-Antoine Couret
+Frank Zago
+Olivier Lorin
+Erik Andren
+Hans Verkuil
+Brian Johnson
+Leandro Costantino
+Hans Verkuil
+Pablo Neira Ayuso
+Davidlohr Bueso
+Yoshinori Sato
+Oded Gabbay
+Antti Palosaari
+Ezequiel Garcia
+Frank Seidel
+Jean Delvare
+Matt Mackall
+Ohad Ben-Cohen
+Alexander Shishkin
+Hans Verkuil
+Jerry Hoemann
+Don Brace
+Mike Marciniszyn
+Ferenc Bakonyi
+Rafael J. Wysocki
+Jiri Kosina
+Jiri Kosina
+Thomas Gleixner
+HighPoint Linux Team
+Jes Sorensen
+Zhou Wang
+Zaibo Xu
+<a class="reference external" href="mailto:john.garry%40huawei.com">john<span>.</span>garry<span>@</span>huawei<span>.</span>com</a></td>
+Yisen Zhuang
+Yisen Zhuang
+Shaokun Zhang
+Zhou Wang
+Lijun Ou
+John Garry
+Zaibo Xu
+Zaibo Xu
+John Garry
+Jérôme Glisse
+Jouni Malinen
+Clemens Ladisch
+Mikulas Patocka
+Sebastian Reichel
+Robin van der Gracht
+Pau Oliva Fora
+Lorenzo Bianconi
+Bin Luo
+Mike Kravetz
+Jean-Christophe Trotin
+Naoya Horiguchi
+Pu Wen
+Shawn Tu
+K. Y. Srinivasan
+Vignesh Raghavendra
+Mika Westerberg
+Ajay Gupta
+Peter Rosin
+Gregory CLEMENT
+Jean Delvare
+Wolfram Sang
+Jean Delvare
+Till Harbaum
+Jean Delvare
+Hans de Goede
+Seth Heasley
+Jean Delvare
+Przemysław Gaj
+Vitor Soares
+Boris Brezillon
+Tony Luck
+Haren Myneni
+Breno Leitão
+Tyrel Datwyler
+Brian King
+Tyrel Datwyler
+Thomas Falcon
+Sukadev Bhattiprolu
+Thomas Falcon
+Tyrel Datwyler
+Steven Royer
+Tyrel Datwyler
+Michael Cyr
+Breno Leitão
+Peter Tyser
+Max Staudt
+David S. Miller
+Borislav Petkov
+Ike Panhc
+Andrey Moiseev
+Marek Vasut
+Alexander Aring
+Yotam Gigi
+Sean Young
+Sean Young
+Peter Rosin
+Peter Rosin
+Peter Rosin
+Jonathan Cameron
+Peter Rosin
+Matthieu Castet
+Paul Burton
+Sean Young
+Guenter Roeck
+Guenter Roeck
+Samuel Iglesias Gonsalvez
+Eddie James
+Doug Ledford
+Zubair Lutfullah Kakakhel
+Harvey Hunt
+Paul Cercueil
+Jan Kara
+Dmitry Torokhov
+Henrik Rydberg
+Antoine Tenart
+Mimi Zohar
+Antonino Daplas
+Cezary Rojewski
+Hans de Goede
+Mika Westerberg
+Intel SCU Linux support
+Tony Luck
+Jani Nikula
+Jeff Kirsher
+Maik Broemme
+Andy Shevchenko
+Zhenyu Wang
+Alex Hung
+Dave Jiang
+Dave Jiang
+Jacob Pan
+Srinivas Pandruvada
+David Woodhouse
+Yong Zhi
+Sakari Ailus
+Krzysztof Halasa
+Deepak Saxena
+Tomas Winkler
+Sujith Thomas
+Sudeep Dutt
+Zha Qipeng
+Rajneesh Bhardwaj
+Andy Shevchenko
+Stanislav Yakovlev
+Srinivas Pandruvada
+Faisal Latif
+Mika Westerberg
+Srinivas Pandruvada
+Richard Gong
+Rajneesh Bhardwaj
+Srinivas Pandruvada
+AceLan Kao
+Stanislaw Gruszka
+Johannes Berg
+Inaky Perez-Gonzalez
+Jithu Joseph
+Mario Limonciello
+Alexander Shishkin
+Ning Sun
+Georgi Djakov
+Linus Walleij
+Ralf Baechle
+Christoph Hellwig
+Joerg Roedel
+Jens Axboe
+Corey Minyard
+Adaptec OEM Raid Solutions
+Wensong Zhang
+Jiri Kosina
+Marc Zyngier
+Thomas Gleixner
+Thomas Gleixner
+William Breathitt Gray
+Hans Verkuil
+Jaroslav Kysela
+Lee Duncan
+Peter Jones
+Sagi Grimberg
+Sagi Grimberg
+Karsten Keil
+Karsten Keil
+Jean Delvare
+Antti Palosaari
+Andy Walls
+Malcolm Priestley
+Jan Kiszka
+Guenter Roeck
+Dave Kleikamp
+Guo-Fu Tseng
+David Woodhouse
+Theodore Ts’o
+Mikhail Ulyanov
+Clemens Ladisch
+Rudolf Marek
+Andrey Ryabinin
+Masahiro Yamada
+Marco Elver
+Dave Young
+Hans Verkuil
+Ian Kent
+Masahiro Yamada
+J. Bruce Fields
+Shuah Khan
+Brendan Higgins
+Luis Chamberlain
+Paolo Bonzini
+Marc Zyngier
+Paul Mackerras
+Christian Borntraeger
+Paolo Bonzini
+Greg Kroah-Hartman
+Eric Biederman
+Mimi Zohar
+James Bottomley
+David Howells
+Stefani Seibold
+Jason Wessel
+Catalin Marinas
+Luis Chamberlain
+Naveen N. Rao
+Miguel Ojeda Sandonis
+David Ahern
+John Fastabend
+Hauke Mehrtens
+John Crispin
+James E.J. Bottomley
+Tobin C. Harding
+Jacek Anaszewski
+Jean Delvare
+Juergen Stuber
+Matan Ziv-Av
+Michael Krufky
+Michael Krufky
+Viresh Kumar
+Bartlomiej Zolnierkiewicz
+Linus Walleij
+Hans de Goede
+Mikael Pettersson
+Jens Axboe
+Sasha Levin
+Dan Williams
+Vishal Verma
+Dan Williams
+Oliver O’Halloran
+Dan Williams
+Thomas Gleixner
+Matias Bjorling
+Mark Brown
+Benjamin Herrenschmidt
+Michael Ellerman
+Anatolij Gustschin
+Scott Wood
+Christophe Leroy
+Kees Cook
+Alan Stern
+Eric Piel
+David Gow
+Josh Poimboeuf
+Guillaume Ligneul
+Jean Delvare
+Jean Delvare
+Jean Delvare
+Guenter Roeck
+Malcolm Priestley
+Kees Cook
+Peter Zijlstra
+Richard Russon (FlatCap)
+Hans de Goede
+Sathya Prakash
+Matthew Wilcox
+Marcus Folkesson
+Nuno Sá
+Nuno Sá
+Guenter Roeck
+Michael Hennerich
+Mike Frysinger
+Geert Uytterhoeven
+Joshua Thompson
+Philip Blundell
+Antti Palosaari
+Malcolm Priestley
+Alexey Klimov
+Johannes Berg
+Jassi Brar
+Michael Kerrisk
+Rahul Bedarkar
+Andrew Lunn
+Miquel Raynal
+Russell King
+Boris Brezillon
+Mirko Lindner
+Russell King
+Sebastian Hesselbarth
+Russell King
+Miquel Raynal
+Thomas Petazzoni
+Amitkumar Karwar
+Lennert Buytenhek
+Miquel Raynal
+Sunil Goutham
+Sunil Goutham
+Nicolas Pitre
+Tobias Waldekranz
+Hu Ziji
+Guenter Roeck
+Ramesh Shanmugasundaram
+Guenter Roeck
+Peter Rosin
+Andreas Klinger
+Bartosz Golaszewski
+Javier Martinez Canillas
+Krzysztof Kozlowski
+Chanwoo Choi
+Hans Verkuil
+Dan Murphy
+Rishi Gupta
+Peter Rosin
+Xue Liu
+William Breathitt Gray
+Sakari Ailus
+Philipp Zabel
+Sergey Kozlov
+Jasmin Jessich
+Sergey Kozlov
+Yasunari Takiguchi
+Steve Longerbeam
+Rui Miguel Silva
+Abylay Ospan
+Sergey Kozlov
+Sergey Kozlov
+Sergey Kozlov
+Dmitry Osipenko
+Jacopo Mondi
+Ramesh Shanmugasundaram
+Laurent Pinchart
+Kieran Bingham
+Niklas Söderlund
+Laurent Pinchart
+Hugues Fruchet
+Mauro Carvalho Chehab
+Sean Wang
+Sean Wang
+Sean Wang
+Sean Wang
+Felix Fietkau
+Qii Wang
+Rick Chang
+Minghsiu Tsai
+Tiffany Lin
+Chaotian Jing
+Felix Fietkau
+Jakub Kicinski
+Stefan Roese
+Sean Wang
+Sean Wang
+Sean Wang
+Chunfeng Yun
+Peter Senna Tschudin
+Kashyap Desai
+Crt Mori
+Crt Mori
+Sangwon Jee
+Tariq Toukan
+Saeed Mahameed
+Jiri Pirko
+<a class="reference external" href="mailto:mlxsw%40mellanox.com">mlxsw<span>@</span>mellanox<span>.</span>com</a></td>
+Andy Shevchenko
+Tariq Toukan
+Yishai Hadas
+Saeed Mahameed
+Leon Romanovsky
+Vadim Pasternak
+Vadim Pasternak
+Vadim Pasternak
+Mathieu Desnoyers
+Mike Rapoport
+Andrew Morton
+Miquel Raynal
+Johannes Thumshirn
+Johannes Thumshirn
+Andreas Werner
+Johannes Thumshirn
+Neil Armstrong
+Liang Yang
+Maxime Jourdan
+Vladimir Vid
+Manivannan Sadhasivam
+Michal Simek
+Richard Genoud
+Radu Pirea
+Radu Pirea
+Codrin Ciubotariu
+Ludovic Desroches
+Tudor Ambarus
+Ludovic Desroches
+Eugen Hristev
+Eugen Hristev
+Woojung Huh
+Bryan Whitehead
+Nicolas Ferre
+Andrei Stefanescu
+Marcus Folkesson
+Ludovic Desroches
+Tudor Ambarus
+Claudiu Beznea
+Ludovic Desroches
+Nicolas Ferre
+Nicolas Ferre
+Nicolas Ferre
+Richard Leitner
+Cristian Birsan
+Ludovic Desroches
+Alexandre Belloni
+Don Brace
+Chen Yu
+Oliver Neukum
+Thomas Bogendoerfer
+Paul Burton
+Paul Burton
+Aleksandar Markovic
+Keguang Zhang
+Jiaxun Yang
+Huacai Chen
+Hans Verkuil
+Will Deacon
+Antti Palosaari
+Antti Palosaari
+Jessica Yu
+Saravanan Sekar
+Jiri Slaby
+Alexey Klimov
+Alan Ott
+Lee
+Antti Palosaari
+Antti Palosaari
+Robert Jarzmik
+Laurent Pinchart
+Laurent Pinchart
+Laurent Pinchart
+Jacopo Mondi
+Laurent Pinchart
+Jacopo Mondi
+Lee Jones
+Ulf Hansson
+Peter Rosin
+Bin Liu
+Akihiro Tsukada
+Michael Krufky
+Marek Vasut
+Hannes Reinecke
+Chris Lee
+Miquel Raynal
+Daniel Mack
+Finn Thain
+Samuel Mendoza-Jonas
+Guenter Roeck
+Jakub Kicinski
+Stephen Hemminger
+Jon Mason
+Pablo Neira Ayuso
+Ralf Baechle
+Jakub Kicinski
+Josef Bacik
+Neil Horman
+David S. Miller
+Kalle Valo
+Andrew Lunn
+David S. Miller
+Steffen Klassert
+David S. Miller
+Paul Moore
+Mat Martineau
+Eric Dumazet
+Boris Pismenny
+Manish Chopra
+Sridhar Samudrala
+David Ahern
+Trond Myklebust
+Ryusuke Konishi
+YOKOTA Hiroshi
+GOTO Masanori
+Ley Foon Tan
+Frederic Weisbecker
+Pavel Machek
+Willy Tarreau
+Matthias Maennich
+Sanjay R Mehta
+Jon Mason
+Serge Semin
+Dave Jiang
+Anton Altaparmakov
+Finn Thain
+Antonino Daplas
+Keith Busch
+James Smart
+Christoph Hellwig
+Srinivas Kandagatla
+Ashish Kumar
+Rui Miguel Silva
+Fabio Estevam
+Vladimir Oltean
+Russell King
+Peter Rosin
+Clément Perrochaud
+Jiri Pirko
+Josh Poimboeuf
+Microchip Linux Driver Support
+Frederic Barrat
+Peter Ujfalusi
+Paul Walmsley
+Benoît Cousson
+Roger Quadros
+Grygorii Strashko
+Ohad Ben-Cohen
+Paul Walmsley
+Benoît Cousson
+Benoît Cousson
+Vignesh R
+Laurent Pinchart
+Aaro Koskinen
+Kevin Hilman
+Rajendra Nayak
+Deepak Saxena
+Mark Jackson
+Aaro Koskinen
+Tony Lindgren
+Bob Copeland
+Harald Welte
+Harald Welte
+Sakari Ailus
+Rui Miguel Silva
+Shunqian Zheng
+Tianshu Qiu
+Steve Longerbeam
+Luis Oliveira
+Chiranjeevi Rapolu
+Shawn Tu
+Shunqian Zheng
+Jonathan Corbet
+Jacopo Mondi
+Wenyou Yang
+Dongchun Zhu
+Petr Cvek
+Sakari Ailus
+Kyungmin Park
+Harvey Hunt
+Jens Wiklander
+Sumit Garg
+Dennis Dalessandro
+Pantelis Antoniou
+Rob Herring
+Rob Herring
+Peter Korsgaard
+Jonas Bonn
+Pravin B Shelar
+Viresh Kumar
+Clemens Ladisch
+Robert Richter
+Mark Fasheh
+Mike Marshall
+Lad
+Miklos Szeredi
+Christian Lamparter
+Vladimir Oltean
+Steffen Klassert
+Jesper Dangaard Brouer
+Harald Welte
+Andreas Klinger
+Willy Tarreau
+Sudip Mukherjee
+Juergen Gross
+Tim Waugh
+James E.J. Bottomley
+Jiri Pirko
+Enrico Weigelt
+Jim Cromie
+Jim Cromie
+Jean Delvare
+Riku Voipio
+Guenter Roeck
+Khalid Aziz
+Thomas Petazzoni
+Ley Foon Tan
+Toan Le
+Rob Herring
+Thomas Petazzoni
+Tom Joseph
+Minghuan Lian
+Will Deacon
+Richard Zhu
+Jonathan Derrick
+Kurt Schwemmer
+Karthikeyan Mitran
+Thomas Petazzoni
+Thierry Reding
+Hou Zhiqiang
+Marek Vasut
+Jingoo Han
+Jingoo Han
+Kishon Vijay Abraham I
+Murali Karicheri
+Linus Walleij
+Kishon Vijay Abraham I
+Russell Currey
+Linas Vepstas
+Ley Foon Tan
+Toan Le
+Lorenzo Pieralisi
+Bjorn Helgaas
+Jonathan Chocron
+Yue Wang
+Jesper Nilsson
+Robert Richter
+Zhou Wang
+Xiaowei Song
+Shawn Guo
+Ryder Lee
+Stanimir Varbanov
+Shawn Lin
+Kunihiko Hayashi
+Pratyush Anand
+Dominik Brodowski
+Don Fry
+Steffen Klassert
+Hans de Goede
+Shannon Nelson
+Dennis Zhou
+Balbir Singh
+Peter Zijlstra
+Christoph Hellwig
+Marcus Folkesson
+Remi Denis-Courmont
+Joern Engel
+Bruno Prémont
+Jamie Iles
+Christian Brauner
+Linus Walleij
+Dong Aisheng
+Mika Westerberg
+Sean Wang
+Ludovic Desroches
+Bjorn Andersson
+Geert Uytterhoeven
+Tomasz Figa
+Tony Lindgren
+Viresh Kumar
+James Hartley
+<a class="reference external" href="mailto:linux-block%40vger.kernel.org">linux-block<span>@</span>vger<span>.</span>kernel<span>.</span>org</a></td>
+Guan Xuetao
+Tomasz Duszynski
+Logan Gunthorpe
+Todd E Brandt
+Guenter Roeck
+Jack Wang
+Song Qiang
+Rafael J. Wysocki
+Thomas Gleixner
+Rafael J. Wysocki
+Mark Rutland
+Sebastian Reichel
+Suraj Jitindar Singh
+Mitchell Blank Jr
+Michal Ostrowski
+James Chapman
+Paul Mackerras
+Rodolfo Giometti
+Dmitry Kozlov
+Johannes Weiner
+Petr Mladek
+Luis Chamberlain
+Luis Chamberlain
+Geoff Levand
+Geoff Levand
+Jim Paris
+Yotam Gigi
+Kees Cook
+Richard Cochran
+Oleg Nesterov
+Hans Verkuil
+Mike Isely
+Hans Verkuil
+Kamil Debski
+Sean Young
+Thierry Reding
+Lee Jones
+Robert Jarzmik
+Robert Jarzmik
+Daniel Mack
+Giovanni Cabiddu
+Patrick Lai
+Alex Elder
+Gabriel Somlo
+Dennis Dalessandro
+<a class="reference external" href="mailto:QLogic-Storage-Upstream%40cavium.com">QLogic-Storage-Upstream<span>@</span>cavium<span>.</span>com</a></td>
+<a class="reference external" href="mailto:QLogic-Storage-Upstream%40cavium.com">QLogic-Storage-Upstream<span>@</span>cavium<span>.</span>com</a></td>
+Ariel Elior
+Michal Kalderon
+Michael Reed
+Nilesh Javali
+<a class="reference external" href="mailto:GR-Linux-NIC-Dev%40marvell.com">GR-Linux-NIC-Dev<span>@</span>marvell<span>.</span>com</a></td>
+<a class="reference external" href="mailto:QLogic-Storage-Upstream%40qlogic.com">QLogic-Storage-Upstream<span>@</span>qlogic<span>.</span>com</a></td>
+Shahed Shaikh
+Manish Chopra
+Akihiro Tsukada
+Akihiro Tsukada
+Anders Larsen
+Stuart Yoder
+Antti Palosaari
+Kalle Valo
+Kalle Valo
+QCA ath9k Development
+Todor Tomov
+Niklas Cassel
+Ilia Lin
+Timur Tabi
+Vinod Koul
+Alok Chauhan
+Brian Cain
+Sinan Kaya
+Loic Poulain
+Rob Clark
+Manivannan Sadhasivam
+Subash Abhinov Kasiviswanathan
+Amit Kucheria
+Stanimir Varbanov
+Kalle Valo
+Igor Mitsyanko
+Alex Deucher
+Benjamin Herrenschmidt
+Hans Verkuil
+Hans Verkuil
+Ilya Dryomov
+Paul Mackerras
+Hans Verkuil
+John Crispin
+Stanislaw Gruszka
+Jens Axboe
+Miodrag Dinic
+Theodore Ts’o
+Matt Porter
+Tony Luck
+Patrick Lerda
+Paul E. McKenney
+Florian Fainelli
+Florian Fainelli
+Dennis Dalessandro
+Santosh Shilimkar
+Fenghua Yu
+Paul E. McKenney
+Alessandro Zummo
+Oder Chiou
+Linus Walleij
+Ping-Ke Shih
+Yan-Hsuan Chuang
+Amitkumar Karwar
+Mark Brown
+Ohad Ben-Cohen
+Ohad Ben-Cohen
+Geert Uytterhoeven
+Wolfram Sang
+Marek Vasut
+Wolfram Sang
+Niklas Söderlund
+Chris Brandt
+Yoshihiro Shimoda
+Philipp Zabel
+Mathieu Desnoyers
+Johannes Berg
+Thomas Graf
+Maxim Levitsky
+Maxim Levitsky
+Paul Walmsley
+Danil Kipnis
+Stefan Achatz
+Helen Koike
+Jacob Chen
+Ezequiel Garcia
+Jiri Pirko
+Kevin Cernekee
+Tomasz Duszynski
+Marek Vasut
+Ralf Baechle
+Jernej Skrabec
+Antti Palosaari
+Antti Palosaari
+Antti Palosaari
+Herton Ronaldo Krzesinski
+Jes Sorensen
+Danil Kipnis
+David Howells
+Antonino Daplas
+Heiko Carstens
+Vineeth Vijayan
+Stefan Haberland
+Gerald Schaefer
+Julian Wiedmann
+Julian Wiedmann
+Niklas Schnelle
+Tony Krowiak
+Cornelia Huck
+Harald Freudenberger
+Steffen Maier
+Ben Dooks
+Hans Verkuil
+Mauro Carvalho Chehab
+Hans Verkuil
+Micah Morton
+Krzysztof Kozlowski
+Krzysztof Kozlowski
+Łukasz Stelmach
+Jingoo Han
+Corentin Chary
+Sangbeom Kim
+Sylwester Nawrocki
+Robert Baldyga
+Kyungmin Park
+Kyungmin Park
+Krzysztof Kozlowski
+Kyungmin Park
+Sylwester Nawrocki
+Kukjin Kim
+Byungho An
+Bartlomiej Zolnierkiewicz
+Kamil Debski
+Zwane Mwaikambo
+Ingo Molnar
+Lubomir Rintel
+Jens Axboe
+Bart Van Assche
+Bart Van Assche
+Doug Gilbert
+James E.J. Bottomley
+Kai Mäkisara
+Martin K. Petersen
+Vlad Yasevich
+Jim Cromie
+Jim Cromie
+Jim Cromie
+Sascha Sommer
+Ettore Chimenti
+Kees Cook
+Al Cooper
+Adrian Hunter
+Ludovic Desroches
+Ben Dooks
+Viresh Kumar
+Kishon Vijay Abraham I
+Jonathan Derrick
+Security Officers
+James Morris
+Paul Moore
+Jiri Slaby
+Tomasz Duszynski
+Rob Herring
+Greg Kroah-Hartman
+Sean Young
+Srinivas Kandagatla
+Solarflare linux maintainers
+Russell King
+Dimitri Sivanich
+Cliff Whickman
+Ursula Braun
+Linus Walleij
+Jacopo Mondi
+Antti Palosaari
+Matthias Schwarzott
+Antti Palosaari
+Hans Verkuil
+Hans Verkuil
+Eduardo Valentin
+Eduardo Valentin
+Hans Verkuil
+Mauro Carvalho Chehab
+Palmer Dabbelt
+Paul Walmsley
+Green Wan
+Hans de Goede
+Jérôme Pouiller
+Sudip Mukherjee
+Hans de Goede
+Vincent Sanders
+Vincent Sanders
+Thorsten Scherer
+Jason A. Donenfeld
+Francois Romieu
+Daniele Venzano
+Thomas Winischhofer
+Thomas Winischhofer
+Christoph Lameter
+Lai Jiangshan
+Casey Schaufler
+Nicolas Pitre
+Mark Rutland
+Sakari Ailus
+Guenter Roeck
+Steve Glendinning
+Hans de Goede
+Steve Glendinning
+Jean Delvare
+Steve Glendinning
+Steve Glendinning
+Kunihiko Hayashi
+Jassi Brar
+Masahisa Kojima
+Ard Biesheuvel
+Chris Boot
+Bernard Metzler
+Zhu Yanjun
+Bluecherry Maintainers
+James Morse
+Song Liu
+Russell King
+Russell King
+Thomas Bogendoerfer
+Michael Buesch
+Ricardo Ribalda
+Dave Stevenson
+Sakari Ailus
+Leon Luo
+Manivannan Sadhasivam
+Bingbu Cao
+Tianshu Qiu
+Maxim Levitsky
+Mattia Dongili
+Jaroslav Kysela
+Vinod Koul
+Lars-Peter Clausen
+Liam Girdwood
+Pierre-Louis Bossart
+Vinod Koul
+Olli Salonen
+David S. Miller
+David S. Miller
+Luc Van Oostenryck
+Viresh Kumar
+Viresh Kumar
+Tudor Ambarus
+Mark Brown
+Ishizaki Kou
+Jeremy Kerr
+Phillip Lougher
+Jan-Benedict Glaw
+Lorenzo Bianconi
+Mickael Guene
+Pierre-Yves MORDRET
+Song Qiang
+Greg Kroah-Hartman
+Mauro Carvalho Chehab
+Ian Abbott
+Sven Van Asbroeck
+Sven Van Asbroeck
+Jonathan Cameron
+Marc Dietrich
+Jens Frederich
+Larry Finger
+Larry Finger
+Michael Hennerich
+Sudip Mukherjee
+William Hubbs
+Forest Bond
+Adham Abozaeid
+Greg Kroah-Hartman
+Ion Badulescu
+Damien Le Moal
+Arnaud Pouliquen
+Benjamin Gaignard
+Ezequiel Garcia
+Olivier Moysan
+Fabrice Gasnier
+Giuseppe Cavallaro
+Sam Creasey
+Hans de Goede
+Denis Kirjanov
+Yoshinori Sato
+Rafael J. Wysocki
+Martin Mares
+Konrad Rzeszutek Wilk
+Jiri Pirko
+Icenowy Zheng
+Sumit Semwal
+Vineet Gupta
+Eugeniy Paltsev
+Eugeniy Paltsev
+Alexey Brodkin
+Eugeniy Paltsev
+Eugeniy Paltsev
+Hoan Tran
+Eugeniy Paltsev
+Viresh Kumar
+Jose Abreu
+Jose Abreu
+Jarkko Nikula
+Jaehoon Chung
+Eugeniy Paltsev
+Prabu Thangamuthu
+Lee Jones
+Sudeep Holla
+Sebastian Reichel
+Alexander Shishkin
+Jeremy Soller
+Christoph Hellwig
+Balbir Singh
+Jamal Hadi Salim
+Akihiro Tsukada
+Wong Hoi Sing
+Antti Palosaari
+Antti Palosaari
+Antti Palosaari
+Olli Salonen
+Michael Krufky
+Tim Harvey
+Michael Krufky
+Michael Krufky
+Hans Verkuil
+Mauro Carvalho Chehab
+Mauro Carvalho Chehab
+Hans Verkuil
+Hans Verkuil
+Jiri Pirko
+Savoir-faire Linux Inc.
+Sean Young
+Jens Wiklander
+Thierry Reding
+Peter De Schrijver
+Laxman Dewangan
+Laxman Dewangan
+Thierry Reding
+Laxman Dewangan
+Stefan Agner
+Thierry Reding
+Laxman Dewangan
+Laxman Dewangan
+Thierry Reding
+JC Kuo
+Andy Gospodarek
+Mark Gross
+Steven Eckhoff
+Chris Zankel
+Peter Ujfalusi
+Ricardo Ribalda
+Nishanth Menon
+Hans Verkuil
+Zhang Rui
+Guillaume La Roque
+Amit Daniel Kachhap
+Henrique de Moraes Holschuh
+Andreas Noever
+Michael Jamet
+Robert Richter
+Lad
+Eduardo Valentin
+Max Filippov
+Tero Kristo
+Sekhar Nori
+David Lechner
+Keerthy
+Lad
+Alex Dubov
+Santosh Shilimkar
+M R Swami Reddy
+Milo Kim
+Milo Kim
+Milo Kim
+Wingman Kwok
+Kirill Marinushkin
+Kevin Cernekee
+Dan Murphy
+Mark Greer
+Peter Ujfalusi
+Benoit Parrot
+John Stultz
+Jon Maloy
+Samuel Chessman
+Mauro Carvalho Chehab
+Wolfram Sang
+Guenter Roeck
+Eric Tremblay
+Hugh Dickins
+Kentaro Takeda
+Herton Ronaldo Krzesinski
+Davidlohr Bueso
+Azael Avalos
+Azael Avalos
+Azael Avalos
+Jonathan Buzzard
+Mats Randgaard
+Azael Avalos
+Peter Huewe
+Steven Rostedt
+Steven Rostedt
+Jiri Kosina
+Greg Kroah-Hartman
+Antti Palosaari
+Maxim Krasnyansky
+Maciej W. Rozycki
+Len Brown
+Bluecherry Maintainers
+Hans Verkuil
+Ezequiel Garcia
+Zhangfei Gao
+Richard Weinberger
+Greg Ungerer
+Jan Kara
+Bastien Nocera
+Evgeniy Dushistov
+David Herrmann
+Heikki Krogerus
+Gabriel Krisman Bertazi
+Guan Xuetao
+Tony Finch
+Jens Axboe
+David Kershner
+Pedro Sousa
+Stanley Chu
+Richard Weinberger
+Oliver Neukum
+Oliver Neukum
+Bastien Nocera
+Pontus Fuchs
+Oliver Neukum
+Oliver Neukum
+Keith Packard
+Peter Korsgaard
+Peter Korsgaard
+Alan Stern
+Felipe Balbi
+Jiri Kosina
+Hans de Goede
+Yu Chen
+Olav Kongas
+Woojung Huh
+Alan Stern
+Clemens Ladisch
+Alan Stern
+Peter Chen
+Valentina Manea
+Petko Manolov
+Felipe Balbi
+Pete Zaitcev
+Bjørn Mork
+Petko Manolov
+Johan Hovold
+Steve Glendinning
+Steve Glendinning
+Greg Kroah-Hartman
+Heikki Krogerus
+Heikki Krogerus
+Heikki Krogerus
+Hans de Goede
+Guenter Roeck
+Alan Stern
+Laurent Pinchart
+Hans Verkuil
+Laurent Pinchart
+Jussi Kivilinna
+Mathias Nyman
+Antoine Jacquet
+Jeff Dike
+Alexander Viro
+Gerd Hoffmann
+Greg Kroah-Hartman
+Karel Zak
+Christoph Hellwig
+Michal Januszewski
+Ulf Hansson
+Stefan Agner
+OGAWA Hirofumi
+Alex Williamson
+Kirti Wankhede
+Eric Auger
+Bruce Chang
+Florian Tobias Schandinat
+Francois Romieu
+Hans Verkuil
+Matt Ranostay
+Philipp Zabel
+Pawel Osciak
+Helen Koike
+Alex Williamson
+Stefan Hajnoczi
+Michael S. Tsirkin
+Amit Shah
+Michael S. Tsirkin
+Michael S. Tsirkin
+Gonglei
+Cornelia Huck
+Vivek Goyal
+David Airlie
+Michael S. Tsirkin
+Gerd Hoffmann
+Jean-Philippe Brucker
+David Hildenbrand
+Hans de Goede
+Hans de Goede
+Stephen Chandler Paul
+Hans Verkuil
+Florian Fainelli
+Martyn Welch
+Nadav Amit
+Deep Shah
+Adit Ranadive
+Jim Gill
+Vivek Thampi
+VMware Graphics
+Ronak Doshi
+Harvey Hunt
+Liam Girdwood
+David Ahern
+Petr Mladek
+Juerg Haefliger
+Roger Lucas
+Evgeniy Polyakov
+Marc Hulsman
+Rudolf Marek
+Jean Delvare
+Pierre Ossman
+Julian Squires
+Wim Van Sebroeck
+Kuppuswamy Sathyanarayanan
+Dianlong Li
+David Herrmann
+Maya Erez
+Inaky Perez-Gonzalez
+David Härdeman
+William Breathitt Gray
+William Breathitt Gray
+Jason A. Donenfeld
+Miloslav Trmac
+Tejun Heo
+Hans de Goede
+Chen-Yu Tsai
+Andrew Hendry
+Thomas Gleixner
+Andy Lutomirski
+Tony Luck
+Borislav Petkov
+Dave Hansen
+Darren Hart
+Andy Lutomirski
+Matthew Wilcox
+Benjamin Valentin
+Mauro Carvalho Chehab
+Alexei Starovoitov
+Björn Töpel
+Konrad Rzeszutek Wilk
+Stefano Stabellini
+Stefano Stabellini
+Boris Ostrovsky
+Wei Liu
+Konrad Rzeszutek Wilk
+Juergen Gross
+Oleksandr Andrushchenko
+Konrad Rzeszutek Wilk
+Darrick J. Wong
+Radhey Shyam Pandey
+Appana Durga Kedareswara rao
+Derek Kiernan
+Peter Korsgaard
+Hyun Kwon
+Eli Billauer
+George Cherian
+Nandor Han
+Max Filippov
+Jean-Paul Roubelat
+Kees Cook
+Henk Vergonet
+Joerg Reuter
+Seth Jennings
+Daniel Drake
+Antti Palosaari
+Antti Palosaari
+Tony W Wang-oc
+Damien Le Moal
+Dan Streetman
+Minchan Kim
+Maciej W. Rozycki
+Minchan Kim
+Seth Jennings
+Linus Torvalds

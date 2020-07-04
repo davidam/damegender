@@ -399,7 +399,7 @@ class Gender(object):
                     elif (guess == 'u'):
                         guess = 2
                     genderlist.append(guess)
-        if (dataset == "files/names/yob2017.txt"):
+        if (dataset == "files/names/names_uk/orig/yob2017.txt"):
             with open(dataset) as csvfile:
                 sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
                 next(sexreader, None)
@@ -417,8 +417,7 @@ class Gender(object):
 
     def name_frec(self, name, *args, **kwargs):
         # guess list method
-        dataset = kwargs.get('dataset', 'es')
-
+        dataset = kwargs.get('dataset',"us")
         du = DameUtils()
         name = du.drop_accents(name)
         path_males = 'files/names/names_es/esmasculinos.csv'
@@ -432,7 +431,7 @@ class Gender(object):
             path_males = 'files/names/names_uy/uymasculinos.csv'
         elif (dataset == 'uk'):
             path_males = 'files/names/names_uk/ukmales.csv'
-        elif (dataset == 'us'):
+        elif ((dataset == 'us') or (dataset=='usa')):
             path_males = 'files/names/names_us/usmales.csv'
         elif (dataset == 'nz'):
             path_males = 'files/names/names_nz/nzmales.csv'            
@@ -463,7 +462,7 @@ class Gender(object):
             path_females = 'files/names/names_uy/uyfemeninos.csv'
         elif (dataset == 'uk'):
             path_females = 'files/names/names_uk/ukfemales.csv'
-        elif (dataset == 'us'):
+        elif ((dataset == 'us') or (dataset=='usa')):
             path_females = 'files/names/names_us/usfemales.csv'
         elif (dataset == 'nz'):
             path_females = 'files/names/names_nz/nzfemales.csv'            
@@ -486,6 +485,126 @@ class Gender(object):
         dicc = {"females": females, "males": males}
         return dicc
 
+    def inesurname_province_and_frec(self, surname, *args, **kwargs):
+        # guess list method
+        province = kwargs.get('province', 'madrid')
+        du = DameUtils()
+        
+        if (province == 'acorugna'):
+            path_surnames = 'files/inesurnames/provincias/residencia/acorugna.csv'
+        elif (province == 'alava'):
+            path_surnames = 'files/inesurnames/provincias/residencia/alava.csv'            
+        elif (province == 'albacete'):
+            path_surnames = 'files/inesurnames/provincias/residencia/albacete.csv'
+        elif (province == 'alicante'):
+            path_surnames = 'files/inesurnames/provincias/residencia/alicante.csv'
+        elif (province == 'almeria'):
+            path_surnames = 'files/inesurnames/provincias/residencia/almeria.csv'
+        elif (province == 'asturias'):
+            path_surnames = 'files/inesurnames/provincias/residencia/asturias.csv'
+        elif (province == 'avila'):
+            path_surnames = 'files/inesurnames/provincias/residencia/avila.csv'
+        elif (province == 'badajoz'):
+            path_surnames = 'files/inesurnames/provincias/residencia/badajoz.csv'
+        elif (province == 'baleares'):
+            path_surnames = 'files/inesurnames/provincias/residencia/baleares.csv'
+        elif (province == 'barcelona'):
+            path_surnames = 'files/inesurnames/provincias/residencia/barcelona.csv'
+        elif (province == 'bizkaia'):
+            path_surnames = 'files/inesurnames/provincias/residencia/bizkaia.csv'
+        elif (province == 'burgos'):
+            path_surnames = 'files/inesurnames/provincias/residencia/burgos.csv'
+        elif (province == 'caceres'):
+            path_surnames = 'files/inesurnames/provincias/residencia/caceres.csv'
+        elif (province == 'cadiz'):
+            path_surnames = 'files/inesurnames/provincias/residencia/cadiz.csv'
+        elif (province == 'cantabria'):
+            path_surnames = 'files/inesurnames/provincias/residencia/cantabria.csv'
+        elif (province == 'castellon'):
+            path_surnames = 'files/inesurnames/provincias/residencia/castellon.csv'
+        elif (province == 'ceuta'):
+            path_surnames = 'files/inesurnames/provincias/residencia/ceuta.csv'
+        elif (province == 'ciudadreal'):
+            path_surnames = 'files/inesurnames/provincias/residencia/ciudadreal.csv'
+        elif (province == 'cordoba'):
+            path_surnames = 'files/inesurnames/provincias/residencia/cordoba.csv'
+        elif (province == 'cuenca'):
+            path_surnames = 'files/inesurnames/provincias/residencia/cuenca.csv'
+        elif (province == 'girona'):
+            path_surnames = 'files/inesurnames/provincias/residencia/girona.csv'
+        elif (province == 'granada'):
+            path_surnames = 'files/inesurnames/provincias/residencia/granada.csv'
+        elif (province == 'guadalajara'):
+            path_surnames = 'files/inesurnames/provincias/residencia/guadalajara.csv'
+        elif (province == 'guipuzkoa'):
+            path_surnames = 'files/inesurnames/provincias/residencia/guipuzkoa.csv'
+        elif (province == 'huelva'):
+            path_surnames = 'files/inesurnames/provincias/residencia/huelva.csv'
+        elif (province == 'huesca'):
+            path_surnames = 'files/inesurnames/provincias/residencia/huesca.csv'
+        elif (province == 'jaen'):
+            path_surnames = 'files/inesurnames/provincias/residencia/jaen.csv'
+        elif (province == 'larioja'):
+            path_surnames = 'files/inesurnames/provincias/residencia/larioja.csv'
+        elif (province == 'leon'):
+            path_surnames = 'files/inesurnames/provincias/residencia/leon.csv'
+        elif (province == 'lleida'):
+            path_surnames = 'files/inesurnames/provincias/residencia/lleida.csv'
+        elif (province == 'lugo'):
+            path_surnames = 'files/inesurnames/provincias/residencia/lugo.csv'
+        elif (province == 'madrid'):
+            path_surnames = 'files/inesurnames/provincias/residencia/madrid.csv'
+        elif (province == 'malaga'):
+            path_surnames = 'files/inesurnames/provincias/residencia/malaga.csv'
+        elif (province == 'melilla'):
+            path_surnames = 'files/inesurnames/provincias/residencia/melilla.csv'
+        elif (province == 'murcia'):
+            path_surnames = 'files/inesurnames/provincias/residencia/murcia.csv'
+        elif (province == 'navarra'):
+            path_surnames = 'files/inesurnames/provincias/residencia/navarra.csv'
+        elif (province == 'ourense'):
+            path_surnames = 'files/inesurnames/provincias/residencia/ourense.csv'
+        elif (province == 'palencia'):
+            path_surnames = 'files/inesurnames/provincias/residencia/palencia.csv'
+        elif (province == 'palencia'):
+            path_surnames = 'files/inesurnames/provincias/residencia/palencia.csv'
+        elif (province == 'pontevedra'):
+            path_surnames = 'files/inesurnames/provincias/residencia/pontevedra.csv'
+        elif (province == 'salamanca'):
+            path_surnames = 'files/inesurnames/provincias/residencia/salamanca.csv'
+        elif (province == 'segovia'):
+            path_surnames = 'files/inesurnames/provincias/residencia/segovia.csv'
+        elif (province == 'sevilla'):
+            path_surnames = 'files/inesurnames/provincias/residencia/sevilla.csv'
+        elif (province == 'soria'):
+            path_surnames = 'files/inesurnames/provincias/residencia/soria.csv'
+        elif (province == 'tarragona'):
+            path_surnames = 'files/inesurnames/provincias/residencia/tarragona.csv'
+        elif (province == 'tenerife'):
+            path_surnames = 'files/inesurnames/provincias/residencia/tenerife.csv'
+        elif (province == 'teruel'):
+            path_surnames = 'files/inesurnames/provincias/residencia/teruel.csv'
+        elif (province == 'toledo'):
+            path_surnames = 'files/inesurnames/provincias/residencia/toledo.csv'
+        elif (province == 'valencia'):
+            path_surnames = 'files/inesurnames/provincias/residencia/valencia.csv'
+        elif (province == 'valladolid'):
+            path_surnames = 'files/inesurnames/provincias/residencia/valladolid.csv'
+        elif (province == 'zamora'):
+            path_surnames = 'files/inesurnames/provincias/residencia/zamora.csv'
+        elif (province == 'zaragoza'):
+            path_surnames = 'files/inesurnames/provincias/residencia/zaragoza.csv'
+        file_surnames = open(path_surnames, 'r')
+        readerf = csv.reader(file_surnames, delimiter=',', quotechar='|')
+        quantity = 0
+        for row in readerf:
+            if ((len(row) > 1) and (row[0].lower() == surname.lower())):
+                aux = row[1]
+                quantity = int(du.drop_dots(aux))
+        return quantity
+
+            
+    
     def name_prob_countries(self, name):
         du = DameUtils()
         es = self.name_frec(name,dataset="es")
@@ -544,7 +663,7 @@ class Gender(object):
         guess = ''
         name = unidecode.unidecode(name).title()
         name.replace(name, "")
-        dicc = self.name_frec(name, dataset)
+        dicc = self.name_frec(name, dataset=dataset)
         m = int(dicc['males'])
         f = int(dicc['females'])
         if ((m == 0) and (f == 0)):
