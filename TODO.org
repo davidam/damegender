@@ -1030,7 +1030,8 @@ Now the next datasets available from main.py in damegender
 ** TODO para cada nombre sumamos todos los males de los diferentes datasets y todos los females y escribimos en fichero
 ** TODO descartamos nombres donde la suma de hombres y mujeres sea menor de 1000 para evitar el problema de apodos en censos
 ** TODO comprobamos el accuracy y el confusion tomando como base a lucía y helena
-* TODO Reescribir males_list atendiendo a corpus
+* DONE Reescribir males_list atendiendo a corpus
+  - State "DONE"       from "TODO"       [2020-07-06 lun 22:52]
 Debes escribir primero los ficheros males.txt y females.txt de cada dataset
     def males_list(self, corpus='es'):
         ine_path = 'files/names/names_es'
@@ -1067,20 +1068,25 @@ Debes escribir primero los ficheros males.txt y females.txt de cada dataset
 + [X] sgd
 + [X] svc
 + [X] tree
-* TODO vsa
-** VSA10 (males names)
+* DONE vsa
+  - State "DONE"       from "TODO"       [2020-07-06 lun 22:53]
+** DONE VSA10 (males names)
+   - State "DONE"       from "TODO"       [2020-07-06 lun 22:52]
 + https://data.gov.ie/dataset/boys-names-registered-in-ireland-by-name-year-and-statistic
 + [ ] vsa10_1~2p.csv (males names and he is male)
 + [ ] vsa10_2~2p.csv (males names, but she is female)
-** VSA11 (females names)
+** DONE VSA11 (females names)
+   - State "DONE"       from "TODO"       [2020-07-06 lun 22:53]
 + https://data.gov.ie/dataset/girls-names-registered-in-ireland-by-name-year-and-statistic
 + [ ] vsa11_1~2p.csv (females names and she is female)
 + [ ] vsa11_2~2p.csv (females names, but he is male)
-** TODO malesbyyears.csv
+** DONE malesbyyears.csv
+   - State "DONE"       from "TODO"       [2020-07-06 lun 22:52]
 + [ ] drop NA fields with """.."""
 + [ ] vsa10_1~2p.csv (males names and he is male)
 + [ ] vsa11_2~2p.csv (females names, but he is male)
-** TODO femalesbyyears.csv
+** DONE femalesbyyears.csv
+   - State "DONE"       from "TODO"       [2020-07-06 lun 22:52]
 + [ ] drop NA fields with """.."""
 + [ ] vsa10_2~2p.csv (males names, but she is female)
 + [ ] vsa11_1~2p.csv (females names and she is female)
@@ -1122,7 +1128,8 @@ Hay idiomas que los nombres tienen género para llegar a esto es posible revisar
 2. Tendría un argumento locale que por defecto es all
 3. Habría que sacar de la instalación pip los locale no gpl compatible
 
-* TODO Escribir el comando top para mostrar, por ejemplo, los 10 nombres más utilizados en USA
+* DONE Escribir el comando top para mostrar, por ejemplo, los 10 nombres más utilizados en USA
+  - State "DONE"       from "TODO"       [2020-07-06 lun 16:57]
 ** Parámetros
 *** country (US por defecto)
 *** sex (male, female or all)
@@ -1140,3 +1147,10 @@ Hay idiomas que los nombres tienen género para llegar a esto es posible revisar
 + [ ] https://www.istat.it/en/analysis-and-products/interactive-contents/baby-names
 * DONE Escribir count-scientifics.py
   - State "DONE"       from "TODO"       [2020-06-08 lun 12:31]
+* TODO Escribir una carpeta names_inter con un json, un fichero males y females que tenga sumados todos los datasets
+  SCHEDULED: <2020-06-26 vie>
+* TODO Escribir el método surname_starts_by y name_starts_by para que dado un nombre o un apellido liste todo los nombres con los que hace match
+Se puede hacer también al revés con lo que acaba (ej: name_ends_by y surname_ends_by) 
+O se puede hacer directamente con expresión regular (ej: name_regex y surname_regex)
+* TODO Hacer un screencast usando los principales comandos
+  SCHEDULED: <2020-07-06 lun>
