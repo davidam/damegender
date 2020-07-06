@@ -119,7 +119,8 @@ Para esto lo mejor es devolver una probabilidad. Usar INE.es puede ser una opci�
 * DONE Escribir tests para main.py, csv2gender y git2gender
   SCHEDULED: <2018-11-23 vie>
   - State "DONE"       from "TODO"       [2018-11-29 jue 09:48]
-* FUTURE Para csv2gender:
+* DONE Para csv2gender:
+  - State "DONE"       from "FUTURE"     [2020-07-06 lun 23:03]
 ** en file deberías reconocer:
 + [ ] formato csv
 + [ ] tiene las rows importantes
@@ -801,13 +802,22 @@ Nameapi accuracy: 0.18329564725833805
 + [X] pca-features.py
 
 * POSIBLE Escribir dame_photo
-En https://api.github.com/users/davidam aparece el campo avatar_url y ahí:
-wget -c https://avatars2.githubusercontent.com/u/1023217
 ** DONE He creado un script damephoto.py
    - State "DONE"       from "TODO"       [2020-04-25 sáb 00:15]
 ** DONE He comenzado el desarrollo relativo a repositorios en dame_perceval.py
    - State "DONE"       from "TODO"       [2020-04-25 sáb 00:15]
-** TODO Sacar el script damephoto a un paquete pip
+** DONE Sacar el script damephoto a un paquete pip
+   - State "DONE"       from "TODO"       [2020-07-06 lun 23:04]
+Se hizo un setup.py que funciona, pero he pensado en respetar un poco
+más el software original, aunque ya ha diferencias notables, si no
+desarrollo mucho más prefiero no empaquetar.
+** TODO Plantear la integración con git2gender esta pequeña cuestión
+En https://api.github.com/users/davidam aparece el campo avatar_url y ahí:
+wget -c https://avatars2.githubusercontent.com/u/1023217
+
+Podría ser un parámetro de git2gender que llamara al reconocimiento de
+imágenes.
+
 * DONE dataset2genderlist
   SCHEDULED: <2019-02-23 sáb>
   - State "DONE"       from "TODO"       [2019-03-22 vie 22:53]
@@ -832,8 +842,9 @@ wget -c https://avatars2.githubusercontent.com/u/1023217
 https://docs.python.org/2/distutils/setupscript.html
 * TODO Plantearse separar dame_gender.py a dame_statistics.py
   SCHEDULED: <2019-08-03 sáb>
-* TODO remove_if_contains_init
+* CANCELED remove_if_contains_init
   SCHEDULED: <2019-03-09 sáb>
+  - State "CANCELED"   from "TODO"       [2020-07-06 lun 23:15]
 * DONE Aprender a hacer comandos
   SCHEDULED: <2019-03-09 sáb>
   - State "DONE"       from "TODO"       [2019-03-22 vie 22:54]
