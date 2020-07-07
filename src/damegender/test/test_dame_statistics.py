@@ -97,8 +97,8 @@ class TddInPythonExample(unittest.TestCase):
         v2 = [0, 0, 1, 1]
         self.assertEqual(ds.error_gender_bias(v1, v2), 0.25)
 
-    def test_dame_statistics_features_list(self):
-        ds = DameStatistics()
-        fl = ds.features_list()
-        self.assertTrue(len(fl) > 20)
+    # def test_dame_statistics_features_list(self):
+    #     ds = DameStatistics()
+    #     fl = ds.features_list()
+    #     self.assertTrue(len(fl) > 20)
         
