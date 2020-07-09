@@ -76,20 +76,6 @@ class TddInPythonExample(unittest.TestCase):
         v1 = [0, 1, 1, 1]
         v2 = [2, 0, 1, 1]
         self.assertEqual(ds.na_coded(v1, v2), 0.25)
-
-   # def test_dame_gender_inesurname_province_and_frec(self):
-   #      ds = DameStatistics()
-   #      frec1 = ds.inesurname_province_and_frec("GIL", province='madrid')
-   #      frec2 = ds.inesurname_province_and_frec("GIL", province='alava')
-   #      frec3 = ds.inesurname_province_and_frec("GIL", province='bizkaia')
-   #      frec4 = ds.inesurname_province_and_frec("GIL", province='guipuzkoa')                
-   #      frec5 = ds.inesurname_province_and_frec("GIL", province='navarra')
-
-   #      self.assertEqual(frec1, 19961)
-   #      self.assertEqual(frec2, 1003)
-   #      self.assertEqual(frec3, 2829)
-   #      self.assertEqual(frec4, 1389)
-   #      self.assertEqual(frec5, 2462)                                
                 
     def test_dame_statistics_error_gender_bias(self):
         ds = DameStatistics()
@@ -97,8 +83,3 @@ class TddInPythonExample(unittest.TestCase):
         v2 = [0, 0, 1, 1]
         self.assertEqual(ds.error_gender_bias(v1, v2), 0.25)
 
-    # def test_dame_statistics_features_list(self):
-    #     ds = DameStatistics()
-    #     fl = ds.features_list()
-    #     self.assertTrue(len(fl) > 20)
-        
