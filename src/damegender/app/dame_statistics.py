@@ -56,7 +56,7 @@ class DameStatistics(object):
         self.males = 0
         self.females = 0
         self.unknown = 0
-
+        
 # METHODS ABOUT STATISTICS #
 
     def count_true2guess(self, truevector, guessvector, true, guess):
@@ -363,7 +363,7 @@ class DameStatistics(object):
 
 
     def pca(self, path='files/names/partial.csv', n=2):
-        X = np.array(self.features_list())
+        X = np.array(g.features_list())
         pca = PCA(n_components=n)
         return pca.fit(X)
 
