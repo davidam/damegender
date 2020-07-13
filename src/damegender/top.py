@@ -40,6 +40,7 @@ parser.add_argument('--number', default=10)
 parser.add_argument('--sex', default="female", choices=["male", "female", "all"])
 parser.add_argument('--reverse', default=False, action="store_true")
 parser.add_argument('--less', default=False, action="store_true")
+parser.add_argument('--position', default=False, action="store_true")
 #parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 
@@ -147,21 +148,35 @@ else:
     
 n = int(args.number)
 if (args.sex == "male"):
-
+    position = 1
     for i in c2lmales[0:n]:
         if args.less:
-            printc(i[0] + ": " + i[1], sep='/')
+            if args.position:                        
+                printc(str(position) + ") " + i[0] + ": " + i[1], sep='/')
+            else:
+                printc(i[0] + ": " + i[1], sep='/')                
         else:
-            print(i[0] + ": " + i[1])
-
+            if args.position:
+                print(str(position) + ") " + i[0] + ": " + i[1])
+            else:
+                print(i[0] + ": " + i[1])
+        position = position + 1
+            
 elif (args.sex == "female"):        
-
+    position = 1
     for i in c2lfemales[0:n]:
         if args.less:
-            printc(i[0] + ": " + i[1], sep='/')
+            if args.position:            
+                printc(str(position) + ") " + i[0] + ": " + i[1], sep='/')
+            else:
+                printc(i[0] + ": " + i[1], sep='/')                
         else:
-            print(i[0] + ": " + i[1])
-
+            if args.position:                        
+                print(str(position) + ") " + i[0] + ": " + i[1])
+            else:
+                print(i[0] + ": " + i[1])
+        position = position + 1
+            
 elif (args.sex == "all"):
 
     c2l = c2lfemales + c2lmales
@@ -170,12 +185,20 @@ elif (args.sex == "all"):
     else:
         c2l = sorted(c2l, key=getKey1, reverse=True)
 
+    position = 1        
     for i in c2l[0:n]:
         if args.less:
-            printc(i[0] + ": " + i[1], sep='/')
+            if args.position:
+                printc(str(position) + ") " + i[0] + ": " + i[1], sep='/')                
+            else:
+                printc(i[0] + ": " + i[1], sep='/')
         else:
-            print(i[0] + ": " + i[1])
-    
+            if args.position:
+                print(str(position) + ") " + i[0] + ": " + i[1])
+            else:
+                print(i[0] + ": " + i[1])
+        position = position + 1
+        
 # Paging of the current contents of the temp file:
 if args.less:
     tmp_file.flush()  # No need to close the file: you can keep printing to it
