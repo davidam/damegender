@@ -59,18 +59,24 @@ example, the spanish names and surnames can be find in many countries
 in South America, but don't with the same quantities. 
 
 ** Why are you using the word Damegender?
-Damegender means *Gender* Detection Tool from the name by David Arroyo
-Menéndez (*DAME*). There are problems in some communities that can be
-detected retrieving data from Internet. And the people can claim
-gender justice, dame in spanish is "give me" in english, so the word
-seems about give me gender justice in [[https://en.wikipedia.org/wiki/Spanglish][spanglish]] :D
+Damegender means *Gender* Detection Tool from the name coded by David
+Arroyo MEnéndez (*DAME*). There are problems in some communities that
+can be detected retrieving data from Internet. And the people can
+claim gender justice, dame in spanish is "give me" in english, so the
+word seems about give me gender justice in [[https://en.wikipedia.org/wiki/Spanglish][spanglish]] :D
 
-I understand that the dame word in french is about a female, such as
-Notre Dame. But in Spain dame is a name about a male. So, the name
-damegender is an intelligence challenge about discover if the gender
-of dame is about a male or female. What's your country?
+I understand that the dame word in french or english is about a
+female, such as Notre Dame. But in Spain dame is a name about a
+male. So, the name damegender is an intelligence challenge about
+discover if the gender of dame is about a male or female. What's your
+country?. 
+
+If you are reading about a strict english the gender of the dame. It's
+ok for me, because there are an objective from United Nations to fix
+about gender gap in the world, so we must put the attention on females.
 
 ** How can I pronounce Damegender?
+
 I don't have not very fix rules about it, but please don't pronounce
 as de-mi-gen-der because there are another site with the name
 [[https://gender.wikia.org/wiki/Demigender][demigender]] with another subject and we don't want problems.
