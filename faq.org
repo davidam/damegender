@@ -71,9 +71,18 @@ male. So, the name damegender is an intelligence challenge about
 discover if the gender of dame is about a male or female. What's your
 country?. 
 
+#+BEGIN_SRC bash
+$ python3 main.py dame --total=es
+dame's gender is male
+probability: 1.0
+420 males for dame from INE.es
+0 females for dame from INE.es
+#+END_SRC
+
 If you are reading about a strict english the gender of the dame. It's
 ok for me, because there are an objective from United Nations to fix
 about gender gap in the world, so we must put the attention on females.
+
 
 ** How can I pronounce Damegender?
 
