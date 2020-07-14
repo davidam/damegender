@@ -178,10 +178,6 @@ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
 + pca-components.py and pca-features.py
 + infofeatures.py
 
-** How can I know the most used names?
-#+BEGIN_SRC bash
-$ python3 top.py es --sex=female
-#+END_SRC
 ** Give me some real examples about count males and females in communities
 #+BEGIN_SRC bash
 $ python3 count-debian-gender.py
