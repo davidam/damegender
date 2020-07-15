@@ -19,7 +19,8 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 # Boston, MA 02110-1301 USA,
 
-emacs README.org -Q --batch -f org-md-export-to-markdown
+cp README.org src/damegender
+emacs README.org -Q --batch -f org-ascii-export-to-ascii
 cd src/damegender
-emacs README.org -Q --batch -f org-md-export-to-markdown 
+emacs README.org -Q --batch -f org-ascii-export-to-ascii 
 
