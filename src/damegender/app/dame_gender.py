@@ -122,6 +122,157 @@ class Gender(object):
             features_int["last_letter_o"] = 0
         return features_int
 
+    def features_list(self, path='files/names/partial.csv', sexdataset=''):
+        flist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                name = row[0].title()
+                name = name.replace('\"', '')
+                flist.append(list(self.features_int(name).values()))
+        return flist
+
+    def features_list_categorical(self, path='files/names/partial.csv'):
+        flist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                name = row[0].title()
+                name = name.replace('\"', '')
+                l = list([self.features_int(name)["first_letter"],
+                          self.features_int(name)["last_letter"],
+                          self.features_int(name)["last_letter_a"],
+                          self.features_int(name)["first_letter_vocal"],
+                          self.features_int(name)["last_letter_vocal"],
+                          self.features_int(name)["last_letter_consonant"]])
+                flist.append(l)
+        return flist
+
+    def features_list_no_categorical(self, path='files/names/partial.csv'):
+        flist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                name = row[0].title()
+                name = name.replace('\"', '')
+                l = list([self.features_int(name)["count(a)"],
+                          self.features_int(name)["count(b)"],
+                          self.features_int(name)["count(c)"],
+                          self.features_int(name)["count(d)"],
+                          self.features_int(name)["count(e)"],
+                          self.features_int(name)["count(f)"],
+                          self.features_int(name)["count(g)"],
+                          self.features_int(name)["count(h)"],
+                          self.features_int(name)["count(i)"],
+                          self.features_int(name)["count(j)"],
+                          self.features_int(name)["count(k)"],
+                          self.features_int(name)["count(l)"],
+                          self.features_int(name)["count(m)"],
+                          self.features_int(name)["count(n)"],
+                          self.features_int(name)["count(o)"],
+                          self.features_int(name)["count(p)"],
+                          self.features_int(name)["count(q)"],
+                          self.features_int(name)["count(r)"],
+                          self.features_int(name)["count(s)"],
+                          self.features_int(name)["count(t)"],
+                          self.features_int(name)["count(u)"],
+                          self.features_int(name)["count(v)"],
+                          self.features_int(name)["count(w)"],
+                          self.features_int(name)["count(x)"],
+                          self.features_int(name)["count(y)"],
+                          self.features_int(name)["count(z)"],
+                          self.features_int(name)["vocals"],
+                          self.features_int(name)["consonants"]])
+                flist.append(l)
+        return flist
+
+    def features_list_no_letters(self, path='files/names/partial.csv'):
+        flist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                name = row[0].title()
+                name = name.replace('\"', '')
+                l = list([self.features_int(name)["first_letter"],
+                          self.features_int(name)["last_letter"],
+                          self.features_int(name)["vocals"],
+                          self.features_int(name)["consonants"],
+                          self.features_int(name)["first_letter_vocal"],
+                          self.features_int(name)["last_letter_vocal"],
+                          self.features_int(name)["first_letter_consonant"],
+                          self.features_int(name)["last_letter_consonant"],
+                          self.features_int(name)["last_letter_a"],
+                          self.features_int(name)["last_letter_o"]])
+                flist.append(l)
+        return flist
+
+    def features_list_no_undefined(self, path=''):
+        flist = []
+        with open(path) as csvfile:
+            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(sexreader, None)
+            for row in sexreader:
+                name = row[0].title()
+                name = name.replace('\"', '')
+                g = row[4].replace('\"', '')
+                if ((g == "m") | (g == "f")):
+                    flist.append(list(self.features_int(name).values()))
+        return flist
+
+    def features_list2csv(self, path, categorical="both"):
+        if (categorical == "categorical"):
+            fl = self.features_list_categorical(path)
+            first_line = "first_letter, last_letter, last_letter_a, " \
+                         "first_letter_vocal, last_letter_vocal, " \
+                         "last_letter_consonant"
+            f = open('files/features_list_cat.csv', 'w')
+        elif (categorical == "nocategorical"):
+            fl = self.features_list_no_categorical(path)
+            first_line = "a, b, c, d, e, f, g, h, i, j, k, l, m, " \
+                         "n, o, p, q, r, s, t, u, v, w, x, y, z, " \
+                         "vocals, consonants"
+            f = open('files/features_list_no_cat.csv', 'w')
+        elif (categorical == "noletters"):
+            fl = self.features_list_no_letters(path)
+            first_line = "first_letter, last_letter, vocals, " \
+                         "consonants, first_letter_vocal," \
+                         "last_letter_vocal, first_letter_consonant, " \
+                         "last_letter_consonant," \
+                         "last_letter_a, last_letter_o"
+            f = open('files/features_list_no_letters.csv', 'w')
+        elif (categorical == "noundefined"):
+            fl = self.features_list_no_undefined(path)
+            first_line = "first_letter, last_letter, a, b, c, d, e, " \
+                         "f, g, h, i, j, k, l, m, n, o, p, q, r, s, " \
+                         "t, u, v, w, x, y, z, vocals, consonants, " \
+                         "first_letter_vocal, last_letter_vocal, " \
+                         "first_letter_consonant, last_letter_consonant, " \
+                         "last_letter_a, last_letter_o"
+            f = open('files/features_list_no_undefined.csv', 'w')
+        else:
+            fl = self.features_list(path)
+            first_line = "first_letter, last_letter, a, b, c, d, e, f, " \
+                         "g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, " \
+                         "v, w, x, y, z, vocals, consonants, " \
+                         "first_letter_vocal, last_letter_vocal, " \
+                         "first_letter_consonant, last_letter_consonant, " \
+                         "last_letter_a, last_letter_o"
+            f = open('files/features_list.csv', 'w')
+        f.write(first_line+"\n")
+        for i in fl:
+            line = ""
+            count = 0
+            while (count < (len(i) - 1)):
+                line = line + str(i[count]) + ", "
+                count = count + 1
+            f.write(line+str(i[count])+"\n")
+        f.close()
+    
+    
     # DATASETS METHODS #
 
     def ukfile(self):
@@ -695,7 +846,7 @@ class Gender(object):
             surname_position = 0
             counter_position = 2
         elif ((locale == "es") or (locale == "ine")):
-            path = 'files/names/names_es/apellidos_frecuencia.csv'
+            path = 'files/inesurnames/apellidos_frecuencia.csv'
             surname_position = 1
             counter_position = 2
         boolean = False
@@ -812,496 +963,6 @@ class Gender(object):
             print("In the path %s doesn't exist file" % jsonf)
 
 
-
-# METHODS ABOUT STATISTICS #
-
-    def count_true2guess(self, truevector, guessvector, true, guess):
-        i = 0
-        count = 0
-        if (len(truevector) >= len(guessvector)):
-            maxi = len(guessvector)
-        else:
-            maxi = len(truevector)
-        while (i < maxi):
-            if ((truevector[i] == true) and (guessvector[i] == guess)):
-                count = count + 1
-            i = i + 1
-        return count
-
-    def femalefemale(self, truevector, guessvector):
-        return self.count_true2guess(truevector, guessvector, 0, 0)
-
-    def femalemale(self, truevector, guessvector):
-        return self.count_true2guess(truevector, guessvector, 0, 1)
-
-    def femaleundefined(self, truevector, guessvector):
-        return self.count_true2guess(truevector, guessvector, 0, 2)
-
-    def malefemale(self, truevector, guessvector):
-        return self.count_true2guess(truevector, guessvector, 1, 0)
-
-    def malemale(self, truevector, guessvector):
-        return self.count_true2guess(truevector, guessvector, 1, 1)
-
-    def maleundefined(self, truevector, guessvector):
-        return self.count_true2guess(truevector, guessvector, 1, 2)
-
-    def undefinedfemale(self, truevector, guessvector):
-        return self.count_true2guess(truevector, guessvector, 2, 0)
-
-    def undefinedmale(self, truevector, guessvector):
-        return self.count_true2guess(truevector, guessvector, 2, 1)
-
-    def undefinedundefined(self, truevector, guessvector):
-        return self.count_true2guess(truevector, guessvector, 2, 2)
-
-    def accuracy_score_dame(self, truevector, guessvector):
-        if (len(truevector) == len(guessvector)):
-            divider = self.femalefemale(truevector, guessvector)
-            divider = divider + self.malemale(truevector, guessvector)
-            dividend = self.femalefemale(truevector, guessvector)
-            dividend = dividend + self.malemale(truevector, guessvector)
-            dividend = dividend + self.malefemale(truevector, guessvector)
-            dividend = dividend + self.femalemale(truevector, guessvector)
-            dividend = dividend + self.femaleundefined(truevector, guessvector)
-            dividend = dividend + self.maleundefined(truevector, guessvector)
-            result = divider / dividend
-        else:
-            result = 0
-            print("Both vectors must have the same length")
-            print("truevector length: %s" % len(truevector))
-            print("guessvector length: %s" % len(guessvector))
-            print("truevector: %s" % truevector)
-            print("guessvector: %s" % guessvector)
-        return result
-
-    def accuracy(self, path):
-        gl = self.gender_list(path)
-        sl = self.guess_list(path, binary=True)
-        return self.accuracy_score_dame(gl, sl)
-
-
-    def precision(self, truevector, guessvector):
-        result = 0
-        divider = self.femalefemale(truevector, guessvector)
-        divider = divider + self.malemale(truevector, guessvector)
-        dividend = self.femalefemale(truevector, guessvector)
-        dividend = dividend + self.malemale(truevector, guessvector)
-        dividend = dividend + self.malefemale(truevector, guessvector)
-        result = divider / dividend
-        return result
-
-    def recall(self, truevector, guessvector):
-        result = 0
-        divider = self.femalefemale(truevector, guessvector)
-        divider = divider + self.malemale(truevector, guessvector)
-        dividend = self.femalefemale(truevector, guessvector)
-        dividend = dividend + self.malemale(truevector, guessvector)
-        dividend = dividend + self.malefemale(truevector, guessvector)
-        dividend = dividend + self.femaleundefined(truevector, guessvector)
-        dividend = dividend + self.maleundefined(truevector, guessvector)
-        result = divider / dividend
-        return result
-
-    def f1score(self, truevector, guessvector):
-        result = 0
-        divider = self.precision(truevector, guessvector)
-        divider = divider * self.recall(truevector, guessvector)
-        dividend = self.precision(truevector, guessvector)
-        dividend = dividend + self.recall(truevector, guessvector)
-        result = 2 * (divider / dividend)
-        return result
-
-    def error_coded(self, truevector, guessvector):
-        result = 0
-        divider = self.femalemale(truevector, guessvector)
-        divider = divider + self.malefemale(truevector, guessvector)
-        divider = divider + self.maleundefined(truevector, guessvector)
-        divider = divider + self.femaleundefined(truevector, guessvector)
-        dividend = self.malemale(truevector, guessvector)
-        dividend = dividend + self.femalemale(truevector, guessvector)
-        dividend = dividend + self.malefemale(truevector, guessvector)
-        dividend = dividend + self.femalefemale(truevector, guessvector)
-        dividend = dividend + self.maleundefined(truevector, guessvector)
-        dividend = dividend + self.femaleundefined(truevector, guessvector)
-        result = divider / dividend
-        return result
-
-    def error_coded_without_na(self, truevector, guessvector):
-        result = 0
-        divider = self.femalemale(truevector, guessvector)
-        divider = divider + self.malefemale(truevector, guessvector)
-        dividend = self.malemale(truevector, guessvector)
-        dividend = dividend + self.femalemale(truevector, guessvector)
-        dividend = dividend + self.malefemale(truevector, guessvector)
-        dividend = dividend + self.femalefemale(truevector, guessvector)
-        result = divider / dividend
-        return result
-
-    def na_coded(self, truevector, guessvector):
-        result = 0
-        divider = self.maleundefined(truevector, guessvector)
-        divider = divider + self.femaleundefined(truevector, guessvector)
-        dividend = self.malemale(truevector, guessvector)
-        dividend = dividend + self.femalemale(truevector, guessvector)
-        dividend = dividend + self.malefemale(truevector, guessvector)
-        dividend = dividend + self.femalefemale(truevector, guessvector)
-        dividend = dividend + self.maleundefined(truevector, guessvector)
-        dividend = dividend + self.femaleundefined(truevector, guessvector)
-        result = divider / dividend
-        return result
-
-    def error_gender_bias(self, truevector, guessvector):
-        divider = self.malefemale(truevector, guessvector)
-        divider = divider - self.femalemale(truevector, guessvector)
-        dividend = self.malemale(truevector, guessvector)
-        dividend = dividend + self.femalemale(truevector, guessvector)
-        dividend = dividend + self.malefemale(truevector, guessvector)
-        dividend = dividend + self.femalefemale(truevector, guessvector)
-        result = divider / dividend
-        return result
-
-    def weighted_error(self, truevector, guessvector, w):
-        divider = self.femalemale(truevector, guessvector)
-        divider = divider + self.malefemale(truevector, guessvector)
-        dot = self.maleundefined(truevector, guessvector)
-        dot = dot + self.femaleundefined(truevector, guessvector)
-        divider = divider + w * dot
-        dividend = self.malemale(truevector, guessvector)
-        dividend = dividend + self.femalemale(truevector, guessvector)
-        dividend = dividend + self.malefemale(truevector, guessvector)
-        dividend = dividend + self.femalefemale(truevector, guessvector)
-        dot = self.maleundefined(truevector, guessvector)
-        dot = dot + self.femaleundefined(truevector, guessvector)
-        dividend = dividend + w * dot
-        result = divider / dividend
-        return result
-
-
-    def confusion_matrix(self, path='files/names/partial.csv'):
-        # this method is using scikit library (deprecated)
-        gl = self.gender_list(path)
-        sl = self.guess_list(path, binary=True)
-        return confusion_matrix(gl, sl)
-
-    def confusion_matrix_table(self, truevector, guessvector):
-        # this method returns a 3x3 confusion matrix as python vectors
-
-        # femalefemale
-        self.ff = self.count_true2guess(truevector, guessvector, 0, 0)
-        # femalemale
-        self.fm = self.count_true2guess(truevector, guessvector, 0, 1)
-        # femaundefined
-        self.fu = self.count_true2guess(truevector, guessvector, 0, 2)
-        # malefemale
-        self.mf = self.count_true2guess(truevector, guessvector, 1, 0)
-        # malemale
-        self.mm = self.count_true2guess(truevector, guessvector, 1, 1)
-        # maleundefined
-        self.mu = self.count_true2guess(truevector, guessvector, 1, 2)
-        # undefinedfemale
-        self.uf = self.count_true2guess(truevector, guessvector, 1, 0)
-        # undefinedmale
-        self.um = self.count_true2guess(truevector, guessvector, 1, 1)
-        # undefinedundefined
-        self.uu = self.count_true2guess(truevector, guessvector, 1, 2)
-
-        l = [[self.ff, self.fm, self.fu],
-             [self.mf, self.mm, self.mu],
-             [self.uf, self.um, self.uu]]
-
-        res = [[l[0][0], l[0][1], l[0][2]],
-               [l[1][0], l[1][1], l[1][2]],
-               [l[2][0], l[2][1], l[2][2]]]
-        return res
-
-    def confusion_matrix_gender(self, path='', jsonf=''):
-        # this method is an interfaz to confusion_matrix_table allowing introduce a json file
-        # in dame_sexmachine we must rewrite it to allow machine learning algorithm
-        truevector = self.gender_list(path)
-        if (os.path.isfile(jsonf)):
-            guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
-        else:
-            guessvector = self.guess_list(path, binary=True)
-        res = self.confusion_matrix_table(truevector, guessvector)
-        return res
-
-    def print_confusion_matrix_gender(self, path='', dimensions='', *args, **kwargs):
-        reverse = kwargs.get('reverse', False)
-        jsonf = kwargs.get('jsonf', '')
-        jf = os.getcwd() + "/" +  jsonf
-        if (os.path.isfile(jf)):
-            cmd = self.confusion_matrix_gender(path, jsonf=jf)
-        else:
-            cmd = self.confusion_matrix_gender(path)
-        if (dimensions == "1x1"):
-            if (reverse == False):
-                print("      M    ")                
-                print("M  [[ %s ]]" % (cmd[1][1]))
-            elif (reverse == True):
-                print("      F    ")
-                print("F  [[ %s ]]" % (cmd[0][0]))
-        elif (dimensions == "1x2"):
-            if (reverse == False):
-                print("      M    F   ")
-                print("M  [[ %s,   %s ]]" % (cmd[1][1], cmd[1][0]))
-            elif (reverse == True):
-                print("      F    M   ")                
-                print("F  [[ %s,   %s ]]" % (cmd[0][0], cmd[0][1]))
-        elif (dimensions == "1x3"):
-            if (reverse == False):
-                print("      M    F   U   ")                
-                print("M  [[ %s, %s, %s ]]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
-            elif (reverse == True):
-                print("     F  M  U   ")                                
-                print("F [[ %s, %s, %s ]]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-        elif (dimensions == "2x1"):
-            if (reverse == False):
-                print("      M  ")
-                print("M  [[ %s ]" % (cmd[1][1]))
-                print("F   [ %s ]]" % (cmd[1][0]))
-            elif (reverse == True):
-                print("      F   ")
-                print("F  [[ %s ] " % (cmd[0][0]))
-                print("M   [ %s ]]" % (cmd[0][1]))
-        elif (dimensions == "2x2"):
-            if (reverse == False):
-                print("      M    F  ")
-                print("M  [[ %s , %s ]" % (cmd[1][1], cmd[1][0]))
-                print("F   [ %s , %s ]]" % (cmd[0][1], cmd[0][0]))
-            if (reverse == True):
-                print("      F   M  ")
-                print("F  [[ %s , %s ]" % (cmd[0][0], cmd[0][1]))
-                print("M   [ %s , %s ]]" % (cmd[1][0], cmd[1][1]))
-        elif (dimensions == "2x3"):
-            if (reverse == False):
-                print("      M   F   U  ")
-                print("M  [[ %s,  %s,  %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
-                print("F   [ %s,  %s,  %s ]]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
-            if (reverse == True):
-                print("      F   M   U  ")
-                print("F  [[ %s,  %s,  %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-                print("M   [ %s,  %s,  %s ]]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
-        elif (dimensions == "3x1"):
-            if (reverse == False):
-                print("       M   ")
-                print("M  [[ %s ]" % (cmd[1][1]))
-                print("F   [ %s ]" % (cmd[0][1]))
-                print("U   [ %s ]]" % (cmd[2][1]))
-            elif (reverse == True):
-                print("       F   ")                
-                print("F   [[ %s ]" % (cmd[0][0]))
-                print("M    [ %s ]" % (cmd[1][0]))
-                print("U    [ %s ]]" % (cmd[2][0]))
-        elif (dimensions == "3x2"):
-            if (reverse == False):
-                print("      M    F  ")
-                print("M  [[ %s ,  %s ]" % (cmd[1][1], cmd[1][0]))
-                print("F   [ %s ,  %s ]" % (cmd[0][1], cmd[0][0]))
-                print("U   [ %s ,  %s ]]" % (cmd[2][1], cmd[2][0]))
-            if (reverse == True):
-                print("      F   M  ")                
-                print("F  [[ %s,  %s ]" % (cmd[0][0], cmd[0][1]))
-                print("M   [ %s,  %s ]" % (cmd[1][0], cmd[1][1]))
-                print("U   [ %s,  %s ]]" % (cmd[2][0], cmd[2][1]))
-        elif (dimensions == "3x3"):
-            if (reverse == False):
-                print("      M  F  U   ")
-                print("M  [[ %s, %s, %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
-                print("F   [ %s, %s, %s ]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
-                print("U   [ %s, %s, %s ]]" % (cmd[2][1], cmd[2][0], cmd[2][2]))
-            if (reverse == True):
-                print("      F   M   U   ")
-                print("F  [[ %s, %s, %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-                print("M   [ %s, %s, %s ]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
-                print("U   [ %s, %s, %s ]]" % (cmd[2][0], cmd[2][1], cmd[2][2]))
-        return ""
-
-
-    def features_list(self, path='files/names/partial.csv', sexdataset=''):
-        flist = []
-        with open(path) as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(sexreader, None)
-            for row in sexreader:
-                name = row[0].title()
-                name = name.replace('\"', '')
-                flist.append(list(self.features_int(name).values()))
-        return flist
-
-    def features_list_categorical(self, path='files/names/partial.csv'):
-        flist = []
-        with open(path) as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(sexreader, None)
-            for row in sexreader:
-                name = row[0].title()
-                name = name.replace('\"', '')
-                l = list([self.features_int(name)["first_letter"],
-                          self.features_int(name)["last_letter"],
-                          self.features_int(name)["last_letter_a"],
-                          self.features_int(name)["first_letter_vocal"],
-                          self.features_int(name)["last_letter_vocal"],
-                          self.features_int(name)["last_letter_consonant"]])
-                flist.append(l)
-        return flist
-
-    def features_list_no_categorical(self, path='files/names/partial.csv'):
-        flist = []
-        with open(path) as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(sexreader, None)
-            for row in sexreader:
-                name = row[0].title()
-                name = name.replace('\"', '')
-                l = list([self.features_int(name)["count(a)"],
-                          self.features_int(name)["count(b)"],
-                          self.features_int(name)["count(c)"],
-                          self.features_int(name)["count(d)"],
-                          self.features_int(name)["count(e)"],
-                          self.features_int(name)["count(f)"],
-                          self.features_int(name)["count(g)"],
-                          self.features_int(name)["count(h)"],
-                          self.features_int(name)["count(i)"],
-                          self.features_int(name)["count(j)"],
-                          self.features_int(name)["count(k)"],
-                          self.features_int(name)["count(l)"],
-                          self.features_int(name)["count(m)"],
-                          self.features_int(name)["count(n)"],
-                          self.features_int(name)["count(o)"],
-                          self.features_int(name)["count(p)"],
-                          self.features_int(name)["count(q)"],
-                          self.features_int(name)["count(r)"],
-                          self.features_int(name)["count(s)"],
-                          self.features_int(name)["count(t)"],
-                          self.features_int(name)["count(u)"],
-                          self.features_int(name)["count(v)"],
-                          self.features_int(name)["count(w)"],
-                          self.features_int(name)["count(x)"],
-                          self.features_int(name)["count(y)"],
-                          self.features_int(name)["count(z)"],
-                          self.features_int(name)["vocals"],
-                          self.features_int(name)["consonants"]])
-                flist.append(l)
-        return flist
-
-    def features_list_no_letters(self, path='files/names/partial.csv'):
-        flist = []
-        with open(path) as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(sexreader, None)
-            for row in sexreader:
-                name = row[0].title()
-                name = name.replace('\"', '')
-                l = list([self.features_int(name)["first_letter"],
-                          self.features_int(name)["last_letter"],
-                          self.features_int(name)["vocals"],
-                          self.features_int(name)["consonants"],
-                          self.features_int(name)["first_letter_vocal"],
-                          self.features_int(name)["last_letter_vocal"],
-                          self.features_int(name)["first_letter_consonant"],
-                          self.features_int(name)["last_letter_consonant"],
-                          self.features_int(name)["last_letter_a"],
-                          self.features_int(name)["last_letter_o"]])
-                flist.append(l)
-        return flist
-
-    def features_list_no_undefined(self, path=''):
-        flist = []
-        with open(path) as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(sexreader, None)
-            for row in sexreader:
-                name = row[0].title()
-                name = name.replace('\"', '')
-                g = row[4].replace('\"', '')
-                if ((g == "m") | (g == "f")):
-                    flist.append(list(self.features_int(name).values()))
-        return flist
-
-    def features_list2csv(self, path, categorical="both"):
-        if (categorical == "categorical"):
-            fl = self.features_list_categorical(path)
-            first_line = "first_letter, last_letter, last_letter_a, " \
-                         "first_letter_vocal, last_letter_vocal, " \
-                         "last_letter_consonant"
-            f = open('files/features_list_cat.csv', 'w')
-        elif (categorical == "nocategorical"):
-            fl = self.features_list_no_categorical(path)
-            first_line = "a, b, c, d, e, f, g, h, i, j, k, l, m, " \
-                         "n, o, p, q, r, s, t, u, v, w, x, y, z, " \
-                         "vocals, consonants"
-            f = open('files/features_list_no_cat.csv', 'w')
-        elif (categorical == "noletters"):
-            fl = self.features_list_no_letters(path)
-            first_line = "first_letter, last_letter, vocals, " \
-                         "consonants, first_letter_vocal," \
-                         "last_letter_vocal, first_letter_consonant, " \
-                         "last_letter_consonant," \
-                         "last_letter_a, last_letter_o"
-            f = open('files/features_list_no_letters.csv', 'w')
-        elif (categorical == "noundefined"):
-            fl = self.features_list_no_undefined(path)
-            first_line = "first_letter, last_letter, a, b, c, d, e, " \
-                         "f, g, h, i, j, k, l, m, n, o, p, q, r, s, " \
-                         "t, u, v, w, x, y, z, vocals, consonants, " \
-                         "first_letter_vocal, last_letter_vocal, " \
-                         "first_letter_consonant, last_letter_consonant, " \
-                         "last_letter_a, last_letter_o"
-            f = open('files/features_list_no_undefined.csv', 'w')
-        else:
-            fl = self.features_list(path)
-            first_line = "first_letter, last_letter, a, b, c, d, e, f, " \
-                         "g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, " \
-                         "v, w, x, y, z, vocals, consonants, " \
-                         "first_letter_vocal, last_letter_vocal, " \
-                         "first_letter_consonant, last_letter_consonant, " \
-                         "last_letter_a, last_letter_o"
-            f = open('files/features_list.csv', 'w')
-        f.write(first_line+"\n")
-        for i in fl:
-            line = ""
-            count = 0
-            while (count < (len(i) - 1)):
-                line = line + str(i[count]) + ", "
-                count = count + 1
-            f.write(line+str(i[count])+"\n")
-        f.close()
-
-    def pca(self, path='files/names/partial.csv', n=2):
-        X = np.array(self.features_list())
-        pca = PCA(n_components=n)
-        return pca.fit(X)
-
-    # def print_envolve_measures
-    #     if (ds.json_eq_csv_in_names(jsonf=args.jsondownloaded, path=args.csv)):
-    #         print("################### Damegender!!")
-    #         print("Gender list: " + str(gl))
-    #         sl = ds.json2guess_list(jsonf=args.jsondownloaded, binary=True)
-    #         print("Guess list:  " +str(sl))
-    #         ds.print_measures(gl, sl, args.measure, "Damegender")
-    #     else:
-    #         print("Names in json and csv are differents")
-    #         print("Names in csv: %s:" % ds.csv2names(path=args.csv))
-    #         print("Names in json: %s:" % ds.json2names(jsonf=args.jsondownloaded, surnames=False))
-
-
-    def print_measures(self, gl1, gl2, measure, api_name):
-        if (measure == "accuracy"):
-            gender_accuracy = self.accuracy_score_dame(gl1, gl2)
-            print("%s accuracy: %s" % (api_name, gender_accuracy))
-
-        elif (measure == "precision"):
-            gender_precision = self.precision(gl1, gl2)
-            print("%s precision: %s" % (api_name, gender_precision))
-
-        elif (measure == "recall"):
-            gender_recall = self.recall(gl1, gl1)
-            print("%s recall: %s" % (api_name, gender_recall))
-        elif (measure == "f1score"):
-            gender_f1score = self.f1score(gl1, gl2)
-            print("%s f1score: %s" % (api_name, gender_f1score))
-
     def json2guess_list(self, jsonf="", binary=False):
         jsondata = open(jsonf).read()
         json_object = json.loads(jsondata)
@@ -1369,3 +1030,4 @@ class Gender(object):
         elif (i > maxi_csv):
             ret = json[i].lower()
         return [ret, i]
+
