@@ -29,6 +29,7 @@ from app.dame_genderapi import DameGenderApi
 from app.dame_genderize import DameGenderize
 from app.dame_nameapi import DameNameapi
 from app.dame_customsearch import DameCustomsearch
+from app.dame_statistics import DameStatistics
 import os
 import argparse
 parser = argparse.ArgumentParser()
@@ -43,16 +44,15 @@ args = parser.parse_args()
 print("A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.")
 print("If the classifier is nice, the diagonal is high because there are true positives")
 
+dst = DameStatistics()
 
 if (args.api == "all"):
     dg = Gender()
     if (dg.config['DEFAULT']['namsor'] == 'yes'):
-        dn = DameNamsor()
-        dn.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+        dst.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
     if (dg.config['DEFAULT']['genderize'] == 'yes'):
-        dg = DameGenderize()
-        dg.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+        dst.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 #        dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
 
     if (dg.config['DEFAULT']['genderapi'] == 'yes'):
@@ -86,8 +86,9 @@ elif (args.api == "genderguesser"):
     dgg.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
 elif (args.api == "damegender"):
-    ds = DameSexmachine()
-    ds.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+#    ds = DameSexmachine()
+    dst = DameStatistics()
+    dst.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
 elif (args.api == "nameapi"):
     dna = DameNameapi()
