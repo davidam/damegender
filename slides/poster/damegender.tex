@@ -46,17 +46,19 @@
            $$\$ python3 \hspace{1cm}  main.py \hspace{1cm}  David $$
            $$\$ python3 \hspace{1cm}  main.py \hspace{1cm}  Mesa \hspace{1cm} --ml=nltk $$
            $$\$ python3 \hspace{1cm} nameincountries.py \hspace{1cm} David $$
-           $$\$ python3 \hspace{1cm} api2gender.py \hspace{1cm} Leticia \hspace{1cm}  \-\-api=genderapi $$
+           $$\$ python3 \hspace{1cm} api2gender.py \hspace{1cm} Leticia \hspace{1cm}  -api=genderapi $$
         \end{block}
         \begin{block}{Statistics}
           \begin{itemize}
              \$ python3 \hspace{1cm} infofeatures.py \newline
              \$ python3 \hspace{1cm} confusion.py \newline
-             \$ python3 \hspace{1cm} errors.py \hspace{1cm} \-\-csv="files/names/all.csv" \hspace{1cm} \-\-api="genderguesser" \newline
-             \$ python3 \hspace{1cm} pca-components.py \hspace{1cm} \-\-csv="files/features\_list.csv" \newline
+             \$ python3 \hspace{1cm} errors.py \hspace{1cm} --csv="files/names/all.csv" \hspace{1cm} --api="genderguesser" \newline
+             \$ python3 \hspace{1cm} pca-components.py \hspace{1cm} --csv="files/features\_list.csv" \newline
              \$ python3 \hspace{1cm} pca-features.py \newline
              \$ python3 \hspace{1cm} top.py es \newline
-             \$ python3 \hspace{1cm} accuracy.py \hspace{1cm} \-\-api="genderguesser" \hspace{1cm} \-\-measure="recall" \hspace{1cm} \-\-csv=files/names/allnoundefined.csv \par
+             \$ python3 \hspace{1cm} accuracy.py \hspace{1cm} --api="genderguesser" \hspace{1cm} --measure="recall" \hspace{1cm} --csv=files/names/allnoundefined.csv \newline
+             \$ python3 \hspace{1cm} csv2gender.py \hspace{1cm} files/forbes2020.csv \hspace{1cm} --first\_name\_position=0 \newline
+             
           \end{itemize}
         \end{block}
       \end{column}
