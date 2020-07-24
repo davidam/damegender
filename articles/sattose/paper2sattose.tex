@@ -1,7 +1,7 @@
 \documentclass[a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\usepackage{twocolceurws}
+\usepackage{twocolpceurws}
 \usepackage{xcolor}
 \usepackage{url}
 
@@ -244,9 +244,9 @@ We have used this dataset, not considering the unknown variable, for our experim
 
 The results, using common information retrieval metrics, can be seen in Table~\ref{table:DifferentAccuraciesMeasures}.
 Accuracy is the ratio of correctly predicted observation to the total observations.
-It should be noted that \emph{Accuracy} can be a misleading metric for imbalanced data sets, such as the ones that we usually have in software development projects~\cite{ghosh2002free}.
+It should be noted that \emph{Accuracy} can be a misleading metric for imbalanced data sets.
 This is because for a sample with 85 negative and 15 positive values, classifying all values as negative would give an accuracy score of 0.85.
-In those cases, it is better to report other measures, such as the balanced accuracy, which normalizes true positive and true negative predictions by the number of positive and negative samples~\cite{mower2005prep}.
+In those cases, it is better to report other measures, such as the balanced accuracy, which normalizes true positive and true negative predictions by the number of positive and negative samples.
 As Santamaría and Mihaljevi\'c's data does not come from the IT domain, we can use accuracy in our research.
 Precision is the fraction of relevant instances among the retrieved instances.
 Recall is the fraction of the total amount of relevant instances that were actually retrieved.
@@ -438,7 +438,7 @@ As a result, we envision a free and universal dataset with support for all langu
 We would like to thank: Lucía Santamaría and Helena Mihaljevi\'c for the previous work; Daniel Izquierdo and Laura Arjona for starting this research field at URJC; Jesus González Boticario and his team at UNED for the motivation towards machine learning; all those working with Jesus González Barahona and Gregorio Robles.
 
 \bibliographystyle{alpha} 
-\bibliography{bibtex}
+\bibliography{paper2sattose}
 
 \end{document}
 
