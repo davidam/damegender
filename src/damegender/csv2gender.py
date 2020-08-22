@@ -71,3 +71,12 @@ if (len(sys.argv) > 1):
     print("The number of females in %s is %s" % (str(args.path), str(len(females_list))))
     print("The number of gender not recognised in %s is %s" % (str(args.path), str(len(unknows_list))))
 
+import matplotlib.pyplot as plt
+
+data = [len(males_list), len(females_list), len(unknows_list)]
+gender = ["Males","Females","Unknows"]
+plt.title("People grouped by gender")
+plt.pie(data, labels=gender, autopct="%0.1f %%")
+plt.axis("equal")
+plt.savefig('files/images/people_by_gender.png')
+plt.show()
