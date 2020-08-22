@@ -31,6 +31,7 @@ parser.add_argument("path", help="csv file")
 parser.add_argument('--first_name_position', required=True, type=int, choices=[0, 1, 2, 3, 4], default=0)
 parser.add_argument('--dataset', default="us", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser'])
 parser.add_argument('--output', default="files/names/out.csv")
+parser.add_argument('--noshow', dest='noshow', action='store_true')
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 
@@ -71,6 +72,8 @@ if (len(sys.argv) > 1):
     print("The number of females in %s is %s" % (str(args.path), str(len(females_list))))
     print("The number of gender not recognised in %s is %s" % (str(args.path), str(len(unknows_list))))
 
+
+    
 import matplotlib.pyplot as plt
 
 data = [len(males_list), len(females_list), len(unknows_list)]
@@ -78,5 +81,9 @@ gender = ["Males","Females","Unknows"]
 plt.title("People grouped by gender")
 plt.pie(data, labels=gender, autopct="%0.1f %%")
 plt.axis("equal")
-plt.savefig('files/images/people_by_gender.png')
-plt.show()
+
+if (args.noshow):
+    plt.savefig('files/images/csv2gender.png')
+else:
+    plt.savefig('files/images/csv2gender.png')
+    plt.show()
