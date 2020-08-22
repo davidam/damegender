@@ -23,7 +23,7 @@
 
 from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
-from app.dame_sexmachine import DameStatistics
+from app.dame_statistics import DameStatistics
 from app.dame_namsor import DameNamsor
 from app.dame_genderguesser import DameGenderGuesser
 from app.dame_genderapi import DameGenderApi
