@@ -6,20 +6,8 @@
 # Author: David Arroyo Menéndez <davidam@gnu.org>
 # Maintainer: David Arroyo Menéndez <davidam@gnu.org>
 
-# This file is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 3, or (at your option)
-# any later version.
-
-# This file is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-# You should have received a copy of the GNU General Public License
-# along with Damegender; see the file LICENSE.  If not, write to
-# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-# Boston, MA 02110-1301 USA,
+# You can share, copy and modify this software if you are a woman or you
+# are David Arroyo Menéndez and you include this note.
 
 #from nltk.corpus import names
 #import nltk
@@ -39,13 +27,12 @@ from collections import OrderedDict
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 from sklearn.decomposition import PCA
-from app.dame_gender import Gender
 from app.dame_utils import DameUtils
 
 csv.field_size_limit(3000000)
 
 du = DameUtils()
-g = Gender()
+#g = Gender()
 
 class DameStatistics(object):
     # That's the root class in the heritage,
@@ -362,10 +349,10 @@ class DameStatistics(object):
         return ""
 
 
-    def pca(self, path='files/names/partial.csv', n=2):
-        X = np.array(g.features_list())
-        pca = PCA(n_components=n)
-        return pca.fit(X)
+    # def pca(self, path='files/names/partial.csv', n=2):
+    #     X = np.array(g.features_list())
+    #     pca = PCA(n_components=n)
+    #     return pca.fit(X)
 
     # def print_envolve_measures
     #     if (ds.json_eq_csv_in_names(jsonf=args.jsondownloaded, path=args.csv)):
