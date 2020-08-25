@@ -922,7 +922,7 @@ class Gender(object):
                 print("Gender list: " + str(gl))
                 sl = self.json2guess_list(jsonf=jsonf, binary=True)
                 print("Guess list:  " +str(sl))
-                self.print_measures(gl, sl, measure, api)
+                dst.print_measures(gl, sl, measure, api)
             else:
                 print("Names in json and csv are differents")
                 print("%s names in csv" % len(self.csv2names(path=path, header=header)))
