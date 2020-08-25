@@ -174,7 +174,7 @@ else
 	echo "infofeatures test is ok"
 fi
 
-python3 csv2gender.py files/names/partial.csv --first_name_position=0 --dataset=us > files/tests/csv2genderpartial-$(date "+%Y-%m-%d-%H").txt
+python3 csv2gender.py files/names/partial.csv --first_name_position=0 --dataset=us --noshow > files/tests/csv2genderpartial-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/csv2genderpartial.txt files/tests/csv2genderpartial-$(date "+%Y-%m-%d-%H").txt
 then
