@@ -942,9 +942,8 @@ class Gender(object):
         reverse = kwargs.get('reverse', False)
         dimensions = kwargs.get('dimensions', '3x2')
         gl = self.gender_list(path=path)
-#        dna = DameNameapi()
         print("%s confusion matrix:\n" % api)
-        #    dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+        dst.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
         if (os.path.isfile(jsonf)):
             self.print_confusion_matrix_gender(path=path, dimensions=dimensions, jsonf=jsonf, reverse=reverse)
         elif (args.jsondownloaded == ''):
