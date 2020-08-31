@@ -1026,11 +1026,11 @@ The number of females sending commits is 0
 
 
 
-@node GNU Free Documentation License
-@appendix GNU Free Documentation License
+@node License
+@appendix License
 
-@include fdl.texi
-
+You can share, copy and modify this software if you are a woman or you
+are David Arroyo Menéndez and you include this note.
 
 @node Index
 @unnumbered Index
