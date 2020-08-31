@@ -34,54 +34,52 @@ print("If the classifier is nice, the diagonal is high because there are true po
 
 dst = DameStatistics()
 dg = Gender()
-dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
 
 
-# if (args.api == "all"):
-#     if (dg.config['DEFAULT']['namsor'] == 'yes'):
-#         dst.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+if (args.api == "all"):
+    if (dg.config['DEFAULT']['namsor'] == 'yes'):
+        dst.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
-#     if (dg.config['DEFAULT']['genderize'] == 'yes'):
-#         dst.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
-# #        dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    if (dg.config['DEFAULT']['genderize'] == 'yes'):
+        dst.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+#        dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
 
-#     if (dg.config['DEFAULT']['genderapi'] == 'yes'):
-#         dga = DameGenderApi()
-#         dga.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+    if (dg.config['DEFAULT']['genderapi'] == 'yes'):
+        dga = DameGenderApi()
+        dga.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
-#     dgg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+    dgg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
 
-#     ds = DameSexmachine()
-#     ds.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+    ds = DameSexmachine()
+    ds.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
-#     if (dg.config['DEFAULT']['nameapi'] == 'yes'):
-#         dna = DameNameapi()
-#         dna.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+    if (dg.config['DEFAULT']['nameapi'] == 'yes'):
+        dna = DameNameapi()
+        dna.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
-# elif (args.api == "namsor"):
-#     dn = DameNamsor()
-#     dn.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+elif (args.api == "namsor"):
+    dn = DameNamsor()
+    dn.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
-# elif (args.api == "genderize"):
-#     dg = DameGenderize()
-#     dg.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+elif (args.api == "genderize"):
+    dg = DameGenderize()
+    dg.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
-# elif (args.api == "genderapi"):
-#     dga = DameGenderApi()
-#     dga.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+elif (args.api == "genderapi"):
+    dga = DameGenderApi()
+    dga.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
-# elif (args.api == "genderguesser"):
-#     dgg = DameGenderGuesser()
-#     dgg.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+elif (args.api == "genderguesser"):
+    dgg = DameGenderGuesser()
+    dgg.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
-# elif (args.api == "damegender"):
-#     g = Gender()
-# #    dst = DameStatistics()
-#     g.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+elif (args.api == "damegender"):
+    g = Gender()
+    g.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
-# elif (args.api == "nameapi"):
-#     dna = DameNameapi()
-#     dna.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+elif (args.api == "nameapi"):
+    dna = DameNameapi()
+    dna.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
 
 # # elif (args.api == "customsearch"):

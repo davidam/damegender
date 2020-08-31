@@ -943,7 +943,7 @@ class Gender(object):
         dimensions = kwargs.get('dimensions', '3x2')
         gl = self.gender_list(path=path)
         print("%s confusion matrix:\n" % api)
-        dst.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
+#        self.print_confusion_matrix_gender(path=path, dimensions=dimensions)
         if (os.path.isfile(jsonf)):
             self.print_confusion_matrix_gender(path=path, dimensions=dimensions, jsonf=jsonf, reverse=reverse)
         elif (args.jsondownloaded == ''):
@@ -1020,3 +1020,110 @@ class Gender(object):
             ret = json[i].lower()
         return [ret, i]
 
+    def accuracy(self, path):
+        gl = self.gender_list(path)
+        sl = self.guess_list(path, binary=True)
+        return self.accuracy_score_dame(gl, sl)
+
+    def confusion_matrix_gender(self, path='', jsonf=''):
+        # this method is an interfaz to confusion_matrix_table allowing introduce a json file
+        # in dame_sexmachine we must rewrite it to allow machine learning algorithm
+        truevector = self.gender_list(path)
+        if (os.path.isfile(jsonf)):
+            guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
+        else:
+            guessvector = self.guess_list(path, binary=True)
+        res = dst.confusion_matrix_table(truevector, guessvector)
+        return res
+
+    def print_confusion_matrix_gender(self, path='', dimensions='', *args, **kwargs):
+        reverse = kwargs.get('reverse', False)
+        jsonf = kwargs.get('jsonf', '')
+        jf = os.getcwd() + "/" +  jsonf
+        if (os.path.isfile(jf)):
+            cmd = self.confusion_matrix_gender(path, jsonf=jf)
+        else:
+            cmd = self.confusion_matrix_gender(path)
+        if (dimensions == "1x1"):
+            if (reverse == False):
+                print("      M    ")                
+                print("M  [[ %s ]]" % (cmd[1][1]))
+            elif (reverse == True):
+                print("      F    ")
+                print("F  [[ %s ]]" % (cmd[0][0]))
+        elif (dimensions == "1x2"):
+            if (reverse == False):
+                print("      M    F   ")
+                print("M  [[ %s,   %s ]]" % (cmd[1][1], cmd[1][0]))
+            elif (reverse == True):
+                print("      F    M   ")                
+                print("F  [[ %s,   %s ]]" % (cmd[0][0], cmd[0][1]))
+        elif (dimensions == "1x3"):
+            if (reverse == False):
+                print("      M    F   U   ")                
+                print("M  [[ %s, %s, %s ]]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
+            elif (reverse == True):
+                print("     F  M  U   ")                                
+                print("F [[ %s, %s, %s ]]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+        elif (dimensions == "2x1"):
+            if (reverse == False):
+                print("      M  ")
+                print("M  [[ %s ]" % (cmd[1][1]))
+                print("F   [ %s ]]" % (cmd[1][0]))
+            elif (reverse == True):
+                print("      F   ")
+                print("F  [[ %s ] " % (cmd[0][0]))
+                print("M   [ %s ]]" % (cmd[0][1]))
+        elif (dimensions == "2x2"):
+            if (reverse == False):
+                print("      M    F  ")
+                print("M  [[ %s , %s ]" % (cmd[1][1], cmd[1][0]))
+                print("F   [ %s , %s ]]" % (cmd[0][1], cmd[0][0]))
+            if (reverse == True):
+                print("      F   M  ")
+                print("F  [[ %s , %s ]" % (cmd[0][0], cmd[0][1]))
+                print("M   [ %s , %s ]]" % (cmd[1][0], cmd[1][1]))
+        elif (dimensions == "2x3"):
+            if (reverse == False):
+                print("      M   F   U  ")
+                print("M  [[ %s,  %s,  %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
+                print("F   [ %s,  %s,  %s ]]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
+            if (reverse == True):
+                print("      F   M   U  ")
+                print("F  [[ %s,  %s,  %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print("M   [ %s,  %s,  %s ]]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+        elif (dimensions == "3x1"):
+            if (reverse == False):
+                print("       M   ")
+                print("M  [[ %s ]" % (cmd[1][1]))
+                print("F   [ %s ]" % (cmd[0][1]))
+                print("U   [ %s ]]" % (cmd[2][1]))
+            elif (reverse == True):
+                print("       F   ")                
+                print("F   [[ %s ]" % (cmd[0][0]))
+                print("M    [ %s ]" % (cmd[1][0]))
+                print("U    [ %s ]]" % (cmd[2][0]))
+        elif (dimensions == "3x2"):
+            if (reverse == False):
+                print("      M    F  ")
+                print("M  [[ %s ,  %s ]" % (cmd[1][1], cmd[1][0]))
+                print("F   [ %s ,  %s ]" % (cmd[0][1], cmd[0][0]))
+                print("U   [ %s ,  %s ]]" % (cmd[2][1], cmd[2][0]))
+            if (reverse == True):
+                print("      F   M  ")                
+                print("F  [[ %s,  %s ]" % (cmd[0][0], cmd[0][1]))
+                print("M   [ %s,  %s ]" % (cmd[1][0], cmd[1][1]))
+                print("U   [ %s,  %s ]]" % (cmd[2][0], cmd[2][1]))
+        elif (dimensions == "3x3"):
+            if (reverse == False):
+                print("      M  F  U   ")
+                print("M  [[ %s, %s, %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
+                print("F   [ %s, %s, %s ]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
+                print("U   [ %s, %s, %s ]]" % (cmd[2][1], cmd[2][0], cmd[2][2]))
+            if (reverse == True):
+                print("      F   M   U   ")
+                print("F  [[ %s, %s, %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print("M   [ %s, %s, %s ]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+                print("U   [ %s, %s, %s ]]" % (cmd[2][0], cmd[2][1], cmd[2][2]))
+        return ""
+    
