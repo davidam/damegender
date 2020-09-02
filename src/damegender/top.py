@@ -23,7 +23,7 @@ import subprocess, tempfile
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("country", default="usa", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'usa'], help="Countries with 2 letter, example, es is Spain")
+parser.add_argument("country", default="usa", choices=['all', 'au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'usa'], help="Countries with 2 letter, example, es is Spain")
 parser.add_argument('--number', default=10)
 parser.add_argument('--sex', default="female", choices=["male", "female", "all"])
 parser.add_argument('--reverse', default=False, action="store_true")
@@ -94,11 +94,24 @@ elif (args.country == "uk"):
     c2lmales = du.csv2list("files/names/names_uk/ukmales.csv", header=True)
 elif ((args.country == "usa") | (args.country == "us")):
     c2lmales = du.csv2list("files/names/names_us/usmales.csv", header=True)
+elif (args.country == "all"):
+    c2lmales = du.csv2list("files/names/names_au/baby-names-1944-2013/aufemales.csv")
+    c2lmales = c2lmales + du.csv2list("files/names/names_ca/cafemales.csv")
+    c2lmales = c2lmales + du.csv2list("files/names/names_es/esfemeninos.csv", header=True)
+    c2lmales = c2lmales + du.csv2list("files/names/names_fi/fifemales.csv", header=True)
+    c2lmales = c2lmales + du.csv2list("files/names/names_ie/iefemales.csv")
+    c2lmales = c2lmales + du.csv2list("files/names/names_is/isfemales.csv")
+    c2lmales = c2lmales + du.csv2list("files/names/names_nz/nzfemales.csv")
+    c2lmales = c2lmales + du.csv2list("files/names/names_pt/ptfemales.csv")
+    c2lmales = c2lmales + du.csv2list("files/names/names_uy/uyfemeninos.csv", header=True)
+    c2lmales = c2lmales + du.csv2list("files/names/names_uk/ukfemales.csv", header=True)
+    c2lmales = c2lmales + du.csv2list("files/names/names_us/usfemales.csv", header=True)
 
 if (args.reverse):    
     c2lmales = sorted(c2lmales, key=getKey1)
 else:
     c2lmales = sorted(c2lmales, key=getKey1, reverse=True)
+
 # FEMALES
 
 if (args.country == "au"):
@@ -123,15 +136,24 @@ elif (args.country == "uk"):
     c2lfemales = du.csv2list("files/names/names_uk/ukfemales.csv", header=True)
 elif ((args.country == "usa") | (args.country == "us")):
     c2lfemales = du.csv2list("files/names/names_us/usfemales.csv", header=True)
-
+elif (args.country == "all"):
+    c2lfemales = du.csv2list("files/names/names_au/baby-names-1944-2013/aufemales.csv")
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_ca/cafemales.csv")
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_es/esfemeninos.csv", header=True)
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_fi/fifemales.csv", header=True)
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_ie/iefemales.csv")
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_is/isfemales.csv")
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_nz/nzfemales.csv")
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_pt/ptfemales.csv")
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_uy/uyfemeninos.csv", header=True)
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_uk/ukfemales.csv", header=True)
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_us/usfemales.csv", header=True)
+    c2lfemales = sorted(c2lfemales, key=getKey1)
+    
 if (args.reverse):    
     c2lfemales = sorted(c2lfemales, key=getKey1)
 else:
     c2lfemales = sorted(c2lfemales, key=getKey1, reverse=True)
-
-
-#printc('...some text...', 'some more text', sep='/')  # Python3 syntax
-
 
     
 n = int(args.number)
