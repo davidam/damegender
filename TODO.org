@@ -1163,5 +1163,15 @@ Hay idiomas que los nombres tienen género para llegar a esto es posible revisar
 * TODO Escribir el método surname_starts_by y name_starts_by para que dado un nombre o un apellido liste todo los nombres con los que hace match
 Se puede hacer también al revés con lo que acaba (ej: name_ends_by y surname_ends_by) 
 O se puede hacer directamente con expresión regular (ej: name_regex y surname_regex)
-* TODO Hacer un screencast usando los principales comandos
+* DONE Hacer un screencast usando los principales comandos
   SCHEDULED: <2020-07-06 lun>
+  - State "DONE"       from "TODO"       [2020-09-02 mié 05:55]
+* TODO Escribir csv2json.py
+De manera similar a csv2gender.py escribir csv2json.py, los campos vienen
+determinados por los de cualquier json, ej:
+files/names/all.csv.tree.json
+
++ name (obligatorio)
++ surname (opcional, por defecto vacío)
++ probability (opcional, por defecto valor 1)
++ gender (obligatorio)
