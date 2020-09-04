@@ -1025,15 +1025,20 @@ The number of females sending commits is 0
 
 @section Counting males and females in Maps
 
-@strong{Las calles de las mujeres} is a project in NodeJS to
-display web streets with names about females using MapBox. You can
-download the project with:
+@strong{Las calles de las mujeres} is a project in NodeJS to display
+web streets with names about females using MapBox. You can download
+the project with:
 @code{https://github.com/geochicasosm/lascallesdelasmujeres} with a
 Creative Commons License (CC-BY-SA)
 @code{https://creativecommons.org/licenses/by-sa/4.0/}.
 
+@image{images/callesresistencia,6in,,Calles de Resistencia}
+
+It's giving statisticals about how many men and women has wikipedia article,
+too.
+
 It has a strong community created by females (GeoChicas)
-@code{https://geochicas.github.io/}.
+@code{https://geochicas.github.io/} related with OpenStreetMap.
 
 @node License
 @appendix License
