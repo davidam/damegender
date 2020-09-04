@@ -1028,8 +1028,12 @@ The number of females sending commits is 0
 @strong{Las calles de las mujeres} is a project in NodeJS to display
 web streets with names about females using MapBox. You can download
 the project with:
-@code{https://github.com/geochicasosm/lascallesdelasmujeres} with a
-Creative Commons License (CC-BY-SA)
+
+@example
+$ git clone https://github.com/geochicasosm/lascallesdelasmujeres
+@end example
+
+It's licensed with a Creative Commons License (CC-BY-SA)
 @code{https://creativecommons.org/licenses/by-sa/4.0/}.
 
 @image{images/callesresistencia,6in,,Calles de Resistencia}
