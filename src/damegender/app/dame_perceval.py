@@ -57,6 +57,24 @@ class DamePerceval(object):
             second = ""
         return second
 
+    def dicc_authors_and_commits(self, url, directory, *args, **kwargs):
+        repo = Git(uri=url, gitpath=directory)
+        authors = {}
+        for user in repo.fetch():
+            if not(user['data']['Author'] in authors):
+                authors[user['data']['Author']] = 1
+            authors[user['data']['Author']] = authors[user['data']['Author']] + 1
+        return authors
+
+    def dicc_authors_and_mails(self, url, directory="files/mbox"):
+        repo = MBox(uri=url, dirpath=directory)        
+        authors = {}
+        for user in repo.fetch():
+            if not(authors[message['data']['From']] in authors):
+                authors[message['data']['From']] = 1
+            authors[user['data']['Author']] = authors[user['data']['Author']] + 1                
+        return authors
+    
     def list_committers(self, url, directory, *args, **kwargs):
         # make a list from a csv file
         mail = kwargs.get('mail', False)
