@@ -40,7 +40,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(
             len(gg.list_committers(
                 "https://github.com/davidam/davidam.git",
-                "/tmp/clonedir")), 4)
+                "/tmp/clonedir")), 3)
 
     def test_dame_perceval_list_mailers_method_returns_correct_result(self):
         gg = DamePerceval()
@@ -55,14 +55,15 @@ class TddInPythonExample(unittest.TestCase):
                 gg.list_mailers(
                     'http://mail-archives.apache.org/mod_mbox/httpd-announce/')
             ) >= 0)
-
-    def test_dame_perceval_list_committers_method_returns_correct_result(self):
+        
+    def test_dame_perceval_dicc_authors_and_commits_method_returns_correct_result(self):
         dp = DamePerceval()
-        l0 = dp.list_committers(
+        dicc = dp.dicc_authors_and_commits(
             "https://github.com/davidam/davidam.git",
-            "/tmp/clonedir", mail=True)
-        self.assertEqual(['David Arroyo Menéndez <davidam@es.gnu.org>', 'David Arroyo Menendez <davidam@gmail.com>', 'David Arroyo Menéndez <d.arroyome@alumnos.urjc.es>', 'David Arroyo <davidam@gmail.com>'], l0)                
-
+            "/tmp/clonedir")
+        num = dicc['David Arroyo Menéndez <davidam@es.gnu.org>']
+        self.assertEqual(num, 4)
+        
     def test_dame_perceval_github_json_user_method_returns_correct_result(self):
         dp = DamePerceval()
         j = dp.get_github_json_user("davidam")
