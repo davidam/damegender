@@ -65,17 +65,17 @@ if (len(sys.argv) > 1):
             
     print("The number of males sending commits is %s" % males)
     if ((args.show=='males') or (args.show=='all')):
-        print("The list of males sending mails is:" % list_males)
+        print("The list of males sending commits is:" % list_males)
         print(list_males)
     
     print("The number of females sending commits is %s" % females)
     if ((args.show=='females') or (args.show=='all')):
-        print("The list of females sending mails is:" % list_females)
+        print("The list of females sending commits is:" % list_females)
         print(list_females)
     
     print("The number of people with unknown gender sending commits is %s" % unknowns)    
     if ((args.show=='unknowns') or (args.show=='all')):
-        print("The list of people with unknown gender sending mails is:" % list_unknowns)
+        print("The list of people with unknown gender sending commits is:" % list_unknowns)
         print(list_unknowns)
 
     
