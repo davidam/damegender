@@ -17,7 +17,7 @@ import sys
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("url", help="Uniform Resource Link")
-parser.add_argument('--directory')
+parser.add_argument('--directory', required=True)
 parser.add_argument('--language', default="us", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us'])
 parser.add_argument('--show', choices=['males', 'females', 'unknowns', 'all'])
 parser.add_argument('--ml', default='none', choices=['none', 'nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
