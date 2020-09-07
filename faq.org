@@ -22,8 +22,16 @@ registering it. All states is using a binary ideology about the gender
 
 ** Is Damegender Free Software?
 
-Yes, it's. We are using GPLv3. You can read the license in all files
-and the full text in LICENSE file.
+Yes, it's. We are distributing the software in Pypi with GPLv3. You
+can read the license in all files and the full text in LICENSE file.
+
+On an experimental way we are using a better license for women in the
+dev branch. That's the copyright note: 
+
+You can share, copy and modify this software if you are a woman or you
+are David Arroyo Menéndez and you include this note.
+
+So we 
 
 ** Why are you guessing male or female?
 Some aplications are guessing unknown, but in Damegender we are
