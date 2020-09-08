@@ -72,9 +72,10 @@ if (len(sys.argv) > 1):
         print(list_males)
         if (args.verbose):
             for i in l5.keys():
-                if i in list_males:
-                    print(i)
-
+                identity = du.identity2name_email(i)
+                if identity[0] in list_males:
+                    print("%s (%s commits)" % (i, l5[i]))
+                    
         
     print("The number of females sending commits is %s" % females)
     if ((args.show=='females') or (args.show=='all')):
@@ -82,9 +83,9 @@ if (len(sys.argv) > 1):
         print(list_females)
         if (args.verbose):
             for i in l5.keys():
-                if i in list_females:
-                    print(i)
-            
+                identity = du.identity2name_email(i)
+                if identity[0] in list_females:
+                    print("%s (%s commits)" % (i, l5[i]))
         
     print("The number of people with unknown gender sending commits is %s" % unknowns)    
     if ((args.show=='unknowns') or (args.show=='all')):
@@ -92,7 +93,8 @@ if (len(sys.argv) > 1):
         print(list_unknowns)
         if (args.verbose):
             for i in l5.keys():
-                if i in list_unknowns:
-                    print(i)
+                identity = du.identity2name_email(i)
+                if identity[0] in list_unknowns:
+                    print("%s (%s commits)" % (i, l5[i]))
 
     
