@@ -55,6 +55,14 @@ class TddInPythonExample(unittest.TestCase):
                 gg.list_mailers(
                     'http://mail-archives.apache.org/mod_mbox/httpd-announce/')
             ) >= 0)
+
+    def test_dame_perceval_dicc_authors_and_mails_method_returns_correct_result(self):
+        dp = DamePerceval()
+        dicc = dp.dicc_authors_and_mails(
+            "http://mail-archives.apache.org/mod_mbox/httpd-announce/")
+        print(dicc)
+        num = dicc['Jim Jagielski <jim@jaguNET.com>']        
+        self.assertEqual(num, 2)
         
     def test_dame_perceval_dicc_authors_and_commits_method_returns_correct_result(self):
         dp = DamePerceval()
