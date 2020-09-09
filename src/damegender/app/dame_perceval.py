@@ -69,10 +69,10 @@ class DamePerceval(object):
     def dicc_authors_and_mails(self, url, directory="files/mbox"):
         repo = MBox(uri=url, dirpath=directory)        
         authors = {}
-        for user in repo.fetch():
-            if not(authors[message['data']['From']] in authors):
+        for message in repo.fetch():
+            if not(message['data']['From'] in authors.keys()):
                 authors[message['data']['From']] = 1
-            authors[user['data']['Author']] = authors[user['data']['Author']] + 1                
+            authors[message['data']['From']] = authors[message['data']['From']] + 1                
         return authors
     
     def list_committers(self, url, directory, *args, **kwargs):
