@@ -12,8 +12,11 @@
 import requests
 import json
 import re
+import datetime
+from datetime import timedelta
 from perceval.backends.core.mbox import MBox
 from perceval.backends.core.git import Git
+from perceval.backends.core.launchpad import Launchpad
 from app.dame_utils import DameUtils
 from app.dame_gender import Gender
 
@@ -98,6 +101,17 @@ class DamePerceval(object):
             list_mailers.append(message['data']['From'])
         return list_mailers
 
+    def list_launchpad(self, name, from_date=""):
+        l = []
+        if (from_date==""):
+            from_date = datetime.datetime.now() - timedelta(days=1)
+        # name = "ubuntu"
+        # retrieve only reviews changed since one day ago
+        repo = Launchpad(name)
+        for r in repo.fetch(from_date=from_date):
+            l.append(r['data']['activity_data'][0]['person_data']['display_name'])
+        return l
+    
     def count_gender_in_list(self, l):
         g = Gender()
         males = 0
