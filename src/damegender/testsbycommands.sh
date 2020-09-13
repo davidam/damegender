@@ -183,12 +183,12 @@ else
 	echo "csv2genderpartial test is ok"
 fi
 
-if [ -a files/images/pca_components_files_features_list.csv.png ]; then
+if [ -f files/images/pca_components_files_features_list.csv.png ]; then
     rm files/images/pca_components_files_features_list.csv.png
 fi
 
 python3 pca-components.py --csv='files/features_list.csv' --no-show
-if [ -a files/images/pca_components_files_features_list.csv.png ]; then
+if [ -f files/images/pca_components_files_features_list.csv.png ]; then
 	echo "pca-components test is ok"
 else
 	echo "pca-components test is failing"
@@ -202,12 +202,12 @@ else
 	echo "pca-features-both test is ok"
 fi
 
-if [ -a files/images/pca_components_files_features_list_no_cat.csv.png ]; then
+if [ -f files/images/pca_components_files_features_list_no_cat.csv.png ]; then
     rm files/images/pca_components_files_features_list_no_cat.csv.png
 fi
 
 python3 pca-components.py --csv='files/features_list_no_cat.csv' --no-show
-if [ -a files/images/pca_components_files_features_list_no_cat.csv.png ]; then
+if [ -f files/images/pca_components_files_features_list_no_cat.csv.png ]; then
 	echo "pca-components-nocategorical test is ok"
 else
 	echo "pca-components-nocategorical test is failing"
@@ -221,12 +221,12 @@ else
 	echo "pca-features-nocategorical test is ok"
 fi
 
-if [ -a files/images/pca_components_files_features_list_cat.csv.png ]; then
+if [ -f files/images/pca_components_files_features_list_cat.csv.png ]; then
     rm files/images/pca_components_files_features_list_cat.csv.png
 fi
 
 python3 pca-components.py --csv='files/features_list_cat.csv' --no-show
-if [ -a files/images/pca_components_files_features_list_cat.csv.png ]; then
+if [ -f files/images/pca_components_files_features_list_cat.csv.png ]; then
 	echo "pca-components-categorical test is ok"
 else
 	echo "pca-components-categorical test is failing"
@@ -240,7 +240,7 @@ else
 	echo "pca-features-nocategorical test is ok"
 fi
 
-if [ -a files/images/pca_components_files_features_list_no_undefined.csv.png ]; then
+if [ -f files/images/pca_components_files_features_list_no_undefined.csv.png ]; then
     rm files/images/pca_components_files_features_list_no_undefined.csv.png
 fi
 
@@ -472,12 +472,12 @@ else
 	echo "top test is ok"
 fi
 
-if [ -a files/images/roc_gaussianNB.png ]; then
+if [ -f files/images/roc_gaussianNB.png ]; then
     rm files/images/roc_gaussianNB.png
 fi
 
 python3 roc.py gaussianNB --noshow
-if [ -a files/images/roc_gaussianNB.png ]; then
+if [ -f files/images/roc_gaussianNB.png ]; then
 	echo "roc test is ok"
 else
 	echo "roc test is failing"
