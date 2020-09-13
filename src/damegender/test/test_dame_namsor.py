@@ -88,15 +88,12 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_namsor_accuracy_score_dame(self):
         dn = DameNamsor()
         ds = DameStatistics()
-        gl1 = dn.gender_list(path="files/names/partial.csv")
-        gl2 = dn.guess_list(path="files/names/partial.csv",
+        if (dn.config['DEFAULT']['namsor'] == 'yes'):        
+            gl1 = dn.gender_list(path="files/names/partial.csv")
+            gl2 = dn.guess_list(path="files/names/partial.csv",
                              binary=True)
-        score1 = ds.accuracy_score_dame(gl1, gl2)
-        self.assertEqual(score1, 1)
-        # score2 = dn.accuracy_score_dame([1, 1, 1, 0], [1, 1, 2, 0])
-        # self.assertEqual(score2, 0.75)
-        # score3 = dn.accuracy_score_dame([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
-        # self.assertEqual(score3, 1)
+            score1 = ds.accuracy_score_dame(gl1, gl2)
+            self.assertEqual(score1, 1)
 
 
     def test_dame_namsor_download(self):
