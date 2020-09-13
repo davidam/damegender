@@ -10,6 +10,8 @@
 # are David Arroyo Menéndez and you include this note.
 
 import unittest
+import datetime
+from datetime import timedelta
 from app.dame_perceval import DamePerceval
 
 class TddInPythonExample(unittest.TestCase):
@@ -56,11 +58,15 @@ class TddInPythonExample(unittest.TestCase):
                     'http://mail-archives.apache.org/mod_mbox/httpd-announce/')
             ) >= 0)
 
+    def test_dame_perceval_list_launchpad_method_returns_correct_result(self):
+        dp = DamePerceval()
+        l = dp.list_launchpad("ubuntu", datetime.datetime.now() - timedelta(hours=12))
+        self.assertTrue(len(l) > 1)
+        
     def test_dame_perceval_dicc_authors_and_mails_method_returns_correct_result(self):
         dp = DamePerceval()
         dicc = dp.dicc_authors_and_mails(
             "http://mail-archives.apache.org/mod_mbox/httpd-announce/")
-        print(dicc)
         num = dicc['Jim Jagielski <jim@jaguNET.com>']        
         self.assertEqual(num, 2)
         
