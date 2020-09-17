@@ -1,23 +1,23 @@
-365196 males for David from INE.es
-0 females for David from INE.es
-360 males for David from Ireland
-0 females for David from Ireland
-0 males for David from Iceland
-0 females for David from Iceland
-912 males for David from Finland
-0 females for David from Finland
-1193 males for David from Uruguay census
-5 females for David from Uruguay census
-26645 males for David from United Kingdom census
-0 females for David from United Kingdom census
-36890 males for David from New Zealand census
-0 females for David from New Zealand census
-8201 males for David from Canada census
-1 females for David from Canada census
-744 males for David from Portugal census
-0 females for David from Portugal census
-3552580 males for David from United States of America census
-12826 females for David from United States of America census
-5604 males for David from Australia census
-7 females for David from Australia census
+365196 males for David from Spain statistics (INE.es)
+0 females for David from Spain statitstics (INE.es)
+360 males for David from Ireland statisctics
+0 females for David from Ireland statistics
+0 males for David from Iceland statistics
+0 females for David from Iceland statistics
+912 males for David from Finland statistics
+0 females for David from Finland statistics
+1193 males for David from Uruguay statistics
+5 females for David from Uruguay statistics
+26645 males for David from United Kingdom statistics
+0 females for David from United Kingdom statistics
+36890 males for David from New Zealand statistics
+0 females for David from New Zealand statistics
+8201 males for David from Canada statistics
+1 females for David from Canada statistics
+744 males for David from Portugal statistics
+0 females for David from Portugal statistics
+3552580 males for David from United States of America statistics
+12826 females for David from United States of America statistics
+5604 males for David from Australia statistics
+7 females for David from Australia statistics
 David gender predicted with nltk is male
