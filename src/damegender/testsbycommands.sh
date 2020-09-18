@@ -430,9 +430,9 @@ python3 surnameincountries.py Gil > files/tests/surnameincountries-gil-$(date "+
 
 if ! cmp files/tests/surnameincountries-gil.txt files/tests/surnameincountries-gil-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-	echo "surnamegil test is failing"
+	echo "surnameincountriesgil test is failing"
 else
-	echo "surnamegil test is ok"
+	echo "surnameincountriesgil test is ok"
 fi
 
 python3 surname.py Menendez --total=es --spanish_provinces > files/tests/surnamemenendezprovinces-$(date "+%Y-%m-%d-%H").txt
