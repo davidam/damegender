@@ -155,8 +155,15 @@ if (args.reverse):
 else:
     c2lfemales = sorted(c2lfemales, key=getKey1, reverse=True)
 
+n = int(args.number)    
+
+if (args.less and (args.sex=='female')):
+    n = len(c2lfemales)
+elif (args.less and (args.sex=='male')):    
+    n = len(c2lmales)    
+elif (args.less and (args.sex=='all')):
+    n = len(c2lmales) + len(c2lfemales)
     
-n = int(args.number)
 if (args.sex == "male"):
     position = 1
     for i in c2lmales[0:n]:
