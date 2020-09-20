@@ -24,8 +24,11 @@
 import requests
 import json
 import re
+import datetime
+from datetime import timedelta
 from perceval.backends.core.mbox import MBox
 from perceval.backends.core.git import Git
+from perceval.backends.core.launchpad import Launchpad
 from app.dame_utils import DameUtils
 from app.dame_gender import Gender
 
@@ -69,6 +72,24 @@ class DamePerceval(object):
             second = ""
         return second
 
+    def dicc_authors_and_commits(self, url, directory, *args, **kwargs):
+        repo = Git(uri=url, gitpath=directory)
+        authors = {}
+        for user in repo.fetch():
+            if not(user['data']['Author'] in authors):
+                authors[user['data']['Author']] = 1
+            authors[user['data']['Author']] = authors[user['data']['Author']] + 1
+        return authors
+
+    def dicc_authors_and_mails(self, url, directory="files/mbox"):
+        repo = MBox(uri=url, dirpath=directory)        
+        authors = {}
+        for message in repo.fetch():
+            if not(message['data']['From'] in authors.keys()):
+                authors[message['data']['From']] = 1
+            authors[message['data']['From']] = authors[message['data']['From']] + 1                
+        return authors
+    
     def list_committers(self, url, directory, *args, **kwargs):
         # make a list from a csv file
         mail = kwargs.get('mail', False)
@@ -92,6 +113,17 @@ class DamePerceval(object):
             list_mailers.append(message['data']['From'])
         return list_mailers
 
+    def list_launchpad(self, name, from_date=""):
+        l = []
+        if (from_date==""):
+            from_date = datetime.datetime.now() - timedelta(days=1)
+        # name = "ubuntu"
+        # retrieve only reviews changed since one day ago
+        repo = Launchpad(name)
+        for r in repo.fetch(from_date=from_date):
+            l.append(r['data']['activity_data'][0]['person_data']['display_name'])
+        return l
+    
     def count_gender_in_list(self, l):
         g = Gender()
         males = 0

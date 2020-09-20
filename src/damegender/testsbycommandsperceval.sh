@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright (C) 2019  David Arroyo Menéndez
+# Copyright (C) 2020  David Arroyo Menéndez
 
 # Author: David Arroyo Menéndez <davidam@gnu.org>
 # Maintainer: David Arroyo Menéndez <davidam@gnu.org>
@@ -9,15 +9,15 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3, or (at your option)
 # any later version.
-
+# 
 # This file is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-
+# 
 # You should have received a copy of the GNU General Public License
 # along with Damegender; see the file LICENSE.  If not, write to
-# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 # Boston, MA 02110-1301 USA,
 
 rm -rf /tmp/clonedir
@@ -42,6 +42,14 @@ else
 	echo "git2genderdrupal test is ok"
 fi
 
+python3 git2gender.py https://github.com/davidam/damegender.git --directory=/tmp/d --show=all --verbose --language=es > files/tests/git2genderverbose-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/git2genderverbose.txt files/tests/git2genderverbose-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "git2genderverbose test is failing"
+else
+	echo "git2genderverbose test is ok"
+fi
 
 cd files/mbox
 wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox

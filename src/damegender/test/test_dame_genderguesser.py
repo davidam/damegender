@@ -1,6 +1,29 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+# Copyright (C) 2019  David Arroyo Menéndez
+
+# Author: David Arroyo Menéndez <davidam@gnu.org>
+# Maintainer: David Arroyo Menéndez <davidam@gnu.org>
+
+# This file is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3, or (at your option)
+# any later version.
+
+# This file is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with Damegender; see the file LICENSE.  If not, write to
+# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+# Boston, MA 02110-1301 USA,
+
 import unittest
 from app.dame_genderguesser import DameGenderGuesser
-
+from app.dame_statistics import DameStatistics
 
 class TddInPythonExample(unittest.TestCase):
 
@@ -37,8 +60,9 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_genderguesser_accuracy(self):
         dgg = DameGenderGuesser()
+        ds = DameStatistics()
         gl1 = dgg.gender_list(path="files/names/partial.csv")
         gl2 = dgg.guess_list(path="files/names/partial.csv",
                                         binary=True)
-        self.assertTrue(dgg.accuracy_score_dame(gl1, gl2) >= 0.5)
-        self.assertTrue(dgg.accuracy(path="files/names/partial.csv") >= 0.5)
+        self.assertTrue(ds.accuracy_score_dame(gl1, gl2) >= 0.5)
+#        self.assertTrue(ds.accuracy(path="files/names/partial.csv") >= 0.5)

@@ -1,0 +1,445 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{twocolpceurws}
+\usepackage{xcolor}
+\usepackage{url}
+
+\def\infinity{\rotatebox{90}{8}}
+
+
+\title{[Artifact Presentation] Damegender: \\ Writing and Comparing Gender Detection Tools}
+
+\author{
+David Arroyo Menéndez, Jesus González-Barahona, Gregorio Robles \\ Grupo de Sistemas y Comunicaciones (GSyC) \\ Universidad Rey Juan Carlos, Madrid, Spain \\ \{d.arroyome@alumnos, jgb@gsyc, grex@gsyc\}.urjc.es
+}
+
+
+\newif\ifdraft
+\drafttrue
+%\draftfalse
+\input{macros}
+
+
+\institution{}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+%Context
+Diversity in software development teams has been identified as one of the main ingredients of a more productive and healthy software community.
+Thus, the interest of the research community in identifying who is contributing to a project has increased in the last years.
+In the software domain, and although other types of diversity exist, this is particularly important for the case of gender.
+% Objective, 
+Given the large amount of publicly available data on the software development process that can be retrieved and analyzed from the Internet (e.g., GitHub, StackOverflow), the importance of having methods and tools that help to identify the participation of women within large amounts of data is desirable.
+% Method name-to-gender inference
+In this paper we present a free software tool, called \texttt{damegender}, which we have conceived to infer the gender from the name of a participant.
+\texttt{damegender} is based on open databases from official census and uses Machine Learning.
+An experimental branch is currently under development for those cases where instead of names we have diminutives or nicknames.
+% Results 
+We have compared \texttt{damegender} with other name-to-gender inference tools, obtaining good results.
+% Conclusions.
+We hope the \texttt{damegender} tool can become a cornerstone for the scientific advancement of the study of gender (including the gender gap) and diversity in Information Technology (IT), and in particular in the free software community.
+\end{abstract}
+
+
+\section{Introduction}
+
+In recent times, many research investigations have been made on gender diversity in the IT domain.
+Examples of these efforts range from the participation in Twitter~\cite{burger2011discriminating,mislove2011understanding},
+in Wikipedia~\cite{antin2011gender,hill2013wikipedia}, in science~\cite{holman2018gender,dollar1999gender}, and more specifically in the software domain in StackOverflow~\cite{vasilescu2012gender,vasilescu2015gender}, GitHub~\cite{vasilescu2015gender}, and free software development~\cite{robles2014floss,izquierdo2018openstack,lee2019floss,catolino2019gender}.
+
+The interest on gender diversity has become more and more relevant, and so does the identification methods that allow us to perform comprehensive studies on gender representation, given the large amounts of data available, in particular from collaborative environments.
+
+The most used method to infer the gender of participants is by looking at their name.
+However, there are some studies about Twitter and GitHub where not only names are used to detect gender. 
+In those studies we can find gender detection tools that infer the gender from faces in images~\cite{ranjan2017hyperface}, from hand-written annotations~\cite{liwicki2011automatic}, or from speeches~\cite{koppel2002automatically}.
+
+Currently, there are different ways to detect gender from a person's name (and maybe other personal data, such as the surname, the geographic location, etc.).
+A first one is based on data extracted from the Wikipedia, self-references in trust websites, searches in Google Images, among others.
+Another way to do it is by using one of the existing Application Programming Interfaces (APIs).
+This paper is about the latter, focusing on their possibilities and limitations.
+Therefore, (i) we evaluate the quality (and accessibility, including price) of different existing solutions;
+(ii) we discuss their limitations; and
+(iii) we investigate what happens with those names not included in a census, for example, nicknames or diminutives.
+% and (iv) we elaborate on how massive gender detection from Internet, for example, mailing lists or software repositories, can be done.
+
+As a result, we contribute with: 
+(i) an evaluation of the quality of different solutions applying well-known metrics;
+
+(ii) a tool, called \texttt{damegender}, guessing gender from a name
+  giving support to Spanish and English from the open data census
+  provides by the states built to understand current technologies in
+  detail; this tool has been compared with APIs using an international
+  dataset with good results; and
+  
+(iii) a machine learning solution to strings not found in the census
+  dataset to approach the problem with nicknames and diminutives;
+  
+%(iv) a proof-of-concept of \texttt{damegender} to detect gender in mailing lists and software repositories.
+
+%A summary of current features of \texttt{damegender} are:
+%
+%\begin{itemize}
+% \item To deduce the gender about a name in Spanish or English (current status) from open census in local.
+% \item To decide about males and females in strings using different machine learning algorithms.
+% \item To use the main solutions in gender detection (genderize, genderapi, namsor, nameapi and gender guesser) from a command.
+% \item To allow research to link names to males or females, based on statistical . We provide Python commands to study and compare gender solutions with confusion matrix, accuracies, and error measures. And to decide about features: statistical feature weight, principal component analysis, ...
+% \item To determine gender gap in free software repositories or mailing lists (proof of concept).
+%\end{itemize}
+
+The remainder of this paper is structured as follows:
+
+In Section~\ref{sec:damegender} we explain \texttt{damegender} as solution to the problem of name-to-gender inference.
+Section~\ref{sec:datasets} introduces the Open Datasets used as the \emph{golden truth}.
+Section~\ref{sec:comparison} presents a feature comparison with other name-to-gender inference services and tools.
+Section~\ref{sec:reproducing} reports on values of accuracy and offers a confusion matrix using a scientific dataset.
+Section~\ref{sec:ml} is about how we use Machine Learning in \texttt{damegender}.
+Section~\ref{sec:limitations} discusses limitations and further research, and concludes the paper.
+
+\section{Damegender}
+\label{sec:damegender}
+
+\texttt{damegender}\footnote{https://github.com/davidam/damegender} is a gender detection tool released under a free software license (in particular, the GNU General Public License v3.0). 
+It has been implemented in Python to take advantage of many other free software tools used in the scientific domain, such as the Natural Language Toolkit (NLTK) for natural language processing~\cite{loper2002nltk}, Scikit for machine learning~\cite{pedregosa2011scikit}, Numpy nor numerical computation~\cite{van2011numpy}, and Matplotlib to visualize results~\cite{hunter2007matplotlib}. 
+At its current point it is linked to Perceval~\cite{duenas2018perceval}, a tool specialized in retrieving and gathering data from software repositories, such as git and mailing lists.
+\texttt{damegender} is a Python package that can be easily installed using PIP (the package installer for Python) from the console.
+
+%The software is using an object-oriented design with unit testing for classes and methods. 
+
+The main reason for developing \texttt{damegender} is that there are not many free software tools that help in the identification of gender. 
+Before \texttt{damegender}, only \texttt{Gender guesser}\footnote{https://github.com/lead-ratings/gender-guesser} offered a free software solution in this field~\cite{krawetz2006gender}, and the project (i) has not been active for more than three years now, (ii) lies technologically well behind other solutions.
+The best contribution of \texttt{Gender guesser} is the dataset containing 48,528 names with a good classification by countries\footnote{\url{https://raw.githubusercontent.com/lead-ratings/gender-guesser/master/gender_guesser/data/nam_dict.txt}}.
+
+\section{Datasets}
+\label{sec:datasets}
+
+Name-to-gender inference services and tools apply several methods for estimating the gender from a given name. 
+As a starting point, however, all of them rely on a dataset that contains information on what gender a name usually can be attributed to.
+
+There are several sources to create these databases, being the most common:  
+(1) a census published with a free license (open census way), 
+(2) a dataset released with a free license in a free software package (free software way), 
+(3) a dataset retrieved from commercial APIs (commercial API way), and
+(4) a dataset which is the result of an investigation and that has been released publicly (scientific way).
+
+In \texttt{damegender}, we are including Open Data census about names and gender, usually offered by governments, such as the ones from Spain (by means of INE.es, the Spanish National Statistics Institute), Uruguay, USA and UK. 
+%The datasets provided by the software package is incrementing the speed retrieving data.
+
+\begin{table*}[ht]
+\footnotesize
+\begin{tabular}[]{lcccccc}
+\hline
+Service / Tool $->$ & Gender API & gender-guesser & genderize.io & NameAPI & NamSor & damegender\tabularnewline
+\hline
+Database size & 431M & 45K & 114M & 1M & 4G & 57K \tabularnewline
+Regular data updates & Yes & no & No & Yes & Yes & Yes\tabularnewline
+Unstructured full name strings & Yes & No & No & Yes & No & Yes\tabularnewline
+Surnames & Yes & No & No & Yes & Yes & Yes\tabularnewline
+Non-Latin alphabets & Partial & No & Partial & Yes & Yes & No\tabularnewline
+Implicit geo-localization & Yes & No & No & Yes & Yes & No\tabularnewline
+Exists locale & Yes & Yes & Yes & Yes & Yes & Yes\tabularnewline
+Assignment type & P & B & P & P & P & P \tabularnewline
+Free parameters & T,P & G & P,C & T & S & T,C\tabularnewline
+Prediction & No & No & No & No & No & Yes\tabularnewline
+Free license & No & Yes & No & No & No & Yes\tabularnewline
+REST API & Yes & No & Yes & Yes & Yes & Planned\tabularnewline
+Limits number of requests & Yes (200) & \infinity & Yes & Yes & Yes & \infinity \tabularnewline
+Subscription (100K requests/month)	 & 79 & 0 & 7 & 150 & 80 & 0 \tabularnewline
+\hline
+\end{tabular}
+\caption{Comparison of the different features that name-to-gender inference services and tools offer. Assignment type = \{P: Probabilistic; B: Binary\}. Free Parameters = \{T: total\_names; P: probability; C: count; G: gender; T: trust; S: scale \}. The subscription price is given in euro.}
+\vspace{0.3cm}
+\label{table:comparison}
+\end{table*}
+
+
+Some Open Datasets, such the one offered by INE.es or the government of the US offer support for surnames and how they are related to ethnicity. 
+In particular, the dataset from the government of the US offers a probability of the race, and the Spanish INE.es gives the number of people with a surname with a nationality different to the Spanish nationality.
+
+Generally, a name has a strong weight to determine if it is a male or a female using this procedure.
+For instance, David is registered 365,196 times as male, but 0 times as female in the data offered by the Spain National Institute of Statistics.
+There are names that heavily depend on the region. 
+For instance, Andrea would be considered a female name in Germany, but a male name in Italy.
+Hence, we are using the census approach as base of truth to distinguish if a name is male or female in a geographical area. 
+However, many countries do not provide Open Data census about gender and names, although our hope is that they will do in the near future.
+
+%From the user final point of view, the value of using Open Data is to give a good explanation when we are asking about the gender from a name (number of males and females using a specific name in a country) versus a probability created by the way explained in~\cite{10.7717/peerj-cs.156} or similar.
+
+%From the scientific point of view, the value of using Open Data is to allow that the experiment can be reviewed by peers on an automatic and legal way (using proprietary data the reviewer should request it separately to make the review).
+
+%A second approach is to build the dataset reviewing the names in scientific personal sites, Wikipedia, ... ~\cite{10.7717/peerj-cs.156}. 
+%This approach is valid, but it consumes many time and efforts, although could be useful if there not a legal way to build the dataset.
+
+We have evaluated to include data from the second option (datasets released with a free license). 
+For instance, the Natural Language Tool Kit offers 8,000 labeled English names classified as male or female. 
+Another example is \texttt{Gender Guesser}, which provides a good dataset for international names with different categories to define the probability. 
+Although these datasets can be incorporated into \texttt{damegender}, the problem with them is that, in general, we have observed that they do not have the quality of National Statistics Institutes. 
+
+%This approach is similar to use a dataset released with a paper in a journal, the advantage is to understand and add new names with a solid criteria accepted by the scientific community.
+
+The third approach is to create the dataset from existing, usually commercial solutions.
+Here we have to trust their results, in the same way we trust search engines when we make searches in Internet.
+This is because commercial APIs can be seen as a black box -- we do not know where the data comes from and how it has been treated.
+But, at least, we can measure its quality, as we will do next.
+So, we will see that --at this point-- commercial APIs offer better results than other solutions.
+That is why \texttt{damegender} gives the possibility to include data from them.
+It is possible to download JSON files from the main commercial name-to-gender inference API solutions (e.g., \texttt{genderapi}, \texttt{genderize}, \texttt{namsor}, \texttt{nameapi}) and use it as the dataset.
+There are certain uses that are currently only available in such tools.
+
+% One user can build proprietary datasets on this way using an average weighted by the precision or accuracy of each Application Programming Interface measured with \texttt{damegender} with an open dataset as base of truth.
+
+As a final goal, we envision to build a free dataset with names and gender, that builds on top of \texttt{Gender Guesser} and that can be made available as Wikidata with a free license. 
+Perhaps, to complete this work, we need to combine an automated with a manual process as described in~\cite{10.7717/peerj-cs.156}.
+
+
+
+\section{Feature comparison with other tools}
+\label{sec:comparison}
+
+Standard commercial name-to-gender inference APIs usually guess the gender for a single name or a list of names (from a CSV file or an API call). 
+To express geolocalization the user can also give surnames, a country ISO code, or specify a language.
+Generally, you can give a probability and a counter associated to a name and gender in a certain population.
+
+Santamaría and Mihaljevi\'c~\cite{10.7717/peerj-cs.156} offer a framework to classify gender tools.
+The features observed in this framework are: (i) database size (as of January 2018), (ii) if there are regular data updates, (iii) if they handle unstructured full name strings, (iv) if they handle surnames, (v) if they handle non-Latin alphabets, (vi) if implicit geolocalization is available, (vii) if locale exists, (viii) the type of assignment, (ix) if free parameters are possible, (x) if they offer prediction, (xi) if the tool is released under an open source license, (xii) if they offer an API, (xiii) the amount of monthly free requests, and (xiv) the monthly subscription cost (calculated for 100,000 requests/month)).
+
+We have used this comparison framework and have updated it to the current situation and extended it with \texttt{damegender}.
+Results can be found in Table~\ref{table:comparison}.
+As it can be observed, commercial services have the advantage of owning large datasets, in the order of millions or even of billions of entries.
+The most advanced ones offer support for non-Latin alphabets.
+However, they limit the amount of free requests that can be performed and their costs range from 7 euro to 150 euro per month.
+
+\section{Reproducing values of accuracy and confusion matrix}
+\label{sec:reproducing}
+
+%\begin{table*}[]{@{}lllllll@{}}
+\begin{table}[t]
+\footnotesize
+\begin{tabular}[]{lcccc}
+  \hline
+  API & Acc & Prec & F1 & Recall\tabularnewline
+\hline
+Genderapi & 0.969 & 0.972 & 0.964 & 1.0\tabularnewline
+Genderize & 0.927 & 0.976 & 0.966 & 1.0\tabularnewline
+Damegender (SVC)\footnote{SVC is the acronym of Support Vector Classification, the Machine Learning algorithm that Damegender was using with this results} & 0.879 & 0.972 & 0.972 & 1.0\tabularnewline
+Namsor & 0.867 & 0.973 & 0.924 & 1.0\tabularnewline
+Nameapi & 0.830 & 0.974 & 0.905 & 1.0\tabularnewline
+Gender Guesser & 0.774 & 0.985 & 0.872 & 1.0\tabularnewline
+\hline
+\end{tabular}
+\caption{Comparison of measures of the quality of the results for the tools under study.}
+\label{table:DifferentAccuraciesMeasures}
+\end{table}
+
+In this section, we will analyze the quality of the service of existing name-to-gender inference services and tools.
+There are different ways to express the probability of a successful identification (e.g., confidence, scale, accuracy, precision, and recall).
+We can also inspect the confusion matrix to understand where the tools and services succeed or fail, and to analyze the different errors measures (error coded, error coded without not applicable values, error gender bias, not applicable coded) that can happen.
+
+Santamaría and Mihaljevi\'c~\cite{10.7717/peerj-cs.156} explain different ways to determine gender from a name; they offer 7,000 names that can serve as the \emph{golden set} to evaluate them. 
+In their dataset, gender is classified as male, female, or unknown. 
+We have used this dataset, not considering the unknown variable, for our experiments.
+
+The results, using common information retrieval metrics, can be seen in Table~\ref{table:DifferentAccuraciesMeasures}.
+Accuracy is the ratio of correctly predicted observation to the total observations.
+It should be noted that \emph{Accuracy} can be a misleading metric for imbalanced data sets.
+This is because for a sample with 85 negative and 15 positive values, classifying all values as negative would give an accuracy score of 0.85.
+In those cases, it is better to report other measures, such as the balanced accuracy, which normalizes true positive and true negative predictions by the number of positive and negative samples.
+As Santamaría and Mihaljevi\'c's data does not come from the IT domain, we can use accuracy in our research.
+Precision is the fraction of relevant instances among the retrieved instances.
+Recall is the fraction of the total amount of relevant instances that were actually retrieved.
+In our case, we have left no name out, so recall is 1 for all tools.
+Precision and recall are sometimes used together in the F1 Score (or f-measure) to provide a single measurement for a system.
+As can be observed, \texttt{Genderapi} and \texttt{Genderize} obtain the best results -- although all solutions are close and reach results better than 0.8 for accuracy, except for \texttt{Gender Guesser}.
+\texttt{damegender} offers relatively good results.
+Given, however, that its focus is mainly to be used in the IT domain, where the gender is highly imbalanced, we are very positive about its precision, as accuracy is not that relevant as noted above.
+
+%\grex{Deberiamos explicar que es cada una de las metricas. Y tambien por que tenemos 1.0 de recall en todos los casos.}
+%\davidam{Esto es un poco largo de explicar. Está explicado de una manera abreviada más arriba. Si te ves con energías para explicarlo, está explicado en https://easychair.org/publications/preprint/vthL}
+
+
+
+\begin{table}[t]
+\footnotesize
+\begin{tabular}[]{lrrrr}
+  \hline
+  APIs          & gender & male & female & undef \tabularnewline
+\hline
+%%\endhead
+Genderapi         & male    & 3589 & 155  &  67 \tabularnewline
+                  & female  & 211  & 1734 &  23 \tabularnewline
+Damegender       & male    & 3663 & 147  &   0 \tabularnewline
+                & female  & 551  & 1497 &   0 \tabularnewline
+Genderguesser     & male    & 3326 &  139 & 346 \tabularnewline
+                  & female  & 78   & 1686 & 204 \tabularnewline
+Namsor            & male    & 3325 & 139  & 346 \tabularnewline
+                  & female  & 78   & 1686 & 204 \tabularnewline
+Genderize         & male    & 3157 & 242  & 412 \tabularnewline
+                  & female  & 75   & 1742 & 151 \tabularnewline
+Nameapi           & male    & 2627 & 674  & 507 \tabularnewline
+                  & female  & 667  & 1061 & 240 \tabularnewline 
+\hline
+\end{tabular}
+\caption{Confusion matrix tables by APIs}
+\label{table:ConfusionMatrixTables}
+\end{table}
+
+
+We have performed a comparison using a confusion matrix for the software/tools under study (see Table~\ref{table:ConfusionMatrixTables}).
+These results are very similar to the ones reported in~\cite{10.7717/peerj-cs.156}, which offers confidence that we have done our comparison correctly.
+The most important tools (\texttt{Namsor}, \texttt{Genderapi}, and \texttt{Genderize}) improve the values of accuracy with respect to the previous comparison.
+In particular, \texttt{Genderapi} improves the results for \emph{undefined}.
+For \texttt{Genderize}, we obtain exactly the same results. 
+For \texttt{Genderguesser}, however, we obtain different results, which is to some extent not expected, because the software has not been modified for several years.
+\texttt{Nameapi}'s results is changing from male to female with more errors. 
+In \texttt{Namsor}, the results are similar. 
+\texttt{damegender} is not guessing undefined because we predict with machine learning (using an SVC algorithm) if the string is not in the database.
+
+\begin{table*}
+\footnotesize
+\center
+\begin{tabular}[]{lrrrr}
+\hline
+API & error & error w/o na & na coded & error gender bias\tabularnewline
+\hline
+%\endhead
+Damegender (SVC)\footnotemark[1] & 0.121 & 0.121 & 0.0 & -0.07\tabularnewline
+GenderApi & 0.167 & 0.167 & 0.0 & -0.167\tabularnewline
+Gender Guesser & 0.225 & 0.027 & 0.204 & 0.003\tabularnewline
+Genderize & 0.276 & 0.261 & 0.0204 & -0.0084 \tabularnewline 
+Namsor & 0.332 & 0.262 & 0.095 & 0.01 \tabularnewline
+Nameapi & 0.361 & 0.267 & 0.129 & 0.001 \tabularnewline
+\hline
+\end{tabular}
+\caption{APIs and Errors}
+\vspace{0.3cm}
+\label{table:ApisAndErrors}
+\end{table*}
+
+
+In Table~\ref{table:ApisAndErrors} we can see the different measures for errors in the APIs.
+\emph{Error coded} defines if the true is different than the guessed one. 
+\emph{Error coded without na} defines if the true is different than the guessed one, but without undefined results.
+\emph{Error gender bias} allows to understand if the error is bigger for guessing males than females or viceversa.
+The \emph{weighted error} defines if the true value is different than the guessed one, but giving a weight to the guessed as undefined.
+The most relevant information is a high index of errors for \texttt{Nameapi} and \texttt{Namsor},
+while \texttt{GenderApi} and \texttt{damegender} have a low index of errors.
+
+
+\section{Machine Learning}
+\label{sec:ml}
+
+\subsection{Comparing ML algorithms}
+
+\begin{table}
+\footnotesize
+\center
+\begin{tabular}[]{lcccc}
+  \hline
+  ML Algorithm & Acc & Prec & F1 & Recall \tabularnewline
+  \hline
+  %\endhead
+ Support Vector Machines             &    0.879 &     0.972 &   0.972 &    1.0  \tabularnewline
+ Random Forest                       &    0.862 &     0.902 &   0.902 &    1.0  \tabularnewline
+ NLTK (Bayes)                        &    0.862 &     0.902 &   0.902 &    1.0  \tabularnewline
+ Multinomial Naive Bayes             &    0.782 &     0.791 &   0.791 &    1.0  \tabularnewline
+ Tree                                &    0.764 &     0.821 &   0.796 &    1.0  \tabularnewline
+ Stoch. Gradient Distrib.            &    0.709 &     0.943 &   0.815 &    1.0  \tabularnewline
+ Gaussian Naive Bayes                &    0.709 &     0.968 &   0.887 &    1.0  \tabularnewline
+ Bernoulli Naive Bayes               &    0.699 &     0.965 &   0.816 &    1.0  \tabularnewline
+\hline
+\end{tabular}
+\caption{Machine Learning Algorithms and accuracy measures}
+\label{table:MLAccuracies}
+\end{table}
+
+\begin{table*}
+\footnotesize
+\center
+\begin{tabular}[]{lccccccc}
+  \hline
+Dataset & contains a & last is a & last is o & last is consonant & last is vowel & 1st is consonant & 1st is vowel  \tabularnewline
+  \hline
+  %\endhead
+ Uruguay (F) &    0.816 &         0.456 &         0.007 &                 0.287 &             0.712 &                  0.823 &              0.177  \tabularnewline
+ Uruguay (M) &    0.643 &         0.249 &         0.062 &                 0.766 &             0.234 &                  0.771 &              0.228  \tabularnewline
+ Spain (F)   &    0.922 &         0.588 &          0.030 &                 0.271 &             0.728 &                  0.772 &              0.228  \tabularnewline
+ Spain (M)   &    0.818 &          0.030 &         0.268 &                 0.569 &              0.430 &                  0.763 &              0.236  \tabularnewline
+ UK (F)      &    0.825 &         0.374 &         0.013 &                 0.322 &             0.674 &                  0.765 &              0.235  \tabularnewline
+ UK (M)      &    0.716 &         0.036 &         0.039 &                  0.780 &             0.218 &                  0.799 &                0.200  \tabularnewline
+ USA (F)     &    0.816 &         0.456 &         0.007 &                 0.287 &             0.712 &                  0.823 &              0.177  \tabularnewline
+ USA (M)     &    0.643 &          0.020 &         0.061 &                 0.765 &             0.234 &                   0.840 &              0.159  \tabularnewline
+ Canada (F)  &    0.659 &         0.189 &         0.005 &                 0.591 &             0.408 &                  0.838 &              0.160  \tabularnewline
+ Canada (M)  &    0.752 &          0.220 &         0.025 &                  0.540 &             0.456 &                  0.818 &              0.181  \tabularnewline
+Australia (F)      &    0.922 &         0.588 &         0.033 &                 0.272 &             0.728 &                  0.772 &              0.228 \tabularnewline
+ Australia (M)        &    0.818 &          0.030 &         0.269 &                  0.570 &              0.430 &                  0.763 &              0.237 \tabularnewline
+ 
+\hline
+\end{tabular}
+\caption{Informative features for different countries. F stands for females, and M for males.}
+\vspace{0.3cm}
+\label{table:InfoFeatures}
+\end{table*}
+
+
+Table~\ref{table:MLAccuracies} shows the accuracy measures for some Machine Learning algorithms used in our guessing. 
+The best results are given by Support Vector Machines and Random Forest -- with those algorithms \texttt{damegender} achieves values that are close to more mature, proprietary solutions.
+It should be noted that as a result of using machine learning techniques, our classifier is binary (male and female), so no \emph{unknown} is given as output.
+
+\subsection{Experimenting with some features}
+
+We have developed some additional experimental functionality that allows to analyze our database according to some features using machine learning algorithms.
+To test our approach, we have selected some features of names, such as a being the first letter, a (or o) being the last letter, contains the letter a, first letter is a vowel, last letter is a vowel, last letter is a consonant, or last letter is a. 
+The selection of the features was verified with Principal Component Analysis.
+The datasets used in this experiment were the ones from the National Institute of Statistics (Spain, Uruguay, United Kingdom, United States of America, Australia and Canada).
+The most relevant results for the different datasets used are offered in Table~\ref{table:InfoFeatures}.
+
+As expected, countries that share language offer similar results, i.e., the variation of the chosen features between males and females is comparable.
+This is the case for Uruguay and Spain (Spanish), and USA and UK and Australia (English).
+In Canada, a country that has an ample French-speaking community these features show a different trend.
+
+For instance, the feature \emph{containing the letter a in the name} varies 0.2 from males to females for USA and Uruguay, and 0.1 from males to females for United Kingdom, Australia, and Spain.
+The feature \emph{the last letter is an a} varies 0.5 from males to females for Australia and Spain, around 0.4 for USA and United Kingdom and 0.2 in
+Uruguay.
+The feature \emph{the last letter is an o} varies 0.2 in (Spain, Australia) from females to males and is equal in Uruguay, USA, United Kingdom.
+For the feature \emph{the last letter is a consonant} all countries give as a result that males do have it more frequently, with results that range from 0.3 to 0.5: Uruguay and USA (0.5), United Kingdom (0.4), Australia and Spain (0.3). 
+So, the feature \emph{the last letter is a vowel} is, as expected, the reverse of the feature \emph{the last letter is a consonant}. 
+The features \emph{the first letter is a consonant} or \emph{the first letter is a vowel} are, however, non-significant as they offer similar results in English and Spanish.
+
+We have done this experiment with the NLTK and INE.es datasets, with the values of accuracy reaching up to 0.745.
+So it makes sense to expect better results in random datasets if we add new languages and countries.
+However, our solution is not providing Arabic or Chinese alphabets, yet.
+The results of this experiment could be used to provide a good solution for nicknames, diminutives, or similar.
+
+
+\section{Limitations and further research}
+\label{sec:limitations}
+
+The market of gender detection tools and services is currently dominated by companies based on payment services through Application Programming Interfaces.
+Without doubt, they offer good results, with high accuracy values.
+However, their inner working cannot be studied (i.e., they work as a black-box for the outsider) and the fees that have to be paid for using their service are sometimes out of the reach of many researchers.
+That is why we propose a new tool, called \texttt{damegender}, with the aim of having open data of name-to-gender inference, which offers more flexibility and where researchers can build on top of it.
+This tool is offered under a free software license and is available on GitHub for download and enhancement.
+As we have shown in this paper, although still incipient, the tool offers good accuracy values based on the use of public databases from government bodies and on the use of machine learning algorithms.
+Nonetheless, we have to note that \texttt{damegender} is still under development, and that it has to be applied to several real repositories to confirm its benefits and address its limitations (such as a small database size of gendered names).
+
+In addition, we have shown a glimpse of how several features of the names could be used to guess the gender if we do not have the real name, but nicknames or diminutives, a situation that is very common in free software development-supporting tools, such as IRC channels.
+This experiment is at this point very preliminary, and we would like to work more on it.
+
+All in all, we hope the \texttt{damegender} tool can become a cornerstone for the scientific advancement of the study of gender (including gender gap) and diversity in the IT, and in particular in the free software community.
+We have therefore many hopes in linking the output of repositories like the ones that can be fetched by Perceval (git, mbox mailing lists, Gerrit, Bugzilla, etc.).
+As a result, we envision a free and universal dataset with support for all languages and cultures.
+
+
+\section*{Acknowledgments}
+
+We would like to thank: Lucía Santamaría and Helena Mihaljevi\'c for the previous work; Daniel Izquierdo and Laura Arjona for starting this research field at URJC; Jesus González Boticario and his team at UNED for the motivation towards machine learning; all those working with Jesus González Barahona and Gregorio Robles.
+
+\bibliographystyle{alpha} 
+\bibliography{paper2sattose}
+
+\end{document}
+
+

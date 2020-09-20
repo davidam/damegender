@@ -22,6 +22,8 @@
 # Boston, MA 02110-1301 USA,
 
 import unittest
+import datetime
+from datetime import timedelta
 from app.dame_perceval import DamePerceval
 
 class TddInPythonExample(unittest.TestCase):
@@ -52,7 +54,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(
             len(gg.list_committers(
                 "https://github.com/davidam/davidam.git",
-                "/tmp/clonedir")), 4)
+                "/tmp/clonedir")), 3)
 
     def test_dame_perceval_list_mailers_method_returns_correct_result(self):
         gg = DamePerceval()
@@ -68,13 +70,26 @@ class TddInPythonExample(unittest.TestCase):
                     'http://mail-archives.apache.org/mod_mbox/httpd-announce/')
             ) >= 0)
 
-    def test_dame_perceval_list_committers_method_returns_correct_result(self):
+    def test_dame_perceval_list_launchpad_method_returns_correct_result(self):
         dp = DamePerceval()
-        l0 = dp.list_committers(
+        l = dp.list_launchpad("ubuntu", datetime.datetime.now() - timedelta(hours=12))
+        self.assertTrue(len(l) > 1)
+        
+    def test_dame_perceval_dicc_authors_and_mails_method_returns_correct_result(self):
+        dp = DamePerceval()
+        dicc = dp.dicc_authors_and_mails(
+            "http://mail-archives.apache.org/mod_mbox/httpd-announce/")
+        num = dicc['Jim Jagielski <jim@jaguNET.com>']        
+        self.assertEqual(num, 2)
+        
+    def test_dame_perceval_dicc_authors_and_commits_method_returns_correct_result(self):
+        dp = DamePerceval()
+        dicc = dp.dicc_authors_and_commits(
             "https://github.com/davidam/davidam.git",
-            "/tmp/clonedir", mail=True)
-        self.assertEqual(['David Arroyo Menéndez <davidam@es.gnu.org>', 'David Arroyo Menendez <davidam@gmail.com>', 'David Arroyo Menéndez <d.arroyome@alumnos.urjc.es>', 'David Arroyo <davidam@gmail.com>'], l0)                
-
+            "/tmp/clonedir")
+        num = dicc['David Arroyo Menéndez <davidam@es.gnu.org>']
+        self.assertEqual(num, 4)
+        
     def test_dame_perceval_github_json_user_method_returns_correct_result(self):
         dp = DamePerceval()
         j = dp.get_github_json_user("davidam")

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2018  David Arroyo Menéndez
+# Copyright (C) 2020  David Arroyo Menéndez
 
 # Author: David Arroyo Menéndez <davidam@gnu.org>
 # Maintainer: David Arroyo Menéndez <davidam@gnu.org>
@@ -10,16 +10,17 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3, or (at your option)
 # any later version.
-
+# 
 # This file is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-
+# 
 # You should have received a copy of the GNU General Public License
 # along with Damegender; see the file LICENSE.  If not, write to
-# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 # Boston, MA 02110-1301 USA,
+
 
 import csv
 import requests
@@ -130,57 +131,6 @@ class DameGenderApi(Gender):
         return nameslist
 
 
-    def confusion_matrix_gender(self, path='', dimensions="2x3", jsonf=""):
-        truevector = self.gender_list(path)
-        if (os.path.isfile(jsonf)):
-            guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
-        else:
-            guessvector = self.guess_list(path, binary=True)
-
-        # femalefemale
-        self.ff = self.count_true2guess(truevector, guessvector, 0, 0)
-        # femalemale
-        self.fm = self.count_true2guess(truevector, guessvector, 0, 1)
-        # femaundefined
-        self.fu = self.count_true2guess(truevector, guessvector, 0, 2)
-        # malefemale
-        self.mf = self.count_true2guess(truevector, guessvector, 1, 0)
-        # malemale
-        self.mm = self.count_true2guess(truevector, guessvector, 1, 1)
-        # maleundefined
-        self.mu = self.count_true2guess(truevector, guessvector, 1, 2)
-        # undefinedfemale
-        self.uf = self.count_true2guess(truevector, guessvector, 1, 0)
-        # undefinedmale
-        self.um = self.count_true2guess(truevector, guessvector, 1, 1)
-        # undefinedundefined
-        self.uu = self.count_true2guess(truevector, guessvector, 1, 2)
-
-        l = [[self.ff, self.fm, self.fu],
-             [self.mf, self.mm, self.mu],
-             [self.uf, self.um, self.uu]]
-
-        if (dimensions == "1x1"):
-            res = [[l[0][0]]]
-        elif (dimensions == "1x2"):
-            res = [[l[0][0], l[0][1]]]
-        elif (dimensions == "1x3"):
-            res = [[l[0][0], l[0][1], l[0][2]]]
-        elif (dimensions == "2x1"):
-            res = [[l[0][0]], [l[1][0]]]
-        elif (dimensions == "2x2"):
-            res = [[l[0][0], l[0][1]], [l[1][0], l[1][1]]]
-        elif (dimensions == "2x3"):
-            res = [[l[0][0], l[0][1], l[0][2]], [l[1][0], l[1][1], l[1][2]]]
-        elif (dimensions == "3x1"):
-            res = [[l[0][0]], [l[1][0]], [l[2][0]]]
-        elif (dimensions == "3x2"):
-            res = [[l[0][0], l[0][1]], [l[1][0], l[1][1]], [l[2][0], l[2][1]]]
-        elif (dimensions == "3x3"):
-            res = [[l[0][0], l[0][1], l[0][2]],
-                   [l[1][0], l[1][1], l[1][2]],
-                   [l[2][0], l[2][1], l[2][2]]]
-        return res
 
     def guess_list(self, path="files/names/partial.csv", binary=False):
         du = DameUtils()

@@ -35,8 +35,9 @@ Internet.
 We have presented this working in progress in:
 
 *** Scientific events:
-+ Madrilenian Software Research
++ Madrilenian Software Research 
 + Group Retreat 2019 Workshop
++ SATToSE 2020: Seminar Series on Advanced Techniques & Tools for Software Evolution
 
 *** Event to master students:
 + Periodismo de Datos (Medialab Prado)
@@ -55,3 +56,4 @@ Free Software released with GPLv3 integrated in the industry
 *** Publications
 + Damegender: Writing and Comparing Gender Detection Tools (Preprint)
 + Damegender Manual: Counting Males and Females in Internet Communities (On working)
+

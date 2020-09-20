@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2018  David Arroyo Menéndez
+# Copyright (C) 2020  David Arroyo Menéndez
 
 # Author: David Arroyo Menéndez <davidam@gnu.org>
 # Maintainer: David Arroyo Menéndez <davidam@gnu.org>
@@ -10,15 +10,15 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3, or (at your option)
 # any later version.
-
+# 
 # This file is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-
+# 
 # You should have received a copy of the GNU General Public License
 # along with Damegender; see the file LICENSE.  If not, write to
-# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 # Boston, MA 02110-1301 USA,
 
 from app.dame_gender import Gender
@@ -31,6 +31,7 @@ parser.add_argument("path", help="csv file")
 parser.add_argument('--first_name_position', required=True, type=int, choices=[0, 1, 2, 3, 4], default=0)
 parser.add_argument('--dataset', default="us", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser'])
 parser.add_argument('--output', default="files/names/out.csv")
+parser.add_argument('--noshow', dest='noshow', action='store_true')
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 
@@ -71,3 +72,18 @@ if (len(sys.argv) > 1):
     print("The number of females in %s is %s" % (str(args.path), str(len(females_list))))
     print("The number of gender not recognised in %s is %s" % (str(args.path), str(len(unknows_list))))
 
+
+    
+import matplotlib.pyplot as plt
+
+data = [len(males_list), len(females_list), len(unknows_list)]
+gender = ["Males","Females","Unknows"]
+plt.title("People grouped by gender")
+plt.pie(data, labels=gender, autopct="%0.1f %%")
+plt.axis("equal")
+
+if (args.noshow):
+    plt.savefig('files/images/csv2gender.png')
+else:
+    plt.savefig('files/images/csv2gender.png')
+    plt.show()

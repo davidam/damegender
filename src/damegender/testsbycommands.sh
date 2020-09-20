@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright (C) 2019  David Arroyo Menéndez
+# Copyright (C) 2020  David Arroyo Menéndez
 
 # Author: David Arroyo Menéndez <davidam@gnu.org>
 # Maintainer: David Arroyo Menéndez <davidam@gnu.org>
@@ -9,15 +9,15 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3, or (at your option)
 # any later version.
-
+# 
 # This file is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-
+# 
 # You should have received a copy of the GNU General Public License
 # along with Damegender; see the file LICENSE.  If not, write to
-# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 # Boston, MA 02110-1301 USA,
 
 # First, we save the current config and create the config for the tests
@@ -177,17 +177,16 @@ else
 	echo "nameincountries jesus test is ok"
 fi
 
+python3 infofeatures.py es > files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt
 
-# python3 infofeatures.py > files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt
+if ! cmp files/tests/infofeatures.txt files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo "infofeatures test is failing"
+else
+	echo "infofeatures test is ok"
+fi
 
-# if ! cmp files/tests/infofeatures.txt files/tests/infofeatures-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-# then
-# 	echo "infofeatures test is failing"
-# else
-# 	echo "infofeatures test is ok"
-# fi
-
-python3 csv2gender.py files/names/partial.csv --first_name_position=0 --dataset=us > files/tests/csv2genderpartial-$(date "+%Y-%m-%d-%H").txt
+python3 csv2gender.py files/names/partial.csv --first_name_position=0 --dataset=us --noshow > files/tests/csv2genderpartial-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/csv2genderpartial.txt files/tests/csv2genderpartial-$(date "+%Y-%m-%d-%H").txt
 then
@@ -196,12 +195,12 @@ else
 	echo "csv2genderpartial test is ok"
 fi
 
-if [ -a files/images/pca_components_files_features_list.csv.png ]; then
+if [ -f files/images/pca_components_files_features_list.csv.png ]; then
     rm files/images/pca_components_files_features_list.csv.png
 fi
 
 python3 pca-components.py --csv='files/features_list.csv' --no-show
-if [ -a files/images/pca_components_files_features_list.csv.png ]; then
+if [ -f files/images/pca_components_files_features_list.csv.png ]; then
 	echo "pca-components test is ok"
 else
 	echo "pca-components test is failing"
@@ -215,12 +214,12 @@ else
 	echo "pca-features-both test is ok"
 fi
 
-if [ -a files/images/pca_components_files_features_list_no_cat.csv.png ]; then
+if [ -f files/images/pca_components_files_features_list_no_cat.csv.png ]; then
     rm files/images/pca_components_files_features_list_no_cat.csv.png
 fi
 
 python3 pca-components.py --csv='files/features_list_no_cat.csv' --no-show
-if [ -a files/images/pca_components_files_features_list_no_cat.csv.png ]; then
+if [ -f files/images/pca_components_files_features_list_no_cat.csv.png ]; then
 	echo "pca-components-nocategorical test is ok"
 else
 	echo "pca-components-nocategorical test is failing"
@@ -234,12 +233,12 @@ else
 	echo "pca-features-nocategorical test is ok"
 fi
 
-if [ -a files/images/pca_components_files_features_list_cat.csv.png ]; then
+if [ -f files/images/pca_components_files_features_list_cat.csv.png ]; then
     rm files/images/pca_components_files_features_list_cat.csv.png
 fi
 
 python3 pca-components.py --csv='files/features_list_cat.csv' --no-show
-if [ -a files/images/pca_components_files_features_list_cat.csv.png ]; then
+if [ -f files/images/pca_components_files_features_list_cat.csv.png ]; then
 	echo "pca-components-categorical test is ok"
 else
 	echo "pca-components-categorical test is failing"
@@ -253,7 +252,7 @@ else
 	echo "pca-features-nocategorical test is ok"
 fi
 
-if [ -a files/images/pca_components_files_features_list_no_undefined.csv.png ]; then
+if [ -f files/images/pca_components_files_features_list_no_undefined.csv.png ]; then
     rm files/images/pca_components_files_features_list_no_undefined.csv.png
 fi
 
@@ -443,9 +442,9 @@ python3 surnameincountries.py Gil > files/tests/surnameincountries-gil-$(date "+
 
 if ! cmp files/tests/surnameincountries-gil.txt files/tests/surnameincountries-gil-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-	echo "surnamegil test is failing"
+	echo "surnameincountriesgil test is failing"
 else
-	echo "surnamegil test is ok"
+	echo "surnameincountriesgil test is ok"
 fi
 
 python3 surname.py Menendez --total=es --spanish_provinces > files/tests/surnamemenendezprovinces-$(date "+%Y-%m-%d-%H").txt
@@ -485,12 +484,12 @@ else
 	echo "top test is ok"
 fi
 
-if [ -a files/images/roc_gaussianNB.png ]; then
+if [ -f files/images/roc_gaussianNB.png ]; then
     rm files/images/roc_gaussianNB.png
 fi
 
 python3 roc.py gaussianNB --noshow
-if [ -a files/images/roc_gaussianNB.png ]; then
+if [ -f files/images/roc_gaussianNB.png ]; then
 	echo "roc test is ok"
 else
 	echo "roc test is failing"

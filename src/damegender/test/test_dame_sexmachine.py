@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-
 # Copyright (C) 2018  David Arroyo Menéndez
 
 # Author: David Arroyo Menéndez <davidam@gnu.org>
@@ -21,6 +20,7 @@
 # along with Damegender; see the file LICENSE.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
+
 
 import unittest
 import numpy as np

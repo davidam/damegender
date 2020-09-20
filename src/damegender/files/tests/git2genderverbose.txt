@@ -1,0 +1,15 @@
+You are not using ml the process is not very slow, but perhaps you are not finding good results
+The number of males sending commits is 3
+The list of males sending commits is:
+['David Arroyo Menendez', 'Oriol Tauleria', 'Jesus M']
+David Arroyo Menéndez <d.arroyome@alumnos.urjc.es> (2054 commits)
+David Arroyo Menendez <davidam@gmail.com> (44 commits)
+Oriol Tauleria <oriol.tauleria@gmail.com> (2 commits)
+Jesus M. Gonzalez-Barahona <jgb@gsyc.es> (2 commits)
+The number of females sending commits is 0
+The list of females sending commits is:
+[]
+The number of people with unknown gender sending commits is 1
+The list of people with unknown gender sending commits is:
+['davidam']
+davidam <davidam@gmail.com> (4 commits)

@@ -1,24 +1,23 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2018  David Arroyo Menéndez
+# Copyright (C) 2018 David Arroyo Menéndez
 
-# Author: David Arroyo Menéndez <davidam@gnu.org>
-# Maintainer: David Arroyo Menéndez <davidam@gnu.org>
-
+# Author: David Arroyo Menéndez <davidam@gmail.com> 
+# Maintainer: David Arroyo Menéndez <davidam@gmail.com> 
 # This file is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3, or (at your option)
 # any later version.
-
+# 
 # This file is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 # GNU General Public License for more details.
-
+# 
 # You should have received a copy of the GNU General Public License
-# along with Damegender; see the file LICENSE.  If not, write to
-# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+# along with Damegender; see the file LICENSE. If not, write to
+# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 # Boston, MA 02110-1301 USA,
 
 from app.dame_gender import Gender
@@ -29,6 +28,7 @@ from app.dame_genderapi import DameGenderApi
 from app.dame_genderize import DameGenderize
 from app.dame_nameapi import DameNameapi
 from app.dame_customsearch import DameCustomsearch
+from app.dame_statistics import DameStatistics
 import os
 import argparse
 parser = argparse.ArgumentParser()
@@ -43,23 +43,22 @@ args = parser.parse_args()
 print("A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.")
 print("If the classifier is nice, the diagonal is high because there are true positives")
 
+dst = DameStatistics()
+dg = Gender()
+
 
 if (args.api == "all"):
-    dg = Gender()
     if (dg.config['DEFAULT']['namsor'] == 'yes'):
-        dn = DameNamsor()
-        dn.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+        dst.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
     if (dg.config['DEFAULT']['genderize'] == 'yes'):
-        dg = DameGenderize()
-        dg.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+        dst.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 #        dg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
 
     if (dg.config['DEFAULT']['genderapi'] == 'yes'):
         dga = DameGenderApi()
         dga.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
-    dgg = DameGenderGuesser()
     dgg.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
 
     ds = DameSexmachine()
@@ -86,15 +85,15 @@ elif (args.api == "genderguesser"):
     dgg.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
 elif (args.api == "damegender"):
-    ds = DameSexmachine()
-    ds.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
+    g = Gender()
+    g.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
 elif (args.api == "nameapi"):
     dna = DameNameapi()
     dna.pretty_cm(path=args.csv, jsonf=args.jsondownloaded, reverse=args.reverse, dimensions=args.dimensions, api=args.api.title())
 
 
-# elif (args.api == "customsearch"):
-#     dc = DameCustomsearch()
-#     print("Google Custom Search confusion matrix:\n")
-#     dc.print_confusion_matrix_gender(path=args.csv)
+# # elif (args.api == "customsearch"):
+# #     dc = DameCustomsearch()
+# #     print("Google Custom Search confusion matrix:\n")
+# #     dc.print_confusion_matrix_gender(path=args.csv)

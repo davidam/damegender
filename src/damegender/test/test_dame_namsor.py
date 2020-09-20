@@ -21,9 +21,11 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+
 import unittest
 import os
 from app.dame_utils import DameUtils
+from app.dame_statistics import DameStatistics
 from app.dame_namsor import DameNamsor
 from app.dame_gender import Gender
 
@@ -98,12 +100,13 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_namsor_accuracy_score_dame(self):
         dn = DameNamsor()
-        score1 = dn.accuracy_score_dame([1, 1], [1, 1])
-        self.assertEqual(score1, 1)
-        score2 = dn.accuracy_score_dame([1, 1, 1, 0], [1, 1, 2, 0])
-        self.assertEqual(score2, 0.75)
-        score3 = dn.accuracy_score_dame([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
-        self.assertEqual(score3, 1)
+        ds = DameStatistics()
+        if (dn.config['DEFAULT']['namsor'] == 'yes'):        
+            gl1 = dn.gender_list(path="files/names/partial.csv")
+            gl2 = dn.guess_list(path="files/names/partial.csv",
+                             binary=True)
+            score1 = ds.accuracy_score_dame(gl1, gl2)
+            self.assertEqual(score1, 1)
 
 
     def test_dame_namsor_download(self):

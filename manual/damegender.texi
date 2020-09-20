@@ -5,22 +5,7 @@
 @settitle Damegender Manual @value{VERSION}
 @syncodeindex pg cp
 @comment %**end of header
-@copying
-This manual is for Damegender (version @value{VERSION}, @value{UPDATED}),
-which is an example in the Texinfo documentation.
-
-Copyright @copyright{} 2020 David Arroyo Men@'endez
-
-@quotation
-Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.3 or
-any later version published by the Free Software Foundation; with no
-Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
-Texts.  A copy of the license is included in the section entitled
-``GNU Free Documentation License''.
-@end quotation
-@end copying
-
+@include copying-fl.texi
 
 @titlepage
 @title Damegender Manual: Counting Males and Females in Internet Communities
@@ -258,13 +243,57 @@ The number of males sending commits is 15
 The number of females sending commits is 7
 @end example
 
+You can see a verbose output using the spanish dataset (--language=es) for males and females with:
+
+@example
+$ python3 git2gender.py https://git.drupalcode.org/project/orgmode.git --directory=/tmp/orgmode --show=all --verbose --language=es
+You are not using ml the process is not very slow, but perhaps you are not finding good results
+The number of males sending commits is 2
+The list of males sending commits is:
+['David Arroyo Menendez', 'David Arroyo']
+David Arroyo Menéndez <davidam@@es.gnu.org> (67 commits)
+David Arroyo Menendez <davidam9@@riseup.net> (49 commits)
+David Arroyo Menéndez <davidam@@gmail.com> (20 commits)
+David Arroyo Menendez <david.arroyo@@edoctores.com> (10 commits)
+David Arroyo Menendez <davidam@@es.gnu.org> (14 commits)
+David Arroyo7 <davidam@@es.gnu.org> (13 commits)
+David Arroyo7 <davidam@@gnu.org> (10 commits)
+The number of females sending commits is 1
+The list of females sending commits is:
+['Mireia Lopez']
+Mireia López <mireia@@omada.es> (23 commits)
+The number of people with unknown gender sending commits is 0
+The list of people with unknown gender sending commits is:
+[]
+@end example
+
 To count gender from a mailing list:
 
 @example
 $ cd files/mbox
 $ wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
-$ cd ..
+$ cd ../.. 
 $ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
+You are not using ml the process is not very slow, but perhaps you are not finding good results
+The number of males sending mails is 24
+The number of females sending mails is 2
+The number of people with unknown gender sending mails is 5
+@end example
+
+You can execute a verbose output with:
+
+@example
+$ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/ --verbose --show=all
+You are not using ml the process is not very slow, but perhaps you are not finding good results
+The number of males sending mails is 24
+The list of males sending mails is:
+['Jim Jagielski <jim@@apache.org>', 'Jacob Champion <jchampion@@apache.org>', 'DENNIS BIN XAVIER <balaranpillai@@gmail.com>', '"Leonard Lausen (Jira)" <jira@@apache.org>', '"Roy T. Fielding (Jira)" <jira@@apache.org>', '"Roman Shaposhnik (Jira)" <jira@@apache.org>', '"Bertrand Delacretaz (Jira)" <jira@@apache.org>', '"Mark Thomas (Jira)" <jira@@apache.org>', '"Justin Mclean (Jira)" <jira@@apache.org>', '"Simon Phipps (Jira)" <jira@@apache.org>', '"Chris Olivier (Jira)" <jira@@apache.org>', 'Jan Lahoda <lahoda@@gmail.com>', '"Michael Vorburger (Jira)" <jira@@apache.org>', '"Ralph Goers (Jira)" <jira@@apache.org>', '"Jens Geyer" <jensg@@apache.org>', 'Mark Thomas <markt@@apache.org>', '"Ryan Blue (Jira)" <jira@@apache.org>', 'Ismaël Mejía (Jira)  <jira@@apache.org>', '"Shane Curcuru (Jira)" <jira@@apache.org>', '"Kevin A. McGrail (Jira)" <jira@@apache.org>', '"Gordon (Jira)" <jira@@apache.org>', 'Gary Gregory <garydgregory@@gmail.com>', '"Owen O\'Malley" <owen.omalley@@gmail.com>', '"Sheng Zha (Jira)" <jira@@apache.org>']
+The number of females sending mails is 2
+The list of females sending mails is:
+['Riya Singh <hellen.serviceweb@@hotmail.com>', '"Hannah Zacharski (Jira)" <jira@@apache.org>']
+The number of people with unknown gender sending mails is 5
+The list of people with unknown gender sending mails is 
+['"SimpaticoTech.it OFFERTE" <web.info@@simpaticotech.it>', 'Simpatico Network srl <web.info@@simpaticotech.it>', 'gmcdonald@@apache.org', 'Hen <bayard@@apache.org>', '"Jean-Baptiste Briaud (Jira)" <jira@@apache.org>']
 @end example
 
 Perhaps you don't know a name, but you have obtained an free key for
@@ -1024,13 +1053,31 @@ The number of males sending commits is 3
 The number of females sending commits is 0
 @end example
 
+@section Counting males and females in Maps
 
+@strong{Las calles de las mujeres} is a project in NodeJS to display
+web streets with names about females using MapBox. You can download
+the project with:
 
-@node GNU Free Documentation License
-@appendix GNU Free Documentation License
+@example
+$ git clone https://github.com/geochicasosm/lascallesdelasmujeres
+@end example
 
-@include fdl.texi
+It's licensed with a Creative Commons License (CC-BY-SA)
+@code{https://creativecommons.org/licenses/by-sa/4.0/}.
 
+@image{images/callesresistencia,6in,,Calles de Resistencia}
+
+It's giving statisticals about how many men and women has wikipedia article,
+too.
+
+It has a strong community created by females (GeoChicas)
+@code{https://geochicas.github.io/} related with OpenStreetMap.
+
+@node License
+@appendix License
+
+@include license-fl.texi
 
 @node Index
 @unnumbered Index

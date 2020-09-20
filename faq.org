@@ -3,7 +3,7 @@
 #+LANGUAGE: es
 #+AUTHOR: David Arroyo Menéndez 
 #+EMAIL: davidam@gnu.org
-#+DATE: 17/06/2020
+#+DATE: 15/07/2020
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/org.css" />
 
 * Ethical Values
@@ -22,8 +22,16 @@ registering it. All states is using a binary ideology about the gender
 
 ** Is Damegender Free Software?
 
-Yes, it's. We are using GPLv3. You can read the license in all files
-and the full text in LICENSE file.
+Yes, it's. We are distributing the software in Pypi with GPLv3. You
+can read the license in all files and the full text in LICENSE file.
+
+On an experimental way we are using a better license for women in the
+dev branch. That's the copyright note: 
+
+You can share, copy and modify this software if you are a woman or you
+are David Arroyo Menéndez and you include this note.
+
+So we 
 
 ** Why are you guessing male or female?
 Some aplications are guessing unknown, but in Damegender we are
@@ -58,6 +66,47 @@ surnames you can understand the cultural identity with numbers. For
 example, the spanish names and surnames can be find in many countries
 in South America, but don't with the same quantities. 
 
+** Why are you using the word Damegender?
+Damegender means *Gender* Detection Tool from the name coded by David
+Arroyo MEnéndez (*DAME*). There are problems in some communities that
+can be detected retrieving data from Internet. And the people can
+claim gender justice, dame in spanish is "give me" in english, so the
+word seems about give me gender justice in [[https://en.wikipedia.org/wiki/Spanglish][spanglish]] :D
+
+I understand that the dame word in french or english is about a
+female, such as Notre Dame. But in Spain dame is a name about a
+male. So, the name damegender is an intelligence challenge about
+discover if the gender of dame is about a male or female. What's your
+country?. 
+
+#+BEGIN_SRC bash
+$ python3 main.py dame --total=es
+dame's gender is male
+probability: 1.0
+420 males for dame from INE.es
+0 females for dame from INE.es
+#+END_SRC
+
+If you are reading about a strict english the gender of the dame. It's
+ok for me, because there are an objective from United Nations to fix
+about gender gap in the world, so we must put the attention on females.
+
+** How can I pronounce Damegender?
+
+I don't have not very fix rules about it, but please don't pronounce
+as de-mi-gen-der because there are another site with the name
+[[https://gender.wikia.org/wiki/Demigender][demigender]] with another subject and we don't want problems.
+
+If you know read the hyphenate, you can choose *deym-gen-der*, but you
+can read it as in spanish *da-me-gen-der*. I understand that both ways
+to pronounce is helping me because, I'm happy with the english and the
+spanish culture about this software.
+
+Different ways to pronounce the name of a software, express different
+ideas about the software. If you are expressing on a precise way, you
+are helping to the author about the original idea. If you are changing
+the expression you must know 
+
 * Installation
 ** How can I install it?
 
@@ -86,6 +135,35 @@ $ python3 main.py Clara
 + If you want use a free gender detection tool from a name from a command with open data.
 + If you want use the main solutions in gender detection (genderize,
   genderapi, namsor, nameapi and gender guesser) from a command.
+
+** How can I determine gender about a name?
+
+#+BEGIN_SRC 
+$ python3 main.py David
+#+END_SRC
+** What countries are related about a name?
+
+#+BEGIN_SRC bash
+$ python3 nameincountries.py David
+#+END_SRC
+
+** What countries are related about a surname?
+
+#+BEGIN_SRC bash
+$ python3 surnameincountries.py David
+#+END_SRC
+
+** How many people are using a surname?
+
+#+BEGIN_SRC bash
+$ python3 surname.py Menéndez --total=us
+#+END_SRC
+
+** Give me the race about a name in USA!
+#+BEGIN_SRC bash
+$ python3 ethnicity.py David
+#+END_SRC
+
 ** How can I determine gender gap in free software projects or mailing lists.
 
 You can count males and females in a git project with:
@@ -100,10 +178,6 @@ You can count males and females in a mailing list with:
 python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
 #+END_SRC
 
-** How can I determine gender about a name?
-#+BEGIN_SRC 
-$ python3 main.py David
-#+END_SRC
 ** What's the scripts to research with statistics?
 + confusion.py
 + accuracy.py
@@ -112,26 +186,6 @@ $ python3 main.py David
 + pca-components.py and pca-features.py
 + infofeatures.py
 
-** How can I know the most used names?
-#+BEGIN_SRC bash
-$ python3 top.py es --sex=female
-#+END_SRC
-** Give me the race about a name in USA!
-#+BEGIN_SRC bash
-$ python3 ethnicity.py David
-#+END_SRC
-** What countries are related about a name?
-#+BEGIN_SRC bash
-$ python3 nameincountries.py David
-#+END_SRC
-** What countries are related about a surname?
-#+BEGIN_SRC bash
-$ python3 surnameincountries.py David
-#+END_SRC
-** How many people are using a surname?
-#+BEGIN_SRC bash
-$ python3 surname.py Menéndez --total=us
-#+END_SRC
 ** Give me some real examples about count males and females in communities
 #+BEGIN_SRC bash
 $ python3 count-debian-gender.py
@@ -150,4 +204,32 @@ Later, you can guess the name choosing the rigth api:
 #+BEGIN_SRC bash 
 $ python3 api2gender.py David --api=genderize
 #+END_SRC
+
+** What is the most popular names in a country?
+You can use the command top.py to discover it. For instance the 5 most
+used females names are:
+#+BEGIN_SRC bash
+$ python3 top.py es --position --number=5 --sex=female
+1) MARIA CARMEN: 656276
+2) MARIA: 606048
+3) CARMEN: 391563
+4) JOSEFA: 276682
+5) ANA MARIA: 273319
+#+END_SRC
+
+* Data
+** What happens if I see chances between the original source and the dataset provided in Damegender?
+Please, open an issue in https://github.com/davidam/damegender/issues.
+
+We have found some chance in INE.es, so we have a physical dataset
+provided with an official stamp from the offices. An official dataset
+must not be changed, but the data can vary slightly, sometimes due to
+errors or updates.
+
+** Do you have a standard license for the datasets?
+Not, I don't. The datasets remains with the same license provided by
+the states. From src/damegender/files/names/ you can access to the
+folder for each country and you will find the license.
+
+
 

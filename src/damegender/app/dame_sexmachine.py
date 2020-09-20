@@ -48,14 +48,15 @@ from sklearn.metrics import confusion_matrix
 import pickle
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
-
+from app.dame_statistics import DameStatistics
 
 class DameSexmachine(Gender):
     def __init__(self):
         self.males = 0
         self.females = 0
         self.unknown = 0
-
+        self.ds = DameStatistics()
+        
     def features(self, name):
         # features method created to check the nltk classifier
         features = {}
@@ -125,7 +126,7 @@ class DameSexmachine(Gender):
         return clf
 
     def adaboost(self):
-        X = np.array(self.features_list(path="files/names/all.csv"))
+        X = np.array(self.ds.features_list(path="files/names/all.csv"))
         y = self.gender_list(path="files/names/all.csv")
         clf = AdaBoostClassifier(n_estimators=100)
         clf.fit(X, y)
@@ -377,7 +378,7 @@ class DameSexmachine(Gender):
                                           binary=True,
                                           ml=ml)
 
-        res = self.confusion_matrix_table(truevector, guessvector)
+        res = self.ds.confusion_matrix_table(truevector, guessvector)
         return res
 
 

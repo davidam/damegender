@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2018  David Arroyo Menéndez
+# Copyright (C) 2020  David Arroyo Menéndez
 
 # Author: David Arroyo Menéndez <davidam@gnu.org>
 # Maintainer: David Arroyo Menéndez <davidam@gnu.org>
@@ -10,15 +10,15 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3, or (at your option)
 # any later version.
-
+# 
 # This file is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-
+# 
 # You should have received a copy of the GNU General Public License
 # along with Damegender; see the file LICENSE.  If not, write to
-# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 # Boston, MA 02110-1301 USA,
 
 from app.dame_sexmachine import DameSexmachine
@@ -32,9 +32,11 @@ parser.add_argument("url", help="Uniform Resource Link")
 parser.add_argument('--directory')
 parser.add_argument('--show', choices=['males', 'females', 'unknows', 'all'])
 parser.add_argument('--ml', default='none', choices=['none', 'nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
+parser.add_argument('--verbose', default=False, action="store_true")
 parser.add_argument('--version', action='version', version='0.1')
 
 args = parser.parse_args()
+
 if (len(sys.argv) > 1):
     if (args.ml == 'none'):
         s = Gender()
@@ -52,7 +54,8 @@ if (len(sys.argv) > 1):
     # print("----------------------------------------------------------------------------------------------------")    
     l4 = du.delete_duplicated_identities(l2)    
     # print(l4)
-    # print("----------------------------------------------------------------------------------------------------")    
+    # print("----------------------------------------------------------------------------------------------------")
+    l5 = gg.dicc_authors_and_mails(args.url)
     females = 0
     males = 0
     unknows = 0
@@ -73,22 +76,32 @@ if (len(sys.argv) > 1):
         else:
             list_unknows.append(g)
 
-    # print(list_females)
-    # print(list_males)
-    # print(list_unknows)            
     print("The number of males sending mails is %s" % len(list_males))
     if ((args.show=='males') or (args.show=='all')):
         print("The list of males sending mails is:")
         print(list_males)
+        if (args.verbose):
+            for i in l5.keys():
+                identity = du.identity2name_email(i)
+                if identity[0] in list_males:
+                    print("%s (%s messages)" % (i, l5[i]))
         
     print("The number of females sending mails is %s" % len(list_females))
     if ((args.show=='females') or (args.show=='all')):
         print("The list of females sending mails is:")
         print(list_females)
-
+        if (args.verbose):
+            for i in l5.keys():
+                identity = du.identity2name_email(i)
+                if identity[0] in list_females:
+                    print("%s (%s messages)" % (i, l5[i]))
+        
     print("The number of people with unknown gender sending mails is %s" % len(list_unknows))
-    if (args.show=='unknows'):
+    if ((args.show=='unknows') or (args.show == 'all')):
         print("The list of people with unknown gender sending mails is ")
         print(list_unknows)
-
-    
+        if (args.verbose):
+            for i in l5.keys():
+                identity = du.identity2name_email(i)
+                if identity[0] in list_unknows:
+                    print("%s (%s messages)" % (i, l5[i]))

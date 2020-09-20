@@ -10,16 +10,17 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3, or (at your option)
 # any later version.
-
+# 
 # This file is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-
+# 
 # You should have received a copy of the GNU General Public License
 # along with Damegender; see the file LICENSE.  If not, write to
-# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 # Boston, MA 02110-1301 USA,
+
 
 from __future__ import print_function
 from operator import itemgetter, attrgetter
@@ -35,11 +36,12 @@ import subprocess, tempfile
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("country", default="usa", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'usa'], help="Countries with 2 letter, example, es is Spain")
+parser.add_argument("country", default="usa", choices=['all', 'au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'usa'], help="Countries with 2 letter, example, es is Spain")
 parser.add_argument('--number', default=10)
 parser.add_argument('--sex', default="female", choices=["male", "female", "all"])
 parser.add_argument('--reverse', default=False, action="store_true")
 parser.add_argument('--less', default=False, action="store_true")
+parser.add_argument('--position', default=False, action="store_true")
 #parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 
@@ -105,11 +107,24 @@ elif (args.country == "uk"):
     c2lmales = du.csv2list("files/names/names_uk/ukmales.csv", header=True)
 elif ((args.country == "usa") | (args.country == "us")):
     c2lmales = du.csv2list("files/names/names_us/usmales.csv", header=True)
+elif (args.country == "all"):
+    c2lmales = du.csv2list("files/names/names_au/baby-names-1944-2013/aufemales.csv")
+    c2lmales = c2lmales + du.csv2list("files/names/names_ca/cafemales.csv")
+    c2lmales = c2lmales + du.csv2list("files/names/names_es/esfemeninos.csv", header=True)
+    c2lmales = c2lmales + du.csv2list("files/names/names_fi/fifemales.csv", header=True)
+    c2lmales = c2lmales + du.csv2list("files/names/names_ie/iefemales.csv")
+    c2lmales = c2lmales + du.csv2list("files/names/names_is/isfemales.csv")
+    c2lmales = c2lmales + du.csv2list("files/names/names_nz/nzfemales.csv")
+    c2lmales = c2lmales + du.csv2list("files/names/names_pt/ptfemales.csv")
+    c2lmales = c2lmales + du.csv2list("files/names/names_uy/uyfemeninos.csv", header=True)
+    c2lmales = c2lmales + du.csv2list("files/names/names_uk/ukfemales.csv", header=True)
+    c2lmales = c2lmales + du.csv2list("files/names/names_us/usfemales.csv", header=True)
 
 if (args.reverse):    
     c2lmales = sorted(c2lmales, key=getKey1)
 else:
     c2lmales = sorted(c2lmales, key=getKey1, reverse=True)
+
 # FEMALES
 
 if (args.country == "au"):
@@ -134,34 +149,64 @@ elif (args.country == "uk"):
     c2lfemales = du.csv2list("files/names/names_uk/ukfemales.csv", header=True)
 elif ((args.country == "usa") | (args.country == "us")):
     c2lfemales = du.csv2list("files/names/names_us/usfemales.csv", header=True)
-
+elif (args.country == "all"):
+    c2lfemales = du.csv2list("files/names/names_au/baby-names-1944-2013/aufemales.csv")
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_ca/cafemales.csv")
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_es/esfemeninos.csv", header=True)
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_fi/fifemales.csv", header=True)
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_ie/iefemales.csv")
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_is/isfemales.csv")
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_nz/nzfemales.csv")
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_pt/ptfemales.csv")
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_uy/uyfemeninos.csv", header=True)
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_uk/ukfemales.csv", header=True)
+    c2lfemales = c2lfemales + du.csv2list("files/names/names_us/usfemales.csv", header=True)
+    c2lfemales = sorted(c2lfemales, key=getKey1)
+    
 if (args.reverse):    
     c2lfemales = sorted(c2lfemales, key=getKey1)
 else:
     c2lfemales = sorted(c2lfemales, key=getKey1, reverse=True)
 
+n = int(args.number)    
 
-#printc('...some text...', 'some more text', sep='/')  # Python3 syntax
-
-
+if (args.less and (args.sex=='female')):
+    n = len(c2lfemales)
+elif (args.less and (args.sex=='male')):    
+    n = len(c2lmales)    
+elif (args.less and (args.sex=='all')):
+    n = len(c2lmales) + len(c2lfemales)
     
-n = int(args.number)
 if (args.sex == "male"):
-
+    position = 1
     for i in c2lmales[0:n]:
         if args.less:
-            printc(i[0] + ": " + i[1], sep='/')
+            if args.position:                        
+                printc(str(position) + ") " + i[0] + ": " + i[1], sep='/')
+            else:
+                printc(i[0] + ": " + i[1], sep='/')                
         else:
-            print(i[0] + ": " + i[1])
-
+            if args.position:
+                print(str(position) + ") " + i[0] + ": " + i[1])
+            else:
+                print(i[0] + ": " + i[1])
+        position = position + 1
+            
 elif (args.sex == "female"):        
-
+    position = 1
     for i in c2lfemales[0:n]:
         if args.less:
-            printc(i[0] + ": " + i[1], sep='/')
+            if args.position:            
+                printc(str(position) + ") " + i[0] + ": " + i[1], sep='/')
+            else:
+                printc(i[0] + ": " + i[1], sep='/')                
         else:
-            print(i[0] + ": " + i[1])
-
+            if args.position:                        
+                print(str(position) + ") " + i[0] + ": " + i[1])
+            else:
+                print(i[0] + ": " + i[1])
+        position = position + 1
+            
 elif (args.sex == "all"):
 
     c2l = c2lfemales + c2lmales
@@ -170,12 +215,20 @@ elif (args.sex == "all"):
     else:
         c2l = sorted(c2l, key=getKey1, reverse=True)
 
+    position = 1        
     for i in c2l[0:n]:
         if args.less:
-            printc(i[0] + ": " + i[1], sep='/')
+            if args.position:
+                printc(str(position) + ") " + i[0] + ": " + i[1], sep='/')                
+            else:
+                printc(i[0] + ": " + i[1], sep='/')
         else:
-            print(i[0] + ": " + i[1])
-    
+            if args.position:
+                print(str(position) + ") " + i[0] + ": " + i[1])
+            else:
+                print(i[0] + ": " + i[1])
+        position = position + 1
+        
 # Paging of the current contents of the temp file:
 if args.less:
     tmp_file.flush()  # No need to close the file: you can keep printing to it
