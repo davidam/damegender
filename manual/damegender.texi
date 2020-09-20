@@ -5,21 +5,7 @@
 @settitle Damegender Manual @value{VERSION}
 @syncodeindex pg cp
 @comment %**end of header
-@copying
-This manual is for Damegender (version @value{VERSION}, @value{UPDATED}),
-which is an example in the Texinfo documentation.
-
-Copyright @copyright{} 2020 David Arroyo Men@'endez
-
-@quotation
-You can share, copy and modify this software if you are a woman or you
-are David Arroyo Menéndez and you include this note.
-
-The sources will be find in
-https://github.com/davidam/damegender/tree/master/manual
-@end quotation
-@end copying
-
+@include copying-fl.texi
 
 @titlepage
 @title Damegender Manual: Counting Males and Females in Internet Communities
@@ -1091,8 +1077,7 @@ It has a strong community created by females (GeoChicas)
 @node License
 @appendix License
 
-You can share, copy and modify this software if you are a woman or you
-are David Arroyo Menéndez and you include this note.
+@include license-fl.texi
 
 @node Index
 @unnumbered Index
