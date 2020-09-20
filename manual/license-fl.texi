@@ -1,0 +1,5 @@
+You can share, copy and modify this manual if you are a woman or you
+are David Arroyo Menéndez and you include this note.
+
+The sources will be find in
+https://github.com/davidam/damegender/tree/master/manual
