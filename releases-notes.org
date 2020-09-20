@@ -1,4 +1,13 @@
 
+* v0.2.12
++ top.py: add --position argument, fix --less
++ mail2gender.py: add --verbose argument
++ git2gender.py: add --verbose argument
++ app/dame_statistics.py: created due to refactor in app/dame_gender.py
++ csv2gender.py: add --noshow argument
++ jokes.py: created. It's about damegender tips written as jokes.
++ manual: new sections
+
 * v0.2.11
 We are starting to count males and females in Internet Communities:
 + count-debian-gender.py: Debian Project (https://www.debian.org)
