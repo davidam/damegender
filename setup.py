@@ -58,7 +58,7 @@ def drop_pwd(s):
 
 setup(name='damegender',
       python_requires='>3.6',
-      version='0.2.11post8',
+      version='0.2.12',
       description='Gender Detection Tool by David Arroyo MEnéndez',
       long_description=long_description,
       long_description_content_type='text/markdown',
@@ -84,7 +84,7 @@ setup(name='damegender',
                     'damegender.images': ['*'],
                     'damegender.datamodels': ['*'],
                     'damegender.root': ['*']},
-      data_files=[('damegender', ['src/damegender/README.org', 'src/damegender/README.md', 'src/damegender/config.cfg', 'src/damegender/testsbycommands.sh', 'src/damegender/testsbycommandsextralocal.sh', 'src/damegender/testsbycommandsperceval.sh', 'src/damegender/testsbycommandsextraapis.sh', 'src/damegender/regenerate-ml-json.sh', 'src/damegender/logs-confusion.sh', 'src/damegender/logs-accuracies.sh', 'src/damegender/logs-count.sh', 'src/damegender/files/features_list.csv', 'src/damegender/files/features_list_cat.csv', 'src/damegender/files/features_list_no_cat.csv', 'src/damegender/files/features_list_no_undefined.csv', 'src/damegender/files/maintainers.txt', 'src/damegender/files/scientifics.txt', 'src/damegender/files/forbes2020.csv'] + files_one_level_drop_pwd(cwd+"/src/damegender/files/images") + files_one_level_drop_pwd(cwd+"/src/damegender/files/datamodels") + files_one_level_drop_pwd(cwd+"/src/damegender/files/logs") + files_one_level_drop_pwd(cwd+"/src/damegender/files/mbox") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names") + files_one_level_drop_pwd(cwd+"/src/damegender/files/inesurnames") + files_one_level_drop_pwd(cwd+"/src/damegender/files/tests"))],
+      data_files=[('damegender', ['src/damegender/README.org', 'src/damegender/README.md', 'src/damegender/config.cfg', 'src/damegender/config.enabled.cfg', 'src/damegender/config.disabled.cfg', 'src/damegender/testsbycommands.sh', 'src/damegender/testsbycommandsextralocal.sh', 'src/damegender/testsbycommandsperceval.sh', 'src/damegender/testsbycommandsextraapis.sh', 'src/damegender/regenerate-ml-json.sh', 'src/damegender/logs-confusion.sh', 'src/damegender/logs-accuracies.sh', 'src/damegender/logs-count.sh', 'src/damegender/files/features_list.csv', 'src/damegender/files/features_list_cat.csv', 'src/damegender/files/features_list_no_cat.csv', 'src/damegender/files/features_list_no_undefined.csv', 'src/damegender/files/maintainers.txt', 'src/damegender/files/scientifics.txt', 'src/damegender/files/forbes2020.csv'] + files_one_level_drop_pwd(cwd+"/src/damegender/files/images") + files_one_level_drop_pwd(cwd+"/src/damegender/files/datamodels") + files_one_level_drop_pwd(cwd+"/src/damegender/files/logs") + files_one_level_drop_pwd(cwd+"/src/damegender/files/mbox") + files_one_level_drop_pwd(cwd+"/src/damegender/files/names") + files_one_level_drop_pwd(cwd+"/src/damegender/files/inesurnames") + files_one_level_drop_pwd(cwd+"/src/damegender/files/tests"))],
       install_requires=[
           'markdown',
           'nltk',
