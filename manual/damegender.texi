@@ -1064,6 +1064,7 @@ $ git clone https://github.com/geochicasosm/lascallesdelasmujeres
 @end example
 
 It's licensed with a Creative Commons License (CC-BY-SA)
+
 @code{https://creativecommons.org/licenses/by-sa/4.0/}.
 
 @image{images/callesresistencia,6in,,Calles de Resistencia}
@@ -1117,7 +1118,11 @@ Interculturalism and Multiculturalism
 
 @item
 Feminism, Ecofeminism and derivatives
-@end itemize
+
+@item
+Gender terms and philosophies
+
+@end item
 
 
 @section Philosophies about software, market, freedom and gender
@@ -1282,6 +1287,49 @@ development branch:
 @end example
 
 This book will be published with this license, too.
+
+@section Interculturalism
+
+Interculturalism refers to support for cross-cultural dialogue and
+challenging self-segregation tendencies within cultures. 
+Interculturalism involves moving beyond mere passive acceptance of a
+multicultural fact of multiple cultures effectively existing in a
+society and instead promotes dialogue and interaction between
+cultures.
+
+Interculturalism has arisen in response to criticisms of existing
+policies of multiculturalism, such as criticisms that such policies
+had failed to create inclusion of different cultures within society,
+but instead have divided society by legitimizing segregated separate
+communities that have isolated themselves and accentuated their
+specificity. It is based on the recognition of both differences and
+similarities between cultures. It has addressed the risk of the
+creation of absolute relativism within postmodernity and in
+multiculturalism.
+
+Aguado in (La Educación Intercultural: Concepto, Paradigmas,
+Realizaciones) propose these principles:
+
+1. Promote the respect by all cultures together and condemn the
+politics to change the culture of the people towards the culture
+dominant. (Borrelli y Essinger, 1989)
+
+2. The intercultural education is relevant for any student, not only
+for the foreigners and minorities (Borrelli and Essinger, 1989)
+
+3. The troubles created by the ethnic and cultural diversity of the
+society has many solutions, there not an only magic solution. The
+politics in education there are partials because we are in a global
+society (Galino, 1990).
+
+4. It's based in the perception about to accept cultures in contact,
+it's near to the form of life of societies with a poor cultural
+context instead of societies with more rich, more structure and high
+social control.
+
+5. We need develop a scheme of concepts with many cultures
+demonstrating in the education that the knowledge is the common
+property of all people (Walking, 1990).
 
 
 
