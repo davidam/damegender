@@ -1074,6 +1074,52 @@ too.
 It has a strong community created by females (GeoChicas)
 @code{https://geochicas.github.io/} related with OpenStreetMap.
 
+
+@node Theorical Frameworks
+@chapter Theorical Frameworks
+
+If you want do a social research for a quantitative study, such as,
+count males and females you can:
+
+@itemize @bullet
+@item
+Generate objectives about the research study
+
+@item
+To read and to understand previous works.
+
+@item
+Choose some theorical framework. 
+
+@item
+Perhaps, with a qualitative study (interviews, focus groups, ...) you
+could understand better the problems, the specific vocabulary used by
+the people, the reasons about the decisions, ... 
+
+@end itemize
+
+A theoretical framework consists of concepts and, together with their
+definitions and reference to relevant scholarly literature, existing
+theory that is used for your particular study.
+In the last chapters you have learnt to count males and females, but
+you need give meaning to the words that you are using about your
+gender study. That is the point in this chapter.
+
+We present some theorical frameworks that you can use as example in
+your works:
+
+@itemize @bullet
+@item
+Philosophies about software market and freedoms
+
+@item
+Interculturalism and Multiculturalism
+
+@item
+Feminism, Ecofeminism and derivatives
+@end itemize
+
+
 @node License
 @appendix License
 
