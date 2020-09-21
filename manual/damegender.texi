@@ -1120,7 +1120,172 @@ Feminism, Ecofeminism and derivatives
 @end itemize
 
 
-@node License
+@section Philosophies about software, market, freedom and gender
+
+There are different philosophies developing software and we are
+counting males and females in Internet, so the floor is the software
+in this world. If we must analyze gender in a country the ideology is
+changing in the place where you are. In the software world is the same
+problem. So, we are giving the vocabulary and the philosophy for speak
+about software and ideologies.
+
+The propietary software is the most common idea for the common people,
+operating systems such as Microsoft Windows or Mac OS. If you are
+using software with propietary licenses, the source files will be
+containing copyright notes such as:
+
+@example
+# Copyright (C) 2020  David Arroyo Menéndez
+
+# Author: David Arroyo Menéndez <davidam@@gmail.com>
+# Maintainer: David Arroyo Menéndez <davidam@@gmail.com>
+
+# All rights reserved
+@end example
+
+This idea is associated to big companies leading the market but any
+people can use this philosophy. The criticism appears with Richard
+Stallman about privacy and lack of freedom to the academic people, or
+hackers (people who knows read and write software and they do it for
+his objectives or global objectives). I could to say the monopoly is
+too strong with this license and the current social inertia and now
+nobody can change the market, we need another licenses to preserve the
+free market with an ethical strategy for startups and students.
+
+Richard Stallman defines the Free Software with four freedoms: (0) to
+run the program, (1) to study and change the program in source code
+form, (2) to redistribute exact copies, and (3) to distribute modified
+versions.
+
+This idea to build software as a social good and motivated by ethical
+values. The solution is to apply the GPL license and to request to GNU
+to include the software.
+
+The copyright note in GNU would be similar to:
+
+@example
+;; This software is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This software is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs.  If not, see <https://www.gnu.org/licenses/>.
+@end example
+
+On opposition the Open Source movement believes in free licenses, but
+they thinks that the software is business and they want to develop
+Free Software by economy, so they prefer change the word Free Software
+by Open Source claiming their philosophy.
+
+They redefines the Free Software Definition by the Open Source
+Definition:
+
+@example
+1. Free Redistribution
+
+The license shall not restrict any party from selling or giving away
+the software as a component of an aggregate software distribution
+containing programs from several different sources. The license shall
+not require a royalty or other fee for such sale.
+
+2. Source Code
+
+The program must include source code, and must allow distribution in
+source code as well as compiled form. Where some form of a product is
+not distributed with source code, there must be a well-publicized
+means of obtaining the source code for no more than a reasonable
+reproduction cost, preferably downloading via the Internet without
+charge. The source code must be the preferred form in which a
+programmer would modify the program. Deliberately obfuscated source
+code is not allowed. Intermediate forms such as the output of a
+preprocessor or translator are not allowed.
+
+3. Derived Works
+
+The license must allow modifications and derived works, and must allow
+them to be distributed under the same terms as the license of the
+original software.
+
+4. Integrity of The Author's Source Code
+
+The license may restrict source-code from being distributed in
+modified form only if the license allows the distribution of "patch
+files" with the source code for the purpose of modifying the program
+at build time. The license must explicitly permit distribution of
+software built from modified source code. The license may require
+derived works to carry a different name or version number from the
+original software.
+
+5. No Discrimination Against Persons or Groups
+
+The license must not discriminate against any person or group of
+persons.
+
+6. No Discrimination Against Fields of Endeavor
+
+The license must not restrict anyone from making use of the program in
+a specific field of endeavor. For example, it may not restrict the
+program from being used in a business, or from being used for genetic
+research.
+
+7. Distribution of License
+
+The rights attached to the program must apply to all to whom the
+program is redistributed without the need for execution of an
+additional license by those parties.
+
+8. License Must Not Be Specific to a Product
+
+The rights attached to the program must not depend on the program's
+being part of a particular software distribution. If the program is
+extracted from that distribution and used or distributed within the
+terms of the program's license, all parties to whom the program is
+redistributed should have the same rights as those that are granted in
+conjunction with the original software distribution.
+
+9. License Must Not Restrict Other Software
+
+The license must not place restrictions on other software that is
+distributed along with the licensed software. For example, the license
+must not insist that all other programs distributed on the same medium
+must be open-source software.
+
+10. License Must Be Technology-Neutral
+
+No provision of the license may be predicated on any individual
+technology or style of interface.
+@end example
+
+In the point six, we find the conflict with the feminist theories due to
+the possitive discrimination is a good idea to reach gender equity.
+
+The GNU philosophy has the same problem explained on a different
+way. Only the Free Software is a good idea, if the software is not Free
+Software, then it's Propietary Software (the bad idea to avoid).
+
+In Damegender, we want to deliver Free Software by practical reasons
+released with GPLv3 trough pypi.org and github.com the very popular
+sites to distribute Free Software written in Python. But we understand
+that we can to make positive discrimination in the development in
+favor to the women as an experiment with this copyright note in the
+development branch:
+
+@example
+# You can share, copy and modify this software if you are a woman or you
+# are David Arroyo Menéndez and you include this note.
+@end example
+
+This book will be published with this license, too.
+
+
+
+@node License 
 @appendix License
 
 @include license-fl.texi
