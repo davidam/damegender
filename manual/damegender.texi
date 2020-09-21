@@ -1122,7 +1122,7 @@ Feminism, Ecofeminism and derivatives
 @item
 Gender terms and philosophies
 
-@end item
+@end itemize
 
 
 @section Philosophies about software, market, freedom and gender
@@ -1330,6 +1330,30 @@ social control.
 5. We need develop a scheme of concepts with many cultures
 demonstrating in the education that the knowledge is the common
 property of all people (Walking, 1990).
+
+Damegender understands has an international and intercultural
+perspective about guess the gender about the name in the sense that in
+many countries are existing many different cultures determining names,
+surnames with a gender. So, in Spain are living 4 so important
+cultures (no foreigners):
+
+@itemize @bullet
+@item
+Castillian (culture dominant)
+
+@item
+Catalan
+
+@item
+Basque
+
+@item
+Galician
+
+@end itemize
+
+These cultures has correlations with names and surnames.
+
 
 
 
