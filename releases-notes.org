@@ -1,8 +1,7 @@
 
 * v0.2.12
 + top.py: add --position argument, fix --less
-+ mail2gender.py: add --verbose argument
-+ git2gender.py: add --verbose argument
++ mail2gender.py and git2gender.py: it shows males and females
 + app/dame_statistics.py: created due to refactor in app/dame_gender.py
 + csv2gender.py: add --noshow argument
 + jokes.py: created. It's about damegender tips written as jokes.
