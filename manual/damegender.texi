@@ -890,17 +890,16 @@ idea that in the last script: more people using the name.
 
 @section Deciding for males and females in images
 
-There are many free software tools for decide gender in images files,
-we have selected the next tool:
+There are many free software tools for decide gender in images
+files. We can use these tools to decide gender about images from
+Twitter, Github, ... We have selected the next tool:
 
 @example
-$ git clone https://github.com/davidam/damephoto
-$ cd damephoto/bin
-$ python3 damephoto.py girl1.jpg
+$ git clone https://github.com/davidam/damefaces
+$ cd damefaces/bin
+$ python3 damefaces.py girl1.jpg
 @end example
 
-We can use this tool to decide gender about images from Twitter,
-Github, ...
 
 @section Webscraping and Damegender because we want count scientifics
 
@@ -1448,7 +1447,6 @@ male or female only due to that the free datasets provided by the
 states only supports this idea in the moment writing this book. But we
 respect the non binary philosophies due to this philosophies are
 describing a reality.
-
 
 @node License 
 @appendix License
