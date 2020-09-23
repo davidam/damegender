@@ -31,12 +31,17 @@ This manual is for Damegender (version @value{VERSION}, @value{UPDATED}).
 * Commands::
 * Statistics::
 * Use Cases:
+* Theorical Frameworks::
 * GNU Free Documentation License::
 * Index::
 @end menu
 
 @node Introduction
 @chapter Introduction
+@cindex Introduction
+@cindex Gender Detection Tools from the Name
+@cindex APIs
+
 
 Damegender is a gender detection tool from the name coded by David
 Arroyo MEnéndez (DAME).
@@ -385,6 +390,21 @@ Various races: 1.63
 
 @node Statistics
 @chapter Statistics
+@cindex Measuring success and error
+@cindex Principal Component Analysis (PCA)
+@cindex True positive
+@cindex True negative
+@cindex False positive
+@cindex False negative
+@cindex Precision
+@cindex Accuracy
+@cindex F1 score
+@cindex Recall
+@cindex Error coded
+@cindex Error coded without na
+@cindex Error gender bias
+@cindex Confusion matrix
+@cindex ROC
 
 In the last chapter we were learning to execute some commands such as
 accuracy.py, confusion.py, or errors.py, but perhaps you need to
@@ -728,6 +748,14 @@ first_letter_vocal is for females.
 
 @node Use Cases
 @chapter Use Cases
+@node Use Cases
+@cindex Debian
+@cindex Kernel
+@cindex Forbes
+@cindex Git
+@cindex Maps
+@cindex Las Calles de la Mujeres
+@cindex Webscraping
 
 @section Introduction
 
@@ -1077,6 +1105,13 @@ It has a strong community created by females (GeoChicas)
 
 @node Theorical Frameworks
 @chapter Theorical Frameworks
+@cindex Feminism
+@cindex Ecofeminism
+@cindex Multiculturalism
+@cindex Interculturalism
+@cindex Gender
+@cindex Free Software
+@cindex Open Source
 
 If you want do a social research for a quantitative study, such as,
 count males and females you can:
@@ -1159,7 +1194,7 @@ free market with an ethical strategy for startups and students.
 Richard Stallman defines the Free Software with four freedoms: (0) to
 run the program, (1) to study and change the program in source code
 form, (2) to redistribute exact copies, and (3) to distribute modified
-versions.
+versions. (Source: What's is free software, GNU, https://www.gnu.org/philosophy/free-sw.html)
 
 This idea to build software as a social good and motivated by ethical
 values. The solution is to apply the GPL license and to request to GNU
@@ -1188,7 +1223,7 @@ Free Software by economy, so they prefer change the word Free Software
 by Open Source claiming their philosophy.
 
 They redefines the Free Software Definition by the Open Source
-Definition:
+Definition (Source: https://opensource.org/osd):
 
 @example
 1. Free Redistribution
@@ -1304,7 +1339,7 @@ communities that have isolated themselves and accentuated their
 specificity. It is based on the recognition of both differences and
 similarities between cultures. It has addressed the risk of the
 creation of absolute relativism within postmodernity and in
-multiculturalism.
+multiculturalism. (Source: wikipedia, 2020)
 
 Aguado in (La Educación Intercultural: Concepto, Paradigmas,
 Realizaciones) propose these principles:
@@ -1403,7 +1438,8 @@ factors. For example, a black woman might face discrimination from a
 business that is not distinctly due to her race (because the business
 does not discriminate against black men) nor distinctly due to her
 gender (because the business does not discriminate against white
-women), but due to a unique combination of the two factors.
+women), but due to a unique combination of the two factors. (Source:
+wikipedia, 2020)
 
 So, to understand discrimination, we must understand multiple
 factors. For example, the free software communities with the
