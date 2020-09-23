@@ -42,7 +42,6 @@ This manual is for Damegender (version @value{VERSION}, @value{UPDATED}).
 @cindex Gender Detection Tools from the Name
 @cindex APIs
 
-
 Damegender is a gender detection tool from the name coded by David
 Arroyo MEnéndez (DAME).
 
@@ -70,7 +69,6 @@ different situations (Ex: count-debian-gender.py)
 This software is taking into account the power to predict nations and
 ethnicity from the surnames (Ex: surname.py, surnameincountries.py and
 ethnicity.py).
-
 
 @node Installation
 @chapter Installation
@@ -1130,6 +1128,15 @@ Choose some theorical framework.
 Perhaps, with a qualitative study (interviews, focus groups, ...) you
 could understand better the problems, the specific vocabulary used by
 the people, the reasons about the decisions, ... 
+
+@item
+To retrieve data with Damegender or make surveys (online, offline, ...)
+
+@item
+An analysis quantitative.
+
+@item
+Conclusions
 
 @end itemize
 
