@@ -1141,6 +1141,17 @@ partner in the previous 12 months. (Source: https://www.unwomen.org)
 
 @image{images/gender-stats,6in,,Gender Stats}
 
+In the next image you can observe a graphic about gender gap in
+several continents (Source: Global Gender Gap Index 2012):
+
+@image{images/gendergap-continents,6in,,Gender Gap by Continents}
+
+From the best score to the worst score. We can find: North America with the best score, Europe and Central Asia, Latin America and the Caribbean, Sub-Saharan Africa, Asia and the Pacific, and the worst score Middle East and South Africa.
+
+In the graphic we can understand gender gap in stem in 2009 and compare with gender gap in the market:
+
+@image{images/gender-gap-stem,6in,,Gender Gap by Continents}
+
 @node Theorical Frameworks
 @chapter Theorical Frameworks
 @cindex Feminism
