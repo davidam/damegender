@@ -1152,6 +1152,8 @@ In the graphic we can understand gender gap in stem in 2009 and compare with gen
 
 @image{images/gender-gap-stem,6in,,Gender Gap by Continents}
 
+So the gender gap is bigger in STEM than the labour market in general.
+
 @node Theorical Frameworks
 @chapter Theorical Frameworks
 @cindex Feminism
