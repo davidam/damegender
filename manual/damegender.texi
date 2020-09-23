@@ -1101,6 +1101,21 @@ too.
 It has a strong community created by females (GeoChicas)
 @code{https://geochicas.github.io/} related with OpenStreetMap.
 
+@section Gender gap in science
+
+A good visual job can be found in
+https://lukeholman.github.io/genderGap/. This work is based on R
+retrieves the data from genderize and arxiv. The gap is especially
+large in authorship positions associated with seniority, and
+prestigious journals have fewer women authors. Additionally, they
+estimates that men are invited by journals to submit papers at
+approximately double the rate of women. Wealthy countries, notably
+Japan, Germany, and Switzerland, had fewer women authors than poorer
+ones. It concludes that the STEMM gender gap will not close without
+further reforms in education, mentoring, and academic
+publishing. There are a paper with a full explanation:
+https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2004956
+
 @node Understanding Gender Gap
 @chapter Understanding Gender Gap
 @cindex Gender Gap
