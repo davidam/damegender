@@ -31,6 +31,7 @@ This manual is for Damegender (version @value{VERSION}, @value{UPDATED}).
 * Commands::
 * Statistics::
 * Use Cases:
+* Understanding Gender Gap::
 * Theorical Frameworks::
 * GNU Free Documentation License::
 * Index::
@@ -1146,9 +1147,13 @@ several continents (Source: Global Gender Gap Index 2012):
 
 @image{images/gendergap-continents,6in,,Gender Gap by Continents}
 
-From the best score to the worst score. We can find: North America with the best score, Europe and Central Asia, Latin America and the Caribbean, Sub-Saharan Africa, Asia and the Pacific, and the worst score Middle East and South Africa.
+From the best score to the worst score. We can find: North America
+with the best score, Europe and Central Asia, Latin America and the
+Caribbean, Sub-Saharan Africa, Asia and the Pacific, and the worst
+score Middle East and South Africa.
 
-In the graphic we can understand gender gap in stem in 2009 and compare with gender gap in the market:
+In the graphic we can understand gender gap in stem in 2009 and
+compare with gender gap in the market:
 
 @image{images/gender-gap-stem,6in,,Gender Gap by Continents}
 
@@ -1184,7 +1189,7 @@ the people, the reasons about the decisions, ...
 To retrieve data with Damegender or make surveys (online, offline, ...)
 
 @item
-An analysis quantitative.
+An analysis quantitative with maths, graphics and interpretations
 
 @item
 Conclusions
