@@ -1100,14 +1100,25 @@ too.
 It has a strong community created by females (GeoChicas)
 @code{https://geochicas.github.io/} related with OpenStreetMap.
 
-@node Understanding Gender Gap
+@node Understanding the Gender Gap
 @chapter Understanding Gender Gap
 @cindex Gender Gap
 @cindex Gender
 
-First, a brief summary (source: Eurostat, 2020). The share of women and males in
-the EU population is 229 million of women (51%) and 218 million of
-males (49%). The gender gap in 
+@section Gender Gap
+
+The women is underrepresent in the labour world (among adults aged
+from 25 to 54 has stagmated over the past 20 years, standing at 31
+percentage points. The gender pay gap exists, too, so the women are
+paid 16% less than men. Share of women and men with an account at a
+financial institution is 65% of the total in women and 72% of the
+total in men. 31% of young women aged 15 to 24 are not in education,
+employment or training in 2020, more than double rate for young men
+(14%). Violence against women is 18% of ever-partnered women aged 15
+to 49 experienced sexual and/or physical violence by an intimate
+partner in the previous 12 months.
+
+@image{images/gender-stats,6in,,Gender Stats}
 
 
 @node Theorical Frameworks
