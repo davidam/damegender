@@ -1100,6 +1100,15 @@ too.
 It has a strong community created by females (GeoChicas)
 @code{https://geochicas.github.io/} related with OpenStreetMap.
 
+@node Understanding Gender Gap
+@chapter Understanding Gender Gap
+@cindex Gender Gap
+@cindex Gender
+
+First, a brief summary (source: Eurostat, 2020). The share of women and males in
+the EU population is 229 million of women (51%) and 218 million of
+males (49%). The gender gap in 
+
 
 @node Theorical Frameworks
 @chapter Theorical Frameworks
@@ -1108,8 +1117,6 @@ It has a strong community created by females (GeoChicas)
 @cindex Multiculturalism
 @cindex Interculturalism
 @cindex Gender
-@cindex Free Software
-@cindex Open Source
 
 If you want do a social research for a quantitative study, such as,
 count males and females you can:
@@ -1167,6 +1174,8 @@ Gender terms and philosophies
 
 
 @section Philosophies about software, market, freedom and gender
+@cindex Free Software
+@cindex Open Source
 
 There are different philosophies developing software and we are
 counting males and females in Internet, so the floor is the software
@@ -1329,7 +1338,42 @@ development branch:
 
 This book will be published with this license, too.
 
-@section Interculturalism
+@section Multiculturalism, Interculturalism
+@cindex Interculturalism
+@cindex Multiculturalism
+
+The term multiculturalism has a range of meanings within the contexts
+of sociology, of political philosophy, and of colloquial use. In
+sociology and in everyday usage, it is a synonym for "ethnic
+pluralism", with the two terms often used interchangeably, for
+example, a cultural pluralism in which various ethnic groups
+collaborate and enter into a dialogue with one another without having
+to sacrifice their particular identities. It can describe a mixed
+ethnic community area where multiple cultural traditions exist (such
+as New York City or Trieste) or a single country within which they do
+(such as Switzerland, Belgium or Russia). Groups associated with an
+indigenous, aboriginal or autochthonous ethnic group and
+settler-descended ethnic groups are often the focus.
+
+In reference to sociology, multiculturalism is the end-state of either
+a natural or artificial process (for example: legally-controlled
+immigration) and occurs on either a large national scale or on a
+smaller scale within a nation's communities. On a smaller scale this
+can occur artificially when a jurisdiction is established or expanded
+by amalgamating areas with two or more different cultures (e.g. French
+Canada and English Canada). On a large scale, it can occur as a result
+of either legal or illegal migration to and from different
+jurisdictions around the world (for example, Anglo-Saxon settlement of
+Britain by Angles, Saxons and Jutes in the 5th century or the
+colonization of the Americas by Europeans, Africans and Asians since
+the 16th century).
+
+In reference to political science, multiculturalism can be defined as
+a state's capacity to effectively and efficiently deal with cultural
+plurality within its sovereign borders. Multiculturalism as a
+political philosophy involves ideologies and policies which vary
+widely. It has been described as a "salad bowl" and as a "cultural
+mosaic", in contrast to a "melting pot". (Source: wikipedia, 2020)
 
 Interculturalism refers to support for cross-cultural dialogue and
 challenging self-segregation tendencies within cultures. 
@@ -1371,6 +1415,11 @@ social control.
 5. We need develop a scheme of concepts with many cultures
 demonstrating in the education that the knowledge is the common
 property of all people (Walking, 1990).
+
+So, interculturalism and multiculturalism are the same concept in many
+uses, both recognize the cultural diversity in the contexts where
+there are the diversity, but interculturalism is doing an emphasis in
+the enrichment of all cultures respecting the diversity.
 
 Damegender understands has an international and intercultural
 perspective about guess the gender about the name in the sense that in
