@@ -1638,6 +1638,31 @@ states only supports this idea in the moment writing this book. But we
 respect the non binary philosophies due to this philosophies are
 describing a reality.
 
+@section Pandemic times
+
+In many social research studies you must explain the historical
+context, to give philosophical support studying the present and to give
+explanations about the human behaivour.
+
+Naomi Klein in (The Shock Doctrine: The Rise of Disaster Capitalism,
+2007) explains that many countries is using natural disasters to
+establish controversial and questionable policies while the citizens
+are too distracted.
+
+Carlos Taibo in (Colapso, 2020) explains the ecological situation
+(change climate and the end of the primary sources) and the answer of
+the society (ecological social movements and ecofascism). This subject
+has been the agenda in the streets previous to the pandemy and the
+political parties is using this inertia in pandemic times, too.
+
+With the pandemy the time using screens is augmenting and a lot of
+time using screens is asociated to a low level of goodness (Source:
+Observatorio Social La Caixa,
+https://observatoriosociallacaixa.org/-/el-bienestar-personal-y-el-uso-de-la-tecnologia-en-confinamiento,
+2020). So, Internet is more important and Castells in (Galaxia
+Internet, 2017) explains Internet from the point of view of a
+sociologist.
+
 @node License 
 @appendix License
 
