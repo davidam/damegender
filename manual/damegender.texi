@@ -593,7 +593,7 @@ The @strong{weighted error} is about the true is different than the guessed, but
 + w * (maleundefined + femaleundefined))
 @end example
 
-In Damegender, we have coded errors.py to implement the different definitions in diffrent apis.
+In Damegender, we have coded errors.py to implement the different definitions in different apis.
 
 The confusion matrix creates a matrix about the true and the guess. If you have this confusion matrix:
 
@@ -808,7 +808,7 @@ To simplify and to learn, we can observe this analysis without
 letters. In this analysis, we can observe 4 components.
 
 The first component is about if the last letter is vocal or
-consonant. If the last letter is vocal we can find a male and if the
+consonant. If the last letter is vocal we can find a female and if the
 last letter is a consonant we can find a male.
 
 The second component is about the first letter. The last letter is
