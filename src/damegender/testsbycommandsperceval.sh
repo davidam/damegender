@@ -30,7 +30,7 @@ else
 	echo "git2genderdrupal test is ok"
 fi
 
-python3 git2gender.py https://github.com/davidam/damegender.git --directory=/tmp/d --show=all --verbose --language=es > files/tests/git2genderverbose-$(date "+%Y-%m-%d-%H").txt
+python3 git2gender.py  https://git.drupalcode.org/project/orgmode.git --directory="/tmp/clonedrupal" --show=all --verbose --language=es > files/tests/git2genderverbose-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/git2genderverbose.txt files/tests/git2genderverbose-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -54,4 +54,3 @@ fi
 rm -rf /tmp/clonedir
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
-
