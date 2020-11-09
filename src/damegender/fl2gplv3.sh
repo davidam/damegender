@@ -11,6 +11,8 @@ cp $1 new.txt
 FILE=$1
 if [ -f "$FILE" ]; then
     echo "File exists"
+else
+    echo "Insert a file as argument, please"
 fi    
 
 sed '1,5d' new.txt > tmp.txt
