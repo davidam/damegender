@@ -1,10 +1,20 @@
-#!/usr/bin/sh
-#  Copyright (C) 2020 David Arroyo Menendez
+#!/usr/bin/bash
+# Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
+# This file is part of Damegender.
 
-#  Author: David Arroyo Menéndez <davidam@gmail.com>
-#  Maintainer: David Arroyo Menéndez <davidam@gmail.com>
-#  You can share, copy and modify this software if you are a woman or you
-#  are David Arroyo Menéndez and you include this note.
+# Damegender is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# Damegender is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with Damegender.  If not, see <https://www.gnu.org/licenses/>.
+
 
 
 cp $1 new.txt
@@ -16,10 +26,6 @@ else
 fi    
 
 sed '1,5d' new.txt > tmp.txt
-sed '/Author:/d' tmp.txt > tmp2.txt
-sed '/Maintainer:/d' tmp2.txt > tmp3.txt
-sed '/You can share, copy and modify this software if you are a woman or you/d' tmp3.txt > tmp4.txt
-sed '/and you include this note/d' tmp4.txt > tmp5.txt
 cp files/gpl.txt nuevo_fichero.txt
 cat tmp5.txt >> nuevo_fichero.txt
 echo "Going to replace feminist license to gplv3"
