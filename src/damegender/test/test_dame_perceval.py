@@ -64,10 +64,10 @@ class TddInPythonExample(unittest.TestCase):
         x = len(gg.list_mailers('http://mail-archives.apache.org/mod_mbox/httpd-announce/'))    
         self.assertTrue(x >= 0)
 
-    def test_dame_perceval_list_launchpad_method_returns_correct_result(self):
-        dp = DamePerceval()
-        l = dp.list_launchpad("ubuntu", datetime.datetime.now() - timedelta(hours=12))
-        self.assertTrue(len(l) > 1)
+    # def test_dame_perceval_list_launchpad_method_returns_correct_result(self):
+    #     dp = DamePerceval()
+    #     l = dp.list_launchpad("ubuntu", datetime.datetime.now() - timedelta(hours=12))
+    #     self.assertTrue(len(l) > 1)
         
     def test_dame_perceval_dicc_authors_and_mails_method_returns_correct_result(self):
         dp = DamePerceval()
