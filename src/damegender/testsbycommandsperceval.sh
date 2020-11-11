@@ -1,24 +1,19 @@
-#!/bin/bash
+#!/usr/bin/bash
+# Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
+# This file is part of Damegender.
 
-# Copyright (C) 2020  David Arroyo Menéndez
-
-# Author: David Arroyo Menéndez <davidam@gnu.org>
-# Maintainer: David Arroyo Menéndez <davidam@gnu.org>
-
-# This file is free software; you can redistribute it and/or modify
+# Damegender is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 3, or (at your option)
-# any later version.
-# 
-# This file is distributed in the hope that it will be useful,
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# Damegender is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+
 # You should have received a copy of the GNU General Public License
-# along with Damegender; see the file LICENSE.  If not, write to
-# the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
-# Boston, MA 02110-1301 USA,
+# along with Damegender.  If not, see <https://www.gnu.org/licenses/>.
 
 rm -rf /tmp/clonedir
 
@@ -42,7 +37,7 @@ else
 	echo "git2genderdrupal test is ok"
 fi
 
-python3 git2gender.py https://github.com/davidam/damegender.git --directory=/tmp/d --show=all --verbose --language=es > files/tests/git2genderverbose-$(date "+%Y-%m-%d-%H").txt
+python3 git2gender.py  https://git.drupalcode.org/project/orgmode.git --directory="/tmp/clonedrupal" --show=all --verbose --language=es > files/tests/git2genderverbose-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/git2genderverbose.txt files/tests/git2genderverbose-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -66,4 +61,3 @@ fi
 rm -rf /tmp/clonedir
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
-

@@ -1,11 +1,12 @@
 
-* v0.2.12
+* v0.3.1
 + top.py: add --position argument, fix --less
 + mail2gender.py and git2gender.py: it shows males and females
 + app/dame_statistics.py: created due to refactor in app/dame_gender.py
 + csv2gender.py: add --noshow argument
 + jokes.py: created. It's about damegender tips written as jokes.
 + manual: new sections
++ Now we have a dual license and I add scripts to change licenses 
 
 * v0.2.11
 We are starting to count males and females in Internet Communities:
