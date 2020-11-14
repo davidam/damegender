@@ -17,11 +17,6 @@
 # You should have received a copy of the GNU General Public License
 # along with Damegender.  If not, see <https://www.gnu.org/licenses/>.
 
-# Author: David Arroyo Menéndez <davidam@gnu.org>
-# Maintainer: David Arroyo Menéndez <davidam@gnu.org>
-
-# You can share, copy and modify this software if you are a woman or you
-# are David Arroyo Menéndez and you include this note.
 
 #from nltk.corpus import names
 #import nltk
