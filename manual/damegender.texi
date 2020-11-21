@@ -33,7 +33,8 @@ This manual is for Damegender (version @value{VERSION}, @value{UPDATED}).
 * Use Cases:
 * Secondary Sources about Gender Gap::
 * Theorical Frameworks::
-* GNU Free Documentation License::
+* Conclusions::
+* License::
 * Index::
 @end menu
 
@@ -1198,15 +1199,29 @@ https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2004956
 @cindex Gender
 @cindex Secondary Sources
 
-When a social researcher starts a new work, the first step is to read
-secondary sources, a scientific can speak about the state of the art
-or similar. It's previous works done by another people about the
-objectives of the project. The objective of this chapter is to show
-some secondary sources about the gender gap in general, in STEM and in
-the Free Software. The idea is to reduce time to the people using
-Damegender understanding this kind of things. After of this, you can
-compare gender gap with the local problem: Kernel, Gnu/linux
-distribution, StackOverflow, Twitter, Forbes, Science, etc.
+When a social researcher starts a new work, the first step is set an
+objective about the project with subobjectives, that's define the
+problem to solve with a methodology (quantitative, qualitative, or
+mixed). The second step is about sample decision who is the people,
+the population going to give us the data. The third step is about
+selection strategies about retrieve data, analysis and to show
+results. (Source: Técnicas Cualitativas de Investigación Social)
+(Source: La encuesta una perspectiva general metodológica)
+
+To read secondary sources about the objective and subobjectives of the
+project is to read previous works of another people (papers, books,
+data, news, ...) in science we refer to the state of the art or
+similar.
+
+You can read secondary sources in different steps of a social research
+work, although is a task specially suggested in the first steps.
+
+The objective of this chapter is to show some secondary
+sources about the gender gap in general, in STEM and in the Free
+Software. The idea is to reduce time to the people using Damegender
+understanding this kind of things. After of this, you can compare
+gender gap with the local problem: Kernel, Gnu/linux distribution,
+StackOverflow, Twitter, Forbes, Science, etc.
 
 @section Gender Inequality in the World
 
@@ -1720,6 +1735,58 @@ https://observatoriosociallacaixa.org/-/el-bienestar-personal-y-el-uso-de-la-tec
 2020). So, Internet is more important and Castells in (Galaxia
 Internet, 2017) explains Internet from the point of view of a
 sociologist.
+
+@node Conclusions
+@chapter Conclusions
+
+There are many options to count males and females in Internet, a good
+idea is to retrieve a dataset about males and females. Damegender is
+giving the most modern open datasets and it provides a good toolkit for
+many solutions: 
+
+@itemize @bullet
+@item
+To count males and females in git repositories, mailing lists, csv files, ...
+
+@item
+To predict gender with machine learning if the name is not in the dataset
+
+@item
+To guess the country about the surname
+
+@item
+To understand how is used a name with different cultural regions
+
+@item
+To retrieve names from commercial apis
+
+@item
+To view relationships between names and races
+
+@end itemize
+
+These techniques can help to research or to visualize gender gap.
+
+With this manual we have understood:
+
+@itemize @bullet
+@item
+How to use Damegender.
+
+@item
+How to compare different solutions with a scientific perspective, that
+is to manage mathematical vocabulary for to apply the concepts.
+
+@item
+How to apply this software to different use cases.
+
+@item
+How to find the main external resources about gender gap.
+
+@item
+To explain some philosophies for to give explanations to the data.
+
+@end itemize
 
 @node License 
 @appendix License
