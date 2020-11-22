@@ -19,7 +19,12 @@
 
 
 import configparser
+import os
 config = configparser.ConfigParser()
+
+dir = "files/apikeys/"
+if (not os.path.exists(dir)):
+    os.makedirs(dir)
 
 genderapi_p = input("Do you have a genderapi key: (Y|N) ")
 if (genderapi_p.upper() == "Y"):
