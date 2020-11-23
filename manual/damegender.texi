@@ -579,7 +579,7 @@ the guessed, but without undefined results.
 + w * (maleundefined + femaleundefined))
 @end example
 
-In Damegender, we have coded errors.py to implement the different definitions in different apis.
+In Damegender, we have coded errors.py to implement several definitions in different apis.
 
 The confusion matrix creates a matrix about the true and the guess. If you have this confusion matrix:
 
@@ -597,7 +597,7 @@ It means, I have 2 females true and I’ve guessed 2 females and I’ve 5 males 
 
 It means, I have 2 females true and I’ve guessed 2 females and I’ve 14 males true and I’ve guessed 14 males. 1 female was considered male, 2 males was considered female.
 
-In Damegender, we have coded confusion.py to implement this concept with the different apis.
+In Damegender, we have coded confusion.py to implement this concept:
 
 @example
 python3 confusion.py --csv=files/names/min.csv
@@ -609,6 +609,12 @@ Damegender confusion matrix:
       M   F   U  
 M  [[ 5,  0,  0 ]
 F   [ 0,  1,  0 ]]
+@end example
+
+Remember that we can retrieve the json file from several apis having the names to be guessed in the csv file with downloadjson.py:
+
+@example
+$ python3 downloadjson.py --csv="files/names/min.csv" --api="genderapi" 
 @end example
 
 Similar to confusion is ROC (Receiver Operating Characteristic) is a
@@ -823,7 +829,11 @@ communities such as Twitter, StackOverflow, ... We hope that with this
 manual software
 
 A specific community has some clues to determine male or female, for
-example, in Twitter you observe the photo, nickname, real name, ...
+example, in Twitter you can observe the photo, nickname, real name,
+... 
+
+In this chapter we are going to apply the concepts to determine gender
+in real situations observing where the gender is provided.
 
 @section Counting males and females in Debian
 
@@ -988,10 +998,10 @@ $ python3 damefaces.py girl1.jpg
 @end example
 
 
-@section Webscraping and Damegender because we want count scientifics
+@section Webscraping and Damegender because we want count academics
 
 Sometimes, we can reach the database of names from a website, for
-example, we can retrieve a list of scientifics from Spain thanks to
+example, we can retrieve a list of academics from Spain thanks to
 webometrics and the next script:
 
 @example
@@ -1010,9 +1020,9 @@ args = parser.parse_args()
 page = requests.get(args.url)
 tree = html.fromstring(page.content)
 
-scientifics = tree.xpath('//tr/td/a/strong/text()')
+academics = tree.xpath('//tr/td/a/strong/text()')
 
-print('Scientifics: %s' % scientifics)
+print('Academics: %s' % academics)
 @end example
 
 If you have retrieved the list of names in a file
@@ -1091,7 +1101,11 @@ Number of females scientifics: 31425
 Number of males scientifics: 47945
 @end example
 
-@image{images/scientifics_by_gender,6in,,Scientifics by gender}
+@image{images/scientifics_by_gender,6in,,Academics by gender}
+
+So, the percentage of academic people classified as females in Spain
+is bigger than Free Software people classified as females. Having a
+gender gap in both situations.
 
 @section Counting males and females in a git repository
 
