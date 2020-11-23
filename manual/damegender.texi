@@ -50,8 +50,9 @@ Arroyo MEnéndez (DAME).
 The gender detection tools from the names are being used usually with
 commercial APIs. But many countries has been doing efforts in the last
 years for contribute names and a number of people using each name with
-Open Data Licenses. So, this software is collecting this effort on an
-original way (we are using Machine Learning algorithms for predict
+Open Data Licenses. So, this software is collecting this effort in an
+industrial way and giving new original solutions to classify gender
+from the name (we are using Machine Learning algorithms for predict
 names that is not appearing in our database).
 
 Damegender is giving measures to compare in any moment our solution
@@ -81,13 +82,6 @@ ethnicity.py).
 Possible Debian/Ubuntu dependencies:
 @example
 $ sudo apt-get install python3-nose-exclude python3-dev dict dict-freedict-eng-spa dict-freedict-spa-eng dictd
-@end example
-
-Now, to install damegender from sources:
-@example
-$ git clone https://github.com/davidam/damegender
-$ cd damegender
-$ pip3 install -r requirements.txt
 @end example
 
 Now, to install damegender with python package:
@@ -156,7 +150,7 @@ $ ./testsbycommandsextralocal.sh  # You will need all dependencies
 $ ./testsbycommandsextranet.sh    # You will need api keys
 @end example
 
-You can continue check python tests:
+You can continue checking python tests:
 
 Execute all tests:
 @example
@@ -239,11 +233,6 @@ males: ['Albania', 'Armenia', 'Austria', 'Azerbaijan', 'Belgium',
 females: []
 both: []
 @end example
-
-This Free Software has been developed in the frame of a Phd in the
-Universidad Rey Juan Carlos I with the Phd director Jesús González
-Barahona, so I have developed some commands to use Perceval (Free
-Software where he has done good contributions)
 
 To count gender from a git repository:
 
@@ -342,7 +331,8 @@ $ python3 downloadjson.py --csv=files/names/min.csv --api=genderize
 $ cat files/names/genderizefiles_names_min.csv.json
 @end example
 
-Now we are going to learn some commands for measure the successful of our solution:
+Now we are going to learn some commands for measure the successful of
+our solution:
 
 @example
 $ python3 accuracy.py --csv=files/names/min.csv
@@ -384,12 +374,6 @@ Perhaps you are interested on reproduce experiments to determine features:
 
 @example
 $ python3 infofeatures.py
-Females with last letter a: 0.4705246078961601
-Males with last letter a: 0.048672566371681415
-Females with last letter consonant: 0.2735841767750908
-Males with last letter consonant: 0.6355328972681801
-Females with last letter vocal: 0.7262612995441552
-Males with last letter vocal: 0.3640823393612928
 $ python3 pca-components.py --csv="files/features_list.csv" # To determine number of components
 $ python3 pca-features.py                                   # To understand the weight between variables for a target
 @end example
@@ -441,7 +425,7 @@ is being interesting for you.
 To guess the sex, we have an true idea (example: female) and we obtain
 a result with a method (example: using an api, querying a dataset or
 with a machine learning model). The guessed result could be male,
-female or perhaps unknown. Remember some definitions about results
+female or perhaps unknown. To remember some definitions about results
 about this matter:
 
 @strong{True positive} is to find a value guessed as true if the value
@@ -468,7 +452,7 @@ positives
 (femalefemale + malemale + femalemale)
 @end example
 
-Recall is about true positives divided by true positives plus false negatives.
+@strong{Recall} is about true positives divided by true positives plus false negatives.
 
 @example
 (femalefemale + malemale ) /
@@ -476,7 +460,7 @@ Recall is about true positives divided by true positives plus false negatives.
 + femaleundefined + maleundefined)
 @end example
 
-Accuray is about true positives divided by all.
+@strong{Accuracy} is about true positives divided by all.
 
 @example
 (femalefemale + malemale ) /
@@ -484,7 +468,8 @@ Accuray is about true positives divided by all.
 + femalemale + femaleundefined + maleundefined)
 @end example
 
-The F1 score is the harmonic mean of precision and recall taking both metrics into account in the following equation:
+The @strong{F1 score} is the harmonic mean of precision and recall
+taking both metrics into account in the following equation:
 
 @example
 2 * (
@@ -492,7 +477,7 @@ The F1 score is the harmonic mean of precision and recall taking both metrics in
 (precision + recall))
 @end example
 
-In Damengender, we are using accuracy.py to apply these concepts. Take a look to practice:
+In Damengender, we are using accuracy.py to apply these concepts. Take a look tothe practice:
 
 @example
 $ python3 accuracy.py --api="damegender" --measure="f1score"
@@ -585,7 +570,7 @@ the guessed, but without undefined results.
 
 @strong{Error gender bias} is to understand if the error is bigger guessing males than females or viceversa.
 
-The @strong{weighted error} is about the true is different than the guessed, but giving a weight to the guessed as undefined.
+@strong{Weighted error} is about the true is different than the guessed, but giving a weight to the guessed as undefined.
 
 @example
 (femalemale + malefemale +
@@ -842,7 +827,7 @@ example, in Twitter you observe the photo, nickname, real name, ...
 
 @section Counting males and females in Debian
 
-In the Debian community all member must have a gpg key to collaborate,
+In the Debian community all members must have a gpg key to collaborate,
 so we can count males and females from the keyring. With gpg commands
 you can import a the debian keyring and dump the debian keyring in a
 csv file.
@@ -862,7 +847,7 @@ debian females: 24
 
 In the dump of the debian keyring dataset we have divided name,
 surname and email in different fields. So, it's easy detect the name,
-although some names has several emails
+although some names has several emails.
 
 We have choosen the United States of America dataset and we are using
 the method name_frec to decide for male or female in the row. Take a
@@ -1279,7 +1264,6 @@ male or female. But we can observe that the gender gap is bigger in the Free Sof
 @image{images/gnu_by_gender,6in,,GNU by Gender}
 
 @image{images/kernel_by_gender,6in,,Kernel by Gender}
-
 
 @node Theorical Frameworks
 @chapter Theorical Frameworks
