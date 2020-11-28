@@ -38,7 +38,7 @@ parser.add_argument('--sex', default="female", choices=["male", "female", "all"]
 parser.add_argument('--reverse', default=False, action="store_true")
 parser.add_argument('--less', default=False, action="store_true")
 parser.add_argument('--position', default=False, action="store_true")
-#parser.add_argument('--version', action='version', version='0.1')
+parser.add_argument('--version', action='version', version='0.3')
 args = parser.parse_args()
 
 results = []

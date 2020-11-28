@@ -35,7 +35,7 @@ parser.add_argument('name',  help="Name to be detected")
 parser.add_argument('--surname', help="Surname to be detected")
 parser.add_argument("--api", choices=['namsor', 'genderize', 'genderguesser', 'genderapi', 'nameapi', 'wikidata'], required=True)
 #parser.add_argument('--prob', default="yes", choices=['yes', 'no'])
-parser.add_argument('--version', action='version', version='0.1')
+parser.add_argument('--version', action='version', version='0.3')
 
 args = parser.parse_args()
 

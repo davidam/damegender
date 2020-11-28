@@ -30,7 +30,7 @@ parser.add_argument('--directory', required=True)
 parser.add_argument('--language', default="us", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us'])
 parser.add_argument('--show', choices=['males', 'females', 'unknowns', 'all'])
 parser.add_argument('--ml', default='none', choices=['none', 'nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
-parser.add_argument('--version', action='version', version='0.1')
+parser.add_argument('--version', action='version', version='0.3')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
 

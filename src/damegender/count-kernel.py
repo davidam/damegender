@@ -30,7 +30,7 @@ from app.dame_utils import DameUtils
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--show', choices=['males', 'females', 'unknows', 'all'])
-parser.add_argument('--version', action='version', version='0.1')
+parser.add_argument('--version', action='version', version='0.3')
 args = parser.parse_args()
 
 du = DameUtils()

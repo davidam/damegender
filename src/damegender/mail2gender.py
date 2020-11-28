@@ -30,7 +30,7 @@ parser.add_argument('--directory')
 parser.add_argument('--show', choices=['males', 'females', 'unknows', 'all'])
 parser.add_argument('--ml', default='none', choices=['none', 'nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
 parser.add_argument('--verbose', default=False, action="store_true")
-parser.add_argument('--version', action='version', version='0.1')
+parser.add_argument('--version', action='version', version='0.3')
 
 args = parser.parse_args()
 

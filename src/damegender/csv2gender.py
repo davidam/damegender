@@ -29,7 +29,7 @@ parser.add_argument('--first_name_position', required=True, type=int, choices=[0
 parser.add_argument('--dataset', default="us", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser'])
 parser.add_argument('--output', default="files/names/out.csv")
 parser.add_argument('--noshow', dest='noshow', action='store_true')
-parser.add_argument('--version', action='version', version='0.1')
+parser.add_argument('--version', action='version', version='0.3')
 args = parser.parse_args()
 
 

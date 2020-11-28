@@ -28,7 +28,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("surname", help="display the gender")
 parser.add_argument('--total', required=True, default="ine", choices=['ine', 'es', 'us'])
 parser.add_argument('--spanish_provinces', default=False, action="store_true")
-parser.add_argument('--version', action='version', version='0.1')
+parser.add_argument('--version', action='version', version='0.3')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
 
