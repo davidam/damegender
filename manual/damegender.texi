@@ -11,6 +11,7 @@
 @title Damegender Manual: Counting Males and Females in Internet Communities
 @subtitle for version @value{VERSION}, @value{UPDATED}
 @author David Arroyo Men@'endez (@email{davidam@@gnu.org})
+@author Prologue by Lucía Santamaría (@email{lucia.santamaria@@ymail.com})
 @page
 @vskip 0pt plus 1filll
 @insertcopying
@@ -26,6 +27,7 @@ This manual is for Damegender (version @value{VERSION}, @value{UPDATED}).
 @end ifnottex
 
 @menu
+* Prologue::
 * Introduction::
 * Installation::
 * Commands::
@@ -37,6 +39,58 @@ This manual is for Damegender (version @value{VERSION}, @value{UPDATED}).
 * License::
 * Index::
 @end menu
+
+@node Prologue
+@chapter Prologue
+@cindex Prologue
+
+The algorithmic assignment of a particular gender to a person based on
+their name has become a task of interest for sociological and gender
+studies as an useful research tool in multiple areas. Examples include
+the investigation of gender dynamics and gender biases in social
+media, scholarly output, and scientific and technical contributions,
+among others. Large-scale approximations based on data and Machine
+Learning as well as the rising availability of assorted corpora of
+labelled data names make it feasible to train and evaluate
+classification algorithms in order to produce models that can predict
+gender from names very accurately. Damegender is one such contribution
+to this space, where other commercial and non-commercial actors are
+also present.
+
+Yet one fundamental caveat worth mentioning when approaching the
+gender prediction task pertains an ethical aspect: personal names are
+assigned to individuals at birth as part of a schema based on a
+binary, immutable, and physiologically determined definition of
+gender. Any approach that automates gender assignment denies the view
+that one's gender identity is profoundly subjective and cannot and
+should not be reduced to a binary label. It is virtually impossible to
+accurately assign a gender to every individual without misgendering a
+certain number of them; it is also non-inclusive and fundamentally
+unethical.
+
+If gender studies based on individuals' names are to be carried out
+for the sake of answering a particular sociological question or
+hypothesis, inclusive and fair methods ought to be design to aid in
+this process. Self-identification is one simple avenue that is
+obviously not always practicable and is difficul to scale. Thus, at
+the very least, one should bear in mind that the question of ethical
+treatment of gender needs to be stressed every time that automatic
+assignments are made. Additionally, only results and conclusions based
+on aggregated data should be pursued, and never must an identifiable
+individual be assigned a gender automatically and quoted as such on a
+publication.
+
+These caveats notwithstanding, the tool proposed in this manual,
+Damegender, offers a valuable contribution for powering gender
+analyses on assorted collections of names. It's compilation of
+examples and tests will be highly useful for the interested researcher
+that needs to apply automatic gender detection to their own data. We
+shall hope that those studies will eventually lead to a deeper
+understanding of existing gender dynamics in our society and to the
+development of fair and sustainable proposals to close the gender gap.
+
+December 2020, 
+Lucía Santamaría
 
 @node Introduction
 @chapter Introduction
