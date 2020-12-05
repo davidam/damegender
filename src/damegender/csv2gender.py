@@ -19,6 +19,7 @@ parser.add_argument('--first_name_position', required=True, type=int, choices=[0
 parser.add_argument('--dataset', default="us", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser'])
 parser.add_argument('--output', default="files/names/out.csv")
 parser.add_argument('--noshow', dest='noshow', action='store_true')
+parser.add_argument('--verbose', dest='verbose', action='store_true')
 parser.add_argument('--version', action='version', version='0.3')
 args = parser.parse_args()
 
@@ -43,7 +44,7 @@ for firstname in nameslist:
     if (sex == "male"):
         males_list.append(firstname)
     elif (sex == "female"):
-        females_list.append(firstname)            
+        females_list.append(firstname)
     else:
         unknows_list.append(firstname)
     l.append([firstname, sex])
@@ -53,14 +54,30 @@ for i in l:
     file.write(str(i[0])+","+str(i[1]) + "\n")
 
 file.close()
-    
+
 if (len(sys.argv) > 1):
     print("The number of males in %s is %s" % (str(args.path), str(len(males_list))))
+    if (args.verbose):
+        print("the males list:")
+        for i in du.delete_duplicated(males_list):
+           print(i)
+
     print("The number of females in %s is %s" % (str(args.path), str(len(females_list))))
+
+
+    if (args.verbose):
+        print("the females list")
+        for i in du.delete_duplicated(females_list):
+           print(i)
+
     print("The number of gender not recognised in %s is %s" % (str(args.path), str(len(unknows_list))))
+    if (args.verbose):
+        print("the unknowns list")
+        for i in du.delete_duplicated(unknows_list):
+           print(i)
 
 
-    
+
 import matplotlib.pyplot as plt
 
 data = [len(males_list), len(females_list), len(unknows_list)]
