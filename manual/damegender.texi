@@ -36,6 +36,7 @@ This manual is for Damegender (version @value{VERSION}, @value{UPDATED}).
 * Secondary Sources about Gender Gap::
 * Theorical Frameworks::
 * Conclusions::
+* Further Reading::
 * License::
 * Index::
 @end menu
@@ -1088,8 +1089,8 @@ $ python3 damefaces.py girl1.jpg
 @end example
 
 
-@section Webscraping and Damegender because we want count academics
-@cindex Webscraping and Damegender because we want count academics
+@section Webscraping and Damegender (counting scholars)
+@cindex Webscraping and Damegender (counting scholars)
 
 Sometimes, we can reach the database of names from a website, for
 example, we can retrieve a list of academics from Spain thanks to
@@ -1270,7 +1271,7 @@ too.
 It has a strong community created by females (GeoChicas)
 @code{https://geochicas.github.io/} related with OpenStreetMap.
 
-@section Gender gap in scienec
+@section Gender gap in science
 @cindex Gender gap in science
 
 A good visual job can be found in
@@ -1897,6 +1898,29 @@ How to find the main external resources about gender gap.
 To explain some philosophies for to give explanations to the data.
 
 @end itemize
+
+@node Further reading
+@unnumbered Further reading
+@cindex Bibliography
+@cindex Further reading
+
+@quotation
+@cite{Colapso. Capitalismo terminal. Transición Ecológica. Ecofascismo.} by Carlos Taibo
+(Published by Catarata, ISBN 978-84-9097-203-8)
+@end quotation
+@noindent
+This book is a good explanation about politics chances related with
+ecology, climatic change, etc.
+
+@quotation
+@cite{Free Software Free Society} by Richard Stallman (Published by GNU Press, ISBN 1-882114-98-1)
+@end quotation
+@noindent
+Richard Stallman is the best philosopher about Free Software being the
+father of the most used free software licenses and the founder of GNU
+project being developed by him between many other, yet. This book
+explains all ethical ideas that is inspiring the free software
+community called GNU.
 
 @node License 
 @appendix License
