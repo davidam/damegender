@@ -100,7 +100,8 @@ Lucía Santamaría
 @cindex APIs
 
 Damegender is a gender detection tool from the name coded by David
-Arroyo MEnéndez (DAME).
+Arroyo MEnéndez (DAME). See ``@cite{Damegender: Writing and Comparing
+Gender Detection Tools}'', @ref{Further reading}.
 
 The gender detection tools from the names are being used usually with
 commercial APIs. But many countries has been doing efforts in the last
@@ -1478,12 +1479,12 @@ hackers (people who knows read and write software and they do it for
 his objectives or global objectives). I could to say the monopoly is
 too strong with this license and the current social inertia and now
 nobody can change the market, we need another licenses to preserve the
-free market with an ethical strategy for startups and students.
+free market with an ethical strategy for startups and students. 
 
 Richard Stallman defines the Free Software with four freedoms: (0) to
 run the program, (1) to study and change the program in source code
 form, (2) to redistribute exact copies, and (3) to distribute modified
-versions. (Source: What's is free software, GNU, https://www.gnu.org/philosophy/free-sw.html)
+versions. See ``@cite{Free Software Free Society}'', @ref{Further reading}
 
 This idea to build software as a social good and motivated by ethical
 values. The solution is to apply the GPL license and to request to GNU
@@ -1832,11 +1833,12 @@ Naomi Klein in (The Shock Doctrine: The Rise of Disaster Capitalism,
 establish controversial and questionable policies while the citizens
 are too distracted.
 
-Carlos Taibo in (Colapso, 2020) explains the ecological situation
-(change climate and the end of the primary sources) and the answer of
-the society (ecological social movements and ecofascism). This subject
-has been the agenda in the streets previous to the pandemy and the
-political parties is using this inertia in pandemic times, too.
+Carlos Taibo explains the ecological situation (change climate and the
+end of the primary sources) and the answer of the society (ecological
+social movements and ecofascism). This subject has been the agenda in
+the streets previous to the pandemy and the political parties is using
+this inertia in pandemic times, too. See ``@cite{Colapso}'',
+@ref{Further reading}.
 
 With the pandemy the time using screens is augmenting and a lot of
 time using screens is asociated to a low level of goodness (Source:
@@ -1941,7 +1943,20 @@ A very good scientific job about gender gap in science. This paper is
 suggested to people who has learnt to use Damegender and they want
 develop a good scientific job.
 
+@quotation
+@cite{Damegender: Writing and Comparing Gender Detection Tools}
+by David Arroyo Menéndez (Published by EasyChair 2020).
+@end quotation
+This paper presents the scientific perspective about Damegender. 
 
+@quotation
+@cite{Perceval: software project data at your will} by Santiago
+Dueñas, Valerio Consentino, Gregorio Robles, Jesús M. González
+Barahona (Published by ICSE 2018).
+@end quotation
+This paper presents Perceval a software to retrieve information from
+different sources. Damegender is using perceval to retrieve data from
+git in the moment to write this book.
 
 @node License 
 @appendix License
