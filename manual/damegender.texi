@@ -475,6 +475,7 @@ understand more theory about statistics to understand why this commands
 is being interesting for you.
 
 @section Measuring success and error
+@cindex Measuring success and error
 
 To guess the sex, we have an true idea (example: female) and we obtain
 a result with a method (example: using an api, querying a dataset or
@@ -688,8 +689,10 @@ $ python3 roc.py svc
                                                                      
 
 @section Principal Component Analysis (PCA)
+@cindex Principal Component Analysis (PCA)
 
 @subsection Counting features in names
+@cindex Counting features in names
 
 We have developed a script infofeatures.py with our datasets to
 visualize data about some features chosen by us.
@@ -825,6 +828,7 @@ coincidence between languages due to that there are a good number of
 names to think different.
 
 @subsection Choosing components
+@cindex Choosing components
 
 After, to choose features for our machine learning task, we can
 understand if this features makes sense with Principal Component
@@ -890,6 +894,7 @@ In this chapter we are going to apply the concepts to determine gender
 in real situations observing where the gender is provided.
 
 @section Counting males and females in Debian
+@cindex Counting males and females in Debian
 
 In the Debian community all members must have a gpg key to collaborate,
 so we can count males and females from the keyring. With gpg commands
@@ -973,6 +978,7 @@ universities.
 @image{images/debian_by_gender,6in,,Debian by gender}
 
 @section Counting males and females in Linux Kernel
+@cindex Counting males and females in Linux Kernel
 
 When I'm writing this book the Linux Kernels maintainers appears in
 https://www.kernel.org/doc/html/latest/process/maintainers.html. Then
@@ -993,6 +999,7 @@ $ python3 count-kernel.py
 
 
 @section Counting males and females in Forbes
+@cindex Counting males and females in Forbes
 
 In the second example, we are using guess without machine learning
 instead of name_frec. If you are using guess you are trusting on
@@ -1040,6 +1047,7 @@ idea that in the last script: more people using the name.
 @image{images/forbes119_by_gender,6in,,Forbes by gender}
 
 @section Deciding for males and females in images
+@cindex Deciding for males and females in images
 
 There are many free software tools for decide gender in images
 files. We can use these tools to decide gender about images from
@@ -1053,6 +1061,7 @@ $ python3 damefaces.py girl1.jpg
 
 
 @section Webscraping and Damegender because we want count academics
+@cindex Webscraping and Damegender because we want count academics
 
 Sometimes, we can reach the database of names from a website, for
 example, we can retrieve a list of academics from Spain thanks to
@@ -1162,6 +1171,7 @@ is bigger than Free Software people classified as females. Having a
 gender gap in both situations.
 
 @section Counting males and females in a git repository
+@cindex Counting males and females in a git repository
 
 We can think a simple version of git2gender.py:
 
@@ -1210,6 +1220,7 @@ The number of females sending commits is 0
 @end example
 
 @section Counting males and females in Maps
+@cindex Counting males and females in Maps
 
 @strong{Las calles de las mujeres} is a project in NodeJS to display
 web streets with names about females using MapBox. You can download
@@ -1231,7 +1242,8 @@ too.
 It has a strong community created by females (GeoChicas)
 @code{https://geochicas.github.io/} related with OpenStreetMap.
 
-@section Gender gap in science
+@section Gender gap in scienec
+@cindex Gender gap in science
 
 A good visual job can be found in
 https://lukeholman.github.io/genderGap/. This work is based on R
@@ -1251,6 +1263,7 @@ https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2004956
 @cindex Gender Gap
 @cindex Gender
 @cindex Secondary Sources
+@cindex Social Research
 
 When a social researcher starts a new work, the first step is set an
 objective about the project with subobjectives, that's define the
@@ -1277,6 +1290,7 @@ gender gap with the local problem: Kernel, Gnu/linux distribution,
 StackOverflow, Twitter, Forbes, Science, etc.
 
 @section Gender Inequality in the World
+@cindex Gender Inequality in the World
 
 Gender gap or gender inequality is the idea that men and women are not
 equal and that gender affects an individual's living experience. These
@@ -1313,6 +1327,7 @@ Caribbean, Sub-Saharan Africa, Asia and the Pacific, and the worst
 score Middle East and South Africa.
 
 @section Gender Inequality in STEM
+@cindex Gender Inequality in STEM
 
 In the graphic we can understand gender gap in stem in 2009 and
 compare with gender gap in the market:
@@ -1322,6 +1337,7 @@ compare with gender gap in the market:
 So the gender gap in STEM is bigger than the labour market in general.
 
 @section Gender Inequality in Free Software
+@cindex Gender Inequality in Free Software
 
 The gender gap in the Free Software world is so high we are presenting
 preliminar due to that we can reduce the percentage of unknowns to
@@ -1340,6 +1356,9 @@ male or female. But we can observe that the gender gap is bigger in the Free Sof
 @cindex Multiculturalism
 @cindex Interculturalism
 @cindex Gender
+@cindex Theorical Frameworks
+@cindex Qualitative Research
+@cindex Social Research
 
 If you want do a social research for a quantitative study, such as,
 count males and females you can:
@@ -1397,8 +1416,10 @@ Gender terms and philosophies
 
 
 @section Philosophies about software, market, freedom and gender
+@cindex Software Philosophies
 @cindex Free Software
 @cindex Open Source
+@cindex Richard Stallman
 
 There are different philosophies developing software and we are
 counting males and females in Internet, so the floor is the software
@@ -1668,6 +1689,9 @@ Galician
 These cultures has correlations with names and surnames.
 
 @section Feminism, Ecofeminism and Intersectionality
+@cindex Feminism
+@cindex Ecofeminism
+@cindex Intersectionality
 
 Feminism is a range of social movements, political movements, and
 ideologies that aim to define and establish the political, economic,
@@ -1730,6 +1754,7 @@ in values understanding that the rights of the women depends of
 another values such as democracy, free speech, labor rights, ...
 
 @section Gender
+@cindex Gender
 
 Gender is the range of characteristics pertaining to, and
 differentiating between, masculinity and femininity. Depending on the
@@ -1764,6 +1789,10 @@ respect the non binary philosophies due to this philosophies are
 describing a reality.
 
 @section Pandemic times
+@cindex Pandemic times
+@cindex Naomi Klein
+@cindex Carlos Taibo
+@cindex Manuel Castells
 
 In many social research studies you must explain the historical
 context, to give philosophical support studying the present and to give
@@ -1790,6 +1819,7 @@ sociologist.
 
 @node Conclusions
 @chapter Conclusions
+@cindex Conclusions
 
 There are many options to count males and females in Internet, a good
 idea is to retrieve a dataset about males and females. Damegender is
@@ -1842,6 +1872,7 @@ To explain some philosophies for to give explanations to the data.
 
 @node License 
 @appendix License
+@cindex Damegender License
 
 @include license-fl.texi
 
