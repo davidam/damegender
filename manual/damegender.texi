@@ -1905,22 +1905,43 @@ To explain some philosophies for to give explanations to the data.
 @cindex Further reading
 
 @quotation
-@cite{Colapso. Capitalismo terminal. Transición Ecológica. Ecofascismo.} by Carlos Taibo
-(Published by Catarata, ISBN 978-84-9097-203-8)
+@cite{Colapso. Capitalismo terminal. Transición
+Ecológica. Ecofascismo.} by Carlos Taibo (Published by Catarata, ISBN
+978-84-9097-203-8)
 @end quotation
 @noindent
 This book is a good explanation about politics chances related with
 ecology, climatic change, etc.
 
 @quotation
-@cite{Free Software Free Society} by Richard Stallman (Published by GNU Press, ISBN 1-882114-98-1)
+@cite{Free Software Free Society} by Richard Stallman (Published by
+GNU Press, ISBN 1-882114-98-1)
 @end quotation
 @noindent
 Richard Stallman is the best philosopher about Free Software being the
 father of the most used free software licenses and the founder of GNU
-project being developed by him between many other, yet. This book
+project being developed by him and many other people. This book
 explains all ethical ideas that is inspiring the free software
 community called GNU.
+
+@quotation
+@cite{Comparison and benchmark of name-to-gender inference services}
+by Lucía Santamaría and Helena Mihaljevic (Published by PeerJ Journal)
+@end quotation
+This paper has inspired the development of Damegender and many ideas
+about name-to-gender software is implemented in this book. Thanks a
+lot by this job.
+
+@quotation
+@cite{The Effect of Gender in the Publication Patterns in Mathematics}
+by Helena Mihaljevic, Lucía Santamaría, Marco Tullney (Published by
+Plos One Journal)
+@end quotation
+A very good scientific job about gender gap in science. This paper is
+suggested to people who has learnt to use Damegender and they want
+develop a good scientific job.
+
+
 
 @node License 
 @appendix License
