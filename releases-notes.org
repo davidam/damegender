@@ -1,4 +1,10 @@
 
+* v0.3.2
++ csv2gender.py: add --verbose argument 
+
+New names from oficial Open Data statistics:
++ Belgium (14208 names)
+
 * v0.3.1
 + top.py: add --position argument, fix --less
 + mail2gender.py and git2gender.py: it shows males and females
