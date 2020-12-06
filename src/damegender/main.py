@@ -181,6 +181,9 @@ else:
     if (args.total == "au"):
         print("%s males for %s from Australia statistics" % (num_males, args.name))
         print("%s females for %s from Australia statistics" % (num_females, args.name))
+    elif (args.total == "be"):
+        print("%s males for %s from Belgium statistics" % (num_males, args.name))
+        print("%s females for %s from Belgium statistics" % (num_females, args.name))
     elif (args.total == "ie"):
         print("%s males for %s from Ireland statistics" % (num_males, args.name))
         print("%s females for %s from Ireland statistics" % (num_females, args.name))
