@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/python
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
@@ -17,7 +17,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
-parser.add_argument('--total', default="us", choices=['au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
+parser.add_argument('--total', default="us", choices=['au', 'be', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
 parser.add_argument('--version', action='version', version='0.3')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
@@ -110,7 +110,11 @@ elif ((args.verbose) or (args.total == "all")):
         num_males = s.name_frec(args.name, dataset="au")['males']
         num_females = s.name_frec(args.name, dataset="au")['females']
         print("%s males for %s from Australia statistics" % (num_males, args.name))
-        print("%s females for %s from Australia statistics" % (num_females, args.name))        
+        print("%s females for %s from Australia statistics" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="be")['males']
+        num_females = s.name_frec(args.name, dataset="be")['females']
+        print("%s males for %s from Belgium statistics" % (num_males, args.name))
+        print("%s females for %s from Belgium statistics" % (num_females, args.name))        
         guess = s.guess(args.name, binary=True, ml="nltk")
         print("%s gender predicted with nltk is %s" % (str(args.name), du.int2gender(guess)))
         # guess = s.guess(args.name, binary=True, ml="sgd")
