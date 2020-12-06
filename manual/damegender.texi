@@ -123,7 +123,8 @@ methods and with shell tests for the python commands.
 Damegender is using Perceval for count males and females in a lot of
 Internet Communities (wikis, mailing lists, software repositories, bug
 tracking systems, ...). We shows source for count males and females in
-different situations (Ex: count-debian-gender.py)
+different situations (Ex: count-debian-gender.py) ``@cite{Perceval:
+software project data at your will}'', @ref{Further reading}
 
 This software is taking into account the power to predict nations and
 ethnicity from the surnames (Ex: surname.py, surnameincountries.py and
@@ -234,7 +235,8 @@ $ python3 postinstall.py
 You can find an big list of commands to execute this shell
 scripts. Now a detailed execution of some selected examples:
 
-The first command to learn is main.py. You can play now with this command:
+The first command to learn is main.py. You can play now with this
+command:
 
 @example
 # Detect gender from a name (INE is the dataset used by default)
@@ -534,7 +536,8 @@ taking both metrics into account in the following equation:
 (precision + recall))
 @end example
 
-In Damengender, we are using accuracy.py to apply these concepts. Take a look tothe practice:
+In Damengender, we are using accuracy.py to apply these concepts. Take
+a look tothe practice:
 
 @example
 $ python3 accuracy.py --api="damegender" --measure="f1score"
@@ -885,12 +888,9 @@ first_letter_vocal is for females.
 @section Introduction
 
 There are many research studies count males and females in specific
-communities such as Twitter, StackOverflow, ... We hope that with this
-manual software
-
-A specific community has some clues to determine male or female, for
-example, in Twitter you can observe the photo, nickname, real name,
-... 
+communities such as Twitter, StackOverflow, ... A specific community
+has some clues to determine male or female, for example, in Twitter
+you can observe the photo, nickname, real name, ...
 
 In this chapter we are going to apply the concepts to determine gender
 in real situations observing where the gender is provided.
@@ -999,8 +999,7 @@ api (genderapi, genderize, namsor, nameapi, ...) or to classify the
 name as a software company or a bug. For now, the Open datasets
 contributed by states about names are very good but not all countries
 has the idea of contribute the names.
-Remember that you can download
-names from a csv file with downloadjson.py:
+Remember that you can download names from a csv file with downloadjson.py:
 
 @example
 $ python3 downloadjson.py --api=genderize --csv=files/names/min.csv
@@ -1276,8 +1275,8 @@ It has a strong community created by females (GeoChicas)
 @cindex Gender gap in science
 
 A good visual job can be found in
-https://lukeholman.github.io/genderGap/. This work is based on R
-retrieves the data from genderize and arxiv. The gap is especially
+@code{https://lukeholman.github.io/genderGap/}. This work is based on
+R retrieves the data from genderize and arxiv. The gap is especially
 large in authorship positions associated with seniority, and
 prestigious journals have fewer women authors. Additionally, they
 estimates that men are invited by journals to submit papers at
@@ -1285,8 +1284,9 @@ approximately double the rate of women. Wealthy countries, notably
 Japan, Germany, and Switzerland, had fewer women authors than poorer
 ones. It concludes that the STEMM gender gap will not close without
 further reforms in education, mentoring, and academic
-publishing. There are a paper with a full explanation:
-https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2004956
+publishing. There are a paper with a full explanation: ``@cite{The
+gender gap in science: How long until women are equally
+represented?}'', @ref{Further reading}.
 
 @node Secondary Sources about the Gender Gap
 @chapter Secondary Sources about the Gender Gap
@@ -1342,7 +1342,8 @@ total in men. 31% of young women aged 15 to 24 are not in education,
 employment or training in 2020, more than double rate for young men
 (14%). Violence against women is 18% of ever-partnered women aged 15
 to 49 experienced sexual and/or physical violence by an intimate
-partner in the previous 12 months. (Source: https://www.unwomen.org)
+partner in the previous 12 months. (Source:
+@code{https://www.unwomen.org}).
 
 @image{images/gender-stats,6in,,Gender Stats}
 
@@ -1957,6 +1958,39 @@ Barahona (Published by ICSE 2018).
 This paper presents Perceval a software to retrieve information from
 different sources. Damegender is using perceval to retrieve data from
 git in the moment to write this book.
+
+@quotation
+@cite{The gender gap in science: How long until women are equally
+represented?} by Luke Holman, Devi Stuart-Fox, Cindy E. Hauser.
+@end quotation
+Using the PubMed and arXiv databases, the paper estimated the gender
+of 36 million authors from >100 countries publishing in >6000
+journals, covering most STEMM disciplines over the last 15 years, and
+made a web app allowing easy access to the data
+(https://lukeholman.github.io/genderGap/).
+
+@quotation
+@cite{La Educación Intercultural: Concepto, Paradigmas, Realizaciones}
+by Teresa Aguado Odina
+@end quotation
+This paper is a very good reference to understand Interculturalism
+focused on education. The vocabulary explained in this paper can be so
+useful to apply in concepts related with feminism, or social sciences
+in general.
+
+@quotation
+@cite{Machine Learning} by Tom M. Mitchell (Published by Mc Graw Hill,
+ISBN: 0-07-042807-7)
+@end quotation
+Tom Mitchell is a father of the Machine Learning. This book explains
+in a simpley way the main concepts understanding the need about the
+machine learning. So useful to learn algorithms.
+
+@quotation
+@cite{Global Gender Gap Index 2012} (Published by World Economic
+Forum)
+@end quotation
+The Global Gender Gap Report was first published in 2006 by the World Economic Forum. The 2020 report (published in 2019) covers 153 countries. The Global Gender Gap Index is an index designed to measure gender equality.
 
 @node License 
 @appendix License
