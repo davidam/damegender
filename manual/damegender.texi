@@ -122,13 +122,13 @@ methods and with shell tests for the python commands.
 
 Damegender is using Perceval for count males and females in a lot of
 Internet Communities (wikis, mailing lists, software repositories, bug
-tracking systems, ...). We shows source for count males and females in
-different situations (Ex: count-debian-gender.py) ``@cite{Perceval:
-software project data at your will}'', @ref{Further reading}
+tracking systems, ...). ``@cite{Perceval: software project data at
+your will}'', @ref{Further reading} This manual show source for count males
+and females in different situations (Ex: @code{count-debian-gender.py}).
 
 This software is taking into account the power to predict nations and
-ethnicity from the surnames (Ex: surname.py, surnameincountries.py and
-ethnicity.py).
+ethnicity from the surnames (Ex: @code{surname.py},
+@code{surnameincountries.py} and @code{ethnicity.py}).
 
 @node Installation
 @chapter Installation
@@ -235,7 +235,7 @@ $ python3 postinstall.py
 You can find an big list of commands to execute this shell
 scripts. Now a detailed execution of some selected examples:
 
-The first command to learn is main.py. You can play now with this
+The first command to learn is @code{main.py}. You can play now with this
 command:
 
 @example
@@ -276,8 +276,8 @@ The first Free Software for gender detection tool was created in C
 language program and you can look for a python version with the name
 genderguesser. Some people was working in a Free dataset called
 name_dict.txt with 48500 names. I want to give thanks to this effort
-with nameincountries.py due to the good work organizing many names in
-different countries.
+with @code{nameincountries.py} due to the good work organizing many
+names in different countries.
 
 @example
 $ python3 nameincountries.py David
@@ -382,7 +382,8 @@ scale: 0.99
 @end example
 
 If you want to know the gender of a good number of names you can
-download results from an api and save in a file with downloadjson.py
+download results from an api and save in a file with
+@code{downloadjson.py}.
 
 @example
 $ python3 downloadjson.py --csv=files/names/min.csv --api=genderize
@@ -474,9 +475,9 @@ Various races: 1.63
 @cindex ROC
 
 In the last chapter we were learning to execute some commands such as
-accuracy.py, confusion.py, or errors.py, but perhaps you need to
-understand more theory about statistics to understand why this commands
-is being interesting for you.
+@code{accuracy.py}, @code{confusion.py}, or @code{errors.py}, but
+perhaps you need to understand more theory about statistics to
+understand why this commands is being interesting for you.
 
 @section Measuring success and error
 @cindex Measuring success and error
@@ -536,7 +537,7 @@ taking both metrics into account in the following equation:
 (precision + recall))
 @end example
 
-In Damengender, we are using accuracy.py to apply these concepts. Take
+In Damengender, we are using @code{accuracy.py} to apply these concepts. Take
 a look tothe practice:
 
 @example
@@ -639,7 +640,8 @@ the guessed, but without undefined results.
 + w * (maleundefined + femaleundefined))
 @end example
 
-In Damegender, we have coded errors.py to implement several definitions in different apis.
+In Damegender, we have coded @code{errors.py} to implement several
+definitions in different apis.
 
 The confusion matrix creates a matrix about the true and the guess. If you have this confusion matrix:
 
@@ -657,7 +659,8 @@ It means, I have 2 females true and I’ve guessed 2 females and I’ve 5 males 
 
 It means, I have 2 females true and I’ve guessed 2 females and I’ve 14 males true and I’ve guessed 14 males. 1 female was considered male, 2 males was considered female.
 
-In Damegender, we have coded confusion.py to implement this concept:
+In Damegender, we have coded @code{confusion.py} to implement this
+concept:
 
 @example
 python3 confusion.py --csv=files/names/min.csv
@@ -671,7 +674,7 @@ M  [[ 5,  0,  0 ]
 F   [ 0,  1,  0 ]]
 @end example
 
-Remember that we can retrieve the json file from several apis having the names to be guessed in the csv file with downloadjson.py:
+Remember that we can retrieve the json file from several apis having the names to be guessed in the csv file with @code{downloadjson.py}:
 
 @example
 $ python3 downloadjson.py --csv="files/names/min.csv" --api="genderapi" 
@@ -699,7 +702,7 @@ $ python3 roc.py svc
 @subsection Counting features in names
 @cindex Counting features in names
 
-We have developed a script infofeatures.py with our datasets to
+We have developed a script @code{infofeatures.py} with our datasets to
 visualize data about some features chosen by us.
 
 @example
@@ -978,8 +981,8 @@ software development. United States of America hosts people from
 different countries due to migrations towards good companies and
 universities.
 
-In general, you can choose csv2gender.py to count males, females and
-unknows in a csv file. For example, doing this:
+In general, you can choose @code{csv2gender.py} to count males,
+females and unknows in a csv file. For example, doing this:
 
 @example
 $ python3 csv2gender.py --first_name_position=0
@@ -993,13 +996,13 @@ In the next diagram we can see (78.4% of males, 5.4% of females and
 
 @image{images/debian_by_gender,6in,,Debian by gender}
 
-We can retrieve the names of unknows and to decide
-about the name in the sense of retrieve the gender from a commercial
-api (genderapi, genderize, namsor, nameapi, ...) or to classify the
-name as a software company or a bug. For now, the Open datasets
-contributed by states about names are very good but not all countries
-has the idea of contribute the names.
-Remember that you can download names from a csv file with downloadjson.py:
+We can retrieve the names of unknows and to decide about the name in
+the sense of retrieve the gender from a commercial api (genderapi,
+genderize, namsor, nameapi, ...) or to classify the name as a software
+company or a bug. For now, the Open datasets contributed by states
+about names are very good but not all countries has the idea of
+contribute the names.  Remember that you can download names from a csv
+file with @code{downloadjson.py}:
 
 @example
 $ python3 downloadjson.py --api=genderize --csv=files/names/min.csv
@@ -1202,7 +1205,7 @@ gender gap in both situations.
 @section Counting males and females in a git repository
 @cindex Counting males and females in a git repository
 
-We can think a simple version of git2gender.py:
+We can think a simple version of @code{git2gender.py}:
 
 @example
 from app.dame_sexmachine import DameSexmachine
@@ -1396,13 +1399,13 @@ count males and females you can:
 
 @itemize @bullet
 @item
-Generate objectives about the research study
+To generate objectives about the research study
 
 @item
 To read and to understand previous works.
 
 @item
-Choose some theorical framework. 
+To choose some theorical framework. 
 
 @item
 Perhaps, with a qualitative study (interviews, focus groups, ...) you
