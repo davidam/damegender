@@ -274,6 +274,14 @@ class DameUtils():
             gender = "unknown"
         return gender
 
+    def number_or_zero(self, x):
+        try:
+            num = int(x)
+        except ValueError:
+            num = 0
+        return num
+
+    
     def round_and_not_zero_division(self, x, y):
         if ((x == 0) and (y == 0)):
             return 0
