@@ -584,7 +584,9 @@ class Gender(object):
             path_males = 'files/names/names_au/baby-names-1944-2013/aumales.csv'            
         elif (dataset == 'pt'):
             path_males = 'files/names/names_pt/ptmales.csv'            
-            
+        elif (dataset == 'si'):
+            path_males = 'files/names/names_si/simales.csv'            
+
         file_males = open(path_males, 'r')
         readerm = csv.reader(file_males, delimiter=',', quotechar='|')
         males = 0
@@ -592,6 +594,7 @@ class Gender(object):
             if ((len(row) > 1) and (row[0].lower() == name.lower())):
                 males = row[1]
                 males = du.drop_dots(males)
+
         path_females = 'files/names/names_es/esfemeninos.csv'
         if ((dataset == 'ine') or (dataset == 'es')):
             path_females = 'files/names/names_es/esfemeninos.csv'
@@ -617,15 +620,19 @@ class Gender(object):
             path_females = 'files/names/names_au/baby-names-1944-2013/aufemales.csv'            
         elif (dataset == 'pt'):
             path_females = 'files/names/names_pt/ptfemales.csv'            
+        elif (dataset == 'si'):
+            path_females = 'files/names/names_si/sifemales.csv'            
 
         file_females = open(path_females, 'r')
         readerf = csv.reader(file_females, delimiter=',', quotechar='|')
         females = 0
+
         for row in readerf:
             if ((len(row) > 1) and (row[0].lower() == name.lower())):
                 females = row[1]
                 females = du.drop_dots(females)
         dicc = {"females": females, "males": males}
+
         return dicc
 
     def inesurname_province_and_frec(self, surname, *args, **kwargs):
