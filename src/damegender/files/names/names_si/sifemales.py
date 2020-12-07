@@ -30,7 +30,7 @@ with open('females-by-year.csv', newline='', encoding='utf-8') as csvfile:
 
 fo = open("sifemales.csv", "w")
 for i in dicc.keys():
-    fo.write(str(i) + ": " + str(dicc[i]) + "\n")
+    fo.write(str(i) + "," + str(dicc[i]) + "\n")
 
 fo.close()    
         

@@ -141,6 +141,6 @@ with open('TA_POP_2019_M.csv') as csvfile:
             
 fo = open("bemales.csv", "w")
 for i in dicc.keys():
-    fo.write(str(i) + ": " + str(dicc[i]) + "\n")
+    fo.write(str(i) + ", " + str(dicc[i]) + "\n")
 
 fo.close()    
