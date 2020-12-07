@@ -17,7 +17,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
-parser.add_argument('--total', default="us", choices=['au', 'be', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
+parser.add_argument('--total', default="us", choices=['au', 'be', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'si', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
 parser.add_argument('--version', action='version', version='0.3')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
@@ -54,6 +54,7 @@ if (args.total == "genderguesser"):
         elif ( male == female ):
                 print("gender: unknown")
                 print("you can try predict with --ml")
+                
 elif (args.total == "luciahelena"):
         g = Gender()
         males = g.csv2names(path="files/names/allnoundefined.males.csv")
@@ -114,7 +115,12 @@ elif ((args.verbose) or (args.total == "all")):
         num_males = s.name_frec(args.name, dataset="be")['males']
         num_females = s.name_frec(args.name, dataset="be")['females']
         print("%s males for %s from Belgium statistics" % (num_males, args.name))
-        print("%s females for %s from Belgium statistics" % (num_females, args.name))        
+        print("%s females for %s from Belgium statistics" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="si")['males']
+        num_females = s.name_frec(args.name, dataset="si")['females']
+        print("%s males for %s from Slovenia statistics" % (num_males, args.name))
+        print("%s females for %s from Slovenia statistics" % (num_females, args.name))        
+        
         guess = s.guess(args.name, binary=True, ml="nltk")
         print("%s gender predicted with nltk is %s" % (str(args.name), du.int2gender(guess)))
         # guess = s.guess(args.name, binary=True, ml="sgd")
@@ -195,7 +201,10 @@ else:
         print("%s females for %s from Spain statistics (INE.es)" % (num_females, args.name))
     elif (args.total == "fi"):
         print("%s males for %s from Finland statistics" % (num_males, args.name))
-        print("%s females for %s from Finland statistics" % (num_females, args.name))        
+        print("%s females for %s from Finland statistics" % (num_females, args.name))
+    elif (args.total == "si"):
+        print("%s males for %s from Slovenia statistics" % (num_males, args.name))
+        print("%s females for %s from Slovenia statistics" % (num_females, args.name))        
     elif (args.total == "uy"):
         print("%s males for %s from Uruguay statistics" % (num_males, args.name))
         print("%s females for %s from Uruguay statistics" % (num_females, args.name))
