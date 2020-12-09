@@ -578,6 +578,8 @@ class Gender(object):
             path_males = 'files/names/names_ca/camales.csv'
         elif (dataset == 'be'):
             path_males = 'files/names/names_be/bemales.csv'            
+        elif (dataset == 'mx'):
+            path_males = 'files/names/names_mx/hombres.csv'            
         elif (dataset == 'fi'):
             path_males = 'files/names/names_fi/fimales.csv'            
         elif (dataset == 'au'):
@@ -586,7 +588,6 @@ class Gender(object):
             path_males = 'files/names/names_pt/ptmales.csv'            
         elif (dataset == 'si'):
             path_males = 'files/names/names_si/simales.csv'            
-
         file_males = open(path_males, 'r')
         readerm = csv.reader(file_males, delimiter=',', quotechar='|')
         males = 0
@@ -613,7 +614,9 @@ class Gender(object):
         elif (dataset == 'ca'):
             path_females = 'files/names/names_ca/cafemales.csv'
         elif (dataset == 'be'):
-            path_males = 'files/names/names_be/befemales.csv'                        
+            path_females = 'files/names/names_be/befemales.csv'
+        elif (dataset == 'mx'):
+            path_females = 'files/names/names_mx/mujeres.csv'
         elif (dataset == 'fi'):
             path_females = 'files/names/names_fi/fifemales.csv'                        
         elif (dataset == 'au'):
@@ -622,7 +625,6 @@ class Gender(object):
             path_females = 'files/names/names_pt/ptfemales.csv'            
         elif (dataset == 'si'):
             path_females = 'files/names/names_si/sifemales.csv'            
-
         file_females = open(path_females, 'r')
         readerf = csv.reader(file_females, delimiter=',', quotechar='|')
         females = 0
