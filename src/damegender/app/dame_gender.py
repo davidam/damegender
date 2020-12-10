@@ -604,7 +604,7 @@ class Gender(object):
         if ((dataset == 'ine') or (dataset == 'es')):
             path_females = 'files/names/names_es/esfemeninos.csv'
         elif (dataset == 'at'):
-            path_males = 'files/names/names_at/atfemales.csv'                        
+            path_females = 'files/names/names_at/atfemales.csv'                        
         elif (dataset == 'de'):
             path_females = 'files/names/names_de/defemales.csv'                        
         elif (dataset == 'ie'):
