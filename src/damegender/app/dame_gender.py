@@ -562,6 +562,8 @@ class Gender(object):
         path_males = 'files/names/names_es/esmasculinos.csv'
         if ((dataset == 'ine') or (dataset == 'es')):
             path_males = 'files/names/names_es/esmasculinos.csv'
+        elif (dataset == 'at'):
+            path_males = 'files/names/names_at/atmales.csv'            
         elif (dataset == 'ie'):
             path_males = 'files/names/names_ie/iemales.csv'            
         elif (dataset == 'de'):
@@ -601,6 +603,8 @@ class Gender(object):
         path_females = 'files/names/names_es/esfemeninos.csv'
         if ((dataset == 'ine') or (dataset == 'es')):
             path_females = 'files/names/names_es/esfemeninos.csv'
+        elif (dataset == 'at'):
+            path_males = 'files/names/names_at/atfemales.csv'                        
         elif (dataset == 'de'):
             path_females = 'files/names/names_de/defemales.csv'                        
         elif (dataset == 'ie'):
