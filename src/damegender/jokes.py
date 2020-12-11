@@ -5,12 +5,14 @@
 # You can share, copy and modify this software if you are a woman or you
 # are David Arroyo Menéndez and you include this note.
 
+import re
+import argparse
+from random import randint
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--total', default="es", choices=['en', 'es'])
 args = parser.parse_args()
 
-import re
 
 filepath_es="files/jokes.es.txt"
 filepath_en="files/jokes.en.txt"
@@ -26,7 +28,7 @@ with open(filepath,'r') as f:
   for l in f:
     lines_count = lines_count +1
 
-num_sentence = random.randint(1,lines_count+1)
+num_sentence = randint(1,lines_count+1)
 
 with open(filepath) as fp:
     for cnt, line in enumerate(fp):
