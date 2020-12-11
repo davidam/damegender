@@ -1916,6 +1916,8 @@ phenomenon.
 @cite{Women in STEM: A Gender Gap to Innovation} by various authors
 (Published by Economics and Statistics Administration Issue Brief
 No. 04-11)
+@end quotation
+@noindent
 
 @quotation
 @cite{Colapso. Capitalismo terminal. Transición
@@ -2010,6 +2012,19 @@ machine learning. So useful to learn algorithms.
 periodistas españoles} by Clara Sainz de Baranda (Published by
 Estudios sobre el Mensaje Periodistico, UCM)
 @end quotation
+
+@quotation
+@cite{Understanding the Demographics of Twitter Users} by Mislove, A.,
+Lehmann, S., Ahn, Y. Y., Onnela, J. P., & Rosenquist, J. N.
+published by Icwsm
+@end quotation
+@noindent
+
+@quotation
+@cite{Discriminating Gender on Twitter} by John D. Burger and John
+Henderson and George Kim and Guido Zarrella
+@end quotation
+@noindent
 
 @quotation
 @cite{Galaxia Internet} by Manuel Castells (Published by Plaza & Janés,
