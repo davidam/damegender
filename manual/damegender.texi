@@ -1989,12 +1989,27 @@ useful to apply in concepts related with feminism, or social sciences
 in general.
 
 @quotation
+@cite{Guía INTER: una guía práctica para aplicar la educación
+intercultural en la escuela} by Teresa Aguado Odina, Inés Gil Jaurena
+y otras personas. (Published by Universidad Nacional de Educación a
+Distancia UNED).
+@end quotation
+This document allows to apply the interculturalism concepts in the
+schools.
+
+@quotation
 @cite{Machine Learning} by Tom M. Mitchell (Published by Mc Graw Hill,
 ISBN: 0-07-042807-7)
 @end quotation
 Tom Mitchell is a father of the Machine Learning. This book explains
 in a simpley way the main concepts understanding the need about the
 machine learning. So useful to learn algorithms.
+
+@quotation
+@cite{Periodismo y Social Media: como estan usando Twitter los
+periodistas españoles} by Clara Sainz de Baranda (Published by
+Estudios sobre el Mensaje Periodistico, UCM)
+@end quotation
 
 @quotation
 @cite{Galaxia Internet} by Manuel Castells (Published by Plaza & Janés,
