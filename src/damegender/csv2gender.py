@@ -55,11 +55,15 @@ for i in l:
 
 file.close()
 
+males_list = du.delete_duplicated(males_list)
+females_list = du.delete_duplicated(females_list)
+unknows_list = du.delete_duplicated(unknows_list)
+
 if (len(sys.argv) > 1):
     print("The number of males in %s is %s" % (str(args.path), str(len(males_list))))
     if ((args.verbose) and (len(males_list) >0)):
         print("the males list:")
-        for i in du.delete_duplicated(males_list):
+        for i in males_list:
            print(i)
 
     print("The number of females in %s is %s" % (str(args.path), str(len(females_list))))
@@ -67,13 +71,13 @@ if (len(sys.argv) > 1):
 
     if ((args.verbose) and (len(females_list) >0)):
         print("the females list")
-        for i in du.delete_duplicated(females_list):
+        for i in females_list:
            print(i)
 
     print("The number of gender not recognised in %s is %s" % (str(args.path), str(len(unknows_list))))
     if ((args.verbose) and (len(unknows_list) >0)):
         print("the unknowns list")
-        for i in du.delete_duplicated(unknows_list):
+        for i in unknows_list:
            print(i)
 
 
