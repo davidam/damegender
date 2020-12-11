@@ -321,8 +321,8 @@ David Arroyo7 <davidam@@es.gnu.org> (13 commits)
 David Arroyo7 <davidam@@gnu.org> (10 commits)
 The number of females sending commits is 1
 The list of females sending commits is:
-['Mireia Lopez']
-Mireia López <mireia@@omada.es> (23 commits)
+['Mireia]
+Mireia <mireiam@@xxxxxx.es> (23 commits)
 The number of people with unknown gender sending commits is 0
 The list of people with unknown gender sending commits is:
 []
@@ -351,25 +351,25 @@ You are not using ml the process is not very slow, but perhaps you are not
 finding good results
 The number of males sending mails is 24
 The list of males sending mails is:
-['Jim Jagielski <jim@@apache.org>', 'Jacob Champion <jchampion@@apache.org>',
-'DENNIS BIN XAVIER <balaranpillai@@gmail.com>', '"Leonard Lausen (Jira)" <jira@@apache.org>',
-'"Roy T. Fielding (Jira)" <jira@@apache.org>', '"Roman Shaposhnik (Jira)" <jira@@apache.org>',
-'"Bertrand Delacretaz (Jira)" <jira@@apache.org>', '"Mark Thomas (Jira)" <jira@@apache.org>',
-'"Justin Mclean (Jira)" <jira@@apache.org>', '"Simon Phipps (Jira)" <jira@@apache.org>',
-'"Chris Olivier (Jira)" <jira@@apache.org>', 'Jan Lahoda <lahoda@@gmail.com>',
-'"Michael Vorburger (Jira)" <jira@@apache.org>', '"Ralph Goers (Jira)" <jira@@apache.org>',
-'"Jens Geyer" <jensg@@apache.org>', 'Mark Thomas <markt@@apache.org>',
-'"Ryan Blue (Jira)" <jira@@apache.org>', 'Ismaël Mejía (Jira)  <jira@@apache.org>',
-'"Shane Curcuru (Jira)" <jira@@apache.org>', '"Kevin A. McGrail (Jira)" <jira@@apache.org>',
-'"Gordon (Jira)" <jira@@apache.org>', 'Gary Gregory <garydgregory@@gmail.com>',
-'"Owen O\'Malley" <owen.omalley@@gmail.com>', '"Sheng Zha (Jira)" <jira@@apache.org>']
+['Jim <jim@@xxxxxx.es>', 'Jacob <jchampion@@xxxxx.org>',
+'DENNIS <balaranpillai@@xxxxx.com>', '"Leonard (Jira)" <jira@@xxxxx.org>',
+'"Roy" <jira@@xxxxx.org>', '"Roman (Jira)" <jira@@xxxxx.org>',
+'"Bertrand" <jira@@xxxxx.org>', '"Mark (Jira)" <jira@@xxxxx.org>',
+'"Justin (Jira)" <jira@@xxxxx.org>', '"Simon (Jira)" <jira@@xxxxx.org>',
+'"Chris (Jira)" <jira@@xxxxx.org>', 'Jan <lahoda@@xxxxx.com>',
+'"Michael (Jira)" <jira@@xxxxx.org>', '"Ralph (Jira)" <jira@@xxxxx.org>',
+'"Jens" <jensg@@xxxxx.org>', 'Mark <markt@@xxxxx.org>',
+'"Ryan (Jira)" <jira@@xxxxx.org>', 'Ismaël (Jira)  <jira@@xxxxx.org>',
+'"Shane (Jira)" <jira@@xxxxx.org>', '"Kevin A. (Jira)" <jira@@xxxxx.org>',
+'"Gordon (Jira)" <jira@@xxxxx.org>', 'Gary <garydgregory@@xxxxx.com>',
+'"Owen" <owen.omalley@@xxxxx.com>', '"Sheng (Jira)" <jira@@xxxxx.org>']
 The number of females sending mails is 2
 The list of females sending mails is:
-['Riya Singh <hellen.serviceweb@@hotmail.com>', '"Hannah Zacharski (Jira)" <jira@@apache.org>']
+['Riya <hellen.serviceweb@@xxxxxx.com>', '"Hannah (Jira)" <jira@@xxxxx.org>']
 The number of people with unknown gender sending mails is 5
 The list of people with unknown gender sending mails is 
-['"SimpaticoTech.it OFFERTE" <web.info@@simpaticotech.it>', 'Simpatico Network srl <web.info@@simpaticotech.it>',
-'gmcdonald@@apache.org', 'Hen <bayard@@apache.org>', '"Jean-Baptiste Briaud (Jira)" <jira@@apache.org>']
+['"SimpaticoTech" <web.info@@xxxxxx.it>', 'Simpatico <web.info@@xxxxxxxxx.it>',
+'gmcdonald@@xxxxx.org', 'Hen <bayard@@xxxxx.org>', '"Jean (Jira)" <jira@@xxxxx.org>']
 @end example
 
 Perhaps you don't know a name, but you have obtained an free key for
@@ -1670,8 +1670,9 @@ similarities between cultures. It has addressed the risk of the
 creation of absolute relativism within postmodernity and in
 multiculturalism. (Source: wikipedia, 2020)
 
-Aguado in (La Educación Intercultural: Concepto, Paradigmas,
-Realizaciones) propose these principles:
+Aguado proposes these principles (See ``@cite{La
+Educación Intercultural: Concepto, Paradigmas, Realizaciones}'',
+@ref{Further reading}.
 
 1. Promote the respect by all cultures together and condemn the
 politics to change the culture of the people towards the culture
@@ -1822,36 +1823,6 @@ states only supports this idea in the moment writing this book. But we
 respect the non binary philosophies due to this philosophies are
 describing a reality.
 
-@section Pandemic times
-@cindex Pandemic times
-@cindex Naomi Klein
-@cindex Carlos Taibo
-@cindex Manuel Castells
-
-In many social research studies you must explain the historical
-context, to give philosophical support studying the present and to give
-explanations about the human behaivour.
-
-Naomi Klein in (The Shock Doctrine: The Rise of Disaster Capitalism,
-2007) explains that many countries is using natural disasters to
-establish controversial and questionable policies while the citizens
-are too distracted.
-
-Carlos Taibo explains the ecological situation (change climate and the
-end of the primary sources) and the answer of the society (ecological
-social movements and ecofascism). This subject has been the agenda in
-the streets previous to the pandemy and the political parties is using
-this inertia in pandemic times, too. See ``@cite{Colapso}'',
-@ref{Further reading}.
-
-With the pandemy the time using screens is augmenting and a lot of
-time using screens is asociated to a low level of goodness (Source:
-Observatorio Social La Caixa,
-https://observatoriosociallacaixa.org/-/el-bienestar-personal-y-el-uso-de-la-tecnologia-en-confinamiento,
-2020). So, Internet is more important and Castells in (Galaxia
-Internet, 2017) explains Internet from the point of view of a
-sociologist.
-
 @node Conclusions
 @chapter Conclusions
 @cindex Conclusions
@@ -1909,6 +1880,31 @@ To explain some philosophies for to give explanations to the data.
 @unnumbered Further reading
 @cindex Bibliography
 @cindex Further reading
+
+@quotation
+@cite{Measuring the Gender Gap on the Internet} by Bruce Bimber
+(Published by University of Texas Press)
+@end quotation
+@noindent
+This paper evaluates differences in men's and women's presence on the
+Internet, testing for the presence of gender-specific causes for
+different rates of Internet use. Methods. The paper presents new
+survey data collected by the author in 1996, 1998, and 1999 showing
+trends in Internet use, and presents regression models of Internet
+access and use. Results. Two statistically significant gender gaps
+exist on the Internet: in access and in use. The access gap is not the
+product of gender-specific factors, but is explained by socioeconomic
+and other differences between men and women. The use gap is the result
+of both socioeconomics and some combination of underlying
+gender-specific phenomena. Conclusions. Around one-half of the
+"digital divide" between men and women on the Internet is
+fundamentally gender related. Several possible causes may explain this
+phenomenon.
+
+@quotation
+@cite{Women in STEM: A Gender Gap to Innovation} by various authors
+(Published by Economics and Statistics Administration Issue Brief
+No. 04-11)
 
 @quotation
 @cite{Colapso. Capitalismo terminal. Transición
@@ -1988,6 +1984,15 @@ ISBN: 0-07-042807-7)
 Tom Mitchell is a father of the Machine Learning. This book explains
 in a simpley way the main concepts understanding the need about the
 machine learning. So useful to learn algorithms.
+
+@quotation
+@cite{Galaxia Internet} by Manuel Castells (Published by Plaza & Janés,
+ISBN: 978-8401341571)
+@end quotation
+This book explains Internet with the point of view of a big
+sociologist. So it is regarded as a good introduction to Social
+informatics. That is the study of information and communication tools
+in cultural or institutional contexts.
 
 @quotation
 @cite{Global Gender Gap Index 2012} (Published by World Economic
