@@ -321,8 +321,8 @@ David Arroyo7 <davidam@@es.gnu.org> (13 commits)
 David Arroyo7 <davidam@@gnu.org> (10 commits)
 The number of females sending commits is 1
 The list of females sending commits is:
-['Mireia]
-Mireia <mireiam@@xxxxxx.es> (23 commits)
+['Miriam]
+Miriam <miriam@@xxxxxx.es> (23 commits)
 The number of people with unknown gender sending commits is 0
 The list of people with unknown gender sending commits is:
 []
@@ -1880,6 +1880,17 @@ To explain some philosophies for to give explanations to the data.
 @unnumbered Further reading
 @cindex Bibliography
 @cindex Further reading
+
+@quotation
+@cite{La Máquina Reaccionaria} by María Ávila
+(Published by Tirant Humanidades)
+@end quotation
+@noindent
+The objective of this book is to analyze two social strengths.  First,
+the fight of the women changing her position in the society and the
+structure of the patriarchy. Second, the resistances to decrease and
+to stop this change in a clear, sistematic and aware form or in a
+silly and involuntary form.
 
 @quotation
 @cite{Measuring the Gender Gap on the Internet} by Bruce Bimber
