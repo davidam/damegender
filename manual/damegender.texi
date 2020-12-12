@@ -1969,7 +1969,7 @@ Barahona (Published by ICSE 2018).
 @end quotation
 This paper presents Perceval a software to retrieve information from
 different sources. Damegender is using perceval to retrieve data from
-git in the moment to write this book.
+git in the moment to write this book. 
 
 @quotation
 @cite{The gender gap in science: How long until women are equally
@@ -2040,6 +2040,21 @@ in cultural or institutional contexts.
 Forum)
 @end quotation
 The Global Gender Gap Report was first published in 2006 by the World Economic Forum. The 2020 report (published in 2019) covers 153 countries. The Global Gender Gap Index is an index designed to measure gender equality.
+
+@quotation
+@cite{Has Feminism Changed Science} by Londa Schiebinger (Published by
+The University of Chicago Press Journals)
+@end quotation
+
+@quotation
+@cite{Feminism and Science} by Evelyn Fox Keller & Helen E. Longino
+(Published by Oxford University)
+@end quotation
+
+@quotation
+@cite{Teoría Feminista} by Ana de Miguel & Celia Amoros
+(Published by Minerva Ediciiones)
+@end quotation
 
 @node License 
 @appendix License
