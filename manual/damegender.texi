@@ -1375,7 +1375,18 @@ So the gender gap in STEM is bigger than the labour market in general.
 
 The gender gap in the Free Software world is so high we are presenting
 preliminar due to that we can reduce the percentage of unknowns to
-male or female. But we can observe that the gender gap is bigger in the Free Software world than in STEM.
+male or female. But we can observe that the gender gap is bigger in
+the Free Software world than in STEM.
+
+The context of the operatings systems is not feminist by different
+reasons. In the Free Software world there are many males developing
+the software. But in another Operating Systems there are another
+problems about the male domination, for example, Microsoft will create
+the most rich men in the world for many years. Apple was classificated
+as the most valuable company in the world. By intersectionality create
+companies more powerful than states is bad for the democracy and in a
+world where exists the gender gap the change to the gender equity is a
+pressure of values.
 
 @image{images/debian_by_gender,6in,,Debian GNU/Linux by Gender}
 
