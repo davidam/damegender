@@ -1382,11 +1382,13 @@ The context of the operatings systems is not feminist by different
 reasons. In the Free Software world there are many males developing
 the software. But in another Operating Systems there are another
 problems about the male domination, for example, Microsoft will create
-the most rich men in the world for many years. Apple was classificated
-as the most valuable company in the world. By intersectionality create
-companies more powerful than states is bad for the democracy and in a
-world where exists the gender gap the change to the gender equity is a
-pressure of values.
+the most rich men in the world for many
+years@footnote{https://www.forbes.com/profile/bill-gates/?sh=79472717689f}. Apple
+was classificated as the most valuable company in the
+world@footnote{https://forbes.es/listas/32245/apple-la-marca-mas-valiosa-del-2017/}. By
+intersectionality, to create companies more powerful than states is bad
+for the democracy and in a world where exists the gender gap the
+change to the gender equity is a pressure of values.
 
 @image{images/debian_by_gender,6in,,Debian GNU/Linux by Gender}
 
@@ -2066,6 +2068,14 @@ The University of Chicago Press Journals)
 @cite{Teoría Feminista} by Ana de Miguel & Celia Amoros
 (Published by Minerva Ediciiones)
 @end quotation
+
+@quotation
+@cite{Encuesta sobre Equipamiento y Uso de Tecnologías de
+Información y Comunicación en los Hogares} by INE.es
+(https://www.ine.es/prensa/tich_2020.pdf)
+@end quotation
+This document explains differences in gender using Internet and
+computers in Spain.
 
 @node License 
 @appendix License
