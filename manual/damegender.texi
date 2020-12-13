@@ -969,10 +969,11 @@ print("debian females: %s" % females)
 csvfile.close()
 @end example
 
-The advantage using name_frec is about to understand how you are
-deciding male or female in the script counting males and females. In
-this script the decision is simple: a name is male if there are more
-males than females and female if there are more females than males.
+The advantage using the method @code{name_frec} is about to understand
+how you are deciding male or female in the script counting males and
+females. In this script the decision is simple: a name is male if
+there are more males than females and female if there are more females
+than males.
 
 The United States of America dataset is a good choice for Free
 Software communities, due to that this communities is based on english
@@ -2032,12 +2033,18 @@ Lehmann, S., Ahn, Y. Y., Onnela, J. P., & Rosenquist, J. N.
 published by Icwsm
 @end quotation
 @noindent
+This paper could have been written with Damegender. In this paper the
+author calculates gender of twitter users using first names and
+race/ethnicity using last names.
+
 
 @quotation
 @cite{Discriminating Gender on Twitter} by John D. Burger and John
 Henderson and George Kim and Guido Zarrella
 @end quotation
 @noindent
+This paper explains classify gender in Twitter obtaining very good
+results with tweet texts, screen name, description and full name. The best classifier was obtaining the 92% of accuracy.
 
 @quotation
 @cite{Galaxia Internet} by Manuel Castells (Published by Plaza & Janés,
