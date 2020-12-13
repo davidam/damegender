@@ -1932,6 +1932,10 @@ phenomenon.
 No. 04-11)
 @end quotation
 @noindent
+This executive summary very good referenced presents data about males
+and females in STEM. Very useful to compare data (for example, in this
+manual we have compared this data with males and females in the Free
+Software world).
 
 @quotation
 @cite{Colapso. Capitalismo terminal. Transición
@@ -2044,7 +2048,8 @@ Henderson and George Kim and Guido Zarrella
 @end quotation
 @noindent
 This paper explains classify gender in Twitter obtaining very good
-results with tweet texts, screen name, description and full name. The best classifier was obtaining the 92% of accuracy.
+results with tweet texts, screen name, description and full name. The
+best classifier was obtaining the 92% of accuracy.
 
 @quotation
 @cite{Galaxia Internet} by Manuel Castells (Published by Plaza & Janés,
@@ -2071,10 +2076,12 @@ The University of Chicago Press Journals)
 (Published by Oxford University)
 @end quotation
 
+
 @quotation
 @cite{Teoría Feminista} by Ana de Miguel & Celia Amoros
 (Published by Minerva Ediciiones)
 @end quotation
+
 
 @quotation
 @cite{Encuesta sobre Equipamiento y Uso de Tecnologías de
