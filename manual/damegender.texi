@@ -138,7 +138,8 @@ ethnicity from the surnames (Ex: @code{surname.py},
 
 Possible Debian/Ubuntu dependencies:
 @example
-$ sudo apt-get install python3-nose-exclude python3-dev dict dict-freedict-eng-spa dict-freedict-spa-eng dictd
+$ sudo apt-get install python3-nose-exclude python3-dev dict
+dict-freedict-eng-spa dict-freedict-spa-eng dictd
 @end example
 
 Now, to install damegender with python package:
@@ -245,7 +246,7 @@ David gender is male
 363559  males for David from INE.es
 0 females for David from INE.es
 
-# Detect gender from a name only using machine learning (experimental way)
+# Detect gender from a name only using machine learning
 $ python3 main.py Agua --ml=nltk
 Agua gender is female
 0 males for Agua from INE.es
@@ -295,7 +296,8 @@ both: []
 To count gender from a git repository:
 
 @example
-$ python3 git2gender.py https://github.com/chaoss/grimoirelab-perceval.git
+$ python3 git2gender.py
+https://github.com/chaoss/grimoirelab-perceval.git
 --directory="/tmp/clonedir"
 The number of males sending commits is 15
 The number of females sending commits is 7
@@ -332,11 +334,14 @@ To count gender from a mailing list:
 
 @example
 $ cd files/mbox
-$ wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
+$ wget -c
+http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
 $ cd ../.. 
-$ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
-You are not using ml the process is not very slow, but perhaps you are not
-finding good results
+$ python3 mail2gender.py
+http://mail-archives.apache.org/mod_mbox/httpd-announce/
+You are not using ml the process is not very slow, but perhaps you are
+not finding good results
+
 The number of males sending mails is 24
 The number of females sending mails is 2
 The number of people with unknown gender sending mails is 5
@@ -345,7 +350,8 @@ The number of people with unknown gender sending mails is 5
 You can execute a verbose output with:
 
 @example
-$ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
+$ python3 mail2gender.py
+http://mail-archives.apache.org/mod_mbox/httpd-announce/
 --verbose --show=all
 You are not using ml the process is not very slow, but perhaps you are not
 finding good results
@@ -365,11 +371,15 @@ The list of males sending mails is:
 '"Owen" <owen.omalley@@xxxxx.com>', '"Sheng (Jira)" <jira@@xxxxx.org>']
 The number of females sending mails is 2
 The list of females sending mails is:
-['Riya <hellen.serviceweb@@xxxxxx.com>', '"Hannah (Jira)" <jira@@xxxxx.org>']
+['Riya <hellen.serviceweb@@xxxxxx.com>',
+'"Hannah (Jira)" <jira@@xxxxx.org>']
 The number of people with unknown gender sending mails is 5
 The list of people with unknown gender sending mails is 
-['"SimpaticoTech" <web.info@@xxxxxx.it>', 'Simpatico <web.info@@xxxxxxxxx.it>',
-'gmcdonald@@xxxxx.org', 'Hen <bayard@@xxxxx.org>', '"Jean (Jira)" <jira@@xxxxx.org>']
+['"SimpaticoTech" <web.info@@xxxxxx.it>',
+'Simpatico <web.info@@xxxxxxxxx.it>',
+'gmcdonald@@xxxxx.org',
+'Hen <bayard@@xxxxx.org>',
+'"Jean (Jira)" <jira@@xxxxx.org>']
 @end example
 
 Perhaps you don't know a name, but you have obtained an free key for
@@ -404,9 +414,10 @@ Dame Gender accuracy: 0.875
 @example
 $ python3 confusion.py --csv="files/names/partial.csv" --api=nameapi
 --jsondownloaded="files/names/nameapifiles_names_partial.csv.json"
-A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
-If the classifier is nice, the diagonal is high because there are true positives
-Nameapi confusion matrix:
+A confusion matrix C is such that Ci,j is equal to the number of
+observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are true
+positives Nameapi confusion matrix:
 
 [[ 3, 0, 0]
  [ 0, 15, 1]]
@@ -433,8 +444,10 @@ Perhaps you are interested on reproduce experiments to determine features:
 
 @example
 $ python3 infofeatures.py
-$ python3 pca-components.py --csv="files/features_list.csv" # To determine number of components
-$ python3 pca-features.py                                   # To understand the weight between variables for a target
+# To determine number of components
+$ python3 pca-components.py --csv="files/features_list.csv"
+# To understand the weight between variables for a target
+$ python3 pca-features.py          
 @end example
 
 Now we can go to play with surnames:
@@ -447,7 +460,8 @@ $ python3 surname.py Lenon --total=us
 There are 837 people using Lenon in United States of America
 
 $ python3 ethnicity.py Smith
-In United States of America the percentages about the race of Smith surname is:
+In United States of America the percentages about the race
+of Smith surname is:
 White: 73.35
 Black: 22.22
 Hispanic: 1.56
@@ -1346,8 +1360,7 @@ total in men. 31% of young women aged 15 to 24 are not in education,
 employment or training in 2020, more than double rate for young men
 (14%). Violence against women is 18% of ever-partnered women aged 15
 to 49 experienced sexual and/or physical violence by an intimate
-partner in the previous 12 months. (Source:
-@code{https://www.unwomen.org}).
+partner in the previous 12 months.@footnote{https://www.unwomen.org}
 
 @image{images/gender-stats,6in,,Gender Stats}
 
@@ -1369,7 +1382,7 @@ compare with gender gap in the market:
 
 @image{images/gender-gap-stem,6in,,Gender Gap by Continents}
 
-So the gender gap in STEM is bigger than the labour market in general.
+So the gender gap in STEM is bigger than the labour market in general. 
 
 @section Gender Inequality in Free Software
 @cindex Gender Inequality in Free Software
@@ -1531,7 +1544,7 @@ Free Software by economy, so they prefer change the word Free Software
 by Open Source claiming their philosophy.
 
 They redefines the Free Software Definition by the Open Source
-Definition (Source: https://opensource.org/osd):
+Definition@footnote{https://opensource.org/osd}.
 
 @example
 1. Free Redistribution
