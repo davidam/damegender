@@ -131,13 +131,13 @@ ethnicity from the surnames (Ex: @code{surname.py},
 @code{surnameincountries.py} and @code{ethnicity.py}).
 
 This book starts explaining the installation. Later, it explains how
-to use Damegender from the commands. After, it explains Damegender
-from the commands. Next, it explains the statistical maths concepts to
-use Damegender with good results. The use cases showed allows to
-imagine a lot of applications about Damegender. We are giving some
-data sources about gender gap. And finally, the theorical frameworks
-are being showed to put data into discourses. We are added conclusions
-as summary and further reading for extend the interest.
+to install Damegender. After, it explains Damegender from the
+commands. Next, it explains the statistical maths concepts to use
+Damegender with good results. The use cases showed allows to imagine a
+lot of applications about Damegender. We are giving some data sources
+about gender gap. And finally, the theorical frameworks are being
+showed to put data into discourses. We are added conclusions as
+summary and further reading for extend the interest.
 
 
 @node Installation
