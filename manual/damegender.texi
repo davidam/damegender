@@ -688,7 +688,8 @@ M  [[ 5,  0,  0 ]
 F   [ 0,  1,  0 ]]
 @end example
 
-Remember that we can retrieve the json file from several apis having the names to be guessed in the csv file with @code{downloadjson.py}:
+Remember that we can retrieve the json file from several apis having
+the names to be guessed in the csv file with @code{downloadjson.py}:
 
 @example
 $ python3 downloadjson.py --csv="files/names/min.csv" --api="genderapi" 
@@ -1319,8 +1320,8 @@ problem to solve with a methodology (quantitative, qualitative, or
 mixed). The second step is about sample decision who is the people,
 the population going to give us the data. The third step is about
 selection strategies about retrieve data, analysis and to show
-results. (Source: Técnicas Cualitativas de Investigación Social)
-(Source: La encuesta una perspectiva general metodológica)
+results. See ``@cite{Técnicas Cualitativas de Investigación Social}'',
+@ref{Further reading}
 
 To read secondary sources about the objective and subobjectives of the
 project is to read previous works of another people (papers, books,
@@ -2077,7 +2078,10 @@ in cultural or institutional contexts.
 @cite{Global Gender Gap Index 2012} (Published by World Economic
 Forum)
 @end quotation
-The Global Gender Gap Report was first published in 2006 by the World Economic Forum. The 2020 report (published in 2019) covers 153 countries. The Global Gender Gap Index is an index designed to measure gender equality.
+The Global Gender Gap Report was first published in 2006 by the World
+Economic Forum. The 2020 report (published in 2019) covers 153
+countries. The Global Gender Gap Index is an index designed to measure
+gender equality.
 
 @quotation
 @cite{Has Feminism Changed Science} by Londa Schiebinger (Published by
@@ -2091,7 +2095,7 @@ The University of Chicago Press Journals)
 
 @quotation
 @cite{Teoría Feminista} by Ana de Miguel & Celia Amoros
-(Published by Minerva Ediciiones)
+(Published by Minerva Ediciones)
 @end quotation
 
 @quotation
