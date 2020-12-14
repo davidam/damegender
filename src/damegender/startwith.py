@@ -24,7 +24,7 @@ parser.add_argument('--version', action='version', version='0.3')
 args = parser.parse_args()
 
 g = Gender()
-path =  g.path_dataset(args.total, args.gender)
+path =  g.path_name_dataset(args.total, args.gender)
 
 with open(path) as csvfile:
     sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -34,3 +34,5 @@ with open(path) as csvfile:
         match = re.search(regex, row[0].upper())
         if match:
             print(row[0])
+
+
