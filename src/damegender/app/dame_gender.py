@@ -263,7 +263,7 @@ class Gender(object):
     
     # DATASETS METHODS #
 
-    def path_dataset(self, locale, gender):
+    def path_name_dataset(self, locale, gender):
         if (locale == "at"):
             if (gender == "female"):
                 path = "files/names/names_at/atfemales.csv"
@@ -346,6 +346,42 @@ class Gender(object):
                 path = "files/names/names_us/usmales.csv"
         return path                
 
+    def path_surname_dataset(self, locale, gender):
+        if (locale == "at"):
+            path = "files/inesurnames/apellidos-australia.xls.csv"
+        elif (locale == "au"):
+            path = "files/inesurnames/apellidos-austria.xls.csv"            
+        elif (locale == "be"):
+            path = "files/inesurnames/apellidos-belgica.xls.csv"                        
+        elif (locale == "ca"):
+            path = "files/inesurnames/apellidos-canada.xls.csv"                                    
+        elif (locale == "de"):
+            path = "files/inesurnames/apellidos-alemania.xls.csv"                                                
+        elif (locale == "es"):
+            path = "files/inesurnames/apellidos_frecuencia.csv"                                                            
+        elif (locale == "fi"):
+            path = "files/inesurnames/apellidos-finlandia.xls.csv"                                                            
+        elif (locale == "ie"):
+            path = "files/inesurnames/apellidos-irlanda.xls.csv"
+        elif (locale == "is"):
+            path = "files/inesurnames/apellidos-islandia.xls.csv"
+        elif (locale == "nz"):
+            path = "files/inesurnames/apellidos-nueva-zelanda.xls.csv"
+        elif (locale == "mx"):
+            path = "files/inesurnames/apellidos-mexico.xls.csv"            
+        elif (locale == "pt"):
+            path = "files/inesurnames/apellidos-portugal.xls.csv"
+        elif (locale == "si"):
+            path = "files/inesurnames/apellidos-eslovenia.xls.csv"                        
+        elif (locale == "uk"):
+            path = "files/inesurnames/apellidos-reino-unido.xls.csv"
+        elif (locale == "uy"):
+            path = "files/inesurnames/apellidos-uruguay.xls.csv"
+        elif (locale == "us"):
+            path = "files/inesurnames/apellidos-usa.xls.csv"
+        return path                
+
+    
     def males_list(self, corpus='es'):
         au_path = 'files/names/names_au/baby-names-1944-2013/aumales.csv'
         ca_path = 'files/names/names_ca/camales.csv'        
