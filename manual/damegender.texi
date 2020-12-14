@@ -2089,12 +2089,27 @@ The University of Chicago Press Journals)
 (Published by Oxford University)
 @end quotation
 
-
 @quotation
 @cite{Teoría Feminista} by Ana de Miguel & Celia Amoros
 (Published by Minerva Ediciiones)
 @end quotation
 
+@quotation
+@cite{Constructing Grounded Theory} by Kathy Charmaz
+(Published by SAGE)
+@end quotation
+Grounded Theory is the most important theory to apply qualitative
+research. You can learn to classify and to count discourses (for
+example, feminist discourses) and to reach conclusions with this book.
+
+@quotation
+@cite{Técnicas Cualitativas de Investigación Social} by Miguel Valles
+(Published by Síntesis Sociología)
+@end quotation
+A good first book about qualitativism for sociology, politics or
+social work students, it's giving theorical contents with practical
+examples done in Spain. If you want learn to put Damegender data into
+discourses this book can learn you to do it.
 
 @quotation
 @cite{Encuesta sobre Equipamiento y Uso de Tecnologías de
@@ -2103,6 +2118,7 @@ Información y Comunicación en los Hogares} by INE.es
 @end quotation
 This document explains differences in gender using Internet and
 computers in Spain.
+
 
 @node License 
 @appendix License
