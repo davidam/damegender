@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-05-10 20:44+0200\n"
+"POT-Creation-Date: 2020-12-15 20:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,165 +28,307 @@ msgstr ""
 msgid "Damegender Manual @value{VERSION}"
 msgstr ""
 
-#. type: copying
-#: damegender.texi:11
-msgid ""
-"This manual is for Damegender (version @value{VERSION}, @value{UPDATED}), "
-"which is an example in the Texinfo documentation."
-msgstr ""
-
-#. type: copying
-#: damegender.texi:13
-msgid "Copyright @copyright{} 2020 David Arroyo Men@'endez"
-msgstr ""
-
-#. type: quotation
-#: damegender.texi:21
-msgid ""
-"Permission is granted to copy, distribute and/or modify this document under "
-"the terms of the GNU Free Documentation License, Version 1.3 or any later "
-"version published by the Free Software Foundation; with no Invariant "
-"Sections, with no Front-Cover Texts, and with no Back-Cover Texts.  A copy "
-"of the license is included in the section entitled ``GNU Free Documentation "
-"License''."
+#. type: include
+#: damegender.texi:8
+#, no-wrap
+msgid "copying-fl.texi"
 msgstr ""
 
 #. type: title
-#: damegender.texi:26
+#: damegender.texi:11
 #, no-wrap
 msgid "Damegender Manual: Counting Males and Females in Internet Communities"
 msgstr ""
 
 #. type: subtitle
-#: damegender.texi:27
+#: damegender.texi:12
 #, no-wrap
 msgid "for version @value{VERSION}, @value{UPDATED}"
 msgstr ""
 
 #. type: author
-#: damegender.texi:28
+#: damegender.texi:13
 #, no-wrap
 msgid "David Arroyo Men@'endez (@email{davidam@@gnu.org})"
 msgstr ""
 
+#. type: author
+#: damegender.texi:14
+#, no-wrap
+msgid "Prologue by LucÃ­a SantamarÃ­a (@email{lucia.santamaria@@ymail.com})"
+msgstr ""
+
 #. type: node
-#: damegender.texi:37
+#: damegender.texi:23
 #, no-wrap
 msgid "Top"
 msgstr ""
 
 #. type: top
-#: damegender.texi:38
+#: damegender.texi:24
 #, no-wrap
 msgid "Damegender"
 msgstr ""
 
 #. type: ifnottex
-#: damegender.texi:41
+#: damegender.texi:27
 msgid "This manual is for Damegender (version @value{VERSION}, @value{UPDATED})."
 msgstr ""
 
 #. type: menuentry
-#: damegender.texi:50
+#: damegender.texi:42
+msgid "Prologue::"
+msgstr ""
+
+#. type: menuentry
+#: damegender.texi:42
 msgid "Introduction::"
 msgstr ""
 
 #. type: menuentry
-#: damegender.texi:50
+#: damegender.texi:42
 msgid "Installation::"
 msgstr ""
 
 #. type: menuentry
-#: damegender.texi:50
+#: damegender.texi:42
 msgid "Commands::"
 msgstr ""
 
 #. type: menuentry
-#: damegender.texi:50
+#: damegender.texi:42
 msgid "Statistics::"
 msgstr ""
 
 #. type: menuentry
-#: damegender.texi:50
-msgid "GNU Free Documentation License::"
+#: damegender.texi:42
+msgid "Use Cases:"
+msgstr ""
+
+#. type: menuentry
+#: damegender.texi:42
+msgid "Secondary Sources about Gender Gap::"
+msgstr ""
+
+#. type: menuentry
+#: damegender.texi:42
+msgid "Theorical Frameworks::"
+msgstr ""
+
+#. type: menuentry
+#: damegender.texi:42
+msgid "Conclusions::"
+msgstr ""
+
+#. type: menuentry
+#: damegender.texi:42
+msgid "Further Reading::"
+msgstr ""
+
+#. type: menuentry
+#: damegender.texi:42
+msgid "License::"
 msgstr ""
 
 #. type: unnumbered
-#: damegender.texi:50 damegender.texi:500 damegender.texi:501
+#: damegender.texi:42 damegender.texi:2143 damegender.texi:2144
 #, no-wrap
 msgid "Index"
 msgstr ""
 
-#. type: chapter
-#: damegender.texi:52 damegender.texi:53
+#. type: cindex
+#: damegender.texi:44 damegender.texi:45 damegender.texi:46
+#, no-wrap
+msgid "Prologue"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:60
+msgid ""
+"The algorithmic assignment of a particular gender to a person based on their "
+"name has become a task of interest for sociological and gender studies as an "
+"useful research tool in multiple areas. Examples include the investigation "
+"of gender dynamics and gender biases in social media, scholarly output, and "
+"scientific and technical contributions, among others. Large-scale "
+"approximations based on data and Machine Learning as well as the rising "
+"availability of assorted corpora of labelled data names make it feasible to "
+"train and evaluate classification algorithms in order to produce models that "
+"can predict gender from names very accurately. Damegender is one such "
+"contribution to this space, where other commercial and non-commercial actors "
+"are also present."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:71
+msgid ""
+"Yet one fundamental caveat worth mentioning when approaching the gender "
+"prediction task pertains an ethical aspect: personal names are assigned to "
+"individuals at birth as part of a schema based on a binary, immutable, and "
+"physiologically determined definition of gender. Any approach that automates "
+"gender assignment denies the view that one's gender identity is profoundly "
+"subjective and cannot and should not be reduced to a binary label. It is "
+"virtually impossible to accurately assign a gender to every individual "
+"without misgendering a certain number of them; it is also non-inclusive and "
+"fundamentally unethical."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:83
+msgid ""
+"If gender studies based on individuals' names are to be carried out for the "
+"sake of answering a particular sociological question or hypothesis, "
+"inclusive and fair methods ought to be design to aid in this "
+"process. Self-identification is one simple avenue that is obviously not "
+"always practicable and is difficul to scale. Thus, at the very least, one "
+"should bear in mind that the question of ethical treatment of gender needs "
+"to be stressed every time that automatic assignments are made. Additionally, "
+"only results and conclusions based on aggregated data should be pursued, and "
+"never must an identifiable individual be assigned a gender automatically and "
+"quoted as such on a publication."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:92
+msgid ""
+"These caveats notwithstanding, the tool proposed in this manual, Damegender, "
+"offers a valuable contribution for powering gender analyses on assorted "
+"collections of names. It's compilation of examples and tests will be highly "
+"useful for the interested researcher that needs to apply automatic gender "
+"detection to their own data. We shall hope that those studies will "
+"eventually lead to a deeper understanding of existing gender dynamics in our "
+"society and to the development of fair and sustainable proposals to close "
+"the gender gap."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:95
+msgid "December 2020, LucÃ­a SantamarÃ­a"
+msgstr ""
+
+#. type: section
+#: damegender.texi:96 damegender.texi:97 damegender.texi:98 damegender.texi:916
 #, no-wrap
 msgid "Introduction"
 msgstr ""
 
-#. type: Plain text
-#: damegender.texi:56
-msgid ""
-"Damegender is a gender detection tool from the name coded by David Arroyo "
-"MEnéndez (DAME)"
-msgstr ""
-
-#. type: Plain text
-#: damegender.texi:58
-msgid "..."
+#. type: cindex
+#: damegender.texi:99
+#, no-wrap
+msgid "Gender Detection Tools from the Name"
 msgstr ""
 
 #. type: cindex
-#: damegender.texi:59 damegender.texi:60 damegender.texi:61
+#: damegender.texi:100
+#, no-wrap
+msgid "APIs"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:105
+msgid ""
+"Damegender is a gender detection tool from the name coded by David Arroyo "
+"MEnÃ©ndez (DAME). See ``@cite{Damegender: Writing and Comparing Gender "
+"Detection Tools}'', @ref{Further reading}."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:113
+msgid ""
+"The gender detection tools from the names are being used usually with "
+"commercial APIs. But many countries has been doing efforts in the last years "
+"for contribute names and a number of people using each name with Open Data "
+"Licenses. So, this software is collecting this effort in an industrial way "
+"and giving new original solutions to classify gender from the name (we are "
+"using Machine Learning algorithms for predict names that is not appearing in "
+"our database)."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:118
+msgid ""
+"Damegender is giving measures to compare in any moment our solution with the "
+"commercial APIs. So, the user can understand when it's useful to invest "
+"money or not depending of the dataset. Damegender allows to the users "
+"download a big number of names from a csv file."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:122
+msgid ""
+"This software is written oriented to tests. So you can check the right "
+"behaivour of the software with python tests for the classes and methods and "
+"with shell tests for the python commands."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:128
+msgid ""
+"Damegender is using Perceval for count males and females in a lot of "
+"Internet Communities (wikis, mailing lists, software repositories, bug "
+"tracking systems, ...). ``@cite{Perceval: software project data at your "
+"will}'', @ref{Further reading} This manual show source for count males and "
+"females in different situations (Ex: @code{count-debian-gender.py})."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:132
+msgid ""
+"This software is taking into account the power to predict nations and "
+"ethnicity from the surnames (Ex: @code{surname.py}, "
+"@code{surnameincountries.py} and @code{ethnicity.py})."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:141
+msgid ""
+"This book starts explaining the installation. Later, it explains how to "
+"install Damegender. After, it explains Damegender from the commands. Next, "
+"it explains the statistical maths concepts to use Damegender with good "
+"results. The use cases showed allows to imagine a lot of applications about "
+"Damegender. We are giving some data sources about gender gap. And finally, "
+"the theorical frameworks are being showed to put data into discourses. We "
+"are added conclusions as summary and further reading for extend the "
+"interest."
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:143 damegender.texi:144 damegender.texi:145
 #, no-wrap
 msgid "Installation"
 msgstr ""
 
 #. type: cindex
-#: damegender.texi:62
+#: damegender.texi:146
 #, no-wrap
 msgid "Python Virtual Environment"
 msgstr ""
 
 #. type: cindex
-#: damegender.texi:63
+#: damegender.texi:147
 #, no-wrap
 msgid "Configuring Api Keys"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:66
+#: damegender.texi:150
 msgid "Possible Debian/Ubuntu dependencies:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:68
+#: damegender.texi:153
 #, no-wrap
 msgid ""
-"$ sudo apt-get install python3-nose-exclude python3-dev dict "
+"$ sudo apt-get install python3-nose-exclude python3-dev dict\n"
 "dict-freedict-eng-spa dict-freedict-spa-eng dictd\n"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:71
-msgid "Now, to install damegender from sources:"
-msgstr ""
-
-#. type: example
-#: damegender.texi:75
-#, no-wrap
-msgid ""
-"$ git clone https://github.com/davidam/damegender\n"
-"$ cd damegender\n"
-"$ pip3 install -r requirements.txt\n"
-msgstr ""
-
-#. type: Plain text
-#: damegender.texi:78
+#: damegender.texi:156
 msgid "Now, to install damegender with python package:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:86
+#: damegender.texi:164
 #, no-wrap
 msgid ""
 "$ python3 -m venv /tmp/d\n"
@@ -199,111 +341,111 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:89
+#: damegender.texi:167
 msgid "To install apis extra dependencies:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:91
+#: damegender.texi:169
 #, no-wrap
 msgid "$ pip3 install damegender[apis]\n"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:94
+#: damegender.texi:172
 msgid "To install mailing lists and repositories extra dependencies:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:96
+#: damegender.texi:174
 #, no-wrap
 msgid "$ pip3 install damegender[mails_and_repositories]\n"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:99
+#: damegender.texi:177
 msgid "To install all possible dependencies"
 msgstr ""
 
 #. type: example
-#: damegender.texi:102
+#: damegender.texi:180
 #, no-wrap
 msgid "$ pip3 install damegender[all]\n"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:105
+#: damegender.texi:183
 msgid "Currently you can need an api key from:"
 msgstr ""
 
 #. type: itemize
-#: damegender.texi:109
+#: damegender.texi:187
 msgid "https://store.genderize.io/documentation"
 msgstr ""
 
 #. type: itemize
-#: damegender.texi:112
+#: damegender.texi:190
 msgid "https://gender-api.com"
 msgstr ""
 
 #. type: itemize
-#: damegender.texi:115
+#: damegender.texi:193
 msgid "https://www.nameapi.org/"
 msgstr ""
 
 #. type: itemize
-#: damegender.texi:118
+#: damegender.texi:196
 msgid "https://v2.namsor.com/NamSorAPIv2/sign-in.html"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:121
+#: damegender.texi:199
 msgid "To configure your api key you can execute:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:123
+#: damegender.texi:201
 #, no-wrap
 msgid "$ python3 apikeyadd.py\n"
 msgstr ""
 
 #. type: cindex
-#: damegender.texi:125 damegender.texi:126 damegender.texi:127
+#: damegender.texi:203 damegender.texi:204 damegender.texi:205
 #, no-wrap
 msgid "Commands"
 msgstr ""
 
 #. type: cindex
-#: damegender.texi:128
+#: damegender.texi:206
 #, no-wrap
 msgid "Executing tests"
 msgstr ""
 
 #. type: cindex
-#: damegender.texi:129
+#: damegender.texi:207
 #, no-wrap
 msgid "Regenerating files in post installation"
 msgstr ""
 
 #. type: cindex
-#: damegender.texi:130
+#: damegender.texi:208
 #, no-wrap
 msgid "Perceval"
 msgstr ""
 
 #. type: cindex
-#: damegender.texi:131
+#: damegender.texi:209
 #, no-wrap
 msgid "Commands about Statistics"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:134
+#: damegender.texi:212
 msgid "You must start to check tests to understand that all is ok:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:141
+#: damegender.texi:219
 #, no-wrap
 msgid ""
 "$ cd src/damegender\n"
@@ -314,94 +456,96 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:144
-msgid "You can continue check python tests:"
+#: damegender.texi:222
+msgid "You can continue checking python tests:"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:146
+#: damegender.texi:224
 msgid "Execute all tests:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:148
+#: damegender.texi:226
 #, no-wrap
 msgid "$ nosetests3 tests\n"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:151
+#: damegender.texi:229
 msgid "Execute one file:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:153
+#: damegender.texi:231
 #, no-wrap
 msgid "$ nosetests3 tests/test_basics.py\n"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:156
+#: damegender.texi:234
 msgid "Execute one test:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:158
+#: damegender.texi:236
 #, no-wrap
 msgid "$ nosetests3 tests/test_basics.py:TestBasics.test_indexing\n"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:163
+#: damegender.texi:241
 msgid ""
 "If you are in a fresh installation, perhaps you want regenerate by your own "
 "risk some files downloaded to understand how it has been generated:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:166
+#: damegender.texi:244
 #, no-wrap
 msgid "$ python3 postinstall.py\n"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:170
+#: damegender.texi:248
 msgid ""
 "You can find an big list of commands to execute this shell scripts. Now a "
 "detailed execution of some selected examples:"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:172
-msgid "The first command to learn is main.py. You can play now with this command:"
+#: damegender.texi:251
+msgid ""
+"The first command to learn is @code{main.py}. You can play now with this "
+"command:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:179
+#: damegender.texi:258
 #, no-wrap
 msgid ""
 "# Detect gender from a name (INE is the dataset used by default)\n"
 "$ python3 main.py David\n"
 "David gender is male\n"
-" 363559  males for David from INE.es\n"
+"363559  males for David from INE.es\n"
 "0 females for David from INE.es\n"
 "\n"
 msgstr ""
 
 #. type: example
-#: damegender.texi:185
+#: damegender.texi:264
 #, no-wrap
 msgid ""
-"# Detect gender from a name only using machine learning (experimental way)\n"
-"$ python3 main.py Mesa --ml=nltk\n"
-"Mesa gender is female\n"
-"0 males for Mesa from INE.es\n"
-"0 females for Mesa from INE.es\n"
+"# Detect gender from a name only using machine learning\n"
+"$ python3 main.py Agua --ml=nltk\n"
+"Agua gender is female\n"
+"0 males for Agua from INE.es\n"
+"0 females for Agua from INE.es\n"
 "\n"
 msgstr ""
 
 #. type: example
-#: damegender.texi:205
+#: damegender.texi:284
 #, no-wrap
 msgid ""
 "# Detect gender from a name (all census and machine learning)\n"
@@ -426,82 +570,166 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:213
+#: damegender.texi:292
 msgid ""
 "The first Free Software for gender detection tool was created in C language "
 "program and you can look for a python version with the name "
 "genderguesser. Some people was working in a Free dataset called "
 "name_dict.txt with 48500 names. I want to give thanks to this effort with "
-"nameincountries.py due to the good work organizing many names in different "
-"countries."
+"@code{nameincountries.py} due to the good work organizing many names in "
+"different countries."
 msgstr ""
 
 #. type: example
-#: damegender.texi:220
+#: damegender.texi:304
 #, no-wrap
 msgid ""
 "$ python3 nameincountries.py David\n"
 "grep -i \" David \" files/names/nam_dict.txt > files/grep.tmp\n"
-"males: ['Albania', 'Armenia', 'Austria', 'Azerbaijan', 'Belgium', 'Bosnia "
-"and Herzegovina', 'Czech Republic', 'Denmark', 'East Frisia', 'France', "
-"'Georgia', 'Germany', 'Great Britain', 'Iceland', 'Ireland', 'Israel', "
-"'Italy', 'Kazakhstan/Uzbekistan', 'Luxembourg', 'Malta', 'Norway', "
-"'Portugal', 'Romania', 'Slovenia', 'Spain', 'Sweden', 'Swiss', 'The "
-"Netherlands', 'USA', 'Ukraine']\n"
+"males: ['Albania', 'Armenia', 'Austria', 'Azerbaijan', 'Belgium',\n"
+"'Bosnia and Herzegovina', 'Czech Republic', 'Denmark', 'East Frisia',\n"
+"'France', 'Georgia', 'Germany', 'Great Britain', 'Iceland', 'Ireland',\n"
+"'Israel', 'Italy', 'Kazakhstan/Uzbekistan', 'Luxembourg', 'Malta',\n"
+"'Norway', 'Portugal', 'Romania', 'Slovenia', 'Spain', 'Sweden',\n"
+"'Swiss', 'The Netherlands', 'USA', 'Ukraine']\n"
 "females: []\n"
 "both: []\n"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:226
-msgid ""
-"This Free Software has been developed in the frame of a Phd in the "
-"Universidad Rey Juan Carlos I with the Phd director Jesús González Barahona, "
-"so I have developed some commands to use Perceval (Free Software where he "
-"has done good contributions)"
-msgstr ""
-
-#. type: Plain text
-#: damegender.texi:228
+#: damegender.texi:307
 msgid "To count gender from a git repository:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:233
+#: damegender.texi:314
 #, no-wrap
 msgid ""
-"$ python3 git2gender.py https://github.com/chaoss/grimoirelab-perceval.git "
+"$ python3 git2gender.py\n"
+"https://github.com/chaoss/grimoirelab-perceval.git\n"
 "--directory=\"/tmp/clonedir\"\n"
 "The number of males sending commits is 15\n"
 "The number of females sending commits is 7\n"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:236
+#: damegender.texi:318
+msgid ""
+"You can see a verbose output using the spanish dataset (--language=es) for "
+"males and females with:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:341
+#, no-wrap
+msgid ""
+"$ python3 git2gender.py https://git.drupalcode.org/project/orgmode.git\n"
+"--directory=/tmp/orgmode --show=all --verbose --language=es\n"
+"You are not using ml the process is not very slow, but perhaps\n"
+"you are not finding good results\n"
+"The number of males sending commits is 2\n"
+"The list of males sending commits is:\n"
+"['David Arroyo Menendez', 'David Arroyo']\n"
+"David Arroyo MenÃ©ndez <davidam@@es.gnu.org> (67 commits)\n"
+"David Arroyo Menendez <davidam9@@riseup.net> (49 commits)\n"
+"David Arroyo MenÃ©ndez <davidam@@gmail.com> (20 commits)\n"
+"David Arroyo Menendez <david.arroyo@@edoctores.com> (10 commits)\n"
+"David Arroyo Menendez <davidam@@es.gnu.org> (14 commits)\n"
+"David Arroyo7 <davidam@@es.gnu.org> (13 commits)\n"
+"David Arroyo7 <davidam@@gnu.org> (10 commits)\n"
+"The number of females sending commits is 1\n"
+"The list of females sending commits is:\n"
+"['Miriam]\n"
+"Miriam <miriam@@xxxxxx.es> (23 commits)\n"
+"The number of people with unknown gender sending commits is 0\n"
+"The list of people with unknown gender sending commits is:\n"
+"[]\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:344
 msgid "To count gender from a mailing list:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:242
+#: damegender.texi:354
 #, no-wrap
 msgid ""
 "$ cd files/mbox\n"
-"$ wget -c "
+"$ wget -c\n"
 "http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox\n"
-"$ cd ..\n"
-"$ python3 mail2gender.py "
+"$ cd ../.. \n"
+"$ python3 mail2gender.py\n"
 "http://mail-archives.apache.org/mod_mbox/httpd-announce/\n"
+"You are not using ml the process is not very slow, but perhaps you are\n"
+"not finding good results\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:358
+#, no-wrap
+msgid ""
+"The number of males sending mails is 24\n"
+"The number of females sending mails is 2\n"
+"The number of people with unknown gender sending mails is 5\n"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:246
+#: damegender.texi:361
+msgid "You can execute a verbose output with:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:393
+#, no-wrap
+msgid ""
+"$ python3 mail2gender.py\n"
+"http://mail-archives.apache.org/mod_mbox/httpd-announce/\n"
+"--verbose --show=all\n"
+"You are not using ml the process is not very slow, but perhaps you are not\n"
+"finding good results\n"
+"The number of males sending mails is 24\n"
+"The list of males sending mails is:\n"
+"['Jim <jim@@xxxxxx.es>', 'Jacob <jchampion@@xxxxx.org>',\n"
+"'DENNIS <balaranpillai@@xxxxx.com>', '\"Leonard (Jira)\" "
+"<jira@@xxxxx.org>',\n"
+"'\"Roy\" <jira@@xxxxx.org>', '\"Roman (Jira)\" <jira@@xxxxx.org>',\n"
+"'\"Bertrand\" <jira@@xxxxx.org>', '\"Mark (Jira)\" <jira@@xxxxx.org>',\n"
+"'\"Justin (Jira)\" <jira@@xxxxx.org>', '\"Simon (Jira)\" "
+"<jira@@xxxxx.org>',\n"
+"'\"Chris (Jira)\" <jira@@xxxxx.org>', 'Jan <lahoda@@xxxxx.com>',\n"
+"'\"Michael (Jira)\" <jira@@xxxxx.org>', '\"Ralph (Jira)\" "
+"<jira@@xxxxx.org>',\n"
+"'\"Jens\" <jensg@@xxxxx.org>', 'Mark <markt@@xxxxx.org>',\n"
+"'\"Ryan (Jira)\" <jira@@xxxxx.org>', 'IsmaÃ«l (Jira)  <jira@@xxxxx.org>',\n"
+"'\"Shane (Jira)\" <jira@@xxxxx.org>', '\"Kevin A. (Jira)\" "
+"<jira@@xxxxx.org>',\n"
+"'\"Gordon (Jira)\" <jira@@xxxxx.org>', 'Gary <garydgregory@@xxxxx.com>',\n"
+"'\"Owen\" <owen.omalley@@xxxxx.com>', '\"Sheng (Jira)\" "
+"<jira@@xxxxx.org>']\n"
+"The number of females sending mails is 2\n"
+"The list of females sending mails is:\n"
+"['Riya <hellen.serviceweb@@xxxxxx.com>',\n"
+"'\"Hannah (Jira)\" <jira@@xxxxx.org>']\n"
+"The number of people with unknown gender sending mails is 5\n"
+"The list of people with unknown gender sending mails is \n"
+"['\"SimpaticoTech\" <web.info@@xxxxxx.it>',\n"
+"'Simpatico <web.info@@xxxxxxxxx.it>',\n"
+"'gmcdonald@@xxxxx.org',\n"
+"'Hen <bayard@@xxxxx.org>',\n"
+"'\"Jean (Jira)\" <jira@@xxxxx.org>']\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:397
 msgid ""
 "Perhaps you don't know a name, but you have obtained an free key for an api "
 "to retrieve it:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:251
+#: damegender.texi:402
 #, no-wrap
 msgid ""
 "$ python3 api2gender.py Leticia --surname=\"Martin\" --api=namsor\n"
@@ -510,14 +738,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:255
+#: damegender.texi:407
 msgid ""
 "If you want to know the gender of a good number of names you can download "
-"results from an api and save in a file with downloadjson.py"
+"results from an api and save in a file with @code{downloadjson.py}."
 msgstr ""
 
 #. type: example
-#: damegender.texi:259
+#: damegender.texi:411
 #, no-wrap
 msgid ""
 "$ python3 downloadjson.py --csv=files/names/min.csv --api=genderize\n"
@@ -525,14 +753,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:262
+#: damegender.texi:415
 msgid ""
 "Now we are going to learn some commands for measure the successful of our "
-"solution"
+"solution:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:269
+#: damegender.texi:422
 #, no-wrap
 msgid ""
 "$ python3 accuracy.py --csv=files/names/min.csv\n"
@@ -543,21 +771,20 @@ msgid ""
 msgstr ""
 
 #. type: example
-#: damegender.texi:276
+#: damegender.texi:431
 #, no-wrap
 msgid ""
-"$ python3 confusion.py --csv=\"files/names/partial.csv\" --api=nameapi "
+"$ python3 confusion.py --csv=\"files/names/partial.csv\" --api=nameapi\n"
 "--jsondownloaded=\"files/names/nameapifiles_names_partial.csv.json\"\n"
-"A confusion matrix C is such that Ci,j is equal to the number of "
+"A confusion matrix C is such that Ci,j is equal to the number of\n"
 "observations known to be in group i but predicted to be in group j.\n"
-"If the classifier is nice, the diagonal is high because there are true "
-"positives\n"
-"Nameapi confusion matrix:\n"
+"If the classifier is nice, the diagonal is high because there are true\n"
+"positives Nameapi confusion matrix:\n"
 "\n"
 msgstr ""
 
 #. type: example
-#: damegender.texi:279
+#: damegender.texi:434
 #, no-wrap
 msgid ""
 "[[ 3, 0, 0]\n"
@@ -565,7 +792,7 @@ msgid ""
 msgstr ""
 
 #. type: example
-#: damegender.texi:288
+#: damegender.texi:443
 #, no-wrap
 msgid ""
 "$ python3 errors.py --csv=\"files/names/all.csv\" --api=\"genderguesser\"\n"
@@ -577,12 +804,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:291
+#: damegender.texi:446
 msgid "You can generate a lot of logs about errors, accuracies and/or confusion:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:296
+#: damegender.texi:451
 #, no-wrap
 msgid ""
 "$ ./logs-accuracies.sh\n"
@@ -591,34 +818,28 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:299
+#: damegender.texi:454
 msgid "Perhaps you are interested on reproduce experiments to determine features:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:310
+#: damegender.texi:461
 #, no-wrap
 msgid ""
 "$ python3 infofeatures.py\n"
-"Females with last letter a: 0.4705246078961601\n"
-"Males with last letter a: 0.048672566371681415\n"
-"Females with last letter consonant: 0.2735841767750908\n"
-"Males with last letter consonant: 0.6355328972681801\n"
-"Females with last letter vocal: 0.7262612995441552\n"
-"Males with last letter vocal: 0.3640823393612928\n"
-"$ python3 pca-components.py --csv=\"files/features_list.csv\" # To determine "
-"number of components\n"
-"$ python3 pca-features.py                                   # To understand "
-"the weight between variables for a target\n"
+"# To determine number of components\n"
+"$ python3 pca-components.py --csv=\"files/features_list.csv\"\n"
+"# To understand the weight between variables for a target\n"
+"$ python3 pca-features.py          \n"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:313
+#: damegender.texi:464
 msgid "Now we can go to play with surnames:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:317
+#: damegender.texi:468
 #, no-wrap
 msgid ""
 "$ python3 surname.py Gil --total=es\n"
@@ -627,7 +848,7 @@ msgid ""
 msgstr ""
 
 #. type: example
-#: damegender.texi:320
+#: damegender.texi:471
 #, no-wrap
 msgid ""
 "$ python3 surname.py Lenon --total=us\n"
@@ -636,12 +857,12 @@ msgid ""
 msgstr ""
 
 #. type: example
-#: damegender.texi:329
+#: damegender.texi:481
 #, no-wrap
 msgid ""
 "$ python3 ethnicity.py Smith\n"
-"In United States of America the percentages about the race of Smith surname "
-"is:\n"
+"In United States of America the percentages about the race\n"
+"of Smith surname is:\n"
 "White: 73.35\n"
 "Black: 22.22\n"
 "Hispanic: 1.56\n"
@@ -651,79 +872,163 @@ msgid ""
 msgstr ""
 
 #. type: chapter
-#: damegender.texi:332 damegender.texi:333
+#: damegender.texi:483 damegender.texi:484
 #, no-wrap
 msgid "Statistics"
 msgstr ""
 
-#. type: Plain text
-#: damegender.texi:339
-msgid ""
-"In the last chapter we were learning to execute some commands such as "
-"accuracy.py, confusion.py, or errors.py, but perhaps you need to understand "
-"more theory about statistics to understand why this commands is being "
-"interesting for you."
-msgstr ""
-
-#. type: section
-#: damegender.texi:340
+#. type: cindex
+#: damegender.texi:485 damegender.texi:506 damegender.texi:507
 #, no-wrap
 msgid "Measuring success and error"
 msgstr ""
 
+#. type: cindex
+#: damegender.texi:486 damegender.texi:724 damegender.texi:725
+#, no-wrap
+msgid "Principal Component Analysis (PCA)"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:487
+#, no-wrap
+msgid "True positive"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:488
+#, no-wrap
+msgid "True negative"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:489
+#, no-wrap
+msgid "False positive"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:490
+#, no-wrap
+msgid "False negative"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:491
+#, no-wrap
+msgid "Precision"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:492
+#, no-wrap
+msgid "Accuracy"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:493
+#, no-wrap
+msgid "F1 score"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:494
+#, no-wrap
+msgid "Recall"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:495
+#, no-wrap
+msgid "Error coded"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:496
+#, no-wrap
+msgid "Error coded without na"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:497
+#, no-wrap
+msgid "Error gender bias"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:498
+#, no-wrap
+msgid "Confusion matrix"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:499
+#, no-wrap
+msgid "ROC"
+msgstr ""
+
 #. type: Plain text
-#: damegender.texi:347
+#: damegender.texi:505
+msgid ""
+"In the last chapter we were learning to execute some commands such as "
+"@code{accuracy.py}, @code{confusion.py}, or @code{errors.py}, but perhaps "
+"you need to understand more theory about statistics to understand why this "
+"commands is being interesting for you."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:514
 msgid ""
 "To guess the sex, we have an true idea (example: female) and we obtain a "
 "result with a method (example: using an api, querying a dataset or with a "
 "machine learning model). The guessed result could be male, female or perhaps "
-"unknown. Remember some definitions about results about this matter:"
+"unknown. To remember some definitions about results about this matter:"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:350
+#: damegender.texi:517
 msgid ""
 "@strong{True positive} is to find a value guessed as true if the value in "
 "the data source is positive."
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:353
+#: damegender.texi:520
 msgid ""
 "@strong{True negative} is to find a value guessed as true if the the value "
 "in the data source is negative."
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:356
+#: damegender.texi:523
 msgid ""
 "@strong{False positive} is to find a value guessed as false if the the value "
 "in the data source is positive."
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:359
+#: damegender.texi:526
 msgid ""
 "@strong{False negative} is to find a value guessed as false if the the value "
 "in the data source is negative."
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:363
+#: damegender.texi:530
 msgid ""
 "So, we can find a vocabulary for measure true, false, success and errors. We "
 "can make a summary in the gender name context about mathematical concepts:"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:366
+#: damegender.texi:533
 msgid ""
 "@strong{Precision} is about true positives divided by true positives plus "
 "false positives"
 msgstr ""
 
 #. type: example
-#: damegender.texi:370
+#: damegender.texi:537
 #, no-wrap
 msgid ""
 "(femalefemale + malemale ) /\n"
@@ -731,43 +1036,44 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:373
+#: damegender.texi:540
 msgid ""
-"Recall is about true positives divided by true positives plus false "
+"@strong{Recall} is about true positives divided by true positives plus false "
 "negatives."
 msgstr ""
 
 #. type: example
-#: damegender.texi:377
+#: damegender.texi:545
 #, no-wrap
 msgid ""
 "(femalefemale + malemale ) /\n"
-"(femalefemale + malemale + malefemale + femaleundefined + maleundefined)\n"
+"(femalefemale + malemale + malefemale +\n"
+"+ femaleundefined + maleundefined)\n"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:380
-msgid "Accuray is about true positives divided by all."
+#: damegender.texi:548
+msgid "@strong{Accuracy} is about true positives divided by all."
 msgstr ""
 
 #. type: example
-#: damegender.texi:384
+#: damegender.texi:553
 #, no-wrap
 msgid ""
 "(femalefemale + malemale ) /\n"
-"(femalefemale + malemale + malefemale + femalemale + femaleundefined + "
-"maleundefined)\n"
+"(femalefemale + malemale + malefemale +\n"
+"+ femalemale + femaleundefined + maleundefined)\n"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:387
+#: damegender.texi:557
 msgid ""
-"The F1 score is the harmonic mean of precision and recall taking both "
-"metrics into account in the following equation:"
+"The @strong{F1 score} is the harmonic mean of precision and recall taking "
+"both metrics into account in the following equation:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:392
+#: damegender.texi:562
 #, no-wrap
 msgid ""
 "2 * (\n"
@@ -776,169 +1082,169 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:395
+#: damegender.texi:566
 msgid ""
-"In Damengender, we are using accuracy.py to apply these concepts. Take a "
-"look to practice:"
+"In Damengender, we are using @code{accuracy.py} to apply these "
+"concepts. Take a look tothe practice:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:402
+#: damegender.texi:577
 #, no-wrap
 msgid ""
-"$ python3 accuracy.py --api=\"damegender\" --measure=\"f1score\" "
-"--csv=\"files/names/partialnoundefined.csv\" "
+"$ python3 accuracy.py --api=\"damegender\" --measure=\"f1score\"\n"
+"--csv=\"files/names/partialnoundefined.csv\"\n"
 "--jsondownloaded=files/names/partialnoundefined.csv.json\n"
 "################### Damegender!!\n"
-"Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, "
-"1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n"
-"Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, "
-"1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]\n"
+"Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0,\n"
+"              1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n"
+"Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1,\n"
+"              1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]\n"
 "Damegender f1score: 0.9090909090909091\n"
 "\n"
 msgstr ""
 
 #. type: example
-#: damegender.texi:408
+#: damegender.texi:587
 #, no-wrap
 msgid ""
-"$ python3 accuracy.py --api=\"damegender\" --measure=\"recall\" "
-"--csv=\"files/names/partialnoundefined.csv\" "
-"--jsondownloaded=files/names/partialnoundefined.csv.json\n"
+"$ python3 accuracy.py --api=\"damegender\" --measure=\"recall\"\n"
+"  --csv=\"files/names/partialnoundefined.csv\"\n"
+"  --jsondownloaded=files/names/partialnoundefined.csv.json\n"
 "################### Damegender!!\n"
-"Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, "
-"1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n"
-"Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, "
-"1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]\n"
+"Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0,\n"
+"              1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n"
+"Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1,\n"
+"              1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]\n"
 "Damegender recall: 1.0\n"
 "\n"
 msgstr ""
 
 #. type: example
-#: damegender.texi:414
+#: damegender.texi:597
 #, no-wrap
 msgid ""
-"$ python3 accuracy.py --api=\"damegender\" --measure=\"accuracy\" "
-"--csv=\"files/names/partialnoundefined.csv\" "
-"--jsondownloaded=files/names/partialnoundefined.csv.json\n"
+"$ python3 accuracy.py --api=\"damegender\" --measure=\"accuracy\"\n"
+"  --csv=\"files/names/partialnoundefined.csv\"\n"
+"  --jsondownloaded=files/names/partialnoundefined.csv.json\n"
 "################### Damegender!!\n"
-"Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, "
-"1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n"
-"Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, "
-"1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]\n"
+"Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0,\n"
+"              1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n"
+"Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1,\n"
+"              1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]\n"
 "Damegender accuracy: 0.8571428571428571\n"
 "\n"
 msgstr ""
 
 #. type: example
-#: damegender.texi:420
+#: damegender.texi:607
 #, no-wrap
 msgid ""
-"$ python3 accuracy.py --api=\"genderguesser\" --measure=\"accuracy\" "
-"--csv=\"files/names/partialnoundefined.csv\" "
-"--jsondownloaded=files/names/partialnoundefined.csv.json\n"
+"$ python3 accuracy.py --api=\"genderguesser\" --measure=\"accuracy\"\n"
+"  --csv=\"files/names/partialnoundefined.csv\"\n"
+"  --jsondownloaded=files/names/partialnoundefined.csv.json\n"
 "################### Genderguesser!!\n"
-"Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, "
-"1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n"
-"Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, "
-"1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]\n"
+"Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0,\n"
+"              1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n"
+"Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1,\n"
+"              1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]\n"
 "Genderguesser accuracy: 0.8571428571428571\n"
 "\n"
 msgstr ""
 
 #. type: example
-#: damegender.texi:426
+#: damegender.texi:617
 #, no-wrap
 msgid ""
-"$ python3 accuracy.py --api=\"genderguesser\" --measure=\"precision\" "
-"--csv=\"files/names/partialnoundefined.csv\" "
-"--jsondownloaded=files/names/partialnoundefined.csv.json\n"
+"$ python3 accuracy.py --api=\"genderguesser\" --measure=\"precision\"\n"
+"  --csv=\"files/names/partialnoundefined.csv\"\n"
+"  --jsondownloaded=files/names/partialnoundefined.csv.json\n"
 "################### Genderguesser!!\n"
-"Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, "
-"1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n"
-"Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, "
-"1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]\n"
+"Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0,\n"
+"              1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n"
+"Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1,\n"
+"              1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]\n"
 "Genderguesser precision: 0.9090909090909091\n"
 "\n"
 msgstr ""
 
 #. type: example
-#: damegender.texi:432
+#: damegender.texi:627
 #, no-wrap
 msgid ""
-"$ python3 accuracy.py --api=\"genderguesser\" --measure=\"recall\" "
-"--csv=\"files/names/partialnoundefined.csv\" "
-"--jsondownloaded=files/names/partialnoundefined.csv.json\n"
+"$ python3 accuracy.py --api=\"genderguesser\" --measure=\"recall\"\n"
+"  --csv=\"files/names/partialnoundefined.csv\"\n"
+"  --jsondownloaded=files/names/partialnoundefined.csv.json\n"
 "################### Genderguesser!!\n"
-"Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, "
-"1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n"
-"Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, "
-"1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]\n"
+"Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0,\n"
+"              1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n"
+"Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1,\n"
+"              1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]\n"
 "Genderguesser recall: 1.0\n"
 "\n"
 msgstr ""
 
 #. type: example
-#: damegender.texi:438
+#: damegender.texi:637
 #, no-wrap
 msgid ""
-"$ python3 accuracy.py --api=\"genderguesser\" --measure=\"f1score\" "
-"--csv=\"files/names/partialnoundefined.csv\" "
-"--jsondownloaded=files/names/partialnoundefined.csv.json\n"
+"$ python3 accuracy.py --api=\"genderguesser\" --measure=\"f1score\"\n"
+"  --csv=\"files/names/partialnoundefined.csv\"\n"
+"  --jsondownloaded=files/names/partialnoundefined.csv.json\n"
 "################### Genderguesser!!\n"
-"Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, "
-"1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n"
-"Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, "
-"1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]\n"
+"Gender list: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0,\n"
+"              1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]\n"
+"Guess list:  [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1,\n"
+"              1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0]\n"
 "Genderguesser f1score: 0.9090909090909091\n"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:441
+#: damegender.texi:640
 msgid "@strong{Error coded} is about the true is different than the guessed:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:446
+#: damegender.texi:645
 #, no-wrap
 msgid ""
 "(femalemale + malefemale + maleundefined + femaleundefined) /\n"
 "(malemale + femalemale + malefemale +\n"
-"femalefemale + maleundefined + femaleundefined)\n"
+"+ femalefemale + maleundefined + femaleundefined)\n"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:450
+#: damegender.texi:649
 msgid ""
 "@strong{Error coded without na} is about the true is different than the "
 "guessed, but without undefined results."
 msgstr ""
 
 #. type: example
-#: damegender.texi:455
+#: damegender.texi:654
 #, no-wrap
 msgid ""
 "(maleundefined + femaleundefined) /\n"
 "(malemale + femalemale + malefemale +\n"
-"femalefemale + maleundefined + femaleundefined)\n"
+"+ femalefemale + maleundefined + femaleundefined)\n"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:458
+#: damegender.texi:657
 msgid ""
 "@strong{Error gender bias} is to understand if the error is bigger guessing "
 "males than females or viceversa."
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:460
+#: damegender.texi:659
 msgid ""
-"The @strong{weighted error} is about the true is different than the guessed, "
-"but giving a weight to the guessed as undefined."
+"@strong{Weighted error} is about the true is different than the guessed, but "
+"giving a weight to the guessed as undefined."
 msgstr ""
 
 #. type: example
-#: damegender.texi:466
+#: damegender.texi:665
 #, no-wrap
 msgid ""
 "(femalemale + malefemale +\n"
@@ -948,21 +1254,21 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:469
+#: damegender.texi:669
 msgid ""
-"In Damegender, we have coded errors.py to implement the different "
-"definitions in diffrent apis."
+"In Damegender, we have coded @code{errors.py} to implement several "
+"definitions in different apis."
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:471
+#: damegender.texi:671
 msgid ""
 "The confusion matrix creates a matrix about the true and the guess. If you "
 "have this confusion matrix:"
 msgstr ""
 
 #. type: example
-#: damegender.texi:475
+#: damegender.texi:675
 #, no-wrap
 msgid ""
 "[[ 2, 0, 0]\n"
@@ -970,14 +1276,15 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:478
+#: damegender.texi:678
 msgid ""
-"It means, I have 2 females true and I’ve guessed 2 females and I’ve 5 males "
-"true and I’ve guessed 5 males. I don’t have errors in my classifier."
+"It means, I have 2 females true and Iâve guessed 2 females and Iâve 5 "
+"males true and Iâve guessed 5 males. I donât have errors in my "
+"classifier."
 msgstr ""
 
 #. type: example
-#: damegender.texi:482
+#: damegender.texi:682
 #, no-wrap
 msgid ""
 "[[ 2  1  0]\n"
@@ -985,34 +1292,2882 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:485
+#: damegender.texi:685
 msgid ""
-"It means, I have 2 females true and I’ve guessed 2 females and I’ve 14 males "
-"true and I’ve guessed 14 males. 1 female was considered male, 2 males was "
-"considered female."
+"It means, I have 2 females true and Iâve guessed 2 females and Iâve 14 "
+"males true and Iâve guessed 14 males. 1 female was considered male, 2 "
+"males was considered female."
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:487
+#: damegender.texi:688
+msgid "In Damegender, we have coded @code{confusion.py} to implement this concept:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:695
+#, no-wrap
 msgid ""
-"In Damegender, we have coded confusion.py to implement this concept with the "
-"different apis."
+"python3 confusion.py --csv=files/names/min.csv\n"
+"--api=damegender --jsondownloaded=files/names/min.csv.json \n"
+"A confusion matrix C is such that Ci,j is equal to the number of "
+"observations known to be in group i but predicted to be in group j.\n"
+"If the classifier is nice, the diagonal is high because there are true "
+"positives\n"
+"Damegender confusion matrix:\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:699
+#, no-wrap
+msgid ""
+"      M   F   U  \n"
+"M  [[ 5,  0,  0 ]\n"
+"F   [ 0,  1,  0 ]]\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:703
+msgid ""
+"Remember that we can retrieve the json file from several apis having the "
+"names to be guessed in the csv file with @code{downloadjson.py}:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:706
+#, no-wrap
+msgid ""
+"$ python3 downloadjson.py --csv=\"files/names/min.csv\" --api=\"genderapi\" "
+"\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:713
+msgid ""
+"Similar to confusion is ROC (Receiver Operating Characteristic) is a "
+"graphical plot that illustrates the diagnostic ability of a binary "
+"classifier system as its discrimination threshold is varied. The ROC curve "
+"is created by plotting the true positive rate (TPR) against the false "
+"positive rate (FPR) at various threshold settings."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:716
+msgid ""
+"In Damegender, you can use ROC relative to machine learning algorithms with "
+"the next command:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:719
+#, no-wrap
+msgid "$ python3 roc.py svc\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:722
+msgid "@image{images/roc_svc,6in,,ROC about SVC}"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:727 damegender.texi:728
+#, no-wrap
+msgid "Counting features in names"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:732
+msgid ""
+"We have developed a script @code{infofeatures.py} with our datasets to "
+"visualize data about some features chosen by us."
+msgstr ""
+
+#. type: example
+#: damegender.texi:735
+#, no-wrap
+msgid "$ python3 infofeatures.py ine\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:738
+msgid "Take a look to the results with the different datasets:"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:741
+msgid "@headitem Dataset"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:741
+msgid "Letter A"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:741
+msgid "Last Letter A"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:741
+msgid "Last Letter O"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:741
+msgid "Last Letter Consonant"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:741
+msgid "Last Letter Vocal"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:741
+msgid "First Letter Consonant"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:741
+msgid "First Letter Vocal"
+msgstr ""
+
+#. type: item
+#: damegender.texi:741
+#, no-wrap
+msgid "Uruguay (females)"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:749 damegender.texi:829
+msgid "0.816"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:749 damegender.texi:789 damegender.texi:829
+msgid "0.456"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:749 damegender.texi:829
+msgid "0.007"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:749 damegender.texi:829
+msgid "0.287"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:749 damegender.texi:829
+msgid "0.712"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:749 damegender.texi:829
+msgid "0.823"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:749 damegender.texi:829
+msgid "0.177"
+msgstr ""
+
+#. type: item
+#: damegender.texi:749
+#, no-wrap
+msgid "Uruguay (males)"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:757 damegender.texi:837
+msgid "0.643"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:757
+msgid "0.249"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:757
+msgid "0.062"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:757
+msgid "0.766"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:757 damegender.texi:837
+msgid "0.234"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:757
+msgid "0.771"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:757 damegender.texi:765 damegender.texi:797
+msgid "0.228"
+msgstr ""
+
+#. type: item
+#: damegender.texi:757
+#, no-wrap
+msgid "Australia (females)"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:765 damegender.texi:797
+msgid "0.922"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:765 damegender.texi:797
+msgid "0.588"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:765
+msgid "0.033"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:765
+msgid "0.272"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:765 damegender.texi:797
+msgid "0.728"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:765 damegender.texi:797
+msgid "0.772"
+msgstr ""
+
+#. type: item
+#: damegender.texi:765
+#, no-wrap
+msgid "Australia (males)"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:773 damegender.texi:789 damegender.texi:805
+msgid "0.818"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:773 damegender.texi:797 damegender.texi:805
+msgid "0.03"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:773
+msgid "0.269"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:773
+msgid "0.57"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:773 damegender.texi:805
+msgid "0.43"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:773 damegender.texi:805
+msgid "0.763"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:773
+msgid "0.237"
+msgstr ""
+
+#. type: item
+#: damegender.texi:773
+#, no-wrap
+msgid "Canada (females)"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:781
+msgid "0.659"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:781
+msgid "0.189"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:781
+msgid "0.005"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:781
+msgid "0.591"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:781
+msgid "0.408"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:781
+msgid "0.838"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:781
+msgid "0.161"
+msgstr ""
+
+#. type: item
+#: damegender.texi:781
+#, no-wrap
+msgid "Canada (males)"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:789
+msgid "0.752"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:789
+msgid "0.22"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:789
+msgid "0.025"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:789
+msgid "0.54"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:789
+msgid "0.181"
+msgstr ""
+
+#. type: item
+#: damegender.texi:789
+#, no-wrap
+msgid "Spain (females)"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:797
+msgid "0.271"
+msgstr ""
+
+#. type: item
+#: damegender.texi:797
+#, no-wrap
+msgid "Spain (males)"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:805
+msgid "0.268"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:805
+msgid "0.569"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:805
+msgid "0.236"
+msgstr ""
+
+#. type: item
+#: damegender.texi:805
+#, no-wrap
+msgid "United Kingdom (females)"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:813
+msgid "0.825"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:813
+msgid "0.374"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:813
+msgid "0.013"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:813
+msgid "0.322"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:813
+msgid "0.674"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:813 damegender.texi:837
+msgid "0.765"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:813
+msgid "0.235"
+msgstr ""
+
+#. type: item
+#: damegender.texi:813
+#, no-wrap
+msgid "United Kingdom (males)"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:821
+msgid "0.716"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:821
+msgid "0.036"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:821
+msgid "0.039"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:821
+msgid "0.78"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:821
+msgid "0.218"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:821
+msgid "0.799"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:821
+msgid "0.2"
+msgstr ""
+
+#. type: item
+#: damegender.texi:821
+#, no-wrap
+msgid "USA (females)"
+msgstr ""
+
+#. type: item
+#: damegender.texi:829
+#, no-wrap
+msgid "USA (males)"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:837
+msgid "0.02"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:837
+msgid "0.061"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:837
+msgid "0.84"
+msgstr ""
+
+#. type: multitable
+#: damegender.texi:837
+msgid "0.159"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:845
+msgid ""
+"The countries where the main language is spanish (Uruguay + Spain) and "
+"english (USA + United Kingdom + Australia) are having very similar variation "
+"with the features chosen between males and females with these datasets "
+"(remember is the datasets extracted from official statistics provided by the "
+"states). Canada, a country french centric has different rules with this "
+"features."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:858
+msgid ""
+"The letter a is varying 0.2 from males to females in (USA and Uruguay)  and "
+"0.1 from males to females (United Kingdom, Australia and Spain). The last "
+"letter a is varying 0.5 from males to females in (Australia, Spain) around "
+"0.4 in (USA, United Kingdom) and 0.2 in Uruguay. The last letter o from "
+"females to males is varying 0.2 in (Spain, Australia) and is equal in "
+"(Uruguay, USA, United Kingdom). For the last letter consonant all countries "
+"is giving the result that is for males, with results from 0.2 to 0.5: "
+"Uruguay and USA (0.5), United Kingdom (0.4), Australia and Spain (0.3). So "
+"last letter vocal is reverse tha last letter consonant. First letter "
+"consonant or first letter vocal is a non significative feature due to so "
+"similar results in english and spanish."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:862
+msgid ""
+"Surely, the rules itâs a coincidence but we think that is a coincidence "
+"between languages due to that there are a good number of names to think "
+"different."
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:863 damegender.texi:864
+#, no-wrap
+msgid "Choosing components"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:874
+msgid ""
+"After, to choose features for our machine learning task, we can understand "
+"if this features makes sense with Principal Component Analysis. We have "
+"written 2 scripts for this task @code{pca-components.py} and "
+"@code{pca-features.py}. With @code{pca-components.py} we are giving a csv "
+"(files/features_list.csv, files/features_list_no_cat.csv, ...) and the "
+"output is an image where we can visualize a curve to determine when this "
+"curve stops the growth the number of components."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:876
+msgid ""
+"@image{images/pca_components_files_features_list_no_cat.csv,6in,,PCA Curve "
+"about the number of components}"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:879
+msgid ""
+"In the image, we can see that the curve stops the growth in the fourth "
+"component."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:881
+msgid "When you know the components you can execute @code{pca-features.py} so:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:886
+#, no-wrap
+msgid ""
+"$ python3 pca-features.py  --categorical=both --components=4\n"
+"The json file is created in files/pca.json\n"
+"The html file is created in files/pca.html\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:889
+msgid ""
+"@image{images/pca-analysis,6in,,Analyze components to determine gender in "
+"names}"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:892
+msgid ""
+"To simplify and to learn, we can observe this analysis without letters. In "
+"this analysis, we can observe 4 components."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:896
+msgid ""
+"The first component is about if the last letter is vocal or consonant. If "
+"the last letter is vocal we can find a female and if the last letter is a "
+"consonant we can find a male."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:899
+msgid ""
+"The second component is about the first letter. The last letter is "
+"determining females and the first letter is determining males."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:901
+msgid "The third component is not giving relevant information."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:904
+msgid ""
+"The fourth component is giving the last_letter_a and the first_letter_vocal "
+"is for females."
+msgstr ""
+
+#. type: node
+#: damegender.texi:905 damegender.texi:906 damegender.texi:907
+#, no-wrap
+msgid "Use Cases"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:908
+#, no-wrap
+msgid "Debian"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:909
+#, no-wrap
+msgid "Kernel"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:910
+#, no-wrap
+msgid "Forbes"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:911
+#, no-wrap
+msgid "Git"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:912
+#, no-wrap
+msgid "Maps"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:913
+#, no-wrap
+msgid "Las Calles de la Mujeres"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:914
+#, no-wrap
+msgid "Webscraping"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:922
+msgid ""
+"There are many research studies count males and females in specific "
+"communities such as Twitter, StackOverflow, ... A specific community has "
+"some clues to determine male or female, for example, in Twitter you can "
+"observe the photo, nickname, real name, ..."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:925
+msgid ""
+"In this chapter we are going to apply the concepts to determine gender in "
+"real situations observing where the gender is provided."
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:926 damegender.texi:927
+#, no-wrap
+msgid "Counting males and females in Debian"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:933
+msgid ""
+"In the Debian community all members must have a gpg key to collaborate, so "
+"we can count males and females from the keyring. With gpg commands you can "
+"import a the debian keyring and dump the debian keyring in a csv file."
+msgstr ""
+
+#. type: example
+#: damegender.texi:936
+#, no-wrap
+msgid "$ rsync -az --progress keyring.debian.org::keyrings/keyrings/ .\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:939
+msgid "We have generated a script to count males and females:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:945
+#, no-wrap
+msgid ""
+"~/git/damegender/src/damegender$ python3 count-debian-gender.py\n"
+"Perhaps you need wait some minutes. You can take a tea or coffe now\n"
+"debian males: 795\n"
+"debian females: 24\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:950
+msgid ""
+"In the dump of the debian keyring dataset we have divided name, surname and "
+"email in different fields. So, it's easy detect the name, although some "
+"names has several emails."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:954
+msgid ""
+"We have choosen the United States of America dataset and we are using the "
+"method name_frec to decide for male or female in the row. Take a look to the "
+"source:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:963
+#, no-wrap
+msgid ""
+"import csv\n"
+"import unicodedata\n"
+"import unidecode\n"
+"from pprint import pprint\n"
+"import re\n"
+"from app.dame_gender import Gender\n"
+"from app.dame_utils import DameUtils\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:966
+#, no-wrap
+msgid ""
+"du = DameUtils()\n"
+"g = Gender()\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:969
+#, no-wrap
+msgid ""
+"result=\"\"\n"
+"dm = []\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:979
+#, no-wrap
+msgid ""
+"with open('files/debian-maintainers-gpg-2020-04-01.csv') as csvfile:\n"
+"    reader = csv.reader(csvfile, delimiter=',', quotechar='|')\n"
+"    aux = \"\"\n"
+"    cnt = 0\n"
+"    for row in reader:\n"
+"        cnt = cnt +1\n"
+"        if (aux != row[0]):\n"
+"            dm.append(row[0])\n"
+"        aux = row[0]\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:981
+#, no-wrap
+msgid ""
+"print(\"Perhaps you need wait some minutes. You can take a tea or coffe "
+"now\")\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:990
+#, no-wrap
+msgid ""
+"females = 0\n"
+"males = 0\n"
+"for rowdm in dm:\n"
+"    if (int(g.name_frec(str(rowdm.upper()), 'us')['females'])\n"
+"    > int(g.name_frec(str(rowdm.upper()), 'us')['males'] )):\n"
+"        females = females + 1\n"
+"    else:\n"
+"        males = males + 1\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:993
+#, no-wrap
+msgid ""
+"print(\"debian males: %s\" % males)\n"
+"print(\"debian females: %s\" % females)\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:995
+#, no-wrap
+msgid "csvfile.close()\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1002
+msgid ""
+"The advantage using the method @code{name_frec} is about to understand how "
+"you are deciding male or female in the script counting males and females. In "
+"this script the decision is simple: a name is male if there are more males "
+"than females and female if there are more females than males."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1009
+msgid ""
+"The United States of America dataset is a good choice for Free Software "
+"communities, due to that this communities is based on english as main "
+"language and United States of America is a leader country in software "
+"development. United States of America hosts people from different countries "
+"due to migrations towards good companies and universities."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1012
+msgid ""
+"In general, you can choose @code{csv2gender.py} to count males, females and "
+"unknows in a csv file. For example, doing this:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1016
+#, no-wrap
+msgid ""
+"$ python3 csv2gender.py --first_name_position=0\n"
+"files/debian-maintainers-gpg-2020-04-01.csv --verbose\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1019
+msgid "But, a research must understand the source, too."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1022
+msgid ""
+"In the next diagram we can see (78.4% of males, 5.4% of females and 16.2% of "
+"unknowns)."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1024
+msgid "@image{images/debian_by_gender,6in,,Debian by gender}"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1032
+msgid ""
+"We can retrieve the names of unknows and to decide about the name in the "
+"sense of retrieve the gender from a commercial api (genderapi, genderize, "
+"namsor, nameapi, ...) or to classify the name as a software company or a "
+"bug. For now, the Open datasets contributed by states about names are very "
+"good but not all countries has the idea of contribute the names.  Remember "
+"that you can download names from a csv file with @code{downloadjson.py}:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1035
+#, no-wrap
+msgid "$ python3 downloadjson.py --api=genderize --csv=files/names/min.csv\n"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1037 damegender.texi:1038
+#, no-wrap
+msgid "Counting males and females in Linux Kernel"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1043
+msgid ""
+"When I'm writing this book the Linux Kernels maintainers appears in "
+"https://www.kernel.org/doc/html/latest/process/maintainers.html. Then I have "
+"downloaded the file and applied a single command:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1047
+#, no-wrap
+msgid ""
+" cat maintainers.html | w3m -dump -T text/html\n"
+" | grep \"Mail:\" > maintainers.txt\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1051
+msgid ""
+"You can makes fixes to this command from GNU/Emacs or with shell "
+"scripting. Later, you can apply:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1054
+#, no-wrap
+msgid "$ python3 count-kernel.py\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1057
+msgid "@image{images/kernel_by_gender,6in,,Kernel by gender}"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1059 damegender.texi:1060
+#, no-wrap
+msgid "Counting males and females in Forbes"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1065
+msgid ""
+"In the second example, we are using guess without machine learning instead "
+"of name_frec. If you are using guess you are trusting on damegender to take "
+"the decision, but perhaps you are not agree."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1067
+msgid "Please take a look about our guess method in the current state:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1100
+#, no-wrap
+msgid ""
+"    def guess(self, name, binary=False, *args, **kwargs):\n"
+"        # guess list method\n"
+"        dataset = kwargs.get('dataset', 'es')\n"
+"        # guess method to check names dictionary\n"
+"        guess = ''\n"
+"        name = unidecode.unidecode(name).title()\n"
+"        name.replace(name, \"\")\n"
+"        dicc = self.name_frec(name, dataset)\n"
+"        m = int(dicc['males'])\n"
+"        f = int(dicc['females'])\n"
+"        if ((m == 0) and (f == 0)):\n"
+"            if binary:\n"
+"                guess = 2\n"
+"            else:\n"
+"                guess = \"unknown\"\n"
+"        elif (m > f):\n"
+"            if binary:\n"
+"                guess = 1\n"
+"            else:\n"
+"                guess = \"male\"\n"
+"        elif (f > m):\n"
+"            if binary:\n"
+"                guess = 0\n"
+"            else:\n"
+"                guess = \"female\"\n"
+"        else:\n"
+"            if binary:\n"
+"                guess = 2\n"
+"            else:\n"
+"                guess = \"unknown\"\n"
+"        return guess\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1104
+msgid ""
+"We are using the spanish dataset by default and the rest is the same idea "
+"that in the last script: more people using the name."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1106
+msgid "@image{images/forbes119_by_gender,6in,,Forbes by gender}"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1107 damegender.texi:1108
+#, no-wrap
+msgid "Deciding for males and females in images"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1113
+msgid ""
+"There are many free software tools for decide gender in images files. We can "
+"use these tools to decide gender about images from Twitter, Github, ... We "
+"have selected the next tool:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1118
+#, no-wrap
+msgid ""
+"$ git clone https://github.com/davidam/damefaces\n"
+"$ cd damefaces/bin\n"
+"$ python3 damefaces.py girl1.jpg\n"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1121 damegender.texi:1122
+#, no-wrap
+msgid "Webscraping and Damegender (counting scholars)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1127
+msgid ""
+"Sometimes, we can reach the database of names from a website, for example, "
+"we can retrieve a list of academics from Spain thanks to webometrics and the "
+"next script:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1131
+#, no-wrap
+msgid ""
+"from lxml import html\n"
+"import requests\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1134
+#, no-wrap
+msgid ""
+"print(\"Introduce an url from webometrics, for example,\n"
+"       https://www.webometrics.info/en/GoogleScholar/Spain\")\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1136
+#, no-wrap
+msgid ""
+"import argparse\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1140
+#, no-wrap
+msgid ""
+"parser = argparse.ArgumentParser()\n"
+"parser.add_argument(\"url\", help=\"display the gender\")\n"
+"args = parser.parse_args()\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1143
+#, no-wrap
+msgid ""
+"page = requests.get(args.url)\n"
+"tree = html.fromstring(page.content)\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1145
+#, no-wrap
+msgid ""
+"academics = tree.xpath('//tr/td/a/strong/text()')\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1147
+#, no-wrap
+msgid "print('Academics: %s' % academics)\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1152
+msgid ""
+"If you have retrieved the list of names in a file "
+"@code{files/scientifics.txt}, you could count males and females with the "
+"next script called @code{count-scientifics.py}:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1158
+#, no-wrap
+msgid ""
+"import csv\n"
+"import unicodedata\n"
+"import unidecode\n"
+"import re\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1164
+#, no-wrap
+msgid ""
+"from pprint import pprint\n"
+"from app.dame_gender import Gender\n"
+"from app.dame_utils import DameUtils\n"
+"from ast import literal_eval\n"
+"from app.dame_sexmachine import DameSexmachine\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1168
+#, no-wrap
+msgid ""
+"du = DameUtils()\n"
+"g = Gender()\n"
+"s = DameSexmachine()\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1171
+#, no-wrap
+msgid ""
+"with open('files/scientifics.txt') as f:\n"
+"    mainlist = [list(literal_eval(line)) for line in f]\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1173
+#, no-wrap
+msgid ""
+"l = mainlist[0]\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1177
+#, no-wrap
+msgid ""
+"ll = []\n"
+"for i in l:\n"
+"    ll.append(i.split())\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1182
+#, no-wrap
+msgid ""
+"ten = ll[0:10]\n"
+"hundred = ll[0:100]\n"
+"thousand = ll[0:1000]\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1197
+#, no-wrap
+msgid ""
+"x = 0\n"
+"y = 0\n"
+"males = 0\n"
+"females = 0\n"
+"for j in hundred:\n"
+"    if (len(j[0]) == 1):\n"
+"        x = x + 1\n"
+"    else:\n"
+"        sex = g.guess(j[0], binary=False)\n"
+"        y = y +1\n"
+"        if (sex == \"male\"):\n"
+"            males = males + 1\n"
+"        elif (sex == \"female\"):\n"
+"            females = females + 1\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1202
+#, no-wrap
+msgid ""
+"print(\"Number of scientifics with a single letter as first name: %s\" % "
+"x)\n"
+"print(\"Number of scientifics with the first name normal: %s\" % y)\n"
+"print(\"Number of females scientifics: %s\" % females)\n"
+"print(\"Number of males scientifics: %s\" % males)\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1213
+#, no-wrap
+msgid ""
+"for j in thousand:\n"
+"    if (len(j[0]) == 1):\n"
+"        x = x + 1\n"
+"    else:\n"
+"        sex = g.guess(j[0], binary=False)\n"
+"        y = y +1\n"
+"        if (sex == \"male\"):\n"
+"            males = males + 1\n"
+"        else:\n"
+"            females = females + 1\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1216
+#, no-wrap
+msgid ""
+"print(\"Number of females scientifics: %s\" % females)\n"
+"print(\"Number of males scientifics: %s\" % males)\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1219
+msgid "And the results are:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1223
+#, no-wrap
+msgid ""
+"Number of females scientifics: 31425\n"
+"Number of males scientifics: 47945\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1226
+msgid "@image{images/scientifics_by_gender,6in,,Academics by gender}"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1230
+msgid ""
+"So, the percentage of academic people classified as females in Spain is "
+"bigger than Free Software people classified as females. Having a gender gap "
+"in both situations."
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1231 damegender.texi:1232
+#, no-wrap
+msgid "Counting males and females in a git repository"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1235
+msgid "We can think a simple version of @code{git2gender.py}:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1254
+#, no-wrap
+msgid ""
+"from app.dame_sexmachine import DameSexmachine\n"
+"from app.dame_perceval import DamePerceval\n"
+"from app.dame_utils import DameUtils\n"
+"import sys\n"
+"import argparse\n"
+"parser = argparse.ArgumentParser()\n"
+"parser.add_argument(\"url\", help=\"Uniform Resource Link\")\n"
+"parser.add_argument('--directory')\n"
+"parser.add_argument('--version', action='version', version='0.1')\n"
+"args = parser.parse_args()\n"
+"if (len(sys.argv) > 1):\n"
+"    ds = DameSexmachine()\n"
+"    du = DameUtils()\n"
+"    dp = DamePerceval()\n"
+"    l1 = dp.list_committers(args.url, args.directory)\n"
+"    l2 = du.delete_duplicated(l1)\n"
+"    l3 = du.clean_list(l2)\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1266
+#, no-wrap
+msgid ""
+"    females = 0\n"
+"    males = 0\n"
+"    unknowns = 0\n"
+"    for g in l3:\n"
+"        sm = ds.guess(g, binary=True)\n"
+"        if (sm == 0):\n"
+"            females = females + 1\n"
+"        elif (sm == 1):\n"
+"            males = males + 1\n"
+"        else:\n"
+"            unknowns = unknowns + 1\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1269
+#, no-wrap
+msgid ""
+"    print(\"The number of males sending commits is %s\" % males)\n"
+"    print(\"The number of females sending commits is %s\" % females)\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1272
+msgid "Try to execute this script:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1278
+#, no-wrap
+msgid ""
+"$ python3 git2gender.py https://github.com/davidam/davidam.git\n"
+"--directory=\"/tmp/clonedir\"\n"
+"The number of males sending commits is 3\n"
+"The number of females sending commits is 0\n"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1280 damegender.texi:1281
+#, no-wrap
+msgid "Counting males and females in Maps"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1286
+msgid ""
+"@strong{Las calles de las mujeres} is a project in NodeJS to display web "
+"streets with names about females using MapBox. You can download the project "
+"with:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1289
+#, no-wrap
+msgid "$ git clone https://github.com/geochicasosm/lascallesdelasmujeres\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1292
+msgid "It's licensed with a Creative Commons License (CC-BY-SA)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1294
+msgid "@code{https://creativecommons.org/licenses/by-sa/4.0/}."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1296
+msgid "@image{images/callesresistencia,6in,,Calles de Resistencia}"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1299
+msgid ""
+"It's giving statisticals about how many men and women has wikipedia article, "
+"too."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1302
+msgid ""
+"It has a strong community created by females (GeoChicas)  "
+"@code{https://geochicas.github.io/} related with OpenStreetMap."
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1303 damegender.texi:1304
+#, no-wrap
+msgid "Gender gap in science"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1319
+msgid ""
+"A good visual job can be found in "
+"@code{https://lukeholman.github.io/genderGap/}. This work is based on R "
+"retrieves the data from genderize and arxiv. The gap is especially large in "
+"authorship positions associated with seniority, and prestigious journals "
+"have fewer women authors. Additionally, they estimates that men are invited "
+"by journals to submit papers at approximately double the rate of "
+"women. Wealthy countries, notably Japan, Germany, and Switzerland, had fewer "
+"women authors than poorer ones. It concludes that the STEMM gender gap will "
+"not close without further reforms in education, mentoring, and academic "
+"publishing. There are a paper with a full explanation: ``@cite{The gender "
+"gap in science: How long until women are equally represented?}'', "
+"@ref{Further reading}."
+msgstr ""
+
+#. type: chapter
+#: damegender.texi:1320 damegender.texi:1321
+#, no-wrap
+msgid "Secondary Sources about the Gender Gap"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1322
+#, no-wrap
+msgid "Gender Gap"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1323 damegender.texi:1430 damegender.texi:1829
+#: damegender.texi:1830
+#, no-wrap
+msgid "Gender"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1324
+#, no-wrap
+msgid "Secondary Sources"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1325 damegender.texi:1433
+#, no-wrap
+msgid "Social Research"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1335
+msgid ""
+"When a social researcher starts a new work, the first step is set an "
+"objective about the project with subobjectives, that's define the problem to "
+"solve with a methodology (quantitative, qualitative, or mixed). The second "
+"step is about sample decision who is the people, the population going to "
+"give us the data. The third step is about selection strategies about "
+"retrieve data, analysis and to show results. See ``@cite{TÃ©cnicas "
+"Cualitativas de InvestigaciÃ³n Social}'', @ref{Further reading}"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1340
+msgid ""
+"To read secondary sources about the objective and subobjectives of the "
+"project is to read previous works of another people (papers, books, data, "
+"news, ...) in science we refer to the state of the art or similar."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1343
+msgid ""
+"You can read secondary sources in different steps of a social research work, "
+"although is a task specially suggested in the first steps."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1350
+msgid ""
+"The objective of this chapter is to show some secondary sources about the "
+"gender gap in general, in STEM and in the Free Software. The idea is to "
+"reduce time to the people using Damegender understanding this kind of "
+"things. After of this, you can compare gender gap with the local problem: "
+"Kernel, Gnu/linux distribution, StackOverflow, Twitter, Forbes, Science, "
+"etc."
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1351 damegender.texi:1352
+#, no-wrap
+msgid "Gender Inequality in the World"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1364
+msgid ""
+"Gender gap or gender inequality is the idea that men and women are not equal "
+"and that gender affects an individual's living experience. These differences "
+"arise from distinctions in biology, psychology, and cultural norms. Some of "
+"these types of distinctions are empirically grounded while others appear to "
+"be socially constructed. Studies show the different lived experience of "
+"genders across many domains including education, life expectancy, "
+"personality, interests, family life, careers, and political "
+"affiliations. Gender inequality is experienced differently across different "
+"cultures. (Source: wikipedia, 2020)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1375
+msgid ""
+"The women is underrepresent in the labour world (among adults aged from 25 "
+"to 54 has stagmated over the past 20 years, standing at 31 percentage "
+"points. The gender pay gap exists, too, so the women are paid 16% less than "
+"men. Share of women and men with an account at a financial institution is "
+"65% of the total in women and 72% of the total in men. 31% of young women "
+"aged 15 to 24 are not in education, employment or training in 2020, more "
+"than double rate for young men (14%). Violence against women is 18% of "
+"ever-partnered women aged 15 to 49 experienced sexual and/or physical "
+"violence by an intimate partner in the previous 12 "
+"months.@footnote{https://www.unwomen.org}"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1377
+msgid "@image{images/gender-stats,6in,,Gender Stats}"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1380
+msgid ""
+"In the next image you can observe a graphic about gender gap in several "
+"continents (Source: Global Gender Gap Index 2012):"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1382
+msgid "@image{images/gendergap-continents,6in,,Gender Gap by Continents}"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1387
+msgid ""
+"From the best score to the worst score. We can find: North America with the "
+"best score, Europe and Central Asia, Latin America and the Caribbean, "
+"Sub-Saharan Africa, Asia and the Pacific, and the worst score Middle East "
+"and South Africa."
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1388 damegender.texi:1389
+#, no-wrap
+msgid "Gender Inequality in STEM"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1393
+msgid ""
+"In the graphic we can understand gender gap in stem in 2009 and compare with "
+"gender gap in the market:"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1395
+msgid "@image{images/gender-gap-stem,6in,,Gender Gap by Continents}"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1397
+msgid "So the gender gap in STEM is bigger than the labour market in general."
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1398 damegender.texi:1399
+#, no-wrap
+msgid "Gender Inequality in Free Software"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1405
+msgid ""
+"The gender gap in the Free Software world is so high we are presenting "
+"preliminar due to that we can reduce the percentage of unknowns to male or "
+"female. But we can observe that the gender gap is bigger in the Free "
+"Software world than in STEM."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1417
+msgid ""
+"The context of the operatings systems is not feminist by different "
+"reasons. In the Free Software world there are many males developing the "
+"software. But in another Operating Systems there are another problems about "
+"the male domination, for example, Microsoft will create the most rich men in "
+"the world for many "
+"years@footnote{https://www.forbes.com/profile/bill-gates/?sh=79472717689f}. "
+"Apple was classificated as the most valuable company in the "
+"world@footnote{https://forbes.es/listas/32245/apple-la-marca-mas-valiosa-del-2017/}. "
+"By intersectionality, to create companies more powerful than states is bad "
+"for the democracy and in a world where exists the gender gap the change to "
+"the gender equity is a pressure of values."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1419
+msgid "@image{images/debian_by_gender,6in,,Debian GNU/Linux by Gender}"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1421
+msgid "@image{images/gnu_by_gender,6in,,GNU by Gender}"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1423
+msgid "@image{images/kernel_by_gender,6in,,Kernel by Gender}"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1424 damegender.texi:1425 damegender.texi:1431
+#, no-wrap
+msgid "Theorical Frameworks"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1426 damegender.texi:1765
+#, no-wrap
+msgid "Feminism"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1427 damegender.texi:1766
+#, no-wrap
+msgid "Ecofeminism"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1428 damegender.texi:1659
+#, no-wrap
+msgid "Multiculturalism"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1429 damegender.texi:1658
+#, no-wrap
+msgid "Interculturalism"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1432
+#, no-wrap
+msgid "Qualitative Research"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1437
+msgid ""
+"If you want do a social research for a quantitative study, such as, count "
+"males and females you can:"
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1441
+msgid "To generate objectives about the research study"
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1444
+msgid "To read and to understand previous works."
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1447
+msgid "To choose some theorical framework."
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1452
+msgid ""
+"Perhaps, with a qualitative study (interviews, focus groups, ...) you could "
+"understand better the problems, the specific vocabulary used by the people, "
+"the reasons about the decisions, ..."
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1455
+msgid "To retrieve data with Damegender or make surveys (online, offline, ...)"
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1458
+msgid "An analysis quantitative with maths, graphics and interpretations"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1461 damegender.texi:1864 damegender.texi:1865
+#: damegender.texi:1866
+#, no-wrap
+msgid "Conclusions"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1470
+msgid ""
+"A theoretical framework consists of concepts and, together with their "
+"definitions and reference to relevant scholarly literature, existing theory "
+"that is used for your particular study.  In the last chapters you have "
+"learnt to count males and females, but you need give meaning to the words "
+"that you are using about your gender study. That is the point in this "
+"chapter."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1473
+msgid ""
+"We present some theorical frameworks that you can use as example in your "
+"works:"
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1477
+msgid "Philosophies about software market and freedoms"
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1480
+msgid "Interculturalism and Multiculturalism"
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1483
+msgid "Feminism, Ecofeminism and derivatives"
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1486
+msgid "Gender terms and philosophies"
 msgstr ""
 
 #. type: section
-#: damegender.texi:488
+#: damegender.texi:1490
 #, no-wrap
-msgid "Principal Component Analysis (PCA)"
+msgid "Philosophies about software, market, freedom and gender"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1491
+#, no-wrap
+msgid "Software Philosophies"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1492
+#, no-wrap
+msgid "Free Software"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1493
+#, no-wrap
+msgid "Open Source"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1494
+#, no-wrap
+msgid "Richard Stallman"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1502
+msgid ""
+"There are different philosophies developing software and we are counting "
+"males and females in Internet, so the floor is the software in this "
+"world. If we must analyze gender in a country the ideology is changing in "
+"the place where you are. In the software world is the same problem. So, we "
+"are giving the vocabulary and the philosophy for speak about software and "
+"ideologies."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1507
+msgid ""
+"The propietary software is the most common idea for the common people, "
+"operating systems such as Microsoft Windows or Mac OS. If you are using "
+"software with propietary licenses, the source files will be containing "
+"copyright notes such as:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1510
+#, no-wrap
+msgid ""
+"# Copyright (C) 2020  David Arroyo MenÃ©ndez\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1513
+#, no-wrap
+msgid ""
+"# Author: David Arroyo MenÃ©ndez <davidam@@gmail.com>\n"
+"# Maintainer: David Arroyo MenÃ©ndez <davidam@@gmail.com>\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1515
+#, no-wrap
+msgid "# All rights reserved\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1525
+msgid ""
+"This idea is associated to big companies leading the market but any people "
+"can use this philosophy. The criticism appears with Richard Stallman about "
+"privacy and lack of freedom to the academic people, or hackers (people who "
+"knows read and write software and they do it for his objectives or global "
+"objectives). I could to say the monopoly is too strong with this license and "
+"the current social inertia and now nobody can change the market, we need "
+"another licenses to preserve the free market with an ethical strategy for "
+"startups and students."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1530
+msgid ""
+"Richard Stallman defines the Free Software with four freedoms: (0) to run "
+"the program, (1) to study and change the program in source code form, (2) to "
+"redistribute exact copies, and (3) to distribute modified versions. See "
+"``@cite{Free Software Free Society}'', @ref{Further reading}"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1534
+msgid ""
+"This idea to build software as a social good and motivated by ethical "
+"values. The solution is to apply the GPL license and to request to GNU to "
+"include the software."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1536
+msgid "The copyright note in GNU would be similar to:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1542
+#, no-wrap
+msgid ""
+";; This software is free software: you can redistribute it and/or modify\n"
+";; it under the terms of the GNU General Public License as published by\n"
+";; the Free Software Foundation, either version 3 of the License, or\n"
+";; (at your option) any later version.\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1547
+#, no-wrap
+msgid ""
+";; This software is distributed in the hope that it will be useful,\n"
+";; but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+";; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+";; GNU General Public License for more details.\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1550
+#, no-wrap
+msgid ""
+";; You should have received a copy of the GNU General Public License\n"
+";; along with GNU Emacs.  If not, see <https://www.gnu.org/licenses/>.\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1556
+msgid ""
+"On opposition the Open Source movement believes in free licenses, but they "
+"thinks that the software is business and they want to develop Free Software "
+"by economy, so they prefer change the word Free Software by Open Source "
+"claiming their philosophy."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1559
+msgid ""
+"They redefines the Free Software Definition by the Open Source "
+"Definition@footnote{https://opensource.org/osd}."
+msgstr ""
+
+#. type: example
+#: damegender.texi:1562
+#, no-wrap
+msgid ""
+"1. Free Redistribution\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1567
+#, no-wrap
+msgid ""
+"The license shall not restrict any party from selling or giving away\n"
+"the software as a component of an aggregate software distribution\n"
+"containing programs from several different sources. The license shall\n"
+"not require a royalty or other fee for such sale.\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1569
+#, no-wrap
+msgid ""
+"2. Source Code\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1579
+#, no-wrap
+msgid ""
+"The program must include source code, and must allow distribution in\n"
+"source code as well as compiled form. Where some form of a product is\n"
+"not distributed with source code, there must be a well-publicized\n"
+"means of obtaining the source code for no more than a reasonable\n"
+"reproduction cost, preferably downloading via the Internet without\n"
+"charge. The source code must be the preferred form in which a\n"
+"programmer would modify the program. Deliberately obfuscated source\n"
+"code is not allowed. Intermediate forms such as the output of a\n"
+"preprocessor or translator are not allowed.\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1581
+#, no-wrap
+msgid ""
+"3. Derived Works\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1585
+#, no-wrap
+msgid ""
+"The license must allow modifications and derived works, and must allow\n"
+"them to be distributed under the same terms as the license of the\n"
+"original software.\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1587
+#, no-wrap
+msgid ""
+"4. Integrity of The Author's Source Code\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1595
+#, no-wrap
+msgid ""
+"The license may restrict source-code from being distributed in\n"
+"modified form only if the license allows the distribution of \"patch\n"
+"files\" with the source code for the purpose of modifying the program\n"
+"at build time. The license must explicitly permit distribution of\n"
+"software built from modified source code. The license may require\n"
+"derived works to carry a different name or version number from the\n"
+"original software.\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1597
+#, no-wrap
+msgid ""
+"5. No Discrimination Against Persons or Groups\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1600
+#, no-wrap
+msgid ""
+"The license must not discriminate against any person or group of\n"
+"persons.\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1602
+#, no-wrap
+msgid ""
+"6. No Discrimination Against Fields of Endeavor\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1607
+#, no-wrap
+msgid ""
+"The license must not restrict anyone from making use of the program in\n"
+"a specific field of endeavor. For example, it may not restrict the\n"
+"program from being used in a business, or from being used for genetic\n"
+"research.\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1609
+#, no-wrap
+msgid ""
+"7. Distribution of License\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1613
+#, no-wrap
+msgid ""
+"The rights attached to the program must apply to all to whom the\n"
+"program is redistributed without the need for execution of an\n"
+"additional license by those parties.\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1615
+#, no-wrap
+msgid ""
+"8. License Must Not Be Specific to a Product\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1622
+#, no-wrap
+msgid ""
+"The rights attached to the program must not depend on the program's\n"
+"being part of a particular software distribution. If the program is\n"
+"extracted from that distribution and used or distributed within the\n"
+"terms of the program's license, all parties to whom the program is\n"
+"redistributed should have the same rights as those that are granted in\n"
+"conjunction with the original software distribution.\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1624
+#, no-wrap
+msgid ""
+"9. License Must Not Restrict Other Software\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1629
+#, no-wrap
+msgid ""
+"The license must not place restrictions on other software that is\n"
+"distributed along with the licensed software. For example, the license\n"
+"must not insist that all other programs distributed on the same medium\n"
+"must be open-source software.\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1631
+#, no-wrap
+msgid ""
+"10. License Must Be Technology-Neutral\n"
+"\n"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1634
+#, no-wrap
+msgid ""
+"No provision of the license may be predicated on any individual\n"
+"technology or style of interface.\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1638
+msgid ""
+"In the point six, we find the conflict with the feminist theories due to the "
+"possitive discrimination is a good idea to reach gender equity."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1642
+msgid ""
+"The GNU philosophy has the same problem explained on a different way. Only "
+"the Free Software is a good idea, if the software is not Free Software, then "
+"it's Propietary Software (the bad idea to avoid)."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1649
+msgid ""
+"In Damegender, we want to deliver Free Software by practical reasons "
+"released with GPLv3 trough pypi.org and github.com the very popular sites to "
+"distribute Free Software written in Python. But we understand that we can to "
+"make positive discrimination in the development in favor to the women as an "
+"experiment with this copyright note in the development branch:"
+msgstr ""
+
+#. type: example
+#: damegender.texi:1653
+#, no-wrap
+msgid ""
+"# You can share, copy and modify this software if you are a woman or you\n"
+"# are David Arroyo MenÃ©ndez and you include this note.\n"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1656
+msgid "This book will be published with this license, too."
+msgstr ""
+
+#. type: section
+#: damegender.texi:1657
+#, no-wrap
+msgid "Multiculturalism, Interculturalism"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1673
+msgid ""
+"The term multiculturalism has a range of meanings within the contexts of "
+"sociology, of political philosophy, and of colloquial use. In sociology and "
+"in everyday usage, it is a synonym for \"ethnic pluralism\", with the two "
+"terms often used interchangeably, for example, a cultural pluralism in which "
+"various ethnic groups collaborate and enter into a dialogue with one another "
+"without having to sacrifice their particular identities. It can describe a "
+"mixed ethnic community area where multiple cultural traditions exist (such "
+"as New York City or Trieste) or a single country within which they do (such "
+"as Switzerland, Belgium or Russia). Groups associated with an indigenous, "
+"aboriginal or autochthonous ethnic group and settler-descended ethnic groups "
+"are often the focus."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1686
+msgid ""
+"In reference to sociology, multiculturalism is the end-state of either a "
+"natural or artificial process (for example: legally-controlled immigration) "
+"and occurs on either a large national scale or on a smaller scale within a "
+"nation's communities. On a smaller scale this can occur artificially when a "
+"jurisdiction is established or expanded by amalgamating areas with two or "
+"more different cultures (e.g. French Canada and English Canada). On a large "
+"scale, it can occur as a result of either legal or illegal migration to and "
+"from different jurisdictions around the world (for example, Anglo-Saxon "
+"settlement of Britain by Angles, Saxons and Jutes in the 5th century or the "
+"colonization of the Americas by Europeans, Africans and Asians since the "
+"16th century)."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1693
+msgid ""
+"In reference to political science, multiculturalism can be defined as a "
+"state's capacity to effectively and efficiently deal with cultural plurality "
+"within its sovereign borders. Multiculturalism as a political philosophy "
+"involves ideologies and policies which vary widely. It has been described as "
+"a \"salad bowl\" and as a \"cultural mosaic\", in contrast to a \"melting "
+"pot\". (Source: wikipedia, 2020)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1700
+msgid ""
+"Interculturalism refers to support for cross-cultural dialogue and "
+"challenging self-segregation tendencies within cultures.  Interculturalism "
+"involves moving beyond mere passive acceptance of a multicultural fact of "
+"multiple cultures effectively existing in a society and instead promotes "
+"dialogue and interaction between cultures."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1710
+msgid ""
+"Interculturalism has arisen in response to criticisms of existing policies "
+"of multiculturalism, such as criticisms that such policies had failed to "
+"create inclusion of different cultures within society, but instead have "
+"divided society by legitimizing segregated separate communities that have "
+"isolated themselves and accentuated their specificity. It is based on the "
+"recognition of both differences and similarities between cultures. It has "
+"addressed the risk of the creation of absolute relativism within "
+"postmodernity and in multiculturalism. (Source: wikipedia, 2020)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1714
+msgid ""
+"Aguado proposes these principles (See ``@cite{La EducaciÃ³n Intercultural: "
+"Concepto, Paradigmas, Realizaciones}'', @ref{Further reading}."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1718
+msgid ""
+"1. Promote the respect by all cultures together and condemn the politics to "
+"change the culture of the people towards the culture dominant. (Borrelli y "
+"Essinger, 1989)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1721
+msgid ""
+"2. The intercultural education is relevant for any student, not only for the "
+"foreigners and minorities (Borrelli and Essinger, 1989)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1726
+msgid ""
+"3. The troubles created by the ethnic and cultural diversity of the society "
+"has many solutions, there not an only magic solution. The politics in "
+"education there are partials because we are in a global society (Galino, "
+"1990)."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1731
+msgid ""
+"4. It's based in the perception about to accept cultures in contact, it's "
+"near to the form of life of societies with a poor cultural context instead "
+"of societies with more rich, more structure and high social control."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1735
+msgid ""
+"5. We need develop a scheme of concepts with many cultures demonstrating in "
+"the education that the knowledge is the common property of all people "
+"(Walking, 1990)."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1740
+msgid ""
+"So, interculturalism and multiculturalism are the same concept in many uses, "
+"both recognize the cultural diversity in the contexts where there are the "
+"diversity, but interculturalism is doing an emphasis in the enrichment of "
+"all cultures respecting the diversity."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1746
+msgid ""
+"Damegender understands has an international and intercultural perspective "
+"about guess the gender about the name in the sense that in many countries "
+"are existing many different cultures determining names, surnames with a "
+"gender. So, in Spain are living 4 so important cultures (no foreigners):"
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1750
+msgid "Castillian (culture dominant)"
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1753
+msgid "Catalan"
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1756
+msgid "Basque"
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1759
+msgid "Galician"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1763
+msgid "These cultures has correlations with names and surnames."
+msgstr ""
+
+#. type: section
+#: damegender.texi:1764
+#, no-wrap
+msgid "Feminism, Ecofeminism and Intersectionality"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1767
+#, no-wrap
+msgid "Intersectionality"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1778
+msgid ""
+"Feminism is a range of social movements, political movements, and ideologies "
+"that aim to define and establish the political, economic, personal, and "
+"social equality of the sexes. Feminism incorporates the position that "
+"societies prioritize the male point of view, and that women are treated "
+"unjustly within those societies. Efforts to change that include fighting "
+"against gender stereotypes and establishing educational, professional, and "
+"interpersonal opportunities and outcomes for women that are equal to those "
+"for men. (Source: wikipedia, 2020)."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1794
+msgid ""
+"Ecofeminism is a branch of feminism that sees environmentalism, and the "
+"relationship between women and the earth, as foundational to its analysis "
+"and practice. Ecofeminist thinkers draw on the concept of gender to analyse "
+"the relationships between humans and the natural world. The term was coined "
+"by the French writer FranÃ§oise d'Eaubonne in her book Le FÃ©minisme ou la "
+"Mort (1974). Ecofeminist theory asserts a feminist perspective of Green "
+"politics that calls for an egalitarian, collaborative society in which there "
+"is no one dominant group. Today, there are several branches of ecofeminism, "
+"with varying approaches and analyses, including liberal ecofeminism, "
+"spiritual/cultural ecofeminism, and social/socialist ecofeminism (or "
+"materialist ecofeminism). Interpretations of ecofeminism and how it might be "
+"applied to social thought include ecofeminist art, social justice and "
+"political philosophy, religion, contemporary feminism, and poetry. (Source: "
+"wikipedia, 2020)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1797
+msgid ""
+"The goal 5 in United Nations in 2020 is ``Achieve gender equality and "
+"empower all women and girls''. (Source: United Nations website)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1803
+msgid ""
+"Damegender don't reduce the gender gap per se. It's a tool to measure gender "
+"gap in Internet. The data is the basis to do politics to reduce the gender "
+"gap. These data must be used in contexts helping to the women, such as, "
+"feminism asociations, political parties or trade unions with accomodation in "
+"favor to the gender equity, etc."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1806
+msgid ""
+"Damegender is giving more oportunities to the women to reduce the gender gap "
+"than another tools due to the license system."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1819
+msgid ""
+"Intersectionality is a theoretical framework for understanding how aspects "
+"of a person's social and political identities (e.g., gender, sex, race, "
+"class, sexuality, religion, disability, physical appearance, height, etc.) "
+"combine to create unique modes of discrimination and "
+"privilege. Intersectionality identifies advantages and disadvantages that "
+"are felt by people due to a combination of factors. For example, a black "
+"woman might face discrimination from a business that is not distinctly due "
+"to her race (because the business does not discriminate against black men) "
+"nor distinctly due to her gender (because the business does not discriminate "
+"against white women), but due to a unique combination of the two "
+"factors. (Source: wikipedia, 2020)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1828
+msgid ""
+"So, to understand discrimination, we must understand multiple factors. For "
+"example, the free software communities with the principles about no "
+"discrimination and share code seems a good place to advance in the rights of "
+"the women in the software world, but if the reality is a place dominated by "
+"men then we must look for another ideas. Intersectionality is about to find "
+"the best formula to advance in values understanding that the rights of the "
+"women depends of another values such as democracy, free speech, labor "
+"rights, ..."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1836
+msgid ""
+"Gender is the range of characteristics pertaining to, and differentiating "
+"between, masculinity and femininity. Depending on the context, these "
+"characteristics may include biological sex, sex-based social structures "
+"(i.e., gender roles), or gender identity."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1843
+msgid ""
+"Most cultures use a gender binary, having two genders (boys/men and "
+"girls/women); those who exist outside these groups fall under the umbrella "
+"term non-binary or genderqueer. Some societies have specific genders besides "
+"\"man\" and \"woman\", such as the hijras of South Asia; these are often "
+"referred to as third genders (and fourth genders, etc.). (Source: wikipedia, "
+"2020)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1857
+msgid ""
+"Transgender people have a gender identity or gender expression that differs "
+"from their sex assigned at birth. Some transgender people who desire medical "
+"assistance to transition from one sex to another identify as "
+"transsexual. Transgender, often shortened as trans, is also an umbrella "
+"term. In addition to including people whose gender identity is the opposite "
+"of their assigned sex (trans men and trans women), it may include people who "
+"are not exclusively masculine or feminine (people who are non-binary or "
+"genderqueer, including bigender, pangender, genderfluid, or agender). Other "
+"definitions of transgender also include people who belong to a third gender, "
+"or else conceptualize transgender people as a third gender. The term "
+"transgender may be defined very broadly to include cross-dressers. (Source: "
+"wikipedia, 2020)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1863
+msgid ""
+"In Damegender, we are applying binary ideology classifying people as male or "
+"female only due to that the free datasets provided by the states only "
+"supports this idea in the moment writing this book. But we respect the non "
+"binary philosophies due to this philosophies are describing a reality."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1872
+msgid ""
+"There are many options to count males and females in Internet, a good idea "
+"is to retrieve a dataset about males and females. Damegender is giving the "
+"most modern open datasets and it provides a good toolkit for many solutions:"
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1876
+msgid ""
+"To count males and females in git repositories, mailing lists, csv files, "
+"..."
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1879
+msgid "To predict gender with machine learning if the name is not in the dataset"
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1882
+msgid "To guess the country about the surname"
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1885
+msgid "To understand how is used a name with different cultural regions"
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1888
+msgid "To retrieve names from commercial apis"
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1891
+msgid "To view relationships between names and races"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1895
+msgid "These techniques can help to research or to visualize gender gap."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1897
+msgid "With this manual we have understood:"
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1901
+msgid "How to use Damegender."
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1905
+msgid ""
+"How to compare different solutions with a scientific perspective, that is to "
+"manage mathematical vocabulary for to apply the concepts."
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1908
+msgid "How to apply this software to different use cases."
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1911
+msgid "How to find the main external resources about gender gap."
+msgstr ""
+
+#. type: itemize
+#: damegender.texi:1914
+msgid "To explain some philosophies for to give explanations to the data."
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1917 damegender.texi:1918 damegender.texi:1920
+#, no-wrap
+msgid "Further reading"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:1919
+#, no-wrap
+msgid "Bibliography"
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:1925
+msgid ""
+"@cite{La MÃ¡quina Reaccionaria} by MarÃ­a Ãvila (Published by Tirant "
+"Humanidades)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1932
+msgid ""
+"The objective of this book is to analyze two social strengths.  First, the "
+"fight of the women changing her position in the society and the structure of "
+"the patriarchy. Second, the resistances to decrease and to stop this change "
+"in a clear, sistematic and aware form or in a silly and involuntary form."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:1936
+msgid ""
+"@cite{Measuring the Gender Gap on the Internet} by Bruce Bimber (Published "
+"by University of Texas Press)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1952
+msgid ""
+"This paper evaluates differences in men's and women's presence on the "
+"Internet, testing for the presence of gender-specific causes for different "
+"rates of Internet use. Methods. The paper presents new survey data collected "
+"by the author in 1996, 1998, and 1999 showing trends in Internet use, and "
+"presents regression models of Internet access and use. Results. Two "
+"statistically significant gender gaps exist on the Internet: in access and "
+"in use. The access gap is not the product of gender-specific factors, but is "
+"explained by socioeconomic and other differences between men and women. The "
+"use gap is the result of both socioeconomics and some combination of "
+"underlying gender-specific phenomena. Conclusions. Around one-half of the "
+"\"digital divide\" between men and women on the Internet is fundamentally "
+"gender related. Several possible causes may explain this phenomenon."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:1957
+msgid ""
+"@cite{Women in STEM: A Gender Gap to Innovation} by various authors "
+"(Published by Economics and Statistics Administration Issue Brief No. 04-11)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1963
+msgid ""
+"This executive summary very good referenced presents data about males and "
+"females in STEM. Very useful to compare data (for example, in this manual we "
+"have compared this data with males and females in the Free Software world)."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:1968
+msgid ""
+"@cite{Colapso. Capitalismo terminal. TransiciÃ³n EcolÃ³gica. Ecofascismo.} "
+"by Carlos Taibo (Published by Catarata, ISBN 978-84-9097-203-8)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1972
+msgid ""
+"This book is a good explanation about politics chances related with ecology, "
+"climatic change, etc."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:1976
+msgid ""
+"@cite{Free Software Free Society} by Richard Stallman (Published by GNU "
+"Press, ISBN 1-882114-98-1)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1983
+msgid ""
+"Richard Stallman is the best philosopher about Free Software being the "
+"father of the most used free software licenses and the founder of GNU "
+"project being developed by him and many other people. This book explains all "
+"ethical ideas that is inspiring the free software community called GNU."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:1987
+msgid ""
+"@cite{Comparison and benchmark of name-to-gender inference services} by "
+"LucÃ­a SantamarÃ­a and Helena Mihaljevic (Published by PeerJ Journal)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:1991
+msgid ""
+"This paper has inspired the development of Damegender and many ideas about "
+"name-to-gender software is implemented in this book. Thanks a lot by this "
+"job."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:1996
+msgid ""
+"@cite{The Effect of Gender in the Publication Patterns in Mathematics} by "
+"Helena Mihaljevic, LucÃ­a SantamarÃ­a, Marco Tullney (Published by Plos One "
+"Journal)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:2000
+msgid ""
+"A very good scientific job about gender gap in science. This paper is "
+"suggested to people who has learnt to use Damegender and they want develop a "
+"good scientific job."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:2004
+msgid ""
+"@cite{Damegender: Writing and Comparing Gender Detection Tools} by David "
+"Arroyo MenÃ©ndez (Published by EasyChair 2020)."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:2006
+msgid "This paper presents the scientific perspective about Damegender."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:2011
+msgid ""
+"@cite{Perceval: software project data at your will} by Santiago DueÃ±as, "
+"Valerio Consentino, Gregorio Robles, JesÃºs M. GonzÃ¡lez Barahona (Published "
+"by ICSE 2018)."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:2015
+msgid ""
+"This paper presents Perceval a software to retrieve information from "
+"different sources. Damegender is using perceval to retrieve data from git in "
+"the moment to write this book."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:2019
+msgid ""
+"@cite{The gender gap in science: How long until women are equally "
+"represented?} by Luke Holman, Devi Stuart-Fox, Cindy E. Hauser."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:2025
+msgid ""
+"Using the PubMed and arXiv databases, the paper estimated the gender of 36 "
+"million authors from >100 countries publishing in >6000 journals, covering "
+"most STEMM disciplines over the last 15 years, and made a web app allowing "
+"easy access to the data (https://lukeholman.github.io/genderGap/)."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:2029
+msgid ""
+"@cite{La EducaciÃ³n Intercultural: Concepto, Paradigmas, Realizaciones} by "
+"Teresa Aguado Odina"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:2034
+msgid ""
+"This paper is a very good reference to understand Interculturalism focused "
+"on education. The vocabulary explained in this paper can be so useful to "
+"apply in concepts related with feminism, or social sciences in general."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:2040
+msgid ""
+"@cite{GuÃ­a INTER: una guÃ­a prÃ¡ctica para aplicar la educaciÃ³n "
+"intercultural en la escuela} by Teresa Aguado Odina, InÃ©s Gil Jaurena y "
+"otras personas. (Published by Universidad Nacional de EducaciÃ³n a Distancia "
+"UNED)."
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:2043
+msgid "This document allows to apply the interculturalism concepts in the schools."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:2047
+msgid ""
+"@cite{Machine Learning} by Tom M. Mitchell (Published by Mc Graw Hill, ISBN: "
+"0-07-042807-7)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:2051
+msgid ""
+"Tom Mitchell is a father of the Machine Learning. This book explains in a "
+"simpley way the main concepts understanding the need about the machine "
+"learning. So useful to learn algorithms."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:2056
+msgid ""
+"@cite{Periodismo y Social Media: como estan usando Twitter los periodistas "
+"espaÃ±oles} by Clara Sainz de Baranda (Published by Estudios sobre el "
+"Mensaje Periodistico, UCM)"
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:2062
+msgid ""
+"@cite{Understanding the Demographics of Twitter Users} by Mislove, A., "
+"Lehmann, S., Ahn, Y. Y., Onnela, J. P., & Rosenquist, J. N.  published by "
+"Icwsm"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:2067
+msgid ""
+"This paper could have been written with Damegender. In this paper the author "
+"calculates gender of twitter users using first names and race/ethnicity "
+"using last names."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:2072
+msgid ""
+"@cite{Discriminating Gender on Twitter} by John D. Burger and John Henderson "
+"and George Kim and Guido Zarrella"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:2077
+msgid ""
+"This paper explains classify gender in Twitter obtaining very good results "
+"with tweet texts, screen name, description and full name. The best "
+"classifier was obtaining the 92% of accuracy."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:2081
+msgid ""
+"@cite{Galaxia Internet} by Manuel Castells (Published by Plaza & JanÃ©s, "
+"ISBN: 978-8401341571)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:2086
+msgid ""
+"This book explains Internet with the point of view of a big sociologist. So "
+"it is regarded as a good introduction to Social informatics. That is the "
+"study of information and communication tools in cultural or institutional "
+"contexts."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:2090
+msgid "@cite{Global Gender Gap Index 2012} (Published by World Economic Forum)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:2095
+msgid ""
+"The Global Gender Gap Report was first published in 2006 by the World "
+"Economic Forum. The 2020 report (published in 2019) covers 153 "
+"countries. The Global Gender Gap Index is an index designed to measure "
+"gender equality."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:2099
+msgid ""
+"@cite{Has Feminism Changed Science} by Londa Schiebinger (Published by The "
+"University of Chicago Press Journals)"
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:2104
+msgid ""
+"@cite{Feminism and Science} by Evelyn Fox Keller & Helen E. Longino "
+"(Published by Oxford University)"
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:2109
+msgid ""
+"@cite{TeorÃ­a Feminista} by Ana de Miguel & Celia Amoros (Published by "
+"Minerva Ediciones)"
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:2114
+msgid "@cite{Constructing Grounded Theory} by Kathy Charmaz (Published by SAGE)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:2118
+msgid ""
+"Grounded Theory is the most important theory to apply qualitative "
+"research. You can learn to classify and to count discourses (for example, "
+"feminist discourses) and to reach conclusions with this book."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:2122
+msgid ""
+"@cite{TÃ©cnicas Cualitativas de InvestigaciÃ³n Social} by Miguel Valles "
+"(Published by SÃ­ntesis SociologÃ­a)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:2127
+msgid ""
+"A good first book about qualitativism for sociology, politics or social work "
+"students, it's giving theorical contents with practical examples done in "
+"Spain. If you want learn to put Damegender data into discourses this book "
+"can learn you to do it."
+msgstr ""
+
+#. type: quotation
+#: damegender.texi:2132
+msgid ""
+"@cite{Encuesta sobre Equipamiento y Uso de TecnologÃ­as de InformaciÃ³n y "
+"ComunicaciÃ³n en los Hogares} by INE.es "
+"(https://www.ine.es/prensa/tich_2020.pdf)"
+msgstr ""
+
+#. type: Plain text
+#: damegender.texi:2135
+msgid ""
+"This document explains differences in gender using Internet and computers in "
+"Spain."
 msgstr ""
 
 #. type: appendix
-#: damegender.texi:494 damegender.texi:495
+#: damegender.texi:2137 damegender.texi:2138
 #, no-wrap
-msgid "GNU Free Documentation License"
+msgid "License"
+msgstr ""
+
+#. type: cindex
+#: damegender.texi:2139
+#, no-wrap
+msgid "Damegender License"
 msgstr ""
 
 #. type: include
-#: damegender.texi:497
+#: damegender.texi:2141
 #, no-wrap
-msgid "fdl.texi"
+msgid "license-fl.texi"
 msgstr ""
