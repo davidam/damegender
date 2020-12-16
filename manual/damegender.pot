@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-12-15 20:29+0100\n"
+"POT-Creation-Date: 2020-12-15 22:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,9 @@ msgstr ""
 #. type: author
 #: damegender.texi:14
 #, no-wrap
-msgid "Prologue by LucÃ­a SantamarÃ­a (@email{lucia.santamaria@@ymail.com})"
+msgid ""
+"Prologue by Luc@'{@dotless{i}}a Santamar@'{@dotless{i}}a "
+"(@email{lucia.santamaria@@ymail.com})"
 msgstr ""
 
 #. type: node
@@ -227,7 +229,7 @@ msgstr ""
 #: damegender.texi:105
 msgid ""
 "Damegender is a gender detection tool from the name coded by David Arroyo "
-"MEnÃ©ndez (DAME). See ``@cite{Damegender: Writing and Comparing Gender "
+"MEn@'endez (DAME). See ``@cite{Damegender: Writing and Comparing Gender "
 "Detection Tools}'', @ref{Further reading}."
 msgstr ""
 
@@ -2756,8 +2758,8 @@ msgid ""
 "solve with a methodology (quantitative, qualitative, or mixed). The second "
 "step is about sample decision who is the people, the population going to "
 "give us the data. The third step is about selection strategies about "
-"retrieve data, analysis and to show results. See ``@cite{TÃ©cnicas "
-"Cualitativas de InvestigaciÃ³n Social}'', @ref{Further reading}"
+"retrieve data, analysis and to show results. See ``@cite{T@'ecnicas "
+"Cualitativas de Investigaci@'on Social}'', @ref{Further reading}"
 msgstr ""
 
 #. type: Plain text
@@ -3414,7 +3416,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "# You can share, copy and modify this software if you are a woman or you\n"
-"# are David Arroyo MenÃ©ndez and you include this note.\n"
+"# are David Arroyo Men@'endez and you include this note.\n"
 msgstr ""
 
 #. type: Plain text
@@ -3497,7 +3499,7 @@ msgstr ""
 #. type: Plain text
 #: damegender.texi:1714
 msgid ""
-"Aguado proposes these principles (See ``@cite{La EducaciÃ³n Intercultural: "
+"Aguado proposes these principles (See ``@cite{La Educaci@'on Intercultural: "
 "Concepto, Paradigmas, Realizaciones}'', @ref{Further reading}."
 msgstr ""
 
@@ -3616,7 +3618,7 @@ msgid ""
 "relationship between women and the earth, as foundational to its analysis "
 "and practice. Ecofeminist thinkers draw on the concept of gender to analyse "
 "the relationships between humans and the natural world. The term was coined "
-"by the French writer FranÃ§oise d'Eaubonne in her book Le FÃ©minisme ou la "
+"by the French writer FranÃ§oise d'Eaubonne in her book Le F@'eminisme ou la "
 "Mort (1974). Ecofeminist theory asserts a feminist perspective of Green "
 "politics that calls for an egalitarian, collaborative society in which there "
 "is no one dominant group. Today, there are several branches of ecofeminism, "
@@ -3819,8 +3821,8 @@ msgstr ""
 #. type: quotation
 #: damegender.texi:1925
 msgid ""
-"@cite{La MÃ¡quina Reaccionaria} by MarÃ­a Ãvila (Published by Tirant "
-"Humanidades)"
+"@cite{La M@'aquina Reaccionaria} by Mar@'{@dotless{i}}a @'Avila (Published "
+"by Tirant Humanidades)"
 msgstr ""
 
 #. type: Plain text
@@ -3902,14 +3904,15 @@ msgid ""
 msgstr ""
 
 #. type: quotation
-#: damegender.texi:1987
+#: damegender.texi:1988
 msgid ""
 "@cite{Comparison and benchmark of name-to-gender inference services} by "
-"LucÃ­a SantamarÃ­a and Helena Mihaljevic (Published by PeerJ Journal)"
+"Luc@'{@dotless{i}}a Santamar@'{@dotless{i}}a and Helena Mihaljevic "
+"(Published by PeerJ Journal)"
 msgstr ""
 
 #. type: Plain text
-#: damegender.texi:1991
+#: damegender.texi:1992
 msgid ""
 "This paper has inspired the development of Damegender and many ideas about "
 "name-to-gender software is implemented in this book. Thanks a lot by this "
@@ -3920,8 +3923,8 @@ msgstr ""
 #: damegender.texi:1996
 msgid ""
 "@cite{The Effect of Gender in the Publication Patterns in Mathematics} by "
-"Helena Mihaljevic, LucÃ­a SantamarÃ­a, Marco Tullney (Published by Plos One "
-"Journal)"
+"Helena Mihaljevic, Luc@'{@dotless{i}}a Santamar@'{@dotless{i}}a, Marco "
+"Tullney (Published by Plos One Journal)"
 msgstr ""
 
 #. type: Plain text
@@ -3936,7 +3939,7 @@ msgstr ""
 #: damegender.texi:2004
 msgid ""
 "@cite{Damegender: Writing and Comparing Gender Detection Tools} by David "
-"Arroyo MenÃ©ndez (Published by EasyChair 2020)."
+"Arroyo Men@'endez (Published by EasyChair 2020)."
 msgstr ""
 
 #. type: Plain text
@@ -3948,8 +3951,8 @@ msgstr ""
 #: damegender.texi:2011
 msgid ""
 "@cite{Perceval: software project data at your will} by Santiago DueÃ±as, "
-"Valerio Consentino, Gregorio Robles, JesÃºs M. GonzÃ¡lez Barahona (Published "
-"by ICSE 2018)."
+"Valerio Consentino, Gregorio Robles, Jes@'us M. Gonz@'alez Barahona "
+"(Published by ICSE 2018)."
 msgstr ""
 
 #. type: Plain text
@@ -3994,10 +3997,10 @@ msgstr ""
 #. type: quotation
 #: damegender.texi:2040
 msgid ""
-"@cite{GuÃ­a INTER: una guÃ­a prÃ¡ctica para aplicar la educaciÃ³n "
-"intercultural en la escuela} by Teresa Aguado Odina, InÃ©s Gil Jaurena y "
-"otras personas. (Published by Universidad Nacional de EducaciÃ³n a Distancia "
-"UNED)."
+"@cite{Gu@'{@dotless{i}}a INTER: una gu@'{@dotless{i}}a pr@'actica para "
+"aplicar la educaci@'on intercultural en la escuela} by Teresa Aguado Odina, "
+"In@'es Gil Jaurena y otras personas. (Published by Universidad Nacional de "
+"EducaciÃ³n a Distancia UNED)."
 msgstr ""
 
 #. type: Plain text
@@ -4062,7 +4065,7 @@ msgstr ""
 #. type: quotation
 #: damegender.texi:2081
 msgid ""
-"@cite{Galaxia Internet} by Manuel Castells (Published by Plaza & JanÃ©s, "
+"@cite{Galaxia Internet} by Manuel Castells (Published by Plaza & Jan@'es, "
 "ISBN: 978-8401341571)"
 msgstr ""
 
@@ -4126,8 +4129,8 @@ msgstr ""
 #. type: quotation
 #: damegender.texi:2122
 msgid ""
-"@cite{TÃ©cnicas Cualitativas de InvestigaciÃ³n Social} by Miguel Valles "
-"(Published by SÃ­ntesis SociologÃ­a)"
+"@cite{T@'ecnicas Cualitativas de Investigaci@'on Social} by Miguel Valles "
+"(Published by S@'{@dotless{i}}ntesis Sociolog@'{@dotless{i}}a)"
 msgstr ""
 
 #. type: Plain text
