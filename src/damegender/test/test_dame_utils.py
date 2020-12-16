@@ -15,7 +15,10 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with Damegender.  If not, see <https://www.gnu.org/licenses/>.
+# along with Damegender in the file GPL.txt.  If not, see
+# <https://www.gnu.org/licenses/>.
+
+
 
 
 import unittest
@@ -248,6 +251,15 @@ class TddInPythonExample(unittest.TestCase):
         s = du.initial_letters("JL")        
         self.assertTrue(s)
 
+    def test_dame_utils_number_or_zero(self):
+        du = DameUtils()
+        noz = du.number_or_zero("-")
+        self.assertEqual(noz, 0)
+        noz = du.number_or_zero(27)        
+        self.assertTrue(noz > 0)
+        self.assertEqual(noz, 27)
+
+        
         
     # def test_dame_utils_delete_duplicated_identities(self):
     #     du = DameUtils()

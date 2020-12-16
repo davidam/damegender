@@ -15,10 +15,15 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with Damegender.  If not, see <https://www.gnu.org/licenses/>.
+# along with Damegender in the file GPL.txt.  If not, see
+# <https://www.gnu.org/licenses/>.
 
 
-from genderize import Genderize
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
+
 import csv
 import requests
 import json
@@ -27,6 +32,7 @@ from app.dame_gender import Gender
 from app.dame_utils import DameUtils
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
+from genderize import Genderize
 
 class DameGenderize(Gender):
 

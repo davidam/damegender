@@ -89,13 +89,9 @@ Mirar python-examples/matplotlib/corr.py
   SCHEDULED: <2018-11-20 mar>
   - State "DONE"       from "TODO"       [2018-11-22 jue 16:12]
 Dada una url obtener número y porcentaje de hombres y mujeres
-** TODO Escribir método string2name
-Dada una cadena con espacios en blanco:
-1. Crea un array.
-2. Recorre el array hasta encontrar el primer nombre.
-2.1 Es nombre si no está en la lista de apellidos.
-3. Devuelve el primer nombre.
-
+** DONE Escribir método string2name
+   - State "DONE"       from "TODO"       [2020-12-06 dom 23:03]
+Finalmente, se implementó como string2array y identity2name_email
 * DONE Escribir comando gender2csv.py
   SCHEDULED: <2018-11-20 mar>
   - State "DONE"       from "TODO"       [2018-11-22 jue 16:12]
@@ -364,8 +360,20 @@ Sexmachine confusion matrix:
  [ 778 3033    0]
  [ 589  708    0]]
 
+* TODO Escribir método average_in_apis
+  SCHEDULED: <2019-01-28 lun>
+
 * TODO Probar el average de api2gender
   SCHEDULED: <2019-01-28 lun>
+* TODO Escribir la desviación típica en la elección de male or female
+  SCHEDULED: <2019-02-24 dom>
+
+* TODO Escribir average_weighted
+Dado un nombre, tenemos la frecuencia del nombre y la población en
+tres datasets, crear la media ponderada.
+** DONE Descargar json de las diferentes apis
+   - State "DONE"       from "TODO"       [2020-02-05 mié 17:20]
+
 * DONE Entrada http://t3chfest2019.eventbrite.es
   SCHEDULED: <2019-01-28 lun 10:30>
   - State "DONE"       from "TODO"       [2019-02-14 jue 18:26]
@@ -589,8 +597,6 @@ Si son categóricas del estilo mueble (silla, mesa, nevera, sillón, etc.) se re
   - State "DONE"       from "TODO"       [2019-02-17 dom 16:43]
 ** namsor
 {"scale":-0.9926328311688487,"gender":"male","firstName":"John","lastName":"Smith","id":"1424023766605"}
-* TODO Escribir método average_in_apis
-  SCHEDULED: <2019-01-28 lun>
 * DONE Lectura papers
   SCHEDULED: <2019-02-18 lun 9:00>
   - State "DONE"       from "TODO"       [2019-03-22 vie 22:52]
@@ -811,7 +817,7 @@ Nameapi accuracy: 0.18329564725833805
 Se hizo un setup.py que funciona, pero he pensado en respetar un poco
 más el software original, aunque ya ha diferencias notables, si no
 desarrollo mucho más prefiero no empaquetar.
-** TODO Plantear la integración con git2gender esta pequeña cuestión
+** POSIBLE Plantear la integración con git2gender esta pequeña cuestión
 En https://api.github.com/users/davidam aparece el campo avatar_url y ahí:
 wget -c https://avatars2.githubusercontent.com/u/1023217
 
@@ -826,8 +832,6 @@ imágenes.
 * DONE En pca-features tener en consideración nombres 0 o 1
   SCHEDULED: <2019-02-24 dom>
   - State "DONE"       from "TODO"       [2019-06-07 vie 15:57]
-* TODO Escribir la desviación típica en la elección de male or female
-  SCHEDULED: <2019-02-24 dom>
 * DONE Urls dando problemas en lo del kernel
   SCHEDULED: <2019-02-26 mar>
   - State "DONE"       from "TODO"       [2019-03-22 vie 22:54]
@@ -840,8 +844,10 @@ imágenes.
   SCHEDULED: <2019-02-28 jue>
   - State "DONE"       from "TODO"       [2019-03-22 vie 22:53]
 https://docs.python.org/2/distutils/setupscript.html
-* TODO Plantearse separar dame_gender.py a dame_statistics.py
+* DONE Plantearse separar dame_gender.py a dame_statistics.py
   SCHEDULED: <2019-08-03 sáb>
+  - State "DONE"       from "TODO"       [2020-12-06 dom 23:07]
+Lo separé sí.
 * CANCELED remove_if_contains_init
   SCHEDULED: <2019-03-09 sáb>
   - State "CANCELED"   from "TODO"       [2020-07-06 lun 23:15]
@@ -849,11 +855,6 @@ https://docs.python.org/2/distutils/setupscript.html
   SCHEDULED: <2019-03-09 sáb>
   - State "DONE"       from "TODO"       [2019-03-22 vie 22:54]
 pip3 install dametowel
-* TODO Escribir average_weighted
-Dado un nombre, tenemos la frecuencia del nombre y la población en
-tres datasets, crear la media ponderada.
-** DONE Descargar json de las diferentes apis
-   - State "DONE"       from "TODO"       [2020-02-05 mié 17:20]
 * DONE Comenzar a medir eficiencia
   SCHEDULED: <2019-05-16 jue>
   - State "DONE"       from "TODO"       [2020-03-21 sáb 16:46]
@@ -1139,6 +1140,7 @@ Hay idiomas que los nombres tienen género para llegar a esto es posible revisar
 2. Tendría un argumento locale que por defecto es all
 3. Habría que sacar de la instalación pip los locale no gpl compatible
 
+
 * DONE Escribir el comando top para mostrar, por ejemplo, los 10 nombres más utilizados en USA
   - State "DONE"       from "TODO"       [2020-07-06 lun 16:57]
 ** Parámetros
@@ -1167,11 +1169,12 @@ O se puede hacer directamente con expresión regular (ej: name_regex y surname_r
   SCHEDULED: <2020-07-06 lun>
   - State "DONE"       from "TODO"       [2020-09-02 mié 05:55]
 * TODO Escribir csv2json.py
-De manera similar a csv2gender.py escribir csv2json.py, los campos vienen
-determinados por los de cualquier json, ej:
-files/names/all.csv.tree.json
-
+Los campos de cada persona
 + name (obligatorio)
 + surname (opcional, por defecto vacío)
++ total_males
++ total_females
 + probability (opcional, por defecto valor 1)
 + gender (obligatorio)
+- State "DONE"       from "TODO"       [2020-12-06 dom 23:10]
+* DONE Añadir Bélgica

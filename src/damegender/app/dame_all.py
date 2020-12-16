@@ -15,9 +15,15 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
+<<<<<<< HEAD
 # along with Damegender; see the file LICENSE.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 # Boston, MA 02110-1301 USA,
+=======
+# along with Damegender in the file GPL.txt.  If not, see
+# <https://www.gnu.org/licenses/>.
+
+>>>>>>> dev
 
 
 from app.dame_gender import Gender

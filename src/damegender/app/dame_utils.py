@@ -15,8 +15,15 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with Damegender.  If not, see <https://www.gnu.org/licenses/>.
+# along with Damegender in the file GPL.txt.  If not, see
+# <https://www.gnu.org/licenses/>.
 
+<<<<<<< HEAD
+=======
+
+# You can share, copy and modify this software if you are a woman or you
+# are David Arroyo Menéndez and you include this note.
+>>>>>>> dev
 
 import unidecode
 import unicodedata
@@ -285,6 +292,14 @@ class DameUtils():
             gender = "unknown"
         return gender
 
+    def number_or_zero(self, x):
+        try:
+            num = int(x)
+        except ValueError:
+            num = 0
+        return num
+
+    
     def round_and_not_zero_division(self, x, y):
         if ((x == 0) and (y == 0)):
             return 0

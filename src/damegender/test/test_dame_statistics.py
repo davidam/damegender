@@ -15,7 +15,13 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with Damegender.  If not, see <https://www.gnu.org/licenses/>.
+# along with Damegender in the file GPL.txt.  If not, see
+# <https://www.gnu.org/licenses/>.
+
+
+
+
+
 
 
 import unittest

@@ -15,7 +15,13 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with Damegender.  If not, see <https://www.gnu.org/licenses/>.
+# along with Damegender in the file GPL.txt.  If not, see
+# <https://www.gnu.org/licenses/>.
+
+
+
+
+
 
 
 import unittest
@@ -377,30 +383,40 @@ class TddInPythonExample(unittest.TestCase):
 #         self.assertEqual(frec5, 2462)                                
 
         
-#     def test_dame_gender_name_frec(self):
-#         g = Gender()
-#         frec1 = g.name_frec("INES", dataset='ine')
-#         self.assertEqual(int(frec1['females']), 61920)
-#         self.assertEqual(int(frec1['males']), 0)
-#         frec2 = g.name_frec("BEATRIZ", dataset='ine')
-#         self.assertEqual(int(frec2['females']), 123445)
-#         frec3 = g.name_frec("ALMUDENA", dataset='ine')
-#         self.assertEqual(int(frec3['females']), 30450)
-#         frec5 = g.name_frec("ELIZABETH", dataset='us')
-#         self.assertEqual(int(frec5['females']), 1581894)
-#         frec5n = g.name_frec("ELISABETH", dataset='us')
-#         self.assertEqual(int(frec5n['females']), 43531)
-#         frec6 = g.name_frec("MARIA", dataset='uk')
-#         self.assertEqual(int(frec6['females']), 9499)
-#         frec7 = g.name_frec("JULIAN", dataset='uk')
-#         self.assertEqual(int(frec7['males']), 1741)
-#         frec8 = g.name_frec("A", dataset='uk')
-#         self.assertEqual(int(frec8['males']), 49)
-#         frec6 = g.name_frec("MARIA", dataset='nz')
-#         self.assertEqual(int(frec6['females']), 5541)
-#         frec6 = g.name_frec("MARIA", dataset='ca')
-#         self.assertEqual(int(frec6['females']), 1626)
+    def test_dame_gender_name_frec(self):
+        g = Gender()
+        frec1 = g.name_frec("INES", dataset='ine')
+        self.assertEqual(int(frec1['females']), 61920)
+        self.assertEqual(int(frec1['males']), 0)
+        frec2 = g.name_frec("BEATRIZ", dataset='ine')
+        self.assertEqual(int(frec2['females']), 123445)
+        frec3 = g.name_frec("ALMUDENA", dataset='ine')
+        self.assertEqual(int(frec3['females']), 30450)
+        frec5 = g.name_frec("ELIZABETH", dataset='us')
+        self.assertEqual(int(frec5['females']), 1581894)
+        frec5n = g.name_frec("ELISABETH", dataset='us')
+        self.assertEqual(int(frec5n['females']), 43531)
+        frec6 = g.name_frec("MARIA", dataset='uk')
+        self.assertEqual(int(frec6['females']), 9499)
+        frec7 = g.name_frec("JULIAN", dataset='uk')
+        self.assertEqual(int(frec7['males']), 1741)
+        frec8 = g.name_frec("A", dataset='uk')
+        self.assertEqual(int(frec8['males']), 49)
+        frec6 = g.name_frec("MARIA", dataset='nz')
+        self.assertEqual(int(frec6['females']), 5541)
+        frec6 = g.name_frec("MARIA", dataset='ca')
+        self.assertEqual(int(frec6['females']), 1626)
+        frec7 = g.name_frec("MARIA", dataset='si')
+        self.assertEqual(int(frec7['females']), 2867)
 
+    def test_dame_gender_path_name_dataset(self):
+        dg = Gender()
+        self.assertEqual(dg.path_name_dataset("be", "female"), "files/names/names_be/befemales.csv") 
+
+    def test_dame_gender_path_surname_dataset(self):
+        dg = Gender()
+        self.assertEqual(dg.path_surname_dataset("be"), "files/inesurnames/apellidos-belgica.xls.csv")
+        
 #     def test_dame_gender_name_prob_countries(self):
 #         g = Gender()
 #         self.assertEqual([{'females': {'uy': 0.0, 'nz': 0.0, 'pt': 0.0, 'au': 0.001, 'us': 0.999, 'fi': 0.0, 'uk': 0.0, 'is': 0.0, 'ca': 0.0, 'ie': 0.0, 'es': 0.0}, 'males': {'uy': 0.0, 'nz': 0.009, 'pt': 0.0, 'au': 0.001, 'us': 0.889, 'fi': 0.0, 'uk': 0.007, 'is': 0.0, 'ca': 0.002, 'ie': 0.0, 'es': 0.091}}], g.name_prob_countries("David"))

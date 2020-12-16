@@ -8,6 +8,10 @@ DAMEGENDER_POT = ${srcdir}/damegender.pot
 pdf: 
 	texi2pdf $(DAMEGENDER)
 
+pdf-es: 
+	texi2pdf $(DAMEGENDER_ES)
+
+
 html:
 	texi2html $(DAMEGENDER)
 

@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
+
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
@@ -14,9 +15,8 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with Damegender.  If not, see <https://www.gnu.org/licenses/>.
-
-
+# along with Damegender in the file GPL.txt.  If not, see
+# <https://www.gnu.org/licenses/>.
 
 from app.dame_gender import Gender
 import sys
@@ -28,7 +28,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("surname", help="display the gender")
 parser.add_argument('--total', required=True, default="ine", choices=['ine', 'es', 'us'])
 parser.add_argument('--spanish_provinces', default=False, action="store_true")
-parser.add_argument('--version', action='version', version='0.1')
+parser.add_argument('--version', action='version', version='0.3')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
 

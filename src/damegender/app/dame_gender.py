@@ -15,8 +15,14 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with Damegender.  If not, see <https://www.gnu.org/licenses/>.
+# along with Damegender in the file GPL.txt.  If not, see
+# <https://www.gnu.org/licenses/>.
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> dev
 #from nltk.corpus import names
 #import nltk
 import csv
@@ -273,64 +279,125 @@ class Gender(object):
     
     # DATASETS METHODS #
 
-    def ukfile(self):
-        # create a file with name and prob from uk births
-        total = 0
-        for i in range(1880, 2018):
-            # first we acquire the total of births from 1880 to 2017
-            dataset = "files/names/uk/yob" + str(i) + ".txt"
-            with open(dataset) as csvfile:
-                sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-                next(sexreader, None)
-                totali = 0
-                for row in sexreader:
-                    datasetcount = row[2]
-                    totali = totali + int(datasetcount)
-            total = total + totali
+    def path_name_dataset(self, locale, gender):
+        if (locale == "at"):
+            if (gender == "female"):
+                path = "files/names/names_at/atfemales.csv"
+            elif (gender == "male"):
+                path = "files/names/names_at/atmales.csv"
+        elif (locale == "au"):
+            if (gender == "female"):
+                path = "files/names/names_au/baby-names-1944-2013/aufemales.csv"
+            elif (gender == "male"):
+                path = "files/names/names_au/baby-names-1944-2013/aumales.csv"
+        elif (locale == "be"):
+            if (gender == "female"):
+                path = "files/names/names_be/befemales.csv"
+            elif (gender == "male"):
+                path = "files/names/names_be/bemales.csv"
+        elif (locale == "ca"):
+            if (gender == "female"):
+                path = "files/names/names_ca/cafemales.csv"
+            elif (gender == "male"):
+                path = "files/names/names_ca/camales.csv"
+        elif (locale == "de"):
+            if (gender == "female"):
+                path = "files/names/names_de/defemales.csv"
+            elif (gender == "male"):
+                path = "files/names/names_de/demales.csv"
+        elif (locale == "es"):
+            if (gender == "female"):
+                path = "files/names/names_es/esfemeninos.csv"
+            elif (gender == "male"):
+                path = "files/names/names_es/esmasculinos.csv"
+        elif (locale == "fi"):
+            if (gender == "female"):
+                path = "files/names/names_fi/fifemales.csv"
+            elif (gender == "male"):
+                path = "files/names/names_fi/fimales.csv"
+        elif (locale == "ie"):
+            if (gender == "female"):
+                path = "files/names/names_ie/iefemales.csv"
+            elif (gender == "male"):
+                path = "files/names/names_ie/iemales.csv"
+        elif (locale == "is"):
+            if (gender == "female"):
+                path = "files/names/names_is/isfemales.csv"
+            elif (gender == "male"):
+                path = "files/names/names_is/ismales.csv"
+        elif (locale == "nz"):
+            if (gender == "female"):
+                path = "files/names/names_nz/nzfemales.csv"
+            elif (gender == "male"):
+                path = "files/names/names_nz/nzmales.csv"
+        elif (locale == "mx"):
+            if (gender == "female"):
+                path = "files/names/names_mx/hombres.csv"
+            elif (gender == "male"):
+                path = "files/names/names_mx/mujeres.csv"
+        elif (locale == "pt"):
+            if (gender == "female"):
+                path = "files/names/names_pt/ptfemales.csv"
+            elif (gender == "male"):
+                path = "files/names/names_pt/ptmales.csv"
+        elif (locale == "si"):
+            if (gender == "female"):
+                path = "files/names/names_si/sifemales.csv"
+            elif (gender == "male"):
+                path = "files/names/names_si/simales.csv"
+        elif (locale == "uk"):
+            if (gender == "female"):
+                path = "files/names/names_uk/ukfemales.csv"
+            elif (gender == "male"):
+                path = "files/names/names_uk/ukmales.csv"
+        elif (locale == "uy"):
+            if (gender == "female"):
+                path = "files/names/names_uy/uyfemeninos.csv"
+            elif (gender == "male"):
+                path = "files/names/names_uy/uymasculinos.csv"
+        elif (locale == "us"):
+            if (gender == "female"):
+                path = "files/names/names_us/usfemales.csv"
+            elif (gender == "male"):
+                path = "files/names/names_us/usmales.csv"
+        return path                
 
-        # now we are going to start the json file with 1880
-        jsonuk = "files/names/uk/jsonuk.json"
-        file = open(jsonuk, "w")
-        dataset = "files/names/uk/yob1880.txt"
-        with open(dataset) as csvfile:
-            sexreader1 = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(sexreader1, None)
-            cnt = 0
-            for row in sexreader1:
-                cnt = cnt + 1
-        end = cnt
-        lines = []
-        lines.append('[')
-        with open(dataset) as csvfile:
-            sexreader2 = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(sexreader2, None)
-            cnt = 1
-            for row in sexreader2:
-                lines.append('{"name": "' + row[0] + '",')
-                lines.append('"gender": "' + row[1] + '",')
-                if (end == cnt):
-                    lines.append('"count": ' + row[2] + '}')
-                    print('"count": ' + row[2] + '}')
-                else:
-                    lines.append('"count": ' + row[2] + '},')
-                    print('"count": ' + row[2] + '},')
-                cnt = cnt + 1
-            lines.append(']')
-        fo = open(jsonuk, "w")
-        fo.writelines(lines)
-        # Cerramos el archivo
-        for i in range(1881, 2018):
-            dataset = "files/names/uk/yob" + str(i) + ".txt"
-            with open(dataset) as csvfile:
-                sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-                next(sexreader, None)
-                lines = []
-                for row in sexreader:
-                    print(row)
-                #         Cerramos el archivo
-        fo.close()
-        return 1
+    def path_surname_dataset(self, locale):
+        if (locale == "at"):
+            path = "files/inesurnames/apellidos-australia.xls.csv"
+        elif (locale == "au"):
+            path = "files/inesurnames/apellidos-austria.xls.csv"            
+        elif (locale == "be"):
+            path = "files/inesurnames/apellidos-belgica.xls.csv"                        
+        elif (locale == "ca"):
+            path = "files/inesurnames/apellidos-canada.xls.csv"                                    
+        elif (locale == "de"):
+            path = "files/inesurnames/apellidos-alemania.xls.csv"                                                
+        elif (locale == "es"):
+            path = "files/inesurnames/apellidos_frecuencia.csv"                                                            
+        elif (locale == "fi"):
+            path = "files/inesurnames/apellidos-finlandia.xls.csv"                                                            
+        elif (locale == "ie"):
+            path = "files/inesurnames/apellidos-irlanda.xls.csv"
+        elif (locale == "is"):
+            path = "files/inesurnames/apellidos-islandia.xls.csv"
+        elif (locale == "nz"):
+            path = "files/inesurnames/apellidos-nueva-zelanda.xls.csv"
+        elif (locale == "mx"):
+            path = "files/inesurnames/apellidos-mexico.xls.csv"            
+        elif (locale == "pt"):
+            path = "files/inesurnames/apellidos-portugal.xls.csv"
+        elif (locale == "si"):
+            path = "files/inesurnames/apellidos-eslovenia.xls.csv"                        
+        elif (locale == "uk"):
+            path = "files/inesurnames/apellidos-reino-unido.xls.csv"
+        elif (locale == "uy"):
+            path = "files/inesurnames/apellidos-uruguay.xls.csv"
+        elif (locale == "us"):
+            path = "files/inesurnames/apellidos-usa.xls.csv"
+        return path                
 
+    
     def males_list(self, corpus='es'):
         au_path = 'files/names/names_au/baby-names-1944-2013/aumales.csv'
         ca_path = 'files/names/names_ca/camales.csv'        
@@ -572,8 +639,12 @@ class Gender(object):
         path_males = 'files/names/names_es/esmasculinos.csv'
         if ((dataset == 'ine') or (dataset == 'es')):
             path_males = 'files/names/names_es/esmasculinos.csv'
+        elif (dataset == 'at'):
+            path_males = 'files/names/names_at/atmales.csv'            
         elif (dataset == 'ie'):
             path_males = 'files/names/names_ie/iemales.csv'            
+        elif (dataset == 'de'):
+            path_males = 'files/names/names_de/demales.csv'            
         elif (dataset == 'is'):
             path_males = 'files/names/names_is/ismales.csv'            
         elif (dataset == 'uy'):
@@ -586,13 +657,18 @@ class Gender(object):
             path_males = 'files/names/names_nz/nzmales.csv'            
         elif (dataset == 'ca'):
             path_males = 'files/names/names_ca/camales.csv'
+        elif (dataset == 'be'):
+            path_males = 'files/names/names_be/bemales.csv'            
+        elif (dataset == 'mx'):
+            path_males = 'files/names/names_mx/hombres.csv'            
         elif (dataset == 'fi'):
             path_males = 'files/names/names_fi/fimales.csv'            
         elif (dataset == 'au'):
             path_males = 'files/names/names_au/baby-names-1944-2013/aumales.csv'            
         elif (dataset == 'pt'):
             path_males = 'files/names/names_pt/ptmales.csv'            
-            
+        elif (dataset == 'si'):
+            path_males = 'files/names/names_si/simales.csv'            
         file_males = open(path_males, 'r')
         readerm = csv.reader(file_males, delimiter=',', quotechar='|')
         males = 0
@@ -600,9 +676,14 @@ class Gender(object):
             if ((len(row) > 1) and (row[0].lower() == name.lower())):
                 males = row[1]
                 males = du.drop_dots(males)
+
         path_females = 'files/names/names_es/esfemeninos.csv'
         if ((dataset == 'ine') or (dataset == 'es')):
             path_females = 'files/names/names_es/esfemeninos.csv'
+        elif (dataset == 'at'):
+            path_females = 'files/names/names_at/atfemales.csv'                        
+        elif (dataset == 'de'):
+            path_females = 'files/names/names_de/defemales.csv'                        
         elif (dataset == 'ie'):
             path_females = 'files/names/names_ie/iefemales.csv'
         elif (dataset == 'is'):
@@ -617,21 +698,28 @@ class Gender(object):
             path_females = 'files/names/names_nz/nzfemales.csv'            
         elif (dataset == 'ca'):
             path_females = 'files/names/names_ca/cafemales.csv'
+        elif (dataset == 'be'):
+            path_females = 'files/names/names_be/befemales.csv'
+        elif (dataset == 'mx'):
+            path_females = 'files/names/names_mx/mujeres.csv'
         elif (dataset == 'fi'):
             path_females = 'files/names/names_fi/fifemales.csv'                        
         elif (dataset == 'au'):
             path_females = 'files/names/names_au/baby-names-1944-2013/aufemales.csv'            
         elif (dataset == 'pt'):
             path_females = 'files/names/names_pt/ptfemales.csv'            
-
+        elif (dataset == 'si'):
+            path_females = 'files/names/names_si/sifemales.csv'            
         file_females = open(path_females, 'r')
         readerf = csv.reader(file_females, delimiter=',', quotechar='|')
         females = 0
+
         for row in readerf:
             if ((len(row) > 1) and (row[0].lower() == name.lower())):
                 females = row[1]
                 females = du.drop_dots(females)
         dicc = {"females": females, "males": males}
+
         return dicc
 
     def inesurname_province_and_frec(self, surname, *args, **kwargs):
