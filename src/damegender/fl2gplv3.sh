@@ -33,7 +33,6 @@ else
 fi    
 
 
-
 sed '1,5d' new.txt > tmp.txt
 cp $2 nuevo_fichero.txt
 cat tmp.txt >> nuevo_fichero.txt

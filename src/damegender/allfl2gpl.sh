@@ -16,10 +16,11 @@
 # along with Damegender.  If not, see <https://www.gnu.org/licenses/>.
 
 
-for i in $(ls test/test_dame_*.py); do ./fl2gplv3.sh $i files/python_gpl_header.txt; done
 
-for i in $(ls app/dame_*.py); do ./fl2gplv3.sh $i files/python_gpl_header.txt; done
+for i in $(ls test/test_dame_*.py); do ./home/davidam/git/damegender/src/damegender/fl2gplv3.sh $i files/python_gpl_header.txt; done
 
-for i in $(ls *.py); do ./fl2gplv3.sh $i files/python_gpl_header.txt; done
+# for i in $(ls app/dame_*.py); do ./home/davidam/git/damegender/src/damegender/fl2gplv3.sh $i files/python_gpl_header.txt; done
 
-for i in $(ls *.sh); do ./fl2gplv3.sh $i files/bash_gpl_header.txt; done
+# for i in $(ls *.py); do ./home/davidam/git/damegender/src/damegender/fl2gplv3.sh $i files/python_gpl_header.txt; done
+
+# for i in $(ls *.sh); do ./home/davidam/git/damegender/src/damegender/fl2gplv3.sh $i files/bash_gpl_header.txt; done
