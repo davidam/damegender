@@ -11,7 +11,6 @@
 @title Damegender Manual: Counting Males and Females in Internet Communities
 @subtitle for version @value{VERSION}, @value{UPDATED}
 @author David Arroyo Men@'endez (@email{davidam@@gnu.org})
-@author Prologue by Lucía Santamaría (@email{lucia.santamaria@@ymail.com})
 @page
 @vskip 0pt plus 1filll
 @insertcopying
@@ -100,7 +99,7 @@ Lucía Santamaría
 @cindex APIs
 
 Damegender is a gender detection tool from the name coded by David
-Arroyo MEnéndez (DAME). See ``@cite{Damegender: Writing and Comparing
+Arroyo MEn@'endez (DAME). See ``@cite{Damegender: Writing and Comparing
 Gender Detection Tools}'', @ref{Further reading}.
 
 The gender detection tools from the names are being used usually with
@@ -1330,7 +1329,7 @@ problem to solve with a methodology (quantitative, qualitative, or
 mixed). The second step is about sample decision who is the people,
 the population going to give us the data. The third step is about
 selection strategies about retrieve data, analysis and to show
-results. See ``@cite{Técnicas Cualitativas de Investigación Social}'',
+results. See ``@cite{T@'ecnicas Cualitativas de Investigaci@'on Social}'',
 @ref{Further reading}
 
 To read secondary sources about the objective and subobjectives of the
@@ -1709,7 +1708,7 @@ creation of absolute relativism within postmodernity and in
 multiculturalism. (Source: wikipedia, 2020)
 
 Aguado proposes these principles (See ``@cite{La
-Educación Intercultural: Concepto, Paradigmas, Realizaciones}'',
+Educaci@'on Intercultural: Concepto, Paradigmas, Realizaciones}'',
 @ref{Further reading}.
 
 1. Promote the respect by all cultures together and condemn the
@@ -1781,7 +1780,7 @@ the relationship between women and the earth, as foundational to its
 analysis and practice. Ecofeminist thinkers draw on the concept of
 gender to analyse the relationships between humans and the natural
 world. The term was coined by the French writer Françoise d'Eaubonne
-in her book Le Féminisme ou la Mort (1974). Ecofeminist theory asserts
+in her book Le F@'eminisme ou la Mort (1974). Ecofeminist theory asserts
 a feminist perspective of Green politics that calls for an
 egalitarian, collaborative society in which there is no one dominant
 group. Today, there are several branches of ecofeminism, with
@@ -1920,7 +1919,7 @@ To explain some philosophies for to give explanations to the data.
 @cindex Further reading
 
 @quotation
-@cite{La Máquina Reaccionaria} by María Ávila
+@cite{La M@'aquina Reaccionaria} by Mar@'{@dotless{i}}a @'Avila
 (Published by Tirant Humanidades)
 @end quotation
 @noindent
@@ -1983,7 +1982,8 @@ community called GNU.
 
 @quotation
 @cite{Comparison and benchmark of name-to-gender inference services}
-by Lucía Santamaría and Helena Mihaljevic (Published by PeerJ Journal)
+by Luc@'{@dotless{i}}a Santamar@'{@dotless{i}}a and Helena Mihaljevic
+(Published by PeerJ Journal)
 @end quotation
 This paper has inspired the development of Damegender and many ideas
 about name-to-gender software is implemented in this book. Thanks a
@@ -1991,8 +1991,7 @@ lot by this job.
 
 @quotation
 @cite{The Effect of Gender in the Publication Patterns in Mathematics}
-by Helena Mihaljevic, Lucía Santamaría, Marco Tullney (Published by
-Plos One Journal)
+by Helena Mihaljevic, Luc@'{@dotless{i}}a Santamar@'{@dotless{i}}a, Marco Tullney (Published by Plos One Journal)
 @end quotation
 A very good scientific job about gender gap in science. This paper is
 suggested to people who has learnt to use Damegender and they want
@@ -2000,13 +1999,13 @@ develop a good scientific job.
 
 @quotation
 @cite{Damegender: Writing and Comparing Gender Detection Tools}
-by David Arroyo Menéndez (Published by EasyChair 2020).
+by David Arroyo Men@'endez (Published by EasyChair 2020).
 @end quotation
 This paper presents the scientific perspective about Damegender. 
 
 @quotation
 @cite{Perceval: software project data at your will} by Santiago
-Dueñas, Valerio Consentino, Gregorio Robles, Jesús M. González
+Dueñas, Valerio Consentino, Gregorio Robles, Jes@'us M. Gonz@'alez
 Barahona (Published by ICSE 2018).
 @end quotation
 This paper presents Perceval a software to retrieve information from
@@ -2033,8 +2032,8 @@ useful to apply in concepts related with feminism, or social sciences
 in general.
 
 @quotation
-@cite{Guía INTER: una guía práctica para aplicar la educación
-intercultural en la escuela} by Teresa Aguado Odina, Inés Gil Jaurena
+@cite{Gu@'{@dotless{i}}a INTER: una gu@'{@dotless{i}}a pr@'actica para aplicar la educaci@'on
+intercultural en la escuela} by Teresa Aguado Odina, In@'es Gil Jaurena
 y otras personas. (Published by Universidad Nacional de Educación a
 Distancia UNED).
 @end quotation
@@ -2076,7 +2075,7 @@ results with tweet texts, screen name, description and full name. The
 best classifier was obtaining the 92% of accuracy.
 
 @quotation
-@cite{Galaxia Internet} by Manuel Castells (Published by Plaza & Janés,
+@cite{Galaxia Internet} by Manuel Castells (Published by Plaza & Jan@'es,
 ISBN: 978-8401341571)
 @end quotation
 This book explains Internet with the point of view of a big
@@ -2117,8 +2116,8 @@ research. You can learn to classify and to count discourses (for
 example, feminist discourses) and to reach conclusions with this book.
 
 @quotation
-@cite{Técnicas Cualitativas de Investigación Social} by Miguel Valles
-(Published by Síntesis Sociología)
+@cite{T@'ecnicas Cualitativas de Investigaci@'on Social} by Miguel Valles
+(Published by S@'{@dotless{i}}ntesis Sociolog@'{@dotless{i}}a)
 @end quotation
 A good first book about qualitativism for sociology, politics or
 social work students, it's giving theorical contents with practical
