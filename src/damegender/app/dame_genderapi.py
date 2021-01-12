@@ -4,25 +4,10 @@
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# Damegender is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+# You can share, copy and modify this software if you are a woman or you
+# are David Arroyo Menéndez and you include this note.
 
-# Damegender is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
 
-# You should have received a copy of the GNU General Public License
-# along with Damegender in the file GPL.txt.  If not, see
-# <https://www.gnu.org/licenses/>.
-
-<<<<<<< HEAD
-
-import csv
-=======
->>>>>>> dev
 import requests
 import json
 import os
@@ -41,7 +26,7 @@ class DameGenderApi(Gender):
             string = string + '&key=' + contenido
             r = requests.get(string)
             j = json.loads(r.text)
-            v = [j['gender'], j['accuracy']]
+            v = [j['gender'], j['accuracy'], j['samples']]
         return v
 
     def guess(self, name, binary=False):
@@ -70,6 +55,11 @@ class DameGenderApi(Gender):
         v = self.get(name)
         return v[1]
 
+    def samples(self, name):
+        v = self.get(name)
+        return v[2]
+
+    
     def download(self, path="files/names/partial.csv"):
         du = DameUtils()
         fichero = open("files/apikeys/genderapipass.txt", "r+")
