@@ -4,19 +4,8 @@
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# Damegender is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# Damegender is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-# You should have received a copy of the GNU General Public License
-# along with Damegender in the file GPL.txt.  If not, see
-# <https://www.gnu.org/licenses/>.
+# You can share, copy and modify this software if you are a woman or you
+# are David Arroyo Menéndez and you include this note.
 
 
 
@@ -225,13 +214,13 @@ class TddInPythonExample(unittest.TestCase):
         g = Gender()
         gl = g.dataset2genderlist(dataset="files/names/all.csv")
         self.assertEqual(gl[0:4], [1, 1, 1, 1])
-        gl2 = g.dataset2genderlist(dataset="files/names/names_uk/orig/yob2017.txt")
+        gl2 = g.dataset2genderlist(dataset="files/names/names_gb/orig/yob2017.txt")
         self.assertEqual(gl2[0:4], [0, 0, 0, 0])
 
-    # def test_dame_gender_features_list(self):
-    #     g = Gender()
-    #     fl = g.features_list()
-    #     self.assertTrue(len(fl) > 20)
+    def test_dame_gender_features_list(self):
+        g = Gender()
+        fl = g.features_list()
+        self.assertTrue(len(fl) > 20)
 
 #     def test_dame_gender_features_list_categorical(self):
 #         g = Gender()
@@ -396,11 +385,11 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(int(frec5['females']), 1581894)
         frec5n = g.name_frec("ELISABETH", dataset='us')
         self.assertEqual(int(frec5n['females']), 43531)
-        frec6 = g.name_frec("MARIA", dataset='uk')
+        frec6 = g.name_frec("MARIA", dataset='gb')
         self.assertEqual(int(frec6['females']), 9499)
-        frec7 = g.name_frec("JULIAN", dataset='uk')
+        frec7 = g.name_frec("JULIAN", dataset='gb')
         self.assertEqual(int(frec7['males']), 1741)
-        frec8 = g.name_frec("A", dataset='uk')
+        frec8 = g.name_frec("A", dataset='gb')
         self.assertEqual(int(frec8['males']), 49)
         frec6 = g.name_frec("MARIA", dataset='nz')
         self.assertEqual(int(frec6['females']), 5541)
