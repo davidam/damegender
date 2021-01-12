@@ -1,0 +1,5 @@
+* Retrieved from
+Statistics of Denmark (https://www.dst.dk/en)
+* Legal
++ https://www.dst.dk/en/OmDS/om-hjemmesiden
++ https://creativecommons.org/licenses/by/4.0/deed.ast
