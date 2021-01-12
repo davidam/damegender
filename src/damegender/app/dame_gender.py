@@ -4,25 +4,11 @@
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# Damegender is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# Damegender is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-# You should have received a copy of the GNU General Public License
-# along with Damegender in the file GPL.txt.  If not, see
-# <https://www.gnu.org/licenses/>.
-
-<<<<<<< HEAD
-=======
+# You can share, copy and modify this software if you are a woman or you
+# are David Arroyo Menéndez and you include this note.
 
 
->>>>>>> dev
+
 #from nltk.corpus import names
 #import nltk
 import csv
@@ -305,16 +291,26 @@ class Gender(object):
                 path = "files/names/names_de/defemales.csv"
             elif (gender == "male"):
                 path = "files/names/names_de/demales.csv"
+        elif (locale == "dk"):
+            if (gender == "female"):
+                path = "files/names/names_dk/females.csv"
+            elif (gender == "male"):
+                path = "files/names/names_dk/males.csv"
         elif (locale == "es"):
             if (gender == "female"):
                 path = "files/names/names_es/esfemeninos.csv"
             elif (gender == "male"):
-                path = "files/names/names_es/esmasculinos.csv"
+                path = "files/names/names_es/esmasculinos.csv"                
         elif (locale == "fi"):
             if (gender == "female"):
                 path = "files/names/names_fi/fifemales.csv"
             elif (gender == "male"):
                 path = "files/names/names_fi/fimales.csv"
+        elif (locale == "gb"):
+            if (gender == "female"):
+                path = "files/names/names_gb/ukfemales.csv"
+            elif (gender == "male"):
+                path = "files/names/names_gb/ukmales.csv"                
         elif (locale == "ie"):
             if (gender == "female"):
                 path = "files/names/names_ie/iefemales.csv"
@@ -345,11 +341,6 @@ class Gender(object):
                 path = "files/names/names_si/sifemales.csv"
             elif (gender == "male"):
                 path = "files/names/names_si/simales.csv"
-        elif (locale == "uk"):
-            if (gender == "female"):
-                path = "files/names/names_uk/ukfemales.csv"
-            elif (gender == "male"):
-                path = "files/names/names_uk/ukmales.csv"
         elif (locale == "uy"):
             if (gender == "female"):
                 path = "files/names/names_uy/uyfemeninos.csv"
@@ -389,7 +380,7 @@ class Gender(object):
             path = "files/inesurnames/apellidos-portugal.xls.csv"
         elif (locale == "si"):
             path = "files/inesurnames/apellidos-eslovenia.xls.csv"                        
-        elif (locale == "uk"):
+        elif (locale == "gb"):
             path = "files/inesurnames/apellidos-reino-unido.xls.csv"
         elif (locale == "uy"):
             path = "files/inesurnames/apellidos-uruguay.xls.csv"
@@ -400,12 +391,12 @@ class Gender(object):
     
     def males_list(self, corpus='es'):
         au_path = 'files/names/names_au/baby-names-1944-2013/aumales.csv'
-        ca_path = 'files/names/names_ca/camales.csv'        
-        ine_path = 'files/names/names_es/masculinos.txt'
+        ca_path = 'files/names/names_ca/camales.csv'
+        gb_path = 'files/names/names_gb/ukmales.txt'        
+        ine_path = 'files/names/names_es/masculinos.txt' 
         nz_path = 'files/names/names_nz/nzmales.csv'
 #        pt_path = 'files/names/names_pt/ptmales.csv'        
         uy_path = 'files/names/names_uy/uymasculinos.txt'
-        uk_path = 'files/names/names_uk/ukmales.txt'
         us_path = 'files/names/names_us/usmales.txt'
 
         m = []
@@ -419,14 +410,14 @@ class Gender(object):
             m = du.csvcolumn2list(nz_path)
         # elif (corpus == 'pt'):
         #     m = du.csvcolumn2list(pt_path)            
-        elif (corpus == 'uk'):
-            m = du.csvcolumn2list(uk_path)
+        elif (corpus == 'gb'):
+            m = du.csvcolumn2list(gb_path)
         elif (corpus == 'us'):
             m = du.csvcolumn2list(us_path)
         elif (corpus == 'uy'):
             m = du.csvcolumn2list(uy_path)
         elif (corpus == 'all'):
-            m = du.csvcolumn2list(au_path) + du.csvcolumn2list(ca_path) + du.csvcolumn2list(ine_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(uk_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path) 
+            m = du.csvcolumn2list(au_path) + du.csvcolumn2list(ca_path) + du.csvcolumn2list(ine_path) + du.csvcolumn2list(gb_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path) 
         m = du.delete_duplicated(m)
         return m
 
@@ -436,7 +427,7 @@ class Gender(object):
         ine_path = 'files/names/names_es/femeninos.txt'
         nz_path = 'files/names/names_nz/nzfemales.csv'
 #        pt_path = 'files/names/names_pt/ptfemales.csv'        
-        uk_path = 'files/names/names_uk/ukfemales.txt'
+        gb_path = 'files/names/names_gb/ukfemales.txt'
         us_path = 'files/names/names_us/usfemales.txt'
         uy_path = 'files/names/names_uy/uyfemeninos.txt'
 
@@ -451,8 +442,8 @@ class Gender(object):
             f = du.csvcolumn2list(nz_path)
         # elif (corpus == 'pt'):
         #     f = du.csvcolumn2list(pt_path)                        
-        elif (corpus == 'uk'):
-            f = du.csvcolumn2list(uk_path)
+        elif (corpus == 'gb'):
+            f = du.csvcolumn2list(gb_path)
         elif (corpus == 'us'):
             f = du.csvcolumn2list(us_path)
         elif (corpus == 'uy'):
@@ -615,7 +606,7 @@ class Gender(object):
                     elif (guess == 'u'):
                         guess = 2
                     genderlist.append(guess)
-        if (dataset == "files/names/names_uk/orig/yob2017.txt"):
+        if (dataset == "files/names/names_gb/orig/yob2017.txt"):
             with open(dataset) as csvfile:
                 sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
                 next(sexreader, None)
@@ -645,12 +636,14 @@ class Gender(object):
             path_males = 'files/names/names_ie/iemales.csv'            
         elif (dataset == 'de'):
             path_males = 'files/names/names_de/demales.csv'            
+        elif (dataset == 'dk'):
+            path_males = 'files/names/names_dk/males.csv'            
         elif (dataset == 'is'):
             path_males = 'files/names/names_is/ismales.csv'            
         elif (dataset == 'uy'):
             path_males = 'files/names/names_uy/uymasculinos.csv'
-        elif (dataset == 'uk'):
-            path_males = 'files/names/names_uk/ukmales.csv'
+        elif (dataset == 'gb'):
+            path_males = 'files/names/names_gb/ukmales.csv'
         elif ((dataset == 'us') or (dataset=='usa')):
             path_males = 'files/names/names_us/usmales.csv'
         elif (dataset == 'nz'):
@@ -682,6 +675,8 @@ class Gender(object):
             path_females = 'files/names/names_es/esfemeninos.csv'
         elif (dataset == 'at'):
             path_females = 'files/names/names_at/atfemales.csv'                        
+        elif (dataset == 'dk'):
+            path_males = 'files/names/names_dk/females.csv'            
         elif (dataset == 'de'):
             path_females = 'files/names/names_de/defemales.csv'                        
         elif (dataset == 'ie'):
@@ -690,8 +685,8 @@ class Gender(object):
             path_females = 'files/names/names_is/isfemales.csv'                        
         elif (dataset == 'uy'):
             path_females = 'files/names/names_uy/uyfemeninos.csv'
-        elif (dataset == 'uk'):
-            path_females = 'files/names/names_uk/ukfemales.csv'
+        elif (dataset == 'gb'):
+            path_females = 'files/names/names_gb/ukfemales.csv'
         elif ((dataset == 'us') or (dataset=='usa')):
             path_females = 'files/names/names_us/usfemales.csv'
         elif (dataset == 'nz'):
@@ -848,19 +843,19 @@ class Gender(object):
         ie = self.name_frec(name,dataset="ie")
         isl = self.name_frec(name,dataset="is")        
         uy = self.name_frec(name,dataset="uy")
-        uk = self.name_frec(name,dataset="uk")
+        gb = self.name_frec(name,dataset="gb")
         us = self.name_frec(name,dataset="us")
         nz = self.name_frec(name,dataset="nz")
         ca = self.name_frec(name,dataset="ca")                                        
         fi = self.name_frec(name,dataset="fi")
         au = self.name_frec(name,dataset="au")
         pt = self.name_frec(name,dataset="pt")    
-        females = int(es["females"]) + int(ie["females"]) + int(isl["females"]) + int(uy["females"]) + int(uk["females"]) + int(us["females"]) + int(nz["females"]) + int(ca["females"]) + int(fi["females"]) + int(au["females"]) + int(pt["females"])
-        males = int(es["males"]) + int(ie["males"]) + int(isl["males"]) + int(uy["males"]) + int(uk["males"]) + int(us["males"])  + int(nz["males"]) + int(ca["males"]) + int(fi["males"]) + int(au["males"]) + int(pt["males"])
+        females = int(es["females"]) + int(ie["females"]) + int(isl["females"]) + int(uy["females"]) + int(gb["females"]) + int(us["females"]) + int(nz["females"]) + int(ca["females"]) + int(fi["females"]) + int(au["females"]) + int(pt["females"])
+        males = int(es["males"]) + int(ie["males"]) + int(isl["males"]) + int(uy["males"]) + int(gb["males"]) + int(us["males"])  + int(nz["males"]) + int(ca["males"]) + int(fi["males"]) + int(au["males"]) + int(pt["males"])
 
-        prob_females = {"es": du.round_and_not_zero_division(int(es["females"]), int(females)), "ie": du.round_and_not_zero_division(int(ie["females"]), int(females)), "is": du.round_and_not_zero_division(int(isl["females"]), int(females)), "uy": du.round_and_not_zero_division(int(uy["females"]), int(females)), "uk": du.round_and_not_zero_division(int(uk["females"]), int(females)), "us": du.round_and_not_zero_division(int(us["females"]), int(females)), "nz": du.round_and_not_zero_division(int(nz["females"]), int(females)), "ca": du.round_and_not_zero_division(int(ca["females"]), int(females)), "fi": du.round_and_not_zero_division(int(fi["females"]), int(females)), "au": du.round_and_not_zero_division(int(au["females"]), int(females)), "pt": du.round_and_not_zero_division(int(pt["females"]), int(females))}
+        prob_females = {"es": du.round_and_not_zero_division(int(es["females"]), int(females)), "ie": du.round_and_not_zero_division(int(ie["females"]), int(females)), "is": du.round_and_not_zero_division(int(isl["females"]), int(females)), "uy": du.round_and_not_zero_division(int(uy["females"]), int(females)), "gb": du.round_and_not_zero_division(int(gb["females"]), int(females)), "us": du.round_and_not_zero_division(int(us["females"]), int(females)), "nz": du.round_and_not_zero_division(int(nz["females"]), int(females)), "ca": du.round_and_not_zero_division(int(ca["females"]), int(females)), "fi": du.round_and_not_zero_division(int(fi["females"]), int(females)), "au": du.round_and_not_zero_division(int(au["females"]), int(females)), "pt": du.round_and_not_zero_division(int(pt["females"]), int(females))}
         
-        prob_males = {"es": du.round_and_not_zero_division(int(es["males"]), int(males)), "ie": du.round_and_not_zero_division(int(ie["males"]), int(males)), "is": du.round_and_not_zero_division(int(isl["males"]), int(males)), "uy": du.round_and_not_zero_division(int(uy["males"]), int(males)), "uk": du.round_and_not_zero_division(int(uk["males"]), int(males)), "us": du.round_and_not_zero_division(int(us["males"]), int(males)), "nz": du.round_and_not_zero_division(int(nz["males"]), int(males)), "ca": du.round_and_not_zero_division(int(ca["males"]), int(males)), "fi": du.round_and_not_zero_division(int(fi["males"]), int(males)), "au": du.round_and_not_zero_division(int(au["males"]), int(males)), "pt": du.round_and_not_zero_division(int(pt["males"]), int(males))}
+        prob_males = {"es": du.round_and_not_zero_division(int(es["males"]), int(males)), "ie": du.round_and_not_zero_division(int(ie["males"]), int(males)), "is": du.round_and_not_zero_division(int(isl["males"]), int(males)), "uy": du.round_and_not_zero_division(int(uy["males"]), int(males)), "gb": du.round_and_not_zero_division(int(gb["males"]), int(males)), "us": du.round_and_not_zero_division(int(us["males"]), int(males)), "nz": du.round_and_not_zero_division(int(nz["males"]), int(males)), "ca": du.round_and_not_zero_division(int(ca["males"]), int(males)), "fi": du.round_and_not_zero_division(int(fi["males"]), int(males)), "au": du.round_and_not_zero_division(int(au["males"]), int(males)), "pt": du.round_and_not_zero_division(int(pt["males"]), int(males))}
 
         prob = [{"females": prob_females, "males": prob_males}]
         
