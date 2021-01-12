@@ -18,12 +18,9 @@
 # along with Damegender in the file GPL.txt.  If not, see
 # <https://www.gnu.org/licenses/>.
 
-<<<<<<< HEAD
-=======
 
 # You can share, copy and modify this software if you are a woman or you
 # are David Arroyo Menéndez and you include this note.
->>>>>>> dev
 
 import unidecode
 import unicodedata
@@ -97,6 +94,27 @@ class DameUtils():
                 aux = aux + c
         return aux
 
+    def single_hyphen_p(self, s):
+        cnt = 0
+        for c in unicodedata.normalize('NFD', str(s)):
+            if (c == '-'):
+                cnt = cnt +1
+        if (cnt == 1):
+            boolean = True
+        else:
+            boolean = False
+        return boolean
+
+    def replace_single_hyphen(self, s):
+        if (self.single_hyphen_p(s)):
+            aux = ""
+            for c in unicodedata.normalize('NFD', str(s)):
+                if (c != '-'):
+                    aux = aux + c
+                else:
+                    aux = aux + " "
+        return aux
+            
     def white_space_inside_by(self, s, by):
         inside = 0
         aux = ""

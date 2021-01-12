@@ -4,19 +4,8 @@
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# Damegender is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# Damegender is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-# You should have received a copy of the GNU General Public License
-# along with Damegender in the file GPL.txt.  If not, see
-# <https://www.gnu.org/licenses/>.
+# You can share, copy and modify this software if you are a woman or you
+# are David Arroyo Menéndez and you include this note.
 
 
 
@@ -75,6 +64,14 @@ class TddInPythonExample(unittest.TestCase):
         u = DameUtils()
         self.assertEqual("Ines", u.drop_accents("Inés"))
 
+    def test_single_hyphen_p(self):
+        u = DameUtils()
+        self.assertTrue(u.single_hyphen_p("Magia-Antoñeta"))
+
+    def test_replace_single_hyphen(self):
+        u = DameUtils()
+        self.assertEqual(u.replace_single_hyphen("Magia-Antogneta"), "Magia Antogneta")
+        
     def test_drop_white_space(self):
         u = DameUtils()
         self.assertEqual("In",
@@ -259,6 +256,12 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(noz > 0)
         self.assertEqual(noz, 27)
 
+    def test_dame_utils_int2gender(self):
+        du = DameUtils()
+        self.assertEqual(du.int2gender(1), "male")
+        self.assertEqual(du.int2gender(0), "female")
+        self.assertEqual(du.int2gender(2), "unknown")                
+        
         
         
     # def test_dame_utils_delete_duplicated_identities(self):
