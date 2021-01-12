@@ -4,25 +4,9 @@
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# Damegender is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+# You can share, copy and modify this software if you are a woman or you
+# are David Arroyo Menéndez and you include this note.
 
-# Damegender is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-# You should have received a copy of the GNU General Public License
-# along with Damegender in the file GPL.txt.  If not, see
-# <https://www.gnu.org/licenses/>.
-
-<<<<<<< HEAD
-
-import csv
-=======
->>>>>>> dev
 import requests
 import json
 import numpy as np
@@ -92,8 +76,10 @@ class DameNamsor(Gender):
                 slist.append(self.guess(name, surname, binary))
         return slist
 
-    def download(self, path="files/names/min.csv"):
+    def download(self, path="files/names/min.csv", *args, **kwargs):
         du = DameUtils()
+        names_position = kwargs.get('names_position',"0")
+        surnames_position = kwargs.get('surnames_position',"1")
         namsorjson = path
         namsorjson = open("files/names/namsor"+du.path2file(path)+".json", "w+")
         surnames=True
@@ -101,18 +87,20 @@ class DameNamsor(Gender):
         namsorjson.write("[")
         length = len(names)
         i = 0
-        while (i < length):
-            name = names[i][0]
-            namsorjson.write('{"name":"'+str(names[i][0])+'",\n')
-            surname = names[i][1]
-            namsorjson.write('"surname":"'+str(names[i][1])+'",\n')
-            dnget = self.get(name=name, surname=surname, binary=True)
-            namsorjson.write('"gender":"'+str(dnget[0])+'",\n')
-            namsorjson.write('"scale":'+str(dnget[1])+'\n')
-            if ((length -1) == i):
-                namsorjson.write('} \n')
-            else:
-                namsorjson.write('}, \n')
-            i = i + 1
-        namsorjson.write("]")
-        namsorjson.close()
+        print(names)
+        # while (i < length):
+        #     name = names[i][names_position]
+        #     namsorjson.write('{"name":"'+str(names[i][names_position])+'",\n')
+        #     if names[i][surnames_position]:
+        #         surname = names[i][surnames_position]
+        #         namsorjson.write('"surname":"'+str(names[i][surnames_position])+'",\n')
+        #     dnget = self.get(name=name, surname=surname, binary=True)
+        #     namsorjson.write('"gender":"'+str(dnget[0])+'",\n')
+        #     namsorjson.write('"scale":'+str(dnget[1])+'\n')
+        #     if ((length -1) == i):
+        #         namsorjson.write('} \n')
+        #     else:
+        #         namsorjson.write('}, \n')
+        #     i = i + 1
+        # namsorjson.write("]")
+        # namsorjson.close()
