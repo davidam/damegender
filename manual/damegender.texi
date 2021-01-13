@@ -5,7 +5,7 @@
 @settitle Damegender Manual @value{VERSION}
 @syncodeindex pg cp
 @comment %**end of header
-@include copying-fl.texi
+@include copying-fdl.texi
 
 @titlepage
 @title Damegender Manual: Counting Males and Females in Internet Communities
@@ -137,6 +137,40 @@ lot of applications about Damegender. We are giving some data sources
 about gender gap. And finally, the theorical frameworks are being
 showed to put data into discourses. We are added conclusions as
 summary and further reading for extend the interest.
+
+@section Reproducible Research
+@cindex Reproducible Research
+
+Damegender has been written thinking on make easy the reproducible
+research. It's possible using:
+@itemize @bullet
+@item
+Free Software for Damegender and the Damegender dependencies.
+@item
+Free documentation for Damegender (this manual, faqs, and a website)
+@item
+Open Data with sources written.
+@item
+Good practiques about programming (POO, using standards, unity tests
+and user tests)
+@end itemize
+
+The are some interesting goal towards reproducible research. That's
+more link between code and data in a way where you can download all
+data and execute all code. These tasks has not been reached due to:
+@itemize @bullet
+@item
+To retrieve data from Internet becomes slow and you can suffer cuts
+in the Internet connection.
+@item 
+To train machine learning models and sometimes execute machine
+learning models with a good number of names is slow. Then it's not
+practical for build a pdf make all work of code and data linked.
+@end itemize
+
+So in the spectrum of reproducibility (Peng, 2011) the damegender
+papers and damegender manual will be in the point of partially linked
+and executable code and data.
 
 
 @node Installation
@@ -1422,11 +1456,14 @@ intersectionality, to create companies more powerful than states is bad
 for the democracy and in a world where exists the gender gap the
 change to the gender equity is a pressure of values.
 
-@image{images/debian_by_gender,6in,,Debian GNU/Linux by Gender}
+A Linux operating system such as we find in a CD of Ubuntu, RedHat or
+Suse is composed by the Kernel (Linux) and GNU programs. Later, it's
+organized in a distribution, such as Ubuntu and Debian. We have
+choosen Debian as use case and we are counting males females in Linux,
+too.
 
-@image{images/gnu_by_gender,6in,,GNU by Gender}
+@image{images/debiangnulinux,6in,,Debian GNU/Linux by Gender}
 
-@image{images/kernel_by_gender,6in,,Kernel by Gender}
 
 @node Theorical Frameworks
 @chapter Theorical Frameworks
@@ -2140,12 +2177,19 @@ Información y Comunicación en los Hogares} by INE.es
 This document explains differences in gender using Internet and
 computers in Spain.
 
+@quotation
+@cite{Reproducible Research in Computational Science} by Roger D. Peng
+published by Science
+(@url{https://science.sciencemag.org/content/sci/334/6060/1226.full.pdf})
+@end quotation 
+This paper describes the quality of papers for reproducibility.
+
 
 @node License 
 @appendix License
 @cindex Damegender License
 
-@include license-fl.texi
+@include fdl-1.3.texi
 
 @node Index
 @unnumbered Index
