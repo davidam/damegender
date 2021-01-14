@@ -36,6 +36,7 @@ This manual is for Damegender (version @value{VERSION}, @value{UPDATED}).
 * Theorical Frameworks::
 * Conclusions::
 * Further Reading::
+* Acknowledgements::
 * License::
 * Index::
 @end menu
@@ -1957,6 +1958,39 @@ How to find the main external resources about gender gap.
 To explain some philosophies for to give explanations to the data.
 
 @end itemize
+
+@node Acknowledgements
+@unnumbered Acknowledgements
+@cindex Acknowledgements
+
+Damegender is dedicated to the INTER Project.
+I want give thanks to:
+
+@itemize @bullet
+@item
+To my mother.
+@item
+To Luc@'{@dotless{i}}a Santamar@'{@dotless{i}}a by the papers and motivation to do the work inspiring very possitive ideas.
+
+@item
+To Bitergia team by the motivation towards Python and Perceval
+
+@item
+To GAPLEN team (Leticia Mart@'{@dotless{i}}n Fuertes, Ana Gonz@'alez Ledesma, ...) by the motivation towards Natural Language Processing.
+
+@item
+To the feminist movement by show me the problems related with the gender gap.
+
+@item
+To the Free Software movement by the understanding in licenses and the
+happy hacking sessions.
+
+@item
+To URJC by the seminars.
+
+
+@end itemize
+
 
 @node Further reading
 @unnumbered Further reading
