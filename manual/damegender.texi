@@ -1356,10 +1356,7 @@ represented?}'', @ref{Further reading}.
 @cindex Gender Gap
 @cindex Gender
 @cindex Secondary Sources
-<<<<<<< HEAD
-=======
 @cindex Social Research
->>>>>>> dev
 
 When a social researcher starts a new work, the first step is set an
 objective about the project with subobjectives, that's define the
@@ -1367,13 +1364,10 @@ problem to solve with a methodology (quantitative, qualitative, or
 mixed). The second step is about sample decision who is the people,
 the population going to give us the data. The third step is about
 selection strategies about retrieve data, analysis and to show
-<<<<<<< HEAD
 results. (Source: Técnicas Cualitativas de Investigación Social)
 (Source: La encuesta una perspectiva general metodológica)
-=======
 results. See ``@cite{T@'ecnicas Cualitativas de Investigaci@'on Social}'',
 @ref{Further reading}
->>>>>>> dev
 
 To read secondary sources about the objective and subobjectives of the
 project is to read previous works of another people (papers, books,
