@@ -727,8 +727,10 @@ concept:
 @example
 python3 confusion.py --csv=files/names/min.csv
 --api=damegender --jsondownloaded=files/names/min.csv.json 
-A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
-If the classifier is nice, the diagonal is high because there are true positives
+A confusion matrix C is such that Ci,j is equal to the number of
+observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are
+true positives
 Damegender confusion matrix:
 
       M   F   U  
@@ -1058,7 +1060,7 @@ But, a research must understand the source, too.
 In the next diagram we can see (78.4% of males, 5.4% of females and
 16.2% of unknowns).
 
-@image{images/imageonline,6in,,Debian by gender}
+@image{images/debiangnulinux,6in,,Debian by gender}
 
 We can retrieve the names of unknows and to decide about the name in
 the sense of retrieve the gender from a commercial api (genderapi,
