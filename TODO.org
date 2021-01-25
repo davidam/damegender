@@ -1140,7 +1140,6 @@ Hay idiomas que los nombres tienen género para llegar a esto es posible revisar
 2. Tendría un argumento locale que por defecto es all
 3. Habría que sacar de la instalación pip los locale no gpl compatible
 
-
 * DONE Escribir el comando top para mostrar, por ejemplo, los 10 nombres más utilizados en USA
   - State "DONE"       from "TODO"       [2020-07-06 lun 16:57]
 ** Parámetros
@@ -1162,9 +1161,12 @@ Hay idiomas que los nombres tienen género para llegar a esto es posible revisar
   - State "DONE"       from "TODO"       [2020-06-08 lun 12:31]
 * TODO Escribir una carpeta names_inter con un json, un fichero males y females que tenga sumados todos los datasets
   SCHEDULED: <2020-06-26 vie>
-* TODO Escribir el método surname_starts_by y name_starts_by para que dado un nombre o un apellido liste todo los nombres con los que hace match
+* DONE Escribir el método surname_starts_by y name_starts_by para que dado un nombre o un apellido liste todo los nombres con los que hace match
+  - State "DONE"       from "TODO"       [2021-01-25 lun 05:58]
 Se puede hacer también al revés con lo que acaba (ej: name_ends_by y surname_ends_by) 
 O se puede hacer directamente con expresión regular (ej: name_regex y surname_regex)
+
+Queda finalmente implementado en el comando startwith.py
 * DONE Hacer un screencast usando los principales comandos
   SCHEDULED: <2020-07-06 lun>
   - State "DONE"       from "TODO"       [2020-09-02 mié 05:55]
@@ -1178,3 +1180,5 @@ Los campos de cada persona
 + gender (obligatorio)
 - State "DONE"       from "TODO"       [2020-12-06 dom 23:10]
 * DONE Añadir Bélgica
+* TODO En top.py estaría bien una opción --countries que despliegue en formato tabla los top de diferentes países
+
