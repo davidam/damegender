@@ -46,7 +46,7 @@ class DameUtils():
                              "fi": "files/names/names_fi/fimales.csv",
                              "gb": "files/names/names_gb/ukmales.csv",
                              "ie": "files/names/names_ie/iemales.csv",
-                             "ine": "files/names/names_es/esfemeninos.csv",
+                             "ine": "files/names/names_es/esmasculinos.csv",
                              "nz": "files/names/names_nz/nzmales.csv",
                              "mx": "files/names/names_mx/hombres.csv",
                              "pt": "files/names/names_pt/ptmales.csv",
