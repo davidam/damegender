@@ -4,19 +4,8 @@
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# Damegender is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# Damegender is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-# You should have received a copy of the GNU General Public License
-# along with Damegender in the file GPL.txt.  If not, see
-# <https://www.gnu.org/licenses/>.
+# You can share, copy and modify this software if you are a woman or you
+# are David Arroyo Menéndez and you include this note.
 
 
 
@@ -33,7 +22,8 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
-parser.add_argument('--total', default="us", choices=['at', 'au', 'be', 'ca', 'de', 'dk', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'mx', 'pt', 'si', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
+parser.add_argument('--total', default="us", choices=['at', 'au', 'be', 'ca', 'de', 'dk', 'es', 'fi', 'gb', 'ie', 'ine', 'is', 'nz', 'mx', 'pt', 'si', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
+# More about iso codes on https://www.iso.org/obp/ui/
 parser.add_argument('--version', action='version', version='0.3')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
@@ -116,8 +106,8 @@ elif ((args.verbose) or (args.total == "all")):
         num_females = s.name_frec(args.name, dataset="uy")['females']
         print("%s males for %s from Uruguay statistics" % (num_males, args.name))
         print("%s females for %s from Uruguay statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="uk")['males']
-        num_females = s.name_frec(args.name, dataset="uk")['females']
+        num_males = s.name_frec(args.name, dataset="gb")['males']
+        num_females = s.name_frec(args.name, dataset="gb")['females']
         print("%s males for %s from United Kingdom statistics" % (num_males, args.name))
         print("%s females for %s from United Kingdom statistics" % (num_females, args.name))
         num_males = s.name_frec(args.name, dataset="nz")['males']
@@ -252,7 +242,7 @@ else:
     elif (args.total == "uy"):
         print("%s males for %s from Uruguay statistics" % (num_males, args.name))
         print("%s females for %s from Uruguay statistics" % (num_females, args.name))
-    elif (args.total == "uk"):
+    elif ((args.total == "uk") or (args.total == "gb")):
         print("%s males for %s from United Kingdom statistics" % (num_males, args.name))
         print("%s females for %s from United Kingdom statistics" % (num_females, args.name))
     elif (args.total == "us"):
