@@ -265,94 +265,6 @@ class Gender(object):
 
     # DATASETS METHODS #
 
-    def path_name_dataset(self, locale, gender):
-        if (locale == "at"):
-            if (gender == "female"):
-                path = "files/names/names_at/atfemales.csv"
-            elif (gender == "male"):
-                path = "files/names/names_at/atmales.csv"
-        elif (locale == "au"):
-            if (gender == "female"):
-                path = "files/names/names_au/baby-names-1944-2013/aufemales.csv"
-            elif (gender == "male"):
-                path = "files/names/names_au/baby-names-1944-2013/aumales.csv"
-        elif (locale == "be"):
-            if (gender == "female"):
-                path = "files/names/names_be/befemales.csv"
-            elif (gender == "male"):
-                path = "files/names/names_be/bemales.csv"
-        elif (locale == "ca"):
-            if (gender == "female"):
-                path = "files/names/names_ca/cafemales.csv"
-            elif (gender == "male"):
-                path = "files/names/names_ca/camales.csv"
-        elif (locale == "de"):
-            if (gender == "female"):
-                path = "files/names/names_de/defemales.csv"
-            elif (gender == "male"):
-                path = "files/names/names_de/demales.csv"
-        elif (locale == "dk"):
-            if (gender == "female"):
-                path = "files/names/names_dk/females.csv"
-            elif (gender == "male"):
-                path = "files/names/names_dk/males.csv"
-        elif (locale == "es"):
-            if (gender == "female"):
-                path = "files/names/names_es/esfemeninos.csv"
-            elif (gender == "male"):
-                path = "files/names/names_es/esmasculinos.csv"
-        elif (locale == "fi"):
-            if (gender == "female"):
-                path = "files/names/names_fi/fifemales.csv"
-            elif (gender == "male"):
-                path = "files/names/names_fi/fimales.csv"
-        elif (locale == "gb"):
-            if (gender == "female"):
-                path = "files/names/names_gb/ukfemales.csv"
-            elif (gender == "male"):
-                path = "files/names/names_gb/ukmales.csv"
-        elif (locale == "ie"):
-            if (gender == "female"):
-                path = "files/names/names_ie/iefemales.csv"
-            elif (gender == "male"):
-                path = "files/names/names_ie/iemales.csv"
-        elif (locale == "is"):
-            if (gender == "female"):
-                path = "files/names/names_is/isfemales.csv"
-            elif (gender == "male"):
-                path = "files/names/names_is/ismales.csv"
-        elif (locale == "nz"):
-            if (gender == "female"):
-                path = "files/names/names_nz/nzfemales.csv"
-            elif (gender == "male"):
-                path = "files/names/names_nz/nzmales.csv"
-        elif (locale == "mx"):
-            if (gender == "female"):
-                path = "files/names/names_mx/hombres.csv"
-            elif (gender == "male"):
-                path = "files/names/names_mx/mujeres.csv"
-        elif (locale == "pt"):
-            if (gender == "female"):
-                path = "files/names/names_pt/ptfemales.csv"
-            elif (gender == "male"):
-                path = "files/names/names_pt/ptmales.csv"
-        elif (locale == "si"):
-            if (gender == "female"):
-                path = "files/names/names_si/sifemales.csv"
-            elif (gender == "male"):
-                path = "files/names/names_si/simales.csv"
-        elif (locale == "uy"):
-            if (gender == "female"):
-                path = "files/names/names_uy/uyfemeninos.csv"
-            elif (gender == "male"):
-                path = "files/names/names_uy/uymasculinos.csv"
-        elif (locale == "us"):
-            if (gender == "female"):
-                path = "files/names/names_us/usfemales.csv"
-            elif (gender == "male"):
-                path = "files/names/names_us/usmales.csv"
-        return path
-
     def path_surname_dataset(self, locale):
         if (locale == "at"):
             path = "files/inesurnames/apellidos-australia.xls.csv"
@@ -627,41 +539,45 @@ class Gender(object):
         dataset = kwargs.get('dataset',"us")
         du = DameUtils()
         name = du.drop_accents(name)
-        path_males = 'files/names/names_es/esmasculinos.csv'
+        dicc_males = du.dicc_dataset("male")
+#        print(dicc_males)
+
+        path_males = dicc_males["es"]
+#        print(path_males)
         if ((dataset == 'ine') or (dataset == 'es')):
-            path_males = 'files/names/names_es/esmasculinos.csv'
+            path_males = dicc_males["es"]
         elif (dataset == 'at'):
-            path_males = 'files/names/names_at/atmales.csv'
-        elif (dataset == 'ie'):
-            path_males = 'files/names/names_ie/iemales.csv'
-        elif (dataset == 'de'):
-            path_males = 'files/names/names_de/demales.csv'
-        elif (dataset == 'dk'):
-            path_males = 'files/names/names_dk/males.csv'
-        elif (dataset == 'is'):
-            path_males = 'files/names/names_is/ismales.csv'
-        elif (dataset == 'uy'):
-            path_males = 'files/names/names_uy/uymasculinos.csv'
-        elif (dataset == 'gb'):
-            path_males = 'files/names/names_gb/ukmales.csv'
-        elif ((dataset == 'us') or (dataset=='usa')):
-            path_males = 'files/names/names_us/usmales.csv'
-        elif (dataset == 'nz'):
-            path_males = 'files/names/names_nz/nzmales.csv'
-        elif (dataset == 'ca'):
-            path_males = 'files/names/names_ca/camales.csv'
-        elif (dataset == 'be'):
-            path_males = 'files/names/names_be/bemales.csv'
-        elif (dataset == 'mx'):
-            path_males = 'files/names/names_mx/hombres.csv'
-        elif (dataset == 'fi'):
-            path_males = 'files/names/names_fi/fimales.csv'
+            path_males = dicc_males["at"]
         elif (dataset == 'au'):
-            path_males = 'files/names/names_au/baby-names-1944-2013/aumales.csv'
+            path_males = dicc_males["au"]
+        elif (dataset == 'be'):
+            path_males = dicc_males["be"]
+        elif (dataset == 'ca'):
+            path_males = dicc_males["ca"]
+        elif (dataset == 'de'):
+            path_males = dicc_males["de"]
+        elif (dataset == 'dk'):
+            path_males = dicc_males["dk"]
+        elif (dataset == 'fi'):
+            path_males = dicc_males["fi"]
+        elif (dataset == 'gb'):
+            path_males = dicc_males["gb"]
+        elif (dataset == 'ie'):
+            path_males = dicc_males["ie"]
+        elif (dataset == 'is'):
+            path_males = dicc_males["is"]
+        elif (dataset == 'nz'):
+            path_males = dicc_males["nz"]
+        elif (dataset == 'mx'):
+            path_males = dicc_males["mx"]
         elif (dataset == 'pt'):
-            path_males = 'files/names/names_pt/ptmales.csv'
+            path_males = dicc_males["pt"]
         elif (dataset == 'si'):
-            path_males = 'files/names/names_si/simales.csv'
+            path_males = dicc_males["si"]            
+        elif (dataset == 'uy'):
+            path_males = dicc_males["uy"]
+        elif ((dataset == 'us') or (dataset=='usa')):
+            path_males = dicc_males["us"]
         file_males = open(path_males, 'r')
         readerm = csv.reader(file_males, delimiter=',', quotechar='|')
         males = 0
@@ -670,41 +586,42 @@ class Gender(object):
                 males = row[1]
                 males = du.drop_dots(males)
 
-        path_females = 'files/names/names_es/esfemeninos.csv'
-        if ((dataset == 'ine') or (dataset == 'es')):
-            path_females = 'files/names/names_es/esfemeninos.csv'
-        elif (dataset == 'at'):
-            path_females = 'files/names/names_at/atfemales.csv'
-        elif (dataset == 'dk'):
-            path_males = 'files/names/names_dk/females.csv'
-        elif (dataset == 'de'):
-            path_females = 'files/names/names_de/defemales.csv'
-        elif (dataset == 'ie'):
-            path_females = 'files/names/names_ie/iefemales.csv'
-        elif (dataset == 'is'):
-            path_females = 'files/names/names_is/isfemales.csv'
-        elif (dataset == 'uy'):
-            path_females = 'files/names/names_uy/uyfemeninos.csv'
-        elif (dataset == 'gb'):
-            path_females = 'files/names/names_gb/ukfemales.csv'
-        elif ((dataset == 'us') or (dataset=='usa')):
-            path_females = 'files/names/names_us/usfemales.csv'
-        elif (dataset == 'nz'):
-            path_females = 'files/names/names_nz/nzfemales.csv'
-        elif (dataset == 'ca'):
-            path_females = 'files/names/names_ca/cafemales.csv'
-        elif (dataset == 'be'):
-            path_females = 'files/names/names_be/befemales.csv'
-        elif (dataset == 'mx'):
-            path_females = 'files/names/names_mx/mujeres.csv'
-        elif (dataset == 'fi'):
-            path_females = 'files/names/names_fi/fifemales.csv'
+        dicc_females = du.dicc_dataset("female")
+        path_females = dicc_females["es"]                
+        if (dataset == 'at'):
+            path_females = dicc_females["at"]                
         elif (dataset == 'au'):
-            path_females = 'files/names/names_au/baby-names-1944-2013/aufemales.csv'
+            path_females = dicc_females["au"]                
+        elif (dataset == 'be'):
+            path_females = dicc_females["be"]                
+        elif (dataset == 'ca'):
+            path_females = dicc_females["ca"]                
+        elif (dataset == 'de'):
+            path_females = dicc_females["de"]
+        elif (dataset == 'dk'):
+            path_males = dicc_females["dk"]
+        if ((dataset == 'ine') or (dataset == 'es')):
+            path_females = dicc_females["es"]                            
+        elif (dataset == 'ie'):
+            path_females = dicc_females["ie"]
+        elif (dataset == 'is'):
+            path_females = dicc_females["is"]
+        elif (dataset == 'fi'):
+            path_females = dicc_females["fi"]            
+        elif (dataset == 'gb'):
+            path_females = dicc_females["gb"]
+        elif (dataset == 'nz'):
+            path_females = dicc_females["nz"]
+        elif (dataset == 'mx'):
+            path_females = dicc_females["mx"]
         elif (dataset == 'pt'):
-            path_females = 'files/names/names_pt/ptfemales.csv'
+            path_females = dicc_females["pt"]
         elif (dataset == 'si'):
-            path_females = 'files/names/names_si/sifemales.csv'
+            path_females = dicc_females["si"]
+        elif (dataset == 'uy'):
+            path_females = dicc_females["uy"]
+        elif ((dataset == 'us') or (dataset=='usa')):
+            path_females = dicc_females["us"]            
         file_females = open(path_females, 'r')
         readerf = csv.reader(file_females, delimiter=',', quotechar='|')
         females = 0
