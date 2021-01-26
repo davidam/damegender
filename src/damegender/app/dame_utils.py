@@ -30,6 +30,51 @@ import csv
 
 class DameUtils():
 
+    def locales(self):
+        locales = [["at"], ["au"], ["be"], ["ca"], ["de"], ["dk"], ["es", "ine"], ["gb"], ["ie"], ["is"], ["mx"], ["nz"], ["pt"], ["si"], ["us", "usa"], ["uy"]]
+        return locales
+
+    def dicc_dataset(self, sex):
+        if ((sex == "male") or (sex == "males") or (sex == 1)):
+            path_dataset = { "at": "files/names/names_at/atmales.csv",
+                             "au": "files/names/names_au/baby-names-1944-2013/aumales.csv",
+                             "be": "files/names/names_be/bemales.csv",
+                             "ca": "files/names/names_ca/camales.csv",
+                             "de": "files/names/names_de/demales.csv",
+                             "dk": "files/names/names_dk/males.csv",
+                             "es": "files/names/names_es/esmasculinos.csv",
+                             "fi": "files/names/names_fi/fimales.csv",
+                             "gb": "files/names/names_gb/ukmales.csv",
+                             "ie": "files/names/names_ie/iemales.csv",
+                             "ine": "files/names/names_es/esfemeninos.csv",
+                             "nz": "files/names/names_nz/nzmales.csv",
+                             "mx": "files/names/names_mx/hombres.csv",
+                             "pt": "files/names/names_pt/ptmales.csv",
+                             "si": "files/names/names_si/simales.csv",
+                             "us": "files/names/names_us/usmales.csv",
+                             "usa": "files/names/names_us/usmales.csv",
+                             "uy": "files/names/names_uy/uymasculinos.csv"}
+        elif ((sex == "female") or (sex == "females") or (sex == 0)):
+            path_dataset = { "at": "files/names/names_at/atfemales.csv",
+                             "au": "files/names/names_au/baby-names-1944-2013/aufemales.csv",
+                             "be": "files/names/names_be/befemales.csv",
+                             "ca": "files/names/names_ca/cafemales.csv",
+                             "de": "files/names/names_de/defemales.csv",
+                             "dk": "files/names/names_dk/females.csv",
+                             "es": "files/names/names_es/esfemeninos.csv",
+                             "fi": "files/names/names_fi/fifemales.csv",
+                             "gb": "files/names/names_gb/ukfemales.csv",
+                             "ie": "files/names/names_ie/iefemales.csv",
+                             "ine": "files/names/names_es/esfemeninos.csv",
+                             "nz": "files/names/names_nz/nzfemales.csv",
+                             "mx": "files/names/names_mx/mujeres.csv",
+                             "pt": "files/names/names_pt/ptfemales.csv",
+                             "si": "files/names/names_si/sifemales.csv",
+                             "us": "files/names/names_us/usfemales.csv",
+                             "usa": "files/names/names_us/usfemales.csv",
+                             "uy": "files/names/names_uy/uyfemeninos.csv"}            
+        return path_dataset
+            
     def string2array(self, string):
         res = ""
         string = unidecode.unidecode(string)

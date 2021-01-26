@@ -262,7 +262,12 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(du.int2gender(0), "female")
         self.assertEqual(du.int2gender(2), "unknown")                
         
-        
+    def test_dame_utils_dicc_dataset(self):
+        du = DameUtils()
+        dicc = du.dicc_dataset("male")
+        self.assertEqual(dicc["at"], "files/names/names_at/atmales.csv")        
+        dicc = du.dicc_dataset("female")
+        self.assertEqual(dicc["at"], "files/names/names_at/atfemales.csv")        
         
     # def test_dame_utils_delete_duplicated_identities(self):
     #     du = DameUtils()
