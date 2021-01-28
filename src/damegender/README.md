@@ -3,7 +3,9 @@ Name
 ======
 
   Damegender is a gender detection tool from the name coded by David
-  Arroyo MEnéndez (DAME)
+  Arroyo MEnéndez (DAME).
+
+  You can visit http://www.damegender.net!!
 
 
 Why?
@@ -18,6 +20,10 @@ Why?
     command with open data.
   + If you want use the main solutions in gender detection (genderize,
     genderapi, namsor, nameapi and gender guesser) from a command.
+  + If you want see the most used names in different countries such as
+    in nameberry.
+  + If you have a csv file, a mbox file, or a repository and you want
+    understand males and females inside.
 
   DAMe Gender is for you!
 
@@ -25,9 +31,10 @@ Why?
 Tell me about DAMe Gender on Video
 ====================================
 
-- [Python Barcelona (Spanish)](https://www.youtube.com/embed/dvN0lMgQ9Pc)
-- [Damegender in Software Freedom Day (Spanish)](https://tv.urjc.es/iframe/5d895319d68b148f7a8c0da6)
 - [Damegender in URJC (English)](https://tv.urjc.es/video/5d895319d68b148f7a8c0da6)
+- [Damegender in SATTOSE 2020](https://www.youtube.com/watch?v=ZN53yFfLkgQ&t=10s)
+- [Damegender desde los comandos (Spanish)](https://vimeo.com/450961020)
+- [Much more](http://damegender.net/#video)
 
 # Install
 
@@ -88,6 +95,7 @@ To configure your api key
 # Speeches, Seminars, Expressions of Support
 
 -   [MadSeSe](http://gregoriorobles.github.io/MadSESE/201906.html)
+-   [SaTToSE (ceur)](http://ceur-ws.org/Vol-2754/paper3.pdf)
 -   [Python Barcelona](https://www.meetup.com/es-ES/python-185/events/261405719/)
 -   [Taller de Periodismo de Datos (Medialab Prado, Madrid). NLTK & Damegender](https://www.medialab-prado.es/noticias/taller-de-periodismo-de-datos-2019-sesiones-formativas)
 -   [Software Freedom Day (URJC, Móstoles). Damegender](https://tv.urjc.es/video/5d895319d68b148f7a8c0da6)
