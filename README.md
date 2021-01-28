@@ -116,13 +116,8 @@ To configure your api key
       the GNU Free Documentation License, Version 1.3 or any later
       version published by the Free Software Foundation; with no
       Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
-      A copy of the license is included in [GNU Free Documentation
-      License].
+      A copy of the license is included in [GNU Free Documentation License](https://www.gnu.org/copyleft/fdl.html)
 
-  [file:https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/GFDL_Logo.svg/200px-GFDL_Logo.svg.png]
+[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/GFDL_Logo.svg/200px-GFDL_Logo.svg.png)](https://www.gnu.org/copyleft/fdl.html)
 
 
-[GNU Free Documentation License] https://www.gnu.org/copyleft/fdl.html
-
-[file:https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/GFDL_Logo.svg/200px-GFDL_Logo.svg.png]
-https://www.gnu.org/copyleft/fdl.html
