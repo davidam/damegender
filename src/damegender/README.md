@@ -1,103 +1,210 @@
-# Name
+David
 
-damegender is a gender detection tool from the name coded by David Arroyo MEnéndez (DAME)
 
-# Why?
+Table of Contents
+_________________
 
-- If you want determine gender gap in free software projects or mailing lists.
-- If you don't know the gender about a name
-- If you want research with statistics about why a name is related with males or females.
-- If you want use a free gender detection tool from a name from a command with
-  open data.
-- If you want use the main solutions in gender detection (genderize,
-  genderapi, namsor, nameapi and gender guesser) from a command.
+1 Name
+2 Why?
+3 Tell me about DAMe Gender on Video
+4 Install
+.. 4.1 Installing Software
+..... 4.1.1 Possible Debian/Ubuntu dependencies
+..... 4.1.2 From sources
+..... 4.1.3 With python package
+.. 4.2 Obtaining an api key
+.. 4.3 Configuring nltk
+5 Speeches, Seminars, Expressions of Support
+6 Beautiful Snakes
+7 Dame Music
+8 Gender Songs
+9 License
 
-DAMe Gender is for you!
 
-# Tell me about DAMe Gender on Video
+1 Name
+======
 
--   [Python Barcelona (Spanish)](https://www.youtube.com/embed/dvN0lMgQ9Pc)
--   [Damegender in Software Freedom Day (Spanish)](https://tv.urjc.es/iframe/5d895319d68b148f7a8c0da6)
--   [Damegender in URJC (English)](https://tv.urjc.es/video/5d895319d68b148f7a8c0da6)
+  damegender is a gender detection tool from the name coded by David
+  Arroyo MEnéndez (DAME)
 
-# Install
 
-## Installing Software
+2 Why?
+======
 
-### Possible Debian/Ubuntu dependencies
+  + If you want determine gender gap in free software projects or
+    mailing lists.
+  + If you don't know the gender about a name
+  + If you want research with statistics about why a name is related
+    with males or females.
+  + If you want use a free gender detection tool from a name from a
+    command with open data.
+  + If you want use the main solutions in gender detection (genderize,
+    genderapi, namsor, nameapi and gender guesser) from a command.
 
-    $ sudo apt-get install python3-nose-exclude python3-dev dict dict-freedict-eng-spa dict-freedict-spa-eng dictd
+  DAMe Gender is for you!
 
-### From sources
 
-    $ git clone https://github.com/davidam/damegender
-    $ cd damegender
-    $ pip3 install -r requirements.txt
+3 Tell me about DAMe Gender on Video
+====================================
 
-### With python package
+  + [Python Barcelona (Spanish)]
+  + [Damegender in Software Freedom Day (Spanish)]
+  + [Damegender in URJC (English)]
 
-    $ python3 -m venv /tmp/d
-    $ cd /tmp/d
-    $ source bin/activate
-    $ pip install --upgrade pip
-    $ pip3 install damegender
-    $ cd lib/python3.5/site-packages/damegender
-    $ python3 main.py David
 
-To install apis extra dependencies:
+[Python Barcelona (Spanish)] https://www.youtube.com/embed/dvN0lMgQ9Pc
 
-    $ pip3 install damegender[apis]
+[Damegender in Software Freedom Day (Spanish)]
+https://tv.urjc.es/iframe/5d895319d68b148f7a8c0da6
 
-To install mailing lists and repositories extra dependencies:
+[Damegender in URJC (English)]
+https://tv.urjc.es/video/5d895319d68b148f7a8c0da6
 
-    $ pip3 install damegender[mails_and_repositories]
 
-To install all possible dependencies
+4 Install
+=========
 
-    $ pip3 install damegender[all]
+4.1 Installing Software
+~~~~~~~~~~~~~~~~~~~~~~~
 
-## Obtaining an api key
+4.1.1 Possible Debian/Ubuntu dependencies
+-----------------------------------------
 
-Currently you can need an api key from:
--   <https://store.genderize.io/documentation>
--   <https://gender-api.com>
--   <https://www.nameapi.org/>
--   <https://v2.namsor.com/NamSorAPIv2/sign-in.html>
+  ,----
+  | $ sudo apt-get install python3-nose-exclude python3-dev dict dict-freedict-eng-spa dict-freedict-spa-eng dictd
+  `----
 
-You can execute:
 
-    $ python3 apikeyadd.py
+4.1.2 From sources
+------------------
 
-To configure your api key
+  ,----
+  | $ git clone https://github.com/davidam/damegender
+  | $ cd damegender
+  | $ pip3 install -r requirements.txt
+  `----
 
-## Configuring nltk
 
-    $ python3
-    >>> import nltk
-    >>> nltk.download('names')
+4.1.3 With python package
+-------------------------
 
-# Speeches, Seminars, Expressions of Support
+  ,----
+  | $ python3 -m venv /tmp/d
+  | $ cd /tmp/d
+  | $ source bin/activate
+  | $ pip install --upgrade pip
+  | $ pip3 install damegender
+  | $ cd lib/python3.5/site-packages/damegender
+  | $ python3 main.py David
+  `----
 
--   [MadSeSe](http://gregoriorobles.github.io/MadSESE/201906.html)
--   [Python Barcelona](https://www.meetup.com/es-ES/python-185/events/261405719/)
--   [Taller de Periodismo de Datos (Medialab Prado, Madrid). NLTK & Damegender](https://www.medialab-prado.es/noticias/taller-de-periodismo-de-datos-2019-sesiones-formativas)
--   [Software Freedom Day (URJC, Móstoles). Damegender](https://tv.urjc.es/video/5d895319d68b148f7a8c0da6)
+  To install apis extra dependencies:
+  ,----
+  | $ pip3 install damegender[apis]
+  `----
 
-# Beautiful Snakes
+  To install mailing lists and repositories extra dependencies:
+  ,----
+  | $ pip3 install damegender[mails_and_repositories]
+  `----
 
-![img](https://raw.githubusercontent.com/davidam/damegender/master/src/damegender/files/images/violet-snake3.png)
+  To install all possible dependencies
 
-# Dame Music
+  ,----
+  | $ pip3 install damegender[all]
+  `----
 
-[Listen music &#x2026;](https://www.youtube.com/playlist?list=PLeobXV-Yyn-LvQydcnr46ZkGh1V6tDGEk)
 
-# License
+4.2 Obtaining an api key
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Copyright (C) 2019 David Arroyo Menéndez
-    Permission is granted to copy, distribute and/or modify this document
-    under the terms of the GNU Free Documentation License, Version 1.3
-    or any later version published by the Free Software Foundation;
-    with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
-    A copy of the license is included in [GNU Free Documentation License](https://www.gnu.org/copyleft/fdl.html).
+  Currently you can need an api key from:
+  + [https://store.genderize.io/documentation]
+  + [https://gender-api.com]
+  + [https://www.nameapi.org/]
+  + [https://v2.namsor.com/NamSorAPIv2/sign-in.html]
 
-[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/GFDL_Logo.svg/200px-GFDL_Logo.svg.png)](https://www.gnu.org/copyleft/fdl.html)
+  You can execute:
+  ,----
+  | $ python3 apikeyadd.py
+  `----
+  To configure your api key
+
+
+4.3 Configuring nltk
+~~~~~~~~~~~~~~~~~~~~
+
+  ,----
+  | $ python3
+  | >>> import nltk
+  | >>> nltk.download('names')
+  `----
+
+
+5 Speeches, Seminars, Expressions of Support
+============================================
+
+  + [MadSeSe]
+  + [Python Barcelona]
+  + [Taller de Periodismo de Datos (Medialab Prado, Madrid). NLTK &
+    Damegender]
+  + [Software Freedom Day (URJC, Móstoles). Damegender]
+
+
+[MadSeSe] http://gregoriorobles.github.io/MadSESE/201906.html
+
+[Python Barcelona]
+https://www.meetup.com/es-ES/python-185/events/261405719/
+
+[Taller de Periodismo de Datos (Medialab Prado, Madrid). NLTK &
+Damegender]
+https://www.medialab-prado.es/noticias/taller-de-periodismo-de-datos-2019-sesiones-formativas
+
+[Software Freedom Day (URJC, Móstoles). Damegender]
+https://tv.urjc.es/video/5d895319d68b148f7a8c0da6
+
+
+6 Beautiful Snakes
+==================
+
+  [file:https://raw.githubusercontent.com/davidam/damegender/master/src/damegender/files/images/violet-snake3.png]
+
+
+7 Dame Music
+============
+
+  [Listen music ...]
+
+
+[Listen music ...]
+https://www.youtube.com/playlist?list=PLeobXV-Yyn-LvQydcnr46ZkGh1V6tDGEk
+
+
+8 Gender Songs
+==============
+
+  [Listen music ...]
+
+
+[Listen music ...]
+https://www.youtube.com/playlist?list=PLeobXV-Yyn-IgIRxmEyJxaFstJ02ebtRH
+
+
+9 License
+=========
+
+  Copyright (C) 2019 David Arroyo Menéndez Permission is granted to
+      copy, distribute and/or modify this document under the terms of
+      the GNU Free Documentation License, Version 1.3 or any later
+      version published by the Free Software Foundation; with no
+      Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+      A copy of the license is included in [GNU Free Documentation
+      License].
+
+  [file:https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/GFDL_Logo.svg/200px-GFDL_Logo.svg.png]
+
+
+[GNU Free Documentation License] https://www.gnu.org/copyleft/fdl.html
+
+[file:https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/GFDL_Logo.svg/200px-GFDL_Logo.svg.png]
+https://www.gnu.org/copyleft/fdl.html
