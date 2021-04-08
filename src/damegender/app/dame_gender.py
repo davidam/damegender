@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
@@ -6,6 +6,8 @@
 
 # You can share, copy and modify this software if you are a woman or you
 # are David Arroyo Menéndez and you include this note.
+
+
 
 #from nltk.corpus import names
 #import nltk
@@ -259,76 +261,54 @@ class Gender(object):
                 count = count + 1
             f.write(line+str(i[count])+"\n")
         f.close()
-    
-    
+
+
     # DATASETS METHODS #
 
-    def ukfile(self):
-        # create a file with name and prob from uk births
-        total = 0
-        for i in range(1880, 2018):
-            # first we acquire the total of births from 1880 to 2017
-            dataset = "files/names/uk/yob" + str(i) + ".txt"
-            with open(dataset) as csvfile:
-                sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-                next(sexreader, None)
-                totali = 0
-                for row in sexreader:
-                    datasetcount = row[2]
-                    totali = totali + int(datasetcount)
-            total = total + totali
+    def path_surname_dataset(self, locale):
+        if (locale == "at"):
+            path = "files/inesurnames/apellidos-australia.xls.csv"
+        elif (locale == "au"):
+            path = "files/inesurnames/apellidos-austria.xls.csv"
+        elif (locale == "be"):
+            path = "files/inesurnames/apellidos-belgica.xls.csv"
+        elif (locale == "ca"):
+            path = "files/inesurnames/apellidos-canada.xls.csv"
+        elif (locale == "de"):
+            path = "files/inesurnames/apellidos-alemania.xls.csv"
+        elif (locale == "es"):
+            path = "files/inesurnames/apellidos_frecuencia.csv"
+        elif (locale == "fi"):
+            path = "files/inesurnames/apellidos-finlandia.xls.csv"
+        elif (locale == "ie"):
+            path = "files/inesurnames/apellidos-irlanda.xls.csv"
+        elif (locale == "is"):
+            path = "files/inesurnames/apellidos-islandia.xls.csv"
+        elif (locale == "nz"):
+            path = "files/inesurnames/apellidos-nueva-zelanda.xls.csv"
+        elif (locale == "mx"):
+            path = "files/inesurnames/apellidos-mexico.xls.csv"
+        elif (locale == "pt"):
+            path = "files/inesurnames/apellidos-portugal.xls.csv"
+        elif (locale == "si"):
+            path = "files/inesurnames/apellidos-eslovenia.xls.csv"
+        elif (locale == "gb"):
+            path = "files/inesurnames/apellidos-reino-unido.xls.csv"
+        elif (locale == "uy"):
+            path = "files/inesurnames/apellidos-uruguay.xls.csv"
+        elif (locale == "us"):
+            path = "files/inesurnames/apellidos-usa.xls.csv"
+        return path
 
-        # now we are going to start the json file with 1880
-        jsonuk = "files/names/uk/jsonuk.json"
-        file = open(jsonuk, "w")
-        dataset = "files/names/uk/yob1880.txt"
-        with open(dataset) as csvfile:
-            sexreader1 = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(sexreader1, None)
-            cnt = 0
-            for row in sexreader1:
-                cnt = cnt + 1
-        end = cnt
-        lines = []
-        lines.append('[')
-        with open(dataset) as csvfile:
-            sexreader2 = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(sexreader2, None)
-            cnt = 1
-            for row in sexreader2:
-                lines.append('{"name": "' + row[0] + '",')
-                lines.append('"gender": "' + row[1] + '",')
-                if (end == cnt):
-                    lines.append('"count": ' + row[2] + '}')
-                    print('"count": ' + row[2] + '}')
-                else:
-                    lines.append('"count": ' + row[2] + '},')
-                    print('"count": ' + row[2] + '},')
-                cnt = cnt + 1
-            lines.append(']')
-        fo = open(jsonuk, "w")
-        fo.writelines(lines)
-        # Cerramos el archivo
-        for i in range(1881, 2018):
-            dataset = "files/names/uk/yob" + str(i) + ".txt"
-            with open(dataset) as csvfile:
-                sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-                next(sexreader, None)
-                lines = []
-                for row in sexreader:
-                    print(row)
-                #         Cerramos el archivo
-        fo.close()
-        return 1
 
     def males_list(self, corpus='es'):
         au_path = 'files/names/names_au/baby-names-1944-2013/aumales.csv'
-        ca_path = 'files/names/names_ca/camales.csv'        
+        ca_path = 'files/names/names_ca/camales.csv'
+        gb_path = 'files/names/names_gb/ukmales.txt'
         ine_path = 'files/names/names_es/masculinos.txt'
         nz_path = 'files/names/names_nz/nzmales.csv'
-#        pt_path = 'files/names/names_pt/ptmales.csv'        
+#        pt_path = 'files/names/names_pt/ptmales.csv'
         uy_path = 'files/names/names_uy/uymasculinos.txt'
-        uk_path = 'files/names/names_uk/ukmales.txt'
         us_path = 'files/names/names_us/usmales.txt'
 
         m = []
@@ -341,25 +321,25 @@ class Gender(object):
         elif (corpus == 'nz'):
             m = du.csvcolumn2list(nz_path)
         # elif (corpus == 'pt'):
-        #     m = du.csvcolumn2list(pt_path)            
-        elif (corpus == 'uk'):
-            m = du.csvcolumn2list(uk_path)
+        #     m = du.csvcolumn2list(pt_path)
+        elif (corpus == 'gb'):
+            m = du.csvcolumn2list(gb_path)
         elif (corpus == 'us'):
             m = du.csvcolumn2list(us_path)
         elif (corpus == 'uy'):
             m = du.csvcolumn2list(uy_path)
         elif (corpus == 'all'):
-            m = du.csvcolumn2list(au_path) + du.csvcolumn2list(ca_path) + du.csvcolumn2list(ine_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(uk_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path) 
+            m = du.csvcolumn2list(au_path) + du.csvcolumn2list(ca_path) + du.csvcolumn2list(ine_path) + du.csvcolumn2list(gb_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path)
         m = du.delete_duplicated(m)
         return m
 
     def females_list(self, corpus='es'):
         au_path = 'files/names/names_au/baby-names-1944-2013/aufemales.csv'
-        ca_path = 'files/names/names_ca/cafemales.csv'        
+        ca_path = 'files/names/names_ca/cafemales.csv'
         ine_path = 'files/names/names_es/femeninos.txt'
         nz_path = 'files/names/names_nz/nzfemales.csv'
-#        pt_path = 'files/names/names_pt/ptfemales.csv'        
-        uk_path = 'files/names/names_uk/ukfemales.txt'
+#        pt_path = 'files/names/names_pt/ptfemales.csv'
+        gb_path = 'files/names/names_gb/ukfemales.txt'
         us_path = 'files/names/names_us/usfemales.txt'
         uy_path = 'files/names/names_uy/uyfemeninos.txt'
 
@@ -367,21 +347,21 @@ class Gender(object):
         if (corpus == 'au'):
             f = du.csvcolumn2list(ine_path)
         elif (corpus == 'ca'):
-            f = du.csvcolumn2list(nz_path)                        
+            f = du.csvcolumn2list(nz_path)
         elif ((corpus == 'es') or (corpus == 'ine')):
             f = du.csvcolumn2list(ine_path)
         elif (corpus == 'nz'):
             f = du.csvcolumn2list(nz_path)
         # elif (corpus == 'pt'):
-        #     f = du.csvcolumn2list(pt_path)                        
-        elif (corpus == 'uk'):
-            f = du.csvcolumn2list(uk_path)
+        #     f = du.csvcolumn2list(pt_path)
+        elif (corpus == 'gb'):
+            f = du.csvcolumn2list(gb_path)
         elif (corpus == 'us'):
             f = du.csvcolumn2list(us_path)
         elif (corpus == 'uy'):
             f = du.csvcolumn2list(uy_path)
         elif (corpus == 'all'):
-            f = du.csvcolumn2list(au_path) + du.csvcolumn2list(ca_path) + du.csvcolumn2list(ine_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path) 
+            f = du.csvcolumn2list(au_path) + du.csvcolumn2list(ca_path) + du.csvcolumn2list(ine_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path)
         f = du.delete_duplicated(f)
         return f
 
@@ -538,7 +518,7 @@ class Gender(object):
                     elif (guess == 'u'):
                         guess = 2
                     genderlist.append(guess)
-        if (dataset == "files/names/names_uk/orig/yob2017.txt"):
+        if (dataset == "files/names/names_gb/orig/yob2017.txt"):
             with open(dataset) as csvfile:
                 sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
                 next(sexreader, None)
@@ -559,30 +539,44 @@ class Gender(object):
         dataset = kwargs.get('dataset',"us")
         du = DameUtils()
         name = du.drop_accents(name)
-        path_males = 'files/names/names_es/esmasculinos.csv'
+        dicc_males = du.dicc_dataset("male")
+        path_males = dicc_males["es"]
         if ((dataset == 'ine') or (dataset == 'es')):
-            path_males = 'files/names/names_es/esmasculinos.csv'
-        elif (dataset == 'ie'):
-            path_males = 'files/names/names_ie/iemales.csv'            
-        elif (dataset == 'is'):
-            path_males = 'files/names/names_is/ismales.csv'            
-        elif (dataset == 'uy'):
-            path_males = 'files/names/names_uy/uymasculinos.csv'
-        elif (dataset == 'uk'):
-            path_males = 'files/names/names_uk/ukmales.csv'
-        elif ((dataset == 'us') or (dataset=='usa')):
-            path_males = 'files/names/names_us/usmales.csv'
-        elif (dataset == 'nz'):
-            path_males = 'files/names/names_nz/nzmales.csv'            
-        elif (dataset == 'ca'):
-            path_males = 'files/names/names_ca/camales.csv'
-        elif (dataset == 'fi'):
-            path_males = 'files/names/names_fi/fimales.csv'            
+            path_males = dicc_males["es"]
+        elif (dataset == 'at'):
+            path_males = dicc_males["at"]
         elif (dataset == 'au'):
-            path_males = 'files/names/names_au/baby-names-1944-2013/aumales.csv'            
+            path_males = dicc_males["au"]
+        elif (dataset == 'be'):
+            path_males = dicc_males["be"]
+        elif (dataset == 'ca'):
+            path_males = dicc_males["ca"]
+        elif (dataset == 'de'):
+            path_males = dicc_males["de"]
+        elif (dataset == 'dk'):
+            path_males = dicc_males["dk"]
+        elif (dataset == 'fi'):
+            path_males = dicc_males["fi"]
+        elif (dataset == 'gb'):
+            path_males = dicc_males["gb"]
+        elif (dataset == 'ie'):
+            path_males = dicc_males["ie"]
+        elif (dataset == 'inter'):
+            path_males = dicc_males["inter"]
+        elif (dataset == 'is'):
+            path_males = dicc_males["is"]
+        elif (dataset == 'nz'):
+            path_males = dicc_males["nz"]
+        elif (dataset == 'mx'):
+            path_males = dicc_males["mx"]
         elif (dataset == 'pt'):
-            path_males = 'files/names/names_pt/ptmales.csv'            
-            
+            path_males = dicc_males["pt"]
+        elif (dataset == 'si'):
+            path_males = dicc_males["si"]
+        elif (dataset == 'uy'):
+            path_males = dicc_males["uy"]
+        elif ((dataset == 'us') or (dataset=='usa')):
+            path_males = dicc_males["us"]
         file_males = open(path_males, 'r')
         readerm = csv.reader(file_males, delimiter=',', quotechar='|')
         males = 0
@@ -590,49 +584,66 @@ class Gender(object):
             if ((len(row) > 1) and (row[0].lower() == name.lower())):
                 males = row[1]
                 males = du.drop_dots(males)
-        path_females = 'files/names/names_es/esfemeninos.csv'
-        if ((dataset == 'ine') or (dataset == 'es')):
-            path_females = 'files/names/names_es/esfemeninos.csv'
-        elif (dataset == 'ie'):
-            path_females = 'files/names/names_ie/iefemales.csv'
-        elif (dataset == 'is'):
-            path_females = 'files/names/names_is/isfemales.csv'                        
-        elif (dataset == 'uy'):
-            path_females = 'files/names/names_uy/uyfemeninos.csv'
-        elif (dataset == 'uk'):
-            path_females = 'files/names/names_uk/ukfemales.csv'
-        elif ((dataset == 'us') or (dataset=='usa')):
-            path_females = 'files/names/names_us/usfemales.csv'
-        elif (dataset == 'nz'):
-            path_females = 'files/names/names_nz/nzfemales.csv'            
-        elif (dataset == 'ca'):
-            path_females = 'files/names/names_ca/cafemales.csv'
-        elif (dataset == 'fi'):
-            path_females = 'files/names/names_fi/fifemales.csv'                        
-        elif (dataset == 'au'):
-            path_females = 'files/names/names_au/baby-names-1944-2013/aufemales.csv'            
-        elif (dataset == 'pt'):
-            path_females = 'files/names/names_pt/ptfemales.csv'            
 
+        dicc_females = du.dicc_dataset("female")
+        path_females = dicc_females["es"]
+        if (dataset == 'at'):
+            path_females = dicc_females["at"]
+        elif (dataset == 'au'):
+            path_females = dicc_females["au"]
+        elif (dataset == 'be'):
+            path_females = dicc_females["be"]
+        elif (dataset == 'ca'):
+            path_females = dicc_females["ca"]
+        elif (dataset == 'de'):
+            path_females = dicc_females["de"]
+        elif (dataset == 'dk'):
+            path_females = dicc_females["dk"]
+        elif ((dataset == 'ine') or (dataset == 'es')):
+            path_females = dicc_females["es"]
+        elif (dataset == 'inter'):
+            path_females = dicc_females["inter"]
+        elif (dataset == 'ie'):
+            path_females = dicc_females["ie"]
+        elif (dataset == 'is'):
+            path_females = dicc_females["is"]
+        elif (dataset == 'fi'):
+            path_females = dicc_females["fi"]
+        elif (dataset == 'gb'):
+            path_females = dicc_females["gb"]
+        elif (dataset == 'nz'):
+            path_females = dicc_females["nz"]
+        elif (dataset == 'mx'):
+            path_females = dicc_females["mx"]
+        elif (dataset == 'pt'):
+            path_females = dicc_females["pt"]
+        elif (dataset == 'si'):
+            path_females = dicc_females["si"]
+        elif (dataset == 'uy'):
+            path_females = dicc_females["uy"]
+        elif ((dataset == 'us') or (dataset=='usa')):
+            path_females = dicc_females["us"]
         file_females = open(path_females, 'r')
         readerf = csv.reader(file_females, delimiter=',', quotechar='|')
         females = 0
+
         for row in readerf:
             if ((len(row) > 1) and (row[0].lower() == name.lower())):
                 females = row[1]
                 females = du.drop_dots(females)
         dicc = {"females": females, "males": males}
+
         return dicc
 
     def inesurname_province_and_frec(self, surname, *args, **kwargs):
         # guess list method
         province = kwargs.get('province', 'madrid')
         du = DameUtils()
-        
+
         if (province == 'acorugna'):
             path_surnames = 'files/inesurnames/provincias/residencia/acorugna.csv'
         elif (province == 'alava'):
-            path_surnames = 'files/inesurnames/provincias/residencia/alava.csv'            
+            path_surnames = 'files/inesurnames/provincias/residencia/alava.csv'
         elif (province == 'albacete'):
             path_surnames = 'files/inesurnames/provincias/residencia/albacete.csv'
         elif (province == 'alicante'):
@@ -742,33 +753,33 @@ class Gender(object):
                 quantity = int(du.drop_dots(aux))
         return quantity
 
-            
-    
+
+
     def name_prob_countries(self, name):
         du = DameUtils()
         es = self.name_frec(name,dataset="es")
         ie = self.name_frec(name,dataset="ie")
-        isl = self.name_frec(name,dataset="is")        
+        isl = self.name_frec(name,dataset="is")
         uy = self.name_frec(name,dataset="uy")
-        uk = self.name_frec(name,dataset="uk")
+        gb = self.name_frec(name,dataset="gb")
         us = self.name_frec(name,dataset="us")
         nz = self.name_frec(name,dataset="nz")
-        ca = self.name_frec(name,dataset="ca")                                        
+        ca = self.name_frec(name,dataset="ca")
         fi = self.name_frec(name,dataset="fi")
         au = self.name_frec(name,dataset="au")
-        pt = self.name_frec(name,dataset="pt")    
-        females = int(es["females"]) + int(ie["females"]) + int(isl["females"]) + int(uy["females"]) + int(uk["females"]) + int(us["females"]) + int(nz["females"]) + int(ca["females"]) + int(fi["females"]) + int(au["females"]) + int(pt["females"])
-        males = int(es["males"]) + int(ie["males"]) + int(isl["males"]) + int(uy["males"]) + int(uk["males"]) + int(us["males"])  + int(nz["males"]) + int(ca["males"]) + int(fi["males"]) + int(au["males"]) + int(pt["males"])
+        pt = self.name_frec(name,dataset="pt")
+        females = int(es["females"]) + int(ie["females"]) + int(isl["females"]) + int(uy["females"]) + int(gb["females"]) + int(us["females"]) + int(nz["females"]) + int(ca["females"]) + int(fi["females"]) + int(au["females"]) + int(pt["females"])
+        males = int(es["males"]) + int(ie["males"]) + int(isl["males"]) + int(uy["males"]) + int(gb["males"]) + int(us["males"])  + int(nz["males"]) + int(ca["males"]) + int(fi["males"]) + int(au["males"]) + int(pt["males"])
 
-        prob_females = {"es": du.round_and_not_zero_division(int(es["females"]), int(females)), "ie": du.round_and_not_zero_division(int(ie["females"]), int(females)), "is": du.round_and_not_zero_division(int(isl["females"]), int(females)), "uy": du.round_and_not_zero_division(int(uy["females"]), int(females)), "uk": du.round_and_not_zero_division(int(uk["females"]), int(females)), "us": du.round_and_not_zero_division(int(us["females"]), int(females)), "nz": du.round_and_not_zero_division(int(nz["females"]), int(females)), "ca": du.round_and_not_zero_division(int(ca["females"]), int(females)), "fi": du.round_and_not_zero_division(int(fi["females"]), int(females)), "au": du.round_and_not_zero_division(int(au["females"]), int(females)), "pt": du.round_and_not_zero_division(int(pt["females"]), int(females))}
-        
-        prob_males = {"es": du.round_and_not_zero_division(int(es["males"]), int(males)), "ie": du.round_and_not_zero_division(int(ie["males"]), int(males)), "is": du.round_and_not_zero_division(int(isl["males"]), int(males)), "uy": du.round_and_not_zero_division(int(uy["males"]), int(males)), "uk": du.round_and_not_zero_division(int(uk["males"]), int(males)), "us": du.round_and_not_zero_division(int(us["males"]), int(males)), "nz": du.round_and_not_zero_division(int(nz["males"]), int(males)), "ca": du.round_and_not_zero_division(int(ca["males"]), int(males)), "fi": du.round_and_not_zero_division(int(fi["males"]), int(males)), "au": du.round_and_not_zero_division(int(au["males"]), int(males)), "pt": du.round_and_not_zero_division(int(pt["males"]), int(males))}
+        prob_females = {"es": du.round_and_not_zero_division(int(es["females"]), int(females)), "ie": du.round_and_not_zero_division(int(ie["females"]), int(females)), "is": du.round_and_not_zero_division(int(isl["females"]), int(females)), "uy": du.round_and_not_zero_division(int(uy["females"]), int(females)), "gb": du.round_and_not_zero_division(int(gb["females"]), int(females)), "us": du.round_and_not_zero_division(int(us["females"]), int(females)), "nz": du.round_and_not_zero_division(int(nz["females"]), int(females)), "ca": du.round_and_not_zero_division(int(ca["females"]), int(females)), "fi": du.round_and_not_zero_division(int(fi["females"]), int(females)), "au": du.round_and_not_zero_division(int(au["females"]), int(females)), "pt": du.round_and_not_zero_division(int(pt["females"]), int(females))}
+
+        prob_males = {"es": du.round_and_not_zero_division(int(es["males"]), int(males)), "ie": du.round_and_not_zero_division(int(ie["males"]), int(males)), "is": du.round_and_not_zero_division(int(isl["males"]), int(males)), "uy": du.round_and_not_zero_division(int(uy["males"]), int(males)), "gb": du.round_and_not_zero_division(int(gb["males"]), int(males)), "us": du.round_and_not_zero_division(int(us["males"]), int(males)), "nz": du.round_and_not_zero_division(int(nz["males"]), int(males)), "ca": du.round_and_not_zero_division(int(ca["males"]), int(males)), "fi": du.round_and_not_zero_division(int(fi["males"]), int(males)), "au": du.round_and_not_zero_division(int(au["males"]), int(males)), "pt": du.round_and_not_zero_division(int(pt["males"]), int(males))}
 
         prob = [{"females": prob_females, "males": prob_males}]
-        
+
         return prob
 
-    
+
     def namdict2file(self):
         filepath = 'files/names/nam_dict.txt'
         mylist = []
@@ -1044,7 +1055,7 @@ class Gender(object):
             cmd = self.confusion_matrix_gender(path)
         if (dimensions == "1x1"):
             if (reverse == False):
-                print("      M    ")                
+                print("      M    ")
                 print("M  [[ %s ]]" % (cmd[1][1]))
             elif (reverse == True):
                 print("      F    ")
@@ -1054,14 +1065,14 @@ class Gender(object):
                 print("      M    F   ")
                 print("M  [[ %s,   %s ]]" % (cmd[1][1], cmd[1][0]))
             elif (reverse == True):
-                print("      F    M   ")                
+                print("      F    M   ")
                 print("F  [[ %s,   %s ]]" % (cmd[0][0], cmd[0][1]))
         elif (dimensions == "1x3"):
             if (reverse == False):
-                print("      M    F   U   ")                
+                print("      M    F   U   ")
                 print("M  [[ %s, %s, %s ]]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
             elif (reverse == True):
-                print("     F  M  U   ")                                
+                print("     F  M  U   ")
                 print("F [[ %s, %s, %s ]]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
         elif (dimensions == "2x1"):
             if (reverse == False):
@@ -1097,7 +1108,7 @@ class Gender(object):
                 print("F   [ %s ]" % (cmd[0][1]))
                 print("U   [ %s ]]" % (cmd[2][1]))
             elif (reverse == True):
-                print("       F   ")                
+                print("       F   ")
                 print("F   [[ %s ]" % (cmd[0][0]))
                 print("M    [ %s ]" % (cmd[1][0]))
                 print("U    [ %s ]]" % (cmd[2][0]))
@@ -1108,7 +1119,7 @@ class Gender(object):
                 print("F   [ %s ,  %s ]" % (cmd[0][1], cmd[0][0]))
                 print("U   [ %s ,  %s ]]" % (cmd[2][1], cmd[2][0]))
             if (reverse == True):
-                print("      F   M  ")                
+                print("      F   M  ")
                 print("F  [[ %s,  %s ]" % (cmd[0][0], cmd[0][1]))
                 print("M   [ %s,  %s ]" % (cmd[1][0], cmd[1][1]))
                 print("U   [ %s,  %s ]]" % (cmd[2][0], cmd[2][1]))
@@ -1124,4 +1135,3 @@ class Gender(object):
                 print("M   [ %s, %s, %s ]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
                 print("U   [ %s, %s, %s ]]" % (cmd[2][0], cmd[2][1], cmd[2][2]))
         return ""
-    
