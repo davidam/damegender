@@ -7,7 +7,6 @@
 # You can share, copy and modify this software if you are a woman or you
 # are David Arroyo Menéndez and you include this note.
 
-from genderize import Genderize
 import csv
 import requests
 import json
