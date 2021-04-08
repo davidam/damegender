@@ -8,6 +8,11 @@
 # are David Arroyo Menéndez and you include this note.
 
 
+
+
+
+
+
 import unittest
 import numpy as np
 import os
@@ -90,7 +95,7 @@ class TddInPythonExample(unittest.TestCase):
     #     # self.assertTrue("Adan" in f7)
     #     # self.assertEqual(len(f7), 2094)
 
-        
+
     def test_dame_gender_filenamdict2list(self):
         g = Gender()
         name = g.filenamdict2list()[0]
@@ -209,13 +214,13 @@ class TddInPythonExample(unittest.TestCase):
         g = Gender()
         gl = g.dataset2genderlist(dataset="files/names/all.csv")
         self.assertEqual(gl[0:4], [1, 1, 1, 1])
-        gl2 = g.dataset2genderlist(dataset="files/names/names_uk/orig/yob2017.txt")
+        gl2 = g.dataset2genderlist(dataset="files/names/names_gb/orig/yob2017.txt")
         self.assertEqual(gl2[0:4], [0, 0, 0, 0])
 
-    # def test_dame_gender_features_list(self):
-    #     g = Gender()
-    #     fl = g.features_list()
-    #     self.assertTrue(len(fl) > 20)
+    def test_dame_gender_features_list(self):
+        g = Gender()
+        fl = g.features_list()
+        self.assertTrue(len(fl) > 20)
 
 #     def test_dame_gender_features_list_categorical(self):
 #         g = Gender()
@@ -357,45 +362,52 @@ class TddInPythonExample(unittest.TestCase):
 #         frec1 = g.inesurname_province_and_frec("GIL", province='madrid')
 #         frec2 = g.inesurname_province_and_frec("GIL", province='alava')
 #         frec3 = g.inesurname_province_and_frec("GIL", province='bizkaia')
-#         frec4 = g.inesurname_province_and_frec("GIL", province='guipuzkoa')                
+#         frec4 = g.inesurname_province_and_frec("GIL", province='guipuzkoa')
 #         frec5 = g.inesurname_province_and_frec("GIL", province='navarra')
 
 #         self.assertEqual(frec1, 19961)
 #         self.assertEqual(frec2, 1003)
 #         self.assertEqual(frec3, 2829)
 #         self.assertEqual(frec4, 1389)
-#         self.assertEqual(frec5, 2462)                                
+#         self.assertEqual(frec5, 2462)
 
-        
-#     def test_dame_gender_name_frec(self):
-#         g = Gender()
-#         frec1 = g.name_frec("INES", dataset='ine')
-#         self.assertEqual(int(frec1['females']), 61920)
-#         self.assertEqual(int(frec1['males']), 0)
-#         frec2 = g.name_frec("BEATRIZ", dataset='ine')
-#         self.assertEqual(int(frec2['females']), 123445)
-#         frec3 = g.name_frec("ALMUDENA", dataset='ine')
-#         self.assertEqual(int(frec3['females']), 30450)
-#         frec5 = g.name_frec("ELIZABETH", dataset='us')
-#         self.assertEqual(int(frec5['females']), 1581894)
-#         frec5n = g.name_frec("ELISABETH", dataset='us')
-#         self.assertEqual(int(frec5n['females']), 43531)
-#         frec6 = g.name_frec("MARIA", dataset='uk')
-#         self.assertEqual(int(frec6['females']), 9499)
-#         frec7 = g.name_frec("JULIAN", dataset='uk')
-#         self.assertEqual(int(frec7['males']), 1741)
-#         frec8 = g.name_frec("A", dataset='uk')
-#         self.assertEqual(int(frec8['males']), 49)
-#         frec6 = g.name_frec("MARIA", dataset='nz')
-#         self.assertEqual(int(frec6['females']), 5541)
-#         frec6 = g.name_frec("MARIA", dataset='ca')
-#         self.assertEqual(int(frec6['females']), 1626)
+
+    def test_dame_gender_name_frec(self):
+        g = Gender()
+        frec1 = g.name_frec("INES", dataset='ine')
+        self.assertEqual(int(frec1['females']), 61920)
+        self.assertEqual(int(frec1['males']), 0)
+        frec2 = g.name_frec("BEATRIZ", dataset='ine')
+        self.assertEqual(int(frec2['females']), 123445)
+        frec3 = g.name_frec("ALMUDENA", dataset='ine')
+        self.assertEqual(int(frec3['females']), 30450)
+        frec5 = g.name_frec("ELIZABETH", dataset='us')
+        self.assertEqual(int(frec5['females']), 1581894)
+        frec5n = g.name_frec("ELISABETH", dataset='us')
+        self.assertEqual(int(frec5n['females']), 43531)
+        frec6 = g.name_frec("MARIA", dataset='gb')
+        self.assertEqual(int(frec6['females']), 9499)
+        frec7 = g.name_frec("JULIAN", dataset='gb')
+        self.assertEqual(int(frec7['males']), 1741)
+        frec8 = g.name_frec("A", dataset='gb')
+        self.assertEqual(int(frec8['males']), 49)
+        frec6 = g.name_frec("MARIA", dataset='nz')
+        self.assertEqual(int(frec6['females']), 5541)
+        frec6 = g.name_frec("MARIA", dataset='ca')
+        self.assertEqual(int(frec6['females']), 1626)
+        frec7 = g.name_frec("MARIA", dataset='si')
+        self.assertEqual(int(frec7['females']), 2867)
+
+
+    def test_dame_gender_path_surname_dataset(self):
+        dg = Gender()
+        self.assertEqual(dg.path_surname_dataset("be"), "files/inesurnames/apellidos-belgica.xls.csv")
 
 #     def test_dame_gender_name_prob_countries(self):
 #         g = Gender()
 #         self.assertEqual([{'females': {'uy': 0.0, 'nz': 0.0, 'pt': 0.0, 'au': 0.001, 'us': 0.999, 'fi': 0.0, 'uk': 0.0, 'is': 0.0, 'ca': 0.0, 'ie': 0.0, 'es': 0.0}, 'males': {'uy': 0.0, 'nz': 0.009, 'pt': 0.0, 'au': 0.001, 'us': 0.889, 'fi': 0.0, 'uk': 0.007, 'is': 0.0, 'ca': 0.002, 'ie': 0.0, 'es': 0.091}}], g.name_prob_countries("David"))
-#         self.assertEqual([{'males': {'is': 0, 'ca': 0, 'fi': 0, 'au': 0, 'pt': 0, 'ie': 0, 'uk': 0, 'nz': 0, 'es': 0, 'uy': 0, 'us': 0}, 'females': {'is': 0.0, 'ca': 0.0, 'fi': 0.0, 'au': 0.0, 'pt': 0.0, 'ie': 0.0, 'uk': 0.0, 'nz': 0.0, 'es': 1.0, 'uy': 0.0, 'us': 0.0}}], g.name_prob_countries("Nekane"))        
-        
+#         self.assertEqual([{'males': {'is': 0, 'ca': 0, 'fi': 0, 'au': 0, 'pt': 0, 'ie': 0, 'uk': 0, 'nz': 0, 'es': 0, 'uy': 0, 'us': 0}, 'females': {'is': 0.0, 'ca': 0.0, 'fi': 0.0, 'au': 0.0, 'pt': 0.0, 'ie': 0.0, 'uk': 0.0, 'nz': 0.0, 'es': 1.0, 'uy': 0.0, 'us': 0.0}}], g.name_prob_countries("Nekane"))
+
 #     def test_dame_gender_error_gender_bias(self):
 #         g = Gender()
 #         v1 = [0, 1, 1, 1]
@@ -424,6 +436,3 @@ class TddInPythonExample(unittest.TestCase):
 #         self.assertEqual(5, g.first_uneq_json_and_csv_in_names(jsonf="files/names/genderizefiles_names_min.csv.json", path="files/names/min.csv")[1])
 #         self.assertEqual("guillermo", g.first_uneq_json_and_csv_in_names(jsonf="files/names/nameapifiles_names_min.csv.json", path="files/names/partial.csv")[0])
 #         self.assertEqual(4, g.first_uneq_json_and_csv_in_names(jsonf="files/names/nameapifiles_names_min.csv.json", path="files/names/partial.csv")[1])
-
-
-        
