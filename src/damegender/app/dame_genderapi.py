@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
@@ -7,7 +7,7 @@
 # You can share, copy and modify this software if you are a woman or you
 # are David Arroyo Menéndez and you include this note.
 
-import csv
+
 import requests
 import json
 import os
@@ -26,7 +26,7 @@ class DameGenderApi(Gender):
             string = string + '&key=' + contenido
             r = requests.get(string)
             j = json.loads(r.text)
-            v = [j['gender'], j['accuracy']]
+            v = [j['gender'], j['accuracy'], j['samples']]
         return v
 
     def guess(self, name, binary=False):
@@ -55,6 +55,11 @@ class DameGenderApi(Gender):
         v = self.get(name)
         return v[1]
 
+    def samples(self, name):
+        v = self.get(name)
+        return v[2]
+
+    
     def download(self, path="files/names/partial.csv"):
         du = DameUtils()
         fichero = open("files/apikeys/genderapipass.txt", "r+")
