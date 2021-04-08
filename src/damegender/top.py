@@ -1,11 +1,11 @@
-#!/usr/bin/bash
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
 # You can share, copy and modify this software if you are a woman or you
 # are David Arroyo Menéndez and you include this note.
-
-
 
 
 from __future__ import print_function
@@ -22,7 +22,8 @@ import subprocess, tempfile
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("country", default="usa", choices=['all', 'au', 'ca', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'pt', 'uy', 'uk', 'us', 'usa'], help="Countries with 2 letter, example, es is Spain")
+parser.add_argument("country", default="usa", choices=['all', 'at', 'au', 'be', 'ca', 'dk', 'de', 'es', 'fi', 'gb', 'ie', 'ine', 'inter', 'is', 'nz', 'mx', 'pt', 'si', 'uy', 'uk', 'us', 'usa'], help="Countries with 2 letter, example, es is Spain")
+# More about iso codes on https://www.iso.org/obp/ui/
 parser.add_argument('--number', default=10)
 parser.add_argument('--sex', default="female", choices=["male", "female", "all"])
 parser.add_argument('--reverse', default=False, action="store_true")
@@ -70,142 +71,145 @@ def getKey0str(item):
 def getKey1(item):
     return int(item[1])
 
+du = DameUtils()
+dicc_dataset_males = du.dicc_dataset("male")
 
-if (args.country == "au"):
-    c2lmales = du.csv2list("files/names/names_au/baby-names-1944-2013/aumales.csv")
+if (args.country == "at"):
+    c2lmales = du.csv2list(dicc_dataset_males["au"])
+elif (args.country == "au"):
+    c2lmales = du.csv2list(dicc_dataset_males["au"])
+elif (args.country == "be"):
+    c2lmales = du.csv2list(dicc_dataset_males["be"])
 elif (args.country == "ca"):
-    c2lmales = du.csv2list("files/names/names_ca/camales.csv")
+    c2lmales = du.csv2list(dicc_dataset_males["ca"])
+elif (args.country == "dk"):
+    c2lmales = du.csv2list(dicc_dataset_males["dk"])
 elif ((args.country == "es") | (args.country == "ine")):
-    c2lmales = du.csv2list("files/names/names_es/esmasculinos.csv", header=True)
+    c2lmales = du.csv2list(dicc_dataset_males["es"], header=True)
 elif (args.country == "fi"):
-    c2lmales = du.csv2list("files/names/names_fi/fimales.csv", header=True)
+    c2lmales = du.csv2list(dicc_dataset_males["fi"], header=True)
 elif (args.country == "ie"):
-    c2lmales = du.csv2list("files/names/names_ie/iemales.csv")
+    c2lmales = du.csv2list(dicc_dataset_males["ie"])
+elif (args.country == "inter"):
+    c2lmales = du.csv2list(dicc_dataset_males["inter"])
 elif (args.country == "is"):
-    c2lmales = du.csv2list("files/names/names_is/ismales.csv")
+    c2lmales = du.csv2list(dicc_dataset_males["is"])
 elif (args.country == "nz"):
-    c2lmales = du.csv2list("files/names/names_nz/nzmales.csv")
+    c2lmales = du.csv2list(dicc_dataset_males["nz"])
+elif (args.country == "mx"):
+    c2lmales = du.csv2list(dicc_dataset_males["mx"], header=True)
 elif (args.country == "pt"):
-    c2lmales = du.csv2list("files/names/names_pt/ptmales.csv")
+    c2lmales = du.csv2list(dicc_dataset_males["pt"])
+elif (args.country == "si"):
+    c2lmales = du.csv2list(dicc_dataset_males["si"])
 elif (args.country == "uy"):
-    c2lmales = du.csv2list("files/names/names_uy/uymasculinos.csv", header=True)
-elif (args.country == "uk"):
-    c2lmales = du.csv2list("files/names/names_uk/ukmales.csv", header=True)
+    c2lmales = du.csv2list(dicc_dataset_males["uy"], header=True)
+elif ((args.country == "uk") or (args.country == "gb")):
+    c2lmales = du.csv2list(dicc_dataset_males["gb"], header=True)
 elif ((args.country == "usa") | (args.country == "us")):
-    c2lmales = du.csv2list("files/names/names_us/usmales.csv", header=True)
+    c2lmales = du.csv2list(dicc_dataset_males["us"], header=True)
 elif (args.country == "all"):
-    c2lmales = du.csv2list("files/names/names_au/baby-names-1944-2013/aufemales.csv")
-    c2lmales = c2lmales + du.csv2list("files/names/names_ca/cafemales.csv")
-    c2lmales = c2lmales + du.csv2list("files/names/names_es/esfemeninos.csv", header=True)
-    c2lmales = c2lmales + du.csv2list("files/names/names_fi/fifemales.csv", header=True)
-    c2lmales = c2lmales + du.csv2list("files/names/names_ie/iefemales.csv")
-    c2lmales = c2lmales + du.csv2list("files/names/names_is/isfemales.csv")
-    c2lmales = c2lmales + du.csv2list("files/names/names_nz/nzfemales.csv")
-    c2lmales = c2lmales + du.csv2list("files/names/names_pt/ptfemales.csv")
-    c2lmales = c2lmales + du.csv2list("files/names/names_uy/uyfemeninos.csv", header=True)
-    c2lmales = c2lmales + du.csv2list("files/names/names_uk/ukfemales.csv", header=True)
-    c2lmales = c2lmales + du.csv2list("files/names/names_us/usfemales.csv", header=True)
+    c2lmales = du.csv2list(dicc_dataset_males["at"])
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["au"])
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["be"])
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["ca"])
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["de"])
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["dk"])
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["es"], header=True)
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["fi"], header=True)
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["gb"], header=True)
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["ie"])
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["is"])
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["nz"])
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["mx"], header=True)
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["pt"])
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["si"])
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["uy"], header=True)
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["us"], header=True)
 
-if (args.reverse):    
+if (args.reverse):
     c2lmales = sorted(c2lmales, key=getKey1)
 else:
     c2lmales = sorted(c2lmales, key=getKey1, reverse=True)
 
 # FEMALES
 
-if (args.country == "au"):
-    c2lfemales = du.csv2list("files/names/names_au/baby-names-1944-2013/aufemales.csv")
+dicc_dataset_females = du.dicc_dataset("female")
+
+if (args.country == "at"):
+    c2lfemales = du.csv2list(dicc_dataset_females["at"])
+elif (args.country == "au"):
+    c2lfemales = du.csv2list(dicc_dataset_females["au"])
+elif (args.country == "be"):
+    c2lfemales = du.csv2list(dicc_dataset_females["be"])
 elif (args.country == "ca"):
-    c2lfemales = du.csv2list("files/names/names_ca/cafemales.csv")
+    c2lfemales = du.csv2list(dicc_dataset_females["ca"])
+elif (args.country == "dk"):
+    c2lfemales = du.csv2list(dicc_dataset_females["dk"])
 elif ((args.country == "es") | (args.country == "ine")):
-    c2lfemales = du.csv2list("files/names/names_es/esfemeninos.csv", header=True)
+    c2lfemales = du.csv2list(dicc_dataset_females["es"], header=True)
 elif (args.country == "fi"):
-    c2lfemales = du.csv2list("files/names/names_fi/fifemales.csv", header=True)
+    c2lfemales = du.csv2list(dicc_dataset_females["fi"], header=True)
+elif ((args.country == "gb") or (args.country == "uk")):
+    c2lfemales = du.csv2list(dicc_dataset_females["gb"], header=True)
 elif (args.country == "ie"):
-    c2lfemales = du.csv2list("files/names/names_ie/iefemales.csv")
+    c2lfemales = du.csv2list(dicc_dataset_females["ie"])
+elif (args.country == "inter"):
+    c2lfemales = du.csv2list(dicc_dataset_females["inter"])
 elif (args.country == "is"):
-    c2lfemales = du.csv2list("files/names/names_is/isfemales.csv")
+    c2lfemales = du.csv2list(dicc_dataset_females["is"])
 elif (args.country == "nz"):
-    c2lfemales = du.csv2list("files/names/names_nz/nzfemales.csv")
+    c2lfemales = du.csv2list(dicc_dataset_females["nz"])
+elif (args.country == "mx"):
+    c2lfemales = du.csv2list(dicc_dataset_females["mx"], header=True)
 elif (args.country == "pt"):
-    c2lfemales = du.csv2list("files/names/names_pt/ptfemales.csv")
+    c2lfemales = du.csv2list(dicc_dataset_females["pt"])
+elif (args.country == "si"):
+    c2lfemales = du.csv2list(dicc_dataset_females["si"])
 elif (args.country == "uy"):
-    c2lfemales = du.csv2list("files/names/names_uy/uyfemeninos.csv", header=True)
-elif (args.country == "uk"):
-    c2lfemales = du.csv2list("files/names/names_uk/ukfemales.csv", header=True)
+    c2lfemales = du.csv2list(dicc_dataset_females["uy"], header=True)
 elif ((args.country == "usa") | (args.country == "us")):
-    c2lfemales = du.csv2list("files/names/names_us/usfemales.csv", header=True)
+    c2lfemales = du.csv2list(dicc_dataset_females["us"], header=True)
 elif (args.country == "all"):
-    c2lfemales = du.csv2list("files/names/names_au/baby-names-1944-2013/aufemales.csv")
-    c2lfemales = c2lfemales + du.csv2list("files/names/names_ca/cafemales.csv")
-    c2lfemales = c2lfemales + du.csv2list("files/names/names_es/esfemeninos.csv", header=True)
-    c2lfemales = c2lfemales + du.csv2list("files/names/names_fi/fifemales.csv", header=True)
-    c2lfemales = c2lfemales + du.csv2list("files/names/names_ie/iefemales.csv")
-    c2lfemales = c2lfemales + du.csv2list("files/names/names_is/isfemales.csv")
-    c2lfemales = c2lfemales + du.csv2list("files/names/names_nz/nzfemales.csv")
-    c2lfemales = c2lfemales + du.csv2list("files/names/names_pt/ptfemales.csv")
-    c2lfemales = c2lfemales + du.csv2list("files/names/names_uy/uyfemeninos.csv", header=True)
-    c2lfemales = c2lfemales + du.csv2list("files/names/names_uk/ukfemales.csv", header=True)
-    c2lfemales = c2lfemales + du.csv2list("files/names/names_us/usfemales.csv", header=True)
+    c2lfemales = du.csv2list(dicc_dataset_females["at"])
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["au"])
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["be"])
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["ca"])
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["dk"])
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["es"], header=True)
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["fi"], header=True)
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["gb"], header=True)
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["ie"])
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["inter"])
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["is"])
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["nz"])
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["mx"], header=True)
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["pt"])
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["si"])
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["uy"], header=True)
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["us"], header=True)
     c2lfemales = sorted(c2lfemales, key=getKey1)
-    
-if (args.reverse):    
+
+if (args.reverse):
     c2lfemales = sorted(c2lfemales, key=getKey1)
 else:
     c2lfemales = sorted(c2lfemales, key=getKey1, reverse=True)
 
-n = int(args.number)    
+n = int(args.number)
 
 if (args.less and (args.sex=='female')):
     n = len(c2lfemales)
-elif (args.less and (args.sex=='male')):    
-    n = len(c2lmales)    
+elif (args.less and (args.sex=='male')):
+    n = len(c2lmales)
 elif (args.less and (args.sex=='all')):
     n = len(c2lmales) + len(c2lfemales)
-    
+
 if (args.sex == "male"):
     position = 1
     for i in c2lmales[0:n]:
         if args.less:
-            if args.position:                        
-                printc(str(position) + ") " + i[0] + ": " + i[1], sep='/')
-            else:
-                printc(i[0] + ": " + i[1], sep='/')                
-        else:
             if args.position:
-                print(str(position) + ") " + i[0] + ": " + i[1])
-            else:
-                print(i[0] + ": " + i[1])
-        position = position + 1
-            
-elif (args.sex == "female"):        
-    position = 1
-    for i in c2lfemales[0:n]:
-        if args.less:
-            if args.position:            
                 printc(str(position) + ") " + i[0] + ": " + i[1], sep='/')
-            else:
-                printc(i[0] + ": " + i[1], sep='/')                
-        else:
-            if args.position:                        
-                print(str(position) + ") " + i[0] + ": " + i[1])
-            else:
-                print(i[0] + ": " + i[1])
-        position = position + 1
-            
-elif (args.sex == "all"):
-
-    c2l = c2lfemales + c2lmales
-    if (args.reverse):
-        c2l = sorted(c2l, key=getKey1)
-    else:
-        c2l = sorted(c2l, key=getKey1, reverse=True)
-
-    position = 1        
-    for i in c2l[0:n]:
-        if args.less:
-            if args.position:
-                printc(str(position) + ") " + i[0] + ": " + i[1], sep='/')                
             else:
                 printc(i[0] + ": " + i[1], sep='/')
         else:
@@ -214,7 +218,44 @@ elif (args.sex == "all"):
             else:
                 print(i[0] + ": " + i[1])
         position = position + 1
-        
+
+elif (args.sex == "female"):
+    position = 1
+    for i in c2lfemales[0:n]:
+        if args.less:
+            if args.position:
+                printc(str(position) + ") " + i[0] + ": " + i[1], sep='/')
+            else:
+                printc(i[0] + ": " + i[1], sep='/')
+        else:
+            if args.position:
+                print(str(position) + ") " + i[0] + ": " + i[1])
+            else:
+                print(i[0] + ": " + i[1])
+        position = position + 1
+
+elif (args.sex == "all"):
+
+    c2l = c2lfemales + c2lmales
+    if (args.reverse):
+        c2l = sorted(c2l, key=getKey1)
+    else:
+        c2l = sorted(c2l, key=getKey1, reverse=True)
+
+    position = 1
+    for i in c2l[0:n]:
+        if args.less:
+            if args.position:
+                printc(str(position) + ") " + i[0] + ": " + i[1], sep='/')
+            else:
+                printc(i[0] + ": " + i[1], sep='/')
+        else:
+            if args.position:
+                print(str(position) + ") " + i[0] + ": " + i[1])
+            else:
+                print(i[0] + ": " + i[1])
+        position = position + 1
+
 # Paging of the current contents of the temp file:
 if args.less:
     tmp_file.flush()  # No need to close the file: you can keep printing to it
