@@ -5,7 +5,7 @@
 @settitle Damegender Manual @value{VERSION}
 @syncodeindex pg cp
 @comment %**end of header
-@include copying-fl.texi
+@include copying-fdl.texi
 
 @titlepage
 @title Damegender Manual: Counting Males and Females in Internet Communities
@@ -34,8 +34,13 @@ This manual is for Damegender (version @value{VERSION}, @value{UPDATED}).
 * Secondary Sources about Gender Gap::
 * Theorical Frameworks::
 * Conclusions::
+* Further Reading::
+* Acknowledgements::
 * License::
+* Photos::
 * Index::
+
+
 @end menu
 
 @node Introduction
@@ -45,7 +50,8 @@ This manual is for Damegender (version @value{VERSION}, @value{UPDATED}).
 @cindex APIs
 
 Damegender is a gender detection tool from the name coded by David
-Arroyo MEnéndez (DAME).
+Arroyo MEn@'endez (DAME). See ``@cite{Damegender: Writing and Comparing
+Gender Detection Tools}'', @ref{Further reading}.
 
 The gender detection tools from the names are being used usually with
 commercial APIs. But many countries has been doing efforts in the last
@@ -66,12 +72,57 @@ methods and with shell tests for the python commands.
 
 Damegender is using Perceval for count males and females in a lot of
 Internet Communities (wikis, mailing lists, software repositories, bug
-tracking systems, ...). We shows source for count males and females in
-different situations (Ex: count-debian-gender.py)
+tracking systems, ...). ``@cite{Perceval: software project data at
+your will}'', @ref{Further reading} This manual show source for count males
+and females in different situations (Ex: @code{count-debian-gender.py}).
 
 This software is taking into account the power to predict nations and
-ethnicity from the surnames (Ex: surname.py, surnameincountries.py and
-ethnicity.py).
+ethnicity from the surnames (Ex: @code{surname.py},
+@code{surnameincountries.py} and @code{ethnicity.py}).
+
+This book starts explaining the installation. Later, it explains how
+to install Damegender. After, it explains Damegender from the
+commands. Next, it explains the statistical maths concepts to use
+Damegender with good results. The use cases showed allows to imagine a
+lot of applications about Damegender. We are giving some data sources
+about gender gap. And finally, the theorical frameworks are being
+showed to put data into discourses. We are added conclusions as
+summary and further reading for extend the interest.
+
+@section Reproducible Research
+@cindex Reproducible Research
+
+Damegender has been written thinking on make easy the reproducible
+research. It's possible using:
+@itemize @bullet
+@item
+Free Software for Damegender and the Damegender dependencies.
+@item
+Free documentation for Damegender (this manual, faqs, and a website)
+@item
+Open Data with sources written.
+@item
+Good practiques about programming (POO, using standards, unity tests
+and user tests)
+@end itemize
+
+The are some interesting goal towards reproducible research. That's
+more link between code and data in a way where you can download all
+data and execute all code. These tasks has not been reached due to:
+@itemize @bullet
+@item
+To retrieve data from Internet becomes slow and you can suffer cuts
+in the Internet connection.
+@item 
+To train machine learning models and sometimes execute machine
+learning models with a good number of names is slow. Then it's not
+practical for build a pdf make all work of code and data linked.
+@end itemize
+
+So in the spectrum of reproducibility (Peng, 2011) the damegender
+papers and damegender manual will be in the point of partially linked
+and executable code and data.
+
 
 @node Installation
 @chapter Installation
@@ -81,7 +132,8 @@ ethnicity.py).
 
 Possible Debian/Ubuntu dependencies:
 @example
-$ sudo apt-get install python3-nose-exclude python3-dev dict dict-freedict-eng-spa dict-freedict-spa-eng dictd
+$ sudo apt-get install python3-nose-exclude python3-dev dict
+dict-freedict-eng-spa dict-freedict-spa-eng dictd
 @end example
 
 Now, to install damegender with python package:
@@ -178,7 +230,8 @@ $ python3 postinstall.py
 You can find an big list of commands to execute this shell
 scripts. Now a detailed execution of some selected examples:
 
-The first command to learn is main.py. You can play now with this command:
+The first command to learn is @code{main.py}. You can play now with this
+command:
 
 @example
 # Detect gender from a name (INE is the dataset used by default)
@@ -187,7 +240,7 @@ David gender is male
 363559  males for David from INE.es
 0 females for David from INE.es
 
-# Detect gender from a name only using machine learning (experimental way)
+# Detect gender from a name only using machine learning
 $ python3 main.py Agua --ml=nltk
 Agua gender is female
 0 males for Agua from INE.es
@@ -218,8 +271,8 @@ The first Free Software for gender detection tool was created in C
 language program and you can look for a python version with the name
 genderguesser. Some people was working in a Free dataset called
 name_dict.txt with 48500 names. I want to give thanks to this effort
-with nameincountries.py due to the good work organizing many names in
-different countries.
+with @code{nameincountries.py} due to the good work organizing many
+names in different countries.
 
 @example
 $ python3 nameincountries.py David
@@ -237,7 +290,8 @@ both: []
 To count gender from a git repository:
 
 @example
-$ python3 git2gender.py https://github.com/chaoss/grimoirelab-perceval.git
+$ python3 git2gender.py
+https://github.com/chaoss/grimoirelab-perceval.git
 --directory="/tmp/clonedir"
 The number of males sending commits is 15
 The number of females sending commits is 7
@@ -263,8 +317,8 @@ David Arroyo7 <davidam@@es.gnu.org> (13 commits)
 David Arroyo7 <davidam@@gnu.org> (10 commits)
 The number of females sending commits is 1
 The list of females sending commits is:
-['Mireia Lopez']
-Mireia López <mireia@@omada.es> (23 commits)
+['Miriam]
+Miriam <miriam@@xxxxxx.es> (23 commits)
 The number of people with unknown gender sending commits is 0
 The list of people with unknown gender sending commits is:
 []
@@ -274,11 +328,14 @@ To count gender from a mailing list:
 
 @example
 $ cd files/mbox
-$ wget -c http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
+$ wget -c
+http://mail-archives.apache.org/mod_mbox/httpd-announce/201706.mbox
 $ cd ../.. 
-$ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
-You are not using ml the process is not very slow, but perhaps you are not
-finding good results
+$ python3 mail2gender.py
+http://mail-archives.apache.org/mod_mbox/httpd-announce/
+You are not using ml the process is not very slow, but perhaps you are
+not finding good results
+
 The number of males sending mails is 24
 The number of females sending mails is 2
 The number of people with unknown gender sending mails is 5
@@ -287,31 +344,36 @@ The number of people with unknown gender sending mails is 5
 You can execute a verbose output with:
 
 @example
-$ python3 mail2gender.py http://mail-archives.apache.org/mod_mbox/httpd-announce/
+$ python3 mail2gender.py
+http://mail-archives.apache.org/mod_mbox/httpd-announce/
 --verbose --show=all
 You are not using ml the process is not very slow, but perhaps you are not
 finding good results
 The number of males sending mails is 24
 The list of males sending mails is:
-['Jim Jagielski <jim@@apache.org>', 'Jacob Champion <jchampion@@apache.org>',
-'DENNIS BIN XAVIER <balaranpillai@@gmail.com>', '"Leonard Lausen (Jira)" <jira@@apache.org>',
-'"Roy T. Fielding (Jira)" <jira@@apache.org>', '"Roman Shaposhnik (Jira)" <jira@@apache.org>',
-'"Bertrand Delacretaz (Jira)" <jira@@apache.org>', '"Mark Thomas (Jira)" <jira@@apache.org>',
-'"Justin Mclean (Jira)" <jira@@apache.org>', '"Simon Phipps (Jira)" <jira@@apache.org>',
-'"Chris Olivier (Jira)" <jira@@apache.org>', 'Jan Lahoda <lahoda@@gmail.com>',
-'"Michael Vorburger (Jira)" <jira@@apache.org>', '"Ralph Goers (Jira)" <jira@@apache.org>',
-'"Jens Geyer" <jensg@@apache.org>', 'Mark Thomas <markt@@apache.org>',
-'"Ryan Blue (Jira)" <jira@@apache.org>', 'Ismaël Mejía (Jira)  <jira@@apache.org>',
-'"Shane Curcuru (Jira)" <jira@@apache.org>', '"Kevin A. McGrail (Jira)" <jira@@apache.org>',
-'"Gordon (Jira)" <jira@@apache.org>', 'Gary Gregory <garydgregory@@gmail.com>',
-'"Owen O\'Malley" <owen.omalley@@gmail.com>', '"Sheng Zha (Jira)" <jira@@apache.org>']
+['Jim <jim@@xxxxxx.es>', 'Jacob <jchampion@@xxxxx.org>',
+'DENNIS <balaranpillai@@xxxxx.com>', '"Leonard (Jira)" <jira@@xxxxx.org>',
+'"Roy" <jira@@xxxxx.org>', '"Roman (Jira)" <jira@@xxxxx.org>',
+'"Bertrand" <jira@@xxxxx.org>', '"Mark (Jira)" <jira@@xxxxx.org>',
+'"Justin (Jira)" <jira@@xxxxx.org>', '"Simon (Jira)" <jira@@xxxxx.org>',
+'"Chris (Jira)" <jira@@xxxxx.org>', 'Jan <lahoda@@xxxxx.com>',
+'"Michael (Jira)" <jira@@xxxxx.org>', '"Ralph (Jira)" <jira@@xxxxx.org>',
+'"Jens" <jensg@@xxxxx.org>', 'Mark <markt@@xxxxx.org>',
+'"Ryan (Jira)" <jira@@xxxxx.org>', 'Ismaël (Jira)  <jira@@xxxxx.org>',
+'"Shane (Jira)" <jira@@xxxxx.org>', '"Kevin A. (Jira)" <jira@@xxxxx.org>',
+'"Gordon (Jira)" <jira@@xxxxx.org>', 'Gary <garydgregory@@xxxxx.com>',
+'"Owen" <owen.omalley@@xxxxx.com>', '"Sheng (Jira)" <jira@@xxxxx.org>']
 The number of females sending mails is 2
 The list of females sending mails is:
-['Riya Singh <hellen.serviceweb@@hotmail.com>', '"Hannah Zacharski (Jira)" <jira@@apache.org>']
+['Riya <hellen.serviceweb@@xxxxxx.com>',
+'"Hannah (Jira)" <jira@@xxxxx.org>']
 The number of people with unknown gender sending mails is 5
 The list of people with unknown gender sending mails is 
-['"SimpaticoTech.it OFFERTE" <web.info@@simpaticotech.it>', 'Simpatico Network srl <web.info@@simpaticotech.it>',
-'gmcdonald@@apache.org', 'Hen <bayard@@apache.org>', '"Jean-Baptiste Briaud (Jira)" <jira@@apache.org>']
+['"SimpaticoTech" <web.info@@xxxxxx.it>',
+'Simpatico <web.info@@xxxxxxxxx.it>',
+'gmcdonald@@xxxxx.org',
+'Hen <bayard@@xxxxx.org>',
+'"Jean (Jira)" <jira@@xxxxx.org>']
 @end example
 
 Perhaps you don't know a name, but you have obtained an free key for
@@ -324,7 +386,8 @@ scale: 0.99
 @end example
 
 If you want to know the gender of a good number of names you can
-download results from an api and save in a file with downloadjson.py
+download results from an api and save in a file with
+@code{downloadjson.py}.
 
 @example
 $ python3 downloadjson.py --csv=files/names/min.csv --api=genderize
@@ -345,9 +408,10 @@ Dame Gender accuracy: 0.875
 @example
 $ python3 confusion.py --csv="files/names/partial.csv" --api=nameapi
 --jsondownloaded="files/names/nameapifiles_names_partial.csv.json"
-A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
-If the classifier is nice, the diagonal is high because there are true positives
-Nameapi confusion matrix:
+A confusion matrix C is such that Ci,j is equal to the number of
+observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are true
+positives Nameapi confusion matrix:
 
 [[ 3, 0, 0]
  [ 0, 15, 1]]
@@ -374,8 +438,10 @@ Perhaps you are interested on reproduce experiments to determine features:
 
 @example
 $ python3 infofeatures.py
-$ python3 pca-components.py --csv="files/features_list.csv" # To determine number of components
-$ python3 pca-features.py                                   # To understand the weight between variables for a target
+# To determine number of components
+$ python3 pca-components.py --csv="files/features_list.csv"
+# To understand the weight between variables for a target
+$ python3 pca-features.py          
 @end example
 
 Now we can go to play with surnames:
@@ -388,7 +454,8 @@ $ python3 surname.py Lenon --total=us
 There are 837 people using Lenon in United States of America
 
 $ python3 ethnicity.py Smith
-In United States of America the percentages about the race of Smith surname is:
+In United States of America the percentages about the race
+of Smith surname is:
 White: 73.35
 Black: 22.22
 Hispanic: 1.56
@@ -416,11 +483,12 @@ Various races: 1.63
 @cindex ROC
 
 In the last chapter we were learning to execute some commands such as
-accuracy.py, confusion.py, or errors.py, but perhaps you need to
-understand more theory about statistics to understand why this commands
-is being interesting for you.
+@code{accuracy.py}, @code{confusion.py}, or @code{errors.py}, but
+perhaps you need to understand more theory about statistics to
+understand why this commands is being interesting for you.
 
 @section Measuring success and error
+@cindex Measuring success and error
 
 To guess the sex, we have an true idea (example: female) and we obtain
 a result with a method (example: using an api, querying a dataset or
@@ -477,7 +545,8 @@ taking both metrics into account in the following equation:
 (precision + recall))
 @end example
 
-In Damengender, we are using accuracy.py to apply these concepts. Take a look tothe practice:
+In Damengender, we are using @code{accuracy.py} to apply these concepts. Take
+a look tothe practice:
 
 @example
 $ python3 accuracy.py --api="damegender" --measure="f1score"
@@ -579,7 +648,8 @@ the guessed, but without undefined results.
 + w * (maleundefined + femaleundefined))
 @end example
 
-In Damegender, we have coded errors.py to implement several definitions in different apis.
+In Damegender, we have coded @code{errors.py} to implement several
+definitions in different apis.
 
 The confusion matrix creates a matrix about the true and the guess. If you have this confusion matrix:
 
@@ -597,13 +667,16 @@ It means, I have 2 females true and I’ve guessed 2 females and I’ve 5 males 
 
 It means, I have 2 females true and I’ve guessed 2 females and I’ve 14 males true and I’ve guessed 14 males. 1 female was considered male, 2 males was considered female.
 
-In Damegender, we have coded confusion.py to implement this concept:
+In Damegender, we have coded @code{confusion.py} to implement this
+concept:
 
 @example
 python3 confusion.py --csv=files/names/min.csv
 --api=damegender --jsondownloaded=files/names/min.csv.json 
-A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
-If the classifier is nice, the diagonal is high because there are true positives
+A confusion matrix C is such that Ci,j is equal to the number of
+observations known to be in group i but predicted to be in group j.
+If the classifier is nice, the diagonal is high because there are
+true positives
 Damegender confusion matrix:
 
       M   F   U  
@@ -611,7 +684,8 @@ M  [[ 5,  0,  0 ]
 F   [ 0,  1,  0 ]]
 @end example
 
-Remember that we can retrieve the json file from several apis having the names to be guessed in the csv file with downloadjson.py:
+Remember that we can retrieve the json file from several apis having
+the names to be guessed in the csv file with @code{downloadjson.py}:
 
 @example
 $ python3 downloadjson.py --csv="files/names/min.csv" --api="genderapi" 
@@ -634,10 +708,12 @@ $ python3 roc.py svc
                                                                      
 
 @section Principal Component Analysis (PCA)
+@cindex Principal Component Analysis (PCA)
 
 @subsection Counting features in names
+@cindex Counting features in names
 
-We have developed a script infofeatures.py with our datasets to
+We have developed a script @code{infofeatures.py} with our datasets to
 visualize data about some features chosen by us.
 
 @example
@@ -771,6 +847,7 @@ coincidence between languages due to that there are a good number of
 names to think different.
 
 @subsection Choosing components
+@cindex Choosing components
 
 After, to choose features for our machine learning task, we can
 understand if this features makes sense with Principal Component
@@ -825,17 +902,15 @@ first_letter_vocal is for females.
 @section Introduction
 
 There are many research studies count males and females in specific
-communities such as Twitter, StackOverflow, ... We hope that with this
-manual software
-
-A specific community has some clues to determine male or female, for
-example, in Twitter you can observe the photo, nickname, real name,
-... 
+communities such as Twitter, StackOverflow, ... A specific community
+has some clues to determine male or female, for example, in Twitter
+you can observe the photo, nickname, real name, ...
 
 In this chapter we are going to apply the concepts to determine gender
 in real situations observing where the gender is provided.
 
 @section Counting males and females in Debian
+@cindex Counting males and females in Debian
 
 In the Debian community all members must have a gpg key to collaborate,
 so we can count males and females from the keyring. With gpg commands
@@ -893,7 +968,8 @@ print("Perhaps you need wait some minutes. You can take a tea or coffe now")
 females = 0
 males = 0
 for rowdm in dm:
-    if (int(g.name_frec(str(rowdm.upper()), 'us')['females']) > int(g.name_frec(str(rowdm.upper()), 'us')['males'] )):
+    if (int(g.name_frec(str(rowdm.upper()), 'us')['females'])
+    > int(g.name_frec(str(rowdm.upper()), 'us')['males'] )):
         females = females + 1
     else:
         males = males + 1
@@ -904,10 +980,11 @@ print("debian females: %s" % females)
 csvfile.close()
 @end example
 
-The advantage using name_frec is about to understand how you are
-deciding male or female in the script counting males and females. In
-this script the decision is simple: a name is male if there are more
-males than females and female if there are more females than males.
+The advantage using the method @code{name_frec} is about to understand
+how you are deciding male or female in the script counting males and
+females. In this script the decision is simple: a name is male if
+there are more males than females and female if there are more females
+than males.
 
 The United States of America dataset is a good choice for Free
 Software communities, due to that this communities is based on english
@@ -916,16 +993,43 @@ software development. United States of America hosts people from
 different countries due to migrations towards good companies and
 universities.
 
-@image{images/debian_by_gender,6in,,Debian by gender}
+In general, you can choose @code{csv2gender.py} to count males,
+females and unknows in a csv file. For example, doing this:
+
+@example
+$ python3 csv2gender.py --first_name_position=0
+files/debian-maintainers-gpg-2020-04-01.csv --verbose
+@end example
+
+But, a research must understand the source, too.
+
+In the next diagram we can see (78.4% of males, 5.4% of females and
+16.2% of unknowns).
+
+@image{images/debiangnulinux,6in,,Debian by gender}
+
+We can retrieve the names of unknows and to decide about the name in
+the sense of retrieve the gender from a commercial api (genderapi,
+genderize, namsor, nameapi, ...) or to classify the name as a software
+company or a bug. For now, the Open datasets contributed by states
+about names are very good but not all countries has the idea of
+contribute the names.  Remember that you can download names from a csv
+file with @code{downloadjson.py}:
+
+@example
+$ python3 downloadjson.py --api=genderize --csv=files/names/min.csv
+@end example
 
 @section Counting males and females in Linux Kernel
+@cindex Counting males and females in Linux Kernel
 
 When I'm writing this book the Linux Kernels maintainers appears in
 https://www.kernel.org/doc/html/latest/process/maintainers.html. Then
 I have downloaded the file and applied a single command:
 
 @example
- cat maintainers.html | w3m -dump -T text/html | grep "Mail:" > maintainers.txt
+ cat maintainers.html | w3m -dump -T text/html
+ | grep "Mail:" > maintainers.txt
 @end example
 
 You can makes fixes to this command from GNU/Emacs or with shell
@@ -939,6 +1043,7 @@ $ python3 count-kernel.py
 
 
 @section Counting males and females in Forbes
+@cindex Counting males and females in Forbes
 
 In the second example, we are using guess without machine learning
 instead of name_frec. If you are using guess you are trusting on
@@ -986,6 +1091,7 @@ idea that in the last script: more people using the name.
 @image{images/forbes119_by_gender,6in,,Forbes by gender}
 
 @section Deciding for males and females in images
+@cindex Deciding for males and females in images
 
 There are many free software tools for decide gender in images
 files. We can use these tools to decide gender about images from
@@ -998,7 +1104,8 @@ $ python3 damefaces.py girl1.jpg
 @end example
 
 
-@section Webscraping and Damegender because we want count academics
+@section Webscraping and Damegender (counting scholars)
+@cindex Webscraping and Damegender (counting scholars)
 
 Sometimes, we can reach the database of names from a website, for
 example, we can retrieve a list of academics from Spain thanks to
@@ -1108,8 +1215,9 @@ is bigger than Free Software people classified as females. Having a
 gender gap in both situations.
 
 @section Counting males and females in a git repository
+@cindex Counting males and females in a git repository
 
-We can think a simple version of git2gender.py:
+We can think a simple version of @code{git2gender.py}:
 
 @example
 from app.dame_sexmachine import DameSexmachine
@@ -1156,6 +1264,7 @@ The number of females sending commits is 0
 @end example
 
 @section Counting males and females in Maps
+@cindex Counting males and females in Maps
 
 @strong{Las calles de las mujeres} is a project in NodeJS to display
 web streets with names about females using MapBox. You can download
@@ -1178,10 +1287,11 @@ It has a strong community created by females (GeoChicas)
 @code{https://geochicas.github.io/} related with OpenStreetMap.
 
 @section Gender gap in science
+@cindex Gender gap in science
 
 A good visual job can be found in
-https://lukeholman.github.io/genderGap/. This work is based on R
-retrieves the data from genderize and arxiv. The gap is especially
+@code{https://lukeholman.github.io/genderGap/}. This work is based on
+R retrieves the data from genderize and arxiv. The gap is especially
 large in authorship positions associated with seniority, and
 prestigious journals have fewer women authors. Additionally, they
 estimates that men are invited by journals to submit papers at
@@ -1189,14 +1299,16 @@ approximately double the rate of women. Wealthy countries, notably
 Japan, Germany, and Switzerland, had fewer women authors than poorer
 ones. It concludes that the STEMM gender gap will not close without
 further reforms in education, mentoring, and academic
-publishing. There are a paper with a full explanation:
-https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2004956
+publishing. There are a paper with a full explanation: ``@cite{The
+gender gap in science: How long until women are equally
+represented?}'', @ref{Further reading}.
 
 @node Secondary Sources about the Gender Gap
 @chapter Secondary Sources about the Gender Gap
 @cindex Gender Gap
 @cindex Gender
 @cindex Secondary Sources
+@cindex Social Research
 
 When a social researcher starts a new work, the first step is set an
 objective about the project with subobjectives, that's define the
@@ -1206,6 +1318,8 @@ the population going to give us the data. The third step is about
 selection strategies about retrieve data, analysis and to show
 results. (Source: Técnicas Cualitativas de Investigación Social)
 (Source: La encuesta una perspectiva general metodológica)
+results. See ``@cite{T@'ecnicas Cualitativas de Investigaci@'on Social}'',
+@ref{Further reading}
 
 To read secondary sources about the objective and subobjectives of the
 project is to read previous works of another people (papers, books,
@@ -1223,6 +1337,7 @@ gender gap with the local problem: Kernel, Gnu/linux distribution,
 StackOverflow, Twitter, Forbes, Science, etc.
 
 @section Gender Inequality in the World
+@cindex Gender Inequality in the World
 
 Gender gap or gender inequality is the idea that men and women are not
 equal and that gender affects an individual's living experience. These
@@ -1244,7 +1359,7 @@ total in men. 31% of young women aged 15 to 24 are not in education,
 employment or training in 2020, more than double rate for young men
 (14%). Violence against women is 18% of ever-partnered women aged 15
 to 49 experienced sexual and/or physical violence by an intimate
-partner in the previous 12 months. (Source: https://www.unwomen.org)
+partner in the previous 12 months.@footnote{https://www.unwomen.org}
 
 @image{images/gender-stats,6in,,Gender Stats}
 
@@ -1259,25 +1374,53 @@ Caribbean, Sub-Saharan Africa, Asia and the Pacific, and the worst
 score Middle East and South Africa.
 
 @section Gender Inequality in STEM
+@cindex Gender Inequality in STEM
 
 In the graphic we can understand gender gap in stem in 2009 and
 compare with gender gap in the market:
 
 @image{images/gender-gap-stem,6in,,Gender Gap by Continents}
 
-So the gender gap in STEM is bigger than the labour market in general.
+So the gender gap in STEM is bigger than the labour market in general. 
 
 @section Gender Inequality in Free Software
+@cindex Gender Inequality in Free Software
 
 The gender gap in the Free Software world is so high we are presenting
 preliminar due to that we can reduce the percentage of unknowns to
-male or female. But we can observe that the gender gap is bigger in the Free Software world than in STEM.
+male or female. But we can observe that the gender gap is bigger in
+the Free Software world than in STEM.
 
-@image{images/debian_by_gender,6in,,Debian GNU/Linux by Gender}
+The context of the operatings systems is not feminist by different
+reasons. In the Free Software world there are many males developing
+the software. But in another Operating Systems there are another
+problems about the male domination, for example, Microsoft will create
+the most rich men in the world for many
+years@footnote{https://www.forbes.com/profile/bill-gates/?sh=79472717689f}. Apple
+was classificated as the most valuable company in the
+world@footnote{https://forbes.es/listas/32245/apple-la-marca-mas-valiosa-del-2017/}. By
+intersectionality, to create companies more powerful than states is bad
+for the democracy and in a world where exists the gender gap the
+change to the gender equity is a pressure of values.
 
-@image{images/gnu_by_gender,6in,,GNU by Gender}
+A Linux operating system such as we find in a CD of Ubuntu, RedHat or
+Suse is composed by the Kernel (Linux) and GNU programs. Later, it's
+organized in a distribution, such as Ubuntu and Debian. We have
+choosen Debian as use case and we are counting males females in Linux,
+too.
 
-@image{images/kernel_by_gender,6in,,Kernel by Gender}
+@image{images/debiangnulinux,6in,,Debian GNU/Linux by Gender}
+
+In Debian, the number of males is 461 (86.8%), the number of females
+is 42 (7.9%) and the number of names undefined is 28.
+
+In GNU, the number of males is 215 (94.7%) and the number of females
+is 12 (5.3%).
+
+In the Kernel, the number of males is 1387 (72.5%) and the number of
+females is 62 (3.2%). There are a big number of undefined, so we must
+debug these data, but we have not time in this version of the manual.
+
 
 @node Theorical Frameworks
 @chapter Theorical Frameworks
@@ -1286,19 +1429,22 @@ male or female. But we can observe that the gender gap is bigger in the Free Sof
 @cindex Multiculturalism
 @cindex Interculturalism
 @cindex Gender
+@cindex Theorical Frameworks
+@cindex Qualitative Research
+@cindex Social Research
 
 If you want do a social research for a quantitative study, such as,
 count males and females you can:
 
 @itemize @bullet
 @item
-Generate objectives about the research study
+To generate objectives about the research study
 
 @item
 To read and to understand previous works.
 
 @item
-Choose some theorical framework. 
+To choose some theorical framework. 
 
 @item
 Perhaps, with a qualitative study (interviews, focus groups, ...) you
@@ -1343,8 +1489,10 @@ Gender terms and philosophies
 
 
 @section Philosophies about software, market, freedom and gender
+@cindex Software Philosophies
 @cindex Free Software
 @cindex Open Source
+@cindex Richard Stallman
 
 There are different philosophies developing software and we are
 counting males and females in Internet, so the floor is the software
@@ -1374,12 +1522,12 @@ hackers (people who knows read and write software and they do it for
 his objectives or global objectives). I could to say the monopoly is
 too strong with this license and the current social inertia and now
 nobody can change the market, we need another licenses to preserve the
-free market with an ethical strategy for startups and students.
+free market with an ethical strategy for startups and students. 
 
 Richard Stallman defines the Free Software with four freedoms: (0) to
 run the program, (1) to study and change the program in source code
 form, (2) to redistribute exact copies, and (3) to distribute modified
-versions. (Source: What's is free software, GNU, https://www.gnu.org/philosophy/free-sw.html)
+versions. See ``@cite{Free Software Free Society}'', @ref{Further reading}
 
 This idea to build software as a social good and motivated by ethical
 values. The solution is to apply the GPL license and to request to GNU
@@ -1408,7 +1556,7 @@ Free Software by economy, so they prefer change the word Free Software
 by Open Source claiming their philosophy.
 
 They redefines the Free Software Definition by the Open Source
-Definition (Source: https://opensource.org/osd):
+Definition@footnote{https://opensource.org/osd}.
 
 @example
 1. Free Redistribution
@@ -1505,7 +1653,7 @@ development branch:
 # are David Arroyo Menéndez and you include this note.
 @end example
 
-This book will be published with this license, too.
+This book has been developed with this license, too.
 
 @section Multiculturalism, Interculturalism
 @cindex Interculturalism
@@ -1561,8 +1709,9 @@ similarities between cultures. It has addressed the risk of the
 creation of absolute relativism within postmodernity and in
 multiculturalism. (Source: wikipedia, 2020)
 
-Aguado in (La Educación Intercultural: Concepto, Paradigmas,
-Realizaciones) propose these principles:
+Aguado proposes these principles (See ``@cite{La
+Educaci@'on Intercultural: Concepto, Paradigmas, Realizaciones}'',
+@ref{Further reading}.
 
 1. Promote the respect by all cultures together and condemn the
 politics to change the culture of the people towards the culture
@@ -1614,6 +1763,9 @@ Galician
 These cultures has correlations with names and surnames.
 
 @section Feminism, Ecofeminism and Intersectionality
+@cindex Feminism
+@cindex Ecofeminism
+@cindex Intersectionality
 
 Feminism is a range of social movements, political movements, and
 ideologies that aim to define and establish the political, economic,
@@ -1630,7 +1782,7 @@ the relationship between women and the earth, as foundational to its
 analysis and practice. Ecofeminist thinkers draw on the concept of
 gender to analyse the relationships between humans and the natural
 world. The term was coined by the French writer Françoise d'Eaubonne
-in her book Le Féminisme ou la Mort (1974). Ecofeminist theory asserts
+in her book Le F@'eminisme ou la Mort (1974). Ecofeminist theory asserts
 a feminist perspective of Green politics that calls for an
 egalitarian, collaborative society in which there is no one dominant
 group. Today, there are several branches of ecofeminism, with
@@ -1676,6 +1828,7 @@ in values understanding that the rights of the women depends of
 another values such as democracy, free speech, labor rights, ...
 
 @section Gender
+@cindex Gender
 
 Gender is the range of characteristics pertaining to, and
 differentiating between, masculinity and femininity. Depending on the
@@ -1709,33 +1862,9 @@ states only supports this idea in the moment writing this book. But we
 respect the non binary philosophies due to this philosophies are
 describing a reality.
 
-@section Pandemic times
-
-In many social research studies you must explain the historical
-context, to give philosophical support studying the present and to give
-explanations about the human behaivour.
-
-Naomi Klein in (The Shock Doctrine: The Rise of Disaster Capitalism,
-2007) explains that many countries is using natural disasters to
-establish controversial and questionable policies while the citizens
-are too distracted.
-
-Carlos Taibo in (Colapso, 2020) explains the ecological situation
-(change climate and the end of the primary sources) and the answer of
-the society (ecological social movements and ecofascism). This subject
-has been the agenda in the streets previous to the pandemy and the
-political parties is using this inertia in pandemic times, too.
-
-With the pandemy the time using screens is augmenting and a lot of
-time using screens is asociated to a low level of goodness (Source:
-Observatorio Social La Caixa,
-https://observatoriosociallacaixa.org/-/el-bienestar-personal-y-el-uso-de-la-tecnologia-en-confinamiento,
-2020). So, Internet is more important and Castells in (Galaxia
-Internet, 2017) explains Internet from the point of view of a
-sociologist.
-
 @node Conclusions
 @chapter Conclusions
+@cindex Conclusions
 
 There are many options to count males and females in Internet, a good
 idea is to retrieve a dataset about males and females. Damegender is
@@ -1786,14 +1915,302 @@ To explain some philosophies for to give explanations to the data.
 
 @end itemize
 
+@node Acknowledgements
+@unnumbered Acknowledgements
+@cindex Acknowledgements
+
+Damegender is dedicated to the INTER Project.
+I want give thanks to:
+
+@itemize @bullet
+@item
+To my mother.
+
+@item
+To Bitergia team by the motivation towards Python and Perceval
+
+@item
+To GAPLEN team (Leticia Mart@'{@dotless{i}}n Fuertes, Ana Gonz@'alez Ledesma, ...) by the motivation towards Natural Language Processing.
+
+@item
+To the feminist movement by show me the problems related with the gender gap.
+
+@item
+To the Free Software movement by the understanding in licenses and the
+happy hacking sessions.
+
+@item
+To URJC by the seminars.
+
+
+@end itemize
+
+
+@node Further reading
+@unnumbered Further reading
+@cindex Bibliography
+@cindex Further reading
+
+@quotation
+@cite{La M@'aquina Reaccionaria} by Mar@'{@dotless{i}}a @'Avila
+(Published by Tirant Humanidades)
+@end quotation
+@noindent
+The objective of this book is to analyze two social strengths.  First,
+the fight of the women changing her position in the society and the
+structure of the patriarchy. Second, the resistances to decrease and
+to stop this change in a clear, sistematic and aware form or in a
+silly and involuntary form.
+
+@quotation
+@cite{Measuring the Gender Gap on the Internet} by Bruce Bimber
+(Published by University of Texas Press)
+@end quotation
+@noindent
+This paper evaluates differences in men's and women's presence on the
+Internet, testing for the presence of gender-specific causes for
+different rates of Internet use. Methods. The paper presents new
+survey data collected by the author in 1996, 1998, and 1999 showing
+trends in Internet use, and presents regression models of Internet
+access and use. Results. Two statistically significant gender gaps
+exist on the Internet: in access and in use. The access gap is not the
+product of gender-specific factors, but is explained by socioeconomic
+and other differences between men and women. The use gap is the result
+of both socioeconomics and some combination of underlying
+gender-specific phenomena. Conclusions. Around one-half of the
+"digital divide" between men and women on the Internet is
+fundamentally gender related. Several possible causes may explain this
+phenomenon.
+
+@quotation
+@cite{Women in STEM: A Gender Gap to Innovation} by various authors
+(Published by Economics and Statistics Administration Issue Brief
+No. 04-11)
+@end quotation
+@noindent
+This executive summary very good referenced presents data about males
+and females in STEM. Very useful to compare data (for example, in this
+manual we have compared this data with males and females in the Free
+Software world).
+
+@quotation
+@cite{Colapso. Capitalismo terminal. Transición
+Ecológica. Ecofascismo.} by Carlos Taibo (Published by Catarata, ISBN
+978-84-9097-203-8)
+@end quotation
+@noindent
+This book is a good explanation about politics chances related with
+ecology, climatic change, etc.
+
+@quotation
+@cite{Free Software Free Society} by Richard Stallman (Published by
+GNU Press, ISBN 1-882114-98-1)
+@end quotation
+@noindent
+Richard Stallman is the best philosopher about Free Software being the
+father of the most used free software licenses and the founder of GNU
+project being developed by him and many other people. This book
+explains all ethical ideas that is inspiring the free software
+community called GNU.
+
+@quotation
+@cite{Comparison and benchmark of name-to-gender inference services}
+by Luc@'{@dotless{i}}a Santamar@'{@dotless{i}}a and Helena Mihaljevic
+(Published by PeerJ Journal)
+@end quotation
+This paper has inspired the development of Damegender and many ideas
+about name-to-gender software is implemented in this book. Thanks a
+lot by this job.
+
+@quotation
+@cite{The Effect of Gender in the Publication Patterns in Mathematics}
+by Helena Mihaljevic, Luc@'{@dotless{i}}a Santamar@'{@dotless{i}}a, Marco Tullney (Published by Plos One Journal)
+@end quotation
+A very good scientific job about gender gap in science. This paper is
+suggested to people who has learnt to use Damegender and they want
+develop a good scientific job.
+
+@quotation
+@cite{Damegender: Writing and Comparing Gender Detection Tools}
+by David Arroyo Men@'endez (Published by EasyChair 2020).
+@end quotation
+This paper presents the scientific perspective about Damegender. 
+
+@quotation
+@cite{Perceval: software project data at your will} by Santiago
+Dueñas, Valerio Consentino, Gregorio Robles, Jes@'us M. Gonz@'alez
+Barahona (Published by ICSE 2018).
+@end quotation
+This paper presents Perceval a software to retrieve information from
+different sources. Damegender is using perceval to retrieve data from
+git in the moment to write this book. 
+
+@quotation
+@cite{The gender gap in science: How long until women are equally
+represented?} by Luke Holman, Devi Stuart-Fox, Cindy E. Hauser.
+@end quotation
+Using the PubMed and arXiv databases, the paper estimated the gender
+of 36 million authors from >100 countries publishing in >6000
+journals, covering most STEMM disciplines over the last 15 years, and
+made a web app allowing easy access to the data
+(https://lukeholman.github.io/genderGap/).
+
+@quotation
+@cite{La Educación Intercultural: Concepto, Paradigmas, Realizaciones}
+by Teresa Aguado Odina
+@end quotation
+This paper is a very good reference to understand Interculturalism
+focused on education. The vocabulary explained in this paper can be so
+useful to apply in concepts related with feminism, or social sciences
+in general.
+
+@quotation
+@cite{Gu@'{@dotless{i}}a INTER: una gu@'{@dotless{i}}a pr@'actica para aplicar la educaci@'on
+intercultural en la escuela} by Teresa Aguado Odina, In@'es Gil Jaurena
+y otras personas. (Published by Universidad Nacional de Educación a
+Distancia UNED).
+@end quotation
+This document allows to apply the interculturalism concepts in the
+schools.
+
+@quotation
+@cite{Machine Learning} by Tom M. Mitchell (Published by Mc Graw Hill,
+ISBN: 0-07-042807-7)
+@end quotation
+Tom Mitchell is a father of the Machine Learning. This book explains
+in a simpley way the main concepts understanding the need about the
+machine learning. So useful to learn algorithms.
+
+@quotation
+@cite{Periodismo y Social Media: como estan usando Twitter los
+periodistas españoles} by Clara Sainz de Baranda (Published by
+Estudios sobre el Mensaje Periodistico, UCM)
+@end quotation
+
+@quotation
+@cite{Understanding the Demographics of Twitter Users} by Mislove, A.,
+Lehmann, S., Ahn, Y. Y., Onnela, J. P., & Rosenquist, J. N.
+published by Icwsm
+@end quotation
+@noindent
+This paper could have been written with Damegender. In this paper the
+author calculates gender of twitter users using first names and
+race/ethnicity using last names.
+
+
+@quotation
+@cite{Discriminating Gender on Twitter} by John D. Burger and John
+Henderson and George Kim and Guido Zarrella
+@end quotation
+@noindent
+This paper explains classify gender in Twitter obtaining very good
+results with tweet texts, screen name, description and full name. The
+best classifier was obtaining the 92% of accuracy.
+
+@quotation
+@cite{Galaxia Internet} by Manuel Castells (Published by Plaza & Jan@'es,
+ISBN: 978-8401341571)
+@end quotation
+This book explains Internet with the point of view of a big
+sociologist. So it is regarded as a good introduction to Social
+informatics. That is the study of information and communication tools
+in cultural or institutional contexts.
+
+@quotation
+@cite{Global Gender Gap Index 2012} (Published by World Economic
+Forum)
+@end quotation
+The Global Gender Gap Report was first published in 2006 by the World
+Economic Forum. The 2020 report (published in 2019) covers 153
+countries. The Global Gender Gap Index is an index designed to measure
+gender equality.
+
+@quotation
+@cite{Has Feminism Changed Science} by Londa Schiebinger (Published by
+The University of Chicago Press Journals)
+@end quotation
+
+@quotation
+@cite{Feminism and Science} by Evelyn Fox Keller & Helen E. Longino
+(Published by Oxford University)
+@end quotation
+
+@quotation
+@cite{Teoría Feminista} by Ana de Miguel & Celia Amoros
+(Published by Minerva Ediciones)
+@end quotation
+
+@quotation
+@cite{Constructing Grounded Theory} by Kathy Charmaz
+(Published by SAGE)
+@end quotation
+Grounded Theory is the most important theory to apply qualitative
+research. You can learn to classify and to count discourses (for
+example, feminist discourses) and to reach conclusions with this book.
+
+@quotation
+@cite{T@'ecnicas Cualitativas de Investigaci@'on Social} by Miguel Valles
+(Published by S@'{@dotless{i}}ntesis Sociolog@'{@dotless{i}}a)
+@end quotation
+A good first book about qualitativism for sociology, politics or
+social work students, it's giving theorical contents with practical
+examples done in Spain. If you want learn to put Damegender data into
+discourses this book can learn you to do it.
+
+@quotation
+@cite{Encuesta sobre Equipamiento y Uso de Tecnologías de
+Información y Comunicación en los Hogares} by INE.es
+(https://www.ine.es/prensa/tich_2020.pdf)
+@end quotation
+This document explains differences in gender using Internet and
+computers in Spain.
+
+@quotation
+@cite{Reproducible Research in Computational Science} by Roger D. Peng
+published by Science
+(@url{https://science.sciencemag.org/content/sci/334/6060/1226.full.pdf})
+@end quotation 
+This paper describes the quality of papers for reproducibility.
+
+
 @node License 
 @appendix License
+@cindex Damegender License
 
-@include license-fl.texi
+@include fdl-1.3.texi
+
+@node Photos
+@appendix Photos
+
+Photos taken in the Damegender development with a community giving
+mutual support.
+
+The first photo is about Richard Stallman visiting Madrid in
+Fundaci@'on Telefonica. Thanks to Richard Stallman we have a
+philosophy and a free operating system where we can share code.
+
+The second photo is about Jes@'us Gonz@'alez Barahona, who were
+mentoring the work and giving good suggestion every week.
+
+The third photo is about Gema Rodr@'{@dotless{i}}guez P@'erez
+celebrating the success Phd lecture with Gregorio Robles and another
+researchers and friends giving support to the research.
+
+The fourth photo is about the Madrilenian Seminar on Software
+Development where the people was showing the advances in their works
+in research.
+
+@image{images/RMS-davidam,6in,,Richard Stallman visiting Madrid}
+
+@image{images/davidam-jgbarahona,6in,,David Arroyo Menendez and Jesus Gonzalez Barahona}
+
+@image{images/gema-doctorado,6in,,Gema Rodriguez Perez celebrating the Phd lecture}
+
+@image{images/madrilenian-seminar-research,6in,,Madrilenian Seminar on Software Development}
+
 
 @node Index
 @unnumbered Index
-
 @printindex cp
 
 @bye
