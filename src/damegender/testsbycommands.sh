@@ -2,18 +2,8 @@
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# Damegender is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# Damegender is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-# You should have received a copy of the GNU General Public License
-# along with Damegender.  If not, see <https://www.gnu.org/licenses/>.
+# You can share, copy and modify this software if you are a woman or you
+# are David Arroyo Menéndez and you include this note.
 
 
 
@@ -100,14 +90,15 @@ else
 	echo "mainjosemaria test is ok"
 fi
 
-python3 main.py Elena --total=luciahelena > files/tests/mainelenaluciahelena-$(date "+%Y-%m-%d-%H").txt
+# Deprecating luciahelena
+# python3 main.py Elena --total=luciahelena > files/tests/mainelenaluciahelena-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/mainelenaluciahelena.txt files/tests/mainelenaluciahelena-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-then
-	echo "mainelenaluciahelena test is failing"
-else
-	echo "mainelenaluciahelena test is ok"
-fi
+# if ! cmp files/tests/mainelenaluciahelena.txt files/tests/mainelenaluciahelena-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+# then
+# 	echo "mainelenaluciahelena test is failing"
+# else
+# 	echo "mainelenaluciahelena test is ok"
+# fi
 
 python3 main.py Julia --total=us > files/tests/mainjuliaus-$(date "+%Y-%m-%d-%H").txt
 
@@ -118,9 +109,9 @@ else
 	echo "mainjuliaus test is ok"
 fi
 
-python3 main.py Julia --total=uk > files/tests/mainjuliauk-$(date "+%Y-%m-%d-%H").txt
+python3 main.py Julia --total=gb > files/tests/mainjuliagb-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/mainjuliauk.txt files/tests/mainjuliauk-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+if ! cmp files/tests/mainjuliagb.txt files/tests/mainjuliagb-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
 	echo "mainjuliauk test is failing"
 else
