@@ -85,9 +85,9 @@ elif (args.country == "ca"):
 elif (args.country == "dk"):
     c2lmales = du.csv2list(dicc_dataset_males["dk"])
 elif ((args.country == "es") | (args.country == "ine")):
-    c2lmales = du.csv2list(dicc_dataset_males["es"], header=True)
+    c2lmales = du.csv2list(dicc_dataset_males["es"])
 elif (args.country == "fi"):
-    c2lmales = du.csv2list(dicc_dataset_males["fi"], header=True)
+    c2lmales = du.csv2list(dicc_dataset_males["fi"])
 elif (args.country == "ie"):
     c2lmales = du.csv2list(dicc_dataset_males["ie"])
 elif (args.country == "inter"):
@@ -97,17 +97,17 @@ elif (args.country == "is"):
 elif (args.country == "nz"):
     c2lmales = du.csv2list(dicc_dataset_males["nz"])
 elif (args.country == "mx"):
-    c2lmales = du.csv2list(dicc_dataset_males["mx"], header=True)
+    c2lmales = du.csv2list(dicc_dataset_males["mx"])
 elif (args.country == "pt"):
     c2lmales = du.csv2list(dicc_dataset_males["pt"])
 elif (args.country == "si"):
     c2lmales = du.csv2list(dicc_dataset_males["si"])
 elif (args.country == "uy"):
-    c2lmales = du.csv2list(dicc_dataset_males["uy"], header=True)
+    c2lmales = du.csv2list(dicc_dataset_males["uy"])
 elif ((args.country == "uk") or (args.country == "gb")):
-    c2lmales = du.csv2list(dicc_dataset_males["gb"], header=True)
+    c2lmales = du.csv2list(dicc_dataset_males["gb"])
 elif ((args.country == "usa") | (args.country == "us")):
-    c2lmales = du.csv2list(dicc_dataset_males["us"], header=True)
+    c2lmales = du.csv2list(dicc_dataset_males["us"])
 elif (args.country == "all"):
     c2lmales = du.csv2list(dicc_dataset_males["at"])
     c2lmales = c2lmales + du.csv2list(dicc_dataset_males["au"])
@@ -115,17 +115,17 @@ elif (args.country == "all"):
     c2lmales = c2lmales + du.csv2list(dicc_dataset_males["ca"])
     c2lmales = c2lmales + du.csv2list(dicc_dataset_males["de"])
     c2lmales = c2lmales + du.csv2list(dicc_dataset_males["dk"])
-    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["es"], header=True)
-    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["fi"], header=True)
-    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["gb"], header=True)
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["es"])
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["fi"])
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["gb"])
     c2lmales = c2lmales + du.csv2list(dicc_dataset_males["ie"])
     c2lmales = c2lmales + du.csv2list(dicc_dataset_males["is"])
     c2lmales = c2lmales + du.csv2list(dicc_dataset_males["nz"])
-    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["mx"], header=True)
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["mx"])
     c2lmales = c2lmales + du.csv2list(dicc_dataset_males["pt"])
     c2lmales = c2lmales + du.csv2list(dicc_dataset_males["si"])
-    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["uy"], header=True)
-    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["us"], header=True)
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["uy"])
+    c2lmales = c2lmales + du.csv2list(dicc_dataset_males["us"])
 
 if (args.reverse):
     c2lmales = sorted(c2lmales, key=getKey1)
@@ -147,11 +147,11 @@ elif (args.country == "ca"):
 elif (args.country == "dk"):
     c2lfemales = du.csv2list(dicc_dataset_females["dk"])
 elif ((args.country == "es") | (args.country == "ine")):
-    c2lfemales = du.csv2list(dicc_dataset_females["es"], header=True)
+    c2lfemales = du.csv2list(dicc_dataset_females["es"])
 elif (args.country == "fi"):
-    c2lfemales = du.csv2list(dicc_dataset_females["fi"], header=True)
+    c2lfemales = du.csv2list(dicc_dataset_females["fi"])
 elif ((args.country == "gb") or (args.country == "uk")):
-    c2lfemales = du.csv2list(dicc_dataset_females["gb"], header=True)
+    c2lfemales = du.csv2list(dicc_dataset_females["gb"])
 elif (args.country == "ie"):
     c2lfemales = du.csv2list(dicc_dataset_females["ie"])
 elif (args.country == "inter"):
@@ -161,33 +161,33 @@ elif (args.country == "is"):
 elif (args.country == "nz"):
     c2lfemales = du.csv2list(dicc_dataset_females["nz"])
 elif (args.country == "mx"):
-    c2lfemales = du.csv2list(dicc_dataset_females["mx"], header=True)
+    c2lfemales = du.csv2list(dicc_dataset_females["mx"])
 elif (args.country == "pt"):
     c2lfemales = du.csv2list(dicc_dataset_females["pt"])
 elif (args.country == "si"):
     c2lfemales = du.csv2list(dicc_dataset_females["si"])
 elif (args.country == "uy"):
-    c2lfemales = du.csv2list(dicc_dataset_females["uy"], header=True)
+    c2lfemales = du.csv2list(dicc_dataset_females["uy"])
 elif ((args.country == "usa") | (args.country == "us")):
-    c2lfemales = du.csv2list(dicc_dataset_females["us"], header=True)
+    c2lfemales = du.csv2list(dicc_dataset_females["us"])
 elif (args.country == "all"):
     c2lfemales = du.csv2list(dicc_dataset_females["at"])
     c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["au"])
     c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["be"])
     c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["ca"])
     c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["dk"])
-    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["es"], header=True)
-    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["fi"], header=True)
-    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["gb"], header=True)
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["es"])
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["fi"])
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["gb"])
     c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["ie"])
     c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["inter"])
     c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["is"])
     c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["nz"])
-    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["mx"], header=True)
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["mx"])
     c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["pt"])
     c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["si"])
-    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["uy"], header=True)
-    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["us"], header=True)
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["uy"])
+    c2lfemales = c2lfemales + du.csv2list(dicc_dataset_females["us"])
     c2lfemales = sorted(c2lfemales, key=getKey1)
 
 if (args.reverse):
