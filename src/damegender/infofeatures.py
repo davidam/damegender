@@ -1,4 +1,6 @@
-#!/usr/bin/bash
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
@@ -14,7 +16,7 @@ import argparse
 g = Gender()
 
 parser = argparse.ArgumentParser()
-parser.add_argument('corpus', default="ine", choices=['au', 'ca', 'es', 'ine', 'uy', 'uk', 'us', 'luciahelena', 'genderguesser', 'all'])
+parser.add_argument('corpus', default="ine", choices=['at', 'au', 'be', 'ca', 'dk', 'de', 'es', 'fi', 'gb', 'ie', 'ine', 'inter', 'is', 'mx', 'nz', 'pt', 'si', 'uy', 'us', 'genderguesser', 'all'])
 args = parser.parse_args()
 
 
