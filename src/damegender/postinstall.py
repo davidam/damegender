@@ -1,4 +1,6 @@
-#!/usr/bin/bash
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
@@ -31,8 +33,8 @@ g = Gender()
 def create_file(dataset):
     uspathmales = "files/names/names_us/usmales.csv"
     uspathfemales = "files/names/names_us/usfemales.csv"
-    ukpathmales = "files/names/names_uk/ukmales.csv"
-    ukpathfemales = "files/names/names_uk/ukfemales.csv"
+    ukpathmales = "files/names/names_gb/ukmales.csv"
+    ukpathfemales = "files/names/names_gb/ukfemales.csv"
     uypathmales = "files/names/names_uy/uymasculinos.csv"
     uypathfemales = "files/names/names_uy/uyfemeninos.csv"
     if (dataset == "us"):
