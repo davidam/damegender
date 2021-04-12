@@ -1,3 +1,6 @@
-The number of males in files/names/partial.csv is 18
+------------------------------------------------------------------------
+The number of males in files/names/partial.csv is 17
+------------------------------------------------------------------------
 The number of females in files/names/partial.csv is 3
+------------------------------------------------------------------------
 The number of gender not recognised in files/names/partial.csv is 0
