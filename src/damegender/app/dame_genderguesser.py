@@ -4,8 +4,22 @@
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# You can share, copy and modify this software if you are a woman or you
-# are David Arroyo Menéndez and you include this note.
+#  Author: David Arroyo Menéndez <davidam@gmail.com>
+#  Maintainer: David Arroyo Menéndez <davidam@gmail.com>
+#  This file is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 3, or (at your option)
+#  any later version.
+#
+#  This file is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with damegender; see the file GPL.txt.  If not, write to
+#  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+#  Boston, MA 02110-1301 USA,
 
 import csv
 import requests
@@ -106,7 +120,7 @@ class DameGenderGuesser(Gender):
             return self._most_popular_gender(name, counter)
         else:
             raise NoCountryError("No such country: %s" % country)
-    
+
     def guess(self, name, binary=False):
         # guess method to check names dictionary
         genderguesserlist = []
@@ -137,7 +151,7 @@ class DameGenderGuesser(Gender):
                 slist.append(self.guess(name, binary))
         return slist
 
-    
+
     # def print_confusion_matrix_gender(self, path='files/names/partial.csv', dimensions="2x3"):
     #     cmd = self.confusion_matrix_gender(path, dimensions)
     #     print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))

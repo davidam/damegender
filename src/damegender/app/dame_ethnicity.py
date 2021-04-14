@@ -4,8 +4,22 @@
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# You can share, copy and modify this software if you are a woman or you
-# are David Arroyo Menéndez and you include this note.
+#  Author: David Arroyo Menéndez <davidam@gmail.com>
+#  Maintainer: David Arroyo Menéndez <davidam@gmail.com>
+#  This file is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 3, or (at your option)
+#  any later version.
+#
+#  This file is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with damegender; see the file GPL.txt.  If not, write to
+#  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+#  Boston, MA 02110-1301 USA,
 
 import csv
 from app.dame_utils import DameUtils
@@ -162,7 +176,7 @@ class DameEthnicity(object):
         if ((locale == 'gn') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-guinea.xls.csv', locale="gn"))
         if ((locale == 'ht') or (locale == 'all')):
-            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-haiti.xls.csv', locale="ht"))            
+            l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-haiti.xls.csv', locale="ht"))
         if ((locale == 'hn') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-honduras.xls.csv', locale="hn"))
         if ((locale == 'hu') or (locale == 'all')):
@@ -296,11 +310,11 @@ class DameEthnicity(object):
         if ((locale == 'ye') or (locale == 'all')):
             l.append(self.locale_match(surname=surname, path='files/inesurnames/apellidos-yemen.xls.csv', locale="ye"))
 
-            
+
         return l
 
     def locale2eng(self, locale):
-        # ISO 3166        
+        # ISO 3166
         if (locale == 'af'):
             string = 'Afghanistan'
         elif (locale == 'al'):
@@ -308,67 +322,67 @@ class DameEthnicity(object):
         elif (locale == 'ad'):
             string = 'Andorra'
         elif (locale == 'ar'):
-            string = 'Argentina'                                                
+            string = 'Argentina'
         elif (locale == 'am'):
-            string = 'Armenia'                                                
+            string = 'Armenia'
         elif (locale == 'au'):
-            string = 'Austria'                                                
+            string = 'Austria'
         elif (locale == 'az'):
-            string = 'Azerbaiyan'                                                
+            string = 'Azerbaiyan'
         elif (locale == 'bd'):
             string = 'Bangladesh'
         elif (locale == 'be'):
-            string = 'Belgica'                                                
+            string = 'Belgica'
         elif (locale == 'be'):
             string = 'Belice'
         elif (locale == 'bf'):
-            string = 'Burkina Faso'                                                            
+            string = 'Burkina Faso'
         elif (locale == 'bg'):
-            string = 'Bulgaria'            
+            string = 'Bulgaria'
         elif (locale == 'bj'):
             string = 'Benin'
         elif (locale == 'bo'):
-            string = 'Bolivia'                                                
+            string = 'Bolivia'
         elif (locale == 'br'):
-            string = 'Brasil'                                                            
+            string = 'Brasil'
         elif (locale == 'by'):
             string = 'Belarus'
         elif (locale == 'ca'):
-            string = 'Canada'            
+            string = 'Canada'
         elif (locale == 'ci'):
             string = "Côte d'Ivoire"
         elif (locale == 'ch'):
             string = "Switzerland"
         elif (locale == 'cl'):
-            string = 'Chile'                                                
+            string = 'Chile'
         elif (locale == 'cm'):
-            string = 'Cameroon'                                                
+            string = 'Cameroon'
         elif (locale == 'cn'):
             string = 'China'
         elif (locale == 'co'):
             string = 'Colombia'
         elif (locale == 'cu'):
-            string = 'Cuba'            
+            string = 'Cuba'
         elif (locale == 'cy'):
-            string = 'Chipre'                                                
+            string = 'Chipre'
         elif (locale == 'cd'):
             string = 'Congo'
         elif (locale == 'cz'):
-            string = 'Czech Republic'            
+            string = 'Czech Republic'
         elif (locale == 'de'):
             string = 'Germany'
         elif (locale == 'dk'):
             string = 'Denmark'
         elif (locale == 'dm'):
-            string = 'Dominica'                                                            
+            string = 'Dominica'
         elif (locale == 'do'):
-            string = 'Dominican Republic'                                                            
+            string = 'Dominican Republic'
         elif (locale == 'dz'):
             string = 'Argelia'
         elif (locale == 'ec'):
             string = 'Ecuador'
         elif (locale == 'ee'):
-            string = 'Republic of Estonia'                                                            
+            string = 'Republic of Estonia'
         elif (locale == 'eg'):
             string = 'Egypt'
         elif (locale == 'er'):
@@ -376,41 +390,41 @@ class DameEthnicity(object):
         elif (locale == 'et'):
             string = 'Ethiopia'
         elif (locale == 'fi'):
-            string = 'Finland'                                                
+            string = 'Finland'
         elif (locale == 'fr'):
             string = 'France'
         elif (locale == 'gb'):
-            string = 'United Kingdom of Great Britain'                                                            
+            string = 'United Kingdom of Great Britain'
         elif (locale == 'ge'):
-            string = 'Georgia'                                                            
+            string = 'Georgia'
         elif (locale == 'gh'):
             string = 'Ghana'
         elif (locale == 'gm'):
-            string = 'Gambia'                                                
+            string = 'Gambia'
         elif (locale == 'gn'):
             string = 'Guinea'
         elif (locale == 'gq'):
-            string = 'Guinea Ecuatorial'             
+            string = 'Guinea Ecuatorial'
         elif (locale == 'gr'):
-            string = 'Greece'                                                
+            string = 'Greece'
         elif (locale == 'gt'):
-            string = 'Guatemala'                                                
+            string = 'Guatemala'
         elif (locale == 'gw'):
             string = 'Guinea Bissau'
         elif (locale == 'hn'):
-            string = 'Honduras'             
+            string = 'Honduras'
         elif (locale == 'ht'):
-            string = 'Haití' 
+            string = 'Haití'
         elif (locale == 'hu'):
             string = 'Hungary'
         elif (locale == 'il'):
             string = 'Israel'
         elif (locale == 'is'):
-            string = 'Iceland' 
+            string = 'Iceland'
         elif (locale == 'it'):
             string = 'Italy'
         elif (locale == 'jp'):
-            string = 'Japan' 
+            string = 'Japan'
         elif (locale == 'jo'):
             string = 'Jordan'
         elif (locale == 'ke'):
@@ -418,13 +432,13 @@ class DameEthnicity(object):
         elif (locale == 'kg'):
             string = 'Kyrgyzstan'
         elif (locale == 'kp'):
-            string = 'Democratic Republic of Korea'            
+            string = 'Democratic Republic of Korea'
         elif (locale == 'kz'):
-            string = 'Kazakhstan'            
+            string = 'Kazakhstan'
         elif (locale == 'kw'):
             string = 'Kuwait'
         elif (locale == 'lb'):
-            string = 'Lebanon'            
+            string = 'Lebanon'
         elif (locale == 'lr'):
             string = 'Liberia'
         elif (locale == 'lt'):
@@ -432,7 +446,7 @@ class DameEthnicity(object):
         elif (locale == 'lu'):
             string = 'Luxembourg'
         elif (locale == 'lv'):
-            string = 'Letonia'            
+            string = 'Letonia'
         elif (locale == 'ly'):
             string = 'Libia'
         elif (locale == 'my'):
@@ -456,7 +470,7 @@ class DameEthnicity(object):
         elif (locale == 'mz'):
             string = 'Mozambique'
         elif (locale == 'nl'):
-            string = 'Netherlands'            
+            string = 'Netherlands'
         elif (locale == 'np'):
             string = 'Nepal'
         elif (locale == 'ni'):
@@ -486,31 +500,30 @@ class DameEthnicity(object):
         elif (locale == 'pl'):
             string = 'Polonia'
         elif (locale == 'pt'):
-            string = 'Portugal'            
+            string = 'Portugal'
         elif (locale == 'sb'):
             string = 'Solomon Islands'
         elif (locale == 'se'):
             string = 'Sweden'
         elif (locale == 'sv'):
-            string = 'Republic of El Salvador'                                                
+            string = 'Republic of El Salvador'
         elif (locale == 'si'):
             string = 'Slovenia'
         elif (locale == 'ro'):
-            string = 'Romania'                                                
+            string = 'Romania'
         elif (locale == 'ru'):
-            string = 'Russia'                                                
+            string = 'Russia'
         elif (locale == 'rw'):
-            string = 'Rwanda'                                                
+            string = 'Rwanda'
         elif (locale == 'ua'):
-            string = 'Ukraine'                                                
+            string = 'Ukraine'
         elif (locale == 'us'):
-            string = 'United States of America'                                                
+            string = 'United States of America'
         elif (locale == 'uy'):
-            string = 'Uruguay'                                                
+            string = 'Uruguay'
         elif (locale == 'uz'):
-            string = 'Republic of Uzbekistan'                                                
+            string = 'Republic of Uzbekistan'
         elif (locale == 'ye'):
-            string = 'Yemen'                                                
-            
-        return string
+            string = 'Yemen'
 
+        return string

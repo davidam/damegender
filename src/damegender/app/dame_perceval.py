@@ -4,8 +4,22 @@
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# You can share, copy and modify this software if you are a woman or you
-# are David Arroyo Menéndez and you include this note.
+#  Author: David Arroyo Menéndez <davidam@gmail.com>
+#  Maintainer: David Arroyo Menéndez <davidam@gmail.com>
+#  This file is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 3, or (at your option)
+#  any later version.
+#
+#  This file is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with damegender; see the file GPL.txt.  If not, write to
+#  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+#  Boston, MA 02110-1301 USA,
 
 import requests
 import json
@@ -68,14 +82,14 @@ class DamePerceval(object):
         return authors
 
     def dicc_authors_and_mails(self, url, directory="files/mbox"):
-        repo = MBox(uri=url, dirpath=directory)        
+        repo = MBox(uri=url, dirpath=directory)
         authors = {}
         for message in repo.fetch():
             if not(message['data']['From'] in authors.keys()):
                 authors[message['data']['From']] = 1
-            authors[message['data']['From']] = authors[message['data']['From']] + 1                
+            authors[message['data']['From']] = authors[message['data']['From']] + 1
         return authors
-    
+
     def list_committers(self, url, directory, *args, **kwargs):
         # make a list from a csv file
         mail = kwargs.get('mail', False)
@@ -86,11 +100,11 @@ class DamePerceval(object):
             if (mail == True):
                 committer = r['data']['Author']
             else:
-                committer = self.removeMail(r['data']['Author'])                
+                committer = self.removeMail(r['data']['Author'])
             list_committers.append(committer)
-        list_committers = du.delete_duplicated(list_committers)            
+        list_committers = du.delete_duplicated(list_committers)
         return list_committers
-    
+
     def list_mailers(self, url, directory="files/mbox"):
         repo = MBox(uri=url, dirpath=directory)
         count = 0
@@ -109,7 +123,7 @@ class DamePerceval(object):
         for r in repo.fetch(from_date=from_date):
             l.append(r['data']['activity_data'][0]['person_data']['display_name'])
         return l
-    
+
     def count_gender_in_list(self, l):
         g = Gender()
         males = 0
@@ -127,5 +141,3 @@ class DamePerceval(object):
         r = requests.get(string)
         d = json.loads(r.text)
         return d
-        
-    
