@@ -6,8 +6,8 @@ New names from oficial Open Data statistics:
 + France (16660 males and 19783 females)
 
 Creating inter names from all countries with Open Data:
-+ 250199 males
-+ 271939 females
++ 259395 males
++ 279863 females
 
 * v0.3.2
 + csv2gender.py: add --verbose argument
