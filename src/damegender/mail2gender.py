@@ -4,8 +4,23 @@
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# You can share, copy and modify this software if you are a woman or you
-# are David Arroyo Menéndez and you include this note.
+#  Author: David Arroyo Menéndez <davidam@gmail.com>
+#  Maintainer: David Arroyo Menéndez <davidam@gmail.com>
+#  This file is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 3, or (at your option)
+#  any later version.
+#
+#  This file is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with damegender; see the file GPL.txt.  If not, write to
+#  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+#  Boston, MA 02110-1301 USA,
+
 
 
 
@@ -39,8 +54,8 @@ if (len(sys.argv) > 1):
     # print("----------------------------------------------------------------------------------------------------")
     l2 = du.delete_duplicated(l)
     # print(l2)
-    # print("----------------------------------------------------------------------------------------------------")    
-    l4 = du.delete_duplicated_identities(l2)    
+    # print("----------------------------------------------------------------------------------------------------")
+    l4 = du.delete_duplicated_identities(l2)
     # print(l4)
     # print("----------------------------------------------------------------------------------------------------")
     l5 = gg.dicc_authors_and_mails(args.url)
@@ -50,7 +65,7 @@ if (len(sys.argv) > 1):
 
     list_females = []
     list_males = []
-    list_unknows = []            
+    list_unknows = []
     for g in l4:
         vector = g.split()
         firstname = du.drop_quotes(vector[0])
@@ -60,7 +75,7 @@ if (len(sys.argv) > 1):
         if (sm == 0):
             list_females.append(g)
         elif (sm == 1):
-            list_males.append(g)            
+            list_males.append(g)
         else:
             list_unknows.append(g)
 
@@ -73,7 +88,7 @@ if (len(sys.argv) > 1):
                 identity = du.identity2name_email(i)
                 if identity[0] in list_males:
                     print("%s (%s messages)" % (i, l5[i]))
-        
+
     print("The number of females sending mails is %s" % len(list_females))
     if ((args.show=='females') or (args.show=='all')):
         print("The list of females sending mails is:")
@@ -83,7 +98,7 @@ if (len(sys.argv) > 1):
                 identity = du.identity2name_email(i)
                 if identity[0] in list_females:
                     print("%s (%s messages)" % (i, l5[i]))
-        
+
     print("The number of people with unknown gender sending mails is %s" % len(list_unknows))
     if ((args.show=='unknows') or (args.show == 'all')):
         print("The list of people with unknown gender sending mails is ")

@@ -4,10 +4,22 @@
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# You can share, copy and modify this software if you are a woman or you
-# are David Arroyo Menéndez and you include this note.
-
-
+#  Author: David Arroyo Menéndez <davidam@gmail.com>
+#  Maintainer: David Arroyo Menéndez <davidam@gmail.com>
+#  This file is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 3, or (at your option)
+#  any later version.
+#
+#  This file is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with damegender; see the file GPL.txt.  If not, write to
+#  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+#  Boston, MA 02110-1301 USA,
 
 
 
@@ -44,7 +56,7 @@ for k in gnulist:
     vector = k.split()
     firstname = vector[0]
     if (len(firstname) == 1):
-        unknows = unknows + 1                
+        unknows = unknows + 1
     else:
         sex = g.guess(firstname, binary=False, dataset='us')
         if (sex == "male"):
@@ -52,11 +64,11 @@ for k in gnulist:
             males_list.append(k)
         elif (sex == "female"):
             females = females + 1
-            females_list.append(k)            
+            females_list.append(k)
         else:
             unknows = unknows + 1
             unknows_list.append(k)
-            
+
 # print("gnu males: %s" % males)
 # print("gnu females: %s" % females)
 # print("unknow gender about gnu people: %s" % unknowns)
@@ -67,13 +79,13 @@ print("The number of gnu males is %s" % str(len(males_list)))
 if ((args.show=='males') or (args.show=='all')):
     print("The list of gnu males is:")
     print(males_list)
-    
+
 print("The number of gnu females is %s" % str(len(females_list)))
 if ((args.show=='females') or (args.show=='all')):
     print("The list of gnu females is:")
     print(females_list)
-    
-print("The number of people with unknown gender in GNU is %s" % str(len(unknows_list)))    
+
+print("The number of people with unknown gender in GNU is %s" % str(len(unknows_list)))
 if ((args.show=='unknowns') or (args.show=='all')):
     print("The list of GNU people with unknown gender is:")
     print(unknows_list)

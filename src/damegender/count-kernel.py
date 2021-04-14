@@ -2,9 +2,22 @@
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# You can share, copy and modify this software if you are a woman or you
-# are David Arroyo Menéndez and you include this note.
-
+#  Author: David Arroyo Menéndez <davidam@gmail.com>
+#  Maintainer: David Arroyo Menéndez <davidam@gmail.com>
+#  This file is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 3, or (at your option)
+#  any later version.
+#
+#  This file is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with damegender; see the file GPL.txt.  If not, write to
+#  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+#  Boston, MA 02110-1301 USA,
 
 
 
@@ -54,18 +67,18 @@ for rowdm in dm:
     listfullname = rowdm.split()
     name = listfullname[0]
     sex = g.guess(name.upper(), binary=False)
-    
+
     if (sex == 'female'):
         females = females + 1
         list_females.append(name)
     elif (sex == 'male'):
         males = males + 1
-        list_males.append(name)        
+        list_males.append(name)
     else:
         unknows = unknows + 1
         list_unknows.append(name)
-        
-print("this kernel maintainers list is about %s people" % len(dm))        
+
+print("this kernel maintainers list is about %s people" % len(dm))
 print("kernel maintainers males: %s" % males)
 print("kernel maintainers females: %s" % females)
 print("kernel maintainers not classified: %s" % unknows)
@@ -73,11 +86,11 @@ print("kernel maintainers not classified: %s" % unknows)
 if ((args.show=='males') or (args.show=='all')):
     print("The list of kernel maintainers males:" % list_males)
     print(list_males)
-    
+
 if ((args.show=='females') or (args.show=='all')):
     print("The list of kernel maintainers females:" % list_females)
     print(list_females)
-    
+
 if ((args.show=='unknows') or (args.show=='all')):
     print("The list of people with unknown gender as kernel maintainers:" % list_unknows)
     print(list_unknows)
