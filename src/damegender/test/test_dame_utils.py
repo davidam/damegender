@@ -4,9 +4,22 @@
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# You can share, copy and modify this software if you are a woman or you
-# are David Arroyo Menéndez and you include this note.
-
+#  Author: David Arroyo Menéndez <davidam@gmail.com>
+#  Maintainer: David Arroyo Menéndez <davidam@gmail.com>
+#  This file is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 3, or (at your option)
+#  any later version.
+#
+#  This file is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with damegender; see the file GPL.txt.  If not, write to
+#  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+#  Boston, MA 02110-1301 USA,
 
 
 
@@ -71,7 +84,7 @@ class TddInPythonExample(unittest.TestCase):
     def test_replace_single_hyphen(self):
         u = DameUtils()
         self.assertEqual(u.replace_single_hyphen("Magia-Antogneta"), "Magia Antogneta")
-        
+
     def test_drop_white_space(self):
         u = DameUtils()
         self.assertEqual("In",
@@ -100,7 +113,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual("Ana", u.drop_white_space_around(" Ana"))
         self.assertEqual("David Arroyo Menéndez ", u.drop_white_space_around("David Arroyo Menéndez "))
 
-        
+
     def test_drop_white_space_around(self):
         u = DameUtils()
         self.assertEqual(
@@ -123,8 +136,8 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_utils_delete_duplicated(self):
         g = Gender()
         du = DameUtils()
-        self.assertEqual(sorted(du.delete_duplicated([1, 5, 2, 2, 1, 3, 5, 5, 5 , 5])), [1, 2, 3, 5])        
-        
+        self.assertEqual(sorted(du.delete_duplicated([1, 5, 2, 2, 1, 3, 5, 5, 5 , 5])), [1, 2, 3, 5])
+
     def test_dame_utils_clean_list(self):
         du = DameUtils()
         self.assertEqual(
@@ -175,7 +188,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(len(l), 6)
         self.assertEqual(['"pierre"', '"raul"', '"adriano"', '"ralf"', '"guillermo"', '"sabina"'], l)
 
-        
+
     def test_dame_utils_csv2list(self):
         du = DameUtils()
         l = du.csv2list('files/names/min.csv')
@@ -187,7 +200,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(['"pierre"', '"paul"', '"grivel"', '"pierre paul grivel"', '"m"', '"zbmath"'], l[1])
         self.assertEqual(['"raul"', '""', '"serapioni"', '"raul serapioni"', '"m"', '"zbmath"'], l[2])
 
-        
+
     def test_dame_utils_num_columns_in_csv(self):
         du = DameUtils()
         n = du.num_columns_in_csv('files/names/partial.csv')
@@ -211,7 +224,7 @@ class TddInPythonExample(unittest.TestCase):
         identity2 = du.identity2name_email(s2)
         self.assertEqual(identity2[0], "David Arroyo Menendez")
         self.assertEqual(identity2[1], "david.am@gnu.org")
-        
+
         s3 = "David Arroyo Menéndez <david@alumnos.urjc.es>"
         identity3 = du.identity2name_email(s3)
         self.assertEqual(identity3[0], "David Arroyo Menendez")
@@ -231,8 +244,8 @@ class TddInPythonExample(unittest.TestCase):
         identity6 = du.identity2name_email(s6)
         self.assertEqual(identity6[0], 'Jim Jagielski')
         self.assertEqual(identity6[1], 'jim@jaguNET.com')
-        
-        
+
+
     def test_dame_utils_same_identity(self):
         du = DameUtils()
         s = du.same_identity("David Arroyo Menendez <davidam@gnu.org>", "David Arroyo Menendez <davidam@gnu.org>")
@@ -249,19 +262,19 @@ class TddInPythonExample(unittest.TestCase):
         s = du.initial_letters("D ")
         self.assertTrue(s)
         s = du.initial_letters("D. ")
-        self.assertTrue(s)        
+        self.assertTrue(s)
         s = du.initial_letters("David")
         self.assertFalse(s)
-        s = du.initial_letters("J.L.")        
+        s = du.initial_letters("J.L.")
         self.assertTrue(s)
-        s = du.initial_letters("JL")        
+        s = du.initial_letters("JL")
         self.assertTrue(s)
 
     def test_dame_utils_number_or_zero(self):
         du = DameUtils()
         noz = du.number_or_zero("-")
         self.assertEqual(noz, 0)
-        noz = du.number_or_zero(27)        
+        noz = du.number_or_zero(27)
         self.assertTrue(noz > 0)
         self.assertEqual(noz, 27)
 
@@ -269,15 +282,15 @@ class TddInPythonExample(unittest.TestCase):
         du = DameUtils()
         self.assertEqual(du.int2gender(1), "male")
         self.assertEqual(du.int2gender(0), "female")
-        self.assertEqual(du.int2gender(2), "unknown")                
-        
+        self.assertEqual(du.int2gender(2), "unknown")
+
     def test_dame_utils_dicc_dataset(self):
         du = DameUtils()
         dicc = du.dicc_dataset("male")
-        self.assertEqual(dicc["at"], "files/names/names_at/atmales.csv")        
+        self.assertEqual(dicc["at"], "files/names/names_at/atmales.csv")
         dicc = du.dicc_dataset("female")
-        self.assertEqual(dicc["at"], "files/names/names_at/atfemales.csv")        
-        
+        self.assertEqual(dicc["at"], "files/names/names_at/atfemales.csv")
+
     # def test_dame_utils_delete_duplicated_identities(self):
     #     du = DameUtils()
     #     l = ['David Arroyo Menéndez <davidam@es.gnu.org>', 'David Arroyo Menendez <davidam@gmail.com>', 'David Arroyo Menéndez <d.arroyome@alumnos.urjc.es>', 'David Arroyo <davidam@gmail.com>']
