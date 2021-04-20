@@ -30,7 +30,9 @@ parser = argparse.ArgumentParser()
 parser.add_argument("path", help="csv file")
 parser.add_argument('--first_name_position', required=True, type=int, choices=[0, 1, 2, 3, 4], default=0)
 parser.add_argument('--dataset', default="us", choices=['at', 'au', 'be', 'ca', 'de', 'dk', 'es', 'fi', 'gb', 'ie', 'ine', 'inter', 'is', 'mx', 'nz', 'pt', 'si', 'uy', 'us', 'genderguesser'])
-parser.add_argument('--output', default="files/names/out.csv")
+parser.add_argument('--outcsv', default="files/names/out.csv")
+parser.add_argument('--outimg', default="files/images/csv2gender.png")
+parser.add_argument('--title', default="People grouped by gender")
 parser.add_argument('--noshow', dest='noshow', action='store_true')
 parser.add_argument('--verbose', dest='verbose', action='store_true')
 parser.add_argument('--version', action='version', version='0.3')
@@ -62,7 +64,7 @@ for firstname in nameslist:
         unknows_list.append(firstname)
     l.append([firstname, sex])
 
-file = open(args.output, "w")
+file = open(args.outcsv, "w")
 for i in l:
     file.write(str(i[0])+","+str(i[1]) + "\n")
 
@@ -98,14 +100,18 @@ if (len(sys.argv) > 1):
 
 import matplotlib.pyplot as plt
 
-data = [len(males_list), len(females_list), len(unknows_list)]
-gender = ["Males","Females","Unknows"]
-plt.title("People grouped by gender")
+nmales = len(males_list)
+nfemales = len(females_list)
+nunknows = len(unknows_list)
+
+data = [nmales, nfemales, nunknows]
+gender = ["Males: " + str(nmales),"Females: " + str(nfemales),"Unknows: " + str(nunknows)]
+plt.title(args.title)
 plt.pie(data, labels=gender, autopct="%0.1f %%")
 plt.axis("equal")
 
 if (args.noshow):
-    plt.savefig('files/images/csv2gender.png')
+    plt.savefig(args.outimg)
 else:
-    plt.savefig('files/images/csv2gender.png')
+    plt.savefig(args.outimg)
     plt.show()
