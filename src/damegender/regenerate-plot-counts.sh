@@ -23,6 +23,6 @@ python3 csv2gender.py files/forbes2020.csv --first_name_position=0 --title="118 
 
 python3 csv2gender.py files/gnu-maintainers.csv --first_name_position=0 --title="GNU maintainers grouped by gender" --dataset="inter" --outcsv="files/gnu-maintainers.gender.csv" --outimg="files/gnu-maintainers.gender.png" --noshow --delete_duplicated
 
-# python3 csv2gender.py files/linux-maintainers.csv --first_name_position=0 --title="Linux maintaners grouped by gender" --dataset="inter" --outcsv="files/linux-maintainers.gender.csv" --outimg="files/gnu-maintainers.gender.png" --noshow --delete_duplicated
+python3 csv2gender.py files/linux-maintainers.csv --first_name_position=0 --title="Linux maintaners grouped by gender" --dataset="inter" --outcsv="files/linux-maintainers.gender.csv" --outimg="files/linux-maintainers.gender.png" --noshow --delete_duplicated
 
-# python3 csv2gender.py files/debian-maintainers-gpg-2020-04-01.csv --first_name_position=0 --title="Debian maintaners grouped by gender" --dataset="inter" --outcsv="files/debian-maintainers.gender.csv" --outimg="files/debian-maintainers.gender.png" --noshow --delete_duplicated
+python3 csv2gender.py files/debian-maintainers-gpg-2020-04-01.csv --first_name_position=0 --title="Debian maintaners grouped by gender" --dataset="inter" --outcsv="files/debian-maintainers.gender.csv" --outimg="files/debian-maintainers.gender.png" --noshow --delete_duplicated
