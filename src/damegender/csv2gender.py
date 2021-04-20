@@ -34,6 +34,7 @@ parser.add_argument('--outcsv', default="files/names/out.csv")
 parser.add_argument('--outimg', default="files/images/csv2gender.png")
 parser.add_argument('--title', default="People grouped by gender")
 parser.add_argument('--noshow', dest='noshow', action='store_true')
+parser.add_argument('--delete_duplicated', dest='delete_duplicated', action='store_true')
 parser.add_argument('--verbose', dest='verbose', action='store_true')
 parser.add_argument('--version', action='version', version='0.3')
 args = parser.parse_args()
@@ -70,9 +71,10 @@ for i in l:
 
 file.close()
 
-males_list = du.delete_duplicated(males_list)
-females_list = du.delete_duplicated(females_list)
-unknows_list = du.delete_duplicated(unknows_list)
+if (args.delete_duplicated):
+    males_list = du.delete_duplicated(males_list)
+    females_list = du.delete_duplicated(females_list)
+    unknows_list = du.delete_duplicated(unknows_list)
 
 if (len(sys.argv) > 1):
     print("------------------------------------------------------------------------")
