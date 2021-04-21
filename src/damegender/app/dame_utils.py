@@ -30,7 +30,7 @@ import csv
 class DameUtils():
 
     def locales(self):
-        locales = [["at"], ["au"], ["be"], ["ca"], ["de"], ["dk"], ["es", "ine"], ["gb"], ["ie"], ["is"], ["mx"], ["nz"], ["pt"], ["si"], ["us", "usa"], ["uy"]]
+        locales = [["at"], ["au"], ["be"], ["ca"], ["de"], ["dk"], ["es", "ine"], ["fi"], ["fr"], ["gb"], ["ie"], ["is"], ["mx"], ["nz"], ["pt"], ["si"], ["us", "usa"], ["uy"]]
         return locales
 
     def dicc_dataset(self, sex):
@@ -49,8 +49,8 @@ class DameUtils():
                              "ine": "files/names/names_es/esmasculinos.csv",
                              "inter": "files/names/names_inter/intermales.csv",
                              "is": "files/names/names_is/ismales.csv",
-                             "nz": "files/names/names_nz/nzmales.csv",
                              "mx": "files/names/names_mx/hombres.csv",
+                             "nz": "files/names/names_nz/nzmales.csv",
                              "pt": "files/names/names_pt/ptmales.csv",
                              "si": "files/names/names_si/simales.csv",
                              "us": "files/names/names_us/usmales.csv",
@@ -71,8 +71,8 @@ class DameUtils():
                              "ine": "files/names/names_es/esfemeninos.csv",
                              "inter": "files/names/names_inter/interfemales.csv",
                              "is": "files/names/names_is/isfemales.csv",
-                             "nz": "files/names/names_nz/nzfemales.csv",
                              "mx": "files/names/names_mx/mujeres.csv",
+                             "nz": "files/names/names_nz/nzfemales.csv",
                              "pt": "files/names/names_pt/ptfemales.csv",
                              "si": "files/names/names_si/sifemales.csv",
                              "us": "files/names/names_us/usfemales.csv",
