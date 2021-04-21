@@ -9,6 +9,14 @@ Creating inter names from all countries with Open Data:
 + 259395 males
 + 279863 females
 
+Improvements to csv2gender such as new arguments:
+- skip_header
+- delete_duplicated
+- outimg
+- outcsv
+- title
+
+
 * v0.3.2
 + csv2gender.py: add --verbose argument
 
