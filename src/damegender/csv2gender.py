@@ -34,6 +34,7 @@ parser.add_argument('--outcsv', default="files/names/out.csv")
 parser.add_argument('--outimg', default="files/images/csv2gender.png")
 parser.add_argument('--title', default="People grouped by gender")
 parser.add_argument('--noshow', dest='noshow', action='store_true')
+parser.add_argument('--skip_header', dest='skip_header', action='store_true')
 parser.add_argument('--delete_duplicated', dest='delete_duplicated', action='store_true')
 parser.add_argument('--verbose', dest='verbose', action='store_true')
 parser.add_argument('--version', action='version', version='0.3')
@@ -51,7 +52,11 @@ males_list = []
 females_list = []
 unknows_list = []
 
-nameslist = du.csvcolumn2list(args.path)
+if (args.skip_header):
+    nameslist = du.csvcolumn2list(args.path)
+else:
+    nameslist = du.csvcolumn2list(args.path, header=False)
+
 l = []
 
 for firstname in nameslist:
