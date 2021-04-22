@@ -15,7 +15,9 @@
 # You should have received a copy of the GNU General Public License
 # along with Damegender.  If not, see <https://www.gnu.org/licenses/>.
 
-
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
 
 cp config.cfg config.cfg.backup
 
@@ -29,20 +31,20 @@ if [ -f files/apikeys/genderizepass.txt ]; then
 
     if ! cmp files/tests/api2genderDavidgenderize.txt files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
     then
-	echo "api2genderDavidgenderize test is failing"
+	echo -e "api2genderDavidgenderize test is ${RED}failing${NC}"
     else
-	echo "api2genderDavidgenderize test is ok"
+	echo -e "api2genderDavidgenderize test is ${GREEN}ok${NC}"
     fi
 
     python3 downloadjson.py --api=genderize --csv=files/names/min.csv
 
     if [ -f files/names/genderizefiles_names_min.csv.json ]; then
-	echo "download genderize files names min is ok"
+	echo -e "download genderize files names min is ${GREEN}ok${NC}"
     else
-	echo "download genderize files names min is failing"
+	echo -e "download genderize files names min is ${RED}failing${NC}"
     fi
 else
-    echo "Doesn't exist files/apikeys/genderizepass.txt. You must introduce the api key in this file"
+    echo -e "Doesn't exist files/apikeys/genderizepass.txt. You must introduce the api key in this file"
 fi
 
 if [ -f files/apikeys/namsorpass.txt ]; then
@@ -50,20 +52,20 @@ if [ -f files/apikeys/namsorpass.txt ]; then
 
     if ! cmp files/tests/api2genderLeticianamsor.txt files/tests/api2genderLeticianamsor-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
     then
-	echo "api2genderLeticianamsor test is failing"
+	echo -e "api2genderLeticianamsor test is ${RED}failing${NC}"
     else
-	echo "api2genderLeticianamsor test is ok"
+	echo -e "api2genderLeticianamsor test is ${GREEN}ok${NC}"
     fi
 
     python3 downloadjson.py --api=namsor --csv=files/names/min.csv
 
     if [ -f files/names/namsorfiles_names_min.csv.json ]; then
-	echo "download namsor files names min is ok"
+	echo -e "download namsor files names min is ${GREEN}ok${NC}"
     else
-	echo "download namsor files names min is failing"
+	echo -e "download namsor files names min is ${RED}failing${NC}"
     fi
 else
-    echo "Doesn't exist files/apikeys/namsorpass.txt. You must introduce the api key in this file"
+    echo -e "Doesn't exist files/apikeys/namsorpass.txt. You must introduce the api key in this file"
 
 fi
 
@@ -72,18 +74,18 @@ if [ -f files/apikeys/genderapipass.txt ]; then
     python3 downloadjson.py --api=genderapi --csv=files/names/min.csv
 
     if [ -f files/names/genderapifiles_names_min.csv.json ]; then
-	echo "download genderapi files names min is ok"
+	echo -e "download genderapi files names min is ${GREEN}ok${NC}"
     else
-	echo "download genderapi files names min is failing"
+	echo -e "download genderapi files names min is ${RED}failing${NC}"
     fi
 
     python3 api2gender.py Inés --api="genderapi" > files/tests/api2genderInésgenderapi-$(date "+%Y-%m-%d-%H").txt
 
     if ! cmp files/tests/api2genderInésgenderapi.txt files/tests/api2genderInésgenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
     then
-	echo "api2genderInésgenderapi test is failing"
+	echo -e "api2genderInésgenderapi test is ${RED}failing${NC}"
     else
-	echo "api2genderInésgenderapi test is ok"
+	echo -e "api2genderInésgenderapi test is ${GREEN}ok${NC}"
     fi
 
     # python3 accuracy.py --api="genderapi" --csv="files/names/min.csv" > files/tests/accuracygenderapi-$(date "+%Y-%m-%d-%H").txt
