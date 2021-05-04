@@ -1,0 +1,8 @@
+* Retrieved from
++ https://www.wien.gv.at/statistik/bevoelkerung/vornamen/vornamen2019.html
+
+* License
++ Creative Commons Attribution 4.0
++ https://digitales.wien.gv.at/site/open-data/ogd-nutzungsbedingungen/
++ https://creativecommons.org/licenses/by/4.0/deed.de
+

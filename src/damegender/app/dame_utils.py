@@ -1,11 +1,25 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# You can share, copy and modify this software if you are a woman or you
-# are David Arroyo Menéndez and you include this note.
+#  Author: David Arroyo Menéndez <davidam@gmail.com>
+#  Maintainer: David Arroyo Menéndez <davidam@gmail.com>
+#  This file is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 3, or (at your option)
+#  any later version.
+#
+#  This file is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with damegender; see the file GPL.txt.  If not, write to
+#  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+#  Boston, MA 02110-1301 USA,
 
 import unidecode
 import unicodedata
@@ -14,6 +28,57 @@ import os
 import csv
 
 class DameUtils():
+
+    def locales(self):
+        locales = [["at"], ["au"], ["be"], ["ca"], ["de"], ["dk"], ["es", "ine"], ["fi"], ["fr"], ["gb"], ["ie"], ["is"], ["mx"], ["nz"], ["pt"], ["si"], ["us", "usa"], ["uy"]]
+        return locales
+
+    def dicc_dataset(self, sex):
+        if ((sex == "male") or (sex == "males") or (sex == 1)):
+            path_dataset = { "at": "files/names/names_at/atmales.csv",
+                             "au": "files/names/names_au/baby-names-1944-2013/aumales.csv",
+                             "be": "files/names/names_be/bemales.csv",
+                             "ca": "files/names/names_ca/camales.csv",
+                             "de": "files/names/names_de/demales.csv",
+                             "dk": "files/names/names_dk/males.csv",
+                             "es": "files/names/names_es/esmasculinos.csv",
+                             "fi": "files/names/names_fi/fimales.csv",
+                             "fr": "files/names/names_fr/frmales.csv",
+                             "gb": "files/names/names_gb/ukmales.csv",
+                             "ie": "files/names/names_ie/iemales.csv",
+                             "ine": "files/names/names_es/esmasculinos.csv",
+                             "inter": "files/names/names_inter/intermales.csv",
+                             "is": "files/names/names_is/ismales.csv",
+                             "mx": "files/names/names_mx/hombres.csv",
+                             "nz": "files/names/names_nz/nzmales.csv",
+                             "pt": "files/names/names_pt/ptmales.csv",
+                             "si": "files/names/names_si/simales.csv",
+                             "us": "files/names/names_us/usmales.csv",
+                             "usa": "files/names/names_us/usmales.csv",
+                             "uy": "files/names/names_uy/uymasculinos.csv"}
+        elif ((sex == "female") or (sex == "females") or (sex == 0)):
+            path_dataset = { "at": "files/names/names_at/atfemales.csv",
+                             "au": "files/names/names_au/baby-names-1944-2013/aufemales.csv",
+                             "be": "files/names/names_be/befemales.csv",
+                             "ca": "files/names/names_ca/cafemales.csv",
+                             "de": "files/names/names_de/defemales.csv",
+                             "dk": "files/names/names_dk/females.csv",
+                             "es": "files/names/names_es/esfemeninos.csv",
+                             "fi": "files/names/names_fi/fifemales.csv",
+                             "fr": "files/names/names_fr/frfemales.csv",
+                             "gb": "files/names/names_gb/ukfemales.csv",
+                             "ie": "files/names/names_ie/iefemales.csv",
+                             "ine": "files/names/names_es/esfemeninos.csv",
+                             "inter": "files/names/names_inter/interfemales.csv",
+                             "is": "files/names/names_is/isfemales.csv",
+                             "mx": "files/names/names_mx/mujeres.csv",
+                             "nz": "files/names/names_nz/nzfemales.csv",
+                             "pt": "files/names/names_pt/ptfemales.csv",
+                             "si": "files/names/names_si/sifemales.csv",
+                             "us": "files/names/names_us/usfemales.csv",
+                             "usa": "files/names/names_us/usfemales.csv",
+                             "uy": "files/names/names_uy/uyfemeninos.csv"}
+        return path_dataset
 
     def string2array(self, string):
         res = ""
@@ -79,6 +144,27 @@ class DameUtils():
                 aux = aux + c
         return aux
 
+    def single_hyphen_p(self, s):
+        cnt = 0
+        for c in unicodedata.normalize('NFD', str(s)):
+            if (c == '-'):
+                cnt = cnt +1
+        if (cnt == 1):
+            boolean = True
+        else:
+            boolean = False
+        return boolean
+
+    def replace_single_hyphen(self, s):
+        if (self.single_hyphen_p(s)):
+            aux = ""
+            for c in unicodedata.normalize('NFD', str(s)):
+                if (c != '-'):
+                    aux = aux + c
+                else:
+                    aux = aux + " "
+        return aux
+
     def white_space_inside_by(self, s, by):
         inside = 0
         aux = ""
@@ -136,9 +222,9 @@ class DameUtils():
         else:
             fullname = s
             email = ""
-        fullname = self.drop_white_space_around(fullname)        
+        fullname = self.drop_white_space_around(fullname)
         return [fullname, email]
-        
+
     def same_identity(self, string1, string2):
         same_identity = False
         string1 = self.drop_accents(string1)
@@ -173,9 +259,10 @@ class DameUtils():
         # make a list from a column in a csv file
         position = kwargs.get('position', 0)
         header = kwargs.get('header', True)
+        delimiter = kwargs.get('delimiter', ',')
         l = []
         with open(csvpath) as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            sexreader = csv.reader(csvfile, delimiter=delimiter, quotechar='|')
             if (header == True):
                 next(sexreader, None)
             for row in sexreader:
@@ -184,17 +271,18 @@ class DameUtils():
 
     def csv2list(self, csvpath,  *args, **kwargs):
         # make a list from a csv file
-        header = kwargs.get('header', False)        
+        header = kwargs.get('header', False)
+        delimiter = kwargs.get('delimiter', ',')
         l = []
         with open(csvpath) as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            sexreader = csv.reader(csvfile, delimiter=delimiter, quotechar='|')
             if (header == True):
-                next(sexreader, None)            
+                next(sexreader, None)
             for row in sexreader:
                 l.append(row)
         return l
-        
-    
+
+
     # def delete_duplicated(self, l):
     #     if (len(l) == 0):
     #         return l
@@ -274,6 +362,14 @@ class DameUtils():
             gender = "unknown"
         return gender
 
+    def number_or_zero(self, x):
+        try:
+            num = int(x)
+        except ValueError:
+            num = 0
+        return num
+
+
     def round_and_not_zero_division(self, x, y):
         if ((x == 0) and (y == 0)):
             return 0
@@ -282,12 +378,10 @@ class DameUtils():
         else:
             division = x / y
             return (round(division, 3))
-        
+
     def initial_letters(self, s):
         match = re.search(r'(([A-Z][\.| ]){1,2})|([A-Z]{2})', s)
         if match:
             return True
         else:
             return False
-
-        

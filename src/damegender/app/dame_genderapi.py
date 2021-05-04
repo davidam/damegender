@@ -1,13 +1,27 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# You can share, copy and modify this software if you are a woman or you
-# are David Arroyo Menéndez and you include this note.
+#  Author: David Arroyo Menéndez <davidam@gmail.com>
+#  Maintainer: David Arroyo Menéndez <davidam@gmail.com>
+#  This file is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 3, or (at your option)
+#  any later version.
+#
+#  This file is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with damegender; see the file GPL.txt.  If not, write to
+#  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+#  Boston, MA 02110-1301 USA,
 
-import csv
+
 import requests
 import json
 import os
@@ -26,7 +40,7 @@ class DameGenderApi(Gender):
             string = string + '&key=' + contenido
             r = requests.get(string)
             j = json.loads(r.text)
-            v = [j['gender'], j['accuracy']]
+            v = [j['gender'], j['accuracy'], j['samples']]
         return v
 
     def guess(self, name, binary=False):
@@ -54,6 +68,11 @@ class DameGenderApi(Gender):
     def accuracy(self, name):
         v = self.get(name)
         return v[1]
+
+    def samples(self, name):
+        v = self.get(name)
+        return v[2]
+
 
     def download(self, path="files/names/partial.csv"):
         du = DameUtils()

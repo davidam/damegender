@@ -1,11 +1,19 @@
+62814 males for David from Austria statistics
+0 females for David from Austria statistics
 365196 males for David from Spain statistics (INE.es)
-0 females for David from Spain statitstics (INE.es)
-360 males for David from Ireland statisctics
+0 females for David from Spain statistics (INE.es)
+360 males for David from Ireland statistics
 0 females for David from Ireland statistics
+797 males for David from Deutchsland statistics
+2 females for David from Deutchsland statistics
+8625 males for David from Denmark statistics
+0 females for David from Denmark statistics
 0 males for David from Iceland statistics
 0 females for David from Iceland statistics
 912 males for David from Finland statistics
 0 females for David from Finland statistics
+313229 males for David from France statistics
+134 females for David from France statistics
 1193 males for David from Uruguay statistics
 5 females for David from Uruguay statistics
 26645 males for David from United Kingdom statistics
@@ -20,4 +28,12 @@
 12826 females for David from United States of America statistics
 5604 males for David from Australia statistics
 7 females for David from Australia statistics
+2276 males for David from Mexico statistics
+8 females for David from Mexico statistics
+ 379319 males for David from Belgium statistics
+0 females for David from Belgium statistics
+104966 males for David from Slovenia statistics
+0 females for David from Slovenia statistics
+4843706 males for David from international statistics
+12983 females for David from international statistics
 David gender predicted with nltk is male

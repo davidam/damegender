@@ -1,9 +1,26 @@
-#!/usr/bin/bash
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# You can share, copy and modify this software if you are a woman or you
-# are David Arroyo Menéndez and you include this note.
+#  Author: David Arroyo Menéndez <davidam@gmail.com>
+#  Maintainer: David Arroyo Menéndez <davidam@gmail.com>
+#  This file is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 3, or (at your option)
+#  any later version.
+#
+#  This file is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with damegender; see the file GPL.txt.  If not, write to
+#  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+#  Boston, MA 02110-1301 USA,
+
 
 
 
@@ -45,15 +62,15 @@ males = 0
 unknows = 0
 for rowdm in dm:
     sex = g.guess(rowdm.upper(), binary=False)
-    
+
     if (sex == 'female'):
         females = females + 1
     elif (sex == 'male'):
         males = males + 1
     else:
         unknows = unknows + 1
-        
-print("this forbes list is about %s people" % len(dm))        
+
+print("this forbes list is about %s people" % len(dm))
 print("forbes males: %s" % males)
 print("forbes females: %s" % females)
 print("forbes not classified people: %s" % unknows)

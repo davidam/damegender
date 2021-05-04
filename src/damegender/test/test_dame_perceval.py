@@ -4,8 +4,22 @@
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# You can share, copy and modify this software if you are a woman or you
-# are David Arroyo Menéndez and you include this note.
+#  Author: David Arroyo Menéndez <davidam@gmail.com>
+#  Maintainer: David Arroyo Menéndez <davidam@gmail.com>
+#  This file is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 3, or (at your option)
+#  any later version.
+#
+#  This file is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with damegender; see the file GPL.txt.  If not, write to
+#  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+#  Boston, MA 02110-1301 USA,
 
 
 import unittest
@@ -51,20 +65,20 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_perceval_list_mailers_method_returns_correct_result(self):
         gg = DamePerceval()
-        x = len(gg.list_mailers('http://mail-archives.apache.org/mod_mbox/httpd-announce/'))    
+        x = len(gg.list_mailers('http://mail-archives.apache.org/mod_mbox/httpd-announce/'))
         self.assertTrue(x >= 0)
 
     # def test_dame_perceval_list_launchpad_method_returns_correct_result(self):
     #     dp = DamePerceval()
     #     l = dp.list_launchpad("ubuntu", datetime.datetime.now() - timedelta(hours=12))
     #     self.assertTrue(len(l) > 1)
-        
+
     def test_dame_perceval_dicc_authors_and_mails_method_returns_correct_result(self):
         dp = DamePerceval()
         dicc = dp.dicc_authors_and_mails(
             "http://mail-archives.apache.org/mod_mbox/httpd-announce/")
         self.assertTrue(len(dicc) > 1)
-        
+
     def test_dame_perceval_dicc_authors_and_commits_method_returns_correct_result(self):
         dp = DamePerceval()
         dicc = dp.dicc_authors_and_commits(
@@ -79,6 +93,3 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(j["id"], 1023217)
         self.assertEqual(j["blog"], "http://www.davidam.com")
         self.assertEqual(j["html_url"], "https://github.com/davidam")
-
-        
-        
