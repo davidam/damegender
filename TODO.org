@@ -1131,7 +1131,7 @@ Hay idiomas que los nombres tienen género para llegar a esto es posible revisar
   #     dn = DameNLTK()
   #     degree = 0.7
   #     self.assertTrue(dn.delete_similar_in_list(["This is a good sentence".split(), "This is a bad sentence".split()], degree))
-* TODO Escribir un método download_free_names 
+* TODO Escribir un método download_free_names
   SCHEDULED: <2020-05-14 jue>
 1. Se podría ejecutar en la instalación
 2. Tendría un argumento locale que por defecto es all
@@ -1161,7 +1161,7 @@ Hay idiomas que los nombres tienen género para llegar a esto es posible revisar
   - State "DONE"       from "TODO"       [2021-05-03 lun 11:23]
 * DONE Escribir el método surname_starts_by y name_starts_by para que dado un nombre o un apellido liste todo los nombres con los que hace match
   - State "DONE"       from "TODO"       [2021-01-25 lun 05:58]
-Se puede hacer también al revés con lo que acaba (ej: name_ends_by y surname_ends_by) 
+Se puede hacer también al revés con lo que acaba (ej: name_ends_by y surname_ends_by)
 O se puede hacer directamente con expresión regular (ej: name_regex y surname_regex)
 
 Queda finalmente implementado en el comando startwith.py
@@ -1178,10 +1178,14 @@ Los campos de cada persona
 + gender (obligatorio)
 - State "DONE"       from "TODO"       [2020-12-06 dom 23:10]
 * DONE Añadir Bélgica
-* TODO En top.py estaría bien una opción --countries que despliegue en formato tabla los top de diferentes países
+* CANCELED En top.py estaría bien una opción --all-countries que despliegue en formato tabla los top de diferentes países
+  - State "CANCELED"   from "TODO"       [2021-05-03 lun 18:38]
+Aumenta en exceso la complejidad de sw y de manera algo incómoda de mantener
 * TODO percentagegender.py
 Dado un porcentaje de género dame los nombres
 * TODO Hacer trabajos técnicos a favor de la incorporación de Turquía en DameGender
 + [ ] Hablar con el gobierno Turco acerca de la libertad de los nombres
 + [ ] Estudiar trabajos de otros hackers en este sentido
 https://github.com/mkozturk/turkishnames/
+* TODO Hacer trabajos técnicos a favor de la incorporación de China en DameGender
+Mirar el paquete de R ChineseNames
