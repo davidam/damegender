@@ -127,7 +127,7 @@ class DameSexmachine(Gender):
 
     def adaboost(self):
         X = np.array(self.ds.features_list(path="files/names/all.csv"))
-        y = self.gender_list(path="files/names/all.csv")
+        y = self.csv2gender_list(path="files/names/all.csv")
         clf = AdaBoostClassifier(n_estimators=100)
         clf.fit(X, y)
         filename = 'files/datamodels/adaboost_model.sav'
@@ -143,7 +143,7 @@ class DameSexmachine(Gender):
     def svc(self):
         # Scikit svc classifier
         X = np.array(self.features_list(path="files/names/all.csv"))
-        y = self.gender_list(path="files/names/all.csv")
+        y = self.csv2gender_list(path="files/names/all.csv")
         clf = svm.SVC()
         clf.fit(X, y)
         filename = 'files/datamodels/svc_model.sav'
@@ -159,7 +159,7 @@ class DameSexmachine(Gender):
     def sgd(self):
         # Scikit classifier
         X = np.array(self.features_list(path="files/names/all.csv"))
-        y = self.gender_list("files/names/all.csv")
+        y = self.csv2gender_list("files/names/all.csv")
         clf = SGDClassifier(loss="log").fit(X, y)
         filename = 'files/datamodels/sgd_model.sav'
         pickle.dump(clf, open(filename, 'wb'))
@@ -174,7 +174,7 @@ class DameSexmachine(Gender):
     def gaussianNB(self):
         # Scikit bayesian classifier
         x = np.array(self.features_list(path="files/names/all.csv"))
-        y = np.array(self.gender_list(path="files/names/all.csv"))
+        y = np.array(self.csv2gender_list(path="files/names/all.csv"))
         # Create a Gaussian Classifier
         model = GaussianNB()
         # Train the model using the training sets
@@ -192,7 +192,7 @@ class DameSexmachine(Gender):
     def multinomialNB(self):
         # Scikit bayesian classifier
         X = np.array(self.features_list(path="files/names/all.csv"))
-        y = np.array(self.gender_list(path="files/names/all.csv"))
+        y = np.array(self.csv2gender_list(path="files/names/all.csv"))
         model = MultinomialNB()
         model.fit(X, y)
         filename = 'files/datamodels/multinomialNB_model.sav'
@@ -208,7 +208,7 @@ class DameSexmachine(Gender):
     def bernoulliNB(self):
         # Scikit bayesian classifier
         X = np.array(self.features_list(path="files/names/all.csv"))
-        y = np.array(self.gender_list(path="files/names/all.csv"))
+        y = np.array(self.csv2gender_list(path="files/names/all.csv"))
         model = BernoulliNB()
         model.fit(X, y)
         filename = 'files/datamodels/bernoulliNB_model.sav'
@@ -224,7 +224,7 @@ class DameSexmachine(Gender):
     def forest(self):
         # Scikit forest classifier
         X = np.array(self.features_list(path="files/names/all.csv"))
-        y = np.array(self.gender_list(path="files/names/all.csv"))
+        y = np.array(self.csv2gender_list(path="files/names/all.csv"))
         X, y = make_classification(n_samples=7000,
                                    n_features=33,
                                    n_informative=33,
@@ -246,7 +246,7 @@ class DameSexmachine(Gender):
     def tree(self):
         # Scikit forest classifier
         X = np.array(self.features_list(path="files/names/all.csv"))
-        y = np.array(self.gender_list(path="files/names/all.csv"))
+        y = np.array(self.csv2gender_list(path="files/names/all.csv"))
         clf = tree.DecisionTreeClassifier()
         clf = clf.fit(X, y)
         filename = 'files/datamodels/tree_model.sav'
@@ -261,7 +261,7 @@ class DameSexmachine(Gender):
 
     def mlp(self):
         X = np.array(self.features_list(path="files/names/all.csv"))
-        y = np.array(self.gender_list(path="files/names/all.csv"))
+        y = np.array(self.csv2gender_list(path="files/names/all.csv"))
         clf = MLPClassifier(solver='lbfgs', alpha=1e-5,
                     hidden_layer_sizes=(5, 2), random_state=1)
         clf.fit(X, y)
@@ -278,7 +278,7 @@ class DameSexmachine(Gender):
     # def xgboost(self):
     #     # Scikit xgboost classifier
     #     X = np.array(self.features_list(path="files/names/all.csv"))
-    #     y = np.array(self.gender_list(path="files/names/all.csv"))
+    #     y = np.array(self.csv2gender_list(path="files/names/all.csv"))
     #     model = XGBClassifier()
     #     model.fit(X, y)
     #     filename = 'files/datamodels/xgboost_model.sav'
@@ -370,9 +370,9 @@ class DameSexmachine(Gender):
     def confusion_matrix_gender(self, path='', jsonf='', ml='nltk'):
         # this method is an interfaz to confusion_matrix_table allowing introduce a json file
         # in dame_sexmachine we must rewrite it to allow machine learning algorithm
-        truevector = self.gender_list(path)
+        truevector = self.csv2gender_list(path)
         if (os.path.isfile(jsonf)):
-            guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
+            guessvector = self.json2gender_list(jsonf=jsonf, binary=True)
         else:
             guessvector = self.guess_list(path,
                                           binary=True,

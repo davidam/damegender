@@ -106,7 +106,7 @@ class DameGenderApi(Gender):
         backup.close()
         return 1
 
-    def json2guess_list(self, jsonf="", binary=False):
+    def json2gender_list(self, jsonf="", binary=False):
         jsondata = open(jsonf).read()
         json_object = json.loads(jsondata)
         guesslist = []
