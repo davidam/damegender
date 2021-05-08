@@ -280,15 +280,15 @@ class TddInPythonExample(unittest.TestCase):
 
 
 
-    def test_dame_sexmachine_json2guess_list(self):
+    def test_dame_sexmachine_json2gender_list(self):
         ds = DameSexmachine()
-        j2gl = ds.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=False)
+        j2gl = ds.json2gender_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=False)
         self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], j2gl)
-        j2gl = ds.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=True)
+        j2gl = ds.json2gender_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=True)
         self.assertEqual([1, 1, 1, 1, 1, 0], j2gl)
-        j2gl = ds.json2guess_list(jsonf="files/names/min.csv.json", binary=False)
+        j2gl = ds.json2gender_list(jsonf="files/names/min.csv.json", binary=False)
         self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], j2gl)
-        j2gl = ds.json2guess_list(jsonf="files/names/min.csv.json", binary=True)
+        j2gl = ds.json2gender_list(jsonf="files/names/min.csv.json", binary=True)
         self.assertEqual([1, 1, 1, 1, 1, 0], j2gl)
 
 

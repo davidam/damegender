@@ -68,7 +68,7 @@ class TddInPythonExample(unittest.TestCase):
         dna = DameNameapi()
         if (dna.config['DEFAULT']['nameapi'] == 'yes'):
             jsonf1 = 'files/names/nameapifiles_names_partial.csv.json'
-            l = dna.json2guess_list(jsonf1, binary=True)
+            l = dna.json2gender_list(jsonf1, binary=True)
             self.assertEqual(l, [1, 1, 1, 1, 1, 1, 0, 0, 1,
                               1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 1])
 
@@ -100,9 +100,9 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(['Pierre', 'Raul', 'Adriano', 'Ralf', 'Guillermo', 'Sabina'], l)
 
 
-    def test_dame_nameapi_json2guess_list(self):
+    def test_dame_nameapi_json2gender_list(self):
         dn = DameNameapi()
-        j2gl = dn.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=False)
+        j2gl = dn.json2gender_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=False)
         self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], j2gl)
-        j2gl = dn.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=True)
+        j2gl = dn.json2gender_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=True)
         self.assertEqual([1, 1, 1, 1, 1, 0], j2gl)
