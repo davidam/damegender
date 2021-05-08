@@ -67,9 +67,9 @@ class TddInPythonExample(unittest.TestCase):
     #     dg = DameGenderize()
     #     self.assertEqual(dg.limit_exceeded_p(), 1)
 
-    def test_dame_genderize_gender_list(self):
+    def test_dame_genderize_csv2gender_list(self):
         dg = DameGenderize()
-        gl = dg.gender_list(path="files/names/partial.csv")
+        gl = dg.csv2gender_list(path="files/names/partial.csv")
         self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1,
                               2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
         self.assertEqual(len(gl), 21)

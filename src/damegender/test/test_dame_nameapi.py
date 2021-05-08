@@ -47,9 +47,9 @@ class TddInPythonExample(unittest.TestCase):
         if (g.config['DEFAULT']['nameapi'] == 'yes'):
             self.assertTrue(0.8 < g.confidence("David", "Arroyo", binary=True))
 
-    def test_dame_nameapi_gender_list_method_returns_correct_result(self):
+    def test_dame_nameapi_csv2gender_list_method_returns_correct_result(self):
         g = DameNameapi()
-        gl = g.gender_list(path="files/names/partial.csv")
+        gl = g.csv2gender_list(path="files/names/partial.csv")
         if (g.config['DEFAULT']['nameapi'] == 'yes'):
             self.assertEqual(gl,
                              [1, 1, 1, 1, 2, 1, 0, 0, 1, 1,

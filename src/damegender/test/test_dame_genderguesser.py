@@ -27,7 +27,7 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_genderguesser_gender_list(self):
         dgg = DameGenderGuesser()
-        gl = dgg.gender_list(path="files/names/partial.csv")
+        gl = dgg.csv2gender_list(path="files/names/partial.csv")
         self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1,
                               2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
         self.assertEqual(len(gl), 21)
@@ -48,7 +48,7 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_genderguesser_accuracy(self):
         dgg = DameGenderGuesser()
         ds = DameStatistics()
-        gl1 = dgg.gender_list(path="files/names/partial.csv")
+        gl1 = dgg.csv2gender_list(path="files/names/partial.csv")
         gl2 = dgg.guess_list(path="files/names/partial.csv",
                                         binary=True)
         self.assertTrue(ds.accuracy_score_dame(gl1, gl2) >= 0.5)
