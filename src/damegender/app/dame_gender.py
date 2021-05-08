@@ -947,7 +947,7 @@ class Gender(object):
             if (self.json_eq_csv_in_names(jsonf=jsonf, path=path)):
                 print("################### "+ api +"!!")
                 print("Gender list: " + str(gl))
-                sl = self.json2guess_list(jsonf=jsonf, binary=True)
+                sl = self.json2gender_list(jsonf=jsonf, binary=True)
                 print("Guess list:  " +str(sl))
                 dst.print_measures(gl, sl, measure, api)
             else:
@@ -979,7 +979,7 @@ class Gender(object):
             print("In the path %s doesn't exist file" % jsonf)
 
 
-    def json2guess_list(self, jsonf="", binary=False):
+    def json2gender_list(self, jsonf="", binary=False):
         jsondata = open(jsonf).read()
         json_object = json.loads(jsondata)
         guesslist = []
@@ -1057,7 +1057,7 @@ class Gender(object):
         # in dame_sexmachine we must rewrite it to allow machine learning algorithm
         truevector = self.csv2gender_list(path)
         if (os.path.isfile(jsonf)):
-            guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
+            guessvector = self.json2gender_list(jsonf=jsonf, binary=True)
         else:
             guessvector = self.guess_list(path, binary=True)
         res = dst.confusion_matrix_table(truevector, guessvector)
