@@ -1168,15 +1168,6 @@ Queda finalmente implementado en el comando startwith.py
 * DONE Hacer un screencast usando los principales comandos
   SCHEDULED: <2020-07-06 lun>
   - State "DONE"       from "TODO"       [2020-09-02 mié 05:55]
-* TODO Escribir csv2json.py
-Los campos de cada persona
-+ name (obligatorio)
-+ surname (opcional, por defecto vacío)
-+ total_males
-+ total_females
-+ probability (opcional, por defecto valor 1)
-+ gender (obligatorio)
-- State "DONE"       from "TODO"       [2020-12-06 dom 23:10]
 * DONE Añadir Bélgica
 * CANCELED En top.py estaría bien una opción --all-countries que despliegue en formato tabla los top de diferentes países
   - State "CANCELED"   from "TODO"       [2021-05-03 lun 18:38]
@@ -1189,3 +1180,18 @@ Dado un porcentaje de género dame los nombres
 https://github.com/mkozturk/turkishnames/
 * TODO Hacer trabajos técnicos a favor de la incorporación de China en DameGender
 Mirar el paquete de R ChineseNames
+* TODO Usar csv o json debe ser una opción en base de verdad y comparación con respecto confusion y accuracy
+** TODO 1. Debemos unificar nombres de métodos
++ [ ] gender_list by csv2gender_list
++ [ ] json2guess_list by json2gender_list
+
+** TODO 2. En confusion y accuracy deben reescribirse los argumentos --csv y --jsondownloaded a --csv-base-of-truth, --json-base-of-truth, --json-to-compare y --csv-to-compare
+  SCHEDULED: <2021-05-08 sáb>
+** TODO 3. Escribir csv2json.py
+Los campos de cada persona
++ name (obligatorio)
++ surname (opcional, por defecto vacío)
++ total_males
++ total_females
++ probability (opcional, por defecto valor 1)
++ gender (obligatorio)
