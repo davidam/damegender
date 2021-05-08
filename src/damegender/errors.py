@@ -61,10 +61,10 @@ if (args.api == "genderguesser"):
     gl2 = dg.guess_list(path=args.csv, binary=True)
     print("Gender Guesser with %s has: " % args.csv)
 else:
-    gl2 = dsex.json2guess_list(jsonf=args.jsondownloaded, binary=True)
+    gl2 = dsex.json2gender_list(jsonf=args.jsondownloaded, binary=True)
     print("Damegender with %s has: " % args.csv)
 
-gl1 = dsex.gender_list(path=args.csv)
+gl1 = dsex.csv2gender_list(path=args.csv)
 dst = DameStatistics()
 ec = dst.error_coded(gl1, gl2)
 print("+ The error code: %s" % ec)

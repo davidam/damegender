@@ -119,11 +119,11 @@ class TddInPythonExample(unittest.TestCase):
                 os.path.isfile(
                     "files/names/namsor"+du.path2file(path1)+".json"))
 
-    def test_dame_namsor_json2guess_list(self):
+    def test_dame_namsor_json2gender_list(self):
         dn = DameNamsor()
-        j2gl = dn.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=False)
+        j2gl = dn.json2gender_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=False)
         self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], j2gl)
-        j2gl = dn.json2guess_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=True)
+        j2gl = dn.json2gender_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=True)
         self.assertEqual([1, 1, 1, 1, 1, 0], j2gl)
 
     def test_dame_namsor_json2names(self):

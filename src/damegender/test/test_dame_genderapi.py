@@ -76,14 +76,14 @@ class TddInPythonExample(unittest.TestCase):
                              dn.guess_list(path="files/names/partial.csv",
                                       binary=True))
 
-    def test_dame_genderapi_json2guess_list(self):
+    def test_dame_genderapi_json2gender_list(self):
         dga = DameGenderApi()
         if (dga.config['DEFAULT']['genderapi'] == 'yes'):
             self.assertEqual(['male', 'male', 'male', 'male'],
-                             dga.json2guess_list(
+                             dga.json2gender_list(
                                  jsonf="files/names/genderapifiles_names_min.processed.json"))
             self.assertEqual([1, 1, 1, 1],
-                             dga.json2guess_list(
+                             dga.json2gender_list(
                                  jsonf="files/names/genderapifiles_names_min.processed.json",
                                  binary=True))
 
