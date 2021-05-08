@@ -208,9 +208,9 @@ class TddInPythonExample(unittest.TestCase):
 #         am = [[3, 0, 0], [0, 16, 0], [0, 16, 0]]
 #         self.assertEqual(cm, am)
 
-    def test_dame_gender_gender_list(self):
+    def test_dame_gender_csv2gender_list(self):
         g = Gender()
-        gl = g.gender_list(path="files/names/partial.csv")
+        gl = g.csv2gender_list(path="files/names/partial.csv")
         self.assertEqual(gl,
                          [1, 1, 1, 1, 2, 1, 0, 0, 1, 1,
                           2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])

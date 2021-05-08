@@ -904,7 +904,7 @@ class Gender(object):
                 slist.append(self.guess(name, binary))
         return slist
 
-    def gender_list(self, path, *args, **kwargs):
+    def csv2gender_list(self, path, *args, **kwargs):
         # counting males, females and unknown
         header = kwargs.get('header', True)
         glist = []
@@ -941,7 +941,7 @@ class Gender(object):
         ml = kwargs.get('ml', 'nltk')
         api = kwargs.get('api', 'damegender')
         header = kwargs.get('header', True)
-        gl = self.gender_list(path=path)
+        gl = self.csv2gender_list(path=path)
 
         if (os.path.isfile(jsonf)):
             if (self.json_eq_csv_in_names(jsonf=jsonf, path=path)):
@@ -968,7 +968,7 @@ class Gender(object):
         api = kwargs.get('api', 'damegender')
         reverse = kwargs.get('reverse', False)
         dimensions = kwargs.get('dimensions', '3x2')
-        gl = self.gender_list(path=path)
+        gl = self.csv2gender_list(path=path)
         print("%s confusion matrix:\n" % api)
 #        self.print_confusion_matrix_gender(path=path, dimensions=dimensions)
         if (os.path.isfile(jsonf)):
@@ -1048,14 +1048,14 @@ class Gender(object):
         return [ret, i]
 
     def accuracy(self, path):
-        gl = self.gender_list(path)
+        gl = self.csv2gender_list(path)
         sl = self.guess_list(path, binary=True)
         return self.accuracy_score_dame(gl, sl)
 
     def confusion_matrix_gender(self, path='', jsonf=''):
         # this method is an interfaz to confusion_matrix_table allowing introduce a json file
         # in dame_sexmachine we must rewrite it to allow machine learning algorithm
-        truevector = self.gender_list(path)
+        truevector = self.csv2gender_list(path)
         if (os.path.isfile(jsonf)):
             guessvector = self.json2guess_list(jsonf=jsonf, binary=True)
         else:
