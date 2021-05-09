@@ -35,7 +35,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
 parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
-parser.add_argument('--total', default="us", choices=['at', 'au', 'be', 'ca', 'de', 'dk', 'es', 'fi', 'fr', 'gb', 'ie', 'ine', 'is', 'nz', 'mx', 'pt', 'si', 'uy', 'us', 'genderguesser', 'inter', 'all'])
+parser.add_argument('--total', default="us", choices=['at', 'au', 'be', 'ca', 'cn', 'de', 'dk', 'es', 'fi', 'fr', 'gb', 'ie', 'ine', 'is', 'nz', 'mx', 'pt', 'si', 'tr', 'uy', 'us', 'genderguesser', 'inter', 'all'])
 # More about iso codes on https://www.iso.org/obp/ui/
 parser.add_argument('--version', action='version', version='0.3')
 parser.add_argument('--verbose', default=False, action="store_true")
@@ -45,6 +45,7 @@ results = []
 
 s = DameSexmachine()
 du = DameUtils()
+
 
 if (args.total == "genderguesser"):
         name = args.name.capitalize()
@@ -160,6 +161,10 @@ elif ((args.verbose) or (args.total == "all")):
         num_females = s.name_frec(args.name, dataset="si")['females']
         print("%s males for %s from Slovenia statistics" % (num_males, args.name))
         print("%s females for %s from Slovenia statistics" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="tr")['males']
+        num_females = s.name_frec(args.name, dataset="tr")['females']
+        print("%s males for %s from Turkish statistics" % (num_males, args.name))
+        print("%s females for %s from Turkish statistics" % (num_females, args.name))
         num_males = s.name_frec(args.name, dataset="inter")['males']
         num_females = s.name_frec(args.name, dataset="inter")['females']
         print("%s males for %s from international statistics" % (num_males, args.name))
@@ -285,3 +290,6 @@ else:
     elif (args.total == "pt"):
         print("%s males for %s from Portugal statistics" % (num_males, args.name))
         print("%s females for %s from Portugal statistics" % (num_females, args.name))
+    elif (args.total == "tr"):
+        print("%s males for %s from Turkish statistics" % (num_males, args.name))
+        print("%s females for %s from Turkish statistics" % (num_females, args.name))
