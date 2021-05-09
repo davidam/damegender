@@ -565,6 +565,8 @@ class Gender(object):
             path_males = dicc_males["be"]
         elif (dataset == 'ca'):
             path_males = dicc_males["ca"]
+        elif (dataset == 'cn'):
+            path_males = dicc_males["cn"]
         elif (dataset == 'de'):
             path_males = dicc_males["de"]
         elif (dataset == 'dk'):
@@ -589,6 +591,8 @@ class Gender(object):
             path_males = dicc_males["pt"]
         elif (dataset == 'si'):
             path_males = dicc_males["si"]
+        elif (dataset == 'tr'):
+            path_males = dicc_males["tr"]
         elif (dataset == 'uy'):
             path_males = dicc_males["uy"]
         elif ((dataset == 'us') or (dataset=='usa')):
@@ -611,6 +615,8 @@ class Gender(object):
             path_females = dicc_females["be"]
         elif (dataset == 'ca'):
             path_females = dicc_females["ca"]
+        elif (dataset == 'cn'):
+            path_females = dicc_females["cn"]
         elif (dataset == 'de'):
             path_females = dicc_females["de"]
         elif (dataset == 'dk'):
@@ -637,6 +643,8 @@ class Gender(object):
             path_females = dicc_females["pt"]
         elif (dataset == 'si'):
             path_females = dicc_females["si"]
+        elif (dataset == 'tr'):
+            path_females = dicc_females["tr"]
         elif (dataset == 'uy'):
             path_females = dicc_females["uy"]
         elif ((dataset == 'us') or (dataset=='usa')):
@@ -783,6 +791,7 @@ class Gender(object):
         us = self.name_frec(name,dataset="us")
         nz = self.name_frec(name,dataset="nz")
         ca = self.name_frec(name,dataset="ca")
+        cn = self.name_frec(name,dataset="cn")
         fi = self.name_frec(name,dataset="fi")
         au = self.name_frec(name,dataset="au")
         pt = self.name_frec(name,dataset="pt")
