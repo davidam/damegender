@@ -1,5 +1,6 @@
 * Retrieved from
 + https://github.com/psychbruce/ChineseNames
++ Originally obtained from National Citizen Identity Information Center (NCIC) of China.
 
 * License
-General Public License
+General Public License version 3.
