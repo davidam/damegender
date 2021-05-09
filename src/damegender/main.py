@@ -93,14 +93,22 @@ elif ((args.verbose) or (args.total == "all")):
         num_females = s.name_frec(args.name, dataset="at")['females']
         print("%s males for %s from Austria statistics" % (num_males, args.name))
         print("%s females for %s from Austria statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="ine")['males']
-        num_females = s.name_frec(args.name, dataset="ine")['females']
-        print("%s males for %s from Spain statistics (INE.es)" % (num_males, args.name))
-        print("%s females for %s from Spain statistics (INE.es)" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="ie")['males']
-        num_females = s.name_frec(args.name, dataset="ie")['females']
-        print("%s males for %s from Ireland statistics" % (num_males, args.name))
-        print("%s females for %s from Ireland statistics" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="au")['males']
+        num_females = s.name_frec(args.name, dataset="au")['females']
+        print("%s males for %s from Australia statistics" % (num_males, args.name))
+        print("%s females for %s from Australia statistics" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="be")['males']
+        num_females = s.name_frec(args.name, dataset="be")['females']
+        print("%s males for %s from Belgium statistics" % (num_males, args.name))
+        print("%s females for %s from Belgium statistics" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="ca")['males']
+        num_females = s.name_frec(args.name, dataset="ca")['females']
+        print("%s males for %s from Canada statistics" % (num_males, args.name))
+        print("%s females for %s from Canada statistics" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="cn")['males']
+        num_females = s.name_frec(args.name, dataset="cn")['females']
+        print("%s males for %s from China statistics" % (num_males, args.name))
+        print("%s females for %s from China statistics" % (num_females, args.name))
         num_males = s.name_frec(args.name, dataset="de")['males']
         num_females = s.name_frec(args.name, dataset="de")['females']
         print("%s males for %s from Deutchsland statistics" % (num_males, args.name))
@@ -109,6 +117,14 @@ elif ((args.verbose) or (args.total == "all")):
         num_females = s.name_frec(args.name, dataset="dk")['females']
         print("%s males for %s from Denmark statistics" % (num_males, args.name))
         print("%s females for %s from Denmark statistics" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="ine")['males']
+        num_females = s.name_frec(args.name, dataset="ine")['females']
+        print("%s males for %s from Spain statistics (INE.es)" % (num_males, args.name))
+        print("%s females for %s from Spain statistics (INE.es)" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="ie")['males']
+        num_females = s.name_frec(args.name, dataset="ie")['females']
+        print("%s males for %s from Ireland statistics" % (num_males, args.name))
+        print("%s females for %s from Ireland statistics" % (num_females, args.name))
         num_males = s.name_frec(args.name, dataset="is")['males']
         num_females = s.name_frec(args.name, dataset="is")['females']
         print("%s males for %s from Iceland statistics" % (num_males, args.name))
@@ -121,42 +137,22 @@ elif ((args.verbose) or (args.total == "all")):
         num_females = s.name_frec(args.name, dataset="fr")['females']
         print("%s males for %s from France statistics" % (num_males, args.name))
         print("%s females for %s from France statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="uy")['males']
-        num_females = s.name_frec(args.name, dataset="uy")['females']
-        print("%s males for %s from Uruguay statistics" % (num_males, args.name))
-        print("%s females for %s from Uruguay statistics" % (num_females, args.name))
         num_males = s.name_frec(args.name, dataset="gb")['males']
         num_females = s.name_frec(args.name, dataset="gb")['females']
         print("%s males for %s from United Kingdom statistics" % (num_males, args.name))
         print("%s females for %s from United Kingdom statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="nz")['males']
-        num_females = s.name_frec(args.name, dataset="nz")['females']
-        print("%s males for %s from New Zealand statistics" % (num_males, args.name))
-        print("%s females for %s from New Zealand statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="ca")['males']
-        num_females = s.name_frec(args.name, dataset="ca")['females']
-        print("%s males for %s from Canada statistics" % (num_males, args.name))
-        print("%s females for %s from Canada statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="pt")['males']
-        num_females = s.name_frec(args.name, dataset="pt")['females']
-        print("%s males for %s from Portugal statistics" % (num_males, args.name))
-        print("%s females for %s from Portugal statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="us")['males']
-        num_females = s.name_frec(args.name, dataset="us")['females']
-        print("%s males for %s from United States of America statistics" % (num_males, args.name))
-        print("%s females for %s from United States of America statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="au")['males']
-        num_females = s.name_frec(args.name, dataset="au")['females']
-        print("%s males for %s from Australia statistics" % (num_males, args.name))
-        print("%s females for %s from Australia statistics" % (num_females, args.name))
         num_males = s.name_frec(args.name, dataset="mx")['males']
         num_females = s.name_frec(args.name, dataset="mx")['females']
         print("%s males for %s from Mexico statistics" % (num_males, args.name))
         print("%s females for %s from Mexico statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="be")['males']
-        num_females = s.name_frec(args.name, dataset="be")['females']
-        print("%s males for %s from Belgium statistics" % (num_males, args.name))
-        print("%s females for %s from Belgium statistics" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="nz")['males']
+        num_females = s.name_frec(args.name, dataset="nz")['females']
+        print("%s males for %s from New Zealand statistics" % (num_males, args.name))
+        print("%s females for %s from New Zealand statistics" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="pt")['males']
+        num_females = s.name_frec(args.name, dataset="pt")['females']
+        print("%s males for %s from Portugal statistics" % (num_males, args.name))
+        print("%s females for %s from Portugal statistics" % (num_females, args.name))
         num_males = s.name_frec(args.name, dataset="si")['males']
         num_females = s.name_frec(args.name, dataset="si")['females']
         print("%s males for %s from Slovenia statistics" % (num_males, args.name))
@@ -165,6 +161,15 @@ elif ((args.verbose) or (args.total == "all")):
         num_females = s.name_frec(args.name, dataset="tr")['females']
         print("%s males for %s from Turkish statistics" % (num_males, args.name))
         print("%s females for %s from Turkish statistics" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="us")['males']
+        num_females = s.name_frec(args.name, dataset="us")['females']
+        print("%s males for %s from United States of America statistics" % (num_males, args.name))
+        print("%s females for %s from United States of America statistics" % (num_females, args.name))
+        num_males = s.name_frec(args.name, dataset="uy")['males']
+        num_females = s.name_frec(args.name, dataset="uy")['females']
+        print("%s males for %s from Uruguay statistics" % (num_males, args.name))
+        print("%s females for %s from Uruguay statistics" % (num_females, args.name))
+
         num_males = s.name_frec(args.name, dataset="inter")['males']
         num_females = s.name_frec(args.name, dataset="inter")['females']
         print("%s males for %s from international statistics" % (num_males, args.name))
@@ -242,6 +247,12 @@ else:
     elif (args.total == "be"):
         print("%s males for %s from Belgium statistics" % (num_males, args.name))
         print("%s females for %s from Belgium statistics" % (num_females, args.name))
+    elif (args.total == "ca"):
+        print("%s males for %s from Canada statistics" % (num_males, args.name))
+        print("%s females for %s from Canada statistics" % (num_females, args.name))
+    elif (args.total == "cn"):
+        print("%s males for %s from China statistics" % (num_males, args.name))
+        print("%s females for %s from China statistics" % (num_females, args.name))
     elif (args.total == "de"):
         print("%s males for %s from Deutchsland statistics" % (num_males, args.name))
         print("%s females for %s from Deutchsland statistics" % (num_females, args.name))
@@ -266,30 +277,27 @@ else:
     elif (args.total == "fr"):
         print("%s males for %s from France statistics" % (num_males, args.name))
         print("%s females for %s from France statistics" % (num_females, args.name))
-    elif (args.total == "mx"):
-        print("%s males for %s from Mexico statistics" % (num_males, args.name))
-        print("%s females for %s from Mexico statistics" % (num_females, args.name))
-    elif (args.total == "si"):
-        print("%s males for %s from Slovenia statistics" % (num_males, args.name))
-        print("%s females for %s from Slovenia statistics" % (num_females, args.name))
-    elif (args.total == "uy"):
-        print("%s males for %s from Uruguay statistics" % (num_males, args.name))
-        print("%s females for %s from Uruguay statistics" % (num_females, args.name))
     elif (args.total == "gb"):
         print("%s males for %s from United Kingdom of Great Britain and Northern Ireland statistics" % (num_males, args.name))
         print("%s females for %s from United Kingdom of Great Britain and Northern Ireland statistics" % (num_females, args.name))
-    elif (args.total == "us"):
-        print("%s males for %s from United States of America statistics" % (num_males, args.name))
-        print("%s females for %s from United States of America statistics" % (num_females, args.name))
+    elif (args.total == "mx"):
+        print("%s males for %s from Mexico statistics" % (num_males, args.name))
+        print("%s females for %s from Mexico statistics" % (num_females, args.name))
     elif (args.total == "nz"):
         print("%s males for %s from New Zealand statistics" % (num_males, args.name))
         print("%s females for %s from New Zealand statistics" % (num_females, args.name))
-    elif (args.total == "ca"):
-        print("%s males for %s from Canada statistics" % (num_males, args.name))
-        print("%s females for %s from Canada statistics" % (num_females, args.name))
     elif (args.total == "pt"):
         print("%s males for %s from Portugal statistics" % (num_males, args.name))
         print("%s females for %s from Portugal statistics" % (num_females, args.name))
+    elif (args.total == "si"):
+        print("%s males for %s from Slovenia statistics" % (num_males, args.name))
+        print("%s females for %s from Slovenia statistics" % (num_females, args.name))
     elif (args.total == "tr"):
         print("%s males for %s from Turkish statistics" % (num_males, args.name))
         print("%s females for %s from Turkish statistics" % (num_females, args.name))
+    elif (args.total == "uy"):
+        print("%s males for %s from Uruguay statistics" % (num_males, args.name))
+        print("%s females for %s from Uruguay statistics" % (num_females, args.name))
+    elif (args.total == "us"):
+        print("%s males for %s from United States of America statistics" % (num_males, args.name))
+        print("%s females for %s from United States of America statistics" % (num_females, args.name))
