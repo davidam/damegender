@@ -1,0 +1,4 @@
+阿's gender is female
+probability: 0.6829249922972465
+277856 males for 阿 from China statistics
+598454 females for 阿 from China statistics
