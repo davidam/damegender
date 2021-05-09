@@ -1,0 +1,8 @@
+* Retrieved from
+
+https://github.com/mkozturk/turkishnames/
+
+* License:
+MIT
+
+See LICENSE file
