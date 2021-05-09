@@ -156,6 +156,16 @@ else
     echo -e  "mainamorosa test is ${GREEN}ok${NC}"
 fi
 
+python3 main.py 阿 --total=cn > files/tests/mainchina-$(date "+%Y-%m-%d-%H").txt
+
+if ! cmp files/tests/mainchina.txt files/tests/mainchina-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+    echo -e  "mainchina test is ${RED}failing${NC}"
+else
+    echo -e  "mainchina test is ${GREEN}ok${NC}"
+fi
+
+
 python3 nameincountries.py David > files/tests/nameincountriesdavid-$(date "+%Y-%m-%d-%H").txt
 
 if ! cmp files/tests/nameincountriesdavid.txt files/tests/nameincountriesdavid-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
