@@ -5,6 +5,9 @@ New names:
 + China (2614 females and 2614 males)
 + Turkey (116114 females and 67309 males)
 
+New commands:
++ mergeinterfiles.py: merge dataset files 
+
 * v0.3.3
 
 New names from oficial Open Data statistics:
