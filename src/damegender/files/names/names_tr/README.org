@@ -2,6 +2,8 @@
 
 https://github.com/mkozturk/turkishnames/
 
+That's scraping from Turkish Citizenship Database (government-collected data)
+
 * License:
 MIT
 
