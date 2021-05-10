@@ -41,7 +41,7 @@ args = parser.parse_args()
 
 ds = DameSexmachine()
 if args.notoutput:
-    gl = ds.gender_list(path=args.csv)
+    gl = ds.csv2gender_list(path=args.csv)
     sl = ds.guess_list(path=args.csv, binary=args.binary, ml=args.ml)
 else:
     print("################### Dame Gender!!")
