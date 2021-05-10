@@ -58,8 +58,8 @@ python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsimales.
 python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusmales.csv" --file2="files/names/names_uy/uymasculinos.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuymales.csv
 python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuymales.csv" --file2="files/names/names_fr/frmales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrmales.csv
 
-mv ataubecadedkesfiieismxnzptsiusuyfrmales.csv intermales.csv
-mv ataubecadedkesfiieismxnzptsiusuyfrfemales.csv interfemales.csv
+mv files/tmp/ataubecadedkesfiieismxnzptsiusuyfrmales.csv files/names/names_inter/intermales.csv
+mv files/tmp/ataubecadedkesfiieismxnzptsiusuyfrfemales.csv files/names/names_inter/interfemales.csv
 
 echo "Cleaning temporal files" 
-rm atau*
+rm files/tmp/*
