@@ -1034,11 +1034,16 @@ Now the next datasets available from main.py in damegender
 + [X] United States of America
 + [X] Uruguay
 + [X] Lucía Santamaría and Helena
+* TODO Crea un dataset al estilo del de Lucía y Helena, construido a partir de nombres y apellidos de personas de debian, gnu y linux
 * TODO Crear un dataset de base de verdad desde los censos
-** TODO con csv2names creamos una lista con todos los nombres donde cada nombre es único
-** TODO para cada nombre sumamos todos los males de los diferentes datasets y todos los females y escribimos en fichero
-** TODO descartamos nombres donde la suma de hombres y mujeres sea menor de 1000 para evitar el problema de apodos en censos
-** TODO comprobamos el accuracy y el confusion tomando como base a lucía y helena
+** DONE con csv2names creamos una lista con todos los nombres donde cada nombre es único
+   - State "DONE"       from "TODO"       [2021-05-10 lun 08:51]
+** DONE para cada nombre sumamos todos los males de los diferentes datasets y todos los females y escribimos en fichero
+   - State "DONE"       from "TODO"       [2021-05-10 lun 08:51]
+** TODO escribir un segundo fichero donde se descartan nombres donde la suma de hombres y mujeres sea menor de 1000
+Es para evitar el problema de apodos en censos
+** CANCELED comprobamos el accuracy y el confusion tomando como base a lucía y helena
+   - State "CANCELED"   from "TODO"       [2021-05-10 lun 08:52]
 * DONE Reescribir males_list atendiendo a corpus
   - State "DONE"       from "TODO"       [2020-07-06 lun 22:52]
 Debes escribir primero los ficheros males.txt y females.txt de cada dataset
@@ -1174,11 +1179,13 @@ Queda finalmente implementado en el comando startwith.py
 Aumenta en exceso la complejidad de sw y de manera algo incómoda de mantener
 * TODO percentagegender.py
 Dado un porcentaje de género dame los nombres
-* TODO Hacer trabajos técnicos a favor de la incorporación de Turquía en DameGender
+* DONE Hacer trabajos técnicos a favor de la incorporación de Turquía en DameGender
+  - State "DONE"       from "TODO"       [2021-05-10 lun 08:54]
 + [ ] Hablar con el gobierno Turco acerca de la libertad de los nombres
 + [ ] Estudiar trabajos de otros hackers en este sentido
 https://github.com/mkozturk/turkishnames/
-* TODO Hacer trabajos técnicos a favor de la incorporación de China en DameGender
+* DONE Hacer trabajos técnicos a favor de la incorporación de China en DameGender
+  - State "DONE"       from "TODO"       [2021-05-10 lun 08:54]
 Mirar el paquete de R ChineseNames
 * TODO Usar csv o json debe ser una opción en base de verdad y comparación con respecto confusion y accuracy
 ** TODO 1. Debemos unificar nombres de métodos
