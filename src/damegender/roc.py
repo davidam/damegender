@@ -52,7 +52,7 @@ args = parser.parse_args()
 
 ds = DameSexmachine()
 X = np.array(ds.features_list(path="files/names/allnoundefined.csv"))
-y = ds.gender_list(path="files/names/allnoundefined.csv")
+y = ds.csv2gender_list(path="files/names/allnoundefined.csv")
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
 if (args.verbose):
