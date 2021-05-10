@@ -283,7 +283,7 @@ class DameStatistics(object):
         api = kwargs.get('api', 'damegender')
         reverse = kwargs.get('reverse', False)
         dimensions = kwargs.get('dimensions', '3x2')
-        gl = self.gender_list(path=path)
+        gl = self.csv2gender_list(path=path)
 #        dna = DameNameapi()
         print("%s confusion matrix:\n" % api)
         #    dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
