@@ -10,9 +10,9 @@
 ** Presentation
 + Thesis Student: David Arroyo Menéndez
 + Title: Building an universal dataset about names, gender and frequencies
-+ Thesis Director: Jesús González Barahona
++ Thesis Supervisor: Jesús González Barahona
 + Objectives: 
-To make easy to reproducing science. We love peer review.
+To facilitate to reproducible science in this domain. We love peer review.
 
 To be free to measure gender gap
 
@@ -23,16 +23,16 @@ different nations and cultures, ...
 
 ** Steps in the development
 
-0. To develop the packaging and python tests with the basic features
+0. To develop the packaging and Python tests with the basic features
 1. To develop statistical tools and bash tests
 2. To add datasets more than 20 countries and an international dataset
    unifiying csv files to name, gender and frequency
 
 ** Machine Learning to guess nicknames and new names
 
-Making experiments with english and spanish we are obtained results
-higher than 70% reaching results similar to commercial results with
-very long datasets.
+Making experiments with English and Spanish we obtained results higher
+than 70% reaching results similar to commercial results with very long
+datasets.
 
 With more languages and nations we could to improving the guessing.
 
@@ -46,13 +46,13 @@ understanding number of people using a name with equilibrium.
 
 We are using these datasets to measure gender gap in:
 + Webometrics (spanish academic people in 2020): 
-  35% of females
+  35% females
 + GNU (maintainers people in 2020): 
-  6.6% of females 
+  6.6% females 
 + Linux (maintainers people in 2020):
-  7.4% of females 
+  7.4% females 
 + Debian (developers in 2020): 
-  7.9% of females
+  7.9% females
 
 The percentage of unknows are 5-12%.
 
