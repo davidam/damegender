@@ -75,11 +75,12 @@ David Arroyo Menéndez, Jesus González-Barahona, Gregorio Robles \\ Grupo de Si
 
 Nowadays, many people is using APIs such as Genderapi, Genderize,
 Namsor, or NameApi. Another people is using solutions based on
-Wikipedia ***********CITAR*********, or free software solutions (NLTK,
-R Gender, Gender Detector, Gender Code, ...) with few number of names
-due to use files of a single country or being software not maintained
-in the long time. Wikipedia is not taking into account the frequency
-of the names.
+Wikipedia ***********CITAR*********, or free software solutions (NLTK\cite{loper2002nltk},
+R Gender, Gender Detector, Gender
+Computer\footnote{https://github.com/tue-mdse/genderComputer}, ...)
+with few number of names due to use files of a single country or being
+software not maintained in the long time. Wikipedia is not taking into
+account the frequency of the names.
 
 However, the gender gap is a problem recognised in United Nations and
 the IT market is leading big inequalities in the world in economy and
@@ -273,6 +274,17 @@ results is the longest list of public names.
 \label{table:DifferentNamesMeasures}
 \end{table}
 
+A possible criticism about our idea is the Leslie
+Problem\cite{blevins2015jane}: the match between gender and name has
+been changing in some years. And the answer is about you need
+introduce the age of the person to solve it. The most used use case is
+the input is the name and the output must be gender, frequency and
+percentage. So, we are deciding without age, surname, ... in the most
+of use cases. The idea about this dataset is to be designed for the
+most used use case. Although, we can take into account another inputs,
+such as surname or age to improve the accuracy. There are many Open
+Datasets with names and frequencies classified by years. So, this
+problem can be fixed with Open Data, too.
 
 \section{Measuring Gender Gap. GNU/Linux as Use Case}
 \label{sec:measuring}
