@@ -75,8 +75,8 @@ David Arroyo Menéndez, Jesus González-Barahona, Gregorio Robles \\ Grupo de Si
 
 Nowadays, many people is using APIs such as Genderapi, Genderize,
 Namsor, or NameApi. Another people is using solutions based on
-Wikipedia ***********CITAR*********, or free software solutions (NLTK\cite{loper2002nltk},
-R Gender, Gender Detector, Gender
+Wikipedia ***********CITAR*********, or free software solutions
+(NLTK\cite{loper2002nltk}, R Gender, Gender Detector, Gender
 Computer\footnote{https://github.com/tue-mdse/genderComputer}, ...)
 with few number of names due to use files of a single country or being
 software not maintained in the long time. Wikipedia is not taking into
@@ -261,18 +261,18 @@ When the work is finished, we could to rebuild machine learning models
 to predict new names and nicknames in any language and culture. The
 results is the longest list of public names.
 
-\begin{table}[t]
-\footnotesize
-\begin{tabular}[]{lcccc}
-  \hline
-  Dataset & SSA & namdict & NLTK & Damegender \tabularnewline
-  males & 91.320 & 48.821 & 9999999999 & 256.320 \tabularnewline
-  females & 91.320 & 48.821 & 999999999 & 278.914 \tabularnewline
-  \hline
-\end{tabular}
-\caption{Comparison about the number of names}
-\label{table:DifferentNamesMeasures}
-\end{table}
+%% \begin{table}[t]
+%% \footnotesize
+%% \begin{tabular}[]{lcccc}
+%%   \hline
+%%   Dataset & SSA & namdict & NLTK & Damegender \tabularnewline
+%%   males & 91.320 & 48.821 & 9999999999 & 256.320 \tabularnewline
+%%   females & 91.320 & 48.821 & 999999999 & 278.914 \tabularnewline
+%%   \hline
+%% \end{tabular}
+%% \caption{Comparison about the number of names}
+%% \label{table:DifferentNamesMeasures}
+%% \end{table}
 
 A possible criticism about our idea is the Leslie
 Problem\cite{blevins2015jane}: the match between gender and name has
@@ -345,30 +345,25 @@ python3 csv2gender.py files/debian-maintainers.csv
  --noshow --delete_duplicated
 \end{verbatim}
 
+
+\includegraphics[width=0.6\textwidth]{images/debian-gnu-linux.pdf}   
+   
 The inter dataset was created merging several open datasets downloaded
 from official statistics sites from different nations: Austria,
 Australia, Belgium, Canada, Germany, Denmark, Spain, Finland, Ireland,
 Iceland, Mexico, New Zealand, Portugal, Slovenia, United States of
 America, Uruguay and France. That's a good representation of the
 Western World and the Free Software world is populating this world's
-area
+area\cite{gonzalez2008geographic}.
 
 %% CITATION
 %% ~\cite{gonzalez2008geographic}.
 
-\includegraphics[height=0.4\textheight]{images/linux-maintainers.gender.pdf}
 
 Linux divides the developers in 537 males (73.9\%), 98 females
 (13.5\%) and 92 unknows (12.7\%). The number of unknows is due to
 different reasons, but it's so common in Linux that the developer is a
 company and not a name of a person.
-
-\includegraphics[width=0.6\textwidth]{images/debian-maintainers.gender.pdf}
-
-Debian divides the developers in 408 males (75\%), 69 females (12.7\%)
-and 67 unknows (12.3\%).
-
-\includegraphics[width=0.6\textwidth]{images/gnu-maintainers.gender.pdf}
 
 GNU divides the developers in 164 males (89.6\%), 12 females (6.6\%)
 and 7 unknows (3.8\%)
@@ -380,6 +375,15 @@ similar practical decisions (for example: deciding licenses for the
 software). Richard Stallman returned to be president recently
 apologizing by his personal behaviour with the
 females.\footnote{https://www.fsf.org/news/rms-addresses-the-free-software-community}
+
+Debian is a distribution, the project who makes the CD/DVD and the
+software ready to be downloaded from Internet with the
+dependencies. There are many distributions, such as, Ubuntu or RedHat
+so it is not representative, but it's interesting to understand that
+the numbers are similar in Debian dividing the developers in 408 males
+(75\%), 69 females (12.7\%) and 67 unknows (12.3\%).
+
+%% \includegraphics[width=0.9\textwidth]{images/debian-maintainers.gender.pdf}
 
 \section{Conclusions}
 \label{sec:conclusions}
