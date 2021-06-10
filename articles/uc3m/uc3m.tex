@@ -75,8 +75,8 @@ David Arroyo Menéndez, Jesus González-Barahona, Gregorio Robles \\ Grupo de Si
 
 Nowadays, many people is using APIs such as Genderapi, Genderize,
 Namsor, or NameApi. Another people is using solutions based on
-Wikipedia ***********CITAR*********, or free software solutions
-(NLTK\cite{loper2002nltk}, R Gender, Gender Detector, Gender
+Wikipedia, or free software solutions (NLTK\cite{loper2002nltk}, R
+Gender, Gender Detector, Gender
 Computer\footnote{https://github.com/tue-mdse/genderComputer}, ...)
 with few number of names due to use files of a single country or being
 software not maintained in the long time. Wikipedia is not taking into
@@ -261,19 +261,6 @@ When the work is finished, we could to rebuild machine learning models
 to predict new names and nicknames in any language and culture. The
 results is the longest list of public names.
 
-%% \begin{table}[t]
-%% \footnotesize
-%% \begin{tabular}[]{lcccc}
-%%   \hline
-%%   Dataset & SSA & namdict & NLTK & Damegender \tabularnewline
-%%   males & 91.320 & 48.821 & 9999999999 & 256.320 \tabularnewline
-%%   females & 91.320 & 48.821 & 999999999 & 278.914 \tabularnewline
-%%   \hline
-%% \end{tabular}
-%% \caption{Comparison about the number of names}
-%% \label{table:DifferentNamesMeasures}
-%% \end{table}
-
 A possible criticism about our idea is the Leslie
 Problem\cite{blevins2015jane}: the match between gender and name has
 been changing in some years. And the answer is about you need
@@ -285,6 +272,20 @@ most used use case. Although, we can take into account another inputs,
 such as surname or age to improve the accuracy. There are many Open
 Datasets with names and frequencies classified by years. So, this
 problem can be fixed with Open Data, too.
+
+\begin{table}[t]
+\footnotesize
+\begin{tabular}[]{lcccc}
+  \hline
+  Dataset & SSA & namdict & NLTK & Damegender \tabularnewline
+  males & 91.320 & 48.821 & 2943 & 256.320 \tabularnewline
+  females & 91.320 & 48.821 & 5001 & 278.914 \tabularnewline
+  \hline
+\end{tabular}
+\caption{Comparison about the number of names}
+\label{table:DifferentNamesMeasures}
+\end{table}
+
 
 \section{Measuring Gender Gap. GNU/Linux as Use Case}
 \label{sec:measuring}
