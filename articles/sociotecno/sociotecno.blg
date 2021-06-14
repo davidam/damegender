@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2020/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: sociotecno.aux
+The style file: apalike.bst
+Database file #1: sociotecno.bib
+You've used 8 entries,
+            1935 wiz_defined-function locations,
+            521 strings with 5320 characters,
+and the built_in function-call counts, 3259 in all, are:
+= -- 309
+> -- 154
+< -- 4
++ -- 56
+- -- 52
+* -- 280
+:= -- 575
+add.period$ -- 25
+call.type$ -- 8
+change.case$ -- 65
+chr.to.int$ -- 8
+cite$ -- 8
+duplicate$ -- 123
+empty$ -- 221
+format.name$ -- 66
+if$ -- 630
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 9
+newline$ -- 43
+num.names$ -- 24
+pop$ -- 66
+preamble$ -- 1
+purify$ -- 66
+quote$ -- 0
+skip$ -- 87
+stack$ -- 0
+substring$ -- 190
+swap$ -- 13
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 46
+warning$ -- 0
+while$ -- 24
+width$ -- 0
+write$ -- 104
