@@ -1,0 +1,49 @@
+\begin{thebibliography}{}
+
+\bibitem[Beede et~al., 2011]{beede2011women}
+Beede, D.~N., Julian, T.~A., Langdon, D., McKittrick, G., Khan, B., and Doms,
+  M.~E. (2011).
+\newblock Women in stem: A gender gap to innovation.
+\newblock {\em Economics and Statistics Administration Issue Brief}, 1(04-11).
+
+\bibitem[Due{\~n}as et~al., 2018]{duenas2018perceval}
+Due{\~n}as, S., Cosentino, V., Robles, G., and Gonzalez-Barahona, J.~M. (2018).
+\newblock Perceval: Software project data at your will.
+\newblock In {\em Proceedings of the 40th International Conference on Software
+  Engineering: Companion Proceeedings}, pages 1--4. ACM.
+
+\bibitem[Gonzalez-Barahona et~al., 2008]{gonzalez2008geographic}
+Gonzalez-Barahona, J.~M., Robles, G., Andradas-Izquierdo, R., and Ghosh, R.~A.
+  (2008).
+\newblock Geographic origin of libre software developers.
+\newblock {\em Information Economics and Policy}, 20(4):356--363.
+
+\bibitem[Holman et~al., 2018]{holman2018gender}
+Holman, L., Stuart-Fox, D., and Hauser, C.~E. (2018).
+\newblock The gender gap in science: How long until women are equally
+  represented?
+\newblock {\em PLoS biology}, 16(4):e2004956.
+
+\bibitem[Men{\'e}ndez et~al., 2020]{menendez2020damegender}
+Men{\'e}ndez, D.~A., Gonz{\'a}lez-Barahona, J.~M., and Robles, G. (2020).
+\newblock Damegender: Writing and comparing gender detection tools.
+\newblock In {\em SATToSE}.
+
+\bibitem[Odina and Mar{\'\i}a, 1991]{odina1991educacion}
+Odina, M. T.~A. and Mar{\'\i}a, T. (1991).
+\newblock La educaci{\'o}n intercultural: concepto, paradigmas, realizaciones.
+\newblock {\em Lecturas de pedagog{\'\i}a diferencial. Dykinson, Madrid}.
+
+\bibitem[Van~Rossum and Drake, 2011]{van2011python}
+Van~Rossum, G. and Drake, F.~L. (2011).
+\newblock {\em The python language reference manual}.
+\newblock Network Theory Ltd.
+
+\bibitem[Wang and Degol, 2017]{wang2017gender}
+Wang, M.-T. and Degol, J.~L. (2017).
+\newblock Gender gap in science, technology, engineering, and mathematics
+  (stem): Current knowledge, implications for practice, policy, and future
+  directions.
+\newblock {\em Educational psychology review}, 29(1):119--140.
+
+\end{thebibliography}
