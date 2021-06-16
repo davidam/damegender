@@ -50,9 +50,9 @@ We are using these datasets to measure gender gap in:
 + GNU (maintainers people in 2020): 
   6.6% females 
 + Linux (maintainers people in 2020):
-  7.4% females 
+  12.7% females 
 + Debian (developers in 2020): 
-  7.9% females
+  12.3% females
 
 The percentage of unknows are 5-12%.
 
@@ -85,7 +85,7 @@ We have presented this working in progress in:
 + Madrilenian Software Research 
 + Group Retreat 2019 Workshop
 + SATToSE 2020: Seminar Series on Advanced Techniques & Tools for Software Evolution
-+ UC3M 2021
++ VI International Congress of Young Researches with a Gender Perspective (2021)
 
 *** Event to master students:
 + Periodismo de Datos (Medialab Prado)
@@ -106,3 +106,5 @@ Free Software released with GPLv3 integrated in the industry
 + Damegender: Writing and Comparing Gender Detection Tools (CEUR)
 + Damegender Manual: Counting Males and Females in Internet Communities
 
+*** Preprints
++ Damegender: Towards an International and Free Dataset about Name, Gender and Frequency
