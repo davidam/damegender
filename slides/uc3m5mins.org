@@ -25,22 +25,23 @@ different nations and cultures, ...
 
 0. To develop the packaging and Python tests with the basic features
 1. To develop statistical tools and bash tests
-2. To add datasets more than 20 countries and an international dataset
-   unifiying csv files to name, gender and frequency
+2. To add datasets for more than 20 countries and an international
+   dataset unifiying csv files to name, gender and frequency
 
-** Machine Learning to guess nicknames and new names
+** Machine Learning to guess nicknames, diminutives and new names
 
 Making experiments with English and Spanish we obtained results higher
 than 70% reaching results similar to commercial results with very long
 datasets.
 
-With more languages and nations we could to improving the guessing.
+With more languages and nations we could to improve the accuracy.
 
 ** Adapting names to non binary people
 
 These dataset are allowing to choose names for babies or people
 changing the name by LGTB reasons. So, we can use more neutral names
-understanding number of people using a name with equilibrium.
+understanding the number of people using a name with percentages
+around 50%
 
 ** Measuring gender gap
 
@@ -55,11 +56,12 @@ We are using these datasets to measure gender gap in:
   12.3% females
 
 The percentage of unknows are 5-12%.
+The rest of people are males.
 
 ** Semantic Web
 
-Sites such as Wikipedia or about scientific people, social networks,
-could improve the HTML markup with microformats such as
+Sites such as Wikipedia, about scientific people, social networks,
+etc. could improve the HTML markup with microformats such as
 
 #+BEGIN_SRC xml
     <div class="h-card">
@@ -108,3 +110,8 @@ Free Software released with GPLv3 integrated in the industry
 
 *** Preprints
 + Damegender: Towards an International and Free Dataset about Name, Gender and Frequency
+
+** License
+
+This document is under a [[http://creativecommons.org/licenses/by/4.0/deed][Creative Commons Attribution 4.0 International]]
+
