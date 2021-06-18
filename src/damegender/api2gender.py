@@ -18,13 +18,15 @@ from app.dame_namsor import DameNamsor
 from app.dame_nameapi import DameNameapi
 from app.dame_all import DameAll
 from app.dame_utils import DameUtils
+from lxml import html
+
 import sys
 import argparse
 import requests
 parser = argparse.ArgumentParser()
 parser.add_argument('name',  help="Name to be detected")
 parser.add_argument('--surname', help="Surname to be detected")
-parser.add_argument("--api", choices=['namsor', 'genderize', 'genderguesser', 'genderapi', 'nameapi', 'wikidata'], required=True)
+parser.add_argument("--api", choices=['namsor', 'genderize', 'genderguesser', 'genderapi', 'nameapi', 'wikidata', 'wikipedia'], required=True)
 #parser.add_argument('--prob', default="yes", choices=['yes', 'no'])
 parser.add_argument('--version', action='version', version='0.3')
 
@@ -68,6 +70,17 @@ if (len(sys.argv) > 1):
             print("confidence: " + str(dn.confidence(str(args.name), str(args.surname))))
         else:
             print("You must enable nameapi in config.cfg file")
+    elif (args.api == "wikipedia"):
+        r = requests.get('https://en.wikipedia.org/wiki/'+ args.name +'_(given_name)')
+        tree = html.fromstring(r.content)
+        arraygender = tree.xpath('//div[@class="mw-parser-output"]//table//tbody//td//text()')
+        footer = tree.xpath('//div[@class="action-list"]//p/text()')
+        for i in arraygender:
+            if (i.strip() == "Male"):
+                print("Male")
+            elif (i.strip() == "Female"):
+                print("Female")
+
     elif (args.api == "wikidata"):
         sparql_query = """
         prefix schema: <http://schema.org/>
