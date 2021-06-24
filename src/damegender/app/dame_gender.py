@@ -824,7 +824,7 @@ class Gender(object):
 
     def guess(self, name, binary=False, *args, **kwargs):
         # guess list method
-        dataset = kwargs.get('dataset', 'es')
+        dataset = kwargs.get('dataset', 'us')
         # guess method to check names dictionary
         guess = ''
         name = unidecode.unidecode(name).title()
@@ -891,6 +891,7 @@ class Gender(object):
     def guess_list(self, path='files/names/partial.csv', binary=False, *args, **kwargs):
         # guess list method
         header = kwargs.get('header', True)
+        dataset = kwargs.get('dataset', 'us')
         slist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -899,7 +900,7 @@ class Gender(object):
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
-                slist.append(self.guess(name, binary))
+                slist.append(self.guess(name, binary, dataset=dataset))
         return slist
 
     def csv2gender_list(self, path, *args, **kwargs):
