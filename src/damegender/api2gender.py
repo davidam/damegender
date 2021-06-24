@@ -26,8 +26,11 @@ import requests
 parser = argparse.ArgumentParser()
 parser.add_argument('name',  help="Name to be detected")
 parser.add_argument('--surname', help="Surname to be detected")
-parser.add_argument("--api", choices=['namsor', 'genderize', 'genderguesser', 'genderapi', 'nameapi', 'wikidata', 'wikipedia'], required=True)
-#parser.add_argument('--prob', default="yes", choices=['yes', 'no'])
+parser.add_argument("--api",
+                    choices=['namsor', 'genderize', 'genderguesser',
+                             'genderapi', 'nameapi', 'wikidata',
+                             'wikipedia'],
+                    required=True)
 parser.add_argument('--version', action='version', version='0.3')
 
 args = parser.parse_args()
@@ -58,7 +61,8 @@ if (len(sys.argv) > 1):
             dn = DameNamsor()
             if (du.is_not_blank(args.surname)):
                 print(dn.guess(str(args.name), str(args.surname)))
-                print("scale: " + str(dn.scale(str(args.name), str(args.surname))))
+                str1 = str(dn.scale(str(args.name), str(args.surname)))
+                print("scale: " + string1)
             else:
                 print("Surname is required in namsor api")
         else:
@@ -67,13 +71,16 @@ if (len(sys.argv) > 1):
         if (dg.config['DEFAULT']['nameapi'] == 'yes'):
             dn = DameNameapi()
             print(dn.guess(str(args.name), str(args.surname)))
-            print("confidence: " + str(dn.confidence(str(args.name), str(args.surname))))
+            str2 = str(dn.confidence(str(args.name), str(args.surname)))
+            print("confidence: " + string2)
         else:
             print("You must enable nameapi in config.cfg file")
     elif (args.api == "wikipedia"):
-        r = requests.get('https://en.wikipedia.org/wiki/'+ args.name +'_(given_name)')
+        str3 = 'https://en.wikipedia.org/wiki/' + args.name + '_(given_name)'
+        r = requests.get(string3)
         tree = html.fromstring(r.content)
-        arraygender = tree.xpath('//div[@class="mw-parser-output"]//table//tbody//td//text()')
+        str4 = '//div[@class="mw-parser-output"]//table//tbody//td//text()'
+        arraygender = tree.xpath(str4)
         footer = tree.xpath('//div[@class="action-list"]//p/text()')
         for i in arraygender:
             if (i.strip() == "Male"):
@@ -86,24 +93,26 @@ if (len(sys.argv) > 1):
         prefix schema: <http://schema.org/>
         SELECT ?item ?occupation ?genderLabel ?bdayLabel
         WHERE {
-            <https://en.wikipedia.org/wiki/"""+ args.name +"""> schema:about ?item .
+            <https://en.wikipedia.org/wiki/"""
+        + args.name + """> schema:about ?item .
             ?item wdt:P106 ?occupation .
             ?item wdt:P21 ?gender .
             ?item wdt:P569 ?bday .
             SERVICE wikibase:label { bd:serviceParam wikibase:language "en" }
         }
-            """
+        """
+
         url = 'https://query.wikidata.org/sparql'
 
         r = requests.get(url, params={'format': 'json', 'query': sparql_query})
 
         data = r.json()
         print("Wikidata is giving this feature on an experimental way.")
-        print("You can check popular person names such as David, Juan_Carlos_I_of_Spain, Richard_Stallman, Linus_Torvalds and other popular names, but not all names is ok")
+        string1 = """
+        You can check popular person names such as David,
+        Juan_Carlos_I_of_Spain, Richard_Stallman,
+        Linus_Torvalds and other popular names,
+        but not all names is ok
+        """
+        print(string1)
         print(data['results']['bindings'][0]['genderLabel']['value'])
-
-
-    # elif (args.api == "average"):
-    #     da = DameAll()
-    #     average = da.average(args.name, args.surname)
-    #     print("average: " + str(average))
