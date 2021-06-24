@@ -1,5 +1,11 @@
-A confusion matrix C is such that Ci,j is equal to the number of observations known to be in group i but predicted to be in group j.
-If the classifier is nice, the diagonal is high because there are true positives
+
+A confusion matrix C is such that C(i, j) is equal to the number
+of observations known to be in group i but predicted to be in group j.
+
+
+If the classifier is nice, the diagonal is high because there are
+true positives
+
 Genderapi confusion matrix:
 
       F   M   U  
