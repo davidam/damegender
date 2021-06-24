@@ -20,8 +20,10 @@ import csv
 
 parser = argparse.ArgumentParser()
 parser.add_argument("chars", help="display the gender")
-#parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
-parser.add_argument('--total', default="us", choices=['at', 'au', 'be', 'ca', 'de', 'es', 'fi', 'ie', 'ine', 'is', 'nz', 'mx', 'pt', 'si', 'uy', 'uk', 'us'])
+parser.add_argument('--total', default="us",
+                    choices=['at', 'au', 'be', 'ca', 'de', 'es', 'fi',
+                             'ie', 'ine', 'is', 'nz', 'mx', 'pt',
+                             'si', 'uy', 'uk', 'us'])
 parser.add_argument('--gender', default="female", choices=['male', 'female'])
 parser.add_argument('--surname', default=False, action="store_true")
 parser.add_argument('--version', action='version', version='0.3')
@@ -42,7 +44,6 @@ else:
 with open(path) as csvfile:
     sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
     for row in sexreader:
-#        print(row[0].upper())
         regex = "^" + args.chars.upper()
         match = re.search(regex, row[0].upper())
         if match:
