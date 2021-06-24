@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
@@ -380,24 +380,24 @@ else
 fi
 
 
-# python3 damegender2json.py --notoutput --csv=files/names/min.csv --jsonoutput=files/names/min.csv.$(date "+%Y-%m-%d-%H").json
+python3 damegender2json.py --notoutput --csv=files/names/min.csv --jsonoutput=files/names/min.csv.$(date "+%Y-%m-%d-%H").json
 
-# if ! cmp files/names/min.csv.json files/names/min.csv.$(date "+%Y-%m-%d-%H").json
-# then
-# 	echo -e  "damegender2json test is ${RED}failing${NC}"
-# else
-# 	echo -e  "damegender2json test is ${GREEN}ok${NC}"
-# fi
+if ! cmp files/names/min.csv.json files/names/min.csv.$(date "+%Y-%m-%d-%H").json
+then
+	echo -e  "damegender2json test is ${RED}failing${NC}"
+else
+	echo -e  "damegender2json test is ${GREEN}ok${NC}"
+fi
 
 
-# python3 damegender2json.py --notoutput --csv=files/names/partial.csv --ml=svc --jsonoutput=files/names/partial.csv.svc.$(date "+%Y-%m-%d-%H").json
+python3 damegender2json.py --notoutput --csv=files/names/partial.csv --ml=svc --jsonoutput=files/names/partial.csv.svc.$(date "+%Y-%m-%d-%H").json
 
-# if ! cmp files/names/partial.csv.svc.json files/names/partial.csv.svc.$(date "+%Y-%m-%d-%H").json
-# then
-# 	echo -e  "damegender2json test svc is ${RED}failing${NC}"
-# else
-# 	echo -e  "damegender2json test svc is ${GREEN}ok${NC}"
-# fi
+if ! cmp files/names/partial.csv.svc.json files/names/partial.csv.svc.$(date "+%Y-%m-%d-%H").json
+then
+	echo -e  "damegender2json test svc is ${RED}failing${NC}"
+else
+	echo -e  "damegender2json test svc is ${GREEN}ok${NC}"
+fi
 
 python3 main.py David --verbose > files/tests/maindavidverbose-$(date "+%Y-%m-%d-%H").txt
 
