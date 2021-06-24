@@ -20,8 +20,14 @@ from app.dame_nameapi import DameNameapi
 from app.dame_customsearch import DameCustomsearch
 import os
 import argparse
+
+# THIS FILE IS INFERING THE GENDER APPLYING A MODEL
+# AND RETURNING A JSON FILE
+# DEPRECATED AND WILL BE REPLACED BY CSV2GENDER.PY
+
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', type=str, required=True, help="files/names/min.csv")
+parser.add_argument('--dataset', default="us", choices=['at', 'au', 'be', 'ca', 'cn', 'de', 'dk', 'es', 'fi', 'fr', 'gb', 'ie', 'ine', 'is', 'nz', 'mx', 'pt', 'si', 'tr', 'uy', 'us', 'inter'])
 parser.add_argument('--binary', default=False, action="store_true")
 parser.add_argument('--notoutput', default=False, action="store_true")
 parser.add_argument('--jsonoutput', type=str, default="files/names/out.json", required=False, help="files/names/out.json")
@@ -31,12 +37,12 @@ args = parser.parse_args()
 ds = DameSexmachine()
 if args.notoutput:
     gl = ds.csv2gender_list(path=args.csv)
-    sl = ds.guess_list(path=args.csv, binary=args.binary, ml=args.ml)
+    sl = ds.guess_list(path=args.csv, binary=args.binary, ml=args.ml, dataset=args.dataset)
 else:
     print("################### Dame Gender!!")
-    gl = ds.gender_list(path=args.csv)
+    gl = ds.csv2gender_list(path=args.csv)
     print("Gender list: " + str(gl))
-    sl = ds.guess_list(path=args.csv, binary=args.binary, ml=args.ml)
+    sl = ds.guess_list(path=args.csv, binary=args.binary, ml=args.ml, dataset=args.dataset)
     print("Guess list:  " +str(sl))
 
 if (args.jsonoutput == ""):
