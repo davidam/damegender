@@ -31,8 +31,8 @@ parser.add_argument('--total', default="es", choices=['en', 'es'])
 args = parser.parse_args()
 
 
-filepath_es="files/jokes.es.txt"
-filepath_en="files/jokes.en.txt"
+filepath_es = "files/jokes.es.txt"
+filepath_en = "files/jokes.en.txt"
 
 if (args.total == "es"):
     filepath = filepath_es
@@ -41,11 +41,11 @@ else:
 
 lines_count = 0
 
-with open(filepath,'r') as f:
-  for l in f:
-    lines_count = lines_count +1
+with open(filepath, 'r') as f:
+    for i in f:
+        lines_count = lines_count + 1
 
-num_sentence = randint(1,lines_count+1)
+num_sentence = randint(1, lines_count + 1)
 
 with open(filepath) as fp:
     for cnt, line in enumerate(fp):
