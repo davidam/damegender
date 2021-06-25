@@ -304,6 +304,7 @@ class DameEthnicity(object):
 
     def locale2eng(self, locale):
         # ISO 3166
+        string = ""
         if (locale == 'af'):
             string = 'Afghanistan'
         elif (locale == 'al'):
@@ -494,10 +495,12 @@ class DameEthnicity(object):
             string = 'Solomon Islands'
         elif (locale == 'se'):
             string = 'Sweden'
+        elif (locale == 'si'):
+            string = 'Slovenia'            
+        elif (locale == 'sl'):
+            string = 'Sierra Leona'                        
         elif (locale == 'sv'):
             string = 'Republic of El Salvador'
-        elif (locale == 'si'):
-            string = 'Slovenia'
         elif (locale == 'ro'):
             string = 'Romania'
         elif (locale == 'ru'):
@@ -514,5 +517,4 @@ class DameEthnicity(object):
             string = 'Republic of Uzbekistan'
         elif (locale == 'ye'):
             string = 'Yemen'
-
         return string
