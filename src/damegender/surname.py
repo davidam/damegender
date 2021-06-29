@@ -10,7 +10,6 @@
 # You can share, copy and modify this software if you are a woman or you
 # are David Arroyo Menéndez and you include this note.
 
-
 from app.dame_gender import Gender
 import sys
 import os
@@ -41,6 +40,7 @@ The next data is only for the 50 most frequently first
 surnames located by place where the person is living
 """
             print(string1)
+
             frec1 = g.inesurname_province_and_frec(args.surname,
                                                    province='acorugna')
             print("A Coruña: %s" % frec1)
@@ -198,9 +198,9 @@ surnames located by place where the person is living
                                                     province='zaragoza')
             print("Zaragoza: %s" % frec53)
 
-        elif (args.total == 'us'):
-            print("There are %s people using %s in United States of America"
-                  % (v[1], args.surname))
+    elif (args.total == 'us'):
+        print("There are %s people using %s in United States of America"
+              % (v[1], args.surname))
 else:
     if ((args.total == 'es') or (args.total == 'ine')):
         print("There are not people using %s in Spain"
