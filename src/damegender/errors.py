@@ -20,12 +20,16 @@ from app.dame_genderapi import DameGenderApi
 from app.dame_genderize import DameGenderize
 from app.dame_nameapi import DameNameapi
 from app.dame_namsor import DameNamsor
-import sys,os
+import sys
+import os
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', default='files/names/min.csv')
-parser.add_argument('--jsondownloaded', help="files/names/genderapifiles_names_min.csv.json")
-parser.add_argument('--api', default='damegender', choices=['damegender', 'namsor', 'genderize', 'genderapi', 'nameapi', 'genderguesser'])
+parser.add_argument('--jsondownloaded',
+                    help="files/names/genderapifiles_names_min.csv.json")
+parser.add_argument('--api', default='damegender',
+                    choices=['damegender', 'namsor', 'genderize',
+                             'genderapi', 'nameapi', 'genderguesser'])
 args = parser.parse_args()
 
 dsex = DameSexmachine()
@@ -35,14 +39,15 @@ if (args.api in ['damegender', 'namsor', 'genderize', 'genderapi', 'nameapi']):
     try:
         file = open(args.jsondownloaded)
     except FileNotFoundError:
-        print("---------------------------------------------------------------------------------------------------------------")
-        print("If you are using damegender, namsor, genderize, genderapi, or nameapi. You must introduce a json in a real path")
-        print("---------------------------------------------------------------------------------------------------------------")
+        print("----------------------------------------------------------")
+        print("If you are using any api or damegender")
+        print("You must introduce a json in a real path")
+        print("----------------------------------------------------------")
 
-elif ((args.api=='genderguesser') and (args.jsondownloaded)):
-    print("---------------------------------------------------------------------------")
-    print("You don't need introduce jsondownloaded argument using genderguesser option")
-    print("---------------------------------------------------------------------------")
+elif ((args.api == 'genderguesser') and (args.jsondownloaded)):
+    print("--------------------------------------------------------------")
+    print("You don't need add jsondownloaded argument using genderguesser")
+    print("--------------------------------------------------------------")
 
 if (args.api == "genderguesser"):
     dg = DameGenderGuesser()
@@ -57,8 +62,8 @@ dst = DameStatistics()
 ec = dst.error_coded(gl1, gl2)
 print("+ The error code: %s" % ec)
 ecwa = dst.error_coded_without_na(gl1, gl2)
-print("+ The error code without na: %s" %  ecwa)
+print("+ The error code without na: %s" % ecwa)
 naCoded = dst.na_coded(gl1, gl2)
-print("+ The na coded: %s" %  naCoded)
+print("+ The na coded: %s" % naCoded)
 egb = dst.error_gender_bias(gl1, gl2)
-print("+ The error gender bias: %s" %  egb)
+print("+ The error gender bias: %s" % egb)
