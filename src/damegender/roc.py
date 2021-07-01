@@ -10,8 +10,6 @@
 # You can share, copy and modify this software if you are a woman or you
 # are David Arroyo Menéndez and you include this note.
 
-
-
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -33,7 +31,8 @@ from app.dame_utils import DameUtils
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('ml', choices=['svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
+parser.add_argument('ml', choices=['svc', 'sgd', 'gaussianNB', 'multinomialNB',
+                                   'bernoulliNB', 'forest', 'tree', 'mlp'])
 parser.add_argument('--noshow', dest='noshow', action='store_true')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
@@ -93,12 +92,12 @@ elif (args.ml == "tree"):
 
 elif (args.ml == "mlp"):
     clf = MLPClassifier(solver='lbfgs', alpha=1e-5,
-                    hidden_layer_sizes=(5, 2), random_state=1)
+                        hidden_layer_sizes=(5, 2), random_state=1)
     clf.fit(X_test, y_test)
     disp = metrics.plot_roc_curve(clf, X_test, y_test)
 
 if (args.noshow):
-    plt.savefig('files/images/roc_'+ args.ml + '.png')
+    plt.savefig('files/images/roc_' + args.ml + '.png')
 else:
-    plt.savefig('files/images/roc_'+ args.ml + '.png')
+    plt.savefig('files/images/roc_' + args.ml + '.png')
     plt.show()
