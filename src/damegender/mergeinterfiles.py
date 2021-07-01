@@ -22,9 +22,9 @@ parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
 
 
-######################################## FEMALES ######################
+# FEMALES #
 
-l = []
+ll = []
 
 du = DameUtils()
 
@@ -44,13 +44,13 @@ lenlj = len(lj)
 if (args.verbose):
     print(lenlj)
 
-l = li + lj
+ll = li + lj
 if (args.verbose):
-    print(l)
-    print(len(l))
+    print(ll)
+    print(len(ll))
 
 dicc = {}
-for i in l:
+for i in ll:
     if i[0].upper() in dicc.keys():
         dicc[i[0].upper()] = int(dicc[i[0].upper()]) + int(i[1])
     else:
