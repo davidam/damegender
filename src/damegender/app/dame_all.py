@@ -10,9 +10,6 @@
 # You can share, copy and modify this software if you are a woman or you
 # are David Arroyo Menéndez and you include this note.
 
-
-
-
 from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
 from app.dame_genderize import DameGenderize

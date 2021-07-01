@@ -13,8 +13,8 @@
 from nltk.corpus import brown, stopwords
 from nltk.cluster.util import cosine_distance
 
-class DameNLTK():
 
+class DameNLTK():
     def sentence_similarity(self, sent1, sent2, stopwords=None):
         if stopwords is None:
             stopwords = []
