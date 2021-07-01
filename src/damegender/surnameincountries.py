@@ -21,7 +21,6 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("surname", help="display the gender")
-#parser.add_argument('--total', required=True, default="ine", choices=['ine', 'es', 'us'])
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
 
@@ -31,20 +30,12 @@ de = DameEthnicity()
 du = DameUtils()
 surname = args.surname.upper()
 
-l = de.inesurname2ethnicity(surname, 'all')
-l = sorted(du.clean_list(l))
-if (len(l) > 0):
-    print("In Spain (Instituto Nacional de Estadística) the surname %s is present with people of another countries:" % surname)
+l1 = de.inesurname2ethnicity(surname, "all")
+l1 = sorted(du.clean_list(l1))
+if (len(l1) > 0):
+    print("In Spain, the surname %s exists for these countries:" % surname)
 else:
-    print("In Spain (Instituto Nacional de Estadística) the surname %s is not present with people of another countries" % surname)
+    print("In Spain, the surname %s does not exist" % surname)
 
-#print(l)
-# print(de.locale2eng('ci'))
-# print(de.locale2eng('cu'))
-# print(de.locale2eng('fr'))
-# print(de.locale2eng('gt'))
-# print(de.locale2eng('it'))
-
-
-for i in l:
+for i in l1:
     print("+ %s" % de.locale2eng(i))
