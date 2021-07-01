@@ -26,27 +26,39 @@ import argparse
 # DEPRECATED AND WILL BE REPLACED BY CSV2GENDER.PY
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--csv', type=str, required=True, help="files/names/min.csv")
-parser.add_argument('--dataset', default="us", choices=['at', 'au', 'be', 'ca', 'cn', 'de', 'dk', 'es', 'fi', 'fr', 'gb', 'ie', 'ine', 'is', 'nz', 'mx', 'pt', 'si', 'tr', 'uy', 'us', 'inter'])
+parser.add_argument('--csv', type=str, required=True,
+                    help="files/names/min.csv")
+parser.add_argument('--dataset', default="us",
+                    choices=['at', 'au', 'be', 'ca', 'cn', 'de',
+                             'dk', 'es', 'fi', 'fr', 'gb', 'ie',
+                             'ine', 'is', 'nz', 'mx', 'pt', 'si',
+                             'tr', 'uy', 'us', 'inter'])
 parser.add_argument('--binary', default=False, action="store_true")
 parser.add_argument('--notoutput', default=False, action="store_true")
-parser.add_argument('--jsonoutput', type=str, default="files/names/out.json", required=False, help="files/names/out.json")
-parser.add_argument('--ml', default="nltk", choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'tree', 'mlp', 'adaboost'])
+parser.add_argument('--jsonoutput', type=str,
+                    default="files/names/out.json", required=False,
+                    help="files/names/out.json")
+parser.add_argument('--ml', default="nltk",
+                    choices=['nltk', 'svc', 'sgd', 'gaussianNB',
+                             'multinomialNB', 'bernoulliNB',
+                             'tree', 'mlp', 'adaboost'])
 args = parser.parse_args()
 
 ds = DameSexmachine()
 if args.notoutput:
     gl = ds.csv2gender_list(path=args.csv)
-    sl = ds.guess_list(path=args.csv, binary=args.binary, ml=args.ml, dataset=args.dataset)
+    sl = ds.guess_list(path=args.csv, binary=args.binary,
+                       ml=args.ml, dataset=args.dataset)
 else:
     print("################### Dame Gender!!")
     gl = ds.csv2gender_list(path=args.csv)
     print("Gender list: " + str(gl))
-    sl = ds.guess_list(path=args.csv, binary=args.binary, ml=args.ml, dataset=args.dataset)
-    print("Guess list:  " +str(sl))
+    sl = ds.guess_list(path=args.csv, binary=args.binary,
+                       ml=args.ml, dataset=args.dataset)
+    print("Guess list:  " + str(sl))
 
 if (args.jsonoutput == ""):
-    ds.csv2json(path=args.csv, l=gl, jsonf=args.csv +".gender.json")
-    ds.csv2json(path=args.csv, l=sl, jsonf=args.csv +".guess.json")
+    ds.csv2json(path=args.csv, l=gl, jsonf=args.csv + ".gender.json")
+    ds.csv2json(path=args.csv, l=sl, jsonf=args.csv + ".guess.json")
 else:
     ds.csv2json(path=args.csv, l=sl, jsonf=args.jsonoutput)
