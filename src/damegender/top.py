@@ -18,14 +18,21 @@ import os
 import re
 import argparse
 import csv
-import subprocess, tempfile
+import subprocess
+import tempfile
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("country", default="usa", choices=['at', 'au', 'be', 'ca', 'dk', 'de', 'es', 'fi', 'gb', 'ie', 'ine', 'inter', 'is', 'nz', 'mx', 'pt', 'si', 'uy', 'uk', 'us', 'usa'], help="Countries with 2 letter, example, es is Spain")
+parser.add_argument("country", default="usa",
+                    choices=['at', 'au', 'be', 'ca', 'dk', 'de', 'es',
+                             'fi', 'gb', 'ie', 'ine', 'inter', 'is',
+                             'nz', 'mx', 'pt', 'si', 'uy', 'uk',
+                             'us', 'usa'],
+                    help="Countries with 2 letter, example, es is Spain")
 # More about iso codes on https://www.iso.org/obp/ui/
 parser.add_argument('--number', default=10)
-parser.add_argument('--sex', default="female", choices=["male", "female", "all"])
+parser.add_argument('--sex', default="female",
+                    choices=["male", "female", "all"])
 parser.add_argument('--reverse', default=False, action="store_true")
 parser.add_argument('--less', default=False, action="store_true")
 parser.add_argument('--position', default=False, action="store_true")
@@ -37,39 +44,43 @@ results = []
 g = Gender()
 du = DameUtils()
 
+
 # PAGINATION STUFF
+def printc(*largs, **kwargs):
+    # The code can still use the usual file argument of print()
+    if 'file' not in kwargs:
+        # Forces the output to go to the temp file
+        kwargs['file'] = tmp_file
+    print(*largs, **kwargs)
 
-#page = True  # For tests
 
-# Definition of a printc() function that prints to the correct output
+# Definition of a printc() function
+# that prints to the correct output
 if args.less:
-    tmp_file = open(tempfile.mkstemp()[1], 'w')  # No need to store the name in a specific variable
-    def printc(*largs, **kwargs):
-        if 'file' not in kwargs:  # The code can still use the usual file argument of print()
-            kwargs['file'] = tmp_file  # Forces the output to go to the temp file
-        print(*largs, **kwargs)
+    # No need to store the name in a specific variable
+    tmp_file = open(tempfile.mkstemp()[1], 'w')
 else:
-    printc = print  # Regular print
-
-
+    # Regular print
+    printc = print
 
 
 # MALES
 def c2l(csvpath):
-    l = []
+    l1 = []
     with open(csvpath) as csvfile:
         sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
         for row in sexreader:
-            l.append([row[0], int(row[1])])
-    return l
+            l1.append([row[0], int(row[1])])
+    return l1
 
-#c2l = c2l("files/names/names_au/baby-names-1944-2013/aumales.csv")
 
 def getKey0str(item):
     return item[0]
 
+
 def getKey1(item):
     return int(item[1])
+
 
 du = DameUtils()
 dicc_dataset_males = du.dicc_dataset("male")
@@ -160,11 +171,11 @@ else:
 
 n = int(args.number)
 
-if (args.less and (args.sex=='female')):
+if (args.less and (args.sex == 'female')):
     n = len(c2lfemales)
-elif (args.less and (args.sex=='male')):
+elif (args.less and (args.sex == 'male')):
     n = len(c2lmales)
-elif (args.less and (args.sex=='all')):
+elif (args.less and (args.sex == 'all')):
     n = len(c2lmales) + len(c2lfemales)
 
 if (args.sex == "male"):
