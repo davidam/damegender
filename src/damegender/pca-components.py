@@ -29,21 +29,21 @@ args = parser.parse_args()
 du = DameUtils()
 
 if (len(sys.argv) > 1):
-#filepath = 'files/features_list.csv' #your path here
     data = np.genfromtxt(args.csv, delimiter=',', dtype='float64')
-
     scaler = MinMaxScaler(feature_range=[0, 1])
     data_rescaled = scaler.fit_transform(data[1:, 0:8])
 
-    #Fitting the PCA algorithm with our Data
+    # Fitting the PCA algorithm with our Data
     pca = PCA().fit(data_rescaled)
-    #Plotting the Cumulative Summation of the Explained Variance
+    # Plotting the Cumulative Summation of the Explained Variance
     plt.figure()
     plt.plot(np.cumsum(pca.explained_variance_ratio_))
     plt.xlabel('Number of Components')
-    plt.ylabel('Variance (%)') #for each component
+    plt.ylabel('Variance (%)')  # for each component
     plt.title('Dataset Explained Variance')
-    plt.savefig('files/images/pca_components_'+ str(du.path2file(args.csv)) + '.png')
+    string1 = 'files/images/pca_components_'
+    string1 = string1 + str(du.path2file(args.csv)) + '.png'
+    plt.savefig(string1)
     if (args.show):
         plt.show()
 else:
