@@ -21,7 +21,9 @@ import re
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp', 'adaboost'])
+parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB',
+                                     'multinomialNB', 'bernoulliNB',
+                                     'forest', 'tree', 'mlp', 'adaboost'])
 parser.add_argument('--dataset', choices=['uk', 'us', 'uy'])
 parser.add_argument('--nltk', default=False, action="store_true")
 parser.add_argument('--allstuff', default=False, action="store_true")
@@ -32,6 +34,7 @@ if (args.nltk):
     nltk.download('punkt')
 
 g = Gender()
+
 
 def create_file(dataset):
     uspathmales = "files/names/names_us/usmales.csv"
@@ -110,13 +113,16 @@ if (args.ml):
 
 if (args.allstuff):
 
-    print("You don't need execute this script in normal conditions. We are going to create some data files, in normal conditions you've downloaded these files cloning the repository. But perhaps you need regenerate these files.")
+    print("You don't need execute this script in normal conditions.")
+    print("We are going to create some data files")
+    print("previously, you've downloaded these files cloning the repository.")
+    print("But perhaps you need regenerate these files.")
 
     yesornot = input("Do you want continue? (Yes/Not) ")
 
-    #print(yesornot)
-
-    if ((yesornot == "Yes") | (yesornot == "yes") | (yesornot == "Y") | (yesornot == "y")):
+    boolean1 = (yesornot == "Yes") or (yesornot == "yes")
+    boolean1 = boolean1 or (yesornot == "Y") or (yesornot == "y")
+    if (boolean1):
         print("We are creating files/names/nam_dict_list.txt")
         g.namdict2file()
         print("We are creating .sav files data models in files/datamodels")
@@ -130,16 +136,20 @@ if (args.allstuff):
         s.bernoulliNB()
         s.tree()
         s.mlp()
-        print("This process has finished. You have the models in files/datamodels/*.sav")
+        print("This process has finished.")
+        print("You have the models in files/datamodels/*.sav")
 
         du = DameUtils()
 
-        print("Creating the file files/names/allnoundefined.csv from files/names/all.csv")
+        print("Creating the file files/names/allnoundefined.csv")
         with open('files/names/all.csv') as csvfile:
             reader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            filenou = open('files/names/allnoundefined.csv','w+')
+            filenou = open('files/names/allnoundefined.csv', 'w+')
             for row in reader:
                 g = du.drop_quotes(row[4])
                 if ((g == "m") | (g == "f")):
-                    filenou.write(row[0]+','+row[1]+','+row[2]+','+row[3]+','+row[4]+','+row[5]+'\n')
+                    string1 = row[0] + ',' + row[1] + ',' + row[2] + ','
+                    string1 = string1 + row[3] + ',' + row[4]
+                    string1 = string1 + ',' + row[5] + '\n'
+                    filenou.write(string1)
             filenou.close()
