@@ -19,6 +19,7 @@ from app.dame_utils import DameUtils
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 
+
 class DameGenderize(Gender):
 
     def get(self, name, *args, **kwargs):
@@ -33,24 +34,24 @@ class DameGenderize(Gender):
         d = json.loads(r.text)
         return d
 
-    def get2to10(self, l):
+    def get2to10(self, l1):
         string = 'https://api.genderize.io/'
 
-        if ((len(l) > 1) and (len(l) <= 10)):
-            string = string + '?name[]='+l[0]
-            for i in l[1:10]:
-                string = string + '&name[]='+ i
+        if ((len(l1) > 1) and (len(l1) <= 10)):
+            string = string + '?name[]=' + l1[0]
+            for i in l1[1:10]:
+                string = string + '&name[]=' + i
             r = requests.get(string)
             d = json.loads(r.text)
         elif (len(l) == 1):
-            d = [self.get(l[0])]
+            d = [self.get(l1[0])]
         else:
             d = ""
         return d
 
     def guess(self, name, binary=False):
         d = self.get(name)
-        if (binary == True):
+        if (binary is True):
             if (d['gender'] == 'female'):
                 gender = 0
             elif (d['gender'] == 'male'):
@@ -71,25 +72,26 @@ class DameGenderize(Gender):
         d = ""
         lresult = []
         res = ""
-        if (surnames == True):
-            l = self.csv2names(path, surnames=True)
-            for i in range(0, len(l)):
-                d = self.get(l[i][0], surname=l[i][1])
-                d["surname"] = l[i][1]
+        if (surnames is True):
+            l1 = self.csv2names(path, surnames=True)
+            for i in range(0, len(l1)):
+                d = self.get(l1[i][0], surname=l1[i][1])
+                d["surname"] = l1[i][1]
                 lresult.append(d)
             res = str(lresult)
         else:
-            l = self.csv2names(path)
+            l1 = self.csv2names(path)
             # We must split the list in different lists with size 10
-            for i in range(0, len(l), 10):
-                new.append(l[i:i+10])
+            for i in range(0, len(l1), 10):
+                new.append(l1[i:i+10])
             for j in new:
                 lresult.append(self.get2to10(j))
             for k in lresult:
                 res = res + str(k)
         res = str(res).replace("\'", "\"")
         res = str(res).replace('None', '"unknown"')
-        backup = open("files/names/genderize"+du.path2file(path)+".json", "w+")
+        path = "files/names/genderize" + du.path2file(path) + ".json"
+        backup = open(path, "w+")
         backup.write(res)
         backup.close()
         return res
@@ -110,16 +112,18 @@ class DameGenderize(Gender):
                 guesslist.append(i["gender"])
         return guesslist
 
-
     def apikey_limit_exceeded_p(self):
         j = ""
+        baseurl = 'https://api.genderize.io/'
         if (self.config['DEFAULT']['genderize'] == 'yes'):
             fichero = open("files/apikeys/genderizepass.txt", "r+")
-            contenido = fichero.readline()
-            contenido = contenido.replace('\n', '')
-            string = 'https://api.genderize.io/?name[]=peter&name[]=lois&name[]=stevie?apikey=' + contenido
+            key = fichero.readline()
+            key = contenido.replace('\n', '')
+            content = '?name[]=peter&name[]=lois&name[]=stevie?apikey='
+            str1 = baseurl + content + key
         else:
-            string = 'https://api.genderize.io/?name[]=peter&name[]=lois&name[]=stevie'
+            content = '?name[]=peter&name[]=lois&name[]=stevie'
+            str1 = baseurl + content
         r = requests.get(string)
         j = json.loads(r.text)
         if (j["error"] is not None):
@@ -127,7 +131,6 @@ class DameGenderize(Gender):
         else:
             p = False
         return p
-
 
     # def guess(self, name, binary=False):
     #     # guess method to check names dictionary
@@ -147,7 +150,6 @@ class DameGenderize(Gender):
     #     elif (not(binary)):
     #         guess = g
     #     return guess
-
 
     # def prob(self, name, binary=False):
     #     # guess method to check names dictionary
