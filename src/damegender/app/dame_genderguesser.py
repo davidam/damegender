@@ -13,22 +13,22 @@
 import csv
 import requests
 import json
-#import gender_guesser.detector as gender
 import os.path
 import codecs
 from app.dame_gender import Gender
 
 
 class DameGenderGuesser(Gender):
-    COUNTRIES = u"""great_britain ireland usa italy malta portugal spain france
-                   belgium luxembourg the_netherlands east_frisia germany austria
-                   swiss iceland denmark norway sweden finland estonia latvia
-                   lithuania poland czech_republic slovakia hungary romania
-                   bulgaria bosniaand croatia kosovo macedonia montenegro serbia
-                   slovenia albania greece russia belarus moldova ukraine armenia
-                   azerbaijan georgia the_stans turkey arabia israel china india
-                   japan korea vietnam other_countries
-                 """.split()
+    COUNTRIES = """
+       great_britain ireland usa italy malta portugal spain france
+       belgium luxembourg the_netherlands east_frisia germany austria
+       swiss iceland denmark norway sweden finland estonia latvia
+       lithuania poland czech_republic slovakia hungary romania
+       bulgaria bosniaand croatia kosovo macedonia montenegro serbia
+       slovenia albania greece russia belarus moldova ukraine armenia
+       azerbaijan georgia the_stans turkey arabia israel china india
+       japan korea vietnam other_countries
+       """.split()
 
     def __init__(self,
                  case_sensitive=True):
@@ -67,17 +67,21 @@ class DameGenderGuesser(Gender):
                 raise "Not sure what to do with a sex of %s" % parts[0]
 
     def _set(self, name, gender, country_values):
-        """Sets gender and relevant country values for names dictionary of detector"""
+        # Sets gender and relevant country values
+        # for names dictionary of detector
         if '+' in name:
             for replacement in ['', ' ', '-']:
-                self._set(name.replace('+', replacement), gender, country_values)
+                self._set(name.replace('+', replacement),
+                          gender,
+                          country_values)
         else:
             if name not in self.names:
                 self.names[name] = {}
             self.names[name][gender] = country_values
 
     def _most_popular_gender(self, name, counter):
-        """Finds the most popular gender for the given name counting by given counter"""
+        # Finds the most popular gender for the
+        # given name counting by given counter
         if name not in self.names:
             return u"unknown"
 
@@ -91,7 +95,7 @@ class DameGenderGuesser(Gender):
         return best if max_count > 0 else u"andy"
 
     def get_gender(self, name, country=None):
-        """Returns best gender for the given name and country pair"""
+        # Returns best gender for the given name and country pair
         if not self.case_sensitive:
             name = name.lower()
 
@@ -99,7 +103,8 @@ class DameGenderGuesser(Gender):
             return u"unknown"
         elif not country:
             def counter(country_values):
-                country_values = list(map(ord, country_values.replace(" ", "")))
+                country_values = list(map(ord,
+                                          country_values.replace(" ", "")))
                 return (len(country_values),
                         sum([c > 64 and c-55 or c-48 for c in country_values]))
             return self._most_popular_gender(name, counter)
@@ -125,24 +130,17 @@ class DameGenderGuesser(Gender):
             guess = get
         return guess
 
-
-    def guess_list(self, path='files/names/partial.csv', binary=False, *args, **kwargs):
+    def guess_list(self, path='files/names/partial.csv',
+                   binary=False, *args, **kwargs):
         # guess list method
         header = kwargs.get('header', True)
         slist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            if (header == True):
+            if header:
                 next(sexreader, None)
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
                 slist.append(self.guess(name, binary))
         return slist
-
-
-    # def print_confusion_matrix_gender(self, path='files/names/partial.csv', dimensions="2x3"):
-    #     cmd = self.confusion_matrix_gender(path, dimensions)
-    #     print("[[ %s, %s, %s]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-    #     print(" [ %s, %s, %s]]\n" % (cmd[1][0], cmd[1][1], cmd[1][2]))
-    #     return ""
