@@ -18,6 +18,6 @@ from app.dame_nltk import DameNLTK
 
 class TddInPythonExample(unittest.TestCase):
 
-        def test_sentence_similarity(self):
-            dn = DameNLTK()
-            self.assertTrue(dn.sentence_similarity("This is a good sentence".split(), "This is a bad sentence".split()) > 0.7)
+    def test_sentence_similarity(self):
+        dn = DameNLTK()
+        self.assertTrue(dn.sentence_similarity("This is a good sentence".split(), "This is a bad sentence".split()) > 0.7)
