@@ -11,7 +11,6 @@
 # are David Arroyo Menéndez and you include this note.
 
 from pprint import pprint
-#from nltk.corpus import names
 import json
 import os
 import csv
@@ -30,7 +29,7 @@ from sklearn.neural_network import MLPClassifier
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.datasets import make_classification
-#from xgboost import XGBClassifier
+# from xgboost import XGBClassifier
 from sklearn import svm
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
@@ -38,6 +37,7 @@ import pickle
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
 from app.dame_statistics import DameStatistics
+
 
 class DameSexmachine(Gender):
     def __init__(self):
@@ -252,7 +252,7 @@ class DameSexmachine(Gender):
         X = np.array(self.features_list(path="files/names/all.csv"))
         y = np.array(self.csv2gender_list(path="files/names/all.csv"))
         clf = MLPClassifier(solver='lbfgs', alpha=1e-5,
-                    hidden_layer_sizes=(5, 2), random_state=1)
+                            hidden_layer_sizes=(5, 2), random_state=1)
         clf.fit(X, y)
         filename = 'files/datamodels/mlp_model.sav'
         pickle.dump(clf, open(filename, 'wb'))
@@ -359,8 +359,8 @@ class DameSexmachine(Gender):
         return slist
 
     def confusion_matrix_gender(self, path='', jsonf='', ml='nltk'):
-        # this method is an interfaz to confusion_matrix_table allowing introduce a json file
-        # in dame_sexmachine we must rewrite it to allow machine learning algorithm
+        # this method is an interface to confusion_matrix_table allowing
+        # introduce a json file in dame_sexmachine
         truevector = self.csv2gender_list(path)
         if (os.path.isfile(jsonf)):
             guessvector = self.json2gender_list(jsonf=jsonf, binary=True)
@@ -371,7 +371,6 @@ class DameSexmachine(Gender):
 
         res = self.ds.confusion_matrix_table(truevector, guessvector)
         return res
-
 
     def num_females(self, url, directory):
         # Extracting females with perceval
