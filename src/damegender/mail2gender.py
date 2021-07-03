@@ -10,8 +10,6 @@
 # You can share, copy and modify this software if you are a woman or you
 # are David Arroyo Menéndez and you include this note.
 
-
-
 from app.dame_sexmachine import DameSexmachine
 from app.dame_gender import Gender
 from app.dame_perceval import DamePerceval
@@ -22,7 +20,10 @@ parser = argparse.ArgumentParser()
 parser.add_argument("url", help="Uniform Resource Link")
 parser.add_argument('--directory')
 parser.add_argument('--show', choices=['males', 'females', 'unknows', 'all'])
-parser.add_argument('--ml', default='none', choices=['none', 'nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
+parser.add_argument('--ml', default='none',
+                    choices=['none', 'nltk', 'svc', 'sgd', 'gaussianNB',
+                             'multinomialNB', 'bernoulliNB', 'forest',
+                             'tree', 'mlp'])
 parser.add_argument('--verbose', default=False, action="store_true")
 parser.add_argument('--version', action='version', version='0.3')
 
@@ -31,16 +32,17 @@ args = parser.parse_args()
 if (len(sys.argv) > 1):
     if (args.ml == 'none'):
         s = Gender()
-        print("You are not using ml the process is not very slow, but perhaps you are not finding good results")
+        print("You are not using ml the process is not very slow")
+        print("but perhaps you are not finding good results")
     else:
         s = DameSexmachine()
 
     gg = DamePerceval()
     du = DameUtils()
-    l = gg.list_mailers(args.url)
+    l1 = gg.list_mailers(args.url)
     # print(l)
     # print("----------------------------------------------------------------------------------------------------")
-    l2 = du.delete_duplicated(l)
+    l2 = du.delete_duplicated(l1)
     # print(l2)
     # print("----------------------------------------------------------------------------------------------------")
     l4 = du.delete_duplicated_identities(l2)
@@ -68,7 +70,7 @@ if (len(sys.argv) > 1):
             list_unknows.append(g)
 
     print("The number of males sending mails is %s" % len(list_males))
-    if ((args.show=='males') or (args.show=='all')):
+    if ((args.show == 'males') or (args.show == 'all')):
         print("The list of males sending mails is:")
         print(list_males)
         if (args.verbose):
@@ -78,7 +80,7 @@ if (len(sys.argv) > 1):
                     print("%s (%s messages)" % (i, l5[i]))
 
     print("The number of females sending mails is %s" % len(list_females))
-    if ((args.show=='females') or (args.show=='all')):
+    if ((args.show == 'females') or (args.show == 'all')):
         print("The list of females sending mails is:")
         print(list_females)
         if (args.verbose):
@@ -87,8 +89,9 @@ if (len(sys.argv) > 1):
                 if identity[0] in list_females:
                     print("%s (%s messages)" % (i, l5[i]))
 
-    print("The number of people with unknown gender sending mails is %s" % len(list_unknows))
-    if ((args.show=='unknows') or (args.show == 'all')):
+    n = len(list_unknows)
+    print("The number of people with unknown gender sending mails %s" % n)
+    if ((args.show == 'unknows') or (args.show == 'all')):
         print("The list of people with unknown gender sending mails is ")
         print(list_unknows)
         if (args.verbose):
