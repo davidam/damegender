@@ -30,7 +30,7 @@ from app.dame_utils import DameUtils
 csv.field_size_limit(3000000)
 
 du = DameUtils()
-#g = Gender()
+
 
 class DameStatistics(object):
     # That's the root class in the heritage,
@@ -200,7 +200,6 @@ class DameStatistics(object):
         result = divider / dividend
         return result
 
-
     def confusion_matrix_table(self, truevector, guessvector):
         # this method returns a 3x3 confusion matrix as python vectors
         # femalefemale
@@ -222,35 +221,19 @@ class DameStatistics(object):
         # undefinedundefined
         self.uu = self.count_true2guess(truevector, guessvector, 1, 2)
 
-        l = [[self.ff, self.fm, self.fu],
-             [self.mf, self.mm, self.mu],
-             [self.uf, self.um, self.uu]]
+        l1 = [[self.ff, self.fm, self.fu],
+              [self.mf, self.mm, self.mu],
+              [self.uf, self.um, self.uu]]
 
-        res = [[l[0][0], l[0][1], l[0][2]],
-               [l[1][0], l[1][1], l[1][2]],
-               [l[2][0], l[2][1], l[2][2]]]
+        res = [[l1[0][0], l1[0][1], l1[0][2]],
+               [l1[1][0], l1[1][1], l1[1][2]],
+               [l1[2][0], l1[2][1], l1[2][2]]]
         return res
-
-
-
 
     # def pca(self, path='files/names/partial.csv', n=2):
     #     X = np.array(g.features_list())
     #     pca = PCA(n_components=n)
     #     return pca.fit(X)
-
-    # def print_envolve_measures
-    #     if (ds.json_eq_csv_in_names(jsonf=args.jsondownloaded, path=args.csv)):
-    #         print("################### Damegender!!")
-    #         print("Gender list: " + str(gl))
-    #         sl = ds.json2guess_list(jsonf=args.jsondownloaded, binary=True)
-    #         print("Guess list:  " +str(sl))
-    #         ds.print_measures(gl, sl, args.measure, "Damegender")
-    #     else:
-    #         print("Names in json and csv are differents")
-    #         print("Names in csv: %s:" % ds.csv2names(path=args.csv))
-    #         print("Names in json: %s:" % ds.json2names(jsonf=args.jsondownloaded, surnames=False))
-
 
     def print_measures(self, gl1, gl2, measure, api_name):
         if (measure == "accuracy"):
@@ -273,12 +256,15 @@ class DameStatistics(object):
         reverse = kwargs.get('reverse', False)
         dimensions = kwargs.get('dimensions', '3x2')
         gl = self.csv2gender_list(path=path)
-#        dna = DameNameapi()
         print("%s confusion matrix:\n" % api)
-        #    dna.print_confusion_matrix_gender(path=args.csv, dimensions=args.dimensions)
         if (os.path.isfile(jsonf)):
-            self.print_confusion_matrix_gender(path=path, dimensions=dimensions, jsonf=jsonf, reverse=reverse)
+            self.print_confusion_matrix_gender(path=path,
+                                               dimensions=dimensions,
+                                               jsonf=jsonf,
+                                               reverse=reverse)
         elif (args.jsondownloaded == ''):
-            self.print_confusion_matrix_gender(path=path, dimensions=dimensions, reverse=reverse)
+            self.print_confusion_matrix_gender(path=path,
+                                               dimensions=dimensions,
+                                               reverse=reverse)
         else:
             print("In the path %s doesn't exist file" % jsonf)
