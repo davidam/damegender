@@ -10,9 +10,6 @@
 # You can share, copy and modify this software if you are a woman or you
 # are David Arroyo Menéndez and you include this note.
 
-
-
-
 from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
 from app.dame_utils import DameUtils
@@ -23,8 +20,14 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
-parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB', 'multinomialNB', 'bernoulliNB', 'forest', 'tree', 'mlp'])
-parser.add_argument('--total', default="us", choices=['at', 'au', 'be', 'ca', 'cn', 'de', 'dk', 'es', 'fi', 'fr', 'gb', 'ie', 'ine', 'is', 'nz', 'mx', 'pt', 'si', 'tr', 'uy', 'us', 'genderguesser', 'inter', 'all'])
+parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB',
+                                     'multinomialNB', 'bernoulliNB',
+                                     'forest', 'tree', 'mlp'])
+parser.add_argument('--total', default="inter",
+                    choices=['at', 'au', 'be', 'ca', 'cn', 'de', 'dk', 'es',
+                             'fi', 'fr', 'gb', 'ie', 'ine', 'is', 'nz',
+                             'mx', 'pt', 'si', 'tr', 'uy', 'us',
+                             'genderguesser', 'inter', 'all'])
 # More about iso codes on https://www.iso.org/obp/ui/
 parser.add_argument('--version', action='version', version='0.3')
 parser.add_argument('--verbose', default=False, action="store_true")
@@ -37,32 +40,36 @@ du = DameUtils()
 
 
 if (args.total == "genderguesser"):
-        name = args.name.capitalize()
-        cmd = 'grep -i "' + name + '" files/names/nam_dict.txt > files/logs/grep.tmp'
-#        print(cmd)
-        os.system(cmd)
-        for i in open('files/logs/grep.tmp', 'r').readlines():
-                results.append(i)
-        male = 0
-        female = 0
-        for i in results:
-                regex = "(M|F|=|\?|1)( |M|F)?( )(" + name + ")"
-                r = re.match(regex, i)
-                if (r is not None):
-                        prob = r.group(1) + r.group(2)
-                else:
-                        prob = ""
-                if (('F' == prob) or ('F ' == prob) or (prob == '?F') or (prob == '1F')):
-                        female = female + 1
-                elif (('M' == prob) or ('M ' == prob) or ('?M' == prob) or ('1M' == prob)):
-                        male = male + 1
-        if ( female > male ):
-                print("gender: female")
-        if ( male > female ):
-                print("gender: male")
-        elif ( male == female ):
-                print("gender: unknown")
-                print("you can try predict with --ml")
+    name = args.name.capitalize()
+    cmd = 'grep -i "' + name
+    cmd = cmd + '" files/names/nam_dict.txt > files/logs/grep.tmp'
+    os.system(cmd)
+    for i in open('files/logs/grep.tmp', 'r').readlines():
+        results.append(i)
+    male = 0
+    female = 0
+    for i in results:
+        regex = "(M|F|=|\?|1)( |M|F)?( )(" + name + ")"
+        r = re.match(regex, i)
+        if (r is not None):
+            prob = r.group(1) + r.group(2)
+        else:
+            prob = ""
+            bool1 = ('F' == prob) or ('F ' == prob)
+            bool1 = bool1 or (prob == '?F') or (prob == '1F')
+            bool2 = ('M' == prob) or ('M ' == prob)
+            bool2 = bool2 or ('?M' == prob) or ('1M' == prob)
+            if bool1:
+                female = female + 1
+            elif bool2:
+                male = male + 1
+        if (female > male):
+            print("gender: female")
+        if (male > female):
+            print("gender: male")
+        elif (male == female):
+            print("gender: unknown")
+            print("you can try predict with --ml")
 
 # deprecating source
 # elif (args.total == "luciahelena"):
@@ -77,125 +84,151 @@ if (args.total == "genderguesser"):
 #         else:
 #                 print("this name was not classified as male or female")
 elif ((args.verbose) or (args.total == "all")):
+    n_males = s.name_frec(args.name, dataset="at")['males']
+    n_females = s.name_frec(args.name, dataset="at")['females']
+    print("%s males for %s from Austria statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Austria statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="au")['males']
+    n_females = s.name_frec(args.name, dataset="au")['females']
+    print("%s males for %s from Australia statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Australia statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="be")['males']
+    n_females = s.name_frec(args.name, dataset="be")['females']
+    print("%s males for %s from Belgium statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Belgium statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="ca")['males']
+    n_females = s.name_frec(args.name, dataset="ca")['females']
+    print("%s males for %s from Canada statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Canada statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="cn")['males']
+    n_females = s.name_frec(args.name, dataset="cn")['females']
+    print("%s males for %s from China statistics"
+          % (n_males, args.name))
+    print("%s females for %s from China statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="de")['males']
+    n_females = s.name_frec(args.name, dataset="de")['females']
+    print("%s males for %s from Deutchsland statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Deutchsland statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="dk")['males']
+    n_females = s.name_frec(args.name, dataset="dk")['females']
+    print("%s males for %s from Denmark statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Denmark statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="ine")['males']
+    n_females = s.name_frec(args.name, dataset="ine")['females']
+    print("%s males for %s from Spain statistics (INE.es)"
+          % (n_males, args.name))
+    print("%s females for %s from Spain statistics (INE.es)"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="ie")['males']
+    n_females = s.name_frec(args.name, dataset="ie")['females']
+    print("%s males for %s from Ireland statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Ireland statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="is")['males']
+    n_females = s.name_frec(args.name, dataset="is")['females']
+    print("%s males for %s from Iceland statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Iceland statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="fi")['males']
+    n_females = s.name_frec(args.name, dataset="fi")['females']
+    print("%s males for %s from Finland statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Finland statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="fr")['males']
+    n_females = s.name_frec(args.name, dataset="fr")['females']
+    print("%s males for %s from France statistics"
+          % (n_males, args.name))
+    print("%s females for %s from France statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="gb")['males']
+    n_females = s.name_frec(args.name, dataset="gb")['females']
+    print("%s males for %s from United Kingdom statistics"
+          % (n_males, args.name))
+    print("%s females for %s from United Kingdom statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="mx")['males']
+    n_females = s.name_frec(args.name, dataset="mx")['females']
+    print("%s males for %s from Mexico statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Mexico statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="nz")['males']
+    n_females = s.name_frec(args.name, dataset="nz")['females']
+    print("%s males for %s from New Zealand statistics"
+          % (n_males, args.name))
+    print("%s females for %s from New Zealand statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="pt")['males']
+    n_females = s.name_frec(args.name, dataset="pt")['females']
+    print("%s males for %s from Portugal statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Portugal statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="si")['males']
+    n_females = s.name_frec(args.name, dataset="si")['females']
+    print("%s males for %s from Slovenia statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Slovenia statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="tr")['males']
+    n_females = s.name_frec(args.name, dataset="tr")['females']
+    print("%s males for %s from Turkish statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Turkish statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="us")['males']
+    n_females = s.name_frec(args.name, dataset="us")['females']
+    print("%s males for %s from United States of America statistics"
+          % (n_males, args.name))
+    print("%s females for %s from United States of America statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="uy")['males']
+    n_females = s.name_frec(args.name, dataset="uy")['females']
+    print("%s males for %s from Uruguay statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Uruguay statistics"
+          % (n_females, args.name))
 
-        num_males = s.name_frec(args.name, dataset="at")['males']
-        num_females = s.name_frec(args.name, dataset="at")['females']
-        print("%s males for %s from Austria statistics" % (num_males, args.name))
-        print("%s females for %s from Austria statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="au")['males']
-        num_females = s.name_frec(args.name, dataset="au")['females']
-        print("%s males for %s from Australia statistics" % (num_males, args.name))
-        print("%s females for %s from Australia statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="be")['males']
-        num_females = s.name_frec(args.name, dataset="be")['females']
-        print("%s males for %s from Belgium statistics" % (num_males, args.name))
-        print("%s females for %s from Belgium statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="ca")['males']
-        num_females = s.name_frec(args.name, dataset="ca")['females']
-        print("%s males for %s from Canada statistics" % (num_males, args.name))
-        print("%s females for %s from Canada statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="cn")['males']
-        num_females = s.name_frec(args.name, dataset="cn")['females']
-        print("%s males for %s from China statistics" % (num_males, args.name))
-        print("%s females for %s from China statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="de")['males']
-        num_females = s.name_frec(args.name, dataset="de")['females']
-        print("%s males for %s from Deutchsland statistics" % (num_males, args.name))
-        print("%s females for %s from Deutchsland statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="dk")['males']
-        num_females = s.name_frec(args.name, dataset="dk")['females']
-        print("%s males for %s from Denmark statistics" % (num_males, args.name))
-        print("%s females for %s from Denmark statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="ine")['males']
-        num_females = s.name_frec(args.name, dataset="ine")['females']
-        print("%s males for %s from Spain statistics (INE.es)" % (num_males, args.name))
-        print("%s females for %s from Spain statistics (INE.es)" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="ie")['males']
-        num_females = s.name_frec(args.name, dataset="ie")['females']
-        print("%s males for %s from Ireland statistics" % (num_males, args.name))
-        print("%s females for %s from Ireland statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="is")['males']
-        num_females = s.name_frec(args.name, dataset="is")['females']
-        print("%s males for %s from Iceland statistics" % (num_males, args.name))
-        print("%s females for %s from Iceland statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="fi")['males']
-        num_females = s.name_frec(args.name, dataset="fi")['females']
-        print("%s males for %s from Finland statistics" % (num_males, args.name))
-        print("%s females for %s from Finland statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="fr")['males']
-        num_females = s.name_frec(args.name, dataset="fr")['females']
-        print("%s males for %s from France statistics" % (num_males, args.name))
-        print("%s females for %s from France statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="gb")['males']
-        num_females = s.name_frec(args.name, dataset="gb")['females']
-        print("%s males for %s from United Kingdom statistics" % (num_males, args.name))
-        print("%s females for %s from United Kingdom statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="mx")['males']
-        num_females = s.name_frec(args.name, dataset="mx")['females']
-        print("%s males for %s from Mexico statistics" % (num_males, args.name))
-        print("%s females for %s from Mexico statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="nz")['males']
-        num_females = s.name_frec(args.name, dataset="nz")['females']
-        print("%s males for %s from New Zealand statistics" % (num_males, args.name))
-        print("%s females for %s from New Zealand statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="pt")['males']
-        num_females = s.name_frec(args.name, dataset="pt")['females']
-        print("%s males for %s from Portugal statistics" % (num_males, args.name))
-        print("%s females for %s from Portugal statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="si")['males']
-        num_females = s.name_frec(args.name, dataset="si")['females']
-        print("%s males for %s from Slovenia statistics" % (num_males, args.name))
-        print("%s females for %s from Slovenia statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="tr")['males']
-        num_females = s.name_frec(args.name, dataset="tr")['females']
-        print("%s males for %s from Turkish statistics" % (num_males, args.name))
-        print("%s females for %s from Turkish statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="us")['males']
-        num_females = s.name_frec(args.name, dataset="us")['females']
-        print("%s males for %s from United States of America statistics" % (num_males, args.name))
-        print("%s females for %s from United States of America statistics" % (num_females, args.name))
-        num_males = s.name_frec(args.name, dataset="uy")['males']
-        num_females = s.name_frec(args.name, dataset="uy")['females']
-        print("%s males for %s from Uruguay statistics" % (num_males, args.name))
-        print("%s females for %s from Uruguay statistics" % (num_females, args.name))
+    n_males = s.name_frec(args.name, dataset="inter")['males']
+    n_females = s.name_frec(args.name, dataset="inter")['females']
+    print("%s males for %s from international statistics"
+          % (n_males, args.name))
+    print("%s females for %s from international statistics"
+          % (n_females, args.name))
 
-        num_males = s.name_frec(args.name, dataset="inter")['males']
-        num_females = s.name_frec(args.name, dataset="inter")['females']
-        print("%s males for %s from international statistics" % (num_males, args.name))
-        print("%s females for %s from international statistics" % (num_females, args.name))
-
-        guess = s.guess(args.name, binary=True, ml="nltk")
-        print("%s gender predicted with nltk is %s" % (str(args.name), du.int2gender(guess)))
-        # guess = s.guess(args.name, binary=True, ml="sgd")
-        # print("%s gender predicted with sgd is %s" % (str(args.name), du.int2gender(guess)))
-        # guess = s.guess(args.name, binary=True, ml="svc")
-        # print("%s gender predicted with svc is %s" % (str(args.name), du.int2gender(guess)))
-        # guess = s.guess(args.name, binary=True, ml="gaussianNB")
-        # print("%s gender predicted with gaussianNB is %s" % (str(args.name), du.int2gender(guess)))
-        # guess = s.guess(args.name, binary=True, ml="multinomialNB")
-        # print("%s gender predicted with multinomialNB is %s" % (str(args.name), du.int2gender(guess)))
-        # guess = s.guess(args.name, binary=True, ml="bernoulliNB")
-        # print("%s gender predicted with bernoulliNB is %s" % (str(args.name), du.int2gender(guess)))
-        # guess = s.guess(args.name, binary=True, ml="forest")
-        # print("%s gender predicted with forest is %s" % (str(args.name), du.int2gender(guess)))
-        # guess = s.guess(args.name, binary=True, ml="tree")
-        # print("%s gender predicted with tree is %s" % (str(args.name), du.int2gender(guess)))
-        # guess = s.guess(args.name, binary=True, ml="mlp")
-        # print("%s gender predicted with mlp is %s" % (str(args.name), du.int2gender(guess)))
+    guess = s.guess(args.name, binary=True, ml="nltk")
+    print("%s gender predicted with nltk is %s"
+          % (str(args.name), du.int2gender(guess)))
 
 else:
     s = DameSexmachine()
-    num_males = s.name_frec(args.name, dataset=args.total)['males']
-    num_females = s.name_frec(args.name, dataset=args.total)['females']
-    if (int(num_males) > int(num_females)):
+    n_males = s.name_frec(args.name, dataset=args.total)['males']
+    n_females = s.name_frec(args.name, dataset=args.total)['females']
+    if (int(n_males) > int(n_females)):
         print("%s's gender is male" % (str(args.name)))
-        prob = int(num_males) / (int(num_males) + int(num_females))
+        prob = int(n_males) / (int(n_males) + int(n_females))
         print("probability: %s" % str(prob))
-    elif (int(num_males) < int(num_females)):
+    elif (int(n_males) < int(n_females)):
         print("%s's gender is female" % (str(args.name)))
-        prob = int(num_females) / (int(num_females) + int(num_males))
+        prob = int(n_females) / (int(n_females) + int(n_males))
         print("probability: %s" % str(prob))
-    elif ((int(num_males) == 0) and (int(num_females) == 0)):
+    elif ((int(n_males) == 0) and (int(n_females) == 0)):
         args.ml = 'nltk'
 
     if (args.ml):
@@ -228,65 +261,108 @@ else:
         print("%s gender predicted is %s" % (str(args.name), sex))
 
     if (args.total == "at"):
-        print("%s males for %s from Austria statistics" % (num_males, args.name))
-        print("%s females for %s from Austria statistics" % (num_females, args.name))
+        print("%s males for %s from Austria statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Austria statistics"
+              % (n_females, args.name))
     elif (args.total == "au"):
-        print("%s males for %s from Australia statistics" % (num_males, args.name))
-        print("%s females for %s from Australia statistics" % (num_females, args.name))
+        print("%s males for %s from Australia statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Australia statistics"
+              % (n_females, args.name))
     elif (args.total == "be"):
-        print("%s males for %s from Belgium statistics" % (num_males, args.name))
-        print("%s females for %s from Belgium statistics" % (num_females, args.name))
+        print("%s males for %s from Belgium statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Belgium statistics"
+              % (n_females, args.name))
     elif (args.total == "ca"):
-        print("%s males for %s from Canada statistics" % (num_males, args.name))
-        print("%s females for %s from Canada statistics" % (num_females, args.name))
+        print("%s males for %s from Canada statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Canada statistics"
+              % (n_females, args.name))
     elif (args.total == "cn"):
-        print("%s males for %s from China statistics" % (num_males, args.name))
-        print("%s females for %s from China statistics" % (num_females, args.name))
+        print("%s males for %s from China statistics"
+              % (n_males, args.name))
+        print("%s females for %s from China statistics"
+              % (n_females, args.name))
     elif (args.total == "de"):
-        print("%s males for %s from Deutchsland statistics" % (num_males, args.name))
-        print("%s females for %s from Deutchsland statistics" % (num_females, args.name))
+        print("%s males for %s from Deutchsland statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Deutchsland statistics"
+              % (n_females, args.name))
     elif (args.total == "dk"):
-        print("%s males for %s from Denmark statistics" % (num_males, args.name))
-        print("%s females for %s from Denmark statistics" % (num_females, args.name))
+        print("%s males for %s from Denmark statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Denmark statistics"
+              % (n_females, args.name))
     elif (args.total == "ie"):
-        print("%s males for %s from Ireland statistics" % (num_males, args.name))
-        print("%s females for %s from Ireland statistics" % (num_females, args.name))
+        print("%s males for %s from Ireland statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Ireland statistics"
+              % (n_females, args.name))
     elif (args.total == "is"):
-        print("%s males for %s from Iceland statistics" % (num_males, args.name))
-        print("%s females for %s from Iceland statistics" % (num_females, args.name))
+        print("%s males for %s from Iceland statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Iceland statistics"
+              % (n_females, args.name))
     elif ((args.total == "ine") or (args.total == "es")):
-        print("%s males for %s from Spain statistics (INE.es)" % (num_males, args.name))
-        print("%s females for %s from Spain statistics (INE.es)" % (num_females, args.name))
+        print("%s males for %s from Spain statistics (INE.es)"
+              % (n_males, args.name))
+        print("%s females for %s from Spain statistics (INE.es)"
+              % (n_females, args.name))
     elif (args.total == "inter"):
-        print("%s males for %s from international statistics" % (num_males, args.name))
-        print("%s females for %s from international statistics" % (num_females, args.name))
+        print("%s males for %s from international statistics"
+              % (n_males, args.name))
+        print("%s females for %s from international statistics"
+              % (n_females, args.name))
     elif (args.total == "fi"):
-        print("%s males for %s from Finland statistics" % (num_males, args.name))
-        print("%s females for %s from Finland statistics" % (num_females, args.name))
+        print("%s males for %s from Finland statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Finland statistics"
+              % (n_females, args.name))
     elif (args.total == "fr"):
-        print("%s males for %s from France statistics" % (num_males, args.name))
-        print("%s females for %s from France statistics" % (num_females, args.name))
+        print("%s males for %s from France statistics"
+              % (n_males, args.name))
+        print("%s females for %s from France statistics"
+              % (n_females, args.name))
     elif (args.total == "gb"):
-        print("%s males for %s from United Kingdom of Great Britain and Northern Ireland statistics" % (num_males, args.name))
-        print("%s females for %s from United Kingdom of Great Britain and Northern Ireland statistics" % (num_females, args.name))
+        gb = "United Kingdom of Great Britain and Northern Ireland statistics"
+        print("%s males for %s from %s"
+              % (n_males, args.name, gb))
+        print("%s females for %s from %s"
+              % (n_females, args.name, gb))
     elif (args.total == "mx"):
-        print("%s males for %s from Mexico statistics" % (num_males, args.name))
-        print("%s females for %s from Mexico statistics" % (num_females, args.name))
+        print("%s males for %s from Mexico statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Mexico statistics"
+              % (n_females, args.name))
     elif (args.total == "nz"):
-        print("%s males for %s from New Zealand statistics" % (num_males, args.name))
-        print("%s females for %s from New Zealand statistics" % (num_females, args.name))
+        print("%s males for %s from New Zealand statistics"
+              % (n_males, args.name))
+        print("%s females for %s from New Zealand statistics"
+              % (n_females, args.name))
     elif (args.total == "pt"):
-        print("%s males for %s from Portugal statistics" % (num_males, args.name))
-        print("%s females for %s from Portugal statistics" % (num_females, args.name))
+        print("%s males for %s from Portugal statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Portugal statistics"
+              % (n_females, args.name))
     elif (args.total == "si"):
-        print("%s males for %s from Slovenia statistics" % (num_males, args.name))
-        print("%s females for %s from Slovenia statistics" % (num_females, args.name))
+        print("%s males for %s from Slovenia statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Slovenia statistics"
+              % (n_females, args.name))
     elif (args.total == "tr"):
-        print("%s males for %s from Turkish statistics" % (num_males, args.name))
-        print("%s females for %s from Turkish statistics" % (num_females, args.name))
+        print("%s males for %s from Turkish statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Turkish statistics"
+              % (n_females, args.name))
     elif (args.total == "uy"):
-        print("%s males for %s from Uruguay statistics" % (num_males, args.name))
-        print("%s females for %s from Uruguay statistics" % (num_females, args.name))
+        print("%s males for %s from Uruguay statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Uruguay statistics"
+              % (n_females, args.name))
     elif (args.total == "us"):
-        print("%s males for %s from United States of America statistics" % (num_males, args.name))
-        print("%s females for %s from United States of America statistics" % (num_females, args.name))
+        print("%s males for %s from USA statistics"
+              % (n_males, args.name))
+        print("%s females for %s from USA statistics"
+              % (n_females, args.name))
