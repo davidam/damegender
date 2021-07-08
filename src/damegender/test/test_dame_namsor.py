@@ -43,7 +43,6 @@ class TddInPythonExample(unittest.TestCase):
             l1 = dn.get("David", "Arroyo", binary=False)
             self.assertEqual(['male', -1.0], [l1[0], round(l1[1])])
 
-
     def test_dame_namsor_scale(self):
         dn = DameNamsor()
         if (dn.config['DEFAULT']['namsor'] == 'yes'):
@@ -76,16 +75,16 @@ class TddInPythonExample(unittest.TestCase):
         dn = DameNamsor()
         if (dn.config['DEFAULT']['namsor'] == 'yes'):
             self.assertEqual(['male', 'male', 'male', 'male', 'male', 'male',
-                          'female', 'female', 'male', 'male', 'male',
-                          'male', 'male', 'male', 'male', 'male', 'male',
-                          'male', 'female', 'male', 'male'],
+                              'female', 'female', 'male', 'male', 'male',
+                              'male', 'male', 'male', 'male', 'male', 'male',
+                              'male', 'female', 'male', 'male'],
                              dn.guess_list(path="files/names/partial.csv",
-                                      binary=False))
+                                           binary=False))
             self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0,
                               1, 1, 1, 1, 1, 1, 1, 1,
                               1, 1, 0, 1, 1],
                              dn.guess_list(path="files/names/partial.csv",
-                                      binary=True))
+                                           binary=True))
 
     def test_dame_namsor_accuracy_score_dame(self):
         dn = DameNamsor()
@@ -93,10 +92,9 @@ class TddInPythonExample(unittest.TestCase):
         if (dn.config['DEFAULT']['namsor'] == 'yes'):
             gl1 = dn.csv2gender_list(path="files/names/partial.csv")
             gl2 = dn.guess_list(path="files/names/partial.csv",
-                             binary=True)
+                                binary=True)
             score1 = ds.accuracy_score_dame(gl1, gl2)
             self.assertEqual(score1, 1)
-
 
     def test_dame_namsor_download(self):
         dn = DameNamsor()
@@ -106,17 +104,20 @@ class TddInPythonExample(unittest.TestCase):
             g = dn.download(path1)
             self.assertTrue(
                 os.path.isfile(
-                    "files/names/namsor"+du.path2file(path1)+".json"))
+                    "files/names/namsor" + du.path2file(path1) + ".json"))
 
     def test_dame_namsor_json2gender_list(self):
         dn = DameNamsor()
-        j2gl = dn.json2gender_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=False)
-        self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], j2gl)
-        j2gl = dn.json2gender_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=True)
-        self.assertEqual([1, 1, 1, 1, 1, 0], j2gl)
+        namsorpath = "files/names/namsorfiles_names_min.csv.json"
+        j2gl = dn.json2gender_list(jsonf=namsorpath, binary=False)
+        l1 = ['male', 'male', 'male', 'male', 'male', 'female']
+        self.assertEqual(l1, j2gl)
+        j2gl = dn.json2gender_list(jsonf=namsorpath, binary=True)
+        l2 = [1, 1, 1, 1, 1, 0]
+        self.assertEqual(l2, j2gl)
 
     def test_dame_namsor_json2names(self):
         dn = DameNamsor()
-        l = dn.json2names(jsonf="files/names/namsorfiles_names_min.csv.json")
+        l1 = dn.json2names(jsonf="files/names/namsorfiles_names_min.csv.json")
         self.assertEqual(['Pierre', 'Raul', 'Adriano', 'Ralf',
-                          'Guillermo', 'Sabina'], l)
+                          'Guillermo', 'Sabina'], l1)
