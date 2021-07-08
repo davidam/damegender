@@ -822,9 +822,7 @@ class Gender(object):
 
 # GUESS #
 
-    def guess(self, name, binary=False, *args, **kwargs):
-        # guess list method
-        dataset = kwargs.get('dataset', 'us')
+    def guess(self, name, binary=False, dataset='us'):
         # guess method to check names dictionary
         guess = ''
         name = unidecode.unidecode(name).title()
@@ -888,10 +886,9 @@ class Gender(object):
             i = i + 1
         return self.guess(name)
 
-    def guess_list(self, path='files/names/partial.csv', binary=False, *args, **kwargs):
+    def guess_list(self, path='files/names/partial.csv', binary=False, dataset='us', *args, **kwargs):
         # guess list method
         header = kwargs.get('header', True)
-        dataset = kwargs.get('dataset', 'us')
         slist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -900,7 +897,7 @@ class Gender(object):
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
-                slist.append(self.guess(name, binary, dataset=dataset))
+                slist.append(self.guess(name, binary, dataset))
         return slist
 
     def csv2gender_list(self, path, *args, **kwargs):
@@ -992,7 +989,12 @@ class Gender(object):
                 else:
                     guesslist.append(2)
             else:
-                guesslist.append(i['gender'])
+                if ((i['gender'] == 'female') or (i['gender'] == 'f') or (i['gender'] == 0)):
+                    guesslist.append("female")
+                elif ((i['gender'] == 'male') or (i['gender'] == 'm') or (i['gender'] == 1)):
+                    guesslist.append("male")
+                else:
+                    guesslist.append("unknown")
         return guesslist
 
 
