@@ -1,5 +1,8 @@
 There are 30142 people using Menendez in Spain
-The next data is only for the 50 most frequently first surnames located by place where the person is living
+
+The next data is only for the 50 most frequently first
+surnames located by place where the person is living
+
 A Coruña: 0
 Alava: 0
 Albacete: 0
