@@ -57,41 +57,39 @@ class TddInPythonExample(unittest.TestCase):
         dna = DameNameapi()
         if (dna.config['DEFAULT']['nameapi'] == 'yes'):
             jsonf1 = 'files/names/nameapifiles_names_partial.csv.json'
-            l = dna.json2gender_list(jsonf1, binary=True)
-            self.assertEqual(l, [1, 1, 1, 1, 1, 1, 0, 0, 1,
-                              1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 1])
-
+            l1 = dna.json2gender_list(jsonf1, binary=True)
+            self.assertEqual(l1, [1, 1, 1, 1, 1, 1, 0, 0, 1, 1,
+                                  1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 1])
 
     def test_dame_nameapi_confusion_matrix_net_returns_correct_result(self):
         dna = DameNameapi()
-        jsonf = 'files/names/nameapifiles_names_partial.csv.json'
         if (dna.config['DEFAULT']['nameapi'] == 'yes'):
-            cm = dna.confusion_matrix_gender(path="files/names/partial.csv",
-                                             dimensions="2x3",
-                                             jsonf=jsonf)
-            self.assertEqual([[3, 0, 0], [0, 15, 1]],
-                             cm)
+            cm = dna.confusion_matrix_gender(path="files/names/min.csv")
+            am = [[1, 0, 0], [0, 5, 0], [0, 5, 0]]
+            self.assertEqual(cm, am)
+            cm = dna.confusion_matrix_gender(path="files/names/partial.csv")
+            am = [[3, 0, 0], [0, 16, 0], [0, 16, 0]]
+            self.assertEqual(cm, am)
 
     def test_dame_nameapi_confusion_matrix_json_returns_correct_result(self):
         dna = DameNameapi()
-        jsonf = 'files/names/nameapifiles_names_min.csv.json'
         if (dna.config['DEFAULT']['nameapi'] == 'yes'):
-            cm = dna.confusion_matrix_gender(path="files/names/min.csv",
-                                             dimensions="2x3",
-                                             jsonf=jsonf)
-            self.assertEqual([[1, 0, 0], [0, 5, 0]],
-                             cm)
-
+            cm = dna.confusion_matrix_gender(path="files/names/min.csv")
+            am = [[1, 0, 0], [0, 5, 0], [0, 5, 0]]
+            self.assertEqual(cm, am)
 
     def test_dame_nameapi_json2names(self):
         dn = DameNameapi()
-        l = dn.json2names(jsonf="files/names/nameapifiles_names_min.csv.json")
-        self.assertEqual(['Pierre', 'Raul', 'Adriano', 'Ralf', 'Guillermo', 'Sabina'], l)
-
+        l1 = dn.json2names(jsonf="files/names/nameapifiles_names_min.csv.json")
+        l2 = ['Pierre', 'Raul', 'Adriano', 'Ralf', 'Guillermo', 'Sabina']
+        self.assertEqual(l2, l1)
 
     def test_dame_nameapi_json2gender_list(self):
         dn = DameNameapi()
-        j2gl = dn.json2gender_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=False)
-        self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], j2gl)
-        j2gl = dn.json2gender_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=True)
-        self.assertEqual([1, 1, 1, 1, 1, 0], j2gl)
+        nameapipath = "files/names/nameapifiles_names_min.csv.json"
+        j2gl = dn.json2gender_list(jsonf=nameapipath, binary=False)
+        l1 = ['male', 'male', 'male', 'male', 'male', 'female']
+        self.assertEqual(l1, j2gl)
+        j2gl = dn.json2gender_list(jsonf=nameapipath, binary=True)
+        l2 = [1, 1, 1, 1, 1, 0]
+        self.assertEqual(l2, j2gl)
