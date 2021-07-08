@@ -188,14 +188,14 @@ class TddInPythonExample(unittest.TestCase):
     #     g = Gender()
     #     self.assertTrue(g.accuracy(path="files/names/partial.csv") >= 0.5)
 
-#     def test_dame_gender_confusion_matrix_gender(self):
-#         g = Gender()
-#         cm = g.confusion_matrix_gender(path="files/names/min.csv")
-#         am = [[1, 0, 0], [0, 5, 0], [0, 5, 0]]
-#         self.assertEqual(cm, am)
-#         cm = g.confusion_matrix_gender(path="files/names/partial.csv")
-#         am = [[3, 0, 0], [0, 16, 0], [0, 16, 0]]
-#         self.assertEqual(cm, am)
+    def test_dame_gender_confusion_matrix_gender(self):
+        g = Gender()
+        cm = g.confusion_matrix_gender(path="files/names/min.csv")
+        am = [[1, 0, 0], [0, 5, 0], [0, 5, 0]]
+        self.assertEqual(cm, am)
+        cm = g.confusion_matrix_gender(path="files/names/partial.csv")
+        am = [[3, 0, 0], [0, 16, 0], [0, 16, 0]]
+        self.assertEqual(cm, am)
 
     def test_dame_gender_csv2gender_list(self):
         g = Gender()
@@ -220,6 +220,7 @@ class TddInPythonExample(unittest.TestCase):
         fl = g.features_list()
         self.assertTrue(len(fl) > 20)
 
+# THE NEXT TESTS HAS BEEN COMMENTED BY TIME REASONS EXECUTING TESTS
 #     def test_dame_gender_features_list_categorical(self):
 #         g = Gender()
 #         flc = g.features_list_categorical('files/names/partial.csv')
