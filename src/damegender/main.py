@@ -27,7 +27,7 @@ parser.add_argument('--total', default="inter",
                     choices=['at', 'au', 'be', 'ca', 'cn', 'de', 'dk', 'es',
                              'fi', 'fr', 'gb', 'ie', 'ine', 'is', 'nz',
                              'mx', 'pt', 'si', 'tr', 'uy', 'us',
-                             'genderguesser', 'inter', 'all'])
+                             'namdict', 'inter'])
 # More about iso codes on https://www.iso.org/obp/ui/
 parser.add_argument('--version', action='version', version='0.3')
 parser.add_argument('--verbose', default=False, action="store_true")
@@ -39,7 +39,7 @@ s = DameSexmachine()
 du = DameUtils()
 
 
-if (args.total == "genderguesser"):
+if (args.total == "namdict"):
     name = args.name.capitalize()
     cmd = 'grep -i "' + name
     cmd = cmd + '" files/names/nam_dict.txt > files/logs/grep.tmp'
@@ -49,20 +49,20 @@ if (args.total == "genderguesser"):
     male = 0
     female = 0
     for i in results:
-        regex = "(M|F|=|\?|1)( |M|F)?( )(" + name + ")"
+        regex = "(M|F|=|\?|1)( |M|F)?( )(" + name + ")( )"
         r = re.match(regex, i)
         if (r is not None):
             prob = r.group(1) + r.group(2)
         else:
             prob = ""
-            bool1 = ('F' == prob) or ('F ' == prob)
-            bool1 = bool1 or (prob == '?F') or (prob == '1F')
-            bool2 = ('M' == prob) or ('M ' == prob)
-            bool2 = bool2 or ('?M' == prob) or ('1M' == prob)
-            if bool1:
-                female = female + 1
-            elif bool2:
-                male = male + 1
+        bool1 = ('F' == prob) or ('F ' == prob)
+        bool1 = bool1 or (prob == '?F') or (prob == '1F')
+        bool2 = ('M' == prob) or ('M ' == prob)
+        bool2 = bool2 or ('?M' == prob) or ('1M' == prob)
+        if bool1:
+            female = female + 1
+        elif bool2:
+            male = male + 1
         if (female > male):
             print("gender: female")
         if (male > female):
