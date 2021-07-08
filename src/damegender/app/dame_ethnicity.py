@@ -44,7 +44,7 @@ class DameEthnicity(object):
                 "api": api,
                 "aian": aian,
                 "doublerace": doublerace,
-                "hisepanic": h}
+                "hispanic": h}
         empty_dicc = {"white": "",
                       "black": "",
                       "api": "",
@@ -403,7 +403,7 @@ class DameEthnicity(object):
         if ((locale == 'ly') or (locale == 'all')):
             pathly = 'files/inesurnames/apellidos-libia.xls.csv'
             l1.append(self.locale_match(surname=surname,
-                                        path=pathly
+                                        path=pathly,
                                         locale="ly"))
         if ((locale == 'lt') or (locale == 'all')):
             pathlt = 'files/inesurnames/apellidos-lituania.xls.csv'
