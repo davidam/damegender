@@ -10,10 +10,6 @@
 # You can share, copy and modify this software if you are a woman or you
 # are David Arroyo Menéndez and you include this note.
 
-
-
-#from nltk.corpus import names
-#import nltk
 import csv
 import unidecode
 import unicodedata
@@ -37,6 +33,7 @@ csv.field_size_limit(3000000)
 du = DameUtils()
 dst = DameStatistics()
 
+
 class Gender(object):
     # That's the root class in the heritage,
     # apis classes and sexmachine is a gender
@@ -46,14 +43,6 @@ class Gender(object):
         self.males = 0
         self.females = 0
         self.unknown = 0
-
-    def in_dict(self, name):
-        f = os.popen('dict '+name)
-        in_dict = False
-        for line in f:
-            if (re.match(r'[0-9]+ definitions found', line)):
-                in_dict = True
-        return in_dict
 
 # FEATURES METHODS #
 
@@ -134,13 +123,13 @@ class Gender(object):
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
-                l = list([self.features_int(name)["first_letter"],
-                          self.features_int(name)["last_letter"],
-                          self.features_int(name)["last_letter_a"],
-                          self.features_int(name)["first_letter_vocal"],
-                          self.features_int(name)["last_letter_vocal"],
-                          self.features_int(name)["last_letter_consonant"]])
-                flist.append(l)
+                l1 = list([self.features_int(name)["first_letter"],
+                           self.features_int(name)["last_letter"],
+                           self.features_int(name)["last_letter_a"],
+                           self.features_int(name)["first_letter_vocal"],
+                           self.features_int(name)["last_letter_vocal"],
+                           self.features_int(name)["last_letter_consonant"]])
+                flist.append(l1)
         return flist
 
     def features_list_no_categorical(self, path='files/names/partial.csv'):
@@ -151,35 +140,35 @@ class Gender(object):
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
-                l = list([self.features_int(name)["count(a)"],
-                          self.features_int(name)["count(b)"],
-                          self.features_int(name)["count(c)"],
-                          self.features_int(name)["count(d)"],
-                          self.features_int(name)["count(e)"],
-                          self.features_int(name)["count(f)"],
-                          self.features_int(name)["count(g)"],
-                          self.features_int(name)["count(h)"],
-                          self.features_int(name)["count(i)"],
-                          self.features_int(name)["count(j)"],
-                          self.features_int(name)["count(k)"],
-                          self.features_int(name)["count(l)"],
-                          self.features_int(name)["count(m)"],
-                          self.features_int(name)["count(n)"],
-                          self.features_int(name)["count(o)"],
-                          self.features_int(name)["count(p)"],
-                          self.features_int(name)["count(q)"],
-                          self.features_int(name)["count(r)"],
-                          self.features_int(name)["count(s)"],
-                          self.features_int(name)["count(t)"],
-                          self.features_int(name)["count(u)"],
-                          self.features_int(name)["count(v)"],
-                          self.features_int(name)["count(w)"],
-                          self.features_int(name)["count(x)"],
-                          self.features_int(name)["count(y)"],
-                          self.features_int(name)["count(z)"],
-                          self.features_int(name)["vocals"],
-                          self.features_int(name)["consonants"]])
-                flist.append(l)
+                l1 = list([self.features_int(name)["count(a)"],
+                           self.features_int(name)["count(b)"],
+                           self.features_int(name)["count(c)"],
+                           self.features_int(name)["count(d)"],
+                           self.features_int(name)["count(e)"],
+                           self.features_int(name)["count(f)"],
+                           self.features_int(name)["count(g)"],
+                           self.features_int(name)["count(h)"],
+                           self.features_int(name)["count(i)"],
+                           self.features_int(name)["count(j)"],
+                           self.features_int(name)["count(k)"],
+                           self.features_int(name)["count(l)"],
+                           self.features_int(name)["count(m)"],
+                           self.features_int(name)["count(n)"],
+                           self.features_int(name)["count(o)"],
+                           self.features_int(name)["count(p)"],
+                           self.features_int(name)["count(q)"],
+                           self.features_int(name)["count(r)"],
+                           self.features_int(name)["count(s)"],
+                           self.features_int(name)["count(t)"],
+                           self.features_int(name)["count(u)"],
+                           self.features_int(name)["count(v)"],
+                           self.features_int(name)["count(w)"],
+                           self.features_int(name)["count(x)"],
+                           self.features_int(name)["count(y)"],
+                           self.features_int(name)["count(z)"],
+                           self.features_int(name)["vocals"],
+                           self.features_int(name)["consonants"]])
+                flist.append(l1)
         return flist
 
     def features_list_no_letters(self, path='files/names/partial.csv'):
@@ -190,17 +179,17 @@ class Gender(object):
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
-                l = list([self.features_int(name)["first_letter"],
-                          self.features_int(name)["last_letter"],
-                          self.features_int(name)["vocals"],
-                          self.features_int(name)["consonants"],
-                          self.features_int(name)["first_letter_vocal"],
-                          self.features_int(name)["last_letter_vocal"],
-                          self.features_int(name)["first_letter_consonant"],
-                          self.features_int(name)["last_letter_consonant"],
-                          self.features_int(name)["last_letter_a"],
-                          self.features_int(name)["last_letter_o"]])
-                flist.append(l)
+                l1 = list([self.features_int(name)["first_letter"],
+                           self.features_int(name)["last_letter"],
+                           self.features_int(name)["vocals"],
+                           self.features_int(name)["consonants"],
+                           self.features_int(name)["first_letter_vocal"],
+                           self.features_int(name)["last_letter_vocal"],
+                           self.features_int(name)["first_letter_consonant"],
+                           self.features_int(name)["last_letter_consonant"],
+                           self.features_int(name)["last_letter_a"],
+                           self.features_int(name)["last_letter_o"]])
+                flist.append(l1)
         return flist
 
     def features_list_no_undefined(self, path=''):
@@ -265,7 +254,6 @@ class Gender(object):
             f.write(line+str(i[count])+"\n")
         f.close()
 
-
     # DATASETS METHODS #
 
     def path_surname_dataset(self, locale):
@@ -303,7 +291,6 @@ class Gender(object):
             path = "files/inesurnames/apellidos-usa.xls.csv"
         return path
 
-
     def males_list(self, corpus='es'):
         au_path = 'files/names/names_au/baby-names-1944-2013/aumales.csv'
         ca_path = 'files/names/names_ca/camales.csv'
@@ -332,7 +319,10 @@ class Gender(object):
         elif (corpus == 'uy'):
             m = du.csvcolumn2list(uy_path)
         elif (corpus == 'all'):
-            m = du.csvcolumn2list(au_path) + du.csvcolumn2list(ca_path) + du.csvcolumn2list(ine_path) + du.csvcolumn2list(gb_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path)
+            m = du.csvcolumn2list(au_path) + du.csvcolumn2list(ca_path)
+            m = m + du.csvcolumn2list(ine_path) + du.csvcolumn2list(gb_path)
+            m = m + du.csvcolumn2list(nz_path) + du.csvcolumn2list(us_path)
+            m = m + du.csvcolumn2list(uy_path)
         m = du.delete_duplicated(m)
         return m
 
@@ -364,10 +354,12 @@ class Gender(object):
         elif (corpus == 'uy'):
             f = du.csvcolumn2list(uy_path)
         elif (corpus == 'all'):
-            f = du.csvcolumn2list(au_path) + du.csvcolumn2list(ca_path) + du.csvcolumn2list(ine_path) + du.csvcolumn2list(nz_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path) + du.csvcolumn2list(uy_path)
+            f = du.csvcolumn2list(au_path) + du.csvcolumn2list(ca_path)
+            f = f + du.csvcolumn2list(ine_path) + du.csvcolumn2list(nz_path)
+            f = f + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path)
+            f = f + du.csvcolumn2list(uy_path)
         f = du.delete_duplicated(f)
         return f
-
 
     def csv2names(self, path='files/names/partial.csv', *args, **kwargs):
         # make a list from a csv file
@@ -376,7 +368,7 @@ class Gender(object):
         csvlist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            if (header == True):
+            if header:
                 next(sexreader, None)
             for row in sexreader:
                 name = row[0].title()
@@ -388,7 +380,7 @@ class Gender(object):
                 #     name = name + " " + middlename
                 #     name = name.title()
 
-                if (surnames == True):
+                if surnames:
                     surname = row[2].title()
                     surname = row[2].replace('\"', '')
                     elem = [name, surname]
@@ -397,18 +389,18 @@ class Gender(object):
                     csvlist.append(name)
         return csvlist
 
-
     def csv2json(self, path="", *args, **kwargs):
         # csv to json file
         surnames = kwargs.get('surnames', False)
         header = kwargs.get('header', True)
-        l = kwargs.get('l', [ ]) # l is a list, such as, guess_list or gender_list
+        # l1 is a list, such as, guess_list or gender_list
+        l1 = kwargs.get('l1', [])
         jsonf = kwargs.get('jsonf', 'files/names/csv2json.json')
         csv2names = self.csv2names(path=path, surnames=surnames, header=header)
         string = ""
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            if (header == True):
+            if header:
                 next(sexreader, None)
             string = '['
             i = 0
@@ -424,28 +416,28 @@ class Gender(object):
 
                 gender = row[4]
                 if surnames:
-                    string = string + '{"name":"'+ name + ' ' + middlename +'", \n'
+                    string = string + '{"name":"' + name
+                    string = string + ' ' + middlename + '", \n'
                 else:
-                    string = string + '{"name":"'+ name + '", \n'
-                string = string + '"surname":"'+ lastname +'", \n'
+                    string = string + '{"name":"' + name + '", \n'
+                string = string + '"surname":"' + lastname + '", \n'
                 string = string + '"probability": 1, \n'
-                if (l == [ ] ):
-                    string = string + '"gender":"'+ gender +'"}, \n'
-                elif (len(l) <= i + 1):
-                    string = string + '"gender":"'+str(l[i])+'"} \n'
+                if (l1 == []):
+                    string = string + '"gender":"' + gender + '"}, \n'
+                elif (len(l1) <= i + 1):
+                    string = string + '"gender":"' + str(l1[i]) + '"} \n'
                 else:
-                    string = string + '"gender":"'+str(l[i])+'"}, \n'
+                    string = string + '"gender":"' + str(l1[i]) + '"}, \n'
                 i = i + 1
             string = string + ']'
         file = open(jsonf, "w")
         file.writelines(str(string))
         file.close()
 
-
     def name2gender_in_dataset(self, name, dataset=''):
         guess = 2
         if (dataset == "names_es"):
-            with open(dataset+"/"+"femeninos.txt") as csvfile:
+            with open(dataset + "/" + "femeninos.txt") as csvfile:
                 sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
                 next(sexreader, None)
                 for row in sexreader:
@@ -536,10 +528,9 @@ class Gender(object):
                     genderlist.append(guess)
         return genderlist
 
-
     def name_frec(self, name, *args, **kwargs):
         # guess list method
-        dataset = kwargs.get('dataset',"us")
+        dataset = kwargs.get('dataset', "us")
         du = DameUtils()
         name = du.drop_accents(name)
         dicc_males = du.dicc_dataset("male")
@@ -584,7 +575,7 @@ class Gender(object):
             path_males = dicc_males["tr"]
         elif (dataset == 'uy'):
             path_males = dicc_males["uy"]
-        elif ((dataset == 'us') or (dataset=='usa')):
+        elif ((dataset == 'us') or (dataset == 'usa')):
             path_males = dicc_males["us"]
         file_males = open(path_males, 'r')
         readerm = csv.reader(file_males, delimiter=',', quotechar='|')
@@ -636,7 +627,7 @@ class Gender(object):
             path_females = dicc_females["tr"]
         elif (dataset == 'uy'):
             path_females = dicc_females["uy"]
-        elif ((dataset == 'us') or (dataset=='usa')):
+        elif ((dataset == 'us') or (dataset == 'usa')):
             path_females = dicc_females["us"]
         file_females = open(path_females, 'r')
         readerf = csv.reader(file_females, delimiter=',', quotechar='|')
@@ -656,110 +647,110 @@ class Gender(object):
         du = DameUtils()
 
         if (province == 'acorugna'):
-            path_surnames = 'files/inesurnames/provincias/residencia/acorugna.csv'
+            spath = 'files/inesurnames/provincias/residencia/acorugna.csv'
         elif (province == 'alava'):
-            path_surnames = 'files/inesurnames/provincias/residencia/alava.csv'
+            spath = 'files/inesurnames/provincias/residencia/alava.csv'
         elif (province == 'albacete'):
-            path_surnames = 'files/inesurnames/provincias/residencia/albacete.csv'
+            spath = 'files/inesurnames/provincias/residencia/albacete.csv'
         elif (province == 'alicante'):
-            path_surnames = 'files/inesurnames/provincias/residencia/alicante.csv'
+            spath = 'files/inesurnames/provincias/residencia/alicante.csv'
         elif (province == 'almeria'):
-            path_surnames = 'files/inesurnames/provincias/residencia/almeria.csv'
+            spath = 'files/inesurnames/provincias/residencia/almeria.csv'
         elif (province == 'asturias'):
-            path_surnames = 'files/inesurnames/provincias/residencia/asturias.csv'
+            spath = 'files/inesurnames/provincias/residencia/asturias.csv'
         elif (province == 'avila'):
-            path_surnames = 'files/inesurnames/provincias/residencia/avila.csv'
+            spath = 'files/inesurnames/provincias/residencia/avila.csv'
         elif (province == 'badajoz'):
-            path_surnames = 'files/inesurnames/provincias/residencia/badajoz.csv'
+            spath = 'files/inesurnames/provincias/residencia/badajoz.csv'
         elif (province == 'baleares'):
-            path_surnames = 'files/inesurnames/provincias/residencia/baleares.csv'
+            spath = 'files/inesurnames/provincias/residencia/baleares.csv'
         elif (province == 'barcelona'):
-            path_surnames = 'files/inesurnames/provincias/residencia/barcelona.csv'
+            spath = 'files/inesurnames/provincias/residencia/barcelona.csv'
         elif (province == 'bizkaia'):
-            path_surnames = 'files/inesurnames/provincias/residencia/bizkaia.csv'
+            spath = 'files/inesurnames/provincias/residencia/bizkaia.csv'
         elif (province == 'burgos'):
-            path_surnames = 'files/inesurnames/provincias/residencia/burgos.csv'
+            spath = 'files/inesurnames/provincias/residencia/burgos.csv'
         elif (province == 'caceres'):
-            path_surnames = 'files/inesurnames/provincias/residencia/caceres.csv'
+            spath = 'files/inesurnames/provincias/residencia/caceres.csv'
         elif (province == 'cadiz'):
-            path_surnames = 'files/inesurnames/provincias/residencia/cadiz.csv'
+            spath = 'files/inesurnames/provincias/residencia/cadiz.csv'
         elif (province == 'cantabria'):
-            path_surnames = 'files/inesurnames/provincias/residencia/cantabria.csv'
+            spath = 'files/inesurnames/provincias/residencia/cantabria.csv'
         elif (province == 'castellon'):
-            path_surnames = 'files/inesurnames/provincias/residencia/castellon.csv'
+            spath = 'files/inesurnames/provincias/residencia/castellon.csv'
         elif (province == 'ceuta'):
-            path_surnames = 'files/inesurnames/provincias/residencia/ceuta.csv'
+            spath = 'files/inesurnames/provincias/residencia/ceuta.csv'
         elif (province == 'ciudadreal'):
-            path_surnames = 'files/inesurnames/provincias/residencia/ciudadreal.csv'
+            spath = 'files/inesurnames/provincias/residencia/ciudadreal.csv'
         elif (province == 'cordoba'):
-            path_surnames = 'files/inesurnames/provincias/residencia/cordoba.csv'
+            spath = 'files/inesurnames/provincias/residencia/cordoba.csv'
         elif (province == 'cuenca'):
-            path_surnames = 'files/inesurnames/provincias/residencia/cuenca.csv'
+            spath = 'files/inesurnames/provincias/residencia/cuenca.csv'
         elif (province == 'girona'):
-            path_surnames = 'files/inesurnames/provincias/residencia/girona.csv'
+            spath = 'files/inesurnames/provincias/residencia/girona.csv'
         elif (province == 'granada'):
-            path_surnames = 'files/inesurnames/provincias/residencia/granada.csv'
+            spath = 'files/inesurnames/provincias/residencia/granada.csv'
         elif (province == 'guadalajara'):
-            path_surnames = 'files/inesurnames/provincias/residencia/guadalajara.csv'
+            spath = 'files/inesurnames/provincias/residencia/guadalajara.csv'
         elif (province == 'guipuzkoa'):
-            path_surnames = 'files/inesurnames/provincias/residencia/guipuzkoa.csv'
+            spath = 'files/inesurnames/provincias/residencia/guipuzkoa.csv'
         elif (province == 'huelva'):
-            path_surnames = 'files/inesurnames/provincias/residencia/huelva.csv'
+            spath = 'files/inesurnames/provincias/residencia/huelva.csv'
         elif (province == 'huesca'):
-            path_surnames = 'files/inesurnames/provincias/residencia/huesca.csv'
+            spath = 'files/inesurnames/provincias/residencia/huesca.csv'
         elif (province == 'jaen'):
-            path_surnames = 'files/inesurnames/provincias/residencia/jaen.csv'
+            spath = 'files/inesurnames/provincias/residencia/jaen.csv'
         elif (province == 'larioja'):
-            path_surnames = 'files/inesurnames/provincias/residencia/larioja.csv'
+            spath = 'files/inesurnames/provincias/residencia/larioja.csv'
         elif (province == 'leon'):
-            path_surnames = 'files/inesurnames/provincias/residencia/leon.csv'
+            spath = 'files/inesurnames/provincias/residencia/leon.csv'
         elif (province == 'lleida'):
-            path_surnames = 'files/inesurnames/provincias/residencia/lleida.csv'
+            spath = 'files/inesurnames/provincias/residencia/lleida.csv'
         elif (province == 'lugo'):
-            path_surnames = 'files/inesurnames/provincias/residencia/lugo.csv'
+            spath = 'files/inesurnames/provincias/residencia/lugo.csv'
         elif (province == 'madrid'):
-            path_surnames = 'files/inesurnames/provincias/residencia/madrid.csv'
+            spath = 'files/inesurnames/provincias/residencia/madrid.csv'
         elif (province == 'malaga'):
-            path_surnames = 'files/inesurnames/provincias/residencia/malaga.csv'
+            spath = 'files/inesurnames/provincias/residencia/malaga.csv'
         elif (province == 'melilla'):
-            path_surnames = 'files/inesurnames/provincias/residencia/melilla.csv'
+            spath = 'files/inesurnames/provincias/residencia/melilla.csv'
         elif (province == 'murcia'):
-            path_surnames = 'files/inesurnames/provincias/residencia/murcia.csv'
+            spath = 'files/inesurnames/provincias/residencia/murcia.csv'
         elif (province == 'navarra'):
-            path_surnames = 'files/inesurnames/provincias/residencia/navarra.csv'
+            spath = 'files/inesurnames/provincias/residencia/navarra.csv'
         elif (province == 'ourense'):
-            path_surnames = 'files/inesurnames/provincias/residencia/ourense.csv'
+            spath = 'files/inesurnames/provincias/residencia/ourense.csv'
         elif (province == 'palencia'):
-            path_surnames = 'files/inesurnames/provincias/residencia/palencia.csv'
+            spath = 'files/inesurnames/provincias/residencia/palencia.csv'
         elif (province == 'palencia'):
-            path_surnames = 'files/inesurnames/provincias/residencia/palencia.csv'
+            spath = 'files/inesurnames/provincias/residencia/palencia.csv'
         elif (province == 'pontevedra'):
-            path_surnames = 'files/inesurnames/provincias/residencia/pontevedra.csv'
+            spath = 'files/inesurnames/provincias/residencia/pontevedra.csv'
         elif (province == 'salamanca'):
-            path_surnames = 'files/inesurnames/provincias/residencia/salamanca.csv'
+            spath = 'files/inesurnames/provincias/residencia/salamanca.csv'
         elif (province == 'segovia'):
-            path_surnames = 'files/inesurnames/provincias/residencia/segovia.csv'
+            spath = 'files/inesurnames/provincias/residencia/segovia.csv'
         elif (province == 'sevilla'):
-            path_surnames = 'files/inesurnames/provincias/residencia/sevilla.csv'
+            spath = 'files/inesurnames/provincias/residencia/sevilla.csv'
         elif (province == 'soria'):
-            path_surnames = 'files/inesurnames/provincias/residencia/soria.csv'
+            spath = 'files/inesurnames/provincias/residencia/soria.csv'
         elif (province == 'tarragona'):
-            path_surnames = 'files/inesurnames/provincias/residencia/tarragona.csv'
+            spath = 'files/inesurnames/provincias/residencia/tarragona.csv'
         elif (province == 'tenerife'):
-            path_surnames = 'files/inesurnames/provincias/residencia/tenerife.csv'
+            spath = 'files/inesurnames/provincias/residencia/tenerife.csv'
         elif (province == 'teruel'):
-            path_surnames = 'files/inesurnames/provincias/residencia/teruel.csv'
+            spath = 'files/inesurnames/provincias/residencia/teruel.csv'
         elif (province == 'toledo'):
-            path_surnames = 'files/inesurnames/provincias/residencia/toledo.csv'
+            spath = 'files/inesurnames/provincias/residencia/toledo.csv'
         elif (province == 'valencia'):
-            path_surnames = 'files/inesurnames/provincias/residencia/valencia.csv'
+            spath = 'files/inesurnames/provincias/residencia/valencia.csv'
         elif (province == 'valladolid'):
-            path_surnames = 'files/inesurnames/provincias/residencia/valladolid.csv'
+            spath = 'files/inesurnames/provincias/residencia/valladolid.csv'
         elif (province == 'zamora'):
-            path_surnames = 'files/inesurnames/provincias/residencia/zamora.csv'
+            spath = 'files/inesurnames/provincias/residencia/zamora.csv'
         elif (province == 'zaragoza'):
-            path_surnames = 'files/inesurnames/provincias/residencia/zaragoza.csv'
-        file_surnames = open(path_surnames, 'r')
+            spath = 'files/inesurnames/provincias/residencia/zaragoza.csv'
+        file_surnames = open(spath, 'r')
         readerf = csv.reader(file_surnames, delimiter=',', quotechar='|')
         quantity = 0
         for row in readerf:
@@ -768,33 +759,81 @@ class Gender(object):
                 quantity = int(du.drop_dots(aux))
         return quantity
 
-
-
     def name_prob_countries(self, name):
         du = DameUtils()
-        es = self.name_frec(name,dataset="es")
-        ie = self.name_frec(name,dataset="ie")
-        isl = self.name_frec(name,dataset="is")
-        uy = self.name_frec(name,dataset="uy")
-        gb = self.name_frec(name,dataset="gb")
-        us = self.name_frec(name,dataset="us")
-        nz = self.name_frec(name,dataset="nz")
-        ca = self.name_frec(name,dataset="ca")
-        cn = self.name_frec(name,dataset="cn")
-        fi = self.name_frec(name,dataset="fi")
-        au = self.name_frec(name,dataset="au")
-        pt = self.name_frec(name,dataset="pt")
-        females = int(es["females"]) + int(ie["females"]) + int(isl["females"]) + int(uy["females"]) + int(gb["females"]) + int(us["females"]) + int(nz["females"]) + int(ca["females"]) + int(fi["females"]) + int(au["females"]) + int(pt["females"])
-        males = int(es["males"]) + int(ie["males"]) + int(isl["males"]) + int(uy["males"]) + int(gb["males"]) + int(us["males"])  + int(nz["males"]) + int(ca["males"]) + int(fi["males"]) + int(au["males"]) + int(pt["males"])
+        es = self.name_frec(name, dataset="es")
+        ie = self.name_frec(name, dataset="ie")
+        isl = self.name_frec(name, dataset="is")
+        uy = self.name_frec(name, dataset="uy")
+        gb = self.name_frec(name, dataset="gb")
+        us = self.name_frec(name, dataset="us")
+        nz = self.name_frec(name, dataset="nz")
+        ca = self.name_frec(name, dataset="ca")
+        cn = self.name_frec(name, dataset="cn")
+        fi = self.name_frec(name, dataset="fi")
+        au = self.name_frec(name, dataset="au")
+        pt = self.name_frec(name, dataset="pt")
+        females = int(es["females"]) + int(ie["females"])
+        females = females + int(isl["females"]) + int(uy["females"])
+        females = females + int(gb["females"]) + int(us["females"])
+        females = females + int(nz["females"]) + int(ca["females"])
+        females = females + int(fi["females"]) + int(au["females"])
+        females = females + int(pt["females"])
+        males = int(es["males"]) + int(ie["males"])
+        males = males + int(isl["males"]) + int(uy["males"])
+        males = males + int(gb["males"]) + int(us["males"])
+        males = males + int(nz["males"]) + int(ca["males"])
+        males = males + int(fi["males"]) + int(au["males"])
+        males = males + int(pt["males"])
 
-        prob_females = {"es": du.round_and_not_zero_division(int(es["females"]), int(females)), "ie": du.round_and_not_zero_division(int(ie["females"]), int(females)), "is": du.round_and_not_zero_division(int(isl["females"]), int(females)), "uy": du.round_and_not_zero_division(int(uy["females"]), int(females)), "gb": du.round_and_not_zero_division(int(gb["females"]), int(females)), "us": du.round_and_not_zero_division(int(us["females"]), int(females)), "nz": du.round_and_not_zero_division(int(nz["females"]), int(females)), "ca": du.round_and_not_zero_division(int(ca["females"]), int(females)), "fi": du.round_and_not_zero_division(int(fi["females"]), int(females)), "au": du.round_and_not_zero_division(int(au["females"]), int(females)), "pt": du.round_and_not_zero_division(int(pt["females"]), int(females))}
+        pfemales = {"es": du.round_and_not_zero_division(int(es["females"]),
+                                                         int(females)),
+                    "ie": du.round_and_not_zero_division(int(ie["females"]),
+                                                         int(females)),
+                    "is": du.round_and_not_zero_division(int(isl["females"]),
+                                                         int(females)),
+                    "uy": du.round_and_not_zero_division(int(uy["females"]),
+                                                         int(females)),
+                    "gb": du.round_and_not_zero_division(int(gb["females"]),
+                                                         int(females)),
+                    "us": du.round_and_not_zero_division(int(us["females"]),
+                                                         int(females)),
+                    "nz": du.round_and_not_zero_division(int(nz["females"]),
+                                                         int(females)),
+                    "ca": du.round_and_not_zero_division(int(ca["females"]),
+                                                         int(females)),
+                    "fi": du.round_and_not_zero_division(int(fi["females"]),
+                                                         int(females)),
+                    "au": du.round_and_not_zero_division(int(au["females"]),
+                                                         int(females)),
+                    "pt": du.round_and_not_zero_division(int(pt["females"]),
+                                                         int(females))}
 
-        prob_males = {"es": du.round_and_not_zero_division(int(es["males"]), int(males)), "ie": du.round_and_not_zero_division(int(ie["males"]), int(males)), "is": du.round_and_not_zero_division(int(isl["males"]), int(males)), "uy": du.round_and_not_zero_division(int(uy["males"]), int(males)), "gb": du.round_and_not_zero_division(int(gb["males"]), int(males)), "us": du.round_and_not_zero_division(int(us["males"]), int(males)), "nz": du.round_and_not_zero_division(int(nz["males"]), int(males)), "ca": du.round_and_not_zero_division(int(ca["males"]), int(males)), "fi": du.round_and_not_zero_division(int(fi["males"]), int(males)), "au": du.round_and_not_zero_division(int(au["males"]), int(males)), "pt": du.round_and_not_zero_division(int(pt["males"]), int(males))}
+        pmales = {"es": du.round_and_not_zero_division(int(es["males"]),
+                                                       int(males)),
+                  "ie": du.round_and_not_zero_division(int(ie["males"]),
+                                                       int(males)),
+                  "is": du.round_and_not_zero_division(int(isl["males"]),
+                                                       int(males)),
+                  "uy": du.round_and_not_zero_division(int(uy["males"]),
+                                                       int(males)),
+                  "gb": du.round_and_not_zero_division(int(gb["males"]),
+                                                       int(males)),
+                  "us": du.round_and_not_zero_division(int(us["males"]),
+                                                       int(males)),
+                  "nz": du.round_and_not_zero_division(int(nz["males"]),
+                                                       int(males)),
+                  "ca": du.round_and_not_zero_division(int(ca["males"]),
+                                                       int(males)),
+                  "fi": du.round_and_not_zero_division(int(fi["males"]),
+                                                       int(males)),
+                  "au": du.round_and_not_zero_division(int(au["males"]),
+                                                       int(males)),
+                  "pt": du.round_and_not_zero_division(int(pt["males"]),
+                                                       int(males))}
 
-        prob = [{"females": prob_females, "males": prob_males}]
-
+        prob = [{"females": pfemales, "males": pmales}]
         return prob
-
 
     def namdict2file(self):
         filepath = 'files/names/nam_dict.txt'
@@ -881,18 +920,20 @@ class Gender(object):
         i = 0
         features_int = self.features_int(string)
         while ((name == "") and (len(arr) > i)):
-            if (not(self.guess_surname(arr[i], locale="us")[0]) and (len(string) > 0)):
+            bool1 = self.guess_surname(arr[i], locale="us")[0]
+            if (not(bool1) and (len(string) > 0)):
                 name = arr[i]
             i = i + 1
         return self.guess(name)
 
-    def guess_list(self, path='files/names/partial.csv', binary=False, dataset='us', *args, **kwargs):
+    def guess_list(self, path='files/names/partial.csv',
+                   binary=False, dataset='us', *args, **kwargs):
         # guess list method
         header = kwargs.get('header', True)
         slist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            if (header == True):
+            if header:
                 next(sexreader, None)
             for row in sexreader:
                 name = row[0].title()
@@ -906,7 +947,7 @@ class Gender(object):
         glist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='"')
-            if (header == True):
+            if header:
                 next(sexreader, None)
             count_females = 0
             count_males = 0
@@ -930,7 +971,6 @@ class Gender(object):
         self.unknown = count_unknown
         return glist
 
-
     def pretty_gg_list(self, path, jsonf, *args, **kwargs):
         measure = kwargs.get('measure', 'accuracy')
         binary = kwargs.get('binary', True)
@@ -941,19 +981,24 @@ class Gender(object):
 
         if (os.path.isfile(jsonf)):
             if (self.json_eq_csv_in_names(jsonf=jsonf, path=path)):
-                print("################### "+ api +"!!")
+                print("################### " + api + "!!")
                 print("Gender list: " + str(gl))
                 sl = self.json2gender_list(jsonf=jsonf, binary=True)
-                print("Guess list:  " +str(sl))
+                print("Guess list:  " + str(sl))
                 dst.print_measures(gl, sl, measure, api)
             else:
                 print("Names in json and csv are differents")
-                print("%s names in csv" % len(self.csv2names(path=path, header=header)))
-                print("%s names in json" % len(self.json2names(jsonf=jsonf, surnames=False)))
+                print("%s names in csv" %
+                      len(self.csv2names(path=path, header=header)))
+                print("%s names in json" %
+                      len(self.json2names(jsonf=jsonf, surnames=False)))
                 v = self.first_uneq_json_and_csv_in_names(jsonf=jsonf, path=path)
-                print("The first position finding unmatched names is %s and the name is %s" % (v[1], v[0]))
-                print("Names in csv: %s:" % self.csv2names(path=path, header=header))
-                print("Names in json: %s:" % self.json2names(jsonf=jsonf, surnames=False))
+                print("The first position finding unmatched names is %s and the name is %s" %
+                      (v[1], v[0]))
+                print("Names in csv: %s:" %
+                      self.csv2names(path=path, header=header))
+                print("Names in json: %s:" %
+                      self.json2names(jsonf=jsonf, surnames=False))
         else:
             print("In the path %s doesn't exist file" % jsonf)
             print("You can create one with:")
@@ -974,7 +1019,6 @@ class Gender(object):
         else:
             print("In the path %s doesn't exist file" % jsonf)
 
-
     def json2gender_list(self, jsonf="", binary=False):
         jsondata = open(jsonf).read()
         json_object = json.loads(jsondata)
@@ -982,21 +1026,27 @@ class Gender(object):
 
         for i in json_object:
             if binary:
-                if ((i['gender'] == 'female') or (i['gender'] == 'f') or (i['gender'] == 0)):
+                if ((i['gender'] == 'female') or
+                    (i['gender'] == 'f') or (i['gender'] == 0)):
                     guesslist.append(0)
-                elif ((i['gender'] == 'male') or (i['gender'] == 'm') or (i['gender'] == 1)):
+                elif ((i['gender'] == 'male') or
+                      (i['gender'] == 'm') or
+                      (i['gender'] == 1)):
                     guesslist.append(1)
                 else:
                     guesslist.append(2)
             else:
-                if ((i['gender'] == 'female') or (i['gender'] == 'f') or (i['gender'] == 0)):
+                if ((i['gender'] == 'female') or
+                    (i['gender'] == 'f') or
+                    (i['gender'] == 0)):
                     guesslist.append("female")
-                elif ((i['gender'] == 'male') or (i['gender'] == 'm') or (i['gender'] == 1)):
+                elif ((i['gender'] == 'male') or
+                      (i['gender'] == 'm') or
+                      (i['gender'] == 1)):
                     guesslist.append("male")
                 else:
                     guesslist.append("unknown")
         return guesslist
-
 
     def json2names(self, jsonf="", surnames=False):
         jsondata = open(jsonf).read()
@@ -1004,12 +1054,11 @@ class Gender(object):
         nameslist = []
         for i in json_object:
             if (i["name"] != ''):
-                if (surnames == True):
+                if surnames:
                     nameslist.append([i["name"], i["surname"]])
                 else:
                     nameslist.append(i["name"])
         return nameslist
-
 
     def json_eq_csv_in_names(self, jsonf="", path="", *args, **kwargs):
         header = kwargs.get('header', True)
@@ -1020,14 +1069,15 @@ class Gender(object):
         csv_lower = [element.lower() for element in csv] ; csv
         count = 0
         i = 0
-        maxi = len(json_lower) -1
+        maxi = len(json_lower) - 1
         if (maxi < len(csv_lower)):
-            maxi = len(csv_lower) -1
+            maxi = len(csv_lower) - 1
         while (maxi > i):
             if (json_lower[i] == csv_lower[i]):
-                count = count +1
-            i = i+1
-        boolean = ((len(json_lower) == len(csv_lower)) and ((len(json_lower) -1) == count))
+                count = count + 1
+            i = i + 1
+        boolean = ((len(json_lower) == len(csv_lower))
+                   and ((len(json_lower) - 1) == count))
         return boolean
 
     def first_uneq_json_and_csv_in_names(self, jsonf="", path="", *args, **kwargs):
@@ -1035,9 +1085,11 @@ class Gender(object):
         json = self.json2names(jsonf=jsonf, surnames=False)
         csv = self.csv2names(path=path, header=header)
         i = 0
-        maxi_json = len(json) -1
+        maxi_json = len(json) - 1
         maxi_csv = len(csv) - 1
-        while ((i < maxi_json) and (i < maxi_csv) and (json[i].lower() == csv[i].lower())):
+        while ((i < maxi_json) and
+               (i < maxi_csv) and
+               (json[i].lower() == csv[i].lower())):
             i = i + 1
         ret = json[i].lower()
         if ((i > maxi_json) and (i > maxi_csv)):
@@ -1054,8 +1106,9 @@ class Gender(object):
         return self.accuracy_score_dame(gl, sl)
 
     def confusion_matrix_gender(self, path='', jsonf=''):
-        # this method is an interfaz to confusion_matrix_table allowing introduce a json file
-        # in dame_sexmachine we must rewrite it to allow machine learning algorithm
+        # this method is an interfaz to confusion_matrix_table
+        # allowing introduce a json file in dame_sexmachine
+        # we must rewrite it to allow machine learning algorithm
         truevector = self.csv2gender_list(path)
         if (os.path.isfile(jsonf)):
             guessvector = self.json2gender_list(jsonf=jsonf, binary=True)
@@ -1064,93 +1117,120 @@ class Gender(object):
         res = dst.confusion_matrix_table(truevector, guessvector)
         return res
 
-    def print_confusion_matrix_gender(self, path='', dimensions='', *args, **kwargs):
+    def print_confusion_matrix_gender(self, path='', dimensions='',
+                                      *args, **kwargs):
         reverse = kwargs.get('reverse', False)
         jsonf = kwargs.get('jsonf', '')
-        jf = os.getcwd() + "/" +  jsonf
+        jf = os.getcwd() + "/" + jsonf
         if (os.path.isfile(jf)):
             cmd = self.confusion_matrix_gender(path, jsonf=jf)
         else:
             cmd = self.confusion_matrix_gender(path)
         if (dimensions == "1x1"):
-            if (reverse == False):
+            if not(reverse):
                 print("      M    ")
                 print("M  [[ %s ]]" % (cmd[1][1]))
-            elif (reverse == True):
+            elif reverse:
                 print("      F    ")
                 print("F  [[ %s ]]" % (cmd[0][0]))
         elif (dimensions == "1x2"):
-            if (reverse == False):
+            if not(reverse):
                 print("      M    F   ")
-                print("M  [[ %s,   %s ]]" % (cmd[1][1], cmd[1][0]))
-            elif (reverse == True):
+                print("M  [[ %s,   %s ]]" %
+                      (cmd[1][1], cmd[1][0]))
+            elif reverse:
                 print("      F    M   ")
-                print("F  [[ %s,   %s ]]" % (cmd[0][0], cmd[0][1]))
+                print("F  [[ %s,   %s ]]" %
+                      (cmd[0][0], cmd[0][1]))
         elif (dimensions == "1x3"):
-            if (reverse == False):
+            if not(reverse):
                 print("      M    F   U   ")
-                print("M  [[ %s, %s, %s ]]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
-            elif (reverse == True):
+                print("M  [[ %s, %s, %s ]]" %
+                      (cmd[1][1], cmd[1][0], cmd[1][2]))
+            elif reverse:
                 print("     F  M  U   ")
-                print("F [[ %s, %s, %s ]]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print("F [[ %s, %s, %s ]]" %
+                      (cmd[0][0], cmd[0][1], cmd[0][2]))
         elif (dimensions == "2x1"):
-            if (reverse == False):
+            if not(reverse):
                 print("      M  ")
-                print("M  [[ %s ]" % (cmd[1][1]))
-                print("F   [ %s ]]" % (cmd[1][0]))
-            elif (reverse == True):
+                print("M  [[ %s ]" %
+                      (cmd[1][1]))
+                print("F   [ %s ]]" %
+                      (cmd[1][0]))
+            elif reverse:
                 print("      F   ")
                 print("F  [[ %s ] " % (cmd[0][0]))
                 print("M   [ %s ]]" % (cmd[0][1]))
         elif (dimensions == "2x2"):
-            if (reverse == False):
+            if not(reverse):
                 print("      M    F  ")
-                print("M  [[ %s , %s ]" % (cmd[1][1], cmd[1][0]))
-                print("F   [ %s , %s ]]" % (cmd[0][1], cmd[0][0]))
-            if (reverse == True):
+                print("M  [[ %s , %s ]" %
+                      (cmd[1][1], cmd[1][0]))
+                print("F   [ %s , %s ]]" %
+                      (cmd[0][1], cmd[0][0]))
+            if reverse:
                 print("      F   M  ")
-                print("F  [[ %s , %s ]" % (cmd[0][0], cmd[0][1]))
-                print("M   [ %s , %s ]]" % (cmd[1][0], cmd[1][1]))
+                print("F  [[ %s , %s ]" %
+                      (cmd[0][0], cmd[0][1]))
+                print("M   [ %s , %s ]]" %
+                      (cmd[1][0], cmd[1][1]))
         elif (dimensions == "2x3"):
-            if (reverse == False):
+            if not(reverse):
                 print("      M   F   U  ")
-                print("M  [[ %s,  %s,  %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
-                print("F   [ %s,  %s,  %s ]]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
-            if (reverse == True):
+                print("M  [[ %s,  %s,  %s ]" %
+                      (cmd[1][1], cmd[1][0], cmd[1][2]))
+                print("F   [ %s,  %s,  %s ]]" %
+                      (cmd[0][1], cmd[0][0], cmd[0][2]))
+            if reverse:
                 print("      F   M   U  ")
-                print("F  [[ %s,  %s,  %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-                print("M   [ %s,  %s,  %s ]]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
+                print("F  [[ %s,  %s,  %s ]" %
+                      (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print("M   [ %s,  %s,  %s ]]" %
+                      (cmd[1][0], cmd[1][1], cmd[1][2]))
         elif (dimensions == "3x1"):
-            if (reverse == False):
+            if not(reverse):
                 print("       M   ")
                 print("M  [[ %s ]" % (cmd[1][1]))
                 print("F   [ %s ]" % (cmd[0][1]))
                 print("U   [ %s ]]" % (cmd[2][1]))
-            elif (reverse == True):
+            elif reverse:
                 print("       F   ")
                 print("F   [[ %s ]" % (cmd[0][0]))
                 print("M    [ %s ]" % (cmd[1][0]))
                 print("U    [ %s ]]" % (cmd[2][0]))
         elif (dimensions == "3x2"):
-            if (reverse == False):
+            if not(reverse):
                 print("      M    F  ")
-                print("M  [[ %s ,  %s ]" % (cmd[1][1], cmd[1][0]))
-                print("F   [ %s ,  %s ]" % (cmd[0][1], cmd[0][0]))
-                print("U   [ %s ,  %s ]]" % (cmd[2][1], cmd[2][0]))
-            if (reverse == True):
+                print("M  [[ %s ,  %s ]" %
+                      (cmd[1][1], cmd[1][0]))
+                print("F   [ %s ,  %s ]" %
+                      (cmd[0][1], cmd[0][0]))
+                print("U   [ %s ,  %s ]]" %
+                      (cmd[2][1], cmd[2][0]))
+            if reverse:
                 print("      F   M  ")
-                print("F  [[ %s,  %s ]" % (cmd[0][0], cmd[0][1]))
-                print("M   [ %s,  %s ]" % (cmd[1][0], cmd[1][1]))
-                print("U   [ %s,  %s ]]" % (cmd[2][0], cmd[2][1]))
+                print("F  [[ %s,  %s ]" %
+                      (cmd[0][0], cmd[0][1]))
+                print("M   [ %s,  %s ]" %
+                      (cmd[1][0], cmd[1][1]))
+                print("U   [ %s,  %s ]]" %
+                      (cmd[2][0], cmd[2][1]))
         elif (dimensions == "3x3"):
-            if (reverse == False):
+            if not(reverse):
                 print("      M  F  U   ")
-                print("M  [[ %s, %s, %s ]" % (cmd[1][1], cmd[1][0], cmd[1][2]))
-                print("F   [ %s, %s, %s ]" % (cmd[0][1], cmd[0][0], cmd[0][2]))
-                print("U   [ %s, %s, %s ]]" % (cmd[2][1], cmd[2][0], cmd[2][2]))
-            if (reverse == True):
+                print("M  [[ %s, %s, %s ]" %
+                      (cmd[1][1], cmd[1][0], cmd[1][2]))
+                print("F   [ %s, %s, %s ]" %
+                      (cmd[0][1], cmd[0][0], cmd[0][2]))
+                print("U   [ %s, %s, %s ]]" %
+                      (cmd[2][1], cmd[2][0], cmd[2][2]))
+            if reverse:
                 print("      F   M   U   ")
-                print("F  [[ %s, %s, %s ]" % (cmd[0][0], cmd[0][1], cmd[0][2]))
-                print("M   [ %s, %s, %s ]" % (cmd[1][0], cmd[1][1], cmd[1][2]))
-                print("U   [ %s, %s, %s ]]" % (cmd[2][0], cmd[2][1], cmd[2][2]))
+                print("F  [[ %s, %s, %s ]" %
+                      (cmd[0][0], cmd[0][1], cmd[0][2]))
+                print("M   [ %s, %s, %s ]" %
+                      (cmd[1][0], cmd[1][1], cmd[1][2]))
+                print("U   [ %s, %s, %s ]]" %
+                      (cmd[2][0], cmd[2][1], cmd[2][2]))
         return ""
