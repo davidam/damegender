@@ -11,12 +11,12 @@
 # are David Arroyo Menéndez and you include this note.
 
 
-
 import unittest
 import os
 from app.dame_utils import DameUtils
 from app.dame_gender import Gender
 from os.path import expanduser
+
 
 class TddInPythonExample(unittest.TestCase):
 
@@ -72,7 +72,8 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_replace_single_hyphen(self):
         u = DameUtils()
-        self.assertEqual(u.replace_single_hyphen("Magia-Antogneta"), "Magia Antogneta")
+        self.assertEqual(u.replace_single_hyphen("Magia-Antogneta"),
+                         "Magia Antogneta")
 
     def test_drop_white_space(self):
         u = DameUtils()
@@ -100,8 +101,8 @@ class TddInPythonExample(unittest.TestCase):
                          u.drop_white_space_around(
                              u.drop_accents("Inés ")))
         self.assertEqual("Ana", u.drop_white_space_around(" Ana"))
-        self.assertEqual("David Arroyo Menéndez ", u.drop_white_space_around("David Arroyo Menéndez "))
-
+        self.assertEqual("David Arroyo Menéndez ",
+                         u.drop_white_space_around("David Arroyo Menéndez "))
 
     def test_drop_white_space_around(self):
         u = DameUtils()
@@ -119,13 +120,17 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_utils_delete_duplicated_identities(self):
         g = Gender()
         du = DameUtils()
-        self.assertEqual(du.delete_duplicated_identities(["David Arroyo Menéndez <davidam@gnu.org>", "David Arroyo Menéndez <davidam@gmail.com>"]), ['David Arroyo Menéndez <davidam@gnu.org>'])
-        self.assertEqual(du.delete_duplicated_identities(["David Arroyo Menéndez <davidam@gnu.org>", "David Arroyo Menendez <davidam@gnu.org>"]), ['David Arroyo Menéndez <davidam@gnu.org>'])
+        id1 = "David Arroyo Menéndez <davidam@gnu.org>"
+        id2 = "David Arroyo Menéndez <davidam@gmail.com>"
+        l1 = du.delete_duplicated_identities([id1, id2])
+        self.assertEqual(l1, ['David Arroyo Menéndez <davidam@gnu.org>'])
+        self.assertEqual(du.delete_duplicated_identities([id1, id1]), [id1])
 
     def test_dame_utils_delete_duplicated(self):
         g = Gender()
         du = DameUtils()
-        self.assertEqual(sorted(du.delete_duplicated([1, 5, 2, 2, 1, 3, 5, 5, 5 , 5])), [1, 2, 3, 5])
+        l1 = sorted(du.delete_duplicated([1, 5, 2, 2, 1, 3, 5, 5, 5, 5]))
+        self.assertEqual(l1, [1, 2, 3, 5])
 
     def test_dame_utils_clean_list(self):
         du = DameUtils()
@@ -139,7 +144,7 @@ class TddInPythonExample(unittest.TestCase):
             ['H. Peter Anvin',
              'Ram Yalamanchili',
              'Ferenc Wagner'])
-        l1 = ['', '', 'de', '', '', 'ar', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'ca', 'cl', '', '', '']
+        l1 = ['', '', 'de', '', '', 'ar', '', '',  '', 'ca', 'cl', '', '']
         self.assertEqual(du.clean_list(l1), ['de', 'ar', 'ca', 'cl'])
 
     def test_dame_utils_files_one_level(self):
@@ -170,25 +175,36 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_utils_csvcolumn2list(self):
         du = DameUtils()
-        l = du.csvcolumn2list('files/names/partial.csv', 0, header=True)
-        self.assertEqual(len(l), 21)
-        self.assertEqual(['"pierre"', '"raul"', '"adriano"', '"ralf"', '"teppei"', '"guillermo"', '"catherine"', '"sabina"', '"ralf"', '"karl"', '"sushil"', '"clemens"', '"gregory"', '"lester"', '"claude"', '"martin"', '"vlad"', '"pasquale"', '"lourdes"', '"bruno"', '"thomas"'], l)
-        l = du.csvcolumn2list('files/names/min.commas.csv', 0, header=True, delimiter=";")
-        self.assertEqual(len(l), 6)
-        self.assertEqual(['"pierre"', '"raul"', '"adriano"', '"ralf"', '"guillermo"', '"sabina"'], l)
-
+        l1 = du.csvcolumn2list('files/names/partial.csv', 0, header=True)
+        self.assertEqual(len(l1), 21)
+        self.assertEqual(['"pierre"', '"raul"', '"adriano"', '"ralf"',
+                          '"teppei"', '"guillermo"', '"catherine"',
+                          '"sabina"', '"ralf"', '"karl"', '"sushil"',
+                          '"clemens"', '"gregory"', '"lester"', '"claude"',
+                          '"martin"', '"vlad"', '"pasquale"', '"lourdes"',
+                          '"bruno"', '"thomas"'], l1)
+        l2 = du.csvcolumn2list('files/names/min.commas.csv', 0,
+                               header=True, delimiter=";")
+        self.assertEqual(len(l2), 6)
+        self.assertEqual(['"pierre"', '"raul"', '"adriano"',
+                          '"ralf"', '"guillermo"', '"sabina"'], l2)
 
     def test_dame_utils_csv2list(self):
         du = DameUtils()
-        l = du.csv2list('files/names/min.csv')
-        self.assertEqual(['"first_name"', '"middle_name"', '"last_name"', '"full_name"', '"gender"', '"origin"'], l[0])
-        self.assertEqual(['"pierre"', '"paul"', '"grivel"', '"pierre paul grivel"', '"m"', '"zbmath"'], l[1])
-        self.assertEqual(['"raul"', '""', '"serapioni"', '"raul serapioni"', '"m"', '"zbmath"'], l[2])
-        l = du.csv2list('files/names/min.commas.csv', delimiter=";")
-        self.assertEqual(['"first_name"', '"middle_name"', '"last_name"', '"full_name"', '"gender"', '"origin"'], l[0])
-        self.assertEqual(['"pierre"', '"paul"', '"grivel"', '"pierre paul grivel"', '"m"', '"zbmath"'], l[1])
-        self.assertEqual(['"raul"', '""', '"serapioni"', '"raul serapioni"', '"m"', '"zbmath"'], l[2])
-
+        l1 = du.csv2list('files/names/min.csv')
+        self.assertEqual(['"first_name"', '"middle_name"', '"last_name"',
+                          '"full_name"', '"gender"', '"origin"'], l1[0])
+        self.assertEqual(['"pierre"', '"paul"', '"grivel"',
+                          '"pierre paul grivel"', '"m"', '"zbmath"'], l1[1])
+        self.assertEqual(['"raul"', '""', '"serapioni"',
+                          '"raul serapioni"', '"m"', '"zbmath"'], l1[2])
+        l2 = du.csv2list('files/names/min.commas.csv', delimiter=";")
+        self.assertEqual(['"first_name"', '"middle_name"', '"last_name"',
+                          '"full_name"', '"gender"', '"origin"'], l2[0])
+        self.assertEqual(['"pierre"', '"paul"', '"grivel"',
+                          '"pierre paul grivel"', '"m"', '"zbmath"'], l2[1])
+        self.assertEqual(['"raul"', '""', '"serapioni"',
+                          '"raul serapioni"', '"m"', '"zbmath"'], l2[2])
 
     def test_dame_utils_num_columns_in_csv(self):
         du = DameUtils()
@@ -200,7 +216,6 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(du.round_and_not_zero_division(4, 2), 2)
         self.assertEqual(du.round_and_not_zero_division(3, 2), 1.5)
         self.assertEqual(du.round_and_not_zero_division(8, 7), 1.143)
-
 
     def test_dame_utils_identity2name_email(self):
         du = DameUtils()
@@ -234,16 +249,19 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(identity6[0], 'Jim Jagielski')
         self.assertEqual(identity6[1], 'jim@jaguNET.com')
 
-
     def test_dame_utils_same_identity(self):
         du = DameUtils()
-        s = du.same_identity("David Arroyo Menendez <davidam@gnu.org>", "David Arroyo Menendez <davidam@gnu.org>")
+        s = du.same_identity("David Arroyo Menendez <davidam@gnu.org>",
+                             "David Arroyo Menendez <davidam@gnu.org>")
         self.assertTrue(s)
-        s2 = du.same_identity("David Arroyo Menendez <davidam@gnu.org>", "David Arroyo Menéndez <davidam@gnu.org>")
+        s2 = du.same_identity("David Arroyo Menendez <davidam@gnu.org>",
+                              "David Arroyo Menéndez <davidam@gnu.org>")
         self.assertTrue(s2)
-        s3 = du.same_identity("David Arroyo Menendez <davidam@gmail.com>", "David Arroyo Menéndez <davidam@gnu.org>")
+        s3 = du.same_identity("David Arroyo Menendez <davidam@gmail.com>",
+                              "David Arroyo Menéndez <davidam@gnu.org>")
         self.assertTrue(s2)
-        s4 = du.same_identity("David <davidam@gnu.org>", "David Arroyo Menéndez <davidam@gnu.org>")
+        s4 = du.same_identity("David <davidam@gnu.org>",
+                              "David Arroyo Menéndez <davidam@gnu.org>")
         self.assertTrue(s4)
 
     def test_dame_utils_initial_letters(self):
@@ -280,8 +298,14 @@ class TddInPythonExample(unittest.TestCase):
         dicc = du.dicc_dataset("female")
         self.assertEqual(dicc["at"], "files/names/names_at/atfemales.csv")
 
-    # def test_dame_utils_delete_duplicated_identities(self):
-    #     du = DameUtils()
-    #     l = ['David Arroyo Menéndez <davidam@es.gnu.org>', 'David Arroyo Menendez <davidam@gmail.com>', 'David Arroyo Menéndez <d.arroyome@alumnos.urjc.es>', 'David Arroyo <davidam@gmail.com>']
-    #     s = du.delete_duplicated_identities(l)
-    #     self.assertEqual(s, 'David Arroyo Menéndez <davidam@es.gnu.org>')xs
+    def test_dame_utils_delete_duplicated_identities(self):
+        du = DameUtils()
+        l1 = ['David Arroyo Menéndez <davidam@es.gnu.org>',
+              'David Arroyo Menendez <davidam@gmail.com>',
+              'David Arroyo Menéndez <d.arroyome@alumnos.urjc.es>',
+              'David Arroyo <davidam@gmail.com>']
+        l2 = du.delete_duplicated_identities(l1)
+        self.assertTrue('David Arroyo Menéndez <davidam@es.gnu.org>' in l2)
+        id1 = 'David Arroyo Menéndez <davidam@es.gnu.org>'
+        id2 = 'David Arroyo <davidam@gmail.com>'
+        self.assertEqual(l2, [id1, id2])

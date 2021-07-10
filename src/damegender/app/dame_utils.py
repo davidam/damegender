@@ -16,62 +16,66 @@ import re
 import os
 import csv
 
+
 class DameUtils():
 
     def locales(self):
-        locales = [["at"], ["au"], ["be"], ["ca"], ["cn"], ["de"], ["dk"], ["es", "ine"], ["fi"], ["fr"], ["gb"], ["ie"], ["is"], ["mx"], ["nz"], ["pt"], ["si"], ["us", "usa"], ["uy"]]
+        locales = [["at"], ["au"], ["be"], ["ca"], ["cn"], ["de"],
+                   ["dk"], ["es", "ine"], ["fi"], ["fr"], ["gb"],
+                   ["ie"], ["is"], ["mx"], ["nz"], ["pt"], ["si"],
+                   ["us", "usa"], ["uy"]]
         return locales
 
     def dicc_dataset(self, sex):
         if ((sex == "male") or (sex == "males") or (sex == 1)):
-            path_dataset = { "at": "files/names/names_at/atmales.csv",
-                             "au": "files/names/names_au/baby-names-1944-2013/aumales.csv",
-                             "be": "files/names/names_be/bemales.csv",
-                             "ca": "files/names/names_ca/camales.csv",
-                             "cn": "files/names/names_cn/cnmales.csv",
-                             "de": "files/names/names_de/demales.csv",
-                             "dk": "files/names/names_dk/males.csv",
-                             "es": "files/names/names_es/esmasculinos.csv",
-                             "fi": "files/names/names_fi/fimales.csv",
-                             "fr": "files/names/names_fr/frmales.csv",
-                             "gb": "files/names/names_gb/ukmales.csv",
-                             "ie": "files/names/names_ie/iemales.csv",
-                             "ine": "files/names/names_es/esmasculinos.csv",
-                             "inter": "files/names/names_inter/intermales.csv",
-                             "is": "files/names/names_is/ismales.csv",
-                             "mx": "files/names/names_mx/hombres.csv",
-                             "nz": "files/names/names_nz/nzmales.csv",
-                             "pt": "files/names/names_pt/ptmales.csv",
-                             "tr": "files/names/names_tr/male_name_tally",
-                             "si": "files/names/names_si/simales.csv",
-                             "us": "files/names/names_us/usmales.csv",
-                             "usa": "files/names/names_us/usmales.csv",
-                             "uy": "files/names/names_uy/uymasculinos.csv"}
+            path = {"at": "files/names/names_at/atmales.csv",
+                    "au": "files/names/names_au/aumales.csv",
+                    "be": "files/names/names_be/bemales.csv",
+                    "ca": "files/names/names_ca/camales.csv",
+                    "cn": "files/names/names_cn/cnmales.csv",
+                    "de": "files/names/names_de/demales.csv",
+                    "dk": "files/names/names_dk/males.csv",
+                    "es": "files/names/names_es/esmasculinos.csv",
+                    "fi": "files/names/names_fi/fimales.csv",
+                    "fr": "files/names/names_fr/frmales.csv",
+                    "gb": "files/names/names_gb/ukmales.csv",
+                    "ie": "files/names/names_ie/iemales.csv",
+                    "ine": "files/names/names_es/esmasculinos.csv",
+                    "inter": "files/names/names_inter/intermales.csv",
+                    "is": "files/names/names_is/ismales.csv",
+                    "mx": "files/names/names_mx/hombres.csv",
+                    "nz": "files/names/names_nz/nzmales.csv",
+                    "pt": "files/names/names_pt/ptmales.csv",
+                    "tr": "files/names/names_tr/male_name_tally",
+                    "si": "files/names/names_si/simales.csv",
+                    "us": "files/names/names_us/usmales.csv",
+                    "usa": "files/names/names_us/usmales.csv",
+                    "uy": "files/names/names_uy/uymasculinos.csv"}
         elif ((sex == "female") or (sex == "females") or (sex == 0)):
-            path_dataset = { "at": "files/names/names_at/atfemales.csv",
-                             "au": "files/names/names_au/baby-names-1944-2013/aufemales.csv",
-                             "be": "files/names/names_be/befemales.csv",
-                             "ca": "files/names/names_ca/cafemales.csv",
-                             "cn": "files/names/names_cn/cnfemales.csv",
-                             "de": "files/names/names_de/defemales.csv",
-                             "dk": "files/names/names_dk/females.csv",
-                             "es": "files/names/names_es/esfemeninos.csv",
-                             "fi": "files/names/names_fi/fifemales.csv",
-                             "fr": "files/names/names_fr/frfemales.csv",
-                             "gb": "files/names/names_gb/ukfemales.csv",
-                             "ie": "files/names/names_ie/iefemales.csv",
-                             "ine": "files/names/names_es/esfemeninos.csv",
-                             "inter": "files/names/names_inter/interfemales.csv",
-                             "is": "files/names/names_is/isfemales.csv",
-                             "mx": "files/names/names_mx/mujeres.csv",
-                             "nz": "files/names/names_nz/nzfemales.csv",
-                             "pt": "files/names/names_pt/ptfemales.csv",
-                             "tr": "files/names/names_tr/female_name_tally",
-                             "si": "files/names/names_si/sifemales.csv",
-                             "us": "files/names/names_us/usfemales.csv",
-                             "usa": "files/names/names_us/usfemales.csv",
-                             "uy": "files/names/names_uy/uyfemeninos.csv"}
-        return path_dataset
+            path = {"at": "files/names/names_at/atfemales.csv",
+                    "au": "files/names/names_au/aufemales.csv",
+                    "be": "files/names/names_be/befemales.csv",
+                    "ca": "files/names/names_ca/cafemales.csv",
+                    "cn": "files/names/names_cn/cnfemales.csv",
+                    "de": "files/names/names_de/defemales.csv",
+                    "dk": "files/names/names_dk/females.csv",
+                    "es": "files/names/names_es/esfemeninos.csv",
+                    "fi": "files/names/names_fi/fifemales.csv",
+                    "fr": "files/names/names_fr/frfemales.csv",
+                    "gb": "files/names/names_gb/ukfemales.csv",
+                    "ie": "files/names/names_ie/iefemales.csv",
+                    "ine": "files/names/names_es/esfemeninos.csv",
+                    "inter": "files/names/names_inter/interfemales.csv",
+                    "is": "files/names/names_is/isfemales.csv",
+                    "mx": "files/names/names_mx/mujeres.csv",
+                    "nz": "files/names/names_nz/nzfemales.csv",
+                    "pt": "files/names/names_pt/ptfemales.csv",
+                    "tr": "files/names/names_tr/female_name_tally",
+                    "si": "files/names/names_si/sifemales.csv",
+                    "us": "files/names/names_us/usfemales.csv",
+                    "usa": "files/names/names_us/usfemales.csv",
+                    "uy": "files/names/names_uy/uyfemeninos.csv"}
+        return path
 
     def string2array(self, string):
         res = ""
@@ -141,7 +145,7 @@ class DameUtils():
         cnt = 0
         for c in unicodedata.normalize('NFD', str(s)):
             if (c == '-'):
-                cnt = cnt +1
+                cnt = cnt + 1
         if (cnt == 1):
             boolean = True
         else:
@@ -208,7 +212,8 @@ class DameUtils():
     def identity2name_email(self, s):
         string1 = self.drop_accents(s)
         string2 = self.drop_quotes(string1)
-        r0 = re.match(r"([\w+ ]*)<([\w\.\+\-]+\@[\w\.\+\-]+\.[a-z]{2,3})>", string2)
+        r1 = r"([\w+ ]*)<([\w\.\+\-]+\@[\w\.\+\-]+\.[a-z]{2,3})>"
+        r0 = re.match(r1, string2)
         if r0:
             fullname = r0.group(1)
             email = r0.group(2)
@@ -232,15 +237,16 @@ class DameUtils():
             same_identity = True
         elif (fullname1 == fullname2):
             same_identity = True
-        elif ((email1 == email2) and (fullname1 in fullname2) or (fullname2 in fullname1)):
+        elif ((email1 == email2) and
+              ((fullname1 in fullname2) or (fullname2 in fullname1))):
             same_identity = True
         else:
             same_identity = False
         return same_identity
 
-    def list2lower(self, l):
-        ll = [element.lower() for element in l] ; l
-        return ll
+    def list2lower(self, l1):
+        l2 = [element.lower() for element in l1]
+        return l2
 
     def num_columns_in_csv(self, csvpath):
         with open(csvpath, 'r') as csvfile:
@@ -253,28 +259,27 @@ class DameUtils():
         position = kwargs.get('position', 0)
         header = kwargs.get('header', True)
         delimiter = kwargs.get('delimiter', ',')
-        l = []
+        l1 = []
         with open(csvpath) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=delimiter, quotechar='|')
-            if (header == True):
+            if header:
                 next(sexreader, None)
             for row in sexreader:
-                l.append(row[position])
-        return l
+                l1.append(row[position])
+        return l1
 
     def csv2list(self, csvpath,  *args, **kwargs):
         # make a list from a csv file
         header = kwargs.get('header', False)
         delimiter = kwargs.get('delimiter', ',')
-        l = []
+        l1 = []
         with open(csvpath) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=delimiter, quotechar='|')
-            if (header == True):
+            if header:
                 next(sexreader, None)
             for row in sexreader:
-                l.append(row)
-        return l
-
+                l1.append(row)
+        return l1
 
     # def delete_duplicated(self, l):
     #     if (len(l) == 0):
@@ -286,53 +291,53 @@ class DameUtils():
     #                 rest = rest + [i]
     #     return [l[0]] + self.delete_duplicated(rest)
 
-    def delete_duplicated(self, l):
-        if (len(l) == 0):
+    def delete_duplicated(self, l1):
+        if (len(l1) == 0):
             return []
         else:
             nodup = []
-            for i in l:
-                if (not( i in nodup)):
+            for i in l1:
+                if (not(i in nodup)):
                     nodup.append(i)
         return nodup
 
-    def delete_duplicated_identities(self, l):
+    def delete_duplicated_identities(self, l1):
         s = []
-        for i in l:
+        for i in l1:
             if not(i in s):
-                identity_duplicated = False
+                identity_dup = False
                 for j in s:
-                    identity_duplicated = (identity_duplicated or self.same_identity(i, j))
-                if (not(identity_duplicated)):
+                    identity_dup = (identity_dup or self.same_identity(i, j))
+                if (not(identity_dup)):
                     s.append(i)
         return s
 
-    def clean_list(self, l):
-        if (len(l) == 0):
+    def clean_list(self, l1):
+        if (len(l1) == 0):
             print([])
         else:
             aux = []
-            for i in l:
+            for i in l1:
                 if ((i != "") and (not(re.search(r' ?.*@.*\..*', i)))):
-                    aux =  aux + [i]
+                    aux = aux + [i]
         return aux
 
     def files_one_level(self, directory):
         f = os.popen('find ' + directory)
-        l = []
+        l1 = []
         for line in f:
             fields = line.strip().split()
-            l.append(fields[0])
-        return l
+            l1.append(fields[0])
+        return l1
 
     def files_one_level_drop_pwd(self, directory):
         f = os.popen('find ' + directory)
-        l = []
+        l2 = []
         for line in f:
             fields = line.strip().split()
             if not(os.path.isdir(fields[0])):
-                l.append(self.drop_pwd(fields[0]))
-        return l
+                l2.append(self.drop_pwd(fields[0]))
+        return l2
 
     def yes_or_not(self, question):
 
@@ -361,7 +366,6 @@ class DameUtils():
         except ValueError:
             num = 0
         return num
-
 
     def round_and_not_zero_division(self, x, y):
         if ((x == 0) and (y == 0)):
