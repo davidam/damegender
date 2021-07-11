@@ -20,7 +20,6 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.linear_model import SGDClassifier
-#from xgboost import XGBClassifier
 from sklearn import svm
 from app.dame_sexmachine import DameSexmachine
 
@@ -63,7 +62,6 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(s.guess("Inés"), 'female')
 #        Without accents:
         self.assertEqual(s.guess("Ines"), 'female')
-
 
     # def test_dame_sexmachine_guess_list(self):
     #     ds = DameSexmachine()
@@ -257,32 +255,33 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_confusion_matrix_gender(self):
         ds = DameSexmachine()
-        cm = ds.confusion_matrix_gender(path="files/names/min.csv")
+        path1 = "files/names/min.csv"
+        path2 = "files/names/min.csv.json"
+        cm = ds.confusion_matrix_gender(path=path1)
         am = [[1, 0, 0], [0, 5, 0], [0, 5, 0]]
         self.assertEqual(cm, am)
-        cm = ds.confusion_matrix_gender(path="files/names/min.csv", ml="nltk")
+        cm = ds.confusion_matrix_gender(path=path1, ml="nltk")
         am = [[1, 0, 0], [0, 5, 0], [0, 5, 0]]
         self.assertEqual(cm, am)
-        cm = ds.confusion_matrix_gender(path="files/names/min.csv", jsonf="files/names/min.csv.json", ml="nltk")
+        cm = ds.confusion_matrix_gender(path=path1, jsonf=path2, ml="nltk")
         am = [[1, 0, 0], [0, 5, 0], [0, 5, 0]]
         self.assertEqual(cm, am)
-
-
 
     def test_dame_sexmachine_json2gender_list(self):
         ds = DameSexmachine()
-        j2gl = ds.json2gender_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=False)
-        self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], j2gl)
-        j2gl = ds.json2gender_list(jsonf="files/names/namsorfiles_names_min.csv.json", binary=True)
-        self.assertEqual([1, 1, 1, 1, 1, 0], j2gl)
-        j2gl = ds.json2gender_list(jsonf="files/names/min.csv.json", binary=False)
-        self.assertEqual(['male', 'male', 'male', 'male', 'male', 'female'], j2gl)
-        j2gl = ds.json2gender_list(jsonf="files/names/min.csv.json", binary=True)
-        self.assertEqual([1, 1, 1, 1, 1, 0], j2gl)
+        path1 = "files/names/namsorfiles_names_min.csv.json"
+        path2 = "files/names/min.csv.json"
+        j2gl = ds.json2gender_list(jsonf=path1, binary=False)
+        l1 = ['male', 'male', 'male', 'male', 'male', 'female']
+        l2 = [1, 1, 1, 1, 1, 0]
+        self.assertEqual(l1, j2gl)
+        j2gl = ds.json2gender_list(jsonf=path1, binary=True)
+        self.assertEqual(l2, j2gl)
+        j2gl = ds.json2gender_list(jsonf=path2, binary=False)
+        self.assertEqual(l1, j2gl)
+        j2gl = ds.json2gender_list(jsonf=path2, binary=True)
+        self.assertEqual(l2, j2gl)
 
-
-#     # # def test_sexmachine_xgboost(self):
-#     # #     self.assertTrue(os.path.isfile("files/datamodels/xgboost_model.sav"))
 
 #     # # def test_sexmachine_xgboost_load(self):
 #     # #     s = DameSexmachine()
