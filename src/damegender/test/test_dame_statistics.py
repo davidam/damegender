@@ -100,3 +100,20 @@ class TddInPythonExample(unittest.TestCase):
                              [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1,
                               1, 1, 1, 1, 1, 0, 1, 1])
         self.assertEqual(score4, 1)
+
+
+
+    def test_dame_gender_recall(self):
+        ds = DameStatistics()
+        score1 = ds.recall([1, 1], [1, 1])
+        self.assertEqual(score1, 1)
+        score2 = ds.recall([1, 1, 1, 0], [1, 1, 2, 0])
+        self.assertEqual(score2, 0.75)
+        score3 = ds.recall([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
+        self.assertEqual(score3, 1)
+        score4 = ds.recall([1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1,
+                           1, 1, 1, 1, 1, 0, 1, 1],
+                          [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1,
+                           1, 1, 1, 1, 1, 0, 1, 1])
+        self.assertEqual(score4, 1)
+        
