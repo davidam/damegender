@@ -17,7 +17,7 @@
 {"name":"Teppei", 
 "surname":"ariyoshi", 
 "probability": 1, 
-"gender":"male"}, 
+"gender":"u"}, 
 {"name":"Guillermo", 
 "surname":"leon-de-la-barra", 
 "probability": 1, 
@@ -41,7 +41,7 @@
 {"name":"Sushil", 
 "surname":"singh", 
 "probability": 1, 
-"gender":"male"}, 
+"gender":"u"}, 
 {"name":"Clemens", 
 "surname":"bernhardson", 
 "probability": 1, 
@@ -81,5 +81,4 @@
 {"name":"Thomas", 
 "surname":"farver", 
 "probability": 1, 
-"gender":"male"} 
-]
+"gender":"male"}]
