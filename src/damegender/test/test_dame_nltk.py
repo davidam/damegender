@@ -11,13 +11,16 @@
 # are David Arroyo Menéndez and you include this note.
 
 
-
 import unittest
 import os
 from app.dame_nltk import DameNLTK
+
 
 class TddInPythonExample(unittest.TestCase):
 
     def test_sentence_similarity(self):
         dn = DameNLTK()
-        self.assertTrue(dn.sentence_similarity("This is a good sentence".split(), "This is a bad sentence".split()) > 0.7)
+        good = "This is a good sentence"
+        bad = "This is a bad sentence"
+        similar = dn.sentence_similarity(good.split(), bad.split())
+        self.assertTrue(similar > 0.7)
