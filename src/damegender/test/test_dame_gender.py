@@ -19,11 +19,6 @@ from app.dame_gender import Gender
 
 class TddInPythonExample(unittest.TestCase):
 
-    # def test_dame_gender_in_dict(self):
-    #     g = Gender()
-    #     self.assertEqual(g.in_dict("Table"), True)
-    #     self.assertEqual(g.in_dict("Mesa"), True)
-
     def test_dame_gender_features(self):
         g = Gender()
         f = g.features("David")
@@ -68,7 +63,6 @@ class TddInPythonExample(unittest.TestCase):
         # self.assertTrue("Adan" in m7)
         # self.assertEqual(len(m7), 24511)
 
-
     def test_dame_gender_females_list(self):
         g = Gender()
         f = g.females_list(corpus="es")
@@ -92,7 +86,6 @@ class TddInPythonExample(unittest.TestCase):
     #     # f7 = g.females_list(corpus="pt")
     #     # self.assertTrue("Adan" in f7)
     #     # self.assertEqual(len(f7), 2094)
-
 
     def test_dame_gender_filenamdict2list(self):
         g = Gender()
@@ -153,7 +146,6 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(gender1, 'male')
         self.assertTrue(gender2, 'female')
 
-
     def test_dame_gender_csv2names(self):
         g = Gender()
         names = g.csv2names(path='files/names/partial.csv')
@@ -165,12 +157,16 @@ class TddInPythonExample(unittest.TestCase):
         names = g.csv2names(path='files/names/min.csv', surnames=True)
         self.assertEqual([['Pierre', 'grivel'], ['Raul', 'serapioni'], ['Adriano', 'moura'], ['Ralf', 'kieser'], ['Guillermo', 'leon-de-la-barra'], ['Sabina', 'pannek']], names)
 
-
     def test_dame_gender_csv2json(self):
         g = Gender()
         g.csv2json(path="files/names/min.csv")
         self.assertTrue(os.path.isfile("files/names/csv2json.json"))
 
+    def test_dame_gender_json2gender_list(self):
+        g = Gender()
+        gl = g.json2gender_list(jsonf="files/names/partial.csv.json", binary=True)
+        self.assertEqual(gl, [1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
+        
     def test_dame_gender_guess_list(self):
         g = Gender()
         self.assertEqual(['male', 'male', 'male', 'male', 'male',
@@ -420,18 +416,18 @@ class TddInPythonExample(unittest.TestCase):
 #         j2ns = g.json2names(jsonf="files/names/namsorfiles_names_min.csv.json", surnames=True)
 #         self.assertEqual(j2ns, [["Pierre", "grivel"], ["Raul", "serapioni"], ["Adriano", "moura"], ["Ralf", "kieser"], ["Guillermo", "leon-de-la-barra"], ["Sabina", "pannek"]])
 
-#     def test_dame_gender_check_names(self):
-#         g = Gender()
-#         self.assertTrue(g.json_eq_csv_in_names(jsonf="files/names/namsorfiles_names_min.csv.json", path="files/names/min.csv"))
-#         self.assertTrue(g.json_eq_csv_in_names(jsonf="files/names/namsorfiles_names_partial.csv.json", path="files/names/partial.csv"))
-#         self.assertTrue(g.json_eq_csv_in_names(jsonf="files/names/genderizefiles_names_min.csv.json", path="files/names/min.csv"))
-#         self.assertTrue(g.json_eq_csv_in_names(jsonf="files/names/genderizefiles_names_partial.csv.json", path="files/names/partial.csv"))
-#         self.assertTrue(g.json_eq_csv_in_names(jsonf="files/names/nameapifiles_names_min.csv.json", path="files/names/min.csv"))
-#         self.assertTrue(g.json_eq_csv_in_names(jsonf="files/names/nameapifiles_names_partial.csv.json", path="files/names/partial.csv"))
+    def test_dame_gender_check_names(self):
+        g = Gender()
+        self.assertTrue(g.json_eq_csv_in_names(jsonf="files/names/namsorfiles_names_min.csv.json", path="files/names/min.csv"))
+        self.assertTrue(g.json_eq_csv_in_names(jsonf="files/names/namsorfiles_names_partial.csv.json", path="files/names/partial.csv"))
+        self.assertTrue(g.json_eq_csv_in_names(jsonf="files/names/genderizefiles_names_min.csv.json", path="files/names/min.csv"))
+        self.assertTrue(g.json_eq_csv_in_names(jsonf="files/names/genderizefiles_names_partial.csv.json", path="files/names/partial.csv"))
+        self.assertTrue(g.json_eq_csv_in_names(jsonf="files/names/nameapifiles_names_min.csv.json", path="files/names/min.csv"))
+        self.assertTrue(g.json_eq_csv_in_names(jsonf="files/names/nameapifiles_names_partial.csv.json", path="files/names/partial.csv"))
 
-#     def test_dame_gender_first_uneq(self):
-#         g = Gender()
-#         self.assertEqual("sabina", g.first_uneq_json_and_csv_in_names(jsonf="files/names/genderizefiles_names_min.csv.json", path="files/names/min.csv")[0])
-#         self.assertEqual(5, g.first_uneq_json_and_csv_in_names(jsonf="files/names/genderizefiles_names_min.csv.json", path="files/names/min.csv")[1])
-#         self.assertEqual("guillermo", g.first_uneq_json_and_csv_in_names(jsonf="files/names/nameapifiles_names_min.csv.json", path="files/names/partial.csv")[0])
-#         self.assertEqual(4, g.first_uneq_json_and_csv_in_names(jsonf="files/names/nameapifiles_names_min.csv.json", path="files/names/partial.csv")[1])
+    def test_dame_gender_first_uneq(self):
+        g = Gender()
+        self.assertEqual("sabina", g.first_uneq_json_and_csv_in_names(jsonf="files/names/genderizefiles_names_min.csv.json", path="files/names/min.csv")[0])
+        self.assertEqual(5, g.first_uneq_json_and_csv_in_names(jsonf="files/names/genderizefiles_names_min.csv.json", path="files/names/min.csv")[1])
+        self.assertEqual("guillermo", g.first_uneq_json_and_csv_in_names(jsonf="files/names/nameapifiles_names_min.csv.json", path="files/names/partial.csv")[0])
+        self.assertEqual(4, g.first_uneq_json_and_csv_in_names(jsonf="files/names/nameapifiles_names_min.csv.json", path="files/names/partial.csv")[1])
