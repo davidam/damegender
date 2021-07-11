@@ -430,6 +430,7 @@ class Gender(object):
                     string = string + '"gender":"' + str(l1[i]) + '"}, \n'
                 i = i + 1
             string = string + ']'
+            string = string.replace('}, \n]', '}]')            
         file = open(jsonf, "w")
         file.writelines(str(string))
         file.close()
