@@ -393,6 +393,7 @@ class Gender(object):
         # csv to json file
         surnames = kwargs.get('surnames', False)
         header = kwargs.get('header', True)
+        binary = kwargs.get('binary', False)        
         # l1 is a list, such as, guess_list or gender_list
         l1 = kwargs.get('l1', [])
         jsonf = kwargs.get('jsonf', 'files/names/csv2json.json')
@@ -415,6 +416,18 @@ class Gender(object):
                 lastname = row[2].replace('\"', '')
 
                 gender = row[4]
+                gender = du.drop_quotes(gender)
+                if ((gender == "m") or (gender == "male") or (gender == 1)):
+                    if binary:
+                        gender = 1
+                    else:
+                        gender = "male"
+                elif ((gender == "f") or (gender == "female") or (gender == 0)):                
+                    if binary:
+                        gender = 0
+                    else:
+                        gender = "female"
+                    
                 if surnames:
                     string = string + '{"name":"' + name
                     string = string + ' ' + middlename + '", \n'
@@ -424,9 +437,8 @@ class Gender(object):
                 string = string + '"probability": 1, \n'
                 if (l1 == []):
                     string = string + '"gender":"' + gender + '"}, \n'
-                elif (len(l1) <= i + 1):
-                    string = string + '"gender":"' + str(l1[i]) + '"} \n'
-                else:
+                elif (len(l1) > i):
+                # if l1 exists, we are adding the l1 element                        
                     string = string + '"gender":"' + str(l1[i]) + '"}, \n'
                 i = i + 1
             string = string + ']'
