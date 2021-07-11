@@ -74,3 +74,22 @@ class TddInPythonExample(unittest.TestCase):
         v1 = [0, 1, 1, 1]
         v2 = [0, 0, 1, 1]
         self.assertEqual(ds.error_gender_bias(v1, v2), 0.25)
+
+    def test_dame_statistics_accuracy_score_dame(self):
+        ds = DameStatistics()
+        score1 = ds.accuracy_score_dame([1, 1], [1, 1])
+        self.assertEqual(score1, 1)
+        score2 = ds.accuracy_score_dame([1, 1, 1, 0],
+                                       [1, 1, 2, 0])
+        self.assertEqual(score2, 0.75)
+        score3 = ds.accuracy_score_dame([1, 1, 1, 1, 2, 1],
+                                       [1, 1, 1, 1, 2, 1])
+        self.assertEqual(score3, 1)
+        score4 = ds.accuracy_score_dame([1, 1, 1, 1, 2, 1, 0,
+                                        0, 1, 1, 2, 1, 1, 1,
+                                        1, 1, 1, 1, 0, 1, 1],
+                                       [1, 1, 1, 1, 2, 1, 0,
+                                        0, 1, 1, 2, 1, 1, 1,
+                                        1, 1, 1, 1, 0, 1, 1])
+        self.assertEqual(score4, 1)
+        
