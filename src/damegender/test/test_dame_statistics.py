@@ -55,13 +55,7 @@ class TddInPythonExample(unittest.TestCase):
         ds = DameStatistics()
         v1 = [1, 0, 1, 1]
         v2 = [1, 1, 1, 0]
-        self.assertEqual(ds.error_coded(v1, v2), 0.5)
-
-    def test_dame_statistics_error_coded_without_na(self):
-        ds = DameStatistics()
-        v1 = [1, 0, 1, 1, 1]
-        v2 = [1, 1, 1, 0, 1]
-        self.assertEqual(ds.error_coded(v1, v2), 0.4)
+        self.assertEqual(ds.error_coded_without_na(v1, v2), 0.5)
 
     def test_dame_statistics_na_coded(self):
         ds = DameStatistics()
@@ -93,3 +87,16 @@ class TddInPythonExample(unittest.TestCase):
                                         1, 1, 1, 1, 0, 1, 1])
         self.assertEqual(score4, 1)
         
+    def test_dame_gender_precision(self):
+        ds = DameStatistics()
+        score1 = ds.precision([1, 1], [1, 1])
+        self.assertEqual(score1, 1)
+        score2 = ds.precision([1, 1, 1, 0], [1, 1, 2, 0])
+        self.assertEqual(score2, 1)
+        score3 = ds.precision([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
+        self.assertEqual(score3, 1)
+        score4 = ds.precision([1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1,
+                              1, 1, 1, 1, 1, 0, 1, 1],
+                             [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1,
+                              1, 1, 1, 1, 1, 0, 1, 1])
+        self.assertEqual(score4, 1)
