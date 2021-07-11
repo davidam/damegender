@@ -992,8 +992,9 @@ class Gender(object):
                       len(self.csv2names(path=path, header=header)))
                 print("%s names in json" %
                       len(self.json2names(jsonf=jsonf, surnames=False)))
-                v = self.first_uneq_json_and_csv_in_names(jsonf=jsonf, path=path)
-                print("The first position finding unmatched names is %s and the name is %s" %
+                v = self.first_uneq_json_and_csv_in_names(jsonf=jsonf,
+                                                          path=path)
+                print("The unmatched names starts in %s and the name is %s" %
                       (v[1], v[0]))
                 print("Names in csv: %s:" %
                       self.csv2names(path=path, header=header))
@@ -1002,7 +1003,9 @@ class Gender(object):
         else:
             print("In the path %s doesn't exist file" % jsonf)
             print("You can create one with:")
-            print("$ python3 damegender2json.py --csv=%s --ml=%s --jsonoutput=files/names/partial.csv.%s.json" % (path, ml, ml))
+            string1 = "$ python3 damegender2json.py --csv=%s --ml=%s "
+            string1 = string1 + "--jsonoutput=files/names/partial.csv.%s.json"
+            print(string1 % (path, ml, ml))
         return 1
 
     def pretty_cm(self, path, jsonf, *args, **kwargs):
@@ -1013,9 +1016,14 @@ class Gender(object):
         print("%s confusion matrix:\n" % api)
 #        self.print_confusion_matrix_gender(path=path, dimensions=dimensions)
         if (os.path.isfile(jsonf)):
-            self.print_confusion_matrix_gender(path=path, dimensions=dimensions, jsonf=jsonf, reverse=reverse)
+            self.print_confusion_matrix_gender(path=path,
+                                               dimensions=dimensions,
+                                               jsonf=jsonf,
+                                               reverse=reverse)
         elif (args.jsondownloaded == ''):
-            self.print_confusion_matrix_gender(path=path, dimensions=dimensions, reverse=reverse)
+            self.print_confusion_matrix_gender(path=path,
+                                               dimensions=dimensions,
+                                               reverse=reverse)
         else:
             print("In the path %s doesn't exist file" % jsonf)
 
@@ -1025,24 +1033,18 @@ class Gender(object):
         guesslist = []
 
         for i in json_object:
+            g = i['gender']
             if binary:
-                if ((i['gender'] == 'female') or
-                    (i['gender'] == 'f') or (i['gender'] == 0)):
+                if ((g == 'female') or (g == 'f') or (g == 0)):
                     guesslist.append(0)
-                elif ((i['gender'] == 'male') or
-                      (i['gender'] == 'm') or
-                      (i['gender'] == 1)):
+                elif ((g == 'male') or (g == 'm') or (g == 1)):
                     guesslist.append(1)
                 else:
                     guesslist.append(2)
             else:
-                if ((i['gender'] == 'female') or
-                    (i['gender'] == 'f') or
-                    (i['gender'] == 0)):
+                if ((g == 'female') or (g == 'f') or (g == 0)):
                     guesslist.append("female")
-                elif ((i['gender'] == 'male') or
-                      (i['gender'] == 'm') or
-                      (i['gender'] == 1)):
+                elif ((g == 'male') or (g == 'm') or (g == 1)):
                     guesslist.append("male")
                 else:
                     guesslist.append("unknown")
@@ -1064,9 +1066,9 @@ class Gender(object):
         header = kwargs.get('header', True)
         boolean = False
         json = self.json2names(jsonf=jsonf, surnames=False)
-        json_lower = [element.lower() for element in json] ; json
+        json_lower = [element.lower() for element in json]
         csv = self.csv2names(path=path, header=header)
-        csv_lower = [element.lower() for element in csv] ; csv
+        csv_lower = [element.lower() for element in csv]
         count = 0
         i = 0
         maxi = len(json_lower) - 1
@@ -1080,7 +1082,8 @@ class Gender(object):
                    and ((len(json_lower) - 1) == count))
         return boolean
 
-    def first_uneq_json_and_csv_in_names(self, jsonf="", path="", *args, **kwargs):
+    def first_uneq_json_and_csv_in_names(self, jsonf="", path="",
+                                         *args, **kwargs):
         header = kwargs.get('header', True)
         json = self.json2names(jsonf=jsonf, surnames=False)
         csv = self.csv2names(path=path, header=header)
@@ -1126,6 +1129,7 @@ class Gender(object):
             cmd = self.confusion_matrix_gender(path, jsonf=jf)
         else:
             cmd = self.confusion_matrix_gender(path)
+
         if (dimensions == "1x1"):
             if not(reverse):
                 print("      M    ")
