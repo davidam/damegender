@@ -11,7 +11,6 @@
 # are David Arroyo Menéndez and you include this note.
 
 
-
 import unittest
 import numpy as np
 import os
@@ -33,11 +32,13 @@ class TddInPythonExample(unittest.TestCase):
         dicc2 = de.surname2ethnicity("JAURENA")
         self.assertFalse(dicc2)
 
-
     def test_dame_ethnicity_inesurname2ethnicity(self):
         de = DameEthnicity()
-        self.assertEqual(de.inesurname2ethnicity(surname="KHAN", locale="af"), ["af"])
+        l1 = de.inesurname2ethnicity(surname="KHAN", locale="af")
+        self.assertEqual(l1, ["af"])
 
     def test_dame_locale_match(self):
         de = DameEthnicity()
-        self.assertEqual(de.locale_match(surname="KHAN", path='files/inesurnames/apellidos-afganistan.xls.csv', locale="af"), "af")
+        path = 'files/inesurnames/apellidos-afganistan.xls.csv'
+        str1 = de.locale_match(surname="KHAN", path=path, locale="af")
+        self.assertEqual(str1, "af")
