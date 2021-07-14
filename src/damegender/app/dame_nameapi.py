@@ -10,7 +10,6 @@
 # You can share, copy and modify this software if you are a woman or you
 # are David Arroyo Menéndez and you include this note.
 
-
 import csv
 import requests
 import json
@@ -31,12 +30,13 @@ class DameNameapi(Gender):
         confidence = ""
         if (self.config['DEFAULT']['nameapi'] == 'yes'):
             fichero = open(self.config['FILES']['nameapi'], "r+")
-            contenido = fichero.readline().rstrip()
-
+            content = fichero.readline().rstrip()
+            host = "http://rc50-api.nameapi.org/"
+            path = "rest/v5.0/parser/personnameparser?"
+            var =  "apiKey="
             # url of the NameAPI.org endpoint:
             url = (
-                "http://rc50-api.nameapi.org/rest/v5.0/parser/personnameparser?"
-                "apiKey="+contenido
+                host + path + var + content
             )
 
             # Dict of data to be sent to NameAPI.org:
@@ -93,7 +93,8 @@ class DameNameapi(Gender):
 
     def download(self, path="files/names/partial.csv"):
         du = DameUtils()
-        nameapijson = open("files/names/nameapi"+du.path2file(path)+".json", "w+")
+        path1 = "files/names/nameapi" + du.path2file(path) + ".json"
+        nameapijson = open(path1, "w+")
         names = self.csv2names(path, surnames=True)
         nameapijson.write("[")
         length = len(names)
@@ -104,7 +105,7 @@ class DameNameapi(Gender):
             nameapijson.write('"surname":"'+names[i][1]+'",\n')
             nameapijson.write('"gender":'+str(g[0])+',\n')
             nameapijson.write('"confidence":'+str(g[1])+'\n')
-            if ((length -1) == i):
+            if ((length - 1) == i):
                 nameapijson.write('} \n')
             else:
                 nameapijson.write('}, \n')
@@ -112,7 +113,6 @@ class DameNameapi(Gender):
         nameapijson.write("]")
         nameapijson.close()
         return 0
-
 
     def guess(self, name, surname, binary=False):
         v = self.get(name, surname, binary)
