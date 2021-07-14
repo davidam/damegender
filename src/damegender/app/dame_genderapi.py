@@ -62,7 +62,6 @@ class DameGenderApi(Gender):
         v = self.get(name)
         return v[2]
 
-
     def download(self, path="files/names/partial.csv"):
         du = DameUtils()
         fichero = open("files/apikeys/genderapipass.txt", "r+")
@@ -74,12 +73,12 @@ class DameGenderApi(Gender):
         names_list = du.split(names, 20)
         jsondict = {'names': []}
         string = ""
-        for l in names_list:
+        for l1 in names_list:
             # generating names string to include in url
             count = 1
             stringaux = ""
-            for n in l:
-                if (len(l) > count):
+            for n in l1:
+                if (len(l1) > count):
                     stringaux = stringaux + n + ";"
                 else:
                     stringaux = stringaux + n
@@ -117,13 +116,11 @@ class DameGenderApi(Gender):
         nameslist = []
         for i in json_object["names"][0]:
             if (i["name"] != ''):
-                if (surnames == True):
+                if surnames:
                     nameslist.append([i["name"], i["surname"]])
                 else:
                     nameslist.append(i["name"])
         return nameslist
-
-
 
     def guess_list(self, path="files/names/partial.csv", binary=False):
         du = DameUtils()
@@ -133,11 +130,11 @@ class DameGenderApi(Gender):
         names = self.csv2names(path)
         list_total = []
         names_list = du.split(names, 20)
-        for l in names_list:
+        for l1 in names_list:
             count = 1
             string = ""
-            for n in l:
-                if (len(l) > count):
+            for n in l1:
+                if (len(l1) > count):
                     string = string + n + ";"
                 else:
                     string = string + n
@@ -148,9 +145,11 @@ class DameGenderApi(Gender):
             d = json.loads(r.text)
             slist = []
             for item in d['result']:
-                if (((item['gender'] is None) or (item['gender'] == 'unknown')) & binary):
+                if (((item['gender'] is None) or
+                     (item['gender'] == 'unknown')) & binary):
                     slist.append(2)
-                elif (((item['gender'] is None) or (item['gender'] == 'unknown')) & (not binary)):
+                elif (((item['gender'] is None) or
+                       (item['gender'] == 'unknown')) & (not binary)):
                     slist.append("unknown")
                 elif ((item['gender'] == "male") & binary):
                     slist.append(1)
