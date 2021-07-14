@@ -186,6 +186,10 @@ class TddInPythonExample(unittest.TestCase):
                           1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
                          g.guess_list(path="files/names/partial.csv",
                                       binary=True))
+        self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1,
+                          1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
+                         g.guess_list(path="files/names/partial.csv",
+                                      binary=True, dataset='inter'))
 
     # def test_dame_gender_accuracy(self):
     #     g = Gender()
