@@ -4,8 +4,8 @@
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-#  Author: David Arroyo Menéndez <davidam@gmail.com>
-#  Maintainer: David Arroyo Menéndez <davidam@gmail.com>
+# Author: David Arroyo Menéndez <davidam@gmail.com>
+# Maintainer: David Arroyo Menéndez <davidam@gmail.com>
 
 # You can share, copy and modify this software if you are a woman or you
 # are David Arroyo Menéndez and you include this note.
@@ -41,11 +41,14 @@ du = DameUtils()
 
 if (args.total == "namdict"):
     name = args.name.capitalize()
-    cmd = 'grep -i "' + name
-    cmd = cmd + '" files/names/nam_dict.txt > files/logs/grep.tmp'
+    name = name.replace(" ", "+")
+    cmd = 'grep -i " ' + name 
+    cmd = cmd + ' " files/names/nam_dict.txt > files/logs/grep.tmp'
     os.system(cmd)
+    results = []
     for i in open('files/logs/grep.tmp', 'r').readlines():
-        results.append(i)
+        if (i not in results):
+            results.append(i)
     male = 0
     female = 0
     for i in results:
@@ -63,26 +66,15 @@ if (args.total == "namdict"):
             female = female + 1
         elif bool2:
             male = male + 1
-        if (female > male):
-            print("gender: female")
-        if (male > female):
-            print("gender: male")
-        elif (male == female):
-            print("gender: unknown")
-            print("you can try predict with --ml")
+        if (prob != ""):
+            if (female > male):
+                print("gender: female")
+            if (male > female):
+                print("gender: male")
+            elif (male == female):
+                print("gender: unknown")
+                print("you can try predict with --ml")
 
-# deprecating source
-# elif (args.total == "luciahelena"):
-#         g = Gender()
-#         males = g.csv2names(path="files/names/allnoundefined.males.csv")
-#         females = g.csv2names(path="files/names/allnoundefined.females.csv")
-#         print("%s was classified as: " % args.name)
-#         if (args.name in males):
-#                 print("male")
-#         elif (args.name in females):
-#                 print("female")
-#         else:
-#                 print("this name was not classified as male or female")
 elif ((args.verbose) or (args.total == "all")):
     n_males = s.name_frec(args.name, dataset="at")['males']
     n_females = s.name_frec(args.name, dataset="at")['females']
