@@ -1,4 +1,5 @@
-You are not using ml the process is not very slow, but perhaps you are not finding good results
+You are not using ml the process is not very slow
+but perhaps you are not finding good results
 The number of males sending mails is 3
 The number of females sending mails is 1
-The number of people with unknown gender sending mails is 2
+The number of people with unknown gender sending mails 2
