@@ -33,7 +33,7 @@ class DameNameapi(Gender):
             content = fichero.readline().rstrip()
             host = "http://rc50-api.nameapi.org/"
             path = "rest/v5.0/parser/personnameparser?"
-            var =  "apiKey="
+            var = "apiKey="
             # url of the NameAPI.org endpoint:
             url = (
                 host + path + var + content
@@ -65,31 +65,33 @@ class DameNameapi(Gender):
                 # - make a POST HTTP request
                 # - encode the Python payload dict to JSON
                 # - pass the JSON to request body
-                # - set header's 'Content-Type' to 'application/json' instead of
+                # - set header's 'Content-Type' to
+                #   'application/json' instead of
                 #   default 'multipart/form-data'
                 resp = requests.post(url, json=payload)
                 resp.raise_for_status()
                 # Decode JSON response into a Python dict:
-                resp_dict = resp.json()
-                guess = resp_dict['matches'][0]['parsedPerson']['gender']['gender'].lower()
-                confidence = resp_dict['matches'][0]['parsedPerson']['gender']['confidence']
+                respd = resp.json()
+                g = respd['matches'][0]['parsedPerson']['gender']['gender']
+                g = g.lower()
+                c = respd['matches'][0]['parsedPerson']['gender']['confidence']
                 if (binary is True):
-                    if (guess == 'female'):
-                        guess = 0
-                    elif (guess == 'male'):
-                        guess = 1
+                    if (g == 'female'):
+                        g = 0
+                    elif (g == 'male'):
+                        g = 1
                     else:
-                        guess = 2
+                        g = 2
             except requests.exceptions.HTTPError as e:
                 print("Bad HTTP status code:", e)
             except requests.exceptions.RequestException as e:
                 print("Network error:", e)
         else:
             if (binary is True):
-                guess = 2
+                g = 2
             else:
-                guess = "unknown"
-        return [guess, confidence]
+                g = "unknown"
+        return [g, c]
 
     def download(self, path="files/names/partial.csv"):
         du = DameUtils()
