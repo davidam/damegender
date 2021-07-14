@@ -21,6 +21,7 @@ from perceval.backends.core.launchpad import Launchpad
 from app.dame_utils import DameUtils
 from app.dame_gender import Gender
 
+
 class DamePerceval(object):
 
     def numCommits(self, url, directory):
@@ -45,7 +46,7 @@ class DamePerceval(object):
 
     def firstName(self, s):
         result = ""
-        m = re.match("(\w+)", s)
+        m = re.match("(\\w+)", s)
         if m:
             first = m.group(1)
         else:
@@ -54,7 +55,7 @@ class DamePerceval(object):
 
     def secondName(self, s):
         result = ""
-        m = re.match("(\w+) (\w+)", s)
+        m = re.match("(\\w+) (\\w+)", s)
         if m:
             second = m.group(2)
         else:
@@ -67,7 +68,8 @@ class DamePerceval(object):
         for user in repo.fetch():
             if not(user['data']['Author'] in authors):
                 authors[user['data']['Author']] = 1
-            authors[user['data']['Author']] = authors[user['data']['Author']] + 1
+            tmp = authors[user['data']['Author']]
+            authors[user['data']['Author']] = tmp + 1
         return authors
 
     def dicc_authors_and_mails(self, url, directory="files/mbox"):
@@ -76,7 +78,8 @@ class DamePerceval(object):
         for message in repo.fetch():
             if not(message['data']['From'] in authors.keys()):
                 authors[message['data']['From']] = 1
-            authors[message['data']['From']] = authors[message['data']['From']] + 1
+            tmp = authors[message['data']['From']]
+            authors[message['data']['From']] = tmp + 1
         return authors
 
     def list_committers(self, url, directory, *args, **kwargs):
@@ -86,7 +89,7 @@ class DamePerceval(object):
         repo = Git(uri=url, gitpath=directory)
         list_committers = []
         for r in repo.fetch():
-            if (mail == True):
+            if mail:
                 committer = r['data']['Author']
             else:
                 committer = self.removeMail(r['data']['Author'])
@@ -103,22 +106,25 @@ class DamePerceval(object):
         return list_mailers
 
     def list_launchpad(self, name, from_date=""):
-        l = []
-        if (from_date==""):
+        l1 = []
+        if (from_date == ""):
             from_date = datetime.datetime.now() - timedelta(days=1)
         # name = "ubuntu"
         # retrieve only reviews changed since one day ago
         repo = Launchpad(name)
         for r in repo.fetch(from_date=from_date):
-            l.append(r['data']['activity_data'][0]['person_data']['display_name'])
-        return l
+            x = r['data']['activity_data'][0]['person_data']['display_name']
+            l1.append(x)
+        return l1
 
-    def count_gender_in_list(self, l):
+    def count_gender_in_list(self, l1):
         g = Gender()
         males = 0
         females = 0
-        for elem in l:
-            if (int(g.name_frec(str(elem.upper()), 'us')['females']) > int(g.name_frec(str(elem.upper()), 'us')['males'] )):
+        for elem in l1:
+            x = int(g.name_frec(str(elem.upper()), 'us')['females'])
+            y = int(g.name_frec(str(elem.upper()), 'us')['males'])
+            if (x > y):
                 females = females + 1
             else:
                 males = males + 1
