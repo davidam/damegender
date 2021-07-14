@@ -42,7 +42,7 @@ du = DameUtils()
 if (args.total == "namdict"):
     name = args.name.capitalize()
     name = name.replace(" ", "+")
-    cmd = 'grep -i " ' + name 
+    cmd = 'grep -i " ' + name
     cmd = cmd + ' " files/names/nam_dict.txt > files/logs/grep.tmp'
     os.system(cmd)
     results = []
@@ -52,7 +52,7 @@ if (args.total == "namdict"):
     male = 0
     female = 0
     for i in results:
-        regex = "(M|F|=|\?|1)( |M|F)?( )(" + name + ")( )"
+        regex = "(M|F|=|\\?|1)( |M|F)?( )(" + name + ")( )"
         r = re.match(regex, i)
         if (r is not None):
             prob = r.group(1) + r.group(2)
