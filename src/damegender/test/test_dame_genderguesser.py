@@ -12,6 +12,7 @@ import unittest
 from app.dame_genderguesser import DameGenderGuesser
 from app.dame_statistics import DameStatistics
 
+
 class TddInPythonExample(unittest.TestCase):
 
     def test_genderguesser_list(self):
@@ -50,6 +51,6 @@ class TddInPythonExample(unittest.TestCase):
         ds = DameStatistics()
         gl1 = dgg.csv2gender_list(path="files/names/partial.csv")
         gl2 = dgg.guess_list(path="files/names/partial.csv",
-                                        binary=True)
+                             binary=True)
         self.assertTrue(ds.accuracy_score_dame(gl1, gl2) >= 0.5)
 #        self.assertTrue(ds.accuracy(path="files/names/partial.csv") >= 0.5)
