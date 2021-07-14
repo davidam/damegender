@@ -62,7 +62,7 @@ if (len(sys.argv) > 1):
             if (du.is_not_blank(args.surname)):
                 print(dn.guess(str(args.name), str(args.surname)))
                 str1 = str(dn.scale(str(args.name), str(args.surname)))
-                print("scale: " + string1)
+                print("scale: " + str1)
             else:
                 print("Surname is required in namsor api")
         else:
@@ -72,12 +72,12 @@ if (len(sys.argv) > 1):
             dn = DameNameapi()
             print(dn.guess(str(args.name), str(args.surname)))
             str2 = str(dn.confidence(str(args.name), str(args.surname)))
-            print("confidence: " + string2)
+            print("confidence: " + str2)
         else:
             print("You must enable nameapi in config.cfg file")
     elif (args.api == "wikipedia"):
         str3 = 'https://en.wikipedia.org/wiki/' + args.name + '_(given_name)'
-        r = requests.get(string3)
+        r = requests.get(str3)
         tree = html.fromstring(r.content)
         str4 = '//div[@class="mw-parser-output"]//table//tbody//td//text()'
         arraygender = tree.xpath(str4)
@@ -108,11 +108,11 @@ if (len(sys.argv) > 1):
 
         data = r.json()
         print("Wikidata is giving this feature on an experimental way.")
-        string1 = """
+        str1 = """
         You can check popular person names such as David,
         Juan_Carlos_I_of_Spain, Richard_Stallman,
         Linus_Torvalds and other popular names,
         but not all names is ok
         """
-        print(string1)
+        print(str1)
         print(data['results']['bindings'][0]['genderLabel']['value'])
