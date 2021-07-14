@@ -32,31 +32,31 @@ nameapi = files/apikeys/nameapipass.txt
 " > config.cfg
 
 
-python3 main.py "Jesús" --total=genderguesser > files/tests/mainjesusgenderguesser-$(date "+%Y-%m-%d-%H").txt
+python3 main.py "Jesús" --total=namdict > files/tests/mainjesusnamdict-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/mainjesusgenderguesser.txt files/tests/mainjesusgenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+if ! cmp files/tests/mainjesusnamdict.txt files/tests/mainjesusnamdict-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-	echo -e  "mainjesusgenderguesser test is ${RED}failing${NC}"
+	echo -e  "mainjesusnamdict test is ${RED}failing${NC}"
 else
-	echo -e  "mainjesusgenderguesser test is ${GREEN}ok${NC}"
+	echo -e  "mainjesusnamdict test is ${GREEN}ok${NC}"
 fi
 
-python3 main.py "Sara" --total=genderguesser > files/tests/mainsaragenderguesser-$(date "+%Y-%m-%d-%H").txt
+python3 main.py "Sara" --total=namdict > files/tests/mainsaranamdict-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/mainsaragenderguesser.txt files/tests/mainsaragenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+if ! cmp files/tests/mainsaranamdict.txt files/tests/mainsaranamdict-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-	echo -e  "mainsaragenderguesser test is ${RED}failing${NC}"
+	echo -e  "mainsaranamdict test is ${RED}failing${NC}"
 else
-	echo -e  "mainsaragenderguesser test is ${GREEN}ok${NC}"
+	echo -e  "mainsaranamdict test is ${GREEN}ok${NC}"
 fi
 
-python3 main.py sara --total=genderguesser > files/tests/mainsara2genderguesser-$(date "+%Y-%m-%d-%H").txt
+python3 main.py sara --total=namdict > files/tests/mainsara2namdict-$(date "+%Y-%m-%d-%H").txt
 
-if ! cmp files/tests/mainsaragenderguesser.txt files/tests/mainsara2genderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+if ! cmp files/tests/mainsaranamdict.txt files/tests/mainsara2namdict-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
-	echo -e  "mainsara2genderguesser test is ${RED}failing${NC}"
+	echo -e  "mainsara2namdict test is ${RED}failing${NC}"
 else
-	echo -e  "mainsara2genderguesser test is ${GREEN}ok${NC}"
+	echo -e  "mainsara2namdict test is ${GREEN}ok${NC}"
 fi
 
 python3 api2gender.py David --api="genderguesser" > files/tests/api2genderDavidgenderguesser-$(date "+%Y-%m-%d-%H").txt
