@@ -161,7 +161,7 @@ class DameEthnicity(object):
                                         path=pathbg,
                                         locale="bg"))
         if ((locale == 'bf') or (locale == 'all')):
-            pathbf = 'files/inesurnames/apellidos-burkina.xls.csv',
+            pathbf = 'files/inesurnames/apellidos-burkina.xls.csv'
             l1.append(self.locale_match(surname=surname,
                                         path=pathbf,
                                         locale="bf"))
@@ -171,7 +171,7 @@ class DameEthnicity(object):
                                         path=pathcv,
                                         locale="cv"))
         if ((locale == 'cm') or (locale == 'all')):
-            pathcm = 'files/inesurnames/apellidos-camerun.xls.csv',
+            pathcm = 'files/inesurnames/apellidos-camerun.xls.csv'
             l1.append(self.locale_match(surname=surname,
                                         path=pathcm,
                                         locale="cm"))
@@ -281,12 +281,12 @@ class DameEthnicity(object):
                                         path=pathfi,
                                         locale="fi"))
         if ((locale == 'fr') or (locale == 'all')):
-            pathfr = 'files/inesurnames/apellidos-francia.xls.csv',
+            pathfr = 'files/inesurnames/apellidos-francia.xls.csv'
             l1.append(self.locale_match(surname=surname,
                                         path=pathfr,
                                         locale="fr"))
         if ((locale == 'gm') or (locale == 'all')):
-            pathgm = 'files/inesurnames/apellidos-gambia.xls.csv',
+            pathgm = 'files/inesurnames/apellidos-gambia.xls.csv'
             l1.append(self.locale_match(surname=surname,
                                         path=pathgm,
                                         locale="gm"))
@@ -316,7 +316,7 @@ class DameEthnicity(object):
                                         path=pathgw,
                                         locale="gw"))
         if ((locale == 'gq') or (locale == 'all')):
-            pathgq = 'files/inesurnames/apellidos-guinea-ecuatorial1.xls.csv'
+            pathgq = 'files/inesurnames/apellidos-guinea-ecuatorial.xls.csv'
             l1.append(self.locale_match(surname=surname,
                                         path=pathgq,
                                         locale="gq"))
@@ -556,7 +556,7 @@ class DameEthnicity(object):
                                         path=pathdo,
                                         locale="do"))
         if ((locale == 'rw') or (locale == 'all')):
-            pathrw = 'files/inesurnames/apellidos-ruanda.xls.csv',
+            pathrw = 'files/inesurnames/apellidos-ruanda.xls.csv'
             l1.append(self.locale_match(surname=surname,
                                         path=pathrw,
                                         locale="rw"))
