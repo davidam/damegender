@@ -49,8 +49,9 @@ class DameGenderize(Gender):
             d = ""
         return d
 
-    def guess(self, name, binary=False):
-        d = self.get(name)
+    def guess(self, name, binary=False, *args, **kwargs):
+        country_id = kwargs.get('dataset', 'us')        
+        d = self.get(name, country_id)
         if (binary is True):
             if (d['gender'] == 'female'):
                 gender = 0
