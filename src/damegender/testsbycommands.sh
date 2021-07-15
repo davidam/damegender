@@ -137,7 +137,7 @@ fi
 
 echo -e  "I am launching a ml test is slow. Please wait"
 
-python3 main.py Amorosa --ml=sgd > files/tests/mainamorosa-$(date "+%Y-%m-%d-%H").txt
+python3 main.py Amorosa --ml=sgd --total=us > files/tests/mainamorosa-$(date "+%Y-%m-%d-%H").txt
 if ! cmp files/tests/mainamorosa.txt files/tests/mainamorosa-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
     echo -e  "mainamorosa test is ${RED}failing${NC}"
