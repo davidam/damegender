@@ -30,13 +30,14 @@ args = parser.parse_args()
 
 
 def main():
-  # Build a service object for interacting with the API. Visit
-  # the Google APIs Console <http://code.google.com/apis/console>
-  # to get an API key for your own application.
-  g = DameCustomsearch()
-  d = g.get(args.name, binary=True)
-  print("Google results of %s as male: %s" % (args.name, d["rmale"]))
-  print("Google results of %s as female: %s" % (args.name, d["rfemale"]))
+    # Build a service object for interacting with the API. Visit
+    # the Google APIs Console <http://code.google.com/apis/console>
+    # to get an API key for your own application.
+    g = DameCustomsearch()
+    d = g.get(args.name, binary=True)
+    print("Google results of %s as male: %s" % (args.name, d["rmale"]))
+    print("Google results of %s as female: %s" % (args.name, d["rfemale"]))
+
 
 if __name__ == '__main__':
-  main()
+    main()
