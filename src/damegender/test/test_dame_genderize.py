@@ -37,7 +37,8 @@ class TddInPythonExample(unittest.TestCase):
                                        {'count': 2510, 'gender': 'female',
                                         'name': 'lois', 'probability': 0.58},
                                        {'count': 2568, 'gender': 'male',
-                                        'name': 'stevie', 'probability': 0.7}])
+                                        'name': 'stevie',
+                                        'probability': 0.87}])
             string2 = dg.get2to10(["peter", "lois", "stevie", "john",
                                    "paul", "mike", "mary", "anna"])
             self.assertEqual(string2, [{"name": "peter", "gender": "male",
@@ -81,7 +82,7 @@ class TddInPythonExample(unittest.TestCase):
                                1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1,
                                1, 1, 1, 1, 1])
         path3 = "files/names/genderizefiles_names_allnoundefined0.csv.json"
-        gl3 = dg.json2gender_list(jsonf=path3
+        gl3 = dg.json2gender_list(jsonf=path3,
                                   binary=True)
         self.assertEqual(gl3, [1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
                                0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -134,15 +135,13 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_genderize_guess_list(self):
         dg = DameGenderize()
         path1 = "files/names/partial.csv"
+        l1 = dg.guess_list(path=path1, binary=False, total="us")[0:10]
+        l2 = dg.guess_list(path=path1, binary=True, total="us")[0:10]
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
             self.assertEqual(['male', 'male', 'male', 'male',
                               'male', 'male', 'female',
-                              'female', 'male', 'male'],
-                             dg.guess_list(path=path1,
-                                           binary=False)[0:10])
-            self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1],
-                             dg.guess_list(path=path1,
-                                           binary=True)[0:10])
+                              'female', 'male', 'male'], l1)
+            self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1], l2)
 
     def test_dame_genderize_json2names(self):
         dg = DameGenderize()
