@@ -1,6 +1,13 @@
 
 * v0.3.5
-Refactoring and bug fixing: All source is reaching PEP8 coding style.
+
+Refactoring and bug fixing: All source is reaching PEP8 coding style
+now.
+
+Improvements in commands:
++ api2gender.py: you can scrap the gender from wikipedia with
+  --api=wikipedia. Before, you can use --api=wikidata, but this way is
+  worst in the current state of the development.
 
 * v0.3.4
 
@@ -9,7 +16,7 @@ New names:
 + Turkey (116114 females and 67309 males)
 
 New commands:
-+ mergeinterfiles.py: merge dataset files 
++ mergeinterfiles.py: merge dataset files
 
 * v0.3.3
 
