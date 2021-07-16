@@ -6,8 +6,8 @@ now.
 
 Improvements in commands:
 + api2gender.py: you can scrap the gender from wikipedia with
-  --api=wikipedia. Before, you can use --api=wikidata, but this way is
-  worst in the current state of the development.
+  --api=wikipedia. Before, you can use --api=wikidata, but this way
+  (sparql) is worst in the current state of the development.
 
 * v0.3.4
 
