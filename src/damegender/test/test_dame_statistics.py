@@ -137,3 +137,12 @@ class TddInPythonExample(unittest.TestCase):
         l2 = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
         f1score4 = ds.f1score(l1, l2)
         self.assertEqual(f1score4, 1)
+
+    def test_confusion_matrix_table(self):
+        ds = DameStatistics()
+        cmt1 = ds.confusion_matrix_table([1, 2, 1, 1, 0], [1, 0, 0, 1, 0])
+        self.assertEqual(cmt1, [[1, 0, 0], [1, 2, 0], [1, 2, 0]])
+        l1 = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
+        l2 = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
+        cmt2 = ds.confusion_matrix_table(l1, l2)
+        self.assertEqual(cmt2, [[3, 0, 0], [0, 16, 0], [0, 16, 0]])
