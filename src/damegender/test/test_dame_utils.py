@@ -32,10 +32,6 @@ from os.path import expanduser
 
 class TddInPythonExample(unittest.TestCase):
 
-    def test_locales(self):
-        du = DameUtils()
-        lat = du.locales[0
-
     def test_string2array(self):
         du = DameUtils()
         array = "muchos    espacios en blanco"
