@@ -124,3 +124,16 @@ class TddInPythonExample(unittest.TestCase):
         l2 = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
         score4 = ds.recall(l1, l2)
         self.assertEqual(score4, 1)
+
+    def test_dame_gender_f1score(self):
+        ds = DameStatistics()
+        f1score1 = ds.f1score([1, 1], [1, 1])
+        self.assertEqual(f1score1, 1)
+        f1score2 = ds.f1score([1, 1, 1, 0], [1, 1, 2, 0])
+        self.assertEqual(round(f1score2, 2), 0.86)
+        f1score3 = ds.f1score([1, 1, 1, 1, 2, 1], [1, 1, 1, 1, 2, 1])
+        self.assertEqual(f1score3, 1)
+        l1 = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
+        l2 = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
+        f1score4 = ds.f1score(l1, l2)
+        self.assertEqual(f1score4, 1)
