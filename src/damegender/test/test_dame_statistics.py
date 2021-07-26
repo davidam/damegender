@@ -31,7 +31,7 @@ from app.dame_statistics import DameStatistics
 
 class TddInPythonExample(unittest.TestCase):
 
-    def test_dame_statistics_count_true2guess(self):
+    def test_count_true2guess(self):
         ds = DameStatistics()
         v1 = [1, 0, 1, 1, 0, 0]
         v2 = [1, 1, 1, 0, 0, 0]
@@ -57,31 +57,31 @@ class TddInPythonExample(unittest.TestCase):
         t2g = ds.count_true2guess(vvv2, vvv1, 2, 1)
         self.assertEqual(t2g, 1)  # undefinedmale
 
-    def test_dame_statistics_error_coded(self):
+    def test_error_coded(self):
         ds = DameStatistics()
         v1 = [1, 0, 1, 1]
         v2 = [1, 1, 1, 0]
         self.assertEqual(ds.error_coded(v1, v2), 0.5)
 
-    def test_dame_statistics_error_coded_without_na(self):
+    def test_error_coded_without_na(self):
         ds = DameStatistics()
         v1 = [1, 0, 1, 1]
         v2 = [1, 1, 1, 0]
         self.assertEqual(ds.error_coded_without_na(v1, v2), 0.5)
 
-    def test_dame_statistics_na_coded(self):
+    def test_na_coded(self):
         ds = DameStatistics()
         v1 = [0, 1, 1, 1]
         v2 = [2, 0, 1, 1]
         self.assertEqual(ds.na_coded(v1, v2), 0.25)
 
-    def test_dame_statistics_error_gender_bias(self):
+    def test_error_gender_bias(self):
         ds = DameStatistics()
         v1 = [0, 1, 1, 1]
         v2 = [0, 0, 1, 1]
         self.assertEqual(ds.error_gender_bias(v1, v2), 0.25)
 
-    def test_dame_statistics_accuracy_score_dame(self):
+    def test_accuracy_score_dame(self):
         ds = DameStatistics()
         score1 = ds.accuracy_score_dame([1, 1], [1, 1])
         self.assertEqual(score1, 1)
@@ -99,7 +99,7 @@ class TddInPythonExample(unittest.TestCase):
                                          1, 1, 1, 1, 0, 1, 1])
         self.assertEqual(score4, 1)
 
-    def test_dame_gender_precision(self):
+    def test_precision(self):
         ds = DameStatistics()
         score1 = ds.precision([1, 1], [1, 1])
         self.assertEqual(score1, 1)
@@ -112,7 +112,7 @@ class TddInPythonExample(unittest.TestCase):
         score4 = ds.precision(l1, l2)
         self.assertEqual(score4, 1)
 
-    def test_dame_gender_recall(self):
+    def test_recall(self):
         ds = DameStatistics()
         score1 = ds.recall([1, 1], [1, 1])
         self.assertEqual(score1, 1)
@@ -125,7 +125,7 @@ class TddInPythonExample(unittest.TestCase):
         score4 = ds.recall(l1, l2)
         self.assertEqual(score4, 1)
 
-    def test_dame_gender_f1score(self):
+    def test_f1score(self):
         ds = DameStatistics()
         f1score1 = ds.f1score([1, 1], [1, 1])
         self.assertEqual(f1score1, 1)
