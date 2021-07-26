@@ -31,13 +31,6 @@ import csv
 
 class DameUtils():
 
-    def locales(self):
-        locales = [["at"], ["au"], ["be"], ["ca"], ["cn"], ["de"],
-                   ["dk"], ["es", "ine"], ["fi"], ["fr"], ["gb"],
-                   ["ie"], ["is"], ["mx"], ["nz"], ["pt"], ["si"],
-                   ["us", "usa"], ["uy"]]
-        return locales
-
     def dicc_dataset(self, sex):
         if ((sex == "male") or (sex == "males") or (sex == 1)):
             path = {"at": "files/names/names_at/atmales.csv",
