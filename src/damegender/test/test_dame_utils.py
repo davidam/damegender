@@ -32,6 +32,10 @@ from os.path import expanduser
 
 class TddInPythonExample(unittest.TestCase):
 
+    def test_locales(self):
+        du = DameUtils()
+        lat = du.locales[0
+
     def test_string2array(self):
         du = DameUtils()
         array = "muchos    espacios en blanco"
@@ -129,7 +133,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual('Hola Mexico', u.drop_quotes('Hola "Mexico'))
         self.assertEqual("Hola Mexico", u.drop_quotes("Hola' 'Mexico"))
 
-    def test_dame_utils_delete_duplicated_identities(self):
+    def test_delete_duplicated_identities(self):
         g = Gender()
         du = DameUtils()
         id1 = "David Arroyo Menéndez <davidam@gnu.org>"
@@ -138,13 +142,13 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(l1, ['David Arroyo Menéndez <davidam@gnu.org>'])
         self.assertEqual(du.delete_duplicated_identities([id1, id1]), [id1])
 
-    def test_dame_utils_delete_duplicated(self):
+    def test_delete_duplicated(self):
         g = Gender()
         du = DameUtils()
         l1 = sorted(du.delete_duplicated([1, 5, 2, 2, 1, 3, 5, 5, 5, 5]))
         self.assertEqual(l1, [1, 2, 3, 5])
 
-    def test_dame_utils_clean_list(self):
+    def test_clean_list(self):
         du = DameUtils()
         self.assertEqual(
             du.clean_list(
@@ -159,12 +163,12 @@ class TddInPythonExample(unittest.TestCase):
         l1 = ['', '', 'de', '', '', 'ar', '', '',  '', 'ca', 'cl', '', '']
         self.assertEqual(du.clean_list(l1), ['de', 'ar', 'ca', 'cl'])
 
-    def test_dame_utils_files_one_level(self):
+    def test_files_one_level(self):
         du = DameUtils()
         cwd = os.getcwd()
         self.assertTrue(len(du.files_one_level(cwd + '/files/')) > 10)
 
-    def test_dame_utils_files_one_level_drop_pwd(self):
+    def test_files_one_level_drop_pwd(self):
         du = DameUtils()
         cwd = os.getcwd()
         self.assertEqual(
@@ -180,12 +184,12 @@ class TddInPythonExample(unittest.TestCase):
              'files/datamodels/svc_model.sav',
              'files/datamodels/tree_model.sav'])
 
-    def test_dame_utils_list2lower(self):
+    def test_list2lower(self):
         du = DameUtils()
         x = ["Aaa", "bBb", "ccC"]
         self.assertEqual(du.list2lower(x), ["aaa", "bbb", "ccc"])
 
-    def test_dame_utils_csvcolumn2list(self):
+    def test_csvcolumn2list(self):
         du = DameUtils()
         l1 = du.csvcolumn2list('files/names/partial.csv', 0, header=True)
         self.assertEqual(len(l1), 21)
@@ -201,7 +205,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(['"pierre"', '"raul"', '"adriano"',
                           '"ralf"', '"guillermo"', '"sabina"'], l2)
 
-    def test_dame_utils_csv2list(self):
+    def test_csv2list(self):
         du = DameUtils()
         l1 = du.csv2list('files/names/min.csv')
         self.assertEqual(['"first_name"', '"middle_name"', '"last_name"',
@@ -218,18 +222,18 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(['"raul"', '""', '"serapioni"',
                           '"raul serapioni"', '"m"', '"zbmath"'], l2[2])
 
-    def test_dame_utils_num_columns_in_csv(self):
+    def test_num_columns_in_csv(self):
         du = DameUtils()
         n = du.num_columns_in_csv('files/names/partial.csv')
         self.assertEqual(n, 6)
 
-    def test_dame_utils_round_and_not_zero_division(self):
+    def test_round_and_not_zero_division(self):
         du = DameUtils()
         self.assertEqual(du.round_and_not_zero_division(4, 2), 2)
         self.assertEqual(du.round_and_not_zero_division(3, 2), 1.5)
         self.assertEqual(du.round_and_not_zero_division(8, 7), 1.143)
 
-    def test_dame_utils_identity2name_email(self):
+    def test_identity2name_email(self):
         du = DameUtils()
         s = "David Arroyo Menéndez <davidam@gnu.org>"
         identity = du.identity2name_email(s)
@@ -261,7 +265,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(identity6[0], 'Jim Jagielski')
         self.assertEqual(identity6[1], 'jim@jaguNET.com')
 
-    def test_dame_utils_same_identity(self):
+    def test_same_identity(self):
         du = DameUtils()
         s = du.same_identity("David Arroyo Menendez <davidam@gnu.org>",
                              "David Arroyo Menendez <davidam@gnu.org>")
@@ -276,7 +280,7 @@ class TddInPythonExample(unittest.TestCase):
                               "David Arroyo Menéndez <davidam@gnu.org>")
         self.assertTrue(s4)
 
-    def test_dame_utils_initial_letters(self):
+    def test_initial_letters(self):
         du = DameUtils()
         s = du.initial_letters("D ")
         self.assertTrue(s)
@@ -289,7 +293,7 @@ class TddInPythonExample(unittest.TestCase):
         s = du.initial_letters("JL")
         self.assertTrue(s)
 
-    def test_dame_utils_number_or_zero(self):
+    def test_number_or_zero(self):
         du = DameUtils()
         noz = du.number_or_zero("-")
         self.assertEqual(noz, 0)
@@ -297,20 +301,20 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(noz > 0)
         self.assertEqual(noz, 27)
 
-    def test_dame_utils_int2gender(self):
+    def test_int2gender(self):
         du = DameUtils()
         self.assertEqual(du.int2gender(1), "male")
         self.assertEqual(du.int2gender(0), "female")
         self.assertEqual(du.int2gender(2), "unknown")
 
-    def test_dame_utils_dicc_dataset(self):
+    def test_dicc_dataset(self):
         du = DameUtils()
         dicc = du.dicc_dataset("male")
         self.assertEqual(dicc["at"], "files/names/names_at/atmales.csv")
         dicc = du.dicc_dataset("female")
         self.assertEqual(dicc["at"], "files/names/names_at/atfemales.csv")
 
-    def test_dame_utils_delete_duplicated_identities(self):
+    def test_delete_duplicated_identities(self):
         du = DameUtils()
         l1 = ['David Arroyo Menéndez <davidam@es.gnu.org>',
               'David Arroyo Menendez <davidam@gmail.com>',
