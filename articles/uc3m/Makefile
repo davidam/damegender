@@ -1,8 +1,8 @@
 uc3m.pdf: 
 
 	latex uc3m.tex
-	bibtex uc3m.tex
-	latex uc3m.tex
+	bibtex uc3m
+	latex uc3m
 	pdflatex uc3m.tex
 
 
