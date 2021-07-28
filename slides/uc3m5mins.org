@@ -46,8 +46,6 @@ around 50%
 ** Measuring gender gap
 
 We are using these datasets to measure gender gap in:
-+ Webometrics (spanish academic people in 2020): 
-  35% females
 + GNU (maintainers people in 2020): 
   6.6% females 
 + Linux (maintainers people in 2020):
