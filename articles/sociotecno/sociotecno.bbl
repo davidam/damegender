@@ -18,6 +18,11 @@ Gonzalez-Barahona, J.~M., Robles, G., Andradas-Izquierdo, R., and Ghosh, R.~A.
 \newblock Geographic origin of libre software developers.
 \newblock {\em Information Economics and Policy}, 20(4):356--363.
 
+\bibitem[Hausmann et~al., 2012]{hausmann2012global}
+Hausmann, R., Tyson, L.~D., Zahidi, S., et~al. (2012).
+\newblock The global gender gap report 2012.
+\newblock World Economic Forum Geneva.
+
 \bibitem[Holman et~al., 2018]{holman2018gender}
 Holman, L., Stuart-Fox, D., and Hauser, C.~E. (2018).
 \newblock The gender gap in science: How long until women are equally
@@ -33,6 +38,17 @@ Men{\'e}ndez, D.~A., Gonz{\'a}lez-Barahona, J.~M., and Robles, G. (2020).
 Odina, M. T.~A. and Mar{\'\i}a, T. (1991).
 \newblock La educaci{\'o}n intercultural: concepto, paradigmas, realizaciones.
 \newblock {\em Lecturas de pedagog{\'\i}a diferencial. Dykinson, Madrid}.
+
+\bibitem[Perens et~al., 1999]{perens1999open}
+Perens, B. et~al. (1999).
+\newblock The open source definition.
+\newblock {\em Open sources: voices from the open source revolution},
+  1:171--188.
+
+\bibitem[Stallman, 2002]{stallman2002free}
+Stallman, R.~M. (2002).
+\newblock What is free software.
+\newblock {\em Free Society: Selected Essays of}, 23.
 
 \bibitem[Van~Rossum and Drake, 2011]{van2011python}
 Van~Rossum, G. and Drake, F.~L. (2011).
