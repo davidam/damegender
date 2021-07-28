@@ -1,0 +1,7 @@
+
+* Places to retrieve:
+https://gist.github.com/augustohp/2c59ceb96e195ea375abadb311637e7f
+https://github.com/joaoalvarenga/namegenderclassifier/
+
+* Official Sources:
+https://censo2010.ibge.gov.br/nomes/#/search
