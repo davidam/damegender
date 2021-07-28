@@ -23,7 +23,6 @@
 # Boston, MA 02110-1301 USA,
 
 
-
 """Simple command-line example for Custom Search.
 
 Command-line application that does a search.
