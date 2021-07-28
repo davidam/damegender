@@ -1,5 +1,24 @@
 #+TODO: TODO(t) POSIBLE(p) POSSIBLE(p) GOING(g) FUTURE(f) | DONE(d!) CANCELED(c!)
 
+* POSIBLE Plantearse poner estos footnotes al paper de uc3m
+Austria\footnote{https://www.wien.gv.at},
+Australia\footnote{https://data.sa.gov.au},
+Belgium\footnote{https://statbel.fgov.be/},
+Canada\footnote{https://open.alberta.ca/},
+Denmark\footnote{https://www.dst.dk/en},
+Germany\footnote{https://offenedaten-koeln.de/dataset/vornamen},
+Spain\footnote{https://www.ine.es/},
+Finland\footnote{https://www.avoindata.fi/},
+France\footnote{https://www.insee.fr/},
+Great
+Britain\footnote{https://www.ons.gov.uk/},
+Ireland\footnote{https://data.gov.ie/},
+Mexico\footnote{http://datamx.io/},
+New
+Zealand\footnote{https://smartstart.services.govt.nz/news/baby-names},
+Portugal\footnote{http://centraldedados.pt/nomes\_proprios/} and
+Slovenia\footnote{https://pxweb.stat.si/}.
+
 
 * DONE gsoc applications open March 25, 2019 at 19:00
   SCHEDULED: <2019-03-25 lun 19:00>
