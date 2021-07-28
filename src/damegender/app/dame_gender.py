@@ -1130,9 +1130,10 @@ class Gender(object):
         return [ret, i]
 
     def accuracy(self, path):
+        ds = DameStatistics()
         gl = self.csv2gender_list(path)
         sl = self.guess_list(path, binary=True)
-        return self.accuracy_score_dame(gl, sl)
+        return ds.accuracy_score_dame(gl, sl)
 
     def confusion_matrix_gender(self, path='', jsonf=''):
         # this method is an interfaz to confusion_matrix_table
