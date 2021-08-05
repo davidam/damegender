@@ -261,6 +261,11 @@ class TddInPythonExample(unittest.TestCase):
         frec7 = g.name_frec("MARIA", dataset='si')
         self.assertEqual(int(frec7['females']), 2867)
 
+    def test_dame_gender_name_frec_from_file(self):
+        g = Gender()
+        num = g.name_frec_from_file("David", "files/names/names_at/atmales.csv")
+        self.assertEqual(num, '62814')
+        
     def test_dame_gender_path_surname_dataset(self):
         dg = Gender()
         path = "files/inesurnames/apellidos-belgica.xls.csv"
