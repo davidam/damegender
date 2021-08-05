@@ -12,11 +12,13 @@
 import csv
 import argparse
 from app.dame_utils import DameUtils
+from app.dame_gender import Gender
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--file1", help="display the gender")
 parser.add_argument("--file2", help="display the gender")
 parser.add_argument('--output', default="interfemales.csv")
+parser.add_argument('--malefemale', default=False, action="store_true")
 parser.add_argument('--verbose', default=False, action="store_true")
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
@@ -27,6 +29,7 @@ args = parser.parse_args()
 ll = []
 
 du = DameUtils()
+dg = Gender()
 
 li = du.csv2list(args.file1)
 if (args.verbose):
@@ -64,7 +67,14 @@ if (args.verbose):
 
 file = open(args.output, "w")
 for k in dicc.keys():
-    line = k + "," + str(dicc[k]) + "\n"
+    if (args.malefemale):
+        frec_file1 = int(dg.name_frec_from_file(k, args.file1))
+        frec_file2 = int(dg.name_frec_from_file(k, args.file2))
+        percentage_file1 = (frec_file1 / (frec_file1 + frec_file2)) * 100
+        percentage_file2 = (frec_file2 / (frec_file1 + frec_file2)) * 100
+        line = k + "," + str(dicc[k]) + "," + str(percentage_file1) + "," + str(percentage_file2) + "\n"
+    else:
+        line = k + "," + str(dicc[k]) + "\n"        
     file.write(line)
 
 file.close()
