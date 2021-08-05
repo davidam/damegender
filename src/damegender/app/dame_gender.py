@@ -656,6 +656,16 @@ class Gender(object):
 
         return dicc
 
+    def name_frec_from_file(self, name, path):
+        filef = open(path, 'r')
+        readerf = csv.reader(filef, delimiter=',', quotechar='|')
+        cnt = 0
+        for row in readerf:
+            if (row[0].lower() == name.lower()):
+                cnt = row[1]
+                cnt = du.drop_dots(cnt)
+        return cnt
+    
     def inesurname_province_and_frec(self, surname, *args, **kwargs):
         # guess list method
         province = kwargs.get('province', 'madrid')
@@ -735,8 +745,6 @@ class Gender(object):
             spath = 'files/inesurnames/provincias/residencia/navarra.csv'
         elif (province == 'ourense'):
             spath = 'files/inesurnames/provincias/residencia/ourense.csv'
-        elif (province == 'palencia'):
-            spath = 'files/inesurnames/provincias/residencia/palencia.csv'
         elif (province == 'palencia'):
             spath = 'files/inesurnames/provincias/residencia/palencia.csv'
         elif (province == 'pontevedra'):
