@@ -70,9 +70,12 @@ for k in dicc.keys():
     if (args.malefemale):
         frec_file1 = int(dg.name_frec_from_file(k, args.file1))
         frec_file2 = int(dg.name_frec_from_file(k, args.file2))
-        percentage_file1 = (frec_file1 / (frec_file1 + frec_file2)) * 100
-        percentage_file2 = (frec_file2 / (frec_file1 + frec_file2)) * 100
-        line = k + "," + str(dicc[k]) + "," + str(percentage_file1) + "," + str(percentage_file2) + "\n"
+        if ((frec_file1 > 0) or (frec_file2 > 0)):
+            percentage_file1 = (frec_file1 / (frec_file1 + frec_file2)) * 100
+            percentage_file2 = (frec_file2 / (frec_file1 + frec_file2)) * 100
+            line = k + "," + str(dicc[k]) + "," + str(percentage_file1) + "," + str(percentage_file2) + "\n"
+        else:
+            line = k + "," + str(dicc[k]) + "\n"        
     else:
         line = k + "," + str(dicc[k]) + "\n"        
     file.write(line)
