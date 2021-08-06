@@ -22,4 +22,7 @@ python3 mergeinterfiles.py --file1="files/names/names_ie/iemales.csv" --file2="f
 python3 mergeinterfiles.py --file1="files/names/names_inter/intermales.csv" --file2="files/names/names_inter/interfemales.csv" --output=files/names/names_inter/interall.csv --malefemale
 python3 mergeinterfiles.py --file1="files/names/names_is/ismales.csv" --file2="files/names/names_is/isfemales.csv" --output=files/names/names_is/isall.csv --malefemale
 python3 mergeinterfiles.py --file1="files/names/names_mx/hombres.csv" --file2="files/names/names_mx/mujeres.csv" --output=files/names/names_mx/mxall.csv --malefemale
+python3 mergeinterfiles.py --file1="files/names/names_nz/nzmales.csv" --file2="files/names/names_nz/nzfemales.csv" --output=files/names/names_nz/nzall.csv --malefemale
+python3 mergeinterfiles.py --file1="files/names/names_pt/ptmales.csv" --file2="files/names/names_pt/ptfemales.csv" --output=files/names/names_pt/ptall.csv --malefemale
+python3 mergeinterfiles.py --file1="files/names/names_uy/uymasculinos.csv" --file2="files/names/names_uy/uyfemeninos.csv" --output=files/names/names_us/uyall.csv --malefemale
 
