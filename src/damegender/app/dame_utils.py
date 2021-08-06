@@ -69,8 +69,32 @@ class DameUtils():
                     "us": "files/names/names_us/usfemales.csv",
                     "usa": "files/names/names_us/usfemales.csv",
                     "uy": "files/names/names_uy/uyfemeninos.csv"}
+        elif ((sex == "all") or (sex == 2)):
+            path = {"at": "files/names/names_at/atall.csv",
+                    "au": "files/names/names_au/auall.csv",
+                    "be": "files/names/names_be/beall.csv",
+                    "ca": "files/names/names_ca/caall.csv",
+                    "cn": "files/names/names_cn/cnall.csv",
+                    "de": "files/names/names_de/deall.csv",
+                    "dk": "files/names/names_dk/dkall.csv",
+                    "es": "files/names/names_es/esall.csv",
+                    "fi": "files/names/names_fi/fiall.csv",
+                    "fr": "files/names/names_fr/frall.csv",
+                    "gb": "files/names/names_gb/ukall.csv",
+                    "ie": "files/names/names_ie/ieall.csv",
+                    "ine": "files/names/names_es/esall.csv",
+                    "inter": "files/names/names_inter/interall.csv",
+                    "is": "files/names/names_is/isall.csv",
+                    "mx": "files/names/names_mx/mxall.csv",
+                    "nz": "files/names/names_nz/nzall.csv",
+                    "pt": "files/names/names_pt/ptall.csv",
+                    "si": "files/names/names_si/siall.csv",
+                    "us": "files/names/names_us/usall.csv",
+                    "usa": "files/names/names_us/usall.csv",
+                    "uy": "files/names/names_uy/uyall.csv"}
+                    
         return path
-
+    
     def string2array(self, string):
         res = ""
         string = unidecode.unidecode(string)
