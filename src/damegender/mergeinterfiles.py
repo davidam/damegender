@@ -36,13 +36,27 @@ if (args.verbose):
     print(li)
 
 lenli = len(li)
+dicci = {}
+for i in li:
+    if i[0].upper() in dicci.keys():
+        dicci[i[0].upper()] = int(dicci[i[0].upper()]) + int(i[1])
+    else:
+        dicci[i[0].upper()] = int(i[1])
+
 if (args.verbose):
     print(lenli)
-
+    
 lj = du.csv2list(args.file2)
 if (args.verbose):
     print(lj)
+    
 lenlj = len(lj)
+diccj = {}
+for i in lj:
+    if i[0].upper() in diccj.keys():
+        diccj[i[0].upper()] = int(diccj[i[0].upper()]) + int(i[1])
+    else:
+        diccj[i[0].upper()] = int(i[1])
 
 if (args.verbose):
     print(lenlj)
@@ -68,8 +82,8 @@ if (args.verbose):
 file = open(args.output, "w")
 for k in dicc.keys():
     if (args.malefemale):
-        frec_file1 = int(dg.name_frec_from_file(k, args.file1))
-        frec_file2 = int(dg.name_frec_from_file(k, args.file2))
+        frec_file1 = dicci[k]
+        frec_file2 = diccj[k]
         if ((frec_file1 > 0) or (frec_file2 > 0)):
             percentage_file1 = (frec_file1 / (frec_file1 + frec_file2)) * 100
             percentage_file2 = (frec_file2 / (frec_file1 + frec_file2)) * 100
