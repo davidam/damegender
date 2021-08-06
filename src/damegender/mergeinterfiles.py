@@ -45,11 +45,11 @@ for i in li:
 
 if (args.verbose):
     print(lenli)
-    
+
 lj = du.csv2list(args.file2)
 if (args.verbose):
     print(lj)
-    
+
 lenlj = len(lj)
 diccj = {}
 for i in lj:
@@ -82,16 +82,22 @@ if (args.verbose):
 file = open(args.output, "w")
 for k in dicc.keys():
     if (args.malefemale):
-        frec_file1 = dicci[k]
-        frec_file2 = diccj[k]
+        if k in dicci:
+            frec_file1 = dicci[k]
+        else:
+            frec_file1 = 0
+        if k in diccj:
+            frec_file2 = diccj[k]
+        else:
+            frec_file2 = 0
         if ((frec_file1 > 0) or (frec_file2 > 0)):
             percentage_file1 = (frec_file1 / (frec_file1 + frec_file2)) * 100
             percentage_file2 = (frec_file2 / (frec_file1 + frec_file2)) * 100
             line = k + "," + str(dicc[k]) + "," + str(percentage_file1) + "," + str(percentage_file2) + "\n"
         else:
-            line = k + "," + str(dicc[k]) + "\n"        
+            line = k + "," + str(dicc[k]) + "\n"
     else:
-        line = k + "," + str(dicc[k]) + "\n"        
+        line = k + "," + str(dicc[k]) + "\n"
     file.write(line)
 
 file.close()
