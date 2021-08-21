@@ -199,6 +199,12 @@ surnames located by place where the person is living
                                                     province='zaragoza')
             print("Zaragoza: %s" % frec53)
 
+            string2 = """
+The previous data is only for the 50 most frequently first
+surnames located by place where the person is living
+"""
+            print(string2)
+            
     elif (args.total == 'us'):
         print("There are %s people using %s in United States of America"
               % (v[1], args.surname))
