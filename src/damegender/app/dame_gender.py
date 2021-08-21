@@ -777,7 +777,7 @@ class Gender(object):
         readerf = csv.reader(file_surnames, delimiter=',', quotechar='|')
         quantity = 0
         for row in readerf:
-            if ((len(row) > 1) and (row[0].lower() == surname.lower())):
+            if ((len(row) > 1) and (du.drop_accents(row[0].lower()) == du.drop_accents(surname.lower()))):
                 aux = row[1]
                 quantity = int(du.drop_dots(aux))
         return quantity
