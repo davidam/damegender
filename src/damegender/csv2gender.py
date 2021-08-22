@@ -26,6 +26,7 @@ parser.add_argument('--dataset', default="us",
                              'fi', 'gb', 'ie', 'ine', 'inter', 'is', 'mx',
                              'nz', 'pt', 'si', 'uy', 'us', 'genderguesser'])
 parser.add_argument('--outcsv', default="files/names/out.csv")
+parser.add_argument('--outjson', default="files/names/out.json")
 parser.add_argument('--outimg', default="files/images/csv2gender.png")
 parser.add_argument('--title', default="People grouped by gender")
 parser.add_argument('--noshow', dest='noshow', action='store_true')
@@ -71,6 +72,18 @@ for i in l1:
     file.write(str(i[0])+","+str(i[1]) + "\n")
 
 file.close()
+
+file = open(args.outjson, "w")
+file.write("[");
+for i in l1:
+    file.write("{\n");
+    file.write("name: " + str(i[0]) + ",\n")
+    file.write("gender: " + str(i[1]) + ",\n")
+    file.write("},\n");    
+file.write("]");
+    
+file.close()
+
 
 if (args.delete_duplicated):
     males_list = du.delete_duplicated(males_list)
