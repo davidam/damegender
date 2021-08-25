@@ -55,3 +55,7 @@ Valencia: 0
 Valladolid: 0
 Zamora: 0
 Zaragoza: 0
+
+The previous data is only for the 50 most frequently first
+surnames located by place where the person is living
+
