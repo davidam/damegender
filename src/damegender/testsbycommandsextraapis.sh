@@ -24,7 +24,7 @@ if [ -f files/apikeys/genderizepass.txt ]; then
 
     python3 api2gender.py David --api="genderize" > files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt
 
-    if ! cmp files/tests/api2genderDavidgenderize.txt files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+    if ! diff files/tests/api2genderDavidgenderize.txt files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
     then
 	echo -e "api2genderDavidgenderize test is ${RED}failing${NC}"
     else
@@ -45,7 +45,7 @@ fi
 if [ -f files/apikeys/namsorpass.txt ]; then
     python3 api2gender.py Leticia --surname="Martin" --api="namsor" > files/tests/api2genderLeticianamsor-$(date "+%Y-%m-%d-%H").txt
 
-    if ! cmp files/tests/api2genderLeticianamsor.txt files/tests/api2genderLeticianamsor-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+    if ! diff files/tests/api2genderLeticianamsor.txt files/tests/api2genderLeticianamsor-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
     then
 	echo -e "api2genderLeticianamsor test is ${RED}failing${NC}"
     else
@@ -76,7 +76,7 @@ if [ -f files/apikeys/genderapipass.txt ]; then
 
     python3 api2gender.py Inés --api="genderapi" > files/tests/api2genderInésgenderapi-$(date "+%Y-%m-%d-%H").txt
 
-    if ! cmp files/tests/api2genderInésgenderapi.txt files/tests/api2genderInésgenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+    if ! diff files/tests/api2genderInésgenderapi.txt files/tests/api2genderInésgenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
     then
 	echo -e "api2genderInésgenderapi test is ${RED}failing${NC}"
     else
@@ -85,7 +85,7 @@ if [ -f files/apikeys/genderapipass.txt ]; then
 
     # python3 accuracy.py --api="genderapi" --csv="files/names/min.csv" > files/tests/accuracygenderapi-$(date "+%Y-%m-%d-%H").txt
 
-    # if ! cmp files/tests/accuracygenderapi.txt files/tests/accuracygenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+    # if ! diff files/tests/accuracygenderapi.txt files/tests/accuracygenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
     # then
     # 	echo "accuracygenderapi test is failing"
     # else
