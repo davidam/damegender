@@ -14,8 +14,10 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("path", help="csv file")
-parser.add_argument("--outjson", help="json file")
+parser.add_argument("--outjson", default="files/names/out.json", help="json file")
 parser.add_argument('--skip_header', dest='skip_header', action='store_true')
+parser.add_argument('--gender', choices=["male", "female"])
+
 args = parser.parse_args()
 
 du = DameUtils()
@@ -26,15 +28,15 @@ if (args.skip_header):
 else:
     csvlist = du.csv2list(args.path, header=False)
 
-print(csvlist)    
+# print(csvlist)    
 
-file = open(args.outjson, "w")
+file = open(str(args.outjson), "w")
 file.write("[");
 for i in csvlist:
     file.write("{\n");
     file.write("name: " + str(i[0]) + ",\n")
     file.write("frequency: " + str(i[1]) + ",\n")    
-    file.write("gender: " + str(i[1]) + ",\n")
+    file.write("gender: " + str(args.gender) + ",\n")
     file.write("},\n");    
 file.write("]");
     
