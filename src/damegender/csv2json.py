@@ -3,8 +3,8 @@
 
 #  Copyright (C) 2021 David Arroyo Menéndez
 
-#  Author: David Arroyo Menéndez <davidam@gmail.com> 
-#  Maintainer: David Arroyo Menéndez <davidam@gmail.com> 
+#  Author: David Arroyo Menéndez <davidam@gmail.com>
+#  Maintainer: David Arroyo Menéndez <davidam@gmail.com>
 #  You can share, copy and modify this software if you are a woman or you
 #  are David Arroyo Menéndez and you include this note.
 
@@ -28,16 +28,21 @@ if (args.skip_header):
 else:
     csvlist = du.csv2list(args.path, header=False)
 
-# print(csvlist)    
+# print(csvlist)
 
 file = open(str(args.outjson), "w")
-file.write("[");
+file.write('[')
+cnt = 0
 for i in csvlist:
-    file.write("{\n");
-    file.write("name: " + str(i[0]) + ",\n")
-    file.write("frequency: " + str(i[1]) + ",\n")    
-    file.write("gender: " + str(args.gender) + ",\n")
-    file.write("},\n");    
-file.write("]");
-    
+    file.write('{\n')
+    file.write('"name": "' + str(i[0]) + '",\n')
+    file.write('"frequency": ' + str(i[1]) + ',\n')
+    file.write('"gender": "' + str(args.gender) + '"\n')
+    cnt = cnt + 1
+    if (len(csvlist) == cnt):
+        file.write('}\n')
+    else:
+        file.write('},\n')
+file.write(']');
+
 file.close()
