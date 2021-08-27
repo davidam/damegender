@@ -15,7 +15,9 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("path", help="csv file")
 parser.add_argument("--outjson", default="files/names/out.json", help="json file")
+parser.add_argument("--outdir", default="files/names/", help="json file")
 parser.add_argument('--skip_header', dest='skip_header', action='store_true')
+parser.add_argument('--multiple_files', dest='multiple_files', action='store_true')
 parser.add_argument('--gender', choices=["male", "female"])
 
 args = parser.parse_args()
@@ -30,19 +32,34 @@ else:
 
 # print(csvlist)
 
-file = open(str(args.outjson), "w")
-file.write('[')
-cnt = 0
-for i in csvlist:
-    file.write('{\n')
-    file.write('"name": "' + str(i[0]) + '",\n')
-    file.write('"frequency": ' + str(i[1]) + ',\n')
-    file.write('"gender": "' + str(args.gender) + '"\n')
-    cnt = cnt + 1
-    if (len(csvlist) == cnt):
-        file.write('}\n')
-    else:
-        file.write('},\n')
-file.write(']');
-
-file.close()
+if (args.multiple_files):
+    cnt = 0
+    for i in csvlist:
+        print(str(i[0]))
+        print(args.outdir)
+        print(args.gender)
+        jsonfile = args.outdir + "/" + str(i[0]) + "_" + args.gender + ".json"
+        print(jsonfile)
+        file = open(jsonfile, "w")
+        file.write('[{\n')
+        file.write('"name": "' + str(i[0]) + '",\n')
+        file.write('"frequency": ' + str(i[1]) + ',\n')
+        file.write('"gender": "' + str(args.gender) + '"\n')
+        file.write('}]\n')
+        file.close()
+else:
+    file = open(str(args.outjson), "w")
+    file.write('[')
+    cnt = 0
+    for i in csvlist:
+        file.write('{\n')
+        file.write('"name": "' + str(i[0]) + '",\n')
+        file.write('"frequency": ' + str(i[1]) + ',\n')
+        file.write('"gender": "' + str(args.gender) + '"\n')
+        cnt = cnt + 1
+        if (len(csvlist) == cnt):
+            file.write('}\n')
+        else:
+            file.write('},\n')
+    file.write(']');
+    file.close()
