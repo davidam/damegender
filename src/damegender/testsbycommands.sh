@@ -501,8 +501,20 @@ else
 	echo -e  "roc test is ${RED}failing${NC}"
 fi
 
+python3 csv2json.py files/names/names_inter/dkfemales10.csv --outdir="files/tmp" --gender=female --multiple_files 
+
+ls -l files/tmp/*female.json > files/tests/tmpfemalejson-$(date "+%Y-%m-%d-%H").txt
+
+if ! diff files/tests/tmpfemalejson.txt files/tests/tmpfemalejson-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+    echo -e "csv2json test is ${GREEN}ok${NC}"
+else
+    echo -e "csv2json test is ${RED}failing${NC}"
+fi
+
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
+rm files/tmp/*
 
 echo "restoring the config"
 cp config.cfg.backup config.cfg
