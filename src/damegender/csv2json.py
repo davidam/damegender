@@ -35,14 +35,10 @@ else:
 if (args.multiple_files):
     cnt = 0
     for i in csvlist:
-        print(str(i[0]))
-        print(args.outdir)
-        print(args.gender)
-        jsonfile = args.outdir + "/" + str(i[0]) + "_" + args.gender + ".json"
-        print(jsonfile)
+        jsonfile = args.outdir + "/" + str(i[0].upper()) + "_" + args.gender + ".json"
         file = open(jsonfile, "w")
         file.write('[{\n')
-        file.write('"name": "' + str(i[0]) + '",\n')
+        file.write('"name": "' + str(i[0].upper()) + '",\n')
         file.write('"frequency": ' + str(i[1]) + ',\n')
         file.write('"gender": "' + str(args.gender) + '"\n')
         file.write('}]\n')
@@ -53,7 +49,7 @@ else:
     cnt = 0
     for i in csvlist:
         file.write('{\n')
-        file.write('"name": "' + str(i[0]) + '",\n')
+        file.write('"name": "' + str(i[0].upper()) + '",\n')
         file.write('"frequency": ' + str(i[1]) + ',\n')
         file.write('"gender": "' + str(args.gender) + '"\n')
         cnt = cnt + 1
