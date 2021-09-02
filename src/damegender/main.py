@@ -103,9 +103,9 @@ elif ((args.verbose) or (args.total == "all")):
           % (n_females, args.name))
     n_males = s.name_frec(args.name, dataset="ch")['males']
     n_females = s.name_frec(args.name, dataset="ch")['females']
-    print("%s males for %s from Switzerland statistics"
+    print("%s males for %s from Swiss statistics"
           % (n_males, args.name))
-    print("%s females for %s from Switzerland statistics"
+    print("%s females for %s from Swiss statistics"
           % (n_females, args.name))
     n_males = s.name_frec(args.name, dataset="cn")['males']
     n_females = s.name_frec(args.name, dataset="cn")['females']
@@ -280,9 +280,9 @@ else:
         print("%s females for %s from Canada statistics"
               % (n_females, args.name))
     elif (args.total == "ch"):
-        print("%s males for %s from Switzerland statistics"
+        print("%s males for %s from Swiss statistics"
               % (n_males, args.name))
-        print("%s females for %s from Switzerland statistics"
+        print("%s females for %s from Swiss statistics"
               % (n_females, args.name))
     elif (args.total == "cn"):
         print("%s males for %s from China statistics"
