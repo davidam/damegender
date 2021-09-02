@@ -24,7 +24,8 @@ parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB',
                                      'multinomialNB', 'bernoulliNB',
                                      'forest', 'tree', 'mlp'])
 parser.add_argument('--total', default="inter",
-                    choices=['at', 'au', 'be', 'ca', 'cn', 'de', 'dk', 'es',
+                    choices=['at', 'au', 'be', 'ca', 'ch',
+                             'cn', 'de', 'dk', 'es',
                              'fi', 'fr', 'gb', 'ie', 'is', 'nz',
                              'mx', 'pt', 'si', 'tr', 'uy', 'us',
                              'namdict', 'inter'])
@@ -99,6 +100,12 @@ elif ((args.verbose) or (args.total == "all")):
     print("%s males for %s from Canada statistics"
           % (n_males, args.name))
     print("%s females for %s from Canada statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="ch")['males']
+    n_females = s.name_frec(args.name, dataset="ch")['females']
+    print("%s males for %s from Switzerland statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Switzerland statistics"
           % (n_females, args.name))
     n_males = s.name_frec(args.name, dataset="cn")['males']
     n_females = s.name_frec(args.name, dataset="cn")['females']
@@ -271,6 +278,11 @@ else:
         print("%s males for %s from Canada statistics"
               % (n_males, args.name))
         print("%s females for %s from Canada statistics"
+              % (n_females, args.name))
+    elif (args.total == "ch"):
+        print("%s males for %s from Switzerland statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Switzerland statistics"
               % (n_females, args.name))
     elif (args.total == "cn"):
         print("%s males for %s from China statistics"
