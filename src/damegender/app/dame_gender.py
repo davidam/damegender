@@ -560,6 +560,8 @@ class Gender(object):
             path_males = dicc_males["be"]
         elif (dataset == 'ca'):
             path_males = dicc_males["ca"]
+        elif (dataset == 'ch'):
+            path_males = dicc_males["ch"]
         elif (dataset == 'cn'):
             path_males = dicc_males["cn"]
         elif (dataset == 'de'):
@@ -610,6 +612,8 @@ class Gender(object):
             path_females = dicc_females["be"]
         elif (dataset == 'ca'):
             path_females = dicc_females["ca"]
+        elif (dataset == 'ch'):
+            path_females = dicc_females["ch"]            
         elif (dataset == 'cn'):
             path_females = dicc_females["cn"]
         elif (dataset == 'de'):
