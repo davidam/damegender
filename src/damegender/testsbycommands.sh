@@ -501,7 +501,7 @@ else
 	echo -e  "roc test is ${RED}failing${NC}"
 fi
 
-python3 csv2json.py files/names/names_inter/dkfemales10.csv --outdir="files/tmp" --gender=female --multiple_files 
+python3 csv2jsonapirest.py files/names/names_inter/dkfemales10.csv --outdir="files/tmp" --gender=female --multiple_files 
 
 ls -l files/tmp/*female.json > files/tests/tmpfemalejson-$(date "+%Y-%m-%d-%H").txt
 
