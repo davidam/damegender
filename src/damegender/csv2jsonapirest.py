@@ -31,11 +31,11 @@ else:
     csvlist = du.csv2list(args.path, header=False)
 
 if (args.gender == "all"):
-    print("You must csv use damegender files such as files/names/names_be/beall.csv")
+    print("You must use damegender csv files such as files/names/names_be/beall.csv")
 elif (args.gender == "female"):
-    print("You must csv use damegender files such as files/names/names_be/befemales.csv")
+    print("You must use damegender csv files such as files/names/names_be/befemales.csv")
 elif (args.gender == "male"):
-    print("You must csv use damegender files such as files/names/names_be/bemales.csv")    
+    print("You must use damegender csv files such as files/names/names_be/bemales.csv")    
 # print(csvlist)
 
 if (args.multiple_files):
