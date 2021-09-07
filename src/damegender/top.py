@@ -28,9 +28,9 @@ import tempfile
 parser = argparse.ArgumentParser()
 parser.add_argument("country", default="usa",
                     choices=['at', 'au', 'be', 'ca', 'dk', 'de', 'es',
-                             'fi', 'gb', 'ie', 'ine', 'inter', 'is',
-                             'nz', 'mx', 'pt', 'si', 'uy', 'uk',
-                             'us', 'usa'],
+                             'fr', 'fi', 'gb', 'ie', 'ine',
+                             'inter', 'is', 'nz', 'mx', 'pt',
+                             'si', 'uy', 'uk', 'us', 'usa'],
                     help="Countries with 2 letter, example, es is Spain")
 # More about iso codes on https://www.iso.org/obp/ui/
 parser.add_argument('--number', default=10)
@@ -96,12 +96,16 @@ elif (args.country == "be"):
     c2lmales = du.csv2list(dicc_dataset_males["be"])
 elif (args.country == "ca"):
     c2lmales = du.csv2list(dicc_dataset_males["ca"])
+elif (args.country == "de"):
+    c2lmales = du.csv2list(dicc_dataset_males["de"])
 elif (args.country == "dk"):
     c2lmales = du.csv2list(dicc_dataset_males["dk"])
 elif ((args.country == "es") | (args.country == "ine")):
     c2lmales = du.csv2list(dicc_dataset_males["es"])
 elif (args.country == "fi"):
     c2lmales = du.csv2list(dicc_dataset_males["fi"])
+elif (args.country == "fr"):
+    c2lmales = du.csv2list(dicc_dataset_males["fr"])
 elif (args.country == "ie"):
     c2lmales = du.csv2list(dicc_dataset_males["ie"])
 elif (args.country == "inter"):
@@ -140,12 +144,16 @@ elif (args.country == "be"):
     c2lfemales = du.csv2list(dicc_dataset_females["be"])
 elif (args.country == "ca"):
     c2lfemales = du.csv2list(dicc_dataset_females["ca"])
+elif (args.country == "de"):
+    c2lfemales = du.csv2list(dicc_dataset_females["de"])    
 elif (args.country == "dk"):
     c2lfemales = du.csv2list(dicc_dataset_females["dk"])
 elif ((args.country == "es") | (args.country == "ine")):
     c2lfemales = du.csv2list(dicc_dataset_females["es"])
 elif (args.country == "fi"):
     c2lfemales = du.csv2list(dicc_dataset_females["fi"])
+elif (args.country == "fr"):
+    c2lfemales = du.csv2list(dicc_dataset_females["fr"])    
 elif ((args.country == "gb") or (args.country == "uk")):
     c2lfemales = du.csv2list(dicc_dataset_females["gb"])
 elif (args.country == "ie"):
