@@ -43,11 +43,23 @@ if (args.multiple_files):
     for i in csvlist:
         jsonfile = args.outdir + "/" + str(i[0].upper()) + "_" + args.gender + ".json"
         file = open(jsonfile, "w")
+        try:
+            varname = str(i[0].upper())
+            varfrequency = str(i[1])
+            if (args.gender == "all"):
+                varmales = str(i[2])
+                varfemales = str(i[3])
+            else:
+                vargender = str(args.gender)
+        except IndexError:
+            print("The program has troubles with the array: " + str(i))
+            file.close()
+
         file.write('[{\n')
         file.write('"name": "' + str(i[0].upper()) + '",\n')
         file.write('"frequency": ' + str(i[1]) + ',\n')
         if (args.gender == "all"):
-            file.write('"males": "' + str(i[2]) + ' %"\n')
+            file.write('"males": "' + str(i[2]) + ' %",\n')
             file.write('"females": "' + str(i[3]) + ' %"\n')            
         else:
             file.write('"gender": "' + str(args.gender) + '"\n')
@@ -58,14 +70,25 @@ else:
     file.write('[')
     cnt = 0
     for i in csvlist:
+        try:
+            varname = str(i[0].upper())
+            varfrequency = str(i[1])
+            if (args.gender == "all"):
+                varmales = str(i[2])
+                varfemales = str(i[3])
+            else:
+                vargender = str(args.gender)
+        except IndexError:
+            print("The program has troubles with the array: " + str(i))
+            file.close()
         file.write('{\n')
-        file.write('"name": "' + str(i[0].upper()) + '",\n')
-        file.write('"frequency": ' + str(i[1]) + ',\n')
+        file.write('"name": "' + varname + '",\n')
+        file.write('"frequency": ' + varfrequency + ',\n')
         if (args.gender == "all"):
-            file.write('"males": "' + str(i[2]) + ' %"\n')
-            file.write('"females": "' + str(i[3]) + ' %"\n')            
+            file.write('"males": "' + varmales + ' %",\n')
+            file.write('"females": "' + varfemales + ' %"\n')            
         else:
-            file.write('"gender": "' + str(args.gender) + '"\n')        
+            file.write('"gender": "' + vargender + '"\n')        
         cnt = cnt + 1
         if (len(csvlist) == cnt):
             file.write('}\n')
