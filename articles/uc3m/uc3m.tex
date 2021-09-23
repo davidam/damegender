@@ -46,18 +46,22 @@ David Arroyo Menéndez \\ Grupo de Sistemas y Comunicaciones (GSyC) \\ Universid
 
   %% Methodology
 
-  With Open Data idea, many statistics institutions are providing Open
-  Datasets about name, gender and frequency. So, we need a scientific
-  discussion about unifying formats, making easy ways to process these
-  data and ways towards make standards.
+  With Open Data on mind, many statistical institutions are providing
+  Open Datasets about name, gender and frequency. So, we need a
+  scientific discussion about unifying formats, making easy ways to
+  process these data and ways towards make standards.
+
+  Meanwhile, has been developed Damegender (Free and Open Source
+  Software) to retrieve and make calculus with these data.
 
   %% Results
   
   The dataset is covering more than 20 countries in the occidental
-  world, with more names than any open source software in this
-  moment. Allowing to measure gender gap to students and academics
-  interested on the phenomenon without costs and on a reproducible
-  way, more people will be contributing to fix the gender gap.
+  world (above all), with more names than any open source software in
+  this moment, generating an international dataset, too. Sureley,
+  allowing to measure gender gap to students and academics interested
+  on the phenomenon without costs and on a reproducible way, more
+  people will be contributing to fix the gender gap.
 
   %% Conclusion
 
@@ -72,6 +76,18 @@ David Arroyo Menéndez \\ Grupo de Sistemas y Comunicaciones (GSyC) \\ Universid
 
 
 \section{Introduction}
+
+So, we have an objective in United Nations about gender gap. We
+understand that ``if you cannot measure it, you cannot improve it" and
+Software Engineering Economics is an invaluable guide to determining
+software costs, applying the fundamental concepts of microeconomics to
+software engineering. So, the objective in this paper is reduce costs
+to measure gender gap.
+
+Detecting personal names, you can infer gender on academical papers,
+books, newspapers and many interactions on Internet. So, the task
+about detect gender from the names could be a strategical task to
+measure gender gap.
 
 Nowadays, many people is using APIs such as Genderapi, Genderize,
 Namsor, or NameApi. Another people is using solutions based on
@@ -147,8 +163,9 @@ giving the frequency, now. So, we are rejecting this idea.
 
 With an international free dataset about names, gender and frequency
 we can build reproducible science in fields such as Natural Language
-Processing (gender detection from the name), social sciences (gender
-gap~\cite{holman2018gender,mislove2011understanding}),
+Processing (gender detection from the name), social sciences or
+journalism (gender
+gap~\cite{holman2018gender,mislove2011understanding,niemi2017gendered,de2014genero}),
 lingüistic~\cite{lawson2005russian,krueger1962mongolian,van2020gender,agyekum2006sociolinguistic,fraser1987lexicon},
 software engineering~\cite{vasilescu2012gender}, ...
 
@@ -222,6 +239,27 @@ Towards the semantic way:
 With a richness markup take into account the gender in the context of
 a country.
 
+\section{Free APIs for Free Datasets?}
+\label{sec:freeapis}
+
+Many websites about Open Data is delivering methods to retrieve Open
+Data with a structured format and without costs for the user, such as,
+Wikipedia with SPARQL, OpenStreetMap with API rest, ...
+
+We are detecting that the Open Datasets about names, gender and
+frequency is being modified one time per year as maximum for each
+statistical institution.
+
+On Damegender, we have developed python scripts to create the
+different datasets and publish json files that could be used as a Free
+API Rest publishing the json files in sites as github pages, gitlab
+pages, or similar sites with free uploads.
+
+So, we could think that could have Free API Rest about names, gender
+and frequency reaching reduce costs to fix the gender gap on a
+collaborative way similar to Wikipedia, OpenStreetMap or many Free
+Software projects.
+
 \section{Damegender Open Datasets Collection}
 \label{sec:damegender}
 
@@ -267,8 +305,8 @@ problem can be fixed with Open Data, too.
 \begin{tabular}[]{lcccc}
   \hline
   Dataset & SSA & namdict & NLTK & Damegender \tabularnewline
-  males & 91.320 & 48.821 & 2.943 & 256.320 \tabularnewline
-  females & 91.320 & 48.821 & 5.001 & 278.914 \tabularnewline
+  males & 91.320 & 48.821 & 2.943 & 278.929 \tabularnewline
+  females & 91.320 & 48.821 & 5.001 & 299.846 \tabularnewline
   \hline
 \end{tabular}
 \caption{Comparison about the number of names}
@@ -380,12 +418,21 @@ the numbers are similar in Debian dividing the developers in 408 males
 This paper is explaining the application about Damegender, the
 motivations (reproducible research, fix gender gap to reach an
 objective of United Nations, fields of application: lingüistic, social
-sciences, software engineering, natural language processing, ...)
+sciences, software engineering, natural language processing,
+journalism, ...)
 
-A good solution is to build an international, universal and free
+A good improvement is to build an international, universal and free
 dataset about names, gender and frequency with the right design with
-the current state of the job, attending to the diversity (LGTB
+the current state of the job, attending to the diversity (LGBT
 options, cultural minorities, ...).
+
+This paper has explained what technologies is involved on reduce costs
+about gender gap (gender detection from the names, api rest, semantic
+web, ...)
+
+Augmenting the number of countries with statistical institutions
+giving names, gender and frequencies with Open Data will be augmenting
+the accuracies and giving more attention to the diversity.
 
 The current state of work is the longest Open Dataset about names,
 gender and frequency with more than 20 countries representing the
