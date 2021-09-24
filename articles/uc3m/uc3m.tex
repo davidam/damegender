@@ -78,11 +78,12 @@ David Arroyo Menéndez \\ Grupo de Sistemas y Comunicaciones (GSyC) \\ Universid
 \section{Introduction}
 
 So, we have an objective in United Nations about gender gap. We
-understand that ``if you cannot measure it, you cannot improve it" and
-Software Engineering Economics is an invaluable guide to determining
-software costs, applying the fundamental concepts of microeconomics to
-software engineering. So, the objective in this paper is reduce costs
-to measure gender gap.
+understand that ``if you cannot measure it, you cannot improve
+it"~\cite{thompson1833electrical} and Software Engineering Economics
+is an invaluable guide to determining software costs, applying the
+fundamental concepts of microeconomics to software
+engineering~\cite{barry1981software}. So, the objective in this paper
+is reduce costs to measure gender gap.
 
 Detecting personal names, you can infer gender on academical papers,
 books, newspapers and many interactions on Internet. So, the task
@@ -250,10 +251,20 @@ We are detecting that the Open Datasets about names, gender and
 frequency is being modified one time per year as maximum for each
 statistical institution.
 
-On Damegender, we have developed python scripts to create the
-different datasets and publish json files that could be used as a Free
-API Rest publishing the json files in sites as github pages, gitlab
-pages, or similar sites with free uploads.
+Damegender contains python scripts to create the different datasets
+and publish json files that could be used as a Free API Rest
+publishing the json files in sites as github pages, gitlab pages, or
+similar sites with free uploads.
+
+\begin{verbatim}
+  $ cat DAVID_all.json
+  [{
+      "name": "DAVID",
+      "frequency": 4856689,
+      "males": "99.73267796229078 %",
+      "females": "0.26732203770922947 %"
+  }]
+\end{verbatim}
 
 So, we could think that could have Free API Rest about names, gender
 and frequency reaching reduce costs to fix the gender gap on a
