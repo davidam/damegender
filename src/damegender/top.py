@@ -27,9 +27,10 @@ import tempfile
 
 parser = argparse.ArgumentParser()
 parser.add_argument("country", default="usa",
-                    choices=['at', 'au', 'be', 'ca', 'dk', 'de', 'es',
-                             'fr', 'fi', 'gb', 'ie', 'ine',
-                             'inter', 'is', 'nz', 'mx', 'pt',
+                    choices=['at', 'au', 'be', 'ca', 'ch',
+                             'dk', 'de', 'es', 'fr', 'fi',
+                             'gb', 'ie', 'ine', 'inter',
+                             'is', 'nz', 'mx', 'pt',
                              'si', 'uy', 'uk', 'us', 'usa'],
                     help="Countries with 2 letter, example, es is Spain")
 # More about iso codes on https://www.iso.org/obp/ui/
@@ -96,6 +97,8 @@ elif (args.country == "be"):
     c2lmales = du.csv2list(dicc_dataset_males["be"])
 elif (args.country == "ca"):
     c2lmales = du.csv2list(dicc_dataset_males["ca"])
+elif (args.country == "ch"):
+    c2lmales = du.csv2list(dicc_dataset_males["ch"])
 elif (args.country == "de"):
     c2lmales = du.csv2list(dicc_dataset_males["de"])
 elif (args.country == "dk"):
@@ -144,6 +147,8 @@ elif (args.country == "be"):
     c2lfemales = du.csv2list(dicc_dataset_females["be"])
 elif (args.country == "ca"):
     c2lfemales = du.csv2list(dicc_dataset_females["ca"])
+elif (args.country == "ch"):
+    c2lfemales = du.csv2list(dicc_dataset_females["ch"])    
 elif (args.country == "de"):
     c2lfemales = du.csv2list(dicc_dataset_females["de"])    
 elif (args.country == "dk"):
