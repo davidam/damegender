@@ -57,7 +57,7 @@
 {"name":"Claude", 
 "surname":"hamann", 
 "probability": 1, 
-"gender":"female"}, 
+"gender":"male"}, 
 {"name":"Martin", 
 "surname":"slawski", 
 "probability": 1, 
