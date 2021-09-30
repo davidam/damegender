@@ -1,4 +1,17 @@
 
+* v0.3.6
+
+New commands:
++ csv2jsonapirest.py: to download names with json api files
+
+New countries:
++ Switzerland (60693 names)
+
+New Preprint: Damegender: Towards an International and Free Dataset
+about Name, Gender and Frequency
+
+Updates in commands about datasets.
+
 * v0.3.5
 
 Refactoring and bug fixing: All source is reaching PEP8 coding style
