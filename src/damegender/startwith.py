@@ -36,23 +36,16 @@ parser.add_argument('--total', default="us",
                     choices=['at', 'au', 'be', 'ca', 'ch', 'de',
                              'dk', 'es', 'fi', 'fr', 'gb', 'ie',
                              'ine', 'inter', 'is', 'nz', 'mx', 'pt',
-                             'si', 'tr', 'us', 'uy'])
+                             'se', 'si', 'tr', 'us', 'uy'])
 parser.add_argument('--gender', default="female", choices=['male', 'female'])
-parser.add_argument('--surname', default=False, action="store_true")
 parser.add_argument('--version', action='version', version='0.4')
 args = parser.parse_args()
 
 g = Gender()
 
-print(args.surname)
-if (args.surname):
-    if ((args.total == "es") or (args.total == "us")):
-        print(args.total)
-else:
-    du = DameUtils()
-    dicc = du.dicc_dataset(args.gender)
-
-    path = dicc[args.total]
+du = DameUtils()
+dicc = du.dicc_dataset(args.gender)
+path = dicc[args.total]
 
 with open(path) as csvfile:
     sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
