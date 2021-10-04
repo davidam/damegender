@@ -6,3 +6,6 @@
 + https://digitales.wien.gv.at/site/open-data/ogd-nutzungsbedingungen/
 + https://creativecommons.org/licenses/by/4.0/deed.de
 
+* Criteria about how to count
++ Sum of baby borns from 2010 to 2019.
++ Source: atmalesfemales.py
