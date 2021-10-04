@@ -1,3 +1,7 @@
+* v0.3.7
+
+New countries:
++ Sweden (1079 males and 974 females)
 
 * v0.3.6
 
