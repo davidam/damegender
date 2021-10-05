@@ -15,5 +15,8 @@ with codecs.open('Personer_20211003-224940.csv', 'r', encoding='utf8') as file:
 femalesoutput = "nofemales.csv"
 fo = open(femalesoutput, "w")
 
+count = 0
 for i in list:
-    fo.write(str(i[0].replace('"', '')) + "," + str(i[1].replace('"', '')) + "\n")
+    if (count > 0):
+        fo.write(str(i[0].replace('"', '')) + "," + str(i[1].replace('"', '')) + "\n")
+    count = count +1
