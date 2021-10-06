@@ -592,6 +592,8 @@ class Gender(object):
             path_males = dicc_males["inter"]
         elif (dataset == 'is'):
             path_males = dicc_males["is"]
+        elif (dataset == 'no'):
+            path_males = dicc_males["no"]
         elif (dataset == 'nz'):
             path_males = dicc_males["nz"]
         elif (dataset == 'mx'):
@@ -627,7 +629,7 @@ class Gender(object):
         elif (dataset == 'ca'):
             path_females = dicc_females["ca"]
         elif (dataset == 'ch'):
-            path_females = dicc_females["ch"]            
+            path_females = dicc_females["ch"]
         elif (dataset == 'cn'):
             path_females = dicc_females["cn"]
         elif (dataset == 'de'):
@@ -648,6 +650,8 @@ class Gender(object):
             path_females = dicc_females["fr"]
         elif (dataset == 'gb'):
             path_females = dicc_females["gb"]
+        elif (dataset == 'no'):
+            path_females = dicc_females["no"]
         elif (dataset == 'nz'):
             path_females = dicc_females["nz"]
         elif (dataset == 'mx'):
@@ -655,7 +659,7 @@ class Gender(object):
         elif (dataset == 'pt'):
             path_females = dicc_females["pt"]
         elif (dataset == 'se'):
-            path_females = dicc_females["se"]            
+            path_females = dicc_females["se"]
         elif (dataset == 'si'):
             path_females = dicc_females["si"]
         elif (dataset == 'tr'):
@@ -685,7 +689,7 @@ class Gender(object):
                 cnt = row[1]
                 cnt = du.drop_dots(cnt)
         return cnt
-    
+
     def inesurname_province_and_frec(self, surname, *args, **kwargs):
         # guess list method
         province = kwargs.get('province', 'madrid')

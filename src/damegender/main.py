@@ -37,8 +37,8 @@ parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB',
                                      'forest', 'tree', 'mlp'])
 parser.add_argument('--total', default="inter",
                     choices=['at', 'au', 'be', 'ca', 'ch',
-                             'cn', 'de', 'dk', 'es',
-                             'fi', 'fr', 'gb', 'ie', 'is', 'nz',
+                             'cn', 'de', 'dk', 'es', 'fi',
+                             'fr', 'gb', 'ie', 'is', 'no', 'nz', 
                              'mx', 'pt', 'se', 'si', 'tr', 'uy',
                              'us', 'namdict', 'inter'])
 # More about iso codes on https://www.iso.org/obp/ui/
@@ -179,6 +179,12 @@ elif ((args.verbose) or (args.total == "all")):
           % (n_males, args.name))
     print("%s females for %s from Mexico statistics"
           % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="no")['males']
+    n_females = s.name_frec(args.name, dataset="no")['females']
+    print("%s males for %s from Norway statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Norway statistics"
+          % (n_females, args.name))    
     n_males = s.name_frec(args.name, dataset="nz")['males']
     n_females = s.name_frec(args.name, dataset="nz")['females']
     print("%s males for %s from New Zealand statistics"
@@ -357,6 +363,11 @@ else:
         print("%s males for %s from Mexico statistics"
               % (n_males, args.name))
         print("%s females for %s from Mexico statistics"
+              % (n_females, args.name))
+    elif (args.total == "no"):
+        print("%s males for %s from Norway statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Norway statistics"
               % (n_females, args.name))
     elif (args.total == "nz"):
         print("%s males for %s from New Zealand statistics"
