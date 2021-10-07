@@ -35,8 +35,9 @@ parser.add_argument("chars", help="display the gender")
 parser.add_argument('--total', default="us",
                     choices=['at', 'au', 'be', 'ca', 'ch', 'de',
                              'dk', 'es', 'fi', 'fr', 'gb', 'ie',
-                             'ine', 'inter', 'is', 'nz', 'mx', 'pt',
-                             'se', 'si', 'tr', 'us', 'uy'])
+                             'ine', 'inter', 'is', 'no', 'nz', 
+                             'mx', 'pt', 'se', 'si', 'tr',
+                             'us', 'uy'])
 parser.add_argument('--gender', default="female", choices=['male', 'female'])
 parser.add_argument('--version', action='version', version='0.4')
 args = parser.parse_args()
