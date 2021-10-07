@@ -42,8 +42,9 @@ parser.add_argument("country", default="usa",
                     choices=['at', 'au', 'be', 'ca', 'ch',
                              'dk', 'de', 'es', 'fr', 'fi',
                              'gb', 'ie', 'ine', 'inter',
-                             'is', 'nz', 'mx', 'pt', 'se',
-                             'si', 'uy', 'uk', 'us', 'usa'],
+                             'is', 'no', 'nz', 'mx', 'pt',
+                             'se', 'si', 'uy', 'uk',
+                             'us', 'usa'],
                     help="Countries with 2 letter, example, es is Spain")
 # More about iso codes on https://www.iso.org/obp/ui/
 parser.add_argument('--number', default=10)
@@ -127,6 +128,8 @@ elif (args.country == "inter"):
     c2lmales = du.csv2list(dicc_dataset_males["inter"])
 elif (args.country == "is"):
     c2lmales = du.csv2list(dicc_dataset_males["is"])
+elif (args.country == "no"):
+    c2lmales = du.csv2list(dicc_dataset_males["no"])
 elif (args.country == "nz"):
     c2lmales = du.csv2list(dicc_dataset_males["nz"])
 elif (args.country == "mx"):
@@ -181,6 +184,8 @@ elif (args.country == "inter"):
     c2lfemales = du.csv2list(dicc_dataset_females["inter"])
 elif (args.country == "is"):
     c2lfemales = du.csv2list(dicc_dataset_females["is"])
+elif (args.country == "no"):
+    c2lfemales = du.csv2list(dicc_dataset_females["no"])
 elif (args.country == "nz"):
     c2lfemales = du.csv2list(dicc_dataset_females["nz"])
 elif (args.country == "mx"):
