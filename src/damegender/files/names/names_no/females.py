@@ -22,6 +22,7 @@ with open(femalesoutput, 'w', encoding='utf8') as fo:
             name = str(i[0].replace('"', ''))
             freq = str(i[1].replace('"', ''))
             freq = re.sub(r'(\.)', r'0', freq)
-            fo.write(name + "," + freq + "\n")
+            if (name != ""):
+                fo.write(name + "," + freq + "\n")
         count = count +1
     fo.close()
