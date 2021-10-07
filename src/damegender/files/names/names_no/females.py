@@ -1,5 +1,6 @@
 import codecs
 import csv
+import re
 
 with codecs.open('Personer_20211003-224940.csv', 'r', encoding='utf8') as file:
     input = csv.reader(file, delimiter=";", quotechar='|')
@@ -13,10 +14,14 @@ with codecs.open('Personer_20211003-224940.csv', 'r', encoding='utf8') as file:
 #print(list)
 
 femalesoutput = "nofemales.csv"
-fo = open(femalesoutput, "w")
 
-count = 0
-for i in list:
-    if (count > 0):
-        fo.write(str(i[0].replace('"', '')) + "," + str(i[1].replace('"', '')) + "\n")
-    count = count +1
+with open(femalesoutput, 'w', encoding='utf8') as fo:
+    count = 0
+    for i in list:
+        if (count > 0):
+            name = str(i[0].replace('"', ''))
+            freq = str(i[1].replace('"', ''))
+            freq = re.sub(r'(\.)', r'0', freq)
+            fo.write(name + "," + freq + "\n")
+        count = count +1
+    fo.close()
