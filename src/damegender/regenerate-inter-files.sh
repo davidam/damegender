@@ -39,6 +39,8 @@ python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsifemale
 python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusfemales.csv" --file2="files/names/names_uy/uyfemeninos.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfemales.csv
 python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfemales.csv" --file2="files/names/names_fr/frfemales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrfemales.csv
 python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrfemales.csv" --file2="files/names/names_ch/chfemales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchfemales.csv
+python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchfemales.csv" --file2="files/names/names_se/sefemales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsefemales.csv
+python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsefemales.csv" --file2="files/names/names_no/nofemales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenofemales.csv
 
 
 
@@ -60,9 +62,12 @@ python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsimales.
 python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusmales.csv" --file2="files/names/names_uy/uymasculinos.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuymales.csv
 python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuymales.csv" --file2="files/names/names_fr/frmales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrmales.csv
 python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrmales.csv" --file2="files/names/names_ch/chmales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchmales.csv
+python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchfemales.csv" --file2="files/names/names_se/sefemales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsefemales.csv
+python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsefemales.csv" --file2="files/names/names_no/nofemales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenofemales.csv
 
-mv files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchmales.csv files/names/names_inter/intermales.csv
-mv files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchfemales.csv files/names/names_inter/interfemales.csv
+
+mv files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenomales.csv files/names/names_inter/intermales.csv
+mv files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenofemales.csv files/names/names_inter/interfemales.csv
 
 echo "Cleaning temporal files"
 rm files/tmp/*
