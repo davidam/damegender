@@ -1,3 +1,6 @@
+* v0.3.8
+New countries:
++ Norway (1015 females 896 males)
 * v0.3.7
 
 New countries:
