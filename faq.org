@@ -31,7 +31,9 @@ dev branch. That's the copyright note:
 You can share, copy and modify this software if you are a woman or you
 are David Arroyo Menéndez and you include this note.
 
-So we 
+We have stopped this policy in some Open Source event (for example,
+Hacktoberfest) to speed up the development using only GPLv3. You will
+love hackaton spirit.
 
 ** Why are you guessing male or female?
 Some aplications are guessing unknown, but in Damegender we are
