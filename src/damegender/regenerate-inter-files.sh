@@ -62,8 +62,8 @@ python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsimales.
 python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusmales.csv" --file2="files/names/names_uy/uymasculinos.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuymales.csv
 python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuymales.csv" --file2="files/names/names_fr/frmales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrmales.csv
 python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrmales.csv" --file2="files/names/names_ch/chmales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchmales.csv
-python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchfemales.csv" --file2="files/names/names_se/sefemales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsefemales.csv
-python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsefemales.csv" --file2="files/names/names_no/nofemales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenofemales.csv
+python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchmales.csv" --file2="files/names/names_se/semales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsemales.csv
+python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsemales.csv" --file2="files/names/names_no/nomales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenomales.csv
 
 
 mv files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenomales.csv files/names/names_inter/intermales.csv
