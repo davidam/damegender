@@ -52,7 +52,7 @@ class DameUtils():
                     "is": "files/names/names_is/ismales.csv",
                     "mx": "files/names/names_mx/hombres.csv",
                     "no": "files/names/names_no/nomales.csv",
-                    "nz": "files/names/names_nz/nzmales.csv",                    
+                    "nz": "files/names/names_nz/nzmales.csv",
                     "pt": "files/names/names_pt/ptmales.csv",
                     "tr": "files/names/names_tr/male_name_tally",
                     "se": "files/names/names_se/semales.csv",
@@ -65,7 +65,7 @@ class DameUtils():
                     "au": "files/names/names_au/aufemales.csv",
                     "be": "files/names/names_be/befemales.csv",
                     "ca": "files/names/names_ca/cafemales.csv",
-                    "ch": "files/names/names_ch/chfemales.csv",                    
+                    "ch": "files/names/names_ch/chfemales.csv",
                     "cn": "files/names/names_cn/cnfemales.csv",
                     "de": "files/names/names_de/defemales.csv",
                     "dk": "files/names/names_dk/females.csv",
@@ -78,7 +78,7 @@ class DameUtils():
                     "inter": "files/names/names_inter/interfemales.csv",
                     "is": "files/names/names_is/isfemales.csv",
                     "mx": "files/names/names_mx/mujeres.csv",
-                    "no": "files/names/names_no/nofemales.csv",                    
+                    "no": "files/names/names_no/nofemales.csv",
                     "nz": "files/names/names_nz/nzfemales.csv",
                     "pt": "files/names/names_pt/ptfemales.csv",
                     "tr": "files/names/names_tr/female_name_tally",
@@ -105,16 +105,16 @@ class DameUtils():
                     "is": "files/names/names_is/isall.csv",
                     "mx": "files/names/names_mx/mxall.csv",
                     "no": "files/names/names_no/noall.csv",
-                    "nz": "files/names/names_nz/nzall.csv",                    
+                    "nz": "files/names/names_nz/nzall.csv",
                     "pt": "files/names/names_pt/ptall.csv",
-                    "se": "files/names/names_si/seall.csv",                    
+                    "se": "files/names/names_si/seall.csv",
                     "si": "files/names/names_si/siall.csv",
                     "us": "files/names/names_us/usall.csv",
                     "usa": "files/names/names_us/usall.csv",
                     "uy": "files/names/names_uy/uyall.csv"}
-                    
+
         return path
-    
+
     def string2array(self, string):
         res = ""
         string = unidecode.unidecode(string)
@@ -308,7 +308,7 @@ class DameUtils():
 
     def csv2list(self, csvpath,  *args, **kwargs):
         # make a list from a csv file
-        header = kwargs.get('header', False)
+        header = kwargs.get('header', True)
         delimiter = kwargs.get('delimiter', ',')
         l1 = []
         with open(csvpath) as csvfile:
