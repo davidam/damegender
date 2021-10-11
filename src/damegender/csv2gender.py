@@ -33,6 +33,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("path", help="csv file")
 parser.add_argument('--first_name_position', required=True,
                     type=int, choices=[0, 1, 2, 3, 4], default=0)
+parser.add_argument('--surname_position', required=False,
+                    type=int, choices=[0, 1, 2, 3, 4], default=0)
 parser.add_argument('--dataset', default="us",
                     choices=['at', 'au', 'be', 'ca', 'de', 'dk', 'es',
                              'fi', 'gb', 'ie', 'ine', 'inter', 'is', 'mx',
@@ -50,6 +52,8 @@ parser.add_argument('--version', action='version', version='0.3')
 args = parser.parse_args()
 
 
+first_name_position = int(args.first_name_position)
+surname_position = int(args.surname_position)
 du = DameUtils()
 s = Gender()
 
@@ -61,26 +65,38 @@ males_list = []
 females_list = []
 unknows_list = []
 
+# warnings
+if (first_name_position == surname_position):
+    print("WARNING:")
+    print("First name and surname has the same position")
+    print("First name: %s" % int(args.first_name_position))
+    print("Surname: %s" % int(args.surname_position))
+    print("It's not being generated the surname field in the output")
+
+
 if (args.skip_header):
-    nameslist = du.csvcolumn2list(args.path)
+    csvrowlist = du.csv2list(args.path)
 else:
-    nameslist = du.csvcolumn2list(args.path, header=False)
+    csvrowlist = du.csv2list(args.path, header=False)
+
 
 l1 = []
 
-for firstname in nameslist:
-    firstname = du.drop_quotes(firstname)
-    sex = s.guess(firstname, binary=False, dataset=args.dataset)
+for i in csvrowlist:
+    first_name_string = du.drop_quotes(i[first_name_position])
+    surname_string = du.drop_quotes(i[surname_position])
+    sex = s.guess(first_name_string, binary=False, dataset=args.dataset)
     if (sex == "male"):
-        males_list.append(firstname)
+        males_list.append(first_name_string)
     elif (sex == "female"):
-        females_list.append(firstname)
+        females_list.append(first_name_string)
     else:
-        unknows_list.append(firstname)
-    l1.append([firstname, sex])
+        unknows_list.append(first_name_string)
+    l1.append([first_name_string, sex, surname_string])
 
 file = open(args.outcsv, "w")
 for i in l1:
+    print(i)
     file.write(str(i[0])+","+str(i[1]) + "\n")
 
 file.close()
@@ -88,12 +104,21 @@ file.close()
 file = open(args.outjson, "w")
 file.write("[");
 for i in l1:
-    file.write("{\n");
-    file.write("name: " + str(i[0]) + ",\n")
-    file.write("gender: " + str(i[1]) + ",\n")
-    file.write("},\n");    
-file.write("]");
-    
+    print(i)
+    if (l1[0] == i):
+        file.write("{\n");
+    file.write('"name": "' + str(i[0]) + '",\n')
+    if (int(args.first_name_position) != int(args.surname_position)):
+        file.write('"surname": "' + str(i[2]) + '",\n')
+    file.write('"gender": "' + str(i[1]) + '"\n')
+    # print(l1[-1])
+    # print(i)
+    if (l1[-1] == i):
+        file.write("}\n")
+    else:
+        file.write("}, {\n")
+file.write("]\n");
+
 file.close()
 
 
