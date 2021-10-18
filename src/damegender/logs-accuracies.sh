@@ -20,6 +20,12 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+#### INTER DATASET
+
+echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.inter.json --measure=accuracy --api=damegender > files/logs/accuracy-inter-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-inter-$(date "+%Y-%m-%d").txt
+
+python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.inter.json --measure=accuracy --api=damegender > files/logs/accuracy-inter-$(date "+%Y-%m-%d").txt
+
 
 #### MLP ALGORITHM
 
