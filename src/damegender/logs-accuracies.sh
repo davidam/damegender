@@ -26,6 +26,18 @@ echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondown
 
 python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.inter.json --measure=accuracy --api=damegender > files/logs/accuracy-inter-$(date "+%Y-%m-%d").txt
 
+echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.inter.json --measure=precision --api=damegender > files/logs/precision-inter-"$(date "+%Y-%m-%d")".txt " > files/logs/precision-inter-$(date "+%Y-%m-%d").txt
+
+python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.inter.json --measure=precision --api=damegender > files/logs/precision-inter-$(date "+%Y-%m-%d").txt
+
+echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.inter.json --measure=recall --api=damegender > files/logs/recall-inter-"$(date "+%Y-%m-%d")".txt " > files/logs/recall-inter-$(date "+%Y-%m-%d").txt
+
+python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.inter.json --measure=recall --api=damegender > files/logs/recall-inter-$(date "+%Y-%m-%d").txt
+
+echo "python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.inter.json --measure=f1score --api=damegender > files/logs/f1score-inter-"$(date "+%Y-%m-%d")".txt " > files/logs/f1score-inter-$(date "+%Y-%m-%d").txt
+
+python3 accuracy.py --csv=files/names/allnoundefined+header.csv --jsondownloaded=files/names/allnoundefined.inter.json --measure=f1score --api=damegender > files/logs/f1score-inter-$(date "+%Y-%m-%d").txt
+
 
 #### MLP ALGORITHM
 
