@@ -1,0 +1,5 @@
+Damegender with files/names/allnoundefined+header.csv has: 
++ The error code: 0.12441598892541962
++ The error code without na: 0.0522569769619779
++ The na coded: 0.07613774009344178
++ The error gender bias: 0.01891740026222139
