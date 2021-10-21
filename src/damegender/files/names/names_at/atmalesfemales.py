@@ -29,13 +29,10 @@ with open('babyvornamenfemales.csv') as csvfilef:
     sexreader = csv.reader(csvfilef, delimiter=',', quotechar='|')
     fofemales = open("atfemales.csv", "w")    
     for row in sexreader:
-        print(row)
-        print(natural(row[2]))
-#        print(val)
-        val = natural(row[2]) + natural(row[4]) + natural(row[6]) + natural(row[8]) + natural(row[10]) + natural(row[12]) + natural(row[14]) + natural(row[16]) + natural(row[18]) + natural(row[20])
-        # print(val)
-        # print(str(row[0]))
-        fofemales.write(row[0] + "," + str(val) + "\n")
+        if not(("Gesamtzahl Personen (Männer)" in row[0]) or ("Gesamtzahl Personen (Frauen)" in row[0])):        
+            val = natural(row[2]) + natural(row[4]) + natural(row[6]) + natural(row[8]) + natural(row[10]) + natural(row[12]) + natural(row[14]) + natural(row[16]) + natural(row[18]) + natural(row[20])
+            print(val)
+            fofemales.write(str(row[0]) + "," + str(val) + "\n")
 fofemales.close()
 
 with open('babyvornamenmales.csv') as csvfilem:
@@ -45,10 +42,8 @@ with open('babyvornamenmales.csv') as csvfilem:
     sexreader = csv.reader(csvfilem, delimiter=',', quotechar='|')
     fomales = open("atmales.csv", "w")        
     for row in sexreader:
-        print(row)
-        print(natural(row[2]))
-#        print(val)
-        val = natural(row[2]) + natural(row[4]) + natural(row[6]) + natural(row[8]) + natural(row[10]) + natural(row[12]) + natural(row[14]) + natural(row[16]) + natural(row[18]) + natural(row[20])
-        print(val)        
-        fomales.write(row[0] + "," + str(val) + "\n")
+        if not(("Gesamtzahl Personen (Männer)" in row[0]) or ("Gesamtzahl Personen (Frauen)" in row[0])):
+            val = natural(row[2]) + natural(row[4]) + natural(row[6]) + natural(row[8]) + natural(row[10]) + natural(row[12]) + natural(row[14]) + natural(row[16]) + natural(row[18]) + natural(row[20])
+            print(val)
+            fomales.write(str(row[0]) + "," + str(val) + "\n")
 fomales.close()
