@@ -84,8 +84,10 @@ l1 = []
 
 for i in csvrowlist:
     first_name_string = du.drop_quotes(i[first_name_position])
+    first_name_string = first_name_string.encode('utf-8')
     surname_string = du.drop_quotes(i[surname_position])
-    sex = s.guess(first_name_string, binary=False, dataset=args.dataset)
+    surname_string = surname_string.encode('utf-8')
+    sex = s.guess(first_name_string.decode('utf-8'), binary=False, dataset=args.dataset)
     if (sex == "male"):
         males_list.append(first_name_string)
     elif (sex == "female"):
@@ -97,7 +99,7 @@ for i in csvrowlist:
 file = open(args.outcsv, "w")
 for i in l1:
     print(i)
-    file.write(str(i[0])+","+str(i[1]) + "\n")
+    file.write(str(i[0].decode('utf-8'))+","+str(i[1]) + "\n")
 
 file.close()
 
@@ -107,9 +109,9 @@ for i in l1:
     print(i)
     if (l1[0] == i):
         file.write("{\n");
-    file.write('"name": "' + str(i[0]) + '",\n')
+    file.write('"name": "' + str(i[0].decode('utf-8')) + '",\n')
     if (int(args.first_name_position) != int(args.surname_position)):
-        file.write('"surname": "' + str(i[2]) + '",\n')
+        file.write('"surname": "' + str(i[2].decode('utf8')) + '",\n')
     file.write('"gender": "' + str(i[1]) + '"\n')
     # print(l1[-1])
     # print(i)
@@ -134,7 +136,7 @@ if (len(sys.argv) > 1):
     if ((args.verbose) and (len(males_list) > 0)):
         print("the males list:")
         for i in males_list:
-            print(i)
+            print(i.decode('utf8'))
 
     print("---------------------------------------------------------------")
     print("The number of females in %s is %s" %
@@ -142,7 +144,7 @@ if (len(sys.argv) > 1):
     if ((args.verbose) and (len(females_list) > 0)):
         print("the females list:")
         for i in females_list:
-            print(i)
+            print(i.decode('utf8'))
 
     print("---------------------------------------------------------------")
     print("The number of gender not recognised in %s is %s" %
@@ -150,7 +152,7 @@ if (len(sys.argv) > 1):
     if ((args.verbose) and (len(unknows_list) > 0)):
         print("the unknowns list:")
         for i in unknows_list:
-            print(i)
+            print(i.decode('utf8'))
 
 
 nmales = len(males_list)
