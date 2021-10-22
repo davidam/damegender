@@ -21,10 +21,27 @@
 
 ** Research Examples about it
 
-+ Gender gap in Knowledge: Wikipedia, Twitter, Newspapers, ...
++ Gender gap in Knowledge: Wikipedia, Twitter, Newspapers, Papers, ...
 + Gender Gap in Software Engineering: Git, StackOverflow, ...
 + Lingüistics: Statistics in each language about number of last letters,
   first letter, phonems, ... in males and females
+
+** Damegender: A Toolkit for to Measure Gender Gap with an Approach on Reproducibility
+
+Current state:
++ Interface with Commercial APIs
++ Automatic counts: csv2gender, git2gender, mail2gender, ...
++ Machine Learning for nicknames and diminutives
++ Comparing tools with: infofeatures, roc, principal components
+  analysis (pca), confusion matrices, accuracies, precision, ...
+
+** Damegender Dataset
+
++ Accuracy: 0.876
++ Females: 299870
++ Males: 278981
++ Names retrieved only from statistical institutions with free copy
+  license
 
 ** Activities
 
