@@ -1,0 +1,60 @@
+#+TITLE: Damegender: Towards an International Dataset about Names, Gender and Frequency
+#+AUTHOR: David Arroyo Menéndez
+#+OPTIONS: H:2 toc:nil num:t
+#+LATEX_CLASS: beamer
+#+LATEX_CLASS_OPTIONS: [presentation]
+#+BEAMER_THEME: Madrid
+#+COLUMNS: %45ITEM %10BEAMER_ENV(Env) %10BEAMER_ACT(Act) %4BEAMER_COL(Col) %8BEAMER_OPT(Opt)
+
+* Summary
+** Presentation (I)
++ Thesis Student: David Arroyo Menéndez
++ Title of this slides: Towards an International Dataset about Names, Gender and Frequency
++ Thesis Director: Jesús González Barahona
+
+** Academic Disciplines that could be finding profit on it
+
++ Secondary sources in gender studies
++ To build indicators about gender gap
++ Natural Language Processing
++ Studies about Lingüistics
+
+** Research Examples about it
+
++ Gender gap in Knowledge: Wikipedia, Twitter, Newspapers, ...
++ Gender Gap in Software Engineering: Git, StackOverflow, ...
++ Lingüistics: Statistics in each language about number of last letters,
+  first letter, phonems, ... in males and females
+
+** Activities
+
+We have presented this work in:
+
+*** Scientific events on Software Engineering:
++ Madrilenian Software Research
++ Group Retreat 2019 Workshop
++ SATToSE 2020: Seminar Series on Advanced Techniques & Tools for Software Evolution
+
+*** Event to master students and researchers in another disciplines:
++ Periodismo de Datos (Medialab Prado)
++ VI International Congress of Young Researchers with a Gender
+  Perspective (UC3M 2021)
++ I Congreso Internacional "Tecnologías I+D+i para la Igualdad:
+  soluciones, perspectivas y retos" (UC3M 2021)
++ Jornadas Online “Género y Ciencia de Datos en Deporte y Salud
+  (UOC 2021)
+
+*** Industrial events:
++ Python Barcelona (2019)
++ Open South Code (2019)
+
+** Results
+
+*** Software
+Free Software released with GPLv3 integrated in the industry
++ git clone https://github.com/davidam/damegender.git
++ pip3 install damegender
+
+*** Publications
++ Damegender: Writing and Comparing Gender Detection Tools (CEUR)
++ Damegender Manual: Counting Males and Females in Internet Communities
