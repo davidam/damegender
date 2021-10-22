@@ -7,7 +7,7 @@
 #+COLUMNS: %45ITEM %10BEAMER_ENV(Env) %10BEAMER_ACT(Act) %4BEAMER_COL(Col) %8BEAMER_OPT(Opt)
 
 * Summary
-** Presentation (I)
+** Presentation
 + Thesis Student: David Arroyo Menéndez
 + Title of this slides: Towards an International Dataset about Names, Gender and Frequency
 + Thesis Director: Jesús González Barahona
@@ -40,8 +40,12 @@ Current state:
 + Accuracy: 0.876
 + Females: 299870
 + Males: 278981
-+ Names retrieved only from statistical institutions with free copy
-  license
++ Open Data names retrieved only from statistical institutions
++ More than 20 countries
+
+** Damegender Countries
+
+file:img/mapamundi-politico-mudo.png
 
 ** Activities
 
