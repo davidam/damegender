@@ -204,19 +204,15 @@ class TddInPythonExample(unittest.TestCase):
     def test_csv2list(self):
         du = DameUtils()
         l1 = du.csv2list('files/names/min.csv')
-        self.assertEqual(['"first_name"', '"middle_name"', '"last_name"',
-                          '"full_name"', '"gender"', '"origin"'], l1[0])
         self.assertEqual(['"pierre"', '"paul"', '"grivel"',
-                          '"pierre paul grivel"', '"m"', '"zbmath"'], l1[1])
+                          '"pierre paul grivel"', '"m"', '"zbmath"'], l1[0])
         self.assertEqual(['"raul"', '""', '"serapioni"',
-                          '"raul serapioni"', '"m"', '"zbmath"'], l1[2])
+                          '"raul serapioni"', '"m"', '"zbmath"'], l1[1])
         l2 = du.csv2list('files/names/min.commas.csv', delimiter=";")
-        self.assertEqual(['"first_name"', '"middle_name"', '"last_name"',
-                          '"full_name"', '"gender"', '"origin"'], l2[0])
         self.assertEqual(['"pierre"', '"paul"', '"grivel"',
-                          '"pierre paul grivel"', '"m"', '"zbmath"'], l2[1])
+                          '"pierre paul grivel"', '"m"', '"zbmath"'], l2[0])
         self.assertEqual(['"raul"', '""', '"serapioni"',
-                          '"raul serapioni"', '"m"', '"zbmath"'], l2[2])
+                          '"raul serapioni"', '"m"', '"zbmath"'], l2[1])
 
     def test_num_columns_in_csv(self):
         du = DameUtils()
