@@ -1,4 +1,4 @@
-#+TITLE: Damegender: Towards an International Dataset about Names, Gender and Frequency
+#+TITLE: Damegender: A Toolkit for to Measure Gender Gap with an Approach on Reproducibility
 #+AUTHOR: David Arroyo Menéndez
 #+OPTIONS: H:2 toc:nil num:t
 #+LATEX_CLASS: beamer
@@ -7,45 +7,52 @@
 #+COLUMNS: %45ITEM %10BEAMER_ENV(Env) %10BEAMER_ACT(Act) %4BEAMER_COL(Col) %8BEAMER_OPT(Opt)
 
 * Summary
-** Presentation
+** Presentation (I)
 + Thesis Student: David Arroyo Menéndez
-+ Title of this slides: Towards an International Dataset about Names, Gender and Frequency
++ Title of this slides: Towards an International Dataset about Names,
+  Gender and Frequency
 + Thesis Director: Jesús González Barahona
 
 ** Academic Disciplines that could be finding profit on it
 
-+ Secondary sources in gender studies
-+ To build indicators about gender gap
-+ Natural Language Processing
-+ Studies about Lingüistics
++ Social Sciences: Secondary Sources in Gender Studies, Indicators
+  about Gender Gap
++ Computer Science: Software Engineering, Natural Language Processing
++ Lingüistics: Studies about names
 
-** Research Examples about it
+** Research Works using these Open Datasets
 
-+ Gender gap in Knowledge: Wikipedia, Twitter, Newspapers, Papers, ...
++ Gender Gap in Knowledge: Wikipedia, Twitter, Newspapers, Journal
+  Papers, ...
 + Gender Gap in Software Engineering: Git, StackOverflow, ...
-+ Lingüistics: Statistics in each language about number of last letters,
-  first letter, phonems, ... in males and females
++ Lingüistics: Statistics in each language about number of last
+  letters, first letters, phonems, ... in males females
 
-** Damegender: A Toolkit for to Measure Gender Gap with an Approach on Reproducibility
+** Damegender: A Toolkit measuring Gender Gap with an Approach on Reproducibility
 
-Current state:
+Current State:
 + Interface with Commercial APIs
-+ Automatic counts: csv2gender, git2gender, mail2gender, ...
-+ Machine Learning for nicknames and diminutives
-+ Comparing tools with: infofeatures, roc, principal components
-  analysis (pca), confusion matrices, accuracies, precision, ...
++ Automatically generate thousands of counts in CSV, Git, Mailing
+  Lists, ...
++ To allow Machine Learning in nicknames and diminutives.
++ Comparing using statistical tools: features in names, accuracies,
+  confusion matrices, roc, principal component analysis, ...
 
-** Damegender Dataset
+** Damegender: Open Dataset
 
-+ Accuracy: 0.876
-+ Females: 299870
-+ Males: 278981
-+ Open Data names retrieved only from statistical institutions
++ Accuracy: 87.6%
++ Number of females names: 299870
++ Number of males names: 278981
++ Open Data retrieved only from statistical institutions
 + More than 20 countries
 
-** Damegender Countries
+** Damegender: Countries
 
-file:img/mapamundi-politico-mudo.png
+[[file:img/mapamundi-politico-mudo.png]]
+
+** A new study applying Damegender to count males and females in GNU/Linux
+
+file:img/kernel_by_gender.png
 
 ** Activities
 
@@ -78,4 +85,4 @@ Free Software released with GPLv3 integrated in the industry
 
 *** Publications
 + Damegender: Writing and Comparing Gender Detection Tools (CEUR)
-+ Damegender Manual: Counting Males and Females in Internet Communities
++ Damegender Manual: Counting Males and Females in Internet Communities (On working)
