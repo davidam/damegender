@@ -7,11 +7,34 @@
 #+COLUMNS: %45ITEM %10BEAMER_ENV(Env) %10BEAMER_ACT(Act) %4BEAMER_COL(Col) %8BEAMER_OPT(Opt)
 
 * Summary
-** Presentation (I)
+** Presentation
 + Thesis Student: David Arroyo Menéndez
-+ Title of this slides: Towards an International Dataset about Names,
++ Title of these slides: Towards an International Dataset about Names,
   Gender and Frequency
 + Thesis Director: Jesús González Barahona
+
+** Ethical Motivation
+
++ Gender Equality is the 5th Objective in United Nations.
++ Only when you can measure a process, you can improve it.
++ Reducing costs in the process in Free Software way, more academic
+  people can measure it.
+
+** Contributions to the State of Art presented:
+
++ An integrated solution where make experiments in the different
+applications field relative to infering gender from the name.
+
++ A collection of Open Datasets retrieved from statistical sources
+and standarized in an unique format about gender, name and frequency
+
++ A new study applying DameGender to count males and females in
+GNU/Linux
+
++ A new Machine Learning approach classifyng gender from names
+
++ An approach based on reproducibility.
+
 
 ** Academic Disciplines that could be finding profit on it
 
@@ -61,7 +84,6 @@ python3 csv2gender.py files/linux-maintainers.csv
 --dataset="inter" --outcsv="files/linux-maintainers.gender.csv"
 --outimg="files/linux-maintainers.gender.png" --noshow
 --delete_duplicated
-
 
 ** Activities
 
