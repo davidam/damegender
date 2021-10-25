@@ -50,9 +50,18 @@ Current State:
 
 [[file:img/mapamundi-politico-mudo.png]]
 
-** A new study applying Damegender to count males and females in GNU/Linux
+** Applying Damegender to count males and females in Linux (I)
 
 file:img/kernel_by_gender.png
+
+** Applying Damegender to count males and females in Linux (II)
+
+python3 csv2gender.py files/linux-maintainers.csv
+--first_name_position=0 --title="Linux maintaners grouped by gender"
+--dataset="inter" --outcsv="files/linux-maintainers.gender.csv"
+--outimg="files/linux-maintainers.gender.png" --noshow
+--delete_duplicated
+
 
 ** Activities
 
@@ -85,4 +94,4 @@ Free Software released with GPLv3 integrated in the industry
 
 *** Publications
 + Damegender: Writing and Comparing Gender Detection Tools (CEUR)
-+ Damegender Manual: Counting Males and Females in Internet Communities (On working)
++ Damegender Manual: Counting Males and Females in Internet Communities 
