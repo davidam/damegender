@@ -36,7 +36,7 @@
 
 + Un enfoque basado en reproducibilidad.
 
-** Disciplinas Académicas que podrían estar beneficios en estos trabajos
+** Disciplinas Académicas que podrían estar beneficiándose en estos trabajos
 
 + Ciencias Sociales: Fuentes Secundarias en Estudios de Género, e Indicadores acerca de Brecha de Género
 + Ciencias de Computación: Ingeniería de Software, Procesamiento de Lenguaje Natural
@@ -55,12 +55,12 @@
 
 Estado Actual:
 + Interfaz con APIs comerciales
-+ Automáticamente generar miles de contes en ficheros CSV, Git, Listas
++ Automáticamente generar miles de conteos en ficheros CSV, Git, Listas
   de Correo, ...
 + Permitir usar Aprendizaje Automático en apodos, diminutivos, nuevos
   nombres, ...
 + Comparar usando herramientas estadísticas: propiedades en nombres,
-  precisión, matrices de confusión, analísis de componentes, roc, ...
+  precisión, matrices de confusión, análisis de componentes, roc, ...
 
 ** Damegender: Colección de Datos Abiertos
 
@@ -112,7 +112,7 @@ Se ha presentado este trabajo en:
 ** Resultados
 
 *** Software
-Software Libre liberado con GPLv3 integrado in la industria
+Software Libre liberado con GPLv3 integrado en la industria
 + git clone https://github.com/davidam/damegender.git
 + pip3 install damegender
 
