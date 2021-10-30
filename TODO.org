@@ -1221,3 +1221,16 @@ Los campos de cada persona
 + total_females
 + probability (opcional, por defecto valor 1)
 + gender (obligatorio)
+* FUTURE Unifying criteria counting males and females
+  SCHEDULED: <2021-10-09 sáb>
+We have found 2 main criteria counting males and females: number of
+borns in a year and people using the name in a year. Both criteria are
+good indicators to understand how many people is using a name as male
+or as female. But we have divided the files being to able of make
+merging. The criteria making the count in baby name is the sum of the
+last fifty years where the data has been provided.
+
+This task is with FUTURE tag because has low priority. The gender has
+not changed too much changing the method to count, the accuracy will be
+improved a little bit in some names, but the biases in the current
+state is happening due to lack of countries and alphabets.
