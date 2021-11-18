@@ -14,6 +14,9 @@ from pprint import pprint
 fomales = open("males.txt", "w")
 fofemales = open("females.txt", "w")
 
+lmales = []
+lfemales = []
+
 with open('interall.csv') as csvfile:
     reader = csv.reader(csvfile, delimiter=',', quotechar='|')
     for row in reader:
@@ -22,13 +25,21 @@ with open('interall.csv') as csvfile:
             percentmales = round(float(row[2]))
             #print(nummales)
             if (percentmales > 70):
-                fomales.write(str(row[0])+"\n")
+                lmales.append(str(row[0]))
             percentfemales = round(float(row[3]))
             if (percentfemales > 70):
-                fofemales.write(str(row[0])+"\n")            
+                lfemales.append(str(row[0]))
         except IndexError:
             pprint(row)
+            
+l1 = sorted(lmales)
+l2 = sorted(lfemales)
+            
+for m in l1:
+    fomales.write(m+"\n")
 
+for f in l2:
+    fofemales.write(f+"\n")
 
 fomales.close()
 fofemales.close()
