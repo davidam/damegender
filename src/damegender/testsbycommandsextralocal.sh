@@ -193,6 +193,14 @@ else
 	echo -e  "newspaper2gender test is ${GREEN}ok${NC}"
 fi
 
+python3 newspaper2gender.py https://elpais.com/espana/catalunya/2021-11-23/el-presupuesto-de-cataluna-rompe-la-unidad-del-bloque-independentista.html --total=es > files/tests/newspaper2gender.es-$(date "+%Y-%m-%d-%H").txt
+
+if ! diff files/tests/newspaper2gender.es-$(date "+%Y-%m-%d-%H").txt files/tests/newspaper2gender.es.txt >/dev/null 2>&1
+then
+	echo -e  "newspaper2gender spanish test is ${RED}failing${NC}"
+else
+	echo -e  "newspaper2gender spanish test is ${GREEN}ok${NC}"
+fi
 
 
 rm -rf /tmp/clonedir
