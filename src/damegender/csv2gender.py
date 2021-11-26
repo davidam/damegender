@@ -33,8 +33,9 @@ parser = argparse.ArgumentParser()
 parser.add_argument("path", help="csv file")
 parser.add_argument('--first_name_position', required=True,
                     type=int, choices=[0, 1, 2, 3, 4], default=0)
+
 parser.add_argument('--surname_position', required=False,
-                    type=int, choices=[0, 1, 2, 3, 4], default=0)
+                    type=int, choices=[0, 1, 2, 3, 4], default=-99999)
 parser.add_argument('--dataset', default="us",
                     choices=['at', 'au', 'be', 'ca', 'de', 'dk', 'es',
                              'fi', 'gb', 'ie', 'ine', 'inter', 'is', 'mx',
@@ -85,8 +86,10 @@ l1 = []
 for i in csvrowlist:
     first_name_string = du.drop_quotes(i[first_name_position])
     first_name_string = first_name_string.encode('utf-8')
-    surname_string = du.drop_quotes(i[surname_position])
-    surname_string = surname_string.encode('utf-8')
+    surname_string = ""
+    if (surname_position != -99999):
+        surname_string = du.drop_quotes(i[surname_position])
+        surname_string = surname_string.encode('utf-8')
     sex = s.guess(first_name_string.decode('utf-8'), binary=False, dataset=args.dataset)
     if (sex == "male"):
         males_list.append(first_name_string)
@@ -98,7 +101,6 @@ for i in csvrowlist:
 
 file = open(args.outcsv, "w")
 for i in l1:
-    print(i)
     file.write(str(i[0].decode('utf-8'))+","+str(i[1]) + "\n")
 
 file.close()
@@ -106,15 +108,12 @@ file.close()
 file = open(args.outjson, "w")
 file.write("[");
 for i in l1:
-    print(i)
     if (l1[0] == i):
         file.write("{\n");
-    file.write('"name": "' + str(i[0].decode('utf-8')) + '",\n')
-    if (int(args.first_name_position) != int(args.surname_position)):
-        file.write('"surname": "' + str(i[2].decode('utf8')) + '",\n')
+    file.write('"name": "' + str(first_name_string.decode('utf-8')) + '",\n')
+    if ((int(args.first_name_position) != int(args.surname_position)) and (args.surname_position != -99999)):
+        file.write('"surname": "' + surname_string.decode('utf-8') + '",\n')
     file.write('"gender": "' + str(i[1]) + '"\n')
-    # print(l1[-1])
-    # print(i)
     if (l1[-1] == i):
         file.write("}\n")
     else:
