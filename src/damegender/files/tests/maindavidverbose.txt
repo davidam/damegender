@@ -44,6 +44,6 @@
 12826 females for David from United States of America statistics
 1193 males for David from Uruguay statistics
 5 females for David from Uruguay statistics
-4876347 males for David from international statistics
+4892179 males for David from international statistics
 12983 females for David from international statistics
 David gender predicted with nltk is male
