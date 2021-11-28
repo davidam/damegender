@@ -196,10 +196,12 @@ You must start to check tests to understand that all is ok:
 
 @example
 $ cd src/damegender
-$ ./testsbycommands.sh         # It must run for you
+$ ./testsbycommands.sh            # It must run for you
 $ ./testsbycommandsextralocal.sh  # You will need all dependencies
                                   # with: $ pip3 install damegender[all]
-$ ./testsbycommandsextranet.sh    # You will need api keys
+$ ./testsbycommandsperceval.sh    # Only about perceval
+$ ./testsbycommandsextraapis.sh   # You will need all dependencies
+$ ./testmergeinterfiles.sh        # Only about merge datasetes
 @end example
 
 You can continue checking python tests:
@@ -225,6 +227,17 @@ generated:
 
 @example
 $ python3 postinstall.py
+@end example
+
+Another task related is merging datasets with names and frequency, for
+instance, you can merge 10 females of Denmark with 10 females of
+Deutsch with:
+
+@example
+python3 mergeinterfiles.py
+--file1="files/names/names_inter/dkfemales10.csv"
+--file2="files/names/names_inter/defemales10.csv"
+--output=files/tests/testdkde-$(date "+%Y-%m-%d-%H").csv
 @end example
 
 You can find an big list of commands to execute this shell
@@ -376,6 +389,13 @@ The list of people with unknown gender sending mails is
 '"Jean (Jira)" <jira@@xxxxx.org>']
 @end example
 
+With Damegender is possible to guess the authors in an article about a
+newspaper with:
+
+@example
+$ python3 newspaper2gender.py https://elpais.com/espana/catalunya/2021-11-23/el-presupuesto-de-cataluna-rompe-la-unidad-del-bloque-independentista.html --total=es
+@end example
+
 Perhaps you don't know a name, but you have obtained an free key for
 an api to retrieve it:
 
@@ -432,6 +452,7 @@ You can generate a lot of logs about errors, accuracies and/or confusion:
 $ ./logs-accuracies.sh
 $ ./logs-confusion.sh
 $ ./logs-errors.sh
+$ ./logs-count.sh
 @end example
 
 Perhaps you are interested on reproduce experiments to determine features:
@@ -463,6 +484,8 @@ Asian Pacific Indian American: 0.40
 American Indian and Alaska Native: 0.85
 Various races: 1.63
 @end example
+
+
 
 @node Statistics
 @chapter Statistics
