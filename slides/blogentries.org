@@ -1,29 +1,4 @@
 
-* Speeches
-+ Jornadas Online "Género y Ciencia de Datos en Deporte y Salud"
-  (UOC, 2021) https://www.youtube.com/watch?v=hBDOf5qlcek&t=8903s
-
-+ VI Congreso Internacional de Jóvenes Investigadores con Perspectiva
-  de Género (Mesa 17 Tecnología y Género) (UC3M, 2021)
-  https://eventos.uc3m.es/65927/programme/vi-congreso-internacional-de-jovenes-investigadorxs-con-perspectiva-de-genero.html
-
-+ Seminar Series on Advanced Techniques & Tools for Software
-  Evolution. (Amsterdam, 2020) http://sattose.org/2020
-
-+ EsLibre (Madrid, 2020) (https://propuestas.eslib.re/2020/charlas/damegender)
-
-+ Procesamiento de Lenguaje Natural con Python NLTK, Damegender como
-  caso de uso. (Medialab Madrid, 2019)
-  (https://www.medialab-matadero.es/actividades/procesamiento-de-lenguaje-natural-con-python-nltk)
-
-+ Open South Code (Málaga, 2019)
-  (https://www.opensouthcode.org/conferences/opensouthcode2019/program/proposals/183)
-
-+ PyBCN - Damegender: gender detection with NLTK and Scikit
-  (Barcelona, 2019) (https://www.youtube.com/watch?v=dvN0lMgQ9Pc)
-
-+ Software Freedom Day. URJC (https://ofilibre.gitlab.io/transpas/dia-software-libre/damegender.pdf)
-
 * Blog entries
 
 + Geek Feminism (https://geekfeminism.fandom.com/wiki/Names,_Gender_and_Free_Software)
