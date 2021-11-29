@@ -1,0 +1,6 @@
+* Dataset retrieved from:
++ https://github.com/datacoon/russiannames
++ http://egrul.nalog.ru/
++ https://ngodata.ru/dataset/russiannames
+* License:
++ See COPYING in this folder
