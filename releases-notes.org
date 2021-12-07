@@ -1,3 +1,18 @@
+
+* v0.4.0
+The goal with this release Damegender is a good number of countries,
+so a squirrel can go from East to Western in the world with countries
+with official statistics released with Open Data :)
+
+The news respect 0.3.8 are:
+New countries:
++ Russia (1434 females and 3357 males)
+
+New features:
++ newspaper2gender.py: to guess the author's gender from a newspaper
+  article url
++ fixes and improvements related to international dataset
+
 * v0.3.8
 New countries:
 + Norway (1015 females 896 males)
