@@ -54,9 +54,10 @@ class DameUtils():
                     "no": "files/names/names_no/nomales.csv",
                     "nz": "files/names/names_nz/nzmales.csv",
                     "pt": "files/names/names_pt/ptmales.csv",
-                    "tr": "files/names/names_tr/male_name_tally",
+                    "ru": "files/names/names_ru/rumales.csv",
                     "se": "files/names/names_se/semales.csv",
                     "si": "files/names/names_si/simales.csv",
+                    "tr": "files/names/names_tr/male_name_tally",                    
                     "us": "files/names/names_us/usmales.csv",
                     "usa": "files/names/names_us/usmales.csv",
                     "uy": "files/names/names_uy/uymasculinos.csv"}
@@ -81,9 +82,10 @@ class DameUtils():
                     "no": "files/names/names_no/nofemales.csv",
                     "nz": "files/names/names_nz/nzfemales.csv",
                     "pt": "files/names/names_pt/ptfemales.csv",
-                    "tr": "files/names/names_tr/female_name_tally",
+                    "ru": "files/names/names_ru/rufemales.csv",
                     "se": "files/names/names_se/sefemales.csv",
                     "si": "files/names/names_si/sifemales.csv",
+                    "tr": "files/names/names_tr/female_name_tally",                    
                     "us": "files/names/names_us/usfemales.csv",
                     "usa": "files/names/names_us/usfemales.csv",
                     "uy": "files/names/names_uy/uyfemeninos.csv"}
