@@ -129,6 +129,16 @@ else
 	echo -e  "mainjuliaus test is ${GREEN}ok${NC}"
 fi
 
+python3 main.py Алла --total=ru > files/tests/mainanaru-$(date "+%Y-%m-%d").txt
+
+if ! diff files/tests/mainanaru.txt files/tests/mainanaru-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
+then
+	echo -e  "mainanaru test is ${RED}failing${NC}"
+else
+	echo -e  "mainanaru test is ${GREEN}ok${NC}"
+fi
+
+
 python3 main.py Julia --total=gb > files/tests/mainjuliagb-$(date "+%Y-%m-%d").txt
 
 if ! diff files/tests/mainjuliagb.txt files/tests/mainjuliagb-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
