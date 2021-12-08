@@ -51,7 +51,6 @@ results = []
 s = DameSexmachine()
 du = DameUtils()
 
-
 if (args.total == "namdict"):
     name = args.name.capitalize()
     name = name.replace(" ", "+")
@@ -121,6 +120,7 @@ elif ((args.verbose) or (args.total == "all")):
           % (n_females, args.name))
     n_males = s.name_frec(args.name, dataset="cn")['males']
     n_females = s.name_frec(args.name, dataset="cn")['females']
+    print("Warning: China option only runs with China alphabet")        
     print("%s males for %s from China statistics"
           % (n_males, args.name))
     print("%s females for %s from China statistics"
@@ -199,6 +199,7 @@ elif ((args.verbose) or (args.total == "all")):
           % (n_females, args.name))
     n_males = s.name_frec(args.name, dataset="ru")['males']
     n_females = s.name_frec(args.name, dataset="ru")['females']
+    print("Warning: russian option only runs with russian alphabet")    
     print("%s males for %s from Russia statistics"
           % (n_males, args.name))
     print("%s females for %s from Russia statistics"
@@ -315,6 +316,7 @@ else:
         print("%s females for %s from Swiss statistics"
               % (n_females, args.name))
     elif (args.total == "cn"):
+        print("Warning: total=cn only runs with chinese alphabet")
         print("%s males for %s from China statistics"
               % (n_males, args.name))
         print("%s females for %s from China statistics"
@@ -386,6 +388,7 @@ else:
         print("%s females for %s from Portugal statistics"
               % (n_females, args.name))
     elif (args.total == "ru"):
+        print("Warning: total=ru only runs with russian alphabet")
         print("%s males for %s from Russia statistics"
               % (n_males, args.name))
         print("%s females for %s from Russia statistics"
