@@ -43,7 +43,7 @@ ll = []
 du = DameUtils()
 dg = Gender()
 
-li = du.csv2list(args.file1)
+li = du.csv2list(args.file1, header=False)
 if (args.verbose):
     print(li)
 
@@ -58,7 +58,7 @@ for i in li:
 if (args.verbose):
     print(lenli)
 
-lj = du.csv2list(args.file2)
+lj = du.csv2list(args.file2, header=False)
 if (args.verbose):
     print(lj)
 
