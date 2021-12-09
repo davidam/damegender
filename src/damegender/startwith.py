@@ -33,11 +33,11 @@ import csv
 parser = argparse.ArgumentParser()
 parser.add_argument("chars", help="display the gender")
 parser.add_argument('--total', default="us",
-                    choices=['at', 'au', 'be', 'ca', 'ch', 'de',
-                             'dk', 'es', 'fi', 'fr', 'gb', 'ie',
-                             'ine', 'inter', 'is', 'no', 'nz', 
-                             'mx', 'pt', 'se', 'si', 'tr',
-                             'us', 'uy'])
+                    choices=['at', 'au', 'be', 'ca', 'ch', 'cn',
+                             'de', 'dk', 'es', 'fi', 'fr', 'gb',
+                             'ie', 'ine', 'inter', 'is', 'no',
+                             'nz', 'mx', 'pt','ru', 'se', 'si',
+                             'tr', 'us', 'uy'])
 parser.add_argument('--gender', default="female", choices=['male', 'female'])
 parser.add_argument('--version', action='version', version='0.4')
 args = parser.parse_args()
@@ -47,6 +47,11 @@ g = Gender()
 du = DameUtils()
 dicc = du.dicc_dataset(args.gender)
 path = dicc[args.total]
+
+if (args.total == "cn"):
+    print("Be careful, you must use Chinese characters and encoding")
+elif (args.total == "ru"):
+    print("Be carefull, you must use Russian characters and encoding")
 
 with open(path) as csvfile:
     sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
