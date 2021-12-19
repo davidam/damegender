@@ -55,39 +55,40 @@ Gender Detection Tools}'', @ref{Further reading}.
 
 The gender detection tools from the names are being used usually with
 commercial APIs. But many countries has been doing efforts in the last
-years for contribute names and a number of people using each name with
-Open Data Licenses. So, this software is collecting this effort in an
-industrial way and giving new original solutions to classify gender
-from the name (we are using Machine Learning algorithms for predict
-names that is not appearing in our database).
+years contributing names and gender datasets with Open Data
+Licenses. So, this software is collecting this effort in an industrial
+way and giving new original solutions to classify gender from the name
+(we are using Machine Learning algorithms predicting names that is
+not appearing in our datasets).
 
 Damegender is giving measures to compare in any moment our solution
 with the commercial APIs. So, the user can understand when it's useful
 to invest money or not depending of the dataset. Damegender allows to
-the users download a big number of names from a csv file.
+the users to download a big number of names from a csv file.
 
-This software is written oriented to tests. So you can check the right
+This software is written oriented to tests. So, you can check the right
 behaivour of the software with python tests for the classes and
 methods and with shell tests for the python commands.
 
-Damegender is using Perceval for count males and females in a lot of
-Internet Communities (wikis, mailing lists, software repositories, bug
-tracking systems, ...). ``@cite{Perceval: software project data at
-your will}'', @ref{Further reading} This manual show source for count males
-and females in different situations (Ex: @code{count-debian-gender.py}).
+Damegender is using Perceval helping to count males and females in a
+lot of Internet Communities (wikis, mailing lists, software
+repositories, bug tracking systems, ...). ``@cite{Perceval: software
+project data at your will}'', @ref{Further reading}. This manual to
+show source for count males and females in different contexts (Ex:
+@code{git2gender.py, mail2gender.py}).
 
 This software is taking into account the power to predict nations and
 ethnicity from the surnames (Ex: @code{surname.py},
 @code{surnameincountries.py} and @code{ethnicity.py}).
 
-This book starts explaining the installation. Later, it explains how
-to install Damegender. After, it explains Damegender from the
-commands. Next, it explains the statistical maths concepts to use
-Damegender with good results. The use cases showed allows to imagine a
-lot of applications about Damegender. We are giving some data sources
-about gender gap. And finally, the theorical frameworks are being
-showed to put data into discourses. We are added conclusions as
-summary and further reading for extend the interest.
+This book starts explaining the installation. Later, how to install
+Damegender. After, it shows Damegender from the commands. Next, it
+explains the statistical maths concepts to use Damegender with good
+results. The use cases showed allows to imagine a lot of applications
+about Damegender. We are giving some data sources about gender
+gap. And finally, the theorical frameworks are being showed to put
+data into discourses. We are added conclusions as summary and further
+reading for extend the interest.
 
 @section Reproducible Research
 @cindex Reproducible Research
@@ -221,7 +222,7 @@ Execute one test:
 $ nosetests3 tests/test_basics.py:TestBasics.test_indexing
 @end example
 
-If you are in a fresh installation, perhaps you want regenerate by
+If you are in a fresh installation, perhaps you want to regenerate by
 your own risk some files downloaded to understand how it has been
 generated:
 
@@ -486,7 +487,6 @@ Various races: 1.63
 @end example
 
 
-
 @node Statistics
 @chapter Statistics
 @cindex Measuring success and error
@@ -505,7 +505,7 @@ Various races: 1.63
 @cindex Confusion matrix
 @cindex ROC
 
-In the last chapter we were learning to execute some commands such as
+In the last chapter, we were learning to execute some commands such as
 @code{accuracy.py}, @code{confusion.py}, or @code{errors.py}, but
 perhaps you need to understand more theory about statistics to
 understand why this commands is being interesting for you.
@@ -513,8 +513,8 @@ understand why this commands is being interesting for you.
 @section Measuring success and error
 @cindex Measuring success and error
 
-To guess the sex, we have an true idea (example: female) and we obtain
-a result with a method (example: using an api, querying a dataset or
+To guess the sex, we have an true idea (ex: female) and we obtain
+a result with a method (ex: using an api, querying a dataset or
 with a machine learning model). The guessed result could be male,
 female or perhaps unknown. To remember some definitions about results
 about this matter:
@@ -848,7 +848,7 @@ Take a look to the results with the different datasets:
 The countries where the main language is spanish (Uruguay + Spain) and
 english (USA + United Kingdom + Australia) are having very similar
 variation with the features chosen between males and females with
-these datasets (remember is the datasets extracted from official
+these datasets (to remember is the datasets extracted from official
 statistics provided by the states). Canada, a country french centric
 has different rules with this features.
 
@@ -1047,7 +1047,7 @@ $ python3 downloadjson.py --api=genderize --csv=files/names/min.csv
 @cindex Counting males and females in Linux Kernel
 
 When I'm writing this book the Linux Kernels maintainers appears in
-https://www.kernel.org/doc/html/latest/process/maintainers.html. Then
+@code{https://www.kernel.org/doc/html/latest/process/maintainers.html}. Then
 I have downloaded the file and applied a single command:
 
 @example
