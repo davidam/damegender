@@ -21,6 +21,10 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# DESCRIPTION: Given a csv file in the damegender format (column 0
+# with names and column 1 with frequencies) returns one or multiple
+# json files
+
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
 import argparse

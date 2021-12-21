@@ -22,6 +22,7 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# DESCRIPTION: This file allows to compare machine learning algorithms
 
 import matplotlib.pyplot as plt
 import numpy as np

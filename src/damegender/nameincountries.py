@@ -22,7 +22,9 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
-# From a name give a list of countries where the people is using the name
+# DESCRIPTION: From a name give a list of countries where the people
+# is using the name (using namdict dataset)
+
 import re
 import os
 import csv

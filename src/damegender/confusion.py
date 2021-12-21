@@ -22,6 +22,9 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# DESCRIPTION: This script allows to measure confusion from a json
+# file downloaded from an api system with downloadjson.py
+
 
 from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine

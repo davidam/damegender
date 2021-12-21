@@ -22,6 +22,8 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# DESCRIPTION: Given a mailing list returns number of males and females
+
 from app.dame_sexmachine import DameSexmachine
 from app.dame_gender import Gender
 from app.dame_perceval import DamePerceval

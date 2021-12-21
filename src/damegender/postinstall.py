@@ -22,6 +22,9 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# DESCRIPTION: This script is oriented about reproducibility in
+# Damegender. If you are not interested on it you don't need execute
+# it.
 
 from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine

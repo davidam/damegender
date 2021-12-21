@@ -22,6 +22,9 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# DESCRIPTION: This script allows given a name returns gender from an
+# api
+
 from app.dame_gender import Gender
 from app.dame_genderguesser import DameGenderGuesser
 from app.dame_genderapi import DameGenderApi

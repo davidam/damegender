@@ -22,6 +22,9 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# DESCRIPTION: Given a csv file with a column of names returns a files
+# with a new column with gender for each name
+
 
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils

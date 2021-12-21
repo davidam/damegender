@@ -21,6 +21,10 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# DESCRIPTION: Given two damegender csv files (column 0 with names and
+# column 1 with frequencies) returns a file merging the files.
+
+
 import csv
 import argparse
 from app.dame_utils import DameUtils

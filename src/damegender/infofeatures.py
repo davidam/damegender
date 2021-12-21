@@ -22,6 +22,7 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# DESCRIPTION: returns features with different datasets (corpus)
 
 from app.dame_gender import Gender
 import argparse

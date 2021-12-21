@@ -22,6 +22,10 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# DESCRIPTION: This script allows to download a list of names in a
+# json files from a csv file with an api system
+
+
 from app.dame_gender import Gender
 from app.dame_namsor import DameNamsor
 from app.dame_genderize import DameGenderize

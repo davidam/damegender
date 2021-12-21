@@ -22,6 +22,8 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# DESCRIPTION: Given a dataset in a country returns a list of people
+# sorted by popularity using the name
 
 from __future__ import print_function
 from operator import itemgetter, attrgetter

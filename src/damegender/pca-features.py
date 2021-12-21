@@ -22,6 +22,8 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# DESCRIPTION: Returns Principal Component Analysis (features) from damegender
+# csv files given a number of components and a category
 
 import json
 import pandas as pd

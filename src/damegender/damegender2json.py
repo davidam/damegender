@@ -22,6 +22,10 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# DESCRIPTION: this file is infering the gender applying a model and
+# returning a json file deprecated and will be replaced by
+# csv2gender.py
+
 
 from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
@@ -34,9 +38,6 @@ from app.dame_customsearch import DameCustomsearch
 import os
 import argparse
 
-# THIS FILE IS INFERING THE GENDER APPLYING A MODEL
-# AND RETURNING A JSON FILE
-# DEPRECATED AND WILL BE REPLACED BY CSV2GENDER.PY
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv', type=str, required=True,

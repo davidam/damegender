@@ -22,6 +22,10 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# DESCRIPTION:
+# Given a name give me gender
+
+
 from app.dame_gender import Gender
 from app.dame_sexmachine import DameSexmachine
 from app.dame_utils import DameUtils
@@ -42,7 +46,7 @@ parser.add_argument('--total', default="inter",
                              'mx', 'pt', 'ru', 'se', 'si', 'tr',
                              'uy', 'us', 'namdict', 'inter'])
 # More about iso codes on https://www.iso.org/obp/ui/
-parser.add_argument('--version', action='version', version='0.3')
+parser.add_argument('--version', action='version', version='0.4')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
 

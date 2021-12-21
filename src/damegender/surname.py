@@ -22,6 +22,8 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# DESCRIPTION: Given a surname returns people using it in Spain or
+# United States of America
 
 from app.dame_gender import Gender
 import sys

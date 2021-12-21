@@ -22,6 +22,8 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# DESCRIPTION: This script allows to detect ethnicity from a surname
+
 
 from app.dame_gender import Gender
 from app.dame_ethnicity import DameEthnicity

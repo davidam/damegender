@@ -22,6 +22,9 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# DESCRIPTION: Given a substring such as a letter returns names of a
+# dataset.
+
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
 import sys

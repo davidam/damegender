@@ -20,6 +20,9 @@
 #  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 #  Boston, MA 02110-1301 USA,
 
+# DESCRIPTION: Given an article url from a newspaper returns the
+# number of males and females
+
 import re
 import argparse
 from newspaper import Article
