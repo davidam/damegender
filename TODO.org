@@ -1053,7 +1053,13 @@ Now the next datasets available from main.py in damegender
 + [X] United States of America
 + [X] Uruguay
 + [X] Lucía Santamaría and Helena
-* TODO Crea un dataset al estilo del de Lucía y Helena, construido a partir de nombres y apellidos de personas de debian, gnu y linux
+* DONE Crea un dataset al estilo del de Lucía y Helena, construido a partir de nombres y apellidos
+  - State "DONE"       from "TODO"       [2021-12-21 mar 18:07]
+Lo dejo en el repositorio de python-examples en la carpeta sparql los siguientes scripts:
++ [X] wikidata-female-scientists.py
++ [X] wikidata-male-scientists.py
++ [X] wikidata-male-artists.py
++ [X] wikidata-female-artists.py
 * TODO Crear un dataset de base de verdad desde los censos
 ** DONE con csv2names creamos una lista con todos los nombres donde cada nombre es único
    - State "DONE"       from "TODO"       [2021-05-10 lun 08:51]
@@ -1128,7 +1134,7 @@ Debes escribir primero los ficheros males.txt y females.txt de cada dataset
   SCHEDULED: <2020-04-03 vie>
   - State "DONE"       from "TODO"       [2020-04-25 sáb 00:12]
 * FUTURE Morfología de idiomas
-Hay idiomas que los nombres tienen género para llegar a esto es posible revisar la morfología de un idioma:
+Hay idiomas que los nouns tienen género para llegar a esto es posible revisar la morfología de un idioma:
 + https://en.wikipedia.org/wiki/Polish_morphology#Nouns
 
 * TODO Tener en cuenta que hay más clasificadores
@@ -1155,12 +1161,15 @@ Hay idiomas que los nombres tienen género para llegar a esto es posible revisar
   #     dn = DameNLTK()
   #     degree = 0.7
   #     self.assertTrue(dn.delete_similar_in_list(["This is a good sentence".split(), "This is a bad sentence".split()], degree))
-* TODO Escribir un método download_free_names
+* DONE Escribir un método download_free_names
   SCHEDULED: <2020-05-14 jue>
-1. Se podría ejecutar en la instalación
-2. Tendría un argumento locale que por defecto es all
-3. Habría que sacar de la instalación pip los locale no gpl compatible
-
+  - State "DONE"       from "TODO"       [2021-12-21 mar 18:14]
+Hay que aprender a descargar y limpiar todas las posibles profesiones de wikidata con sparql.
+Recuerda el repositorio de python-examples en la carpeta sparql los siguientes scripts:
++ [X] wikidata-female-scientists.py
++ [X] wikidata-male-scientists.py
++ [X] wikidata-male-artists.py
++ [X] wikidata-female-artists.py 
 * DONE Escribir el comando top para mostrar, por ejemplo, los 10 nombres más utilizados en USA
   - State "DONE"       from "TODO"       [2020-07-06 lun 16:57]
 ** Parámetros
@@ -1197,6 +1206,7 @@ Queda finalmente implementado en el comando startwith.py
   - State "CANCELED"   from "TODO"       [2021-05-03 lun 18:38]
 Aumenta en exceso la complejidad de sw y de manera algo incómoda de mantener
 * TODO percentagegender.py
+  SCHEDULED: <2021-12-21 mar>
 Dado un porcentaje de género dame los nombres
 * DONE Hacer trabajos técnicos a favor de la incorporación de Turquía en DameGender
   - State "DONE"       from "TODO"       [2021-05-10 lun 08:54]
