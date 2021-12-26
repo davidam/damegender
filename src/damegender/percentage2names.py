@@ -46,9 +46,8 @@ args = parser.parse_args()
 g = Gender()
 du = DameUtils()
 dicc0 = du.dicc_dataset("all")
-print(dicc0)
 path = dicc0[args.total]
-print(path)
+
 if (args.percentage_until == -1):
     percentage_until = float(args.percentage_from)
 elif (args.percentage_from > args.percentage_until):
