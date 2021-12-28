@@ -442,8 +442,6 @@ FLYNNE,50,M
 FLYNNE,50,F
 MASLIN,50,M
 MASLIN,50,F
-The program has troubles with some array indexes
-The program has troubles with some array indexes
 RARA,50,M
 RARA,50,F
 BULAN,50,M
@@ -858,8 +856,6 @@ KA-YEE,50,M
 KA-YEE,50,F
 NIMONA,50,M
 NIMONA,50,F
-The program has troubles with some array indexes
-The program has troubles with some array indexes
 KAHLESS,50,M
 KAHLESS,50,F
 IDOWU,50,M
@@ -1058,9 +1054,7 @@ DEVANANDA,50,M
 DEVANANDA,50,F
 HAP,50,M
 HAP,50,F
-The program has troubles with some array indexes
 VITAL STATISTICS,50,M
-The program has troubles with some array indexes
 VITAL STATISTICS,50,F
 ROUHAN,50,M
 ROUHAN,50,F
@@ -1612,8 +1606,6 @@ GERITT,50,M
 GERITT,50,F
 SEHAS,50,M
 SEHAS,50,F
-The program has troubles with some array indexes
-The program has troubles with some array indexes
 TAEHEE,50,M
 TAEHEE,50,F
 TANYN,50,M
@@ -2256,8 +2248,6 @@ SEHEJPREET,50,M
 SEHEJPREET,50,F
 RAMJOT,50,M
 RAMJOT,50,F
-The program has troubles with some array indexes
-The program has troubles with some array indexes
 HOW,50,M
 HOW,50,F
 KENEEL,50,M
@@ -4692,9 +4682,3 @@ LOÉ,50,M
 LOÉ,50,F
 OUISSAME,50,M
 OUISSAME,50,F
-The program has troubles with some array indexes
-The program has troubles with some array indexes
-The program has troubles with some array indexes
-The program has troubles with some array indexes
-The program has troubles with some array indexes
-The program has troubles with some array indexes
