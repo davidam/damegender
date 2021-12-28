@@ -40,6 +40,7 @@ parser.add_argument('--total', default="inter",
                              'mx', 'pt', 'ru', 'se', 'si', 'tr',
                              'uy', 'us', 'inter'])
 # More about iso codes on https://www.iso.org/obp/ui/
+parser.add_argument('--outcsv', default="files/names/out.csv")
 parser.add_argument('--version', action='version', version='0.4')
 args = parser.parse_args()
 
@@ -59,14 +60,16 @@ percentage_from = float(args.percentage_from)
 
 with open(path) as csvfile:
     sreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    file = open(args.outcsv, "w")
     for row in sreader:
+
         try:
             males = round(float(row[3]))
         except IndexError:
             print("The program has troubles with some array indexes")
 
         if ((males >= percentage_from) and (males <= percentage_until)):
-            print(row[0] + "," + str(males) + ",M")
+            file.write(row[0] + "," + str(males) + ",M\n")
             
         try:
             females = round(float(row[2]))
@@ -74,4 +77,6 @@ with open(path) as csvfile:
             print("The program has troubles with some array indexes")            
 
         if ((females >= percentage_from) and (females <= percentage_until)):
-            print(row[0] + "," + str(females) + ",F" )
+            file.write(row[0] + "," + str(males) + ",F\n")            
+
+    file.close()
