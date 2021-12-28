@@ -537,7 +537,7 @@ else
 fi
 
 
-python3 percentage2names.py 50 > files/tests/50-$(date "+%Y-%m-%d").txt
+python3 percentage2names.py 50 --outcsv=files/tests/50-$(date "+%Y-%m-%d").txt
 
 if ! diff files/tests/50.txt files/tests/50-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
 then
