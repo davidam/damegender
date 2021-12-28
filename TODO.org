@@ -19,7 +19,6 @@ Zealand\footnote{https://smartstart.services.govt.nz/news/baby-names},
 Portugal\footnote{http://centraldedados.pt/nomes\_proprios/} and
 Slovenia\footnote{https://pxweb.stat.si/}.
 
-
 * DONE gsoc applications open March 25, 2019 at 19:00
   SCHEDULED: <2019-03-25 lun 19:00>
   - State "DONE"       from "TODO"       [2019-06-07 vie 15:58]
@@ -44,6 +43,8 @@ Mirar python-examples/matplotlib/corr.py
 ** DONE Crear método guess_surname
    - State "DONE"       from "TODO"       [2018-11-22 jue 16:12]
 ** TODO Recuperar datasets universales de apellidos
+Mientras solo tengamos datasets de inglés y español, solo es posible
+hacer algo similar al primer artículo, pero con nombres y apellidos
 * DONE Hacer los test requeridos para string2array
   - State "DONE"       from "TODO"       [2018-11-15 jue 11:52]
 * DONE Meter en guess todos los clasificadores
@@ -633,7 +634,11 @@ Segunda Planta
         average = guess1 + guess2 + guess3 + guess4 / 4
         print(average)
 *
-* POSIBLE Escribir dame_flask.py
+* CANCELED Escribir dame_flask.py
+  - State "CANCELED"   from "POSIBLE"    [2021-12-28 mar 17:48]
+Now the website is implemented with static pages, in the future with
+will need the task to choose the framework, but first we must
+implement more with nodejs.
 * DONE Escribir un mensaje con el tema de las api key, url de compra
   SCHEDULED: <2019-02-17 dom>
   - State "DONE"       from "TODO"       [2019-03-22 vie 22:53]
@@ -787,9 +792,13 @@ Se ha realizado testscommandsextra.sh para garantizar la calidad del software co
 * DONE Probar lo de pillar una api key de google
   SCHEDULED: <2019-02-18 lun>
   - State "DONE"       from "TODO"       [2019-03-13 mié 17:59]
-* TODO Flask
+* CANCELED Flask
   SCHEDULED: <2019-02-18 lun>
+  - State "CANCELED"   from "TODO"       [2021-12-28 mar 17:50]
 https://medium.com/ymedialabs-innovation/deploy-flask-app-with-nginx-using-gunicorn-and-supervisor-d7a93aa07c18
+Now the website is implemented with static pages, in the future with
+will need the task to choose the framework, but first we must
+implement more with nodejs.
 * DONE Ejecutar script accuracy para nameapi
   - State "DONE"       from "TODO"       [2019-03-13 mié 18:01]
 Nameapi accuracy: 0.18329564725833805
@@ -1205,8 +1214,9 @@ Queda finalmente implementado en el comando startwith.py
 * CANCELED En top.py estaría bien una opción --all-countries que despliegue en formato tabla los top de diferentes países
   - State "CANCELED"   from "TODO"       [2021-05-03 lun 18:38]
 Aumenta en exceso la complejidad de sw y de manera algo incómoda de mantener
-* TODO percentagegender.py
+* CANCELED percentage2names.py
   SCHEDULED: <2021-12-21 mar>
+  - State "CANCELED"   from "TODO"       [2021-12-28 mar 17:51]
 Dado un porcentaje de género dame los nombres
 * DONE Hacer trabajos técnicos a favor de la incorporación de Turquía en DameGender
   - State "DONE"       from "TODO"       [2021-05-10 lun 08:54]
@@ -1216,7 +1226,21 @@ https://github.com/mkozturk/turkishnames/
 * DONE Hacer trabajos técnicos a favor de la incorporación de China en DameGender
   - State "DONE"       from "TODO"       [2021-05-10 lun 08:54]
 Mirar el paquete de R ChineseNames
-* TODO Usar csv o json debe ser una opción en base de verdad y comparación con respecto confusion y accuracy
+* FUTURE Unifying criteria counting males and females
+  SCHEDULED: <2021-10-09 sáb>
+We have found 2 main criteria counting males and females: number of
+borns in a year and people using the name in a year. Both criteria are
+good indicators to understand how many people is using a name as male
+or as female. But we have divided the files being to able of make
+merging. The criteria making the count in baby name is the sum of the
+last fifty years where the data has been provided.
+
+This task is with FUTURE tag because has low priority. The gender has
+not changed too much changing the method to count, the accuracy will be
+improved a little bit in some names, but the biases in the current
+state is happening due to lack of countries and alphabets.
+
+* TODO [#A] Usar csv o json debe ser una opción en base de verdad y comparación con respecto confusion y accuracy
 ** TODO 1. Debemos unificar nombres de métodos
 + [ ] gender_list by csv2gender_list
 + [ ] json2guess_list by json2gender_list
@@ -1231,16 +1255,3 @@ Los campos de cada persona
 + total_females
 + probability (opcional, por defecto valor 1)
 + gender (obligatorio)
-* FUTURE Unifying criteria counting males and females
-  SCHEDULED: <2021-10-09 sáb>
-We have found 2 main criteria counting males and females: number of
-borns in a year and people using the name in a year. Both criteria are
-good indicators to understand how many people is using a name as male
-or as female. But we have divided the files being to able of make
-merging. The criteria making the count in baby name is the sum of the
-last fifty years where the data has been provided.
-
-This task is with FUTURE tag because has low priority. The gender has
-not changed too much changing the method to count, the accuracy will be
-improved a little bit in some names, but the biases in the current
-state is happening due to lack of countries and alphabets.
