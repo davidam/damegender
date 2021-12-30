@@ -1,0 +1,5 @@
+Accessing to Launchpad, please, be patient.
+['Aaron Whitehouse', 'Po-Hsu Lin', 'Jun Yao', 'Andrea Righi', 'Andrea Righi', 'Frode Nordahl', 'Iain Buclaw', 'Matt Caswell', 'Emanuele', 'Gašper Sedej', 'Heinrich Schuchardt', 'Jeffrey Knockel', 'isanaud', 'monochromec', 'Avinash Sonawane', 'Myron Szymanskyj', 'Piotr Skwarna', 'No Spam', 'Eric Desrochers', 'Nizar Kerkeni', 'Juan A. Martinez']
+The number of males using launchpad is 18
+The number of females using launchpad is 3
+The number of unknowns using launchpad is 0
