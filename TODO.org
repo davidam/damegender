@@ -39,7 +39,14 @@ Por ahora valdría con llegar a migrar los métodos necesarios hasta ejecutar ac
 * DONE Estudiar las relaciones entre las variables escogidas
   - State "DONE"       from "TODO"       [2018-12-03 lun 15:58]
 Mirar python-examples/matplotlib/corr.py
-* FUTURE Crear la tarea de aprendizaje de dado el string de nombre descubrir nombre y apellidos si los hay
+* TODO Crear un método que dada una cadena con varios substrings separados por espacios en blancos y quizás comas determinar nombre y apellido
+** TODO Una primera aproximación puede ser por número de ocurrencias y orden
+En español es frecuente encontrar:
++ [ ] nombre1 apellido1 apellido2
++ [ ] nombre1 nombre2 apellido1 apellido2
++ [ ] apellido1 apellido2, nombre1 
++ [ ] apellido1 apellido2, nombre1 nombre2
+** TODO Otra aproximación puede ser crear una tarea de aprendizaje y aplicar ML 
 ** DONE Crear método guess_surname
    - State "DONE"       from "TODO"       [2018-11-22 jue 16:12]
 ** TODO Recuperar datasets universales de apellidos
@@ -384,13 +391,11 @@ Sexmachine confusion matrix:
 * TODO Escribir y probar average para api2gender
 * TODO Escribir la desviación típica en la elección de male or female
   SCHEDULED: <2019-02-24 dom>
-
 * TODO Escribir average_weighted
 Dado un nombre, tenemos la frecuencia del nombre y la población en
 tres datasets, crear la media ponderada.
 ** DONE Descargar json de las diferentes apis
    - State "DONE"       from "TODO"       [2020-02-05 mié 17:20]
-
 * DONE Entrada http://t3chfest2019.eventbrite.es
   SCHEDULED: <2019-01-28 lun 10:30>
   - State "DONE"       from "TODO"       [2019-02-14 jue 18:26]
@@ -833,7 +838,7 @@ Nameapi accuracy: 0.18329564725833805
 + [X] pca-features.py
 
 * POSIBLE Escribir dame_photo
-** DONE He creado un script damephoto.py
+** DONE He creado un script damefaces.py
    - State "DONE"       from "TODO"       [2020-04-25 sáb 00:15]
 ** DONE He comenzado el desarrollo relativo a repositorios en dame_perceval.py
    - State "DONE"       from "TODO"       [2020-04-25 sáb 00:15]
@@ -886,6 +891,7 @@ pip3 install dametowel
 Creado script performance.sh
 * TODO Revisar dataset2genderlist con todos los datasets
   SCHEDULED: <2019-05-30 jue>
+Es un método de app/dame_gender.py
 * DONE Revisar los métodos males y females para todos los datasets
   SCHEDULED: <2019-05-31 vie>
   - State "DONE"       from "TODO"       [2019-08-03 sáb 16:01]
@@ -1016,8 +1022,9 @@ GET https://gender-api.com/get-stats?&key=<your private server key>
   - State "DONE"       from "TODO"       [2020-02-05 mié 17:17]
 * DONE Añadir algortimo de ML red neuronal (mlp)
   - State "DONE"       from "TODO"       [2020-02-05 mié 17:17]
-* TODO Revisar los undefined en accuracy
+* DONE Revisar los undefined en accuracy
   SCHEDULED: <2020-02-05 mié>
+  - State "DONE"       from "TODO"       [2022-01-01 sáb 22:08]
 Parece que puede haber bugs si hay en el guess list undefined
 Puedes hacer pruebas con partial.csv
 * DONE Generar los json para damegender
@@ -1255,3 +1262,16 @@ Los campos de cada persona
 + total_females
 + probability (opcional, por defecto valor 1)
 + gender (obligatorio)
+* TODO Revisar dataset chino
+Se trata de coger un dataset prueba, descargar con genderapi o similar
+y ver que las desviaciones son razonables
+* TODO Revisar dataset ruso
+Se trata de coger un dataset prueba, descargar con genderapi o similar
+y ver que las desviaciones son razonables
+* TODO Rehacer los experimentos de Machine Learning con alguna profesión divertida de wikidata
+Por ejemplo, con scientists: 
++ [ ] python-examples/sparql/wikidata-male-scientists.py
++ [ ] python-examples/sparql/male-scientists.csv
++ [ ] python-examples/sparql/wikidata-female-scientists.py
++ [ ] python-examples/sparql/female-scientists.csv
+
