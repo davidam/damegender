@@ -30,11 +30,17 @@ from app.dame_utils import DameUtils
 import argparse
 
 parser = argparse.ArgumentParser()
+# Path is the path with the csv file of names.
+# For example, files/names/names_fi/fifemales.csv
 parser.add_argument("path", help="csv file")
+# The path and name file where the json file is stored
 parser.add_argument("--outjson", default="files/names/out.json", help="json file")
+# The path and directory name file where the json files is stored
 parser.add_argument("--outdir", default="files/names/", help="json file")
+# You can decide include or not the csv header in the operation
 parser.add_argument('--skip_header', dest='skip_header', action='store_true')
-parser.add_argument('--multiple_files', dest='multiple_files', action='store_true')
+# By default multiple_files split the csv with 1 name per json file
+parser.add_argument('--multiple_files', default=1)
 parser.add_argument('--gender', choices=["male", "female", "all"])
 
 args = parser.parse_args()
@@ -55,8 +61,7 @@ elif (args.gender == "male"):
     print("You must use damegender csv files such as files/names/names_be/bemales.csv")    
 # print(csvlist)
 
-if (args.multiple_files):
-    cnt = 0
+if (int(args.multiple_files) == 1):
     for i in csvlist:
         jsonfile = args.outdir + "/" + str(i[0].upper()) + "_" + args.gender + ".json"
         file = open(jsonfile, "w")
@@ -82,6 +87,46 @@ if (args.multiple_files):
             file.write('"gender": "' + str(args.gender) + '"\n')
         file.write('}]\n')
         file.close()
+elif (int(args.multiple_files) > 1):
+    cnt1 = 0
+    n = len(csvlist)
+    print(n)
+    while (cnt1 < n):
+        cnt2 = 0
+        jsonfile = args.outdir + "/" + str(cnt1) + "_" + args.gender + ".json"        
+        file = open(jsonfile, "w")
+        file.write('[{\n')        
+        while (cnt2 < int(args.multiple_files)):
+            try:
+                i = cnt1 + cnt2
+                varname = str(csvlist[i][0].upper())
+                print(varname)
+                varfrequency = str(csvlist[i][1])
+                print(varfrequency)
+                if (args.gender == "all"):
+                    varmales = str(csvlist[i][2])
+                    print(varmales)
+                    varfemales = str(csvlist[i][3])
+                    print(varfemales)                    
+                else:
+                    vargender = str(args.gender)
+                    print(vargender)
+            except IndexError:
+                print("The program has troubles with the array: " + str(i))
+            file.write('[\n')
+            file.write('"name": "' + varname + '",\n')
+            file.write('"frequency": ' + varfrequency + ',\n')
+            file.write('"gender": "' + vargender + '"\n')
+            if (cnt2 == (int(args.multiple_files) -1)):
+                file.write(']\n')
+            else:
+                file.write('],\n')
+            cnt2 = cnt2 + 1
+        file.write('}]\n')
+        file.close()            
+        cnt2 = 0
+        cnt1 = cnt1 + 1
+
 else:
     file = open(str(args.outjson), "w")
     file.write('[')
