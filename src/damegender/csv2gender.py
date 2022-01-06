@@ -93,7 +93,9 @@ for i in csvrowlist:
     if (surname_position != -99999):
         surname_string = du.drop_quotes(i[surname_position])
         surname_string = surname_string.encode('utf-8')
-    sex = s.guess(first_name_string.decode('utf-8'), binary=False, dataset=args.dataset)
+    sex = s.guess(first_name_string.decode('utf-8'),
+                  binary=False,
+                  dataset=args.dataset)
     if (sex == "male"):
         males_list.append(first_name_string)
     elif (sex == "female"):
@@ -104,24 +106,26 @@ for i in csvrowlist:
 
 file = open(args.outcsv, "w")
 for i in l1:
-    file.write(str(i[0].decode('utf-8'))+","+str(i[1]) + "\n")
+    file.write(str(i[0].decode('utf-8')) + "," + str(i[1]) + "\n")
 
 file.close()
 
 file = open(args.outjson, "w")
-file.write("[");
+file.write("[")
 for i in l1:
     if (l1[0] == i):
-        file.write("{\n");
+        file.write("{\n")
     file.write('"name": "' + str(first_name_string.decode('utf-8')) + '",\n')
-    if ((int(args.first_name_position) != int(args.surname_position)) and (args.surname_position != -99999)):
+    bool1 = (int(args.first_name_position) != int(args.surname_position))
+    bool2 = (args.surname_position != -99999)
+    if bool1 and bool2:
         file.write('"surname": "' + surname_string.decode('utf-8') + '",\n')
     file.write('"gender": "' + str(i[1]) + '"\n')
     if (l1[-1] == i):
         file.write("}\n")
     else:
         file.write("}, {\n")
-file.write("]\n");
+file.write("]\n")
 
 file.close()
 
