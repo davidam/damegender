@@ -42,7 +42,7 @@ parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB',
 parser.add_argument('--total', default="inter",
                     choices=['at', 'au', 'be', 'ca', 'ch',
                              'cn', 'de', 'dk', 'es', 'fi',
-                             'fr', 'gb', 'ie', 'is', 'no', 'nz', 
+                             'fr', 'gb', 'ie', 'is', 'no', 'nz',
                              'mx', 'pt', 'ru', 'se', 'si', 'tr',
                              'uy', 'us', 'namdict', 'inter'])
 # More about iso codes on https://www.iso.org/obp/ui/
@@ -124,7 +124,7 @@ elif ((args.verbose) or (args.total == "all")):
           % (n_females, args.name))
     n_males = s.name_frec(args.name, dataset="cn")['males']
     n_females = s.name_frec(args.name, dataset="cn")['females']
-    print("Warning: China option only runs with China alphabet")        
+    print("Warning: China option only runs with China alphabet")
     print("%s males for %s from China statistics"
           % (n_males, args.name))
     print("%s females for %s from China statistics"
@@ -188,7 +188,7 @@ elif ((args.verbose) or (args.total == "all")):
     print("%s males for %s from Norway statistics"
           % (n_males, args.name))
     print("%s females for %s from Norway statistics"
-          % (n_females, args.name))    
+          % (n_females, args.name))
     n_males = s.name_frec(args.name, dataset="nz")['males']
     n_females = s.name_frec(args.name, dataset="nz")['females']
     print("%s males for %s from New Zealand statistics"
@@ -203,7 +203,7 @@ elif ((args.verbose) or (args.total == "all")):
           % (n_females, args.name))
     n_males = s.name_frec(args.name, dataset="ru")['males']
     n_females = s.name_frec(args.name, dataset="ru")['females']
-    print("Warning: russian option only runs with russian alphabet")    
+    print("Warning: russian option only runs with russian alphabet")
     print("%s males for %s from Russia statistics"
           % (n_males, args.name))
     print("%s females for %s from Russia statistics"
@@ -396,7 +396,7 @@ else:
         print("%s males for %s from Russia statistics"
               % (n_males, args.name))
         print("%s females for %s from Russia statistics"
-              % (n_females, args.name))        
+              % (n_females, args.name))
     elif (args.total == "se"):
         print("%s males for %s from Sweden statistics"
               % (n_males, args.name))
