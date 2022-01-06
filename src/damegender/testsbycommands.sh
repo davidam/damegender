@@ -525,7 +525,7 @@ fi
 
 mkdir -p files/tmp
 
-python3 csv2jsonapirest.py files/names/names_inter/dkfemales10.csv --outdir="files/tmp" --gender=female --multiple_files 
+python3 csv2jsonapirest.py files/names/names_inter/dkfemales10.csv --outdir="files/tmp" --gender=female --multiple_files=1 
 
 ls -l files/tmp/*female.json > files/tests/tmpfemalejson-$(date "+%Y-%m-%d").txt
 

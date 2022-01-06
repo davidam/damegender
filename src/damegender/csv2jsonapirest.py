@@ -39,8 +39,8 @@ parser.add_argument("--outjson", default="files/names/out.json", help="json file
 parser.add_argument("--outdir", default="files/names/", help="json file")
 # You can decide include or not the csv header in the operation
 parser.add_argument('--skip_header', dest='skip_header', action='store_true')
-# By default multiple_files split the csv with 1 name per json file
-parser.add_argument('--multiple_files', default=1)
+# By default split the csv with 1 name per json file
+parser.add_argument('--names_by_multiple_files', default=1)
 parser.add_argument('--gender', choices=["male", "female", "all"])
 
 args = parser.parse_args()
@@ -61,7 +61,7 @@ elif (args.gender == "male"):
     print("You must use damegender csv files such as files/names/names_be/bemales.csv")    
 # print(csvlist)
 
-if (int(args.multiple_files) == 1):
+if (int(args.names_by_multiple_files) == 1):
     for i in csvlist:
         jsonfile = args.outdir + "/" + str(i[0].upper()) + "_" + args.gender + ".json"
         file = open(jsonfile, "w")
@@ -87,7 +87,7 @@ if (int(args.multiple_files) == 1):
             file.write('"gender": "' + str(args.gender) + '"\n')
         file.write('}]\n')
         file.close()
-elif (int(args.multiple_files) > 1):
+elif (int(args.names_by_multiple_files) > 1):
     cnt1 = 0
     n = len(csvlist)
     print(n)
@@ -96,7 +96,7 @@ elif (int(args.multiple_files) > 1):
         jsonfile = args.outdir + "/" + str(cnt1) + "_" + args.gender + ".json"        
         file = open(jsonfile, "w")
         file.write('[{\n')        
-        while (cnt2 < int(args.multiple_files)):
+        while (cnt2 < int(args.names_by_multiple_files)):
             try:
                 i = cnt1 + cnt2
                 varname = str(csvlist[i][0].upper())
@@ -117,7 +117,7 @@ elif (int(args.multiple_files) > 1):
             file.write('"name": "' + varname + '",\n')
             file.write('"frequency": ' + varfrequency + ',\n')
             file.write('"gender": "' + vargender + '"\n')
-            if (cnt2 == (int(args.multiple_files) -1)):
+            if (cnt2 == (int(args.names_by_multiple_files) -1)):
                 file.write(']\n')
             else:
                 file.write('],\n')
