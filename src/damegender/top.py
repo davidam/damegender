@@ -169,9 +169,9 @@ elif (args.country == "be"):
 elif (args.country == "ca"):
     c2lfemales = du.csv2list(dicc_dataset_females["ca"])
 elif (args.country == "ch"):
-    c2lfemales = du.csv2list(dicc_dataset_females["ch"])    
+    c2lfemales = du.csv2list(dicc_dataset_females["ch"])
 elif (args.country == "de"):
-    c2lfemales = du.csv2list(dicc_dataset_females["de"])    
+    c2lfemales = du.csv2list(dicc_dataset_females["de"])
 elif (args.country == "dk"):
     c2lfemales = du.csv2list(dicc_dataset_females["dk"])
 elif ((args.country == "es") | (args.country == "ine")):
@@ -179,7 +179,7 @@ elif ((args.country == "es") | (args.country == "ine")):
 elif (args.country == "fi"):
     c2lfemales = du.csv2list(dicc_dataset_females["fi"])
 elif (args.country == "fr"):
-    c2lfemales = du.csv2list(dicc_dataset_females["fr"])    
+    c2lfemales = du.csv2list(dicc_dataset_females["fr"])
 elif ((args.country == "gb") or (args.country == "uk")):
     c2lfemales = du.csv2list(dicc_dataset_females["gb"])
 elif (args.country == "ie"):
@@ -193,11 +193,11 @@ elif (args.country == "no"):
 elif (args.country == "nz"):
     c2lfemales = du.csv2list(dicc_dataset_females["nz"])
 elif (args.country == "mx"):
-    c2lfemales = du.csv2list(dicc_dataset_females["mx"])    
+    c2lfemales = du.csv2list(dicc_dataset_females["mx"])
 elif (args.country == "pt"):
     c2lfemales = du.csv2list(dicc_dataset_females["pt"])
 elif (args.country == "ru"):
-    c2lfemales = du.csv2list(dicc_dataset_females["ru"])    
+    c2lfemales = du.csv2list(dicc_dataset_females["ru"])
 elif (args.country == "se"):
     c2lfemales = du.csv2list(dicc_dataset_females["se"])
 elif (args.country == "si"):
