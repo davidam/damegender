@@ -67,6 +67,7 @@ with open(path) as csvfile:
             males = round(float(row[3]))
         except IndexError:
             print("The program has troubles with some array indexes")
+            print(row)
 
         if ((males >= percentage_from) and (males <= percentage_until)):
             file.write(row[0] + "," + str(males) + ",M\n")
@@ -75,7 +76,8 @@ with open(path) as csvfile:
             females = round(float(row[2]))
         except IndexError:
             print("The program has troubles with some array indexes")            
-
+            print(row)
+            
         if ((females >= percentage_from) and (females <= percentage_until)):
             file.write(row[0] + "," + str(males) + ",F\n")            
 
