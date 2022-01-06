@@ -39,7 +39,6 @@ from app.dame_utils import DameUtils
 from app.dame_statistics import DameStatistics
 
 csv.field_size_limit(3000000)
-
 du = DameUtils()
 dst = DameStatistics()
 
@@ -598,7 +597,7 @@ class Gender(object):
         elif (dataset == 'pt'):
             path_males = dicc_males["pt"]
         elif (dataset == 'ru'):
-            path_males = dicc_males["ru"]            
+            path_males = dicc_males["ru"]
         elif (dataset == 'se'):
             path_males = dicc_males["se"]
         elif (dataset == 'si'):
@@ -658,7 +657,7 @@ class Gender(object):
         elif (dataset == 'pt'):
             path_females = dicc_females["pt"]
         elif (dataset == 'ru'):
-            path_females = dicc_females["ru"]                        
+            path_females = dicc_females["ru"]
         elif (dataset == 'se'):
             path_females = dicc_females["se"]
         elif (dataset == 'si'):
@@ -802,7 +801,13 @@ class Gender(object):
         readerf = csv.reader(file_surnames, delimiter=',', quotechar='|')
         quantity = 0
         for row in readerf:
-            if ((len(row) > 1) and (du.drop_accents(row[0].lower()) == du.drop_accents(surname.lower()))):
+            bool1 = (len(row) > 1)
+            comp1 = du.drop_accents(row[0].lower())
+            comp2 = du.drop_accents(surname.lower())
+            bool2 = (comp1 == comp2)
+            # the row is not empty and
+            # row[0] is the surname
+            if (bool1 and bool2):
                 aux = row[1]
                 quantity = int(du.drop_dots(aux))
         return quantity
