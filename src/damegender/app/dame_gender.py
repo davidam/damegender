@@ -35,9 +35,6 @@ import json
 import datetime
 
 from collections import OrderedDict
-from sklearn.metrics import accuracy_score
-from sklearn.metrics import confusion_matrix
-from sklearn.decomposition import PCA
 from app.dame_utils import DameUtils
 from app.dame_statistics import DameStatistics
 
