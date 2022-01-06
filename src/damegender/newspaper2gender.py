@@ -47,9 +47,8 @@ article.parse()
 
 g = Gender()
 for i in article.authors:
-    print("--------------------------------")    
+    print("--------------------------------")
     print(i)
-    l = re.split(r'\W+', i)
-#    print(l)
-    print(g.guess(l[0], dataset=args.total))
+    l1 = re.split(r'\W+', i)
+    print(g.guess(l1[0], dataset=args.total))
     print("--------------------------------")
