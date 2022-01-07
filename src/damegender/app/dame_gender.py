@@ -914,29 +914,39 @@ class Gender(object):
 
 # GUESS #
 
-    def guess(self, name, binary=False, dataset='us'):
+    def guess(self, name, binary=False, dataset='us', *args, **kwargs):
         # guess method to check names dictionary
+        nonamerange = kwargs.get('nonamerange', 0)
         guess = ''
         name = unidecode.unidecode(name).title()
         name.replace(name, "")
         dicc = self.name_frec(name, dataset=dataset)
         m = int(dicc['males'])
         f = int(dicc['females'])
-        if ((m == 0) and (f == 0)):
-            if binary:
-                guess = 2
+        # nonamerange must be greater than 500
+        # otherwise where are considering that
+        # name is a nick
+        if ((m > nonamerange) or (f > nonamerange)):
+            if ((m == 0) and (f == 0)):
+                if binary:
+                    guess = 2
+                else:
+                    guess = "unknown"
+            elif (m > f):
+                if binary:
+                    guess = 1
+                else:
+                    guess = "male"
+            elif (f > m):
+                if binary:
+                    guess = 0
+                else:
+                    guess = "female"
             else:
-                guess = "unknown"
-        elif (m > f):
-            if binary:
-                guess = 1
-            else:
-                guess = "male"
-        elif (f > m):
-            if binary:
-                guess = 0
-            else:
-                guess = "female"
+                if binary:
+                    guess = 2
+                else:
+                    guess = "unknown"
         else:
             if binary:
                 guess = 2
