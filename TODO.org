@@ -1060,8 +1060,13 @@ Publicado en https://tv.urjc.es/video/5d895319d68b148f7a8c0da6
 + [ ] finaliza en consonante
 + [ ] finaliza en a
 + [ ] tiene 4 letras o menos (puede ser diminutivo)
-* TODO Mejorar la base de verdad (ej: INE)
-+ [ ] menos de 1000 nombres en la base de verdad
+* DONE Mejorar la base de verdad (ej: INE) relativo a posibles no nombres por baja frecuencia
+  - State "DONE"       from "TODO"       [2022-01-07 vie 18:10]
+commit 636f6c38b349ec7d4e8d17c57c0f78100085aba4 (HEAD -> master, origin/master, origin/HEAD)
+Author: David Arroyo Menéndez <davidam@gmail.com>
+Date:   Fri Jan 7 18:06:01 2022 +0100
+
+    app/dame_gender.py: adding a new argument to guess about a range in the frequency to discard names with a low frequency as not names, perhaps names in another cultures (see: isa or efe in Spain dataset)
 * DONE Added new datasets:
   - State "DONE"       from "TODO"       [2020-02-17 lun 00:52]
 Now the next datasets available from main.py in damegender
