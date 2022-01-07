@@ -57,7 +57,7 @@ class DameUtils():
                     "ru": "files/names/names_ru/rumales.csv",
                     "se": "files/names/names_se/semales.csv",
                     "si": "files/names/names_si/simales.csv",
-                    "tr": "files/names/names_tr/male_name_tally",                    
+                    "tr": "files/names/names_tr/male_name_tally",
                     "us": "files/names/names_us/usmales.csv",
                     "usa": "files/names/names_us/usmales.csv",
                     "uy": "files/names/names_uy/uymasculinos.csv"}
