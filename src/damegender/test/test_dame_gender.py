@@ -251,7 +251,6 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(frec1, 95280)
         self.assertEqual(frec2, 4519)
 
-        
     def test_dame_gender_name_frec(self):
         g = Gender()
         frec1 = g.name_frec("INES", dataset='ine')
@@ -280,9 +279,10 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_name_frec_from_file(self):
         g = Gender()
-        num = g.name_frec_from_file("David", "files/names/names_at/atmales.csv")
+        path = "files/names/names_at/atmales.csv"
+        num = g.name_frec_from_file("David", path)
         self.assertEqual(num, '62814')
-        
+
     def test_dame_gender_path_surname_dataset(self):
         dg = Gender()
         path = "files/inesurnames/apellidos-belgica.xls.csv"
