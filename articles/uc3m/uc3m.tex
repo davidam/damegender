@@ -5,11 +5,6 @@
 \usepackage{xcolor}
 \usepackage{url}
 
-
-\starttext
-
-
-
 \def\infinity{\rotatebox{90}{8}}
 
 \title{Damegender: Towards an International and Free Dataset about Name, Gender and Frequency}
@@ -423,6 +418,19 @@ When the work is finished, we could to rebuild machine learning models
 to predict new names and nicknames in any language and culture. The
 results is the longest list of public names.
 
+\begin{table}[t]
+\footnotesize
+\begin{tabular}[]{lcccc}
+  \hline
+  Dataset & SSA & namdict & NLTK & Damegender \tabularnewline
+  males & 91.320 & 48.821 & 2.943 & 278.928 \tabularnewline
+  females & 91.320 & 48.821 & 5.001 & 299.870 \tabularnewline
+  \hline
+\end{tabular}
+\caption{Comparison about the number of names between Open Data solutions}
+\label{table:DifferentNamesMeasures}
+\end{table}
+
 A possible criticism about our idea is the Leslie
 Problem\cite{blevins2015jane}: the match between gender and name has
 been changing in some years. And the answer is about you need
@@ -439,14 +447,18 @@ problem can be fixed with Open Data, too.
 \footnotesize
 \begin{tabular}[]{lcccc}
   \hline
-  Dataset & SSA & namdict & NLTK & Damegender \tabularnewline
-  males & 91.320 & 48.821 & 2.943 & 278.928 \tabularnewline
-  females & 91.320 & 48.821 & 5.001 & 299.870 \tabularnewline
+  Dataset  & Accuracy & Precision & Recall & F1-Score  \tabularnewline
+  Damegender &  0.8756  & 0.9638    & 1.0    & 0.925  \tabularnewline
   \hline
 \end{tabular}
-\caption{Comparison about the number of names between Open Data solutions}
-\label{table:DifferentNamesMeasures}
+\caption{Several precision measures about the Damegender International Dataset}
+\label{table:DifferentAccuracyMeasures}
 \end{table}
+
+We have made measurements about the international DameGender dataset,
+using as base of truth the dataset explained in
+\cite{10.7717/peerj-cs.156} reaching accuracy (0.8756), precision
+(0.9638), recall (1.0) and f1-score (0.925).
 
 \section{Web Technologies}
 \label{sec:webtech}
