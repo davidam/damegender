@@ -2,6 +2,8 @@
 
 damegender is a gender detection tool from the name coded by David Arroyo MEnéndez (DAME)
 
+
+
 # Why?
 
 - If you want determine gender gap in free software projects or mailing lists.
@@ -14,11 +16,15 @@ damegender is a gender detection tool from the name coded by David Arroyo MEnén
 
 DAMe Gender is for you!
 
-# Tell me about DAMe Gender on Video
+# Tell me about DAMe Gender papers 
 
--   [Python Barcelona (Spanish)](https://www.youtube.com/embed/dvN0lMgQ9Pc)
--   [Damegender in Software Freedom Day (Spanish)](https://tv.urjc.es/iframe/5d895319d68b148f7a8c0da6)
--   [Damegender in URJC (English)](https://tv.urjc.es/video/5d895319d68b148f7a8c0da6)
+-   [Damegender:Writing and Comparing Gender Detection Tools (CEUR)](http://ceur-ws.org/Vol-2754/paper3.pdf)
+-   [Damegender: Towards an International and Free Dataset about Name, Gender and Frequency](https://easychair.org/publications/preprint/q911)
+
+# Websites
+
+-   [Damegender](https://damegender.davidam.com)
+-   [Damegender pypi](https://pypi.org/project/damegender/)
 
 # Install
 
