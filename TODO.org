@@ -1280,3 +1280,5 @@ Por ejemplo, con scientists:
 + [ ] python-examples/sparql/wikidata-female-scientists.py
 + [ ] python-examples/sparql/female-scientists.csv
 
+* TODO Cuestionarse separar la paquetería damegender en datos y código
+Ver: https://stackoverflow.com/questions/779495/access-data-in-package-subdirectory
