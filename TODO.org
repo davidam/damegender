@@ -1282,3 +1282,12 @@ Por ejemplo, con scientists:
 
 * TODO Cuestionarse separar la paquetería damegender en datos y código
 Ver: https://stackoverflow.com/questions/779495/access-data-in-package-subdirectory
+* TODO La representación de sexo de manera numérica debe ser más fiel a la norma ISO/IEC 5218
++ [ ] 0 <-> not know
++ [ ] 1 <-> male
++ [ ] 2 <-> female
++ [ ] 9 <-> not applicable
+
+Para más información de estandarización acerca del género o sexo:
++ [ ] https://microformats.org/wiki/gender-formats
++ [ ] ISO/IEC 5218 (https://www.iso.org/standard/36266.html
