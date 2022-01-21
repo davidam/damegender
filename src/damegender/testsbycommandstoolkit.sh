@@ -88,14 +88,14 @@ else
 	echo -e  "newspaper2gender spanish test is ${GREEN}ok${NC}"
 fi
 
-python3 launchpad2gender.py ubuntu > files/tests/launchpad.txt
+# python3 launchpad2gender.py ubuntu > files/tests/launchpad-$(date "+%Y-%m-%d-%H").txt
 
-if ! diff files/tests/launchpad-$(date "+%Y-%m-%d-%H").txt files/tests/launchpad.txt 2>$1
-then 
-        echo -e  "launchpad test is ${RED}failing${NC}"
-else
-        echo -e  "launchpad test is ${GREEN}ok${NC}"        
-fi
+# if ! diff files/tests/launchpad-$(date "+%Y-%m-%d-%H").txt files/tests/launchpad.txt 2>$1
+# then 
+#         echo -e  "launchpad test is ${RED}failing${NC}"
+# else
+#         echo -e  "launchpad test is ${GREEN}ok${NC}"        
+# fi
 	
 rm -rf /tmp/clonedir
 echo "cleaning temporary files"
