@@ -109,7 +109,8 @@ for k in dicc.keys():
         if ((frec_file1 > 0) or (frec_file2 > 0)):
             percentage_file1 = (frec_file1 / (frec_file1 + frec_file2)) * 100
             percentage_file2 = (frec_file2 / (frec_file1 + frec_file2)) * 100
-            line = k + "," + str(dicc[k]) + "," + str(percentage_file1) + "," + str(percentage_file2) + "\n"
+            line = k + "," + str(dicc[k]) + "," + str(percentage_file1)
+            line = line + "," + str(percentage_file2) + "\n"
         else:
             line = k + "," + str(dicc[k]) + "\n"
     else:
