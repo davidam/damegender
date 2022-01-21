@@ -34,11 +34,17 @@ parser = argparse.ArgumentParser()
 # For example, files/names/names_fi/fifemales.csv
 parser.add_argument("path", help="csv file")
 # The path and name file where the json file is stored
-parser.add_argument("--outjson", default="files/names/out.json", help="json file")
+parser.add_argument("--outjson",
+                    default="files/names/out.json",
+                    help="json file")
 # The path and directory name file where the json files is stored
-parser.add_argument("--outdir", default="files/names/", help="json file")
+parser.add_argument("--outdir",
+                    default="files/names/",
+                    help="json file")
 # You can decide include or not the csv header in the operation
-parser.add_argument('--skip_header', dest='skip_header', action='store_true')
+parser.add_argument('--skip_header',
+                    dest='skip_header',
+                    action='store_true')
 # By default split the csv with 1 name per json file
 parser.add_argument('--names_by_multiple_files', default=1)
 parser.add_argument('--gender', choices=["male", "female", "all"])
@@ -54,16 +60,23 @@ else:
     csvlist = du.csv2list(args.path, header=False)
 
 if (args.gender == "all"):
-    print("You must use damegender csv files such as files/names/names_be/beall.csv")
+    str1 = "You must use damegender csv files "
+    str1 = str1 + "such as files/names/names_be/beall.csv"
+    print(str1)
 elif (args.gender == "female"):
-    print("You must use damegender csv files such as files/names/names_be/befemales.csv")
+    str2 = "You must use damegender csv files "
+    str2 = str2 + "such as files/names/names_be/befemales.csv"
+    print(str2)
 elif (args.gender == "male"):
-    print("You must use damegender csv files such as files/names/names_be/bemales.csv")    
+    str3 = "You must use damegender csv files "
+    str3 = str3 + "such as files/names/names_be/bemales.csv"
+    print(str3)
 # print(csvlist)
 
 if (int(args.names_by_multiple_files) == 1):
     for i in csvlist:
-        jsonfile = args.outdir + "/" + str(i[0].upper()) + "_" + args.gender + ".json"
+        jsonfile = args.outdir + "/" + str(i[0].upper())
+        jsonfile = jsonfile + "_" + args.gender + ".json"
         file = open(jsonfile, "w")
         try:
             varname = str(i[0].upper())
@@ -82,7 +95,7 @@ if (int(args.names_by_multiple_files) == 1):
         file.write('"frequency": ' + str(i[1]) + ',\n')
         if (args.gender == "all"):
             file.write('"males": "' + str(i[2]) + ' %",\n')
-            file.write('"females": "' + str(i[3]) + ' %"\n')            
+            file.write('"females": "' + str(i[3]) + ' %"\n')
         else:
             file.write('"gender": "' + str(args.gender) + '"\n')
         file.write('}]\n')
@@ -93,9 +106,9 @@ elif (int(args.names_by_multiple_files) > 1):
     print(n)
     while (cnt1 < n):
         cnt2 = 0
-        jsonfile = args.outdir + "/" + str(cnt1) + "_" + args.gender + ".json"        
+        jsonfile = args.outdir + "/" + str(cnt1) + "_" + args.gender + ".json"
         file = open(jsonfile, "w")
-        file.write('[{\n')        
+        file.write('[{\n')
         while (cnt2 < int(args.names_by_multiple_files)):
             try:
                 i = cnt1 + cnt2
@@ -107,7 +120,7 @@ elif (int(args.names_by_multiple_files) > 1):
                     varmales = str(csvlist[i][2])
                     print(varmales)
                     varfemales = str(csvlist[i][3])
-                    print(varfemales)                    
+                    print(varfemales)
                 else:
                     vargender = str(args.gender)
                     print(vargender)
@@ -117,13 +130,13 @@ elif (int(args.names_by_multiple_files) > 1):
             file.write('"name": "' + varname + '",\n')
             file.write('"frequency": ' + varfrequency + ',\n')
             file.write('"gender": "' + vargender + '"\n')
-            if (cnt2 == (int(args.names_by_multiple_files) -1)):
+            if (cnt2 == (int(args.names_by_multiple_files) - 1)):
                 file.write(']\n')
             else:
                 file.write('],\n')
             cnt2 = cnt2 + 1
         file.write('}]\n')
-        file.close()            
+        file.close()
         cnt2 = 0
         cnt1 = cnt1 + 1
 
@@ -148,13 +161,13 @@ else:
         file.write('"frequency": ' + varfrequency + ',\n')
         if (args.gender == "all"):
             file.write('"males": "' + varmales + ' %",\n')
-            file.write('"females": "' + varfemales + ' %"\n')            
+            file.write('"females": "' + varfemales + ' %"\n')
         else:
-            file.write('"gender": "' + vargender + '"\n')        
+            file.write('"gender": "' + vargender + '"\n')
         cnt = cnt + 1
         if (len(csvlist) == cnt):
             file.write('}\n')
         else:
             file.write('},\n')
-    file.write(']');
+    file.write(']')
     file.close()
