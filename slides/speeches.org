@@ -1,5 +1,5 @@
 
-* Damegender
+* Damegender Speeches
 ** 2021
 + Jornadas Online "Género y Ciencia de Datos en Deporte y Salud"
   (UOC, 2021) https://www.youtube.com/watch?v=hBDOf5qlcek&t=8903s
@@ -30,6 +30,8 @@
 
 + Open South Code (Málaga, 2019)
   (https://www.opensouthcode.org/conferences/opensouthcode2019/program/proposals/183)
+
++ Group Retreat 2019 Workshop (URJC, 2019)
 
 + PyBCN - Damegender: gender detection with NLTK and Scikit
   (Barcelona, 2019) (https://www.youtube.com/watch?v=dvN0lMgQ9Pc)
