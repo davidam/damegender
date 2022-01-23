@@ -1267,12 +1267,6 @@ Los campos de cada persona
 + total_females
 + probability (opcional, por defecto valor 1)
 + gender (obligatorio)
-* TODO Revisar dataset chino
-Se trata de coger un dataset prueba, descargar con genderapi o similar
-y ver que las desviaciones son razonables
-* TODO Revisar dataset ruso
-Se trata de coger un dataset prueba, descargar con genderapi o similar
-y ver que las desviaciones son razonables
 * TODO Rehacer los experimentos de Machine Learning con alguna profesión divertida de wikidata
 Por ejemplo, con scientists: 
 + [ ] python-examples/sparql/wikidata-male-scientists.py
@@ -1291,3 +1285,29 @@ Ver: https://stackoverflow.com/questions/779495/access-data-in-package-subdirect
 Para más información de estandarización acerca del género o sexo:
 + [ ] https://microformats.org/wiki/gender-formats
 + [ ] ISO/IEC 5218 (https://www.iso.org/standard/36266.html
+* TODO Resolver los problemas de alfabetos latinos y no latinos
+Por fin hemos encontrado una herramienta para convertir alfabetos no latinos a latinos:
+$ pip3 install transliterate
+
+** TODO Revisar dataset ruso
+Para comprobar que un nombre es el mismo apoyarse en wikipedia
+suele ser la misma url cambiando locale
+*** TODO Se trata de coger un dataset prueba con ALFABETO CHINO
+descargar con genderapi o similar
+y ver que las desviaciones son razonables
+
+*** TODO Se trata de coger un dataset prueba con ALFABETO LATINO
+descargar con genderapi o similar
+y ver que las desviaciones son razonables
+
+** TODO Revisar dataset chino
+Para comprobar que un nombre es el mismo apoyarse en wikipedia
+suele ser la misma url cambiando locale
+*** TODO Se trata de coger un dataset prueba con ALFABETO CHINO
+descargar con genderapi o similar
+y ver que las desviaciones son razonables
+
+*** TODO Se trata de coger un dataset prueba con ALFABETO LATINO
+descargar con genderapi o similar
+y ver que las desviaciones son razonables
+
