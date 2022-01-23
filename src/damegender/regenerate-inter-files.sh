@@ -69,5 +69,7 @@ python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfr
 mv files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenomales.csv files/names/names_inter/intermales.csv
 mv files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenofemales.csv files/names/names_inter/interfemales.csv
 
+python3 mergeinterfiles.py --file1="files/names/names_inter/intermales.csv" --file2="files/names/names_inter/interfemales.csv" --output="files/name/names_inter/interall.csv" --malefemale
+
 echo "Cleaning temporal files"
 rm files/tmp/*
