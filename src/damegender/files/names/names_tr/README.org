@@ -1,8 +1,16 @@
 * Retrieved from
 
+** Scraping  
 https://github.com/mkozturk/turkishnames/
 
 That's scraping from Turkish Citizenship Database (government-collected data)
+
+*** TODO We must check this data with genderapi or similar
+
+** Official Statistis
+https://data.tuik.gov.tr/Search/Search?text=name
+
+Only 100 names by gender for now
 
 * License:
 MIT
