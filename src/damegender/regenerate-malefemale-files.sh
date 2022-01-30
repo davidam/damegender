@@ -38,5 +38,6 @@ python3 mergeinterfiles.py --file1="files/names/names_no/nomales.csv" --file2="f
 python3 mergeinterfiles.py --file1="files/names/names_nz/nzmales.csv" --file2="files/names/names_nz/nzfemales.csv" --output=files/names/names_nz/nzall.csv --malefemale
 python3 mergeinterfiles.py --file1="files/names/names_pt/ptmales.csv" --file2="files/names/names_pt/ptfemales.csv" --output=files/names/names_pt/ptall.csv --malefemale
 python3 mergeinterfiles.py --file1="files/names/names_se/semales.csv" --file2="files/names/names_se/sefemales.csv" --output=files/names/names_se/seall.csv --malefemale
+python3 mergeinterfiles.py --file1="files/names/names_tr/trmales.csv" --file2="files/names/names_tr/trfemales.csv" --output=files/names/names_tr/trall.csv --malefemale
 python3 mergeinterfiles.py --file1="files/names/names_uy/uymasculinos.csv" --file2="files/names/names_uy/uyfemeninos.csv" --output=files/names/names_uy/uyall.csv --malefemale
 
