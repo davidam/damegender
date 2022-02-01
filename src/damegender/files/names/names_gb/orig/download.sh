@@ -23,7 +23,7 @@
 
 echo "GIRLS ENGLAND AND WALES"
 
-mkdir -p englandwales
+mkdir -p englananddwales
 cd englandandwales
 
 wget -c https://www.ons.gov.uk/file?uri=%2fpeoplepopulationandcommunity%2fbirthsdeathsandmarriages%2flivebirths%2fdatasets%2fbabynamesenglandandwalesbabynamesstatisticsgirls%2f2020/2020girlsnames.xlsx
