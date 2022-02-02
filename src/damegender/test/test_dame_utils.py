@@ -26,7 +26,6 @@
 import unittest
 import os
 from app.dame_utils import DameUtils
-from app.dame_gender import Gender
 from os.path import expanduser
 
 
@@ -139,7 +138,6 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(du.delete_duplicated_identities([id1, id1]), [id1])
 
     def test_delete_duplicated(self):
-        g = Gender()
         du = DameUtils()
         l1 = sorted(du.delete_duplicated([1, 5, 2, 2, 1, 3, 5, 5, 5, 5]))
         self.assertEqual(l1, [1, 2, 3, 5])
