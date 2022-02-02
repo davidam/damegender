@@ -981,7 +981,6 @@ class Gender(object):
         arr = du.string2array(string)
         name = ""
         i = 0
-        features_int = self.features_int(string)
         while ((name == "") and (len(arr) > i)):
             bool1 = self.guess_surname(arr[i], locale="us")[0]
             if (not(bool1) and (len(string) > 0)):
