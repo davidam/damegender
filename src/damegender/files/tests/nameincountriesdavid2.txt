@@ -1,3 +1,4 @@
+We are using nam_dict.txt as dataset in this script
 grep -i " david " files/names/nam_dict.txt > files/logs/grep.tmp
 males: ['Albania', 'Armenia', 'Austria', 'Azerbaijan', 'Belgium', 'Bosnia and Herzegovina', 'Czech Republic', 'Denmark', 'East Frisia', 'France', 'Georgia', 'Germany', 'Great Britain', 'Iceland', 'Ireland', 'Israel', 'Italy', 'Kazakhstan/Uzbekistan', 'Luxembourg', 'Malta', 'Norway', 'Portugal', 'Romania', 'Slovenia', 'Spain', 'Sweden', 'Swiss', 'The Netherlands', 'USA', 'Ukraine']
 females: []
