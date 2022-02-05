@@ -36,6 +36,11 @@ parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the country")
 args = parser.parse_args()
 
+print("We are using nam_dict.txt as dataset in this script")
+# print("by default. ")
+# print("You can use damegender datasets using")
+# print("--damegender")
+
 # Dictionary of countries and person names in files/names/nam_dict.txt
 keyscountries = {"30": "Great Britain", "31": "Ireland", "32": "USA",
                  "33": "Italy", "34": "Malta", "35": "Portugal",
