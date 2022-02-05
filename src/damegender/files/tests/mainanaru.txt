@@ -1,0 +1,5 @@
+Алла's gender is female
+probability: 1.0
+Warning: total=ru only runs with russian alphabet
+0 males for Алла from Russia statistics
+49010 females for Алла from Russia statistics
