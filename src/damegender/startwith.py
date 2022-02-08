@@ -52,9 +52,11 @@ dicc = du.dicc_dataset(args.gender)
 path = dicc[args.total]
 
 if (args.total == "cn"):
-    print("Be careful, you must use Chinese characters and supported encoding")
+    print("Be careful")
+    print("you must use Chinese characters and supported encoding")
 elif (args.total == "ru"):
-    print("Be carefull, you must use Russian characters and supported encoding")
+    print("Be carefull")
+    print("you must use Russian characters and supported encoding")
 
 with open(path) as csvfile:
     sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
