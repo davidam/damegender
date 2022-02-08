@@ -1,5 +1,4 @@
-* Retrieved from
-
+* Seen from
 ** Official Statistis
 + [ ] https://data.tuik.gov.tr/Search/Search?text=name (tables)
 + [ ] Women: https://data.tuik.gov.tr/Bulten/DownloadIstatistikselTablo?p=9epDtTlGhcMPdhxk55nlI39LVn/Cjrdld0WtTxvveQh4a0fku1aaRqeQkxfqq9iI
@@ -11,5 +10,10 @@ https://github.com/mkozturk/turkishnames/
 That's scraping from Turkish Citizenship Database (government-collected data)
 
 * License:
-Open Data
+The political sentence is Open Data.
+
+But I can't see a license where Open Data is a legal agreement from
+original sources given by the Turkish government, so the author
+prefers doesn't redistribute these datasets. But Damegender allows to
+use download.sh to retrieve these datasets.
 
