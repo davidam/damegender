@@ -319,7 +319,8 @@ class DameUtils():
             if header:
                 next(sexreader, None)
             for row in sexreader:
-                l1.append(row)
+                if (row != []):
+                    l1.append(row)
         return l1
 
     def delete_duplicated(self, l1):
