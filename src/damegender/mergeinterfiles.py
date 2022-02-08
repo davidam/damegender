@@ -98,6 +98,8 @@ if (args.verbose):
 file = open(args.output, "w")
 for k in dicc.keys():
     if (args.malefemale):
+        frec_file1 = 0
+        frec_file2 = 0        
         if k in dicci:
             frec_file1 = dicci[k]
         else:
@@ -111,6 +113,8 @@ for k in dicc.keys():
             percentage_file2 = (frec_file2 / (frec_file1 + frec_file2)) * 100
             line = k + "," + str(dicc[k]) + "," + str(percentage_file1)
             line = line + "," + str(percentage_file2) + "\n"
+        elif ((frec_file1 == 0) and (frec_file2 == 0)):
+            line = k + ",0,0,0\n"
         else:
             line = k + "," + str(dicc[k]) + "\n"
     else:
