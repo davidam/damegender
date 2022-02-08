@@ -57,7 +57,7 @@ class DameUtils():
                     "ru": "files/names/names_ru/rumales.csv",
                     "se": "files/names/names_se/semales.csv",
                     "si": "files/names/names_si/simales.csv",
-                    "tr": "files/names/names_tr/trmales.csv",
+                    # "tr": "files/names/names_tr/trmales.csv",
                     "us": "files/names/names_us/usmales.csv",
                     "usa": "files/names/names_us/usmales.csv",
                     "uy": "files/names/names_uy/uymasculinos.csv"}
@@ -85,7 +85,7 @@ class DameUtils():
                     "ru": "files/names/names_ru/rufemales.csv",
                     "se": "files/names/names_se/sefemales.csv",
                     "si": "files/names/names_si/sifemales.csv",
-                    "tr": "files/names/names_tr/trfemales.csv",                    
+                    # "tr": "files/names/names_tr/trfemales.csv",
                     "us": "files/names/names_us/usfemales.csv",
                     "usa": "files/names/names_us/usfemales.csv",
                     "uy": "files/names/names_uy/uyfemeninos.csv"}
@@ -111,7 +111,7 @@ class DameUtils():
                     "pt": "files/names/names_pt/ptall.csv",
                     "se": "files/names/names_si/seall.csv",
                     "si": "files/names/names_si/siall.csv",
-                    "tr": "files/names/names_tr/trall.csv",                    
+                    # "tr": "files/names/names_tr/trall.csv",
                     "us": "files/names/names_us/usall.csv",
                     "usa": "files/names/names_us/usall.csv",
                     "uy": "files/names/names_uy/uyall.csv"}
