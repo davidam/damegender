@@ -43,7 +43,7 @@ parser.add_argument('--total', default="inter",
                     choices=['at', 'au', 'be', 'ca', 'ch',
                              'cn', 'de', 'dk', 'es', 'fi',
                              'fr', 'gb', 'ie', 'is', 'no', 'nz',
-                             'mx', 'pt', 'ru', 'se', 'si', 'tr',
+                             'mx', 'pt', 'ru', 'se', 'si',
                              'uy', 'us', 'namdict', 'inter'])
 # More about iso codes on https://www.iso.org/obp/ui/
 parser.add_argument('--version', action='version', version='0.4')
@@ -220,12 +220,12 @@ elif ((args.verbose) or (args.total == "all")):
           % (n_males, args.name))
     print("%s females for %s from Slovenia statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="tr")['males']
-    n_females = s.name_frec(args.name, dataset="tr")['females']
-    print("%s males for %s from Turkish statistics"
-          % (n_males, args.name))
-    print("%s females for %s from Turkish statistics"
-          % (n_females, args.name))
+    # n_males = s.name_frec(args.name, dataset="tr")['males']
+    # n_females = s.name_frec(args.name, dataset="tr")['females']
+    # print("%s males for %s from Turkish statistics"
+    #       % (n_males, args.name))
+    # print("%s females for %s from Turkish statistics"
+    #       % (n_females, args.name))
     n_males = s.name_frec(args.name, dataset="us")['males']
     n_females = s.name_frec(args.name, dataset="us")['females']
     print("%s males for %s from United States of America statistics"
