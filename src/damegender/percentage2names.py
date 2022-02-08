@@ -36,9 +36,9 @@ parser.add_argument("--percentage_until", default=-1)
 parser.add_argument('--total', default="inter",
                     choices=['at', 'au', 'be', 'ca', 'ch',
                              'cn', 'de', 'dk', 'es', 'fi',
-                             'fr', 'gb', 'ie', 'is', 'no', 'nz',
-                             'mx', 'pt', 'ru', 'se', 'si', 
-                             'uy', 'us', 'inter'])
+                             'fr', 'gb', 'ie', 'is', 'no',
+                             'nz', 'mx', 'pt', 'ru', 'se',
+                             'si', 'uy', 'us', 'inter'])
 # More about iso codes on https://www.iso.org/obp/ui/
 parser.add_argument('--outcsv', default="files/names/out.csv")
 parser.add_argument('--version', action='version', version='0.4')
