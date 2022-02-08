@@ -46,7 +46,7 @@ parser.add_argument('--dataset', default="us",
                     choices=['at', 'au', 'be', 'ca', 'cn', 'de',
                              'dk', 'es', 'fi', 'fr', 'gb', 'ie',
                              'ine', 'is', 'nz', 'mx', 'pt', 'si',
-                             'tr', 'uy', 'us', 'inter'])
+                             'uy', 'us', 'inter'])
 parser.add_argument('--binary', default=False, action="store_true")
 parser.add_argument('--notoutput', default=False, action="store_true")
 parser.add_argument('--jsonoutput', type=str,
