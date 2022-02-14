@@ -301,72 +301,30 @@ class Gender(object):
         return path
 
     def males_list(self, corpus='es'):
-        au_path = 'files/names/names_au/baby-names-1944-2013/aumales.csv'
-        ca_path = 'files/names/names_ca/camales.csv'
-        gb_path = 'files/names/names_gb/ukmales.txt'
-        ine_path = 'files/names/names_es/masculinos.txt'
-        nz_path = 'files/names/names_nz/nzmales.csv'
-#        pt_path = 'files/names/names_pt/ptmales.csv'
-        uy_path = 'files/names/names_uy/uymasculinos.txt'
-        us_path = 'files/names/names_us/usmales.txt'
-
+        du = DameUtils()
+        dicc_males = du.dicc_dataset("male")
+        path_males = dicc_males[corpus]
         m = []
-        if (corpus == 'au'):
-            m = du.csvcolumn2list(ine_path)
-        elif ((corpus == 'es') or (corpus == 'ine')):
-            m = du.csvcolumn2list(ine_path)
-        elif (corpus == 'ca'):
-            m = du.csvcolumn2list(ca_path)
-        elif (corpus == 'nz'):
-            m = du.csvcolumn2list(nz_path)
-        # elif (corpus == 'pt'):
-        #     m = du.csvcolumn2list(pt_path)
-        elif (corpus == 'gb'):
-            m = du.csvcolumn2list(gb_path)
-        elif (corpus == 'us'):
-            m = du.csvcolumn2list(us_path)
-        elif (corpus == 'uy'):
-            m = du.csvcolumn2list(uy_path)
+        if (corpus != 'all'):
+            m = du.csvcolumn2list(path_males)
         elif (corpus == 'all'):
-            m = du.csvcolumn2list(au_path) + du.csvcolumn2list(ca_path)
-            m = m + du.csvcolumn2list(ine_path) + du.csvcolumn2list(gb_path)
-            m = m + du.csvcolumn2list(nz_path) + du.csvcolumn2list(us_path)
-            m = m + du.csvcolumn2list(uy_path)
+            m = [] 
+            for i in dicc_males.keys():
+                m = m + du.csvcolumn2list(i)
         m = du.delete_duplicated(m)
         return m
 
     def females_list(self, corpus='es'):
-        au_path = 'files/names/names_au/baby-names-1944-2013/aufemales.csv'
-        ca_path = 'files/names/names_ca/cafemales.csv'
-        ine_path = 'files/names/names_es/femeninos.txt'
-        nz_path = 'files/names/names_nz/nzfemales.csv'
-#        pt_path = 'files/names/names_pt/ptfemales.csv'
-        gb_path = 'files/names/names_gb/ukfemales.txt'
-        us_path = 'files/names/names_us/usfemales.txt'
-        uy_path = 'files/names/names_uy/uyfemeninos.txt'
-
+        du = DameUtils()
+        dicc_females = du.dicc_dataset("female")
+        path_females = dicc_females[corpus]
         f = []
-        if (corpus == 'au'):
-            f = du.csvcolumn2list(ine_path)
-        elif (corpus == 'ca'):
-            f = du.csvcolumn2list(nz_path)
-        elif ((corpus == 'es') or (corpus == 'ine')):
-            f = du.csvcolumn2list(ine_path)
-        elif (corpus == 'nz'):
-            f = du.csvcolumn2list(nz_path)
-        # elif (corpus == 'pt'):
-        #     f = du.csvcolumn2list(pt_path)
-        elif (corpus == 'gb'):
-            f = du.csvcolumn2list(gb_path)
-        elif (corpus == 'us'):
-            f = du.csvcolumn2list(us_path)
-        elif (corpus == 'uy'):
-            f = du.csvcolumn2list(uy_path)
+        if (corpus != 'all'):
+            f = du.csvcolumn2list(path_females)
         elif (corpus == 'all'):
-            f = du.csvcolumn2list(au_path) + du.csvcolumn2list(ca_path)
-            f = f + du.csvcolumn2list(ine_path) + du.csvcolumn2list(nz_path)
-            f = f + du.csvcolumn2list(us_path) + du.csvcolumn2list(us_path)
-            f = f + du.csvcolumn2list(uy_path)
+            f = [] 
+            for i in dicc_females.keys():
+                f = f + du.csvcolumn2list(i)        
         f = du.delete_duplicated(f)
         return f
 
