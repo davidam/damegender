@@ -515,57 +515,7 @@ class Gender(object):
         du = DameUtils()
         name = du.drop_accents(name)
         dicc_males = du.dicc_dataset("male")
-        path_males = dicc_males["es"]
-        if ((dataset == 'ine') or (dataset == 'es')):
-            path_males = dicc_males["es"]
-        elif (dataset == 'at'):
-            path_males = dicc_males["at"]
-        elif (dataset == 'au'):
-            path_males = dicc_males["au"]
-        elif (dataset == 'be'):
-            path_males = dicc_males["be"]
-        elif (dataset == 'ca'):
-            path_males = dicc_males["ca"]
-        elif (dataset == 'ch'):
-            path_males = dicc_males["ch"]
-        elif (dataset == 'cn'):
-            path_males = dicc_males["cn"]
-        elif (dataset == 'de'):
-            path_males = dicc_males["de"]
-        elif (dataset == 'dk'):
-            path_males = dicc_males["dk"]
-        elif (dataset == 'fi'):
-            path_males = dicc_males["fi"]
-        elif (dataset == 'fr'):
-            path_males = dicc_males["fr"]
-        elif (dataset == 'gb'):
-            path_males = dicc_males["gb"]
-        elif (dataset == 'ie'):
-            path_males = dicc_males["ie"]
-        elif (dataset == 'inter'):
-            path_males = dicc_males["inter"]
-        elif (dataset == 'is'):
-            path_males = dicc_males["is"]
-        elif (dataset == 'no'):
-            path_males = dicc_males["no"]
-        elif (dataset == 'nz'):
-            path_males = dicc_males["nz"]
-        elif (dataset == 'mx'):
-            path_males = dicc_males["mx"]
-        elif (dataset == 'pt'):
-            path_males = dicc_males["pt"]
-        elif (dataset == 'ru'):
-            path_males = dicc_males["ru"]
-        elif (dataset == 'se'):
-            path_males = dicc_males["se"]
-        elif (dataset == 'si'):
-            path_males = dicc_males["si"]
-        elif (dataset == 'tr'):
-            path_males = dicc_males["tr"]
-        elif (dataset == 'uy'):
-            path_males = dicc_males["uy"]
-        elif ((dataset == 'us') or (dataset == 'usa')):
-            path_males = dicc_males["us"]
+        path_males = dicc_males[dataset]
         file_males = open(path_males, 'r')
         readerm = csv.reader(file_males, delimiter=',', quotechar='|')
         males = 0
@@ -575,61 +525,10 @@ class Gender(object):
                 males = du.drop_dots(males)
 
         dicc_females = du.dicc_dataset("female")
-        path_females = dicc_females["es"]
-        if (dataset == 'at'):
-            path_females = dicc_females["at"]
-        elif (dataset == 'au'):
-            path_females = dicc_females["au"]
-        elif (dataset == 'be'):
-            path_females = dicc_females["be"]
-        elif (dataset == 'ca'):
-            path_females = dicc_females["ca"]
-        elif (dataset == 'ch'):
-            path_females = dicc_females["ch"]
-        elif (dataset == 'cn'):
-            path_females = dicc_females["cn"]
-        elif (dataset == 'de'):
-            path_females = dicc_females["de"]
-        elif (dataset == 'dk'):
-            path_females = dicc_females["dk"]
-        elif ((dataset == 'ine') or (dataset == 'es')):
-            path_females = dicc_females["es"]
-        elif (dataset == 'inter'):
-            path_females = dicc_females["inter"]
-        elif (dataset == 'ie'):
-            path_females = dicc_females["ie"]
-        elif (dataset == 'is'):
-            path_females = dicc_females["is"]
-        elif (dataset == 'fi'):
-            path_females = dicc_females["fi"]
-        elif (dataset == 'fr'):
-            path_females = dicc_females["fr"]
-        elif (dataset == 'gb'):
-            path_females = dicc_females["gb"]
-        elif (dataset == 'no'):
-            path_females = dicc_females["no"]
-        elif (dataset == 'nz'):
-            path_females = dicc_females["nz"]
-        elif (dataset == 'mx'):
-            path_females = dicc_females["mx"]
-        elif (dataset == 'pt'):
-            path_females = dicc_females["pt"]
-        elif (dataset == 'ru'):
-            path_females = dicc_females["ru"]
-        elif (dataset == 'se'):
-            path_females = dicc_females["se"]
-        elif (dataset == 'si'):
-            path_females = dicc_females["si"]
-        elif (dataset == 'tr'):
-            path_females = dicc_females["tr"]
-        elif (dataset == 'uy'):
-            path_females = dicc_females["uy"]
-        elif ((dataset == 'us') or (dataset == 'usa')):
-            path_females = dicc_females["us"]
+        path_females = dicc_females[dataset]                
         file_females = open(path_females, 'r')
         readerf = csv.reader(file_females, delimiter=',', quotechar='|')
         females = 0
-
         for row in readerf:
             if ((len(row) > 1) and (row[0].lower() == name.lower())):
                 females = row[1]
