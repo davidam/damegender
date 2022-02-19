@@ -112,13 +112,15 @@ fo.close()
 
 file = open(csvoutmales, "w")    
 for i in dicc.keys():
-    line = str(i) + "," + str(dicc[i]["males"]) + "\n"
-    file.write(line)
+    if (dicc[i]["males"] > 0):
+        line = str(i) + "," + str(dicc[i]["males"]) + "\n"
+        file.write(line)
 file.close()
 
 file = open(csvoutfemales, "w")    
 for i in dicc.keys():
-    line = str(i) + "," + str(dicc[i]["females"]) + "\n"
-    file.write(line)
+    if (dicc[i]["females"] > 0):
+        line = str(i) + "," + str(dicc[i]["females"]) + "\n"
+        file.write(line)
 file.close()
 
