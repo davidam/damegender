@@ -30,11 +30,12 @@ import argparse
 g = Gender()
 
 parser = argparse.ArgumentParser()
-parser.add_argument('corpus', default="ine",
-                    choices=['at', 'au', 'be', 'ca', 'dk', 'de', 'es',
-                             'fi', 'gb', 'ie', 'ine', 'inter', 'is',
-                             'mx', 'nz', 'pt', 'si', 'uy', 'us',
-                             'genderguesser', 'all'])
+parser.add_argument('corpus', default="es",
+                    choices=['at', 'au', 'be', 'ca', 'ch',
+                             'cn', 'de', 'dk', 'es', 'fi',
+                             'fr', 'gb', 'ie', 'is', 'no', 'nz',
+                             'mx', 'pt', 'ru', 'se', 'si',
+                             'uy', 'us', 'namdict', 'inter'])
 args = parser.parse_args()
 
 
