@@ -18,4 +18,4 @@
 #  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 #  Boston, MA 02110-1301 USA,
 
-wget -c https://open.alberta.ca/dataset/11245675-b047-49fc-8bd1-cc2ce8314a6d/resource/e8aac308-c754-484c-b446-0c57ed0e8d37/download/baby-names-frequency.xlsx
+wget -c https://open.alberta.ca/dataset/11245675-b047-49fc-8bd1-cc2ce8314a6d/resource/e8aac308-c754-484c-b446-0c57ed0e8d37/download/baby-names-frequency.xlsx -O baby-names-frequency.xlsx
