@@ -15,8 +15,8 @@ diccmales = {}
 # # We start collecting 2009 data for females
 with open('Vornamen_Koeln_2010.csv') as csvfile:
     next(csvfile) # skipping the header row, first row
-    spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-    for row in spamreader:
+    sreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    for row in sreader:
         #print(','.join(row))
         if (row[2] == 'm'):
             if (row[0] in diccmales.keys()):
@@ -39,8 +39,8 @@ with open('Vornamen_Koeln_2010.csv') as csvfile:
 # We start collecting 2009 data for females
 with open('Vornamen_Koeln_2011.csv') as csvfile:
     next(csvfile) # skipping the header row, first row
-    spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-    for row in spamreader:
+    sreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    for row in sreader:
         #print(','.join(row))
         if (row[2] == 'm'):
             if (row[0] in diccmales.keys()):
@@ -61,8 +61,8 @@ with open('Vornamen_Koeln_2011.csv') as csvfile:
 
 with open('Vornamen_Koeln_2012.csv') as csvfile:
     next(csvfile) # skipping the header row, first row
-    spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-    for row in spamreader:
+    sreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    for row in sreader:
         #print(','.join(row))
         if (row[2] == 'm'):
             if (row[0] in diccmales.keys()):
@@ -79,8 +79,8 @@ with open('Vornamen_Koeln_2012.csv') as csvfile:
                 
 with open('Vornamen_Koeln_2013.csv') as csvfile:
     next(csvfile) # skipping the header row, first row
-    spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-    for row in spamreader:
+    sreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    for row in sreader:
         #print(','.join(row))
         if (row[2] == 'm'):
             if (row[0] in diccmales.keys()):
@@ -98,8 +98,8 @@ with open('Vornamen_Koeln_2013.csv') as csvfile:
 
 with open('Vornamen_Koeln_2014.csv') as csvfile:
     next(csvfile) # skipping the header row, first row
-    spamreader = csv.reader(csvfile, delimiter=';', quotechar='|')
-    for row in spamreader:
+    sreader = csv.reader(csvfile, delimiter=';', quotechar='|')
+    for row in sreader:
         print(row)
         if (row[2] == 'm'):
             if (row[0] in diccmales.keys()):
@@ -116,8 +116,8 @@ with open('Vornamen_Koeln_2014.csv') as csvfile:
 
 with open('Vornamen_Koeln_2015.csv') as csvfile:
     next(csvfile) # skipping the header row, first row
-    spamreader = csv.reader(csvfile, delimiter=';', quotechar='|')
-    for row in spamreader:
+    sreader = csv.reader(csvfile, delimiter=';', quotechar='|')
+    for row in sreader:
         #print(','.join(row))
         if (row[2] == 'm'):
             if (row[1] in diccmales.keys()):
@@ -137,8 +137,8 @@ with open('Vornamen_Koeln_2015.csv') as csvfile:
 
 with open('Vornamen_Koeln_2016.csv') as csvfile:
     next(csvfile) # skipping the header row, first row
-    spamreader = csv.reader(csvfile, delimiter=';', quotechar='|')
-    for row in spamreader:
+    sreader = csv.reader(csvfile, delimiter=';', quotechar='|')
+    for row in sreader:
         #print(','.join(row))
         if (row[2] == 'm'):
             if (row[1] in diccmales.keys()):
@@ -155,8 +155,8 @@ with open('Vornamen_Koeln_2016.csv') as csvfile:
 
 with open('Vornamen_Koeln_2017.csv') as csvfile:
     next(csvfile) # skipping the header row, first row
-    spamreader = csv.reader(csvfile, delimiter=';', quotechar='|')
-    for row in spamreader:
+    sreader = csv.reader(csvfile, delimiter=';', quotechar='|')
+    for row in sreader:
         #print(','.join(row))
         if (row[2] == 'm'):
             if (row[1] in diccmales.keys()):
@@ -175,8 +175,8 @@ with open('Vornamen_Koeln_2017.csv') as csvfile:
 
 with open('Vornamen_2018_Koeln.csv') as csvfile:
     next(csvfile) # skipping the header row, first row
-    spamreader = csv.reader(csvfile, delimiter=';', quotechar='|')    
-    for row in spamreader:
+    sreader = csv.reader(csvfile, delimiter=';', quotechar='|')    
+    for row in sreader:
         #print(','.join(row))
         if (row[2] == 'm'):
             if (row[1] in diccmales.keys()):
@@ -190,6 +190,43 @@ with open('Vornamen_2018_Koeln.csv') as csvfile:
                 diccfemales[row[1]] = int(val) + int(row[0])
             else:
                 diccfemales[row[1]] = int(row[0])
+
+with open('Vornamen_2019_Koeln.csv') as csvfile:
+    next(csvfile) # skipping the header row, first row
+    sreader = csv.reader(csvfile, delimiter=';', quotechar='|')    
+    for row in sreader:
+        #print(','.join(row))
+        if (row[2] == 'm'):
+            if (row[1] in diccmales.keys()):
+                val = diccmales[row[1]]
+                diccmales[row[1]] = int(val) + int(row[0])
+            else:
+                diccmales[row[1]] = int(row[0])
+        elif (row[2] == 'w'):
+            if (row[1] in diccfemales.keys()):
+                val = diccfemales[row[1]]
+                diccfemales[row[1]] = int(val) + int(row[0])
+            else:
+                diccfemales[row[1]] = int(row[0])
+
+with open('Vornamen_2020_Koeln.csv') as csvfile:
+    next(csvfile) # skipping the header row, first row
+    sreader = csv.reader(csvfile, delimiter=';', quotechar='|')    
+    for row in sreader:
+        #print(','.join(row))
+        if (row[2] == 'm'):
+            if (row[1] in diccmales.keys()):
+                val = diccmales[row[1]]
+                diccmales[row[1]] = int(val) + int(row[0])
+            else:
+                diccmales[row[1]] = int(row[0])
+        elif (row[2] == 'w'):
+            if (row[1] in diccfemales.keys()):
+                val = diccfemales[row[1]]
+                diccfemales[row[1]] = int(val) + int(row[0])
+            else:
+                diccfemales[row[1]] = int(row[0])
+
 
                 
 fofemales = open("defemales.csv", "w")
