@@ -1,10 +1,15 @@
 
+* v0.4.2
+Improvements towards reproducible science:
++ [X] adding download.sh to many names folders
++ [X] updating several datasets from statistical institution websites
++ [X] updating infofeatures to changes in source and new datasets
 * v0.4.1
 
 Cleaning code:
-+ [ ] PEP8 reached using pycodestyle
-+ [ ] remove unused imports
-+ [ ] delete buggy rows in datasets derived from comments
++ [X] PEP8 reached using pycodestyle
++ [X] remove unused imports
++ [X] delete buggy rows in datasets derived from comments
 
 New features:
 + percentage2names.py: to create datasets with a specific range of
