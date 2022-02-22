@@ -1311,3 +1311,6 @@ y ver que las desviaciones son razonables
 descargar con genderapi o similar
 y ver que las desviaciones son razonables
 
+* TODO Ahora mismo damegender no se instala en macos debido a lxml
+  Tratar de reemplazar por librería nativa para evitar problemas de dependencias
+  https://docs.python.org/3/library/xml.etree.elementtree.html
