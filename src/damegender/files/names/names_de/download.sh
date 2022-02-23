@@ -19,6 +19,8 @@
 #  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 #  Boston, MA 02110-1301 USA,
 
+mkdir -p orig
+cd orig
 wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_2020_Koeln.csv
 wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_2019_Koeln.csv
 wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_2018_Koeln.csv
@@ -30,7 +32,7 @@ wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2013.csv
 wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2012.csv
 wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2011.csv
 wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2010.csv
-
+cd ..
 
 
 
