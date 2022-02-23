@@ -29,8 +29,6 @@ import json
 import configparser
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
-from sklearn.metrics import accuracy_score
-from sklearn.metrics import confusion_matrix
 
 
 class DameGenderize(Gender):
