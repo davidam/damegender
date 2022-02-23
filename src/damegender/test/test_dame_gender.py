@@ -242,7 +242,7 @@ class TddInPythonExample(unittest.TestCase):
         frec6 = g.name_frec("MARIA", dataset='nz')
         self.assertEqual(int(frec6['females']), 5541)
         frec6 = g.name_frec("MARIA", dataset='ca')
-        self.assertEqual(int(frec6['females']), 1626)
+        self.assertEqual(int(frec6['females']), 1681)
         frec7 = g.name_frec("MARIA", dataset='si')
         self.assertEqual(int(frec7['females']), 2867)
 
