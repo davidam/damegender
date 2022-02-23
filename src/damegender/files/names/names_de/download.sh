@@ -25,7 +25,7 @@ wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_2018_Koeln.csv
 wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2017.csv
 wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2016.csv
 wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2015.csv
-wget -c https://offenedaten-koeln.de/sites/default/files/Vornamensstatistik_2014_0.csv
+wget -c https://offenedaten-koeln.de/sites/default/files/Vornamensstatistik_2014.csv
 wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2013.csv
 wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2012.csv
 wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2011.csv
