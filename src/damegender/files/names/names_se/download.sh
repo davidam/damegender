@@ -19,5 +19,7 @@
 #  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 #  Boston, MA 02110-1301 USA,
 
-wget -c https://www.scb.se/en/finding-statistics/statistics-by-subject-area/population/general-statistics/name-statistics/pong/tables-and-graphs/newborn--given-names-alphabetical-overview/boys-names/ -O boys.xls
-wget -c https://www.scb.se/en/finding-statistics/statistics-by-subject-area/population/general-statistics/name-statistics/pong/tables-and-graphs/newborn--given-names-alphabetical-overview/girls-names/ -O girls.xls
+mkdir -p orig
+wget -c https://www.scb.se/en/finding-statistics/statistics-by-subject-area/population/general-statistics/name-statistics/pong/tables-and-graphs/newborn--given-names-alphabetical-overview/boys-names/ -O orig/boys.xls
+wget -c https://www.scb.se/en/finding-statistics/statistics-by-subject-area/population/general-statistics/name-statistics/pong/tables-and-graphs/newborn--given-names-alphabetical-overview/girls-names/ -O orig/girls.xls
+
