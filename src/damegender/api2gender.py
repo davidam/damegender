@@ -31,10 +31,8 @@ from app.dame_genderapi import DameGenderApi
 from app.dame_genderize import DameGenderize
 from app.dame_namsor import DameNamsor
 from app.dame_nameapi import DameNameapi
-from app.dame_all import DameAll
 from app.dame_utils import DameUtils
 from lxml import html
-
 import sys
 import argparse
 import requests
