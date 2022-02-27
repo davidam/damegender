@@ -259,27 +259,25 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_name_prob_countries(self):
         g = Gender()
-        self.assertEqual([{'females':
-                           {'uy': 0.0, 'nz': 0.0, 'pt': 0.0,
-                            'au': 0.001, 'us': 0.999, 'fi': 0.0,
-                            'gb': 0.0, 'is': 0.0, 'ca': 0.0,
-                            'ie': 0.0, 'es': 0.0},
-                           'males':
-                           {'uy': 0.0, 'nz': 0.009, 'pt': 0.0,
-                            'au': 0.001, 'us': 0.889, 'fi': 0.0,
-                            'gb': 0.007, 'is': 0.0, 'ca': 0.002,
-                            'ie': 0.0, 'es': 0.091}}],
-                         g.name_prob_countries("David"))
-        self.assertEqual([{'males':
-                           {'is': 0, 'ca': 0, 'fi': 0, 'au': 0,
-                            'pt': 0, 'ie': 0, 'gb': 0, 'nz': 0,
-                            'es': 0, 'uy': 0, 'us': 0},
-                           'females':
-                           {'is': 0.0, 'ca': 0.0, 'fi': 0.0,
-                            'au': 0.0, 'pt': 0.0, 'ie': 0.0,
-                            'gb': 0.0, 'nz': 0.0, 'es': 1.0,
-                            'uy': 0.0, 'us': 0.0}}],
-                         g.name_prob_countries("Nekane"))
+        x = [{'females': {'es': 0.0, 'ie': 0.0, 'is': 0.0,
+                          'uy': 0.0, 'gb': 0.0, 'us': 0.999,
+                          'nz': 0.0, 'ca': 0.0, 'fi': 0.0,
+                          'au': 0.001, 'pt': 0.0},
+              'males': {'es': 0.091, 'ie': 0.0, 'is': 0.0,
+                        'uy': 0.0, 'gb': 0.007, 'us': 0.888,
+                        'nz': 0.009, 'ca': 0.002, 'fi': 0.0,
+                        'au': 0.001, 'pt': 0.0}}]
+        self.assertEqual(x, g.name_prob_countries("David"))
+        y = [{'males':
+              {'is': 0, 'ca': 0, 'fi': 0, 'au': 0,
+               'pt': 0, 'ie': 0, 'gb': 0, 'nz': 0,
+               'es': 0, 'uy': 0, 'us': 0},
+              'females':
+              {'is': 0.0, 'ca': 0.0, 'fi': 0.0,
+               'au': 0.0, 'pt': 0.0, 'ie': 0.0,
+               'gb': 0.0, 'nz': 0.0, 'es': 1.0,
+               'uy': 0.0, 'us': 0.0}}]
+        self.assertEqual(y, g.name_prob_countries("Nekane"))
 
 #     def test_dame_gender_error_gender_bias(self):
 #         g = Gender()
