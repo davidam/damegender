@@ -32,7 +32,6 @@ from app.dame_genderize import DameGenderize
 from app.dame_genderguesser import DameGenderGuesser
 from app.dame_genderapi import DameGenderApi
 from app.dame_nameapi import DameNameapi
-from app.dame_customsearch import DameCustomsearch
 from app.dame_utils import DameUtils
 
 import argparse
@@ -45,7 +44,7 @@ parser.add_argument('--jsondownloaded', required=True,
 parser.add_argument('--measure', default="accuracy",
                     choices=['accuracy', 'precision', 'recall', 'f1score'])
 parser.add_argument('--api', required=True,
-                    choices=['customsearch', 'namsor', 'genderize',
+                    choices=['namsor', 'genderize',
                              'genderguesser', 'damegender',
                              'genderapi', 'nameapi', 'all'])
 args = parser.parse_args()
@@ -98,10 +97,10 @@ elif (args.api == "genderguesser"):
     dgg.pretty_gg_list(path=args.csv, jsonf=args.jsondownloaded,
                        measure=args.measure, api='Genderguesser')
 
-elif (args.api == "customsearch"):
-    dc = DameCustomsearch()
-    dc.pretty_gg_list(path=args.csv, jsonf=args.jsondownloaded,
-                      measure=args.measure, api='Customsearch')
+# elif (args.api == "customsearch"):
+#     dc = DameCustomsearch()
+#     dc.pretty_gg_list(path=args.csv, jsonf=args.jsondownloaded,
+#                       measure=args.measure, api='Customsearch')
 
 elif (args.api == "damegender"):
     ds = DameSexmachine()
