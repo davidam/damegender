@@ -27,7 +27,6 @@ genderapi = no
 genderize = no
 nameapi = no
 namsor = no
-customsearch = no
 
 [FILES]
 genderapi = files/apikeys/genderapipass.txt
