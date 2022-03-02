@@ -82,6 +82,14 @@ else:
         string = "Q35"
     elif (args.total == "es"):
         string = "Q29"
+    elif (args.total == "es"):
+        string = "Q29"
+    elif (args.total == "fi"):
+        string = "Q33"
+    elif (args.total == "fr"):
+        string = "Q142"
+    elif (args.total == "gb"):
+        string = "Q145"
 
     url = 'https://query.wikidata.org/sparql'
     query = """
