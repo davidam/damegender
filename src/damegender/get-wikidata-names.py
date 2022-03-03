@@ -23,12 +23,14 @@
 
 import requests
 import argparse
+from app.dame_wikidata import DameWikidata
 
 parser = argparse.ArgumentParser()
 parser.add_argument('gender', default="female",
                     choices=['female', 'male'])
 parser.add_argument('--total', default="inter",
-                    choices=['at', 'au', 'be', 'ca', 'ch',
+                    choices=['af', 'al', 'dz', 'as', 'ad',
+                             'at', 'au', 'be', 'ca', 'ch',
                              'cn', 'de', 'dk', 'es', 'fi',
                              'fr', 'gb', 'ie', 'is', 'no', 'nz',
                              'mx', 'pt', 'ru', 'se', 'si',
@@ -49,52 +51,8 @@ if female:
 elif male:
     gender = "    ?person wdt:P21 wd:Q6581097 . "
 
-
-if (args.total == "at"):
-    string = "Q40"
-elif (args.total == "au"):
-    string = "Q408"
-elif (args.total == "be"):
-    string = "Q31"
-elif (args.total == "ca"):
-    string = "Q16"
-elif (args.total == "ch"):
-    string = "Q39"
-elif (args.total == "cn"):
-    string = "Q148"
-elif (args.total == "de"):
-    string = "Q183"
-elif (args.total == "dk"):
-    string = "Q35"
-elif (args.total == "es"):
-    string = "Q29"
-elif (args.total == "es"):
-    string = "Q29"
-elif (args.total == "fi"):
-    string = "Q33"
-elif (args.total == "fr"):
-    string = "Q142"
-elif (args.total == "gb"):
-    string = "Q145"
-elif (args.total == "ie"):
-    string = "Q27"
-elif (args.total == "is"):
-    string = "Q189"
-elif (args.total == "no"):
-    string = "Q20"
-elif (args.total == "nz"):
-    string = "Q664"
-elif (args.total == "pt"):
-    string = "Q45"
-elif (args.total == "ru"):
-    string = "Q159"
-elif (args.total == "se"):
-    string = "Q34"
-elif (args.total == "si"):
-    string = "Q215"
-elif (args.total == "uy"):
-    string = "Q77"
-
+dw = DameWikidata()
+dicc = dw.dicc_countries()
     
 query2 = """
 SELECT ?name ?nameLabel ?count
@@ -102,7 +60,7 @@ WITH {
   SELECT ?name (count(?person) AS ?count) WHERE {
     ?person wdt:P735 ?name . 
 """ + gender + """
-    ?person wdt:P27 wd:""" + string + """ .
+    ?person wdt:P27 wd:""" + dicc[args.total] + """ .
   }
   GROUP BY ?name
   ORDER BY DESC(?count)
