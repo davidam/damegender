@@ -22,77 +22,32 @@
 # Boston, MA 02110-1301 USA,
 
 import requests
-from SPARQLWrapper import SPARQLWrapper, JSON
 import argparse
+from app.dame_wikidata import DameWikidata
 
 parser = argparse.ArgumentParser()
-# parser.add_argument("name", help="display the gender")
-parser.add_argument('total', default="es",
-                    choices=['at', 'au', 'be', 'ca', 'ch',
+parser.add_argument('--total', default="inter",
+                    choices=['af', 'al', 'dz', 'as', 'ad',
+                             'at', 'au', 'be', 'ca', 'ch',
                              'cn', 'de', 'dk', 'es', 'fi',
                              'fr', 'gb', 'ie', 'is', 'no', 'nz',
                              'mx', 'pt', 'ru', 'se', 'si',
                              'uy', 'us'])
-# More about iso codes on https://www.iso.org/obp/ui/
-parser.add_argument('--version', action='version', version='0.4')
-# parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
 
-
-if (args.total == "at"):
-    string = "Q40"
-elif (args.total == "au"):
-    string = "Q408"
-elif (args.total == "be"):
-    string = "Q31"
-elif (args.total == "ca"):
-    string = "Q16"
-elif (args.total == "ch"):
-    string = "Q39"
-elif (args.total == "cn"):
-    string = "Q148"
-elif (args.total == "de"):
-    string = "Q183"
-elif (args.total == "dk"):
-    string = "Q35"
-elif (args.total == "es"):
-    string = "Q29"
-elif (args.total == "es"):
-    string = "Q29"
-elif (args.total == "fi"):
-    string = "Q33"
-elif (args.total == "fr"):
-    string = "Q142"
-elif (args.total == "gb"):
-    string = "Q145"
-elif (args.total == "ie"):
-    string = "Q27"
-elif (args.total == "is"):
-    string = "Q189"
-elif (args.total == "no"):
-    string = "Q20"
-elif (args.total == "nz"):
-    string = "Q664"
-elif (args.total == "pt"):
-    string = "Q45"
-elif (args.total == "ru"):
-    string = "Q159"
-elif (args.total == "se"):
-    string = "Q34"
-elif (args.total == "si"):
-    string = "Q215"
-elif (args.total == "uy"):
-    string = "Q77"
-
 url = 'https://query.wikidata.org/sparql'
-query = """
-SELECT ?name ?nameLabel ?count
+
+dw = DameWikidata()
+dicc = dw.dicc_countries()
+    
+query2 = """
+SELECT ?surname ?surnameLabel ?count
 WITH {
-  SELECT ?name (count(?person) AS ?count) WHERE {
-    ?person wdt:P734 ?name .
-    ?person wdt:P27 wd:""" + string + """ .
+  SELECT ?surname (count(?person) AS ?count) WHERE {
+    ?person wdt:P734 ?surname . 
+    ?person wdt:P27 wd:""" + dicc[args.total] + """ .
   }
-  GROUP BY ?name
+  GROUP BY ?surname
   ORDER BY DESC(?count)
 } AS %results
 WHERE {
@@ -102,24 +57,15 @@ WHERE {
 ORDER BY DESC(?count)
 """
 
-def get_results(endpoint_url, query):
-    sparql = SPARQLWrapper(endpoint_url)
-    sparql.setQuery(query)
-    sparql.setReturnFormat(JSON)
-    return sparql.query().convert()
+r = requests.get(url, params = {'format': 'json', 'query': query2})
+data = r.json()
 
-results = get_results(url, query)
+# print(data["results"]["bindings"])
 
-print("Dumping results to surnames-country.csv")
-
-fo = open("surnames-country.csv", "w")
-for result in results["results"]["bindings"]:
-    fo.write(result['nameLabel']['value'] + "," + result['count']['value'] +  "\n");
+print("Dumping to surnames.csv")
+fo = open("surnames.csv", "w")
+for d in data["results"]["bindings"]:
+    fo.write(d['surnameLabel']['value'] + "," + d['count']['value'] +  "\n")
 
 # Cerramos el archivo fichero.txt
 fo.close()
-
-
-# r = requests.get(url, params = {'format': 'json', 'query': query2})
-# data = r.json()
-# print(data)
