@@ -26,7 +26,7 @@
 class DameWikidata():
 
     def dicc_countries(self):
-        path = {"ad": "Q228",
+        dicc = {"ad": "Q228",
                 "af": "Q889",
                 "al": "Q222",
                 "at": "Q40",
@@ -53,4 +53,4 @@ class DameWikidata():
                 "si": "Q215",
                 "us": "Q35657",
                 "uy": "Q77"}
-        return path
+        return dicc
