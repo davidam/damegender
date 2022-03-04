@@ -40,7 +40,7 @@ with open('rufemales.csv') as csvfile:
 
 with open('rumales.csv') as csvfile:
     sreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-    fo = open("rufemales.en.csv", "w")
+    fo = open("rumales.en.csv", "w")
     for row in sreader:
         print(translit(row[0], 'ru', reversed=True))
         fo.write(translit(row[0], 'ru', reversed=True) + ',' + row[1] + "\n")
