@@ -28,6 +28,9 @@ python3 json2list.py
 
 python3 ru2en.py
 
+sed -i "s/'//g" rufemales.en.csv
+sed -i "s/'//g" rumales.en.csv 
+
 wget -c https://ngodata.ru/dataset/cbf99966-426a-462b-b493-e155209ceb86/resource/b9124ac0-9265-40db-8258-5b9cfe28aef9/download/surnames_table.zip
 
 unzip surnames_table.zip
