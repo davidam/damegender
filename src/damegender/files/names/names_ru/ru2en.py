@@ -24,11 +24,10 @@
 
 import csv
 from transliterate import translit, get_available_language_codes
-from SPARQLWrapper import SPARQLWrapper, JSON
 
-print("You must install transliterate and SPARQLWrapper to execute this script")
+print("You must install transliterate to execute this script")
 print("Try with:")
-print("$ pip3 install transliterate sparqlwrapper")
+print("$ pip3 install transliterate")
 
 with open('rufemales.csv') as csvfile:
     sreader = csv.reader(csvfile, delimiter=',', quotechar='|')
