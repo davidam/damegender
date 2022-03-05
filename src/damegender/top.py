@@ -201,7 +201,7 @@ elif (args.country == "pt"):
 elif ((args.country == "ru") | (args.country == "ru_ru")):
     c2lfemales = du.csv2list(dicc_dataset_females["ru"])
 elif (args.country == "ru_en"):
-    c2lfemales = du.csv2list(dicc_dataset_females["ru_en"])    
+    c2lfemales = du.csv2list(dicc_dataset_females["ru_en"])
 elif (args.country == "se"):
     c2lfemales = du.csv2list(dicc_dataset_females["se"])
 elif (args.country == "si"):
