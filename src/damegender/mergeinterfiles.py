@@ -99,7 +99,7 @@ file = open(args.output, "w")
 for k in dicc.keys():
     if (args.malefemale):
         frec_file1 = 0
-        frec_file2 = 0        
+        frec_file2 = 0
         if k in dicci:
             frec_file1 = dicci[k]
         else:
