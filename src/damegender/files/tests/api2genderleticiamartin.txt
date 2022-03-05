@@ -1,2 +1,0 @@
-female
-scale: 1.0

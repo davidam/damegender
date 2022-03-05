@@ -1,9 +1,0 @@
-Retrieved from:
-+ https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/adhocs/006073babynames1996to2015
-+ https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/bulletins/babynamesenglandandwales/2019
-+ https://www.nrscotland.gov.uk/statistics-and-data/statistics/statistics-by-theme/vital-events/names/babies-first-names/babies-first-names-summary-records-comma-separated-value-csv-format
-+ https://www.nisra.gov.uk/publications/topic/34
-
-License:
-+ http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
-

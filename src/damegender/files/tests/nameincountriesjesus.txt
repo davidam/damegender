@@ -1,5 +1,0 @@
-We are using nam_dict.txt as dataset in this script
-grep -i " Jesús " files/names/nam_dict.txt > files/logs/grep.tmp
-males: ['Spain']
-females: []
-both: []

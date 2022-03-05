@@ -1,8 +1,0 @@
-
-* Retrieved from:
-+ https://www.bfs.admin.ch/bfs/en/home/statistics/population/births-deaths/first-names-switzerland.assetdetail.18264297.html
-* License:
-+ https://www.bfs.admin.ch/bfs/en/home/fso/swiss-federal-statistical-office/terms-of-use.html
-* Criteria about how to count:
-+ Total of people in 2020
-+ Source: su-q-01.04.00.12.xlsx

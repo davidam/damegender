@@ -1,7 +1,0 @@
-* Downloaded from:
-+ https://open.alberta.ca/opendata/frequency-and-ranking-of-baby-names-by-year-and-gender#detailed
-* License:
-+ http://open.alberta.ca/licence
-* Criteria about how to count:
-+ Sum of baby borns from 1980 to 2018
-+ Source: byyears2total.py

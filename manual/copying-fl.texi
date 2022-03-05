@@ -1,7 +1,0 @@
-@copying
-This manual is for Damegender (version @value{VERSION}, @value{UPDATED}).
-
-Copyright @copyright{} 2020 David Arroyo Men@'endez
-
-@include license-fl.texi
-@end copying

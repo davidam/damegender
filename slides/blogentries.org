@@ -1,5 +1,0 @@
-
-* Blog entries
-
-+ Geek Feminism (https://geekfeminism.fandom.com/wiki/Names,_Gender_and_Free_Software)
-+ GenderAPI Blog (https://gender-api.com/en/blog/new-paper-compares-gender-detection-tools)

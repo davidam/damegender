@@ -1,8 +1,0 @@
-* Retrieved from
-+ https://offenedaten-koeln.de/dataset/vornamen
-
-* License
-+ https://creativecommons.org/licenses/by/3.0/de/
-* Criteria about how to count:
-+ Sum of total population from 2010 to 2018
-+ Source: demalesfemales.py
