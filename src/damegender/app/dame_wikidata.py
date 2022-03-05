@@ -4,7 +4,7 @@
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
-# Author: David Arroyo Menéndez <davidam@gmail.com>
+# Author: David Arroyo Menéndez<davidam@gmail.com>
 # Maintainer: David Arroyo Menéndez <davidam@gmail.com>
 
 # This file is free software; you can redistribute it and/or modify
