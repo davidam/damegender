@@ -43,7 +43,7 @@ parser.add_argument('--total', default="inter",
                     choices=['at', 'au', 'be', 'ca', 'ch',
                              'cn', 'de', 'dk', 'es', 'fi',
                              'fr', 'gb', 'ie', 'is', 'no', 'nz',
-                             'mx', 'pt', 'ru', 'ru_ru', 
+                             'mx', 'pt', 'ru', 'ru_ru',
                              'ru_en', 'se', 'si',
                              'uy', 'us', 'namdict', 'inter'])
 # More about iso codes on https://www.iso.org/obp/ui/
@@ -396,7 +396,7 @@ else:
               % (n_females, args.name))
     elif ((args.total == "ru") | (args.total == "ru_ru")):
         print("Warning: total=ru only runs with russian alphabet")
-        print("If you want latin alphabet, choose ru_en")        
+        print("If you want latin alphabet, choose ru_en")
         print("%s males for %s from Russia statistics"
               % (n_males, args.name))
         print("%s females for %s from Russia statistics"
