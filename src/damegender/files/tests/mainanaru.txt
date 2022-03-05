@@ -1,5 +1,6 @@
 Алла's gender is female
 probability: 1.0
 Warning: total=ru only runs with russian alphabet
+If you want latin alphabet, choose ru_en
 0 males for Алла from Russia statistics
 49010 females for Алла from Russia statistics
