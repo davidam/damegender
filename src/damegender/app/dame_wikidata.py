@@ -75,7 +75,7 @@ class DameWikidata():
                 "dk": "Q35",
                 "dm": "Q784",
                 "do": "Q786",
-                "dz": "Q262",                
+                "dz": "Q262",
                 "ec": "Q736",
                 "ee": "Q191",
                 "eg": "Q79",
