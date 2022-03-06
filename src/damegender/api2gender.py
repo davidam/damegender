@@ -32,7 +32,8 @@ from app.dame_genderize import DameGenderize
 from app.dame_namsor import DameNamsor
 from app.dame_nameapi import DameNameapi
 from app.dame_utils import DameUtils
-from lxml import html
+from xml.dom import minidom
+import xml.etree.ElementTree as ET
 import sys
 import argparse
 import requests
@@ -91,15 +92,21 @@ if (len(sys.argv) > 1):
     elif (args.api == "wikipedia"):
         str3 = 'https://en.wikipedia.org/wiki/' + args.name + '_(given_name)'
         r = requests.get(str3)
-        tree = html.fromstring(r.content)
-        str4 = '//div[@class="mw-parser-output"]//table//tbody//td//text()'
-        arraygender = tree.xpath(str4)
-        footer = tree.xpath('//div[@class="action-list"]//p/text()')
+        root = ET.fromstring(r.content)
+        str4 = './body/div[@class="mw-body"]/div[@class="vector-body"]'
+        str4 = str4 + '/div[@id="mw-content-text"]'
+        str4 = str4 + '/div[@class="mw-parser-output"]/table/tbody/tr/td'
+        arraygender = root.findall(str4)
+        male = False
+        female = False
         for i in arraygender:
-            if (i.strip() == "Male"):
-                print("Male")
-            elif (i.strip() == "Female"):
-                print("Female")
+            try:
+                if ("Male" in i.text):
+                    print("Male")                    
+                elif ("Female" in i.text):
+                    female = True
+            except:
+                print(" ")
 
     elif (args.api == "wikidata"):
         url0 = "<https://en.wikipedia.org/wiki/"  + args.name + "> schema:about ?item ."
