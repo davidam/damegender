@@ -102,12 +102,12 @@ if (len(sys.argv) > 1):
                 print("Female")
 
     elif (args.api == "wikidata"):
+        url0 = "<https://en.wikipedia.org/wiki/"  + args.name + "> schema:about ?item ."
         sparql_query = """
         prefix schema: <http://schema.org/>
         SELECT ?item ?occupation ?genderLabel ?bdayLabel
         WHERE {
-            <https://en.wikipedia.org/wiki/"""
-        + args.name + """> schema:about ?item .
+        """ + url0 + """ 
             ?item wdt:P106 ?occupation .
             ?item wdt:P21 ?gender .
             ?item wdt:P569 ?bday .
