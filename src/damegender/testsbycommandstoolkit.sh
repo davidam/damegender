@@ -88,6 +88,19 @@ else
 	echo -e  "newspaper2gender spanish test is ${GREEN}ok${NC}"
 fi
 
+python3 get-wikidata-names.py female --total=ad
+cp names.csv files/tests/wikidata-names-$(date "+%Y-%m-%d-%H").csv
+mkdir -p files/tmp 
+sort names.csv > files/tmp/1-$(date "+%Y-%m-%d-%H").csv
+sort files/tests/wikidata-names.csv > files/tmp/2.csv
+
+if ! diff files/tmp/2.csv files/tmp/1-$(date "+%Y-%m-%d-%H").csv > /dev/null 2>&1
+then
+       echo -e  "get-wikidata-names.py test is ${RED}failing${NC}"
+else
+       echo -e  "get-wikidata-names.py test is ${GREEN}ok${NC}"
+fi
+
 # python3 launchpad2gender.py ubuntu > files/tests/launchpad-$(date "+%Y-%m-%d-%H").txt
 
 # if ! diff files/tests/launchpad-$(date "+%Y-%m-%d-%H").txt files/tests/launchpad.txt 2>$1
@@ -98,5 +111,6 @@ fi
 # fi
 	
 rm -rf /tmp/clonedir
+rm -rf files/tmp
 echo "cleaning temporary files"
 rm files/tests/*$(date "+%Y")*.txt
