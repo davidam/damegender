@@ -32,6 +32,26 @@ echo "We need enable apis to execute this script, we are trying to do it for you
 
 cp config.enabled.cfg config.cfg
 
+    
+python3 api2gender.py David --api="wikidata" > files/tests/api2genderwikidata-$(date "+%Y-%m-%d-%H").txt
+
+if ! diff files/tests/api2genderwikidata.txt files/tests/api2genderwikidata-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+    echo -e "api2genderiwikidata test is ${RED}failing${NC}"
+else
+    echo -e "api2genderwikidata test is ${GREEN}ok${NC}"
+fi
+
+python3 api2gender.py David --api="wikipedia" > files/tests/api2genderwikipedia-$(date "+%Y-%m-%d-%H").txt
+
+if ! diff files/tests/api2genderwikipedia.txt files/tests/api2genderwikipedia-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+    echo -e "api2genderiwikipedia test is ${RED}failing${NC}"
+else
+    echo -e "api2genderwikipedia test is ${GREEN}ok${NC}"
+fi
+
+
 if [ -f files/apikeys/genderizepass.txt ]; then
 
     python3 api2gender.py David --api="genderize" > files/tests/api2genderDavidgenderize-$(date "+%Y-%m-%d-%H").txt
