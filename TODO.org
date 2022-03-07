@@ -950,8 +950,9 @@ Males with first letter vocal: 0.22633705271258175
 * DONE Probando min.csv generar un fichero que devuelva género y probabilidad con genderapi en json
   SCHEDULED: <2019-07-01 lun>
   - State "DONE"       from "TODO"       [2019-08-03 sáb 16:12]
-* TODO Revisar features_list.csv
+* DONE Revisar features_list.csv
   SCHEDULED: <2019-08-03 sáb>
+  - State "DONE"       from "TODO"       [2022-03-07 lun 10:42]
 * DONE pca-features in bash test
   SCHEDULED: <2019-07-02 mar>
   - State "DONE"       from "TODO"       [2019-07-02 mar 13:57]
@@ -963,7 +964,8 @@ Males with first letter vocal: 0.22633705271258175
 * TODO Arreglar el tema de los binarios en la paquetería
 ** TODO Montar namespaces
 * TODO Buscar la validez de la muestra para saber si los nacimientos en uk y usa nos valdrían para sacar probabilidades
-* GOING Revisar cumplimiento de PEP8 en el software
+* DONE Revisar cumplimiento de PEP8 en el software
+  - State "DONE"       from "GOING"      [2022-03-07 lun 10:43]
 ** A Foolish Consistency is the Hobgoblin of Little Minds
 ** Code Lay-out
 *** Indentation
@@ -1060,6 +1062,16 @@ Publicado en https://tv.urjc.es/video/5d895319d68b148f7a8c0da6
 + [ ] finaliza en consonante
 + [ ] finaliza en a
 + [ ] tiene 4 letras o menos (puede ser diminutivo)
+
+Esto es bastante interesante ahora que con wikidata tenemos datasets
+de todos los países del mundo, habría que hacer ngramas con diferentes
+tamaños e identificar los ngramas más utilizados en los diferentes
+países, sería bonito hacer una especial atención a la diversidad
+lingüística dentro de España, como ejemplo de un país donde el INE.es
+nos permite determinar los diferentes nombres y apellidos por regiones
+y poder determinar los ngramas por regiones, por ejemplo, los nombres y
+apellidos con k aparezcan más en las regiones vascuences.
+
 * DONE Mejorar la base de verdad (ej: INE) relativo a posibles no nombres por baja frecuencia
   - State "DONE"       from "TODO"       [2022-01-07 vie 18:10]
 commit 636f6c38b349ec7d4e8d17c57c0f78100085aba4 (HEAD -> master, origin/master, origin/HEAD)
@@ -1081,13 +1093,17 @@ Lo dejo en el repositorio de python-examples en la carpeta sparql los siguientes
 + [X] wikidata-male-scientists.py
 + [X] wikidata-male-artists.py
 + [X] wikidata-female-artists.py
-* TODO Crear un dataset de base de verdad desde los censos
+* DONE Crear un dataset de base de verdad desde los censos
+  - State "DONE"       from "TODO"       [2022-03-07 lun 10:35]
+Esta tarea es el inter dataset, hemos hecho hasta un paper, se puede dar por finalizada, aunque se sigan haciendo mejoras,
+como corresponde a la normalidad de la culturas free software o open source.
 ** DONE con csv2names creamos una lista con todos los nombres donde cada nombre es único
    - State "DONE"       from "TODO"       [2021-05-10 lun 08:51]
 ** DONE para cada nombre sumamos todos los males de los diferentes datasets y todos los females y escribimos en fichero
    - State "DONE"       from "TODO"       [2021-05-10 lun 08:51]
-** TODO escribir un segundo fichero donde se descartan nombres donde la suma de hombres y mujeres sea menor de 1000
-Es para evitar el problema de apodos en censos
+** CANCELED escribir un segundo fichero donde se descartan nombres donde la suma de hombres y mujeres sea menor de 1000
+   - State "CANCELED"   from "TODO"       [2022-03-07 lun 10:33]
+Es para evitar el problema de apodos en censos. Lo dejamos a criterio del programador
 ** CANCELED comprobamos el accuracy y el confusion tomando como base a lucía y helena
    - State "CANCELED"   from "TODO"       [2021-05-10 lun 08:52]
 * DONE Reescribir males_list atendiendo a corpus
@@ -1208,6 +1224,8 @@ Recuerda el repositorio de python-examples en la carpeta sparql los siguientes s
 
 * POSIBLE Plantearse descargar los nombres italianos con web scraping
 + [ ] https://www.istat.it/en/analysis-and-products/interactive-contents/baby-names
+
+
 * DONE Escribir count-scientifics.py
   - State "DONE"       from "TODO"       [2020-06-08 lun 12:31]
 * DONE Escribir una carpeta names_inter con un csv un fichero males y females que tenga sumados todos los datasets
@@ -1267,7 +1285,8 @@ Los campos de cada persona
 + total_females
 + probability (opcional, por defecto valor 1)
 + gender (obligatorio)
-* TODO Rehacer los experimentos de Machine Learning con alguna profesión divertida de wikidata
+* DONE Rehacer los experimentos de Machine Learning con alguna profesión divertida de wikidata
+  - State "DONE"       from "TODO"       [2022-03-07 lun 10:44]
 Por ejemplo, con scientists: 
 + [ ] python-examples/sparql/wikidata-male-scientists.py
 + [ ] python-examples/sparql/male-scientists.csv
@@ -1285,21 +1304,22 @@ Ver: https://stackoverflow.com/questions/779495/access-data-in-package-subdirect
 Para más información de estandarización acerca del género o sexo:
 + [ ] https://microformats.org/wiki/gender-formats
 + [ ] ISO/IEC 5218 (https://www.iso.org/standard/36266.html
-* TODO Resolver los problemas de alfabetos latinos y no latinos
+
+* DONE Resolver los problemas de alfabetos latinos y no latinos
+  - State "DONE"       from "TODO"       [2022-03-07 lun 10:31]
 Por fin hemos encontrado una herramienta para convertir alfabetos no latinos a latinos:
 $ pip3 install transliterate
 
-** TODO Revisar dataset ruso
-Para comprobar que un nombre es el mismo apoyarse en wikipedia
-suele ser la misma url cambiando locale
-*** TODO Se trata de coger un dataset prueba con ALFABETO CHINO
-descargar con genderapi o similar
-y ver que las desviaciones son razonables
+Parece que transliterate no resuelve algunos juegos de alfabetos como el chino que nos van a hacer falta, pero entre transliterate y wikidata se puede dar por finalizada la tarea
 
-*** TODO Se trata de coger un dataset prueba con ALFABETO LATINO
-descargar con genderapi o similar
-y ver que las desviaciones son razonables
+** DONE Revisar dataset ruso
+   - State "DONE"       from "TODO"       [2022-03-07 lun 10:30]
+Al ser de una fuente estadística oficial y licenciado de manera libre no presenta
+muchos problemas incluso la reproducibilidad sale algo fácil
 
+*** DONE Migrados los caracteres cirílicos a latinos
+
+    - State "DONE"       from "TODO"       [2022-03-07 lun 10:30]
 ** TODO Revisar dataset chino
 Para comprobar que un nombre es el mismo apoyarse en wikipedia
 suele ser la misma url cambiando locale
@@ -1311,6 +1331,7 @@ y ver que las desviaciones son razonables
 descargar con genderapi o similar
 y ver que las desviaciones son razonables
 
-* TODO Ahora mismo damegender no se instala en macos debido a lxml
+* DONE Ahora mismo damegender no se instala en macos debido a lxml
+  - State "DONE"       from "TODO"       [2022-03-07 lun 10:27]
   Tratar de reemplazar por librería nativa para evitar problemas de dependencias
   https://docs.python.org/3/library/xml.etree.elementtree.html
