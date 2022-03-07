@@ -25,26 +25,20 @@ import requests
 import argparse
 from app.dame_wikidata import DameWikidata
 
+dw = DameWikidata()
+dicc = dw.dicc_countries()
+
 parser = argparse.ArgumentParser()
-parser.add_argument('--total', default="inter",
-                    choices=['af', 'al', 'dz', 'as', 'ad',
-                             'at', 'au', 'be', 'ca', 'ch',
-                             'cn', 'de', 'dk', 'es', 'fi',
-                             'fr', 'gb', 'ie', 'is', 'no', 'nz',
-                             'mx', 'pt', 'ru', 'se', 'si',
-                             'uy', 'us'])
+parser.add_argument('--total', default="us",
+                    choices=dicc.keys())
 args = parser.parse_args()
 
 url = 'https://query.wikidata.org/sparql'
-
-dw = DameWikidata()
-dicc = dw.dicc_countries()
-    
 query2 = """
 SELECT ?surname ?surnameLabel ?count
 WITH {
   SELECT ?surname (count(?person) AS ?count) WHERE {
-    ?person wdt:P734 ?surname . 
+    ?person wdt:P734 ?surname .
     ?person wdt:P27 wd:""" + dicc[args.total] + """ .
   }
   GROUP BY ?surname
@@ -52,20 +46,18 @@ WITH {
 } AS %results
 WHERE {
   INCLUDE %results
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+  SERVICE wikibase:label
+  { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
 }
 ORDER BY DESC(?count)
 """
 
-r = requests.get(url, params = {'format': 'json', 'query': query2})
+r = requests.get(url, params={'format': 'json', 'query': query2})
 data = r.json()
-
-# print(data["results"]["bindings"])
 
 print("Dumping to surnames.csv")
 fo = open("surnames.csv", "w")
 for d in data["results"]["bindings"]:
-    fo.write(d['surnameLabel']['value'] + "," + d['count']['value'] +  "\n")
+    fo.write(d['surnameLabel']['value'] + "," + d['count']['value'] + "\n")
 
-# Cerramos el archivo fichero.txt
 fo.close()

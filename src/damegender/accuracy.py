@@ -97,11 +97,6 @@ elif (args.api == "genderguesser"):
     dgg.pretty_gg_list(path=args.csv, jsonf=args.jsondownloaded,
                        measure=args.measure, api='Genderguesser')
 
-# elif (args.api == "customsearch"):
-#     dc = DameCustomsearch()
-#     dc.pretty_gg_list(path=args.csv, jsonf=args.jsondownloaded,
-#                       measure=args.measure, api='Customsearch')
-
 elif (args.api == "damegender"):
     ds = DameSexmachine()
     ds.pretty_gg_list(path=args.csv, jsonf=args.jsondownloaded,

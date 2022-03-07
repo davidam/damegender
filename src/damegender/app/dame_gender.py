@@ -308,7 +308,7 @@ class Gender(object):
         if (corpus != 'all'):
             m = du.csvcolumn2list(path_males)
         elif (corpus == 'all'):
-            m = [] 
+            m = []
             for i in dicc_males.keys():
                 m = m + du.csvcolumn2list(i)
         m = du.delete_duplicated(m)
@@ -322,9 +322,9 @@ class Gender(object):
         if (corpus != 'all'):
             f = du.csvcolumn2list(path_females)
         elif (corpus == 'all'):
-            f = [] 
+            f = []
             for i in dicc_females.keys():
-                f = f + du.csvcolumn2list(i)        
+                f = f + du.csvcolumn2list(i)
         f = du.delete_duplicated(f)
         return f
 
@@ -525,7 +525,7 @@ class Gender(object):
                 males = du.drop_dots(males)
 
         dicc_females = du.dicc_dataset("female")
-        path_females = dicc_females[dataset]                
+        path_females = dicc_females[dataset]
         file_females = open(path_females, 'r')
         readerf = csv.reader(file_females, delimiter=',', quotechar='|')
         females = 0

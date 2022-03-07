@@ -25,16 +25,14 @@ import requests
 import argparse
 from app.dame_wikidata import DameWikidata
 
+dw = DameWikidata()
+dicc = dw.dicc_countries()
+
 parser = argparse.ArgumentParser()
 parser.add_argument('gender', default="female",
                     choices=['female', 'male'])
-parser.add_argument('--total', default="inter",
-                    choices=['af', 'al', 'dz', 'as', 'ad',
-                             'at', 'au', 'be', 'ca', 'ch',
-                             'cn', 'de', 'dk', 'es', 'fi',
-                             'fr', 'gb', 'ie', 'is', 'no', 'nz',
-                             'mx', 'pt', 'ru', 'se', 'si',
-                             'uy', 'us'])
+parser.add_argument('--total', default="us",
+                    choices=dicc.keys())
 args = parser.parse_args()
 
 url = 'https://query.wikidata.org/sparql'
@@ -51,14 +49,12 @@ if female:
 elif male:
     gender = "    ?person wdt:P21 wd:Q6581097 . "
 
-dw = DameWikidata()
-dicc = dw.dicc_countries()
-    
+
 query2 = """
 SELECT ?name ?nameLabel ?count
 WITH {
-  SELECT ?name (count(?person) AS ?count) WHERE {
-    ?person wdt:P735 ?name . 
+  SELECT ?name (count(?person) AS ?count)
+  WHERE {    ?person wdt:P735 ?name .
 """ + gender + """
     ?person wdt:P27 wd:""" + dicc[args.total] + """ .
   }
@@ -68,26 +64,18 @@ WITH {
 } AS %results
 WHERE {
   INCLUDE %results
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+  SERVICE wikibase:label
+          { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
 }
 ORDER BY DESC(?count)
 """
-r = requests.get(url, params = {'format': 'json', 'query': query2})
+r = requests.get(url, params={'format': 'json', 'query': query2})
 data = r.json()
-
-# print(data["results"]["bindings"])
 
 print("Dumping to names.csv")
 fo = open("names.csv", "w")
 for d in data["results"]["bindings"]:
-    # print(d)
-    # print(d["count"]["value"])
-    # print(d["nameLabel"]["value"])
-    fo.write(d['nameLabel']['value'] + "," + d['count']['value'] +  "\n")
+    str0 = d['nameLabel']['value'] + "," + d['count']['value'] + "\n"
+    fo.write(str0)
 
-
-
-
-
-# Cerramos el archivo fichero.txt
 fo.close()

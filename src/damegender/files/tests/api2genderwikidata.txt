@@ -1,0 +1,8 @@
+Wikidata is giving this feature on an experimental way.
+
+        You can check popular person names such as David,
+        Juan_Carlos_I_of_Spain, Richard_Stallman,
+        Linus_Torvalds and other popular names,
+        but not all names is ok
+        
+male

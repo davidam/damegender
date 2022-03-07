@@ -1,9 +1,27 @@
 
+* v0.4.3
+New features:
++ get-wikidata-names.py: to download names from wikidata in a specific country
++ get-wikidata-surnames.py: to download surnames from wikidata in a specific country
+
+These wikidata datasets are a subset of datasets retrieved from
+statistical institutions due to that in Wikipedia/Wikidata there are
+important people for each country, but you can find it useful if you
+have not names in a country or if you need a test dataset about names
+and gender in a country. But you must not trust in the top,
+frequencies, ...  given by these datasets, there are exploratory data,
+only.
+
+Datasets:
++ You can access to Russia names in cyrillic alphabet (ru_ru) and
+  latin alphabet (ru_en)
+ 
 * v0.4.2
 Improvements towards reproducible science:
 + [X] adding download.sh to many names folders
 + [X] updating several datasets from statistical institution websites
 + [X] updating infofeatures to changes in source and new datasets
+
 * v0.4.1
 
 Cleaning code:

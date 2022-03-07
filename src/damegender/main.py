@@ -43,9 +43,12 @@ parser.add_argument('--total', default="inter",
                     choices=['at', 'au', 'be', 'ca', 'ch',
                              'cn', 'de', 'dk', 'es', 'fi',
                              'fr', 'gb', 'ie', 'is', 'no', 'nz',
-                             'mx', 'pt', 'ru', 'se', 'si',
+                             'mx', 'pt', 'ru', 'ru_ru',
+                             'ru_en', 'se', 'si',
                              'uy', 'us', 'namdict', 'inter'])
 # More about iso codes on https://www.iso.org/obp/ui/
+# You can set alphabet with sufix:
+# So russian in latin alphabet would be ru_en
 parser.add_argument('--version', action='version', version='0.4')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
@@ -391,8 +394,14 @@ else:
               % (n_males, args.name))
         print("%s females for %s from Portugal statistics"
               % (n_females, args.name))
-    elif (args.total == "ru"):
+    elif ((args.total == "ru") | (args.total == "ru_ru")):
         print("Warning: total=ru only runs with russian alphabet")
+        print("If you want latin alphabet, choose ru_en")
+        print("%s males for %s from Russia statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Russia statistics"
+              % (n_females, args.name))
+    elif (args.total == "ru_en"):
         print("%s males for %s from Russia statistics"
               % (n_males, args.name))
         print("%s females for %s from Russia statistics"
