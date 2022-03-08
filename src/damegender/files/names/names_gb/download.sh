@@ -134,6 +134,11 @@ wget -c https://www.ons.gov.uk/file?uri=%2fpeoplepopulationandcommunity%2fbirths
 
 wget -c https://www.ons.gov.uk/file?uri=%2fpeoplepopulationandcommunity%2fbirthsdeathsandmarriages%2flivebirths%2fdatasets%2fbabynamesenglandandwalesbabynamesstatisticsboys%2f1996/1996boys_tcm77-254026.xls -O 1996boysnames.xls
 
+for i in $(ls *.xls*); do
+    ssconvert -S $i $i.csv
+done
+
+
 # SCOTLAND
 
 cd ..
