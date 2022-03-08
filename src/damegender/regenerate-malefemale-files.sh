@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 # Copyright (C) 2021 David Arroyo Menéndez
 
@@ -22,6 +22,8 @@
 
 echo "Building csv files with name, neutral frequencies and percentages for males and females by countries"
 python3 mergeinterfiles.py --file1="files/names/names_at/atmales.csv" --file2="files/names/names_at/atfemales.csv" --output=files/names/names_at/atall.csv --malefemale
+echo "Argentina done"
+python3 mergeinterfiles.py --file1="files/names/names_ar/armales.csv" --file2="files/names/names_ar/arfemales.csv" --output=files/names/names_ar/arall.csv --malefemale
 echo "Austria done"
 python3 mergeinterfiles.py --file1="files/names/names_au/aumales.csv" --file2="files/names/names_au/aufemales.csv" --output=files/names/names_au/auall.csv --malefemale
 echo "Australia done"
