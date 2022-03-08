@@ -1,3 +1,11 @@
+* v0.4.4
+
+Official xDatasets:
++ [X] Argentina: 42800 names, 24587 females, 18456 males, 77583 surnames
+
+Cleaning code:
++ [X] Replaced lxml by xml python native, lxml was doing problems in MacOS
++ [X] Reducing lines of code in top.py
 
 * v0.4.3
 New features:
