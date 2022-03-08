@@ -40,10 +40,6 @@ with open('personas.csv') as csvfile:
                 diccmales[row[1]] = diccmales[row[1]] + 1
             else:
                 diccmales[row[1]] = 0
-        # if (row[1] == "IVANNA FIORELLA"):
-        #     print(row)
-        #     print(diccmales)
-        #     print(diccfemales)
         
     for i in diccfemales.keys():
         filefem.write(str(i)+","+str(diccfemales[i])+"\n")
