@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 # Copyright (C) 2021 David Arroyo Menéndez
 
@@ -20,6 +20,7 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+mkdir -p files/tmp
 
 echo "Building interfemales.csv"
 python3 mergeinterfiles.py --file1="files/names/names_at/atfemales.csv" --file2="files/names/names_au/aufemales.csv" --output=files/tmp/ataufemales.csv
@@ -41,6 +42,7 @@ python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfe
 python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrfemales.csv" --file2="files/names/names_ch/chfemales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchfemales.csv
 python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchfemales.csv" --file2="files/names/names_se/sefemales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsefemales.csv
 python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsefemales.csv" --file2="files/names/names_no/nofemales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenofemales.csv
+python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenofemales.csv" --file2="files/names/names_ar/arfemales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenoarfemales.csv
 #python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenofemales.csv" --file2="files/names/names_tr/trfemales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenotrfemales.csv
 
 
@@ -65,11 +67,12 @@ python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyma
 python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrmales.csv" --file2="files/names/names_ch/chmales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchmales.csv
 python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchmales.csv" --file2="files/names/names_se/semales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsemales.csv
 python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsemales.csv" --file2="files/names/names_no/nomales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenomales.csv
+python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenomales.csv" --file2="files/names/names_ar/armales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenoarmales.csv
 #python3 mergeinterfiles.py --file1="files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenomales.csv" --file2="files/names/names_tr/trmales.csv" --output=files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenotrmales.csv
 
 
-mv files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenomales.csv files/names/names_inter/intermales.csv
-mv files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenofemales.csv files/names/names_inter/interfemales.csv
+mv files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenoarmales.csv files/names/names_inter/intermales.csv
+mv files/tmp/ataubecadedkesfiieismxnzptsiusuyfrchsenoarfemales.csv files/names/names_inter/interfemales.csv
 
 python3 mergeinterfiles.py --file1="files/names/names_inter/intermales.csv" --file2="files/names/names_inter/interfemales.csv" --output="files/names/names_inter/interall.csv" --malefemale
 
