@@ -1,4 +1,4 @@
-sdi#!/usr/bin/python3
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
@@ -46,7 +46,7 @@ class DameUtils():
                     "es": "files/names/names_es/esmasculinos.csv",
                     "fi": "files/names/names_fi/fimales.csv",
                     "fr": "files/names/names_fr/frmales.csv",
-                    "gb": "files/names/names_gb/ukmales.csv",
+                    "gb": "files/names/names_gb/gbmales.csv",
                     "ie": "files/names/names_ie/iemales.csv",
                     "ine": "files/names/names_es/esmasculinos.csv",
                     "inter": "files/names/names_inter/intermales.csv",
@@ -77,7 +77,7 @@ class DameUtils():
                     "es": "files/names/names_es/esfemeninos.csv",
                     "fi": "files/names/names_fi/fifemales.csv",
                     "fr": "files/names/names_fr/frfemales.csv",
-                    "gb": "files/names/names_gb/ukfemales.csv",
+                    "gb": "files/names/names_gb/gbfemales.csv",
                     "ie": "files/names/names_ie/iefemales.csv",
                     "ine": "files/names/names_es/esfemeninos.csv",
                     "inter": "files/names/names_inter/interfemales.csv",
@@ -107,7 +107,7 @@ class DameUtils():
                     "es": "files/names/names_es/esall.csv",
                     "fi": "files/names/names_fi/fiall.csv",
                     "fr": "files/names/names_fr/frall.csv",
-                    "gb": "files/names/names_gb/ukall.csv",
+                    "gb": "files/names/names_gb/gball.csv",
                     "ie": "files/names/names_ie/ieall.csv",
                     "ine": "files/names/names_es/esall.csv",
                     "inter": "files/names/names_inter/interall.csv",
