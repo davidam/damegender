@@ -56,6 +56,7 @@ echo "New Zealand done"
 python3 mergeinterfiles.py --file1="files/names/names_pt/ptmales.csv" --file2="files/names/names_pt/ptfemales.csv" --output=files/names/names_pt/ptall.csv --malefemale
 echo "Portugal done"
 python3 mergeinterfiles.py --file1="files/names/names_ru/rumales.csv" --file2="files/names/names_ru/rufemales.csv" --output=files/names/names_ru/ruall.csv --malefemale
+python3 mergeinterfiles.py --file1="files/names/names_ru/rumales.en.csv" --file2="files/names/names_ru/rufemales.en.csv" --output=files/names/names_ru/ruall.en.csv --malefemale
 echo "Russia done"
 python3 mergeinterfiles.py --file1="files/names/names_se/semales.csv" --file2="files/names/names_se/sefemales.csv" --output=files/names/names_se/seall.csv --malefemale
 echo "Sweden done"
