@@ -34,12 +34,12 @@ with open('personas.csv') as csvfile:
             if row[1] in diccfemales.keys():
                 diccfemales[row[1]] = diccfemales[row[1]] + 1
             else:
-                diccfemales[row[1]] = 0
+                diccfemales[row[1]] = 1
         elif (row[3] == '2'):
             if row[1] in diccmales.keys():
                 diccmales[row[1]] = diccmales[row[1]] + 1
             else:
-                diccmales[row[1]] = 0
+                diccmales[row[1]] = 1
         
     for i in diccfemales.keys():
         filefem.write(str(i)+","+str(diccfemales[i])+"\n")
