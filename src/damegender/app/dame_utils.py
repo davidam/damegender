@@ -65,7 +65,7 @@ class DameUtils():
                     "usa": "files/names/names_us/usmales.csv",
                     "uy": "files/names/names_uy/uymasculinos.csv"}
         elif ((sex == "female") or (sex == "females") or (sex == 0)):
-            path = {"ar": "files/names/names_at/arfemales.csv",
+            path = {"ar": "files/names/names_ar/arfemales.csv",
                     "at": "files/names/names_at/atfemales.csv",
                     "au": "files/names/names_au/aufemales.csv",
                     "be": "files/names/names_be/befemales.csv",
