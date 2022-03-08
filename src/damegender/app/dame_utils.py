@@ -34,7 +34,8 @@ class DameUtils():
 
     def dicc_dataset(self, sex):
         if ((sex == "male") or (sex == "males") or (sex == 1)):
-            path = {"at": "files/names/names_at/atmales.csv",
+            path = {"ar": "files/names/names_ar/armales.csv",
+                    "at": "files/names/names_at/atmales.csv",
                     "au": "files/names/names_au/aumales.csv",
                     "be": "files/names/names_be/bemales.csv",
                     "ca": "files/names/names_ca/camales.csv",
@@ -64,7 +65,8 @@ class DameUtils():
                     "usa": "files/names/names_us/usmales.csv",
                     "uy": "files/names/names_uy/uymasculinos.csv"}
         elif ((sex == "female") or (sex == "females") or (sex == 0)):
-            path = {"at": "files/names/names_at/atfemales.csv",
+            path = {"ar": "files/names/names_at/arfemales.csv",
+                    "at": "files/names/names_at/atfemales.csv",
                     "au": "files/names/names_au/aufemales.csv",
                     "be": "files/names/names_be/befemales.csv",
                     "ca": "files/names/names_ca/cafemales.csv",
@@ -94,7 +96,8 @@ class DameUtils():
                     "usa": "files/names/names_us/usfemales.csv",
                     "uy": "files/names/names_uy/uyfemeninos.csv"}
         elif ((sex == "all") or (sex == 2)):
-            path = {"at": "files/names/names_at/atall.csv",
+            path = {"ar": "files/names/names_ar/arall.csv",
+                    "at": "files/names/names_at/atall.csv",
                     "au": "files/names/names_au/auall.csv",
                     "be": "files/names/names_be/beall.csv",
                     "ca": "files/names/names_ca/caall.csv",
