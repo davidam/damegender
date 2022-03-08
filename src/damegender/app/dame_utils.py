@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+sdi#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
@@ -116,6 +116,9 @@ class DameUtils():
                     "no": "files/names/names_no/noall.csv",
                     "nz": "files/names/names_nz/nzall.csv",
                     "pt": "files/names/names_pt/ptall.csv",
+                    "ru": "files/names/names_ru/ruall.csv",                    
+                    "ru_ru": "files/names/names_ru/ruall.csv",
+                    "ru_en": "files/names/names_ru/ruall.en.csv",                    
                     "se": "files/names/names_si/seall.csv",
                     "si": "files/names/names_si/siall.csv",
                     # "tr": "files/names/names_tr/trall.csv",
