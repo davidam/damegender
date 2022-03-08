@@ -25,6 +25,7 @@ import csv
 
 with open('personas.csv') as csvfile:
     sreader = csv.reader(csvfile, delimiter=';', quotechar='|')
+    next(sreader, None)
     filesurnames = open('arsurnames.csv','w')
     diccsurnames = {}
     for row in sreader:
