@@ -40,7 +40,7 @@ parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB',
                                      'multinomialNB', 'bernoulliNB',
                                      'forest', 'tree', 'mlp'])
 parser.add_argument('--total', default="inter",
-                    choices=['at', 'au', 'be', 'ca', 'ch',
+                    choices=['ar', 'at', 'au', 'be', 'ca', 'ch',
                              'cn', 'de', 'dk', 'es', 'fi',
                              'fr', 'gb', 'ie', 'is', 'no', 'nz',
                              'mx', 'pt', 'ru', 'ru_ru',
