@@ -104,7 +104,7 @@ def getKey1(item):
 du = DameUtils()
 dicc_dataset_males = du.dicc_dataset("male")
 
-c2lmales = du.csv2list(dicc_dataset_males[args.country])
+c2lmales = du.csv2list(dicc_dataset_males[args.country], header=False)
 
 if (args.reverse):
     c2lmales = sorted(c2lmales, key=getKey1)
@@ -115,7 +115,7 @@ else:
 
 dicc_dataset_females = du.dicc_dataset("female")
 
-c2lfemales = du.csv2list(dicc_dataset_females[args.country])
+c2lfemales = du.csv2list(dicc_dataset_females[args.country], header=False)
 
 if (args.reverse):
     c2lfemales = sorted(c2lfemales, key=getKey1)
