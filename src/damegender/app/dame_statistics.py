@@ -26,7 +26,6 @@
 import csv
 import unidecode
 import unicodedata
-import numpy as np
 import configparser
 import os
 import re
@@ -240,10 +239,6 @@ class DameStatistics(object):
                [l1[2][0], l1[2][1], l1[2][2]]]
         return res
 
-    # def pca(self, path='files/names/partial.csv', n=2):
-    #     X = np.array(g.features_list())
-    #     pca = PCA(n_components=n)
-    #     return pca.fit(X)
 
     def print_measures(self, gl1, gl2, measure, api_name):
         if (measure == "accuracy"):
