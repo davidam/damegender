@@ -26,7 +26,6 @@
 import csv
 import unidecode
 import unicodedata
-import numpy as np
 import configparser
 import os
 import re
@@ -813,14 +812,40 @@ class Gender(object):
 
     def guess_surname(self, string, locale):
         counter = 0
-        if (locale == "us"):
-            path = 'files/names/names_us/surnames.csv'
+        if (locale == "ar"):
+            path = 'files/names/names_ar/arsurnames.csv'
             surname_position = 0
+            counter_position = 1            
+        if (locale == "be"):
+            path = 'files/names/names_be/besurnames.csv'
+            surname_position = 0
+            counter_position = 1
+        elif (locale == "ca"):
+            path = 'files/inesurnames/apellidos_frecuencia.csv'
+            surname_position = 1
             counter_position = 2
         elif ((locale == "es") or (locale == "ine")):
             path = 'files/inesurnames/apellidos_frecuencia.csv'
             surname_position = 1
             counter_position = 2
+        elif (locale == "no"):
+            path = 'files/names/names_no/nosurnames.csv'
+            surname_position = 0
+            counter_position = 1
+        elif (locale == "nz"):
+            path = 'files/names/names_nz/nzsurnames.csv'
+            surname_position = 0
+            counter_position = 1
+        elif (locale == "ru_en"):
+            path = 'files/names/names_ru/rusurnames.csv'
+            surname_position = 0
+            counter_position = 1
+        elif (locale == "us"):
+            path = 'files/names/names_us/surnames.csv'
+            surname_position = 0
+            counter_position = 2
+
+            
         boolean = False
         with open(path) as csvfile:
             surnamereader = csv.reader(csvfile, delimiter=',', quotechar='|')
