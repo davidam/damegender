@@ -99,6 +99,7 @@ if (len(sys.argv) > 1):
         arraygender = root.findall(str4)
         male = False
         female = False
+        errors = 0
         for i in arraygender:
             try:
                 if ("Male" in i.text):
@@ -106,7 +107,7 @@ if (len(sys.argv) > 1):
                 elif ("Female" in i.text):
                     female = True
             except:
-                print(" ")
+                errors = errors + 1
 
     elif (args.api == "wikidata"):
         url0 = "<https://en.wikipedia.org/wiki/"  + args.name + "> schema:about ?item ."
