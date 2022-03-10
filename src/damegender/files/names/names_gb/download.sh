@@ -143,15 +143,31 @@ done
 
 cd ..
 mkdir -p scotland
+cp ../scotland.py scotland
 cd scotland
 
 wget -c https://www.nrscotland.gov.uk/files//statistics/babies-names/20/babies-first-names-20-full-list.zip
 
 wget -c https://www.nrscotland.gov.uk/files//statistics/babies-names/20/babies-first-names-all-names-all-years.csv
 
+python3 scotland.py
+
+rm scotland.py
+
 # NORTH IRELAND
 
 cd ..
 mkdir -p nisra
+cp nisra.py nisra
 cd nisra
 wget -c https://www.nisra.gov.uk/sites/nisra.gov.uk/files/publications/Full_Name_List_9718.xlsx
+
+ssconvert -S Full_Name_List_9718.xlsx Full_Name_List_9718.csv
+
+cp Full_Name_List_9718.csv.4 nisra.females.csv
+sed -i '1d' nisra.females.csv
+sed -i '1d' nisra.females.csv
+cp Full_Name_List_9718.csv.3 nisra.males.csv
+sed -i '1d' nisra.males.csv
+sed -i '1d' nisra.males.csv
+python3 nisra.py
