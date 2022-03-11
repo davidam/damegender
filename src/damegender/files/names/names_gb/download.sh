@@ -150,6 +150,8 @@ wget -c https://www.nrscotland.gov.uk/files//statistics/babies-names/20/babies-f
 
 wget -c https://www.nrscotland.gov.uk/files//statistics/babies-names/20/babies-first-names-all-names-all-years.csv
 
+cp babies-first-names-all-names-all-years.csv scotland.orig.csv
+
 python3 scotland.py
 
 rm scotland.py
