@@ -10,69 +10,66 @@
 
 import csv
 
-dicc = {}
+def csv2list(csvpath,  *args, **kwargs):
+    # make a list from a csv file
+    header = kwargs.get('header', True)
+    delimiter = kwargs.get('delimiter', ',')
+    noemptyfield = kwargs.get('noemptyfield', False)    
+    l1 = []
+    with open(csvpath) as csvfile:
+        sexreader = csv.reader(csvfile, delimiter=delimiter, quotechar='|')
+        if header:
+            next(sexreader, None)
+        for row in sexreader:
+            if (row != []):
+                if ((noemptyfield == False) or (row[noemptyfield] != "")):
+                    l1.append(row)
+    return l1
 
-def int_with_null(x):
-    ret = 0
-    if (x == 'null'):
-        ret = 0
-    else:
-        ret =  int(x)
-    return ret
+l0 = csv2list("orig/englandandwales/1996girls.xls.csv.3", header=True)
+#print(l0[5:-10])
+l0 = l0[5:-10]
 
-with open('walesmales.orig.csv') as csvfile:
-    reader = csv.reader(csvfile, delimiter=',', quotechar='|')
-    i = -1
-    for row in reader:
-        i = i + 1
-        if (i == 0):
-            v = row[0].split(';')
-            dicc = {}
-            for index in v:
-                dicc[index] = 0
-        else:
-            j = 1
-            w = row[0].split(';')
+l1 = csv2list("orig/englandandwales/1996boysnames.xls.csv.3", header=True, noemptyfield=2)
+#print(l1[2:-1])
+l1 = l1[2:-1]
 
-            while (j < len(w)):
-                dicc[v[j]] = int(dicc[v[j]]) + int_with_null(w[j])
-                j = j + 1
+l2 = csv2list("orig/englandandwales/1997boysnames.xls.csv.6", header=True, noemptyfield=2)
+#print(l2[2:-1])
+l2 = l2[2:-1]
 
-fo = open("walesmales.csv", "w")                
-for i in dicc.keys():
-    if (i != "Date"):
-        fo.write(str(i)+","+str(dicc[i])+"\n");
+l3 = csv2list("orig/englandandwales/1997girls.xls.csv.6", header=True, noemptyfield=2)
+# print(l3[2:-1])
+l3 = l3[2:-1]
 
-fo.close()
+l4 = csv2list("orig/englandandwales/1998boysnames.xls.csv.6", header=True, noemptyfield=2)
+l4 = l4[2:-1]
 
+l5 = csv2list("orig/englandandwales/1998girls.xls.csv.6", header=True, noemptyfield=2)
+l5 = l5[2:-1]
 
-# with open('walesfemales.orig.csv') as csvfile:
-#     reader = csv.reader(csvfile, delimiter=',', quotechar='|')
-#     i = -1
-#     for row in reader:
-#         i = i + 1
-#         if (i == 0):
-#             v = row[0].split(';')
-#             dicc = {}
-#             for index in v:
-#                 dicc[index] = 0
-#         else:
-#             j = 1
-#             w = row[0].split(';')
+l6 = csv2list("orig/englandandwales/1999boysnames.xls.csv.6", header=True, noemptyfield=2)
+l6 = l6[2:-1]
 
-#             while (j < len(w)):
-#                 dicc[v[j]] = int(dicc[v[j]]) + int_with_null(w[j])
-#                 j = j + 1
+l7 = csv2list("orig/englandandwales/1999girls.xls.csv.6", header=True, noemptyfield=2)
+l7 = l7[2:-1]
 
-# fo2 = open("walesfemales.csv", "w")                
-# for i in dicc.keys():
-#     if (i != "Date"):
-#         fo2.write(str(i)+","+str(dicc[i])+"\n");
+l8 = csv2list("orig/englandandwales/2000boysnames.xls.csv.6", header=True, noemptyfield=2)
+l8 = l8[2:-1]
 
-# fo2.close()
+l9 = csv2list("orig/englandandwales/2000girls.xls.csv.6", header=True, noemptyfield=2)
+l9 = l9[2:-1]
 
+l10 = csv2list("orig/englandandwales/2001boysnames.xls.csv.6", header=True, noemptyfield=2)
+l10 = l10[2:-1]
 
-# print(dicc.keys())
-# print(dicc.values())
-    # for row in reader:
-    #     dicc[row[2]] = dicc[row[2]] + int(row[3])
+l11 = csv2list("orig/englandandwales/2001girls.xls.csv.6", header=True, noemptyfield=2)
+l11 = l11[2:-1]
+
+l12 = csv2list("orig/englandandwales/2002boysnames.xls.csv.6", header=True, noemptyfield=2)
+l12 = l12[2:-1]
+
+l13 = csv2list("orig/englandandwales/2002girls.xls.csv.6", header=True, noemptyfield=2)
+l13 = l13[2:-1]
+print(l13)
+
