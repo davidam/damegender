@@ -71,5 +71,55 @@ l12 = l12[2:-1]
 
 l13 = csv2list("orig/englandandwales/2002girls.xls.csv.6", header=True, noemptyfield=2)
 l13 = l13[2:-1]
-print(l13)
+
+l14 = csv2list("orig/englandandwales/2003boysnames.xls.csv.6", header=True, noemptyfield=2)
+l14 = l14[2:-1]
+
+l15 = csv2list("orig/englandandwales/2003girls.xls.csv.6", header=True, noemptyfield=2)
+l15 = l15[2:-1]
+
+l16 = csv2list("orig/englandandwales/2004boysnames.xls.csv.6", header=True, noemptyfield=2)
+l16 = l16[2:-1]
+
+l17 = csv2list("orig/englandandwales/2004girls.xls.csv.6", header=True, noemptyfield=2)
+l17 = l17[2:-1]
+
+l18 = csv2list("orig/englandandwales/2005girls.xls.csv.6", header=True, noemptyfield=2)
+l18 = l18[2:-1]
+
+l19 = csv2list("orig/englandandwales/2005boysnames.xls.csv.6", header=True, noemptyfield=2)
+l19 = l19[2:-1]
+
+l20 = csv2list("orig/englandandwales/2006girls.xls.csv.6", header=True, noemptyfield=2)
+l20 = l20[2:-1]
+
+l21 = csv2list("orig/englandandwales/2006boysnames.xls.csv.6", header=True, noemptyfield=2)
+l21 = l21[2:-1]
+
+l22 = csv2list("orig/englandandwales/2007girls.xls.csv.6", header=True, noemptyfield=2)
+l22 = l22[2:-1]
+
+l23 = csv2list("orig/englandandwales/2007boysnames.xls.csv.6", header=True, noemptyfield=2)
+l23 = l23[2:-1]
+
+l24 = csv2list("orig/englandandwales/2008girls.xls.csv.6", header=True, noemptyfield=2)
+l24 = l24[2:-1]
+
+l25 = csv2list("orig/englandandwales/2008boysnames.xls.csv.6", header=True, noemptyfield=2)
+l25 = l25[2:-1]
+
+l26 = csv2list("orig/englandandwales/2009girls.xls.csv.6", header=True, noemptyfield=2)
+l26 = l26[2:-1]
+
+l27 = csv2list("orig/englandandwales/2009boysnames.xls.csv.6", header=True, noemptyfield=2)
+l27 = l27[2:-1]
+
+l28 = csv2list("orig/englandandwales/2010girls.xls.csv.6", header=True, noemptyfield=2)
+l28 = l28[2:-1]
+
+l29 = csv2list("orig/englandandwales/2010boysnames.xls.csv.6", header=True, noemptyfield=2)
+l29 = l29[2:-1]
+
+
+
 
