@@ -4,7 +4,7 @@ import csv
 # fo = open("/tmp/fichero.txt", "w")
 # fo.write("Gora python\n");
 
-input = csv.reader(open('northerireland.females.csv', 'r'), delimiter=",", quotechar='|')
+input = csv.reader(open('nisra.females.csv', 'r'), delimiter=",", quotechar='|')
 
 print(input)
 
@@ -124,8 +124,10 @@ for i in list:
     else:
         i20 = 0
     s = 0
+    for i in [1:20]:
+        print(i)
     s = int(i1) + int(i2) + int(i3) + int(i4) + int(i5) + int(i6) + int(i7) + int(i8) + int(i9) + int(i10) + int(i11) + int(i12) + int(i13) + int(i14) + int(i15) + int(i16) + int(i17) + int(i18) + int(i19) + int(i20)
-    if (name != "Name"):
+    if ((name != "Name") and (s > 0)):
         fo.write(name + ',' + str(s) + '\n')
 fo.close()
 
@@ -137,7 +139,7 @@ fo.close()
 #     for row in input:
 #         list.extend(row)
 
-inputmales = csv.reader(open('northerireland.males.csv', 'r'), delimiter=",", quotechar='|')
+inputmales = csv.reader(open('nisra.males.csv', 'r'), delimiter=",", quotechar='|')
 
 print(inputmales)
 
@@ -258,6 +260,6 @@ for i in listmales:
         i20 = 0
     s = 0
     s = int(i1) + int(i2) + int(i3) + int(i4) + int(i5) + int(i6) + int(i7) + int(i8) + int(i9) + int(i10) + int(i11) + int(i12) + int(i13) + int(i14) + int(i15) + int(i16) + int(i17) + int(i18) + int(i19) + int(i20)
-    if (name != "Name"):
+    if ((name != "Name") and (s > 0)):
         fomales.write(name + ',' + str(s) + '\n')
 fomales.close()
