@@ -170,7 +170,7 @@ class DameUtils():
             else:
                 aux = aux + c
         return aux
-
+    
     def drop_dots(self, s):
         aux = ""
         for c in unicodedata.normalize('NFD', str(s)):
@@ -319,10 +319,13 @@ class DameUtils():
                 l1.append(row[position])
         return l1
 
-    def csv2list(self, csvpath,  *args, **kwargs):
+    def csv2list(csvpath,  *args, **kwargs):
         # make a list from a csv file
         header = kwargs.get('header', True)
         delimiter = kwargs.get('delimiter', ',')
+        noemptyfield = kwargs.get('noemptyfield', False)
+        deletewhitespaces = kwargs.get('deletewhitespaces', False)
+        deletequotes = kwargs.get('deletequotes', False)        
         l1 = []
         with open(csvpath) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=delimiter, quotechar='|')
@@ -330,7 +333,15 @@ class DameUtils():
                 next(sexreader, None)
             for row in sexreader:
                 if (row != []):
-                    l1.append(row)
+                    if ((noemptyfield == False) or (row[noemptyfield] != "")):
+                        i = 0
+                        while i < len(row):
+                            if deletewhitespaces:
+                                row[i] = drop_white_spaces(row[i])
+                            if deletequotes:
+                                row[i] = drop_quotes(row[i])
+                            i = i + 1
+                        l1.append(row)
         return l1
 
     def delete_duplicated(self, l1):
@@ -382,7 +393,6 @@ class DameUtils():
         return l2
 
     def yes_or_not(self, question):
-
         reply = str(input(question+' (y/n): ')).lower().strip()
         ret = None
         if ((reply[0] == 'y') or (reply[0] == 'yes')):
