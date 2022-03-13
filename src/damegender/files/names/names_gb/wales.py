@@ -98,7 +98,7 @@ lists2csvfile(l5, "1998girls.csv")
 l6 = csv2list("orig/englandandwales/1999boysnames.xls.csv.6", header=True, noemptyfield=2)
 l6 = l6[2:-1]
 
-lists2csvfile(l6, "1998boys.csv")
+lists2csvfile(l6, "1999boys.csv")
 
 l7 = csv2list("orig/englandandwales/1999girls.xls.csv.6", header=True, noemptyfield=2)
 l7 = l7[2:-1]
@@ -208,7 +208,7 @@ lists2csvfile(l27, "2009boys.csv")
 l28 = csv2list("orig/englandandwales/2010girls.xls.csv.6", header=True, noemptyfield=2)
 l28 = l28[2:-1]
 
-lists2csvfile(l28, "2010girlss.csv")
+lists2csvfile(l28, "2010girls.csv")
 
 l29 = csv2list("orig/englandandwales/2010boysnames.xls.csv.6", header=True, noemptyfield=2)
 l29 = l29[2:-1]
