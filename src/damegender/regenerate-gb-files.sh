@@ -83,13 +83,21 @@ python3 mergeinterfiles.py --file1="files/names/names_gb/1996+1997+1998+1999+200
 python3 mergeinterfiles.py --file1="files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008+2009boys.csv" --file2="files/names/names_gb/2010boys.csv" --output=files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008+2009+2010boys.csv
 
 cd files/names/names_gb/
-cp 1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008+2009+2010girls.csv englandwales-girls.csv
+cp 1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008+2009+2010boys.csv englandwales-boys.csv
 cd ../../..
 
+echo "Building gbfemales.csv from englandwales-girls.csv, northernireland.females.csv and scotland.females.csv"
 
-# echo "Building gbfemales.csv"
-# python3 mergeinterfiles.py --file1="files/names/names_gb/ukfemales.csv" --file2="files/names/names_gb/scotland.females.csv" --output=files/tmp/ukscotlandfemales.csv
-# python3 mergeinterfiles.py --file1="files/tmp/ukscotlandfemales.csv" --file2="files/names/names_gb/northerireland.females.csv" --output=files/tmp/ukscotlandnortherirelandfemales.csv
+python3 mergeinterfiles.py --file1="files/names/names_gb/englandwales-girls.csv" --file2="files/names/names_gb/scotland.females.csv" --output=files/names/names_gb/englandwales+scotland.females.csv
+# python3 mergeinterfiles.py --file1="files/names/names_gb/englandwales+scotland.females.csv" --file2="files/names/names_gb/northernireland.females.csv" --output=files/names/names_gb/gbfemales.csv
+
+# echo "Building gbmales.csv from englandwales-boys.csv, northernireland.males.csv and scotland.males.csv"
+
+# python3 mergeinterfiles.py --file1="files/names/names_gb/englandwales-boys.csv" --file2="files/names/names_gb/scotland.males.csv" --output=files/names/names_gb/englandwales+scotland.males.csv
+# python3 mergeinterfiles.py --file1="files/names/names_gb/englandwales+scotland.males.csv" --file2="files/names/names_gb/northernireland.males.csv" --output=files/names/names_gb/gbmales.csv
+
+
+#python3 mergeinterfiles.py --file1="files/tmp/ukscotlandfemales.csv" --file2="files/names/names_gb/northerireland.females.csv" --output=files/tmp/ukscotlandnortherirelandfemales.csv
 # python3 mergeinterfiles.py --file1="files/tmp/ukscotlandnortherirelandfemales.csv" --file2="files/names/names_gb/walesfemales.csv" --output=files/tmp/ukscotlandnortherirelandwalesfemales.csv
 # cp files/tmp/ukscotlandnortherirelandwalesfemales.csv files/names/names_gb/gbfemales.csv
 
