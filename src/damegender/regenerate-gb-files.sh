@@ -48,6 +48,9 @@ python3 mergeinterfiles.py --file1="files/names/names_gb/1996+1997+1998+1999+200
 
 python3 mergeinterfiles.py --file1="files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008+2009girls.csv" --file2="files/names/names_gb/2010girls.csv" --output=files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008+2009+2010girls.csv
 
+cd files/names/names_gb/
+cp 1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008+2009+2010girls.csv englandwales-girls.csv
+cd ../../..
 
 echo "Building england and wales boys"
 
@@ -71,22 +74,24 @@ python3 mergeinterfiles.py --file1="files/names/names_gb/1996+1997+1998+1999+200
 
 python3 mergeinterfiles.py --file1="files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005boys.csv" --file2="files/names/names_gb/2006boys.csv" --output=files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006boys.csv
 
-# python3 mergeinterfiles.py --file1="files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006boys.csv" --file2="files/names/names_gb/2007boys.csv" --output=files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007boys.csv
+python3 mergeinterfiles.py --file1="files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006boys.csv" --file2="files/names/names_gb/2007boys.csv" --output=files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007boys.csv
 
-# python3 mergeinterfiles.py --file1="files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007boys.csv" --file2="files/names/names_gb/2008boys.csv" --output=files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008boys.csv
+python3 mergeinterfiles.py --file1="files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007boys.csv" --file2="files/names/names_gb/2008boys.csv" --output=files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008boys.csv
 
-# python3 mergeinterfiles.py --file1="files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008boys.csv" --file2="files/names/names_gb/2009boys.csv" --output=files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008+2009boys.csv
+python3 mergeinterfiles.py --file1="files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008boys.csv" --file2="files/names/names_gb/2009boys.csv" --output=files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008+2009boys.csv
 
-# python3 mergeinterfiles.py --file1="files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008+2009boys.csv" --file2="files/names/names_gb/2010boys.csv" --output=files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008+2009+2010boys.csv
+python3 mergeinterfiles.py --file1="files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008+2009boys.csv" --file2="files/names/names_gb/2010boys.csv" --output=files/names/names_gb/1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008+2009+2010boys.csv
 
-
+cd files/names/names_gb/
+cp 1996+1997+1998+1999+2000+2001+2002+2003+2004+2005+2006+2007+2008+2009+2010girls.csv englandwales-girls.csv
+cd ../../..
 
 
 # echo "Building gbfemales.csv"
 # python3 mergeinterfiles.py --file1="files/names/names_gb/ukfemales.csv" --file2="files/names/names_gb/scotland.females.csv" --output=files/tmp/ukscotlandfemales.csv
 # python3 mergeinterfiles.py --file1="files/tmp/ukscotlandfemales.csv" --file2="files/names/names_gb/northerireland.females.csv" --output=files/tmp/ukscotlandnortherirelandfemales.csv
-# # python3 mergeinterfiles.py --file1="files/tmp/ukscotlandnortherirelandfemales.csv" --file2="files/names/names_gb/walesfemales.csv" --output=files/tmp/ukscotlandnortherirelandwalesfemales.csv
-# # cp files/tmp/ukscotlandnortherirelandwalesfemales.csv files/names/names_gb/gbfemales.csv
+# python3 mergeinterfiles.py --file1="files/tmp/ukscotlandnortherirelandfemales.csv" --file2="files/names/names_gb/walesfemales.csv" --output=files/tmp/ukscotlandnortherirelandwalesfemales.csv
+# cp files/tmp/ukscotlandnortherirelandwalesfemales.csv files/names/names_gb/gbfemales.csv
 
 # echo "Building gbmales.csv"
 # python3 mergeinterfiles.py --file1="files/names/names_gb/ukmales.csv" --file2="files/names/names_gb/scotland.males.csv" --output=files/tmp/ukscotlandmales.csv
