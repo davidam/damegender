@@ -319,7 +319,7 @@ class DameUtils():
                 l1.append(row[position])
         return l1
 
-    def csv2list(csvpath,  *args, **kwargs):
+    def csv2list(self, csvpath,  *args, **kwargs):
         # make a list from a csv file
         header = kwargs.get('header', True)
         delimiter = kwargs.get('delimiter', ',')
