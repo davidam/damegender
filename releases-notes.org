@@ -2,7 +2,7 @@
 
 Official Datasets:
 + [X] Argentina: 42800 names, 24587 females, 18456 males, 77583 surnames
-+ [X] Great Britain: 34326 males, 51195 females
++ [X] Great Britain: 459848 names, 34326 males, 51195 females
 
 Great Britain has several statistical offices divided by Great Britain
 regions. So we must do more long calculus if you find bugs, please
