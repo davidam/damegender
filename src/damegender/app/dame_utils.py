@@ -116,9 +116,9 @@ class DameUtils():
                     "no": "files/names/names_no/noall.csv",
                     "nz": "files/names/names_nz/nzall.csv",
                     "pt": "files/names/names_pt/ptall.csv",
-                    "ru": "files/names/names_ru/ruall.csv",                    
+                    "ru": "files/names/names_ru/ruall.csv",
                     "ru_ru": "files/names/names_ru/ruall.csv",
-                    "ru_en": "files/names/names_ru/ruall.en.csv",                    
+                    "ru_en": "files/names/names_ru/ruall.en.csv",
                     "se": "files/names/names_si/seall.csv",
                     "si": "files/names/names_si/siall.csv",
                     # "tr": "files/names/names_tr/trall.csv",
@@ -170,7 +170,7 @@ class DameUtils():
             else:
                 aux = aux + c
         return aux
-    
+
     def drop_dots(self, s):
         aux = ""
         for c in unicodedata.normalize('NFD', str(s)):
@@ -325,7 +325,7 @@ class DameUtils():
         delimiter = kwargs.get('delimiter', ',')
         noemptyfield = kwargs.get('noemptyfield', False)
         deletewhitespaces = kwargs.get('deletewhitespaces', False)
-        deletequotes = kwargs.get('deletequotes', False)        
+        deletequotes = kwargs.get('deletequotes', False)
         l1 = []
         with open(csvpath) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=delimiter, quotechar='|')
@@ -343,6 +343,22 @@ class DameUtils():
                             i = i + 1
                         l1.append(row)
         return l1
+
+    def lists2csvfile(self, listoflists, csvpath, *args, **kwargs):
+        samelen = True
+        length0 = listoflists[0]
+        name_position = kwargs.get('name_position', 0)
+        frequency_position = kwargs.get('frequency_position', 1)
+        for l in listoflists:
+            if (length0 == len(l)):
+                samelen = samelen and True
+            else:
+                samelen = samelen and False
+        fo = open(csvpath, "w")
+        for l in listoflists:
+            fo.write(l[name_position], l[frequency_position])
+        fo.close()
+        return 1
 
     def delete_duplicated(self, l1):
         if (len(l1) == 0):
