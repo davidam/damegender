@@ -143,9 +143,9 @@ python3 main.py Julia --total=gb > files/tests/mainjuliagb-$(date "+%Y-%m-%d").t
 
 if ! diff files/tests/mainjuliagb.txt files/tests/mainjuliagb-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
 then
-	echo -e  "mainjuliauk test is ${RED}failing${NC}"
+	echo -e  "mainjuliagb test is ${RED}failing${NC}"
 else
-	echo -e  "mainjuliauk test is ${GREEN}ok${NC}"
+	echo -e  "mainjuliagb test is ${GREEN}ok${NC}"
 fi
 
 python3 main.py Julia --total=uy > files/tests/mainjuliauy-$(date "+%Y-%m-%d").txt
