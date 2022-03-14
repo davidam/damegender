@@ -41,6 +41,8 @@ python3 mergeinterfiles.py --file1="files/names/names_fi/fimales.csv" --file2="f
 echo "Finland done"
 python3 mergeinterfiles.py --file1="files/names/names_fr/frmales.csv" --file2="files/names/names_fr/frfemales.csv" --output=files/names/names_fr/frall.csv --malefemale
 echo "France done"
+python3 mergeinterfiles.py --file1="files/names/names_gb/gbmales.csv" --file2="files/names/names_gb/gbfemales.csv" --output=files/names/names_gb/gball.csv --malefemale
+echo "Great Britain done"
 python3 mergeinterfiles.py --file1="files/names/names_ie/iemales.csv" --file2="files/names/names_ie/iefemales.csv" --output=files/names/names_ie/ieall.csv --malefemale
 echo "Ireland done"
 python3 mergeinterfiles.py --file1="files/names/names_inter/intermales.csv" --file2="files/names/names_inter/interfemales.csv" --output=files/names/names_inter/interall.csv --malefemale
