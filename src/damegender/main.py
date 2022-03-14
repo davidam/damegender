@@ -176,10 +176,11 @@ elif ((args.verbose) or (args.total == "all")):
           % (n_females, args.name))
     n_males = s.name_frec(args.name, dataset="gb")['males']
     n_females = s.name_frec(args.name, dataset="gb")['females']
-    print("%s males for %s from United Kingdom statistics"
-          % (n_males, args.name))
-    print("%s females for %s from United Kingdom statistics"
-          % (n_females, args.name))
+    gb = "United Kingdom of Great Britain and Northern Ireland statistics"
+    print("%s males for %s from %s statistics"
+          % (n_males, args.name, gb))
+    print("%s females for %s from %s statistics"
+          % (n_females, args.name, gb))
     n_males = s.name_frec(args.name, dataset="mx")['males']
     n_females = s.name_frec(args.name, dataset="mx")['females']
     print("%s males for %s from Mexico statistics"
