@@ -3,8 +3,8 @@
 
 # Copyright (C) 2021 David Arroyo Menéndez
 
-# Author: David Arroyo Menéndez <davidam@gmail.com> 
-# Maintainer: David Arroyo Menéndez <davidam@gmail.com> 
+# Author: David Arroyo Menéndez <davidam@gmail.com>
+# Maintainer: David Arroyo Menéndez <davidam@gmail.com>
 # You can share, copy and modify this software if you are a woman or you
 # are David Arroyo Menéndez and you include this note.
 
@@ -25,11 +25,27 @@ def drop_white_spaces(s):
             aux = aux + c
     return aux
 
+def drop_quotes(self, s):
+    aux = ""
+    for c in unicodedata.normalize('NFD', str(s)):
+        if ((c != '"') and (c != "'")):
+            aux = aux + c
+    return aux
+
+def drop_white_space(self, s):
+    aux = ""
+    for c in unicodedata.normalize('NFD', str(s)):
+        if (c != ' '):
+            aux = aux + c
+    return aux
+
 def csv2list(csvpath,  *args, **kwargs):
     # make a list from a csv file
     header = kwargs.get('header', True)
     delimiter = kwargs.get('delimiter', ',')
-    noemptyfield = kwargs.get('noemptyfield', False)    
+    noemptyfield = kwargs.get('noemptyfield', False)
+    deletewhitespaces = kwargs.get('deletewhitespaces', False)
+    deletequotes = kwargs.get('deletequotes', False)
     l1 = []
     with open(csvpath) as csvfile:
         sexreader = csv.reader(csvfile, delimiter=delimiter, quotechar='|')
@@ -42,23 +58,26 @@ def csv2list(csvpath,  *args, **kwargs):
                     while i < len(row):
                         row[i] = drop_quotes(row[i])
                         row[i] = drop_white_spaces(row[i])
+                        if deletewhitespaces:
+                            row[i] = drop_white_spaces(row[i])
+                        if deletequotes:
+                            row[i] = drop_quotes(row[i])
                         i = i + 1
                     l1.append(row)
     return l1
 
-def lists2csvfile(listoflists, pathfile):
-    samelen = True
+def lists2csvfile(listoflists, csvpath, *args, **kwargs):
     length0 = listoflists[0]
+    name_position = kwargs.get('name_position', 0)
+    frequency_position = kwargs.get('frequency_position', 1)
+    fo = open(csvpath, "w")
     for l in listoflists:
-        if (length0 == len(l)):
-            samelen = samelen and True
-        else:
-            samelen = samelen and False
-    fo = open(pathfile, "w")        
-    for l in listoflists:
-        fo.write(l[2]+","+l[3]+"\n")
+        try:
+            fo.write(str(l[int(name_position)])+","+str(l[int(frequency_position)])+"\n")
+        except IndexError:
+            print("The program has troubles with the array indexes")
     fo.close()
-    return samelen
+    return 1
 
 
 l0 = csv2list("orig/englandandwales/1996girls.xls.csv.3", header=True)
@@ -215,4 +234,3 @@ l29 = l29[2:-1]
 
 #print(l29)
 lists2csvfile(l29, "2010boys.csv")
-
