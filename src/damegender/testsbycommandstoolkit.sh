@@ -101,9 +101,10 @@ else
 fi
 
 python3 get-wikidata-surnames.py --total=ad
-mkdir -p files/tmp 
+mkdir -p files/tmp
 sort files/tests/wikidata-surnames.csv > files/tmp/3.csv
-sort surnames.csv > files/tmp/4-$(date "+%Y-%m-%d-%H").csv
+sort surnames.csv > files/tmp/tmp-$(date "+%Y-%m-%d-%H").csv
+cat files/tmp/tmp-$(date "+%Y-%m-%d-%H").csv | head -n 10 > files/tmp/4-$(date "+%Y-%m-%d-%H").csv
 
 if ! diff files/tmp/3.csv files/tmp/4-$(date "+%Y-%m-%d-%H").csv > /dev/null 2>&1
 then
