@@ -176,7 +176,7 @@ elif ((args.verbose) or (args.total == "all")):
           % (n_females, args.name))
     n_males = s.name_frec(args.name, dataset="gb")['males']
     n_females = s.name_frec(args.name, dataset="gb")['females']
-    gb = "United Kingdom of Great Britain and Northern Ireland statistics"
+    gb = "United Kingdom of Great Britain and Northern Ireland"
     print("%s males for %s from %s statistics"
           % (n_males, args.name, gb))
     print("%s females for %s from %s statistics"
