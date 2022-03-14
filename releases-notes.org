@@ -1,7 +1,12 @@
 * v0.4.4
 
-Official xDatasets:
+Official Datasets:
 + [X] Argentina: 42800 names, 24587 females, 18456 males, 77583 surnames
++ [X] Great Britain: 34326 males, 51195 females
+
+Great Britain has several statistical offices divided by Great Britain
+regions. So we must do more long calculus if you find bugs, please
+send to Damegender, for example, with a github issue. Thanks in advance.
 
 Cleaning code:
 + [X] Replaced lxml by xml python native, lxml was doing problems in MacOS
