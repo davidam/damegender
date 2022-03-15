@@ -47,7 +47,9 @@ parser.add_argument('--skip_header',
                     action='store_true')
 # By default split the csv with 1 name per json file
 parser.add_argument('--names_by_multiple_files', default=1)
-parser.add_argument('--gender', choices=["male", "female", "all"])
+parser.add_argument('--gender',
+                    required=True,
+                    choices=["male", "female", "all"])
 
 args = parser.parse_args()
 
