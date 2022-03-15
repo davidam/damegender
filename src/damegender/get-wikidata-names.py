@@ -21,6 +21,7 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+import re
 import requests
 import argparse
 from app.dame_wikidata import DameWikidata
@@ -75,7 +76,9 @@ data = r.json()
 print("Dumping to names.csv")
 fo = open("names.csv", "w")
 for d in data["results"]["bindings"]:
-    str0 = d['nameLabel']['value'] + "," + d['count']['value'] + "\n"
-    fo.write(str0)
+    match = re.search(r'(Q[0-9]*)', d['nameLabel']['value'])
+    if not(match):
+        str0 = d['nameLabel']['value'] + "," + d['count']['value'] + "\n"
+        fo.write(str0)
 
 fo.close()
