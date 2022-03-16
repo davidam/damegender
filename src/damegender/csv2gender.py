@@ -40,9 +40,10 @@ parser.add_argument('--first_name_position', required=True,
 parser.add_argument('--surname_position', required=False,
                     type=int, choices=[0, 1, 2, 3, 4], default=-99999)
 parser.add_argument('--dataset', default="us",
-                    choices=['at', 'au', 'be', 'ca', 'de', 'dk', 'es',
-                             'fi', 'gb', 'ie', 'ine', 'inter', 'is', 'mx',
-                             'nz', 'pt', 'si', 'uy', 'us', 'genderguesser'])
+                    choices=['at', 'au', 'be', 'ca', 'ch', 'cn', 'de',
+                             'dk', 'es', 'fi', 'fr', 'gb', 'ie', 'ine',
+                             'inter', 'is', 'mx', 'no', 'nz', 'pt',
+                             'se', 'si', 'uy', 'us', 'genderguesser'])
 parser.add_argument('--outcsv', default="files/names/out.csv")
 parser.add_argument('--outjson', default="files/names/out.json")
 parser.add_argument('--outimg', default="files/images/csv2gender.png")
