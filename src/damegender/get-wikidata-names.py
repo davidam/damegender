@@ -61,7 +61,6 @@ WITH {
   }
   GROUP BY ?name
   ORDER BY DESC(?count)
-  LIMIT 100
 } AS %results
 WHERE {
   INCLUDE %results
