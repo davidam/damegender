@@ -97,8 +97,11 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_drop_white_space_around(self):
         u = DameUtils()
-        self.assertEqual("In",
-                         u.drop_white_space_around(" In"))
+        self.assertEqual("", u.drop_white_space_around(""))
+        self.assertEqual(" 阿", u.drop_white_space_around("阿"))
+        self.assertEqual(" 阿 ", u.drop_white_space_around("阿"))
+        self.assertEqual("阿 ", u.drop_white_space_around("阿"))
+        self.assertEqual("In", u.drop_white_space_around(" In"))
         self.assertEqual("Juan Carlos I",
                          u.drop_white_space_around(" Juan Carlos I"))
         self.assertEqual("Juan Carlos I",
