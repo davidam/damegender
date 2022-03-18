@@ -1347,3 +1347,5 @@ también.
 
 Después del último nombre de un posible nombre compuesto no debería haber
 espacios en blanco.
+
+Dar la posibilidad de mantener o reemplazar acentos por otra cosa.
