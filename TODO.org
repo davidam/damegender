@@ -1335,3 +1335,15 @@ y ver que las desviaciones son razonables
   - State "DONE"       from "TODO"       [2022-03-07 lun 10:27]
   Tratar de reemplazar por librería nativa para evitar problemas de dependencias
   https://docs.python.org/3/library/xml.etree.elementtree.html
+* TODO Crear un método normalize_names_and_white_spaces
+La entrada es una cadena y si tiene cadenas de caracteres candidatas a nombres
+y espacios en blanco devuelve true
+
+Si las cadenas de caracteres no son candidatas a nombres devuelve false
+
+Los espacios en blanco podrían ser reemplazados por espacios bajos o guiones
+en función de la normalización que quiere hacer el programador, al revés
+también.
+
+Después del último nombre de un posible nombre compuesto no debería haber
+espacios en blanco.
