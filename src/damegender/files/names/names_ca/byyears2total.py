@@ -23,6 +23,7 @@
 
 import csv
 import json
+import re
 
 capathyears = "baby-names-frequency.csv"
 csvoutmales = "camales.csv"
@@ -48,6 +49,16 @@ def delete_duplicated(l):
                 rest = rest + [i]
     return [l[0]] + delete_duplicated(rest)
 
+def drop_white_space_around(s):
+    arr = s.split()
+    name = ""
+    for i in arr:
+        name = i + " "
+    l = len(name)
+    n = l - 1
+    name = name[0:n]
+    return name
+
 with open(capathyears) as csvfile:
     reader = csv.reader(csvfile, delimiter=',', quotechar='|')
     next(reader, None)
@@ -62,12 +73,12 @@ csvfile.close()
 
 with open(capathyears) as csvfile2:
     reader2 = csv.reader(csvfile2, delimiter=',', quotechar='|')
-    next(reader2, None)        
-    for row2 in reader2:        
+    next(reader2, None)
+    for row2 in reader2:
         dicc[row2[1]][row2[4]] = {}
         dicc[row2[1]][row2[4]]["male"] = {}
-        dicc[row2[1]][row2[4]]["female"] = {}                
-csvfile2.close()        
+        dicc[row2[1]][row2[4]]["female"] = {}
+csvfile2.close()
 print(dicc)
 
 with open(capathyears) as csvfile3:
@@ -79,10 +90,10 @@ with open(capathyears) as csvfile3:
 #            print(row3[2])
             dicc[row3[1]][row3[4]]["female"] = row3[2]
         elif (row3[3] == 'Boy'):
-#            print(row3[2])            
+#            print(row3[2])
             dicc[row3[1]][row3[4]]["male"] = row3[2]
 print(dicc)
-            
+
 # # print(dicc.keys())
 for i in dicc.keys():
     males = 0
@@ -98,9 +109,9 @@ for i in dicc.keys():
         else:
             num = dicc[i][j]["male"]
         males = males + int(num)
-        
+
     dicc[i]["females"] = females
-    dicc[i]["males"] = males            
+    dicc[i]["males"] = males
 
 # # print(dicc["Paula"]["females"])
 jsonvar = json.dumps(dicc)
@@ -110,17 +121,16 @@ fo.close()
 
 # # print(dicc.keys())
 
-file = open(csvoutmales, "w")    
+file = open(csvoutmales, "w")
 for i in dicc.keys():
     if (dicc[i]["males"] > 0):
-        line = str(i) + "," + str(dicc[i]["males"]) + "\n"
+        line = drop_white_space_around(str(i)) + "," + str(dicc[i]["males"]) + "\n"
         file.write(line)
 file.close()
 
-file = open(csvoutfemales, "w")    
+file = open(csvoutfemales, "w")
 for i in dicc.keys():
     if (dicc[i]["females"] > 0):
-        line = str(i) + "," + str(dicc[i]["females"]) + "\n"
+        line = drop_white_space_around(str(i)) + "," + str(dicc[i]["females"]) + "\n"
         file.write(line)
 file.close()
-
