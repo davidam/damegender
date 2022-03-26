@@ -1349,3 +1349,13 @@ Después del último nombre de un posible nombre compuesto no debería haber
 espacios en blanco.
 
 Dar la posibilidad de mantener o reemplazar acentos por otra cosa.
+
+** TODO ¿Es un guión parte de un nombre?
+Esto es un poco lo más complicado de la normalización, puede haber personas que
+digan mi nombre es con guión y otras personas pueden decir que es opcional escribir
+con guión o con espacios en blanco. Me parece difícil tomar una postura y me puedo
+meter en líos programando para abordar esta tarea si tomo decisiones de una manera
+arbitraria.
+
+Quizás deba cancelar esta tarea y seguir abordándolo todo esto con los métodos que lo
+estaba haciendo
