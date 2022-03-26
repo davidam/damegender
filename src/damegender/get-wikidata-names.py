@@ -75,8 +75,11 @@ data = r.json()
 print("Dumping to names.csv")
 fo = open("names.csv", "w")
 for d in data["results"]["bindings"]:
-    match = re.search(r'(Q[0-9]*)', d['nameLabel']['value'])
-    if not(match):
+    # names as Q010234 is a wikidata identifier not a name
+    match1 = re.search(r'(Q[0-9]*)', d['nameLabel']['value'])
+    # names as J. is an intial of name and not a name    
+    match2 = re.search(r'(^[A-Z]\.\,*)', d['nameLabel']['value'])    
+    if (not(match1) and not(match2)):
         str0 = d['nameLabel']['value'] + "," + d['count']['value'] + "\n"
         fo.write(str0)
 
