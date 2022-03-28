@@ -312,10 +312,10 @@ class DameUtils():
         delimiter = kwargs.get('delimiter', ',')
         l1 = []
         with open(csvpath) as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=delimiter, quotechar='|')
+            rowreader = csv.reader(csvfile, delimiter=delimiter, quotechar='|')
             if header:
-                next(sexreader, None)
-            for row in sexreader:
+                next(rowreader, None)
+            for row in rowreader:
                 l1.append(row[position])
         return l1
 
@@ -360,6 +360,13 @@ class DameUtils():
         fo.close()
         return 1
 
+    def diccnames2csvfile(self, dicc, csvpath):
+        fo = open(csvpath, "w")
+        for l in dicc.keys():
+            fo.write(str(l) + "," + str(dicc[l]) + "\n")
+        fo.close()
+        return 1
+        
     def delete_duplicated(self, l1):
         if (len(l1) == 0):
             return []
