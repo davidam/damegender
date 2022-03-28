@@ -77,10 +77,16 @@ fo = open("names.csv", "w")
 for d in data["results"]["bindings"]:
     # names as Q010234 is a wikidata identifier not a name
     match1 = re.search(r'(Q[0-9]*)', d['nameLabel']['value'])
-    # names as J. is an intial of name and not a name    
-    match2 = re.search(r'(^[A-Z]\.\,*)', d['nameLabel']['value'])    
+    # names as J. is an intial of name and not a name
+    match2 = re.search(r'(^[A-Z]\.\,*)', d['nameLabel']['value'])
+    # some names as Yelena/Elena must splitted in two names
+    match3 = re.search(r'(.*)\/(.*)', d['nameLabel']['value'])
     if (not(match1) and not(match2)):
-        str0 = d['nameLabel']['value'] + "," + d['count']['value'] + "\n"
+        if match3:
+            str0 = match3.group(1) + "," + d['count']['value'] + "\n"
+            str0 = str0 + match3.group(2) + "," + d['count']['value'] + "\n"
+        else:
+            str0 = d['nameLabel']['value'] + "," + d['count']['value'] + "\n"
         fo.write(str0)
 
 fo.close()
