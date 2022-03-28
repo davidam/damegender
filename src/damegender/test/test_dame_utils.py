@@ -189,7 +189,7 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_csvcolumn2list(self):
         du = DameUtils()
-        l1 = du.csvcolumn2list('files/names/partial.csv', 0, header=True)
+        l1 = du.csvcolumn2list('files/names/partial.csv', position=0, header=True)
         self.assertEqual(len(l1), 21)
         self.assertEqual(['"pierre"', '"raul"', '"adriano"', '"ralf"',
                           '"teppei"', '"guillermo"', '"catherine"',
@@ -197,11 +197,15 @@ class TddInPythonExample(unittest.TestCase):
                           '"clemens"', '"gregory"', '"lester"', '"claude"',
                           '"martin"', '"vlad"', '"pasquale"', '"lourdes"',
                           '"bruno"', '"thomas"'], l1)
-        l2 = du.csvcolumn2list('files/names/min.commas.csv', 0,
+        l2 = du.csvcolumn2list('files/names/min.commas.csv', position=0,
                                header=True, delimiter=";")
         self.assertEqual(len(l2), 6)
         self.assertEqual(['"pierre"', '"raul"', '"adriano"',
                           '"ralf"', '"guillermo"', '"sabina"'], l2)
+        l3 = du.csvcolumn2list('files/names/min.commas.csv', position=5,
+                               header=True, delimiter=";")
+        self.assertEqual(len(l3), 6)
+        self.assertTrue('"zbmath"' in l3)
 
     def test_csv2list(self):
         du = DameUtils()
@@ -287,6 +291,18 @@ class TddInPythonExample(unittest.TestCase):
         s = du.initial_letters("JL")
         self.assertTrue(s)
 
+    def test_diccnames2csvfile(self):
+        du = DameUtils()
+        dicc = {}
+        dicc['Ana'] = 3
+        dicc['Cristina'] = 4
+        dicc['Maria'] = 7     
+        du.diccnames2csvfile(dicc, 'files/tests/dicc.csv')
+        l0 = du.csvcolumn2list('files/tests/dicc.csv', position=0, header=False)
+        l1 = du.csvcolumn2list('files/tests/dicc.csv', position=1, header=False)        
+        self.assertEqual(l0, ['Ana', 'Cristina', 'Maria'])
+        self.assertEqual(l1, ['3', '4', '7'])
+        
     def test_number_or_zero(self):
         du = DameUtils()
         noz = du.number_or_zero("-")
