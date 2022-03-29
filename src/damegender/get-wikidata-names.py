@@ -25,7 +25,9 @@ import re
 import requests
 import argparse
 from app.dame_wikidata import DameWikidata
+from app.dame_utils import DameUtils
 
+du = DameUtils()
 dw = DameWikidata()
 dicc = dw.dicc_countries()
 
@@ -73,7 +75,8 @@ r = requests.get(url, params={'format': 'json', 'query': query2})
 data = r.json()
 
 print("Dumping to names.csv")
-fo = open("names.csv", "w")
+
+dicc = {}
 for d in data["results"]["bindings"]:
     # names as Q010234 is a wikidata identifier not a name
     match1 = re.search(r'(Q[0-9]*)', d['nameLabel']['value'])
@@ -83,10 +86,18 @@ for d in data["results"]["bindings"]:
     match3 = re.search(r'(.*)\/(.*)', d['nameLabel']['value'])
     if (not(match1) and not(match2)):
         if match3:
-            str0 = match3.group(1) + "," + d['count']['value'] + "\n"
-            str0 = str0 + match3.group(2) + "," + d['count']['value'] + "\n"
-        else:
-            str0 = d['nameLabel']['value'] + "," + d['count']['value'] + "\n"
-        fo.write(str0)
+            try:
+                key = du.drop_white_space_around(match3.group(1))
+                dicc[key] = dicc[key] + d['count']['value']
+            except KeyError:
+                dicc[key] = d['count']['value']
 
-fo.close()
+            try:
+                key = du.drop_white_space_around(match3.group(2))
+                dicc[key] = dicc[key] + d['count']['value']
+            except KeyError:
+                dicc[key] = d['count']['value']
+        else:
+            dicc[d['nameLabel']['value']] = d['count']['value']
+
+du.diccnames2csvfile(dicc, "names.csv")
