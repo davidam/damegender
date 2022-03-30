@@ -26,15 +26,19 @@
 # United States of America
 
 from app.dame_gender import Gender
+from app.dame_wikidata import DameWikidata
 import sys
 import os
 import re
 import argparse
 
+dw = DameWikidata()
+isocodes = dw.dicc_countries().keys()
+
 parser = argparse.ArgumentParser()
 parser.add_argument("surname", help="display the gender")
 parser.add_argument('--total', required=True,
-                    default="ine", choices=['ine', 'es', 'us'])
+                    default="es", choices=isocodes)
 parser.add_argument('--spanish_provinces', default=False,
                     action="store_true")
 parser.add_argument('--version', action='version', version='0.3')
@@ -222,6 +226,9 @@ surnames located by place where the person is living
     elif (args.total == 'us'):
         print("There are %s people using %s in United States of America"
               % (v[1], args.surname))
+    else:
+        print("There are %s people using %s in this country"
+              % (v[1], args.surname))
 else:
     if ((args.total == 'es') or (args.total == 'ine')):
         print("There are not people using %s in Spain"
@@ -229,3 +236,7 @@ else:
     elif (args.total == 'us'):
         print("There are not people using %s in United States of America"
               % args.surname)
+    else:
+        print("There are not people using %s in this country"
+              % args.surname)
+        
