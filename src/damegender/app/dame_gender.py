@@ -780,31 +780,11 @@ class Gender(object):
 
     def guess_surname(self, string, locale):
         counter = 0
-        if (locale == "ar"):
-            path = 'files/names/names_ar/arsurnames.csv'
-            surname_position = 0
-            counter_position = 1            
-        if (locale == "be"):
-            path = 'files/names/names_be/besurnames.csv'
-            surname_position = 0
-            counter_position = 1
-        elif (locale == "ca"):
+        if ((locale == "es") or (locale == "ine")):
             path = 'files/inesurnames/apellidos_frecuencia.csv'
             surname_position = 1
             counter_position = 2
-        elif ((locale == "es") or (locale == "ine")):
-            path = 'files/inesurnames/apellidos_frecuencia.csv'
-            surname_position = 1
-            counter_position = 2
-        elif (locale == "no"):
-            path = 'files/names/names_no/nosurnames.csv'
-            surname_position = 0
-            counter_position = 1
-        elif (locale == "nz"):
-            path = 'files/names/names_nz/nzsurnames.csv'
-            surname_position = 0
-            counter_position = 1
-        elif (locale == "ru_en"):
+        elif ((locale == "ru_en") or (locale == "ru_ru") or (locale == "ru")):
             path = 'files/names/names_ru/rusurnames.csv'
             surname_position = 0
             counter_position = 1
@@ -812,6 +792,10 @@ class Gender(object):
             path = 'files/names/names_us/surnames.csv'
             surname_position = 0
             counter_position = 2
+        else:
+            path = 'files/names/names_' + locale + '/' + locale + 'surnames.csv'
+            surname_position = 0
+            counter_position = 1
             
         boolean = False
         with open(path) as csvfile:
