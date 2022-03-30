@@ -22,7 +22,6 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
-
 import unidecode
 import unicodedata
 import re
@@ -125,7 +124,6 @@ class DameUtils():
                     "us": "files/names/names_us/usall.csv",
                     "usa": "files/names/names_us/usall.csv",
                     "uy": "files/names/names_uy/uyall.csv"}
-
         return path
 
     def string2array(self, string):
@@ -333,7 +331,7 @@ class DameUtils():
                 next(sexreader, None)
             for row in sexreader:
                 if (row != []):
-                    if ((noemptyfield == False) or (row[noemptyfield] != "")):
+                    if ((noemptyfield is False) or (row[noemptyfield] != "")):
                         i = 0
                         while i < len(row):
                             if deletewhitespaces:
@@ -349,24 +347,24 @@ class DameUtils():
         length0 = listoflists[0]
         name_position = kwargs.get('name_position', 0)
         frequency_position = kwargs.get('frequency_position', 1)
-        for l in listoflists:
-            if (length0 == len(l)):
+        for l1 in listoflists:
+            if (length0 == len(l1)):
                 samelen = samelen and True
             else:
                 samelen = samelen and False
         fo = open(csvpath, "w")
-        for l in listoflists:
-            fo.write(l[name_position], l[frequency_position])
+        for l2 in listoflists:
+            fo.write(l2[name_position], l2[frequency_position])
         fo.close()
         return 1
 
     def diccnames2csvfile(self, dicc, csvpath):
         fo = open(csvpath, "w")
-        for l in dicc.keys():
-            fo.write(str(l) + "," + str(dicc[l]) + "\n")
+        for l1 in dicc.keys():
+            fo.write(str(l1) + "," + str(dicc[l1]) + "\n")
         fo.close()
         return 1
-        
+
     def delete_duplicated(self, l1):
         if (len(l1) == 0):
             return []
