@@ -265,39 +265,7 @@ class Gender(object):
     # DATASETS METHODS #
 
     def path_surname_dataset(self, locale):
-        if (locale == "at"):
-            path = "files/inesurnames/apellidos-australia.xls.csv"
-        elif (locale == "au"):
-            path = "files/inesurnames/apellidos-austria.xls.csv"
-        elif (locale == "be"):
-            path = "files/inesurnames/apellidos-belgica.xls.csv"
-        elif (locale == "ca"):
-            path = "files/inesurnames/apellidos-canada.xls.csv"
-        elif (locale == "de"):
-            path = "files/inesurnames/apellidos-alemania.xls.csv"
-        elif (locale == "es"):
-            path = "files/inesurnames/apellidos_frecuencia.csv"
-        elif (locale == "fi"):
-            path = "files/inesurnames/apellidos-finlandia.xls.csv"
-        elif (locale == "ie"):
-            path = "files/inesurnames/apellidos-irlanda.xls.csv"
-        elif (locale == "is"):
-            path = "files/inesurnames/apellidos-islandia.xls.csv"
-        elif (locale == "nz"):
-            path = "files/inesurnames/apellidos-nueva-zelanda.xls.csv"
-        elif (locale == "mx"):
-            path = "files/inesurnames/apellidos-mexico.xls.csv"
-        elif (locale == "pt"):
-            path = "files/inesurnames/apellidos-portugal.xls.csv"
-        elif (locale == "si"):
-            path = "files/inesurnames/apellidos-eslovenia.xls.csv"
-        elif (locale == "gb"):
-            path = "files/inesurnames/apellidos-reino-unido.xls.csv"
-        elif (locale == "uy"):
-            path = "files/inesurnames/apellidos-uruguay.xls.csv"
-        elif (locale == "us"):
-            path = "files/inesurnames/apellidos-usa.xls.csv"
-        return path
+        return "files/names/names_" + locale + "/" + locale + "surnames.csv"
 
     def males_list(self, corpus='es'):
         du = DameUtils()
@@ -844,7 +812,6 @@ class Gender(object):
             path = 'files/names/names_us/surnames.csv'
             surname_position = 0
             counter_position = 2
-
             
         boolean = False
         with open(path) as csvfile:
