@@ -254,7 +254,7 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_path_surname_dataset(self):
         dg = Gender()
-        path = "files/inesurnames/apellidos-belgica.xls.csv"
+        path = "files/names/names_be/besurnames.csv"
         self.assertEqual(dg.path_surname_dataset("be"), path)
 
     def test_dame_gender_name_prob_countries(self):
