@@ -28,6 +28,7 @@
 from app.dame_gender import Gender
 from app.dame_ethnicity import DameEthnicity
 from app.dame_utils import DameUtils
+from app.dame_wikidata import DameWikidata
 import sys
 import os
 import re
@@ -37,19 +38,29 @@ parser = argparse.ArgumentParser()
 parser.add_argument("surname", help="display the gender")
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
-
 results = []
-
 de = DameEthnicity()
 du = DameUtils()
+dw = DameWikidata()
+dg = Gender()
 surname = args.surname.upper()
+dwdicc = dw.dicc_countries()
+incountries = []
+l0 = list(dwdicc.keys())
+l1 = []
+for i in l0[0:20]:
+    csvpath = dg.path_surname_dataset(i)
+    columnlist = du.csvcolumn2list(csvpath)
+    if ((surname.upper() in columnlist) or (surname in columnlist) or (surname.capitalize() in columnlist)):
+        l1 = l1 + [i]
 
-l1 = de.inesurname2ethnicity(surname, "all")
+# l1 = de.inesurname2ethnicity(surname, "all")
+
 l1 = sorted(du.clean_list(l1))
 if (len(l1) > 0):
-    print("In Spain, the surname %s exists for these countries:" % surname)
+    print("It has been detected the surname %s in these countries:" % surname)
 else:
-    print("In Spain, the surname %s does not exist" % surname)
+    print("It has been detected the surname %s in these countries:" % surname)    
 
 for i in l1:
     print("+ %s" % de.locale2eng(i))
