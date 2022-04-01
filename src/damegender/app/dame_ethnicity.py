@@ -670,223 +670,203 @@ class DameEthnicity(object):
                                         locale="ye"))
         return l1
 
-    def locale2eng(self, locale):
-        # ISO 3166
-        string = ""
-        if (locale == 'af'):
-            string = 'Afghanistan'
-        elif (locale == 'al'):
-            string = 'Albania'
-        elif (locale == 'ad'):
-            string = 'Andorra'
-        elif (locale == 'ar'):
-            string = 'Argentina'
-        elif (locale == 'am'):
-            string = 'Armenia'
-        elif (locale == 'at'):
-            string = 'Austria'
-        elif (locale == 'au'):
-            string = 'Australia'
-        elif (locale == 'az'):
-            string = 'Azerbaiyan'
-        elif (locale == 'bd'):
-            string = 'Bangladesh'
-        elif (locale == 'be'):
-            string = 'Belgica'
-        elif (locale == 'be'):
-            string = 'Belice'
-        elif (locale == 'bf'):
-            string = 'Burkina Faso'
-        elif (locale == 'bg'):
-            string = 'Bulgaria'
-        elif (locale == 'bj'):
-            string = 'Benin'
-        elif (locale == 'bo'):
-            string = 'Bolivia'
-        elif (locale == 'br'):
-            string = 'Brasil'
-        elif (locale == 'by'):
-            string = 'Belarus'
-        elif (locale == 'ca'):
-            string = 'Canada'
-        elif (locale == 'ci'):
-            string = "Côte d'Ivoire"
-        elif (locale == 'ch'):
-            string = "Switzerland"
-        elif (locale == 'cl'):
-            string = 'Chile'
-        elif (locale == 'cm'):
-            string = 'Cameroon'
-        elif (locale == 'cn'):
-            string = 'China'
-        elif (locale == 'co'):
-            string = 'Colombia'
-        elif (locale == 'cu'):
-            string = 'Cuba'
-        elif (locale == 'cy'):
-            string = 'Chipre'
-        elif (locale == 'cd'):
-            string = 'Congo'
-        elif (locale == 'cz'):
-            string = 'Czech Republic'
-        elif (locale == 'de'):
-            string = 'Germany'
-        elif (locale == 'dk'):
-            string = 'Denmark'
-        elif (locale == 'dm'):
-            string = 'Dominica'
-        elif (locale == 'do'):
-            string = 'Dominican Republic'
-        elif (locale == 'dz'):
-            string = 'Argelia'
-        elif (locale == 'ec'):
-            string = 'Ecuador'
-        elif (locale == 'ee'):
-            string = 'Republic of Estonia'
-        elif (locale == 'eg'):
-            string = 'Egypt'
-        elif (locale == 'er'):
-            string = 'Eritrea'
-        elif (locale == 'es'):
-            string = 'Spain'
-        elif (locale == 'et'):
-            string = 'Ethiopia'
-        elif (locale == 'fi'):
-            string = 'Finland'
-        elif (locale == 'fr'):
-            string = 'France'
-        elif (locale == 'gb'):
-            string = 'United Kingdom of Great Britain'
-        elif (locale == 'ge'):
-            string = 'Georgia'
-        elif (locale == 'gh'):
-            string = 'Ghana'
-        elif (locale == 'gm'):
-            string = 'Gambia'
-        elif (locale == 'gn'):
-            string = 'Guinea'
-        elif (locale == 'gq'):
-            string = 'Guinea Ecuatorial'
-        elif (locale == 'gr'):
-            string = 'Greece'
-        elif (locale == 'gt'):
-            string = 'Guatemala'
-        elif (locale == 'gw'):
-            string = 'Guinea Bissau'
-        elif (locale == 'hn'):
-            string = 'Honduras'
-        elif (locale == 'ht'):
-            string = 'Haití'
-        elif (locale == 'hu'):
-            string = 'Hungary'
-        elif (locale == 'il'):
-            string = 'Israel'
-        elif (locale == 'is'):
-            string = 'Iceland'
-        elif (locale == 'it'):
-            string = 'Italy'
-        elif (locale == 'jp'):
-            string = 'Japan'
-        elif (locale == 'jo'):
-            string = 'Jordan'
-        elif (locale == 'ke'):
-            string = 'Kenya'
-        elif (locale == 'kg'):
-            string = 'Kyrgyzstan'
-        elif (locale == 'kp'):
-            string = 'Democratic Republic of Korea'
-        elif (locale == 'kz'):
-            string = 'Kazakhstan'
-        elif (locale == 'kw'):
-            string = 'Kuwait'
-        elif (locale == 'lb'):
-            string = 'Lebanon'
-        elif (locale == 'lr'):
-            string = 'Liberia'
-        elif (locale == 'lt'):
-            string = 'Lithuania'
-        elif (locale == 'lu'):
-            string = 'Luxembourg'
-        elif (locale == 'lv'):
-            string = 'Letonia'
-        elif (locale == 'ly'):
-            string = 'Libia'
-        elif (locale == 'my'):
-            string = 'Malaysia'
-        elif (locale == 'ml'):
-            string = 'Mali'
-        elif (locale == 'mt'):
-            string = 'Malta'
-        elif (locale == 'ma'):
-            string = 'Marruecos'
-        elif (locale == 'mr'):
-            string = 'Mauritania'
-        elif (locale == 'mx'):
-            string = 'Mexico'
-        elif (locale == 'md'):
-            string = 'Moldova'
-        elif (locale == 'mn'):
-            string = 'Mongolia'
-        elif (locale == 'me'):
-            string = 'Montenegro'
-        elif (locale == 'mz'):
-            string = 'Mozambique'
-        elif (locale == 'nl'):
-            string = 'Netherlands'
-        elif (locale == 'np'):
-            string = 'Nepal'
-        elif (locale == 'ni'):
-            string = 'Nicaragua'
-        elif (locale == 'ne'):
-            string = 'Niger'
-        elif (locale == 'ng'):
-            string = 'Nigeria'
-        elif (locale == 'no'):
-            string = 'Noruega'
-        elif (locale == 'nz'):
-            string = 'Nueva Zelanda'
-        elif (locale == 'ph'):
-            string = 'Philippines'
-        elif (locale == 'pk'):
-            string = 'Pakistan'
-        elif (locale == 'pw'):
-            string = 'Palaos'
-        elif (locale == 'ps'):
-            string = 'Palestina'
-        elif (locale == 'pa'):
-            string = 'Panama'
-        elif (locale == 'py'):
-            string = 'Paraguay'
-        elif (locale == 'pe'):
-            string = 'Peru'
-        elif (locale == 'pl'):
-            string = 'Polonia'
-        elif (locale == 'pt'):
-            string = 'Portugal'
-        elif (locale == 'sb'):
-            string = 'Solomon Islands'
-        elif (locale == 'se'):
-            string = 'Sweden'
-        elif (locale == 'si'):
-            string = 'Slovenia'
-        elif (locale == 'sl'):
-            string = 'Sierra Leona'
-        elif (locale == 'sv'):
-            string = 'Republic of El Salvador'
-        elif (locale == 'ro'):
-            string = 'Romania'
-        elif (locale == 'ru'):
-            string = 'Russia'
-        elif (locale == 'rw'):
-            string = 'Rwanda'
-        elif (locale == 'ua'):
-            string = 'Ukraine'
-        elif (locale == 'us'):
-            string = 'United States of America'
-        elif (locale == 'uy'):
-            string = 'Uruguay'
-        elif (locale == 'uz'):
-            string = 'Republic of Uzbekistan'
-        elif (locale == 'ye'):
-            string = 'Yemen'
-        return string
+    def dicc_iso3166_to_eng(self):
+        dicc = {"ad": "Andorra",
+                "ae": "United Arab Emirates",
+                "af": "Afghanistan",
+                "ag": "Antigua and Barbuda",
+                "al": "Albania",
+                "ao": "Angola",
+                "am": "Armenia",
+                "ar": "Argentina",
+                "at": "Austria",
+                "au": "Australia",
+                "az": "Azerbaiyan",
+                "ba": "Bosnia and Herzegovina",
+                "bb": "Barbados",
+                "bd": "Bangladesh",
+                "be": "Belgium",
+                "bf": "Burkina Faso",
+                "bg": "Bulgaria",
+                "bh": "Bahrain",
+                "bi": "Burundi",
+                "bj": "Republic of Benin",
+                "bn": "Brunei Darussalam",
+                "bo": "Bolivia",
+                "br": "Brazil",
+                "bs": "Bahamas",
+                "bt": "Bhutan",
+                "bw": "Bostwana",
+                "by": "Belarus",
+                "bz": "Belize",
+                "ca": "Canada",
+                "cd": "Democratic Republic of the Congo",
+                "cf": "Central African Republic",
+                "cg": "Congo",
+                "ch": "Switzerland",
+                "ci": "Côte d'Ivoire",
+                "cl": "Chile",
+                "cm": "Cameroon",
+                "cn": "China",
+                "co": "Colombia",
+                "cr": "Costa Rica",
+                "cu": "Cuba",
+                "cv": "Cabo Verde",
+                "cy": "Cyprus",
+                "cz": "Czech Republic",
+                "de": "Germany",
+                "dj": "Dijbouti",
+                "dk": "Denmark",
+                "dm": "Dominica",
+                "do": "Dominican Republic",
+                "dz": "Algeria",
+                "ec": "Ecuador",
+                "ee": "Estonia",
+                "eg": "Egypt",
+                "er": "Eritrea",
+                "es": "Spain",
+                "et": "Ethiopia",
+                "fi": "Finland",
+                "fj": "Fiji",
+                "fm": "Federated States of Micronesia",
+                "fr": "France",
+                "ga": "Gabon",
+                "gb": "United Kingdom of Great Britain",
+                "ge": "Georgia",
+                "gh": "Ghana",
+                "gm": "Gambia",
+                "gn": "Guinea",
+                "gq": "Republic of Equatorial Guinea",
+                "gr": "Greece",
+                "gt": "Guatemala",
+                "gw": "Guinea Bissau",
+                "gy": "Guyana",
+                "hn": "Honduras",
+                "hr": "Croatia",
+                "ht": "Haiti",
+                "hu": "Hungary",
+                "id": "Indonesia",
+                "ie": "Ireland",
+                "il": "Israel",
+                "in": "India",
+                "iq": "Iraq",
+                "ir": "Islamic Republic of Iran",
+                "is": "Iceland",
+                "it": "Italy",
+                "jm": "Jamaica",
+                "jo": "Jordan",
+                "jp": "Japan",
+                "ke": "Kenya",
+                "kg": "Kyrgyzstan",
+                "kh": "Cambodia",
+                "ki": "Kiribati",
+                "km": "Union of the Comoros",
+                "kn": "Saint Kitts and Nevis",
+                "kp": "Democratic Republic of Korea",
+                "kw": "Kuwait",
+                "kz": "Kazakhstan",
+                "la": "Lao People's Democratic Republic",
+                "lb": "Lebanon",
+                "lc": "Saint Lucia",
+                "li": "Liechtenstein",
+                "lk": "Sri Lanka",
+                "lr": "Liberia",
+                "ls": "Lesotho",
+                "lt": "Lithuania",
+                "lu": "Luxembourg",
+                "lv": "Letonia",
+                "ly": "Libia",
+                "ma": "Morocco",
+                "mc": "Monaco",
+                "md": "Moldova",
+                "me": "Montenegro",
+                "mg": "Madagascar",
+                "mh": "Marshall Islands",
+                "mk": "North Macedonia",
+                "ml": "Mali",
+                "mm": "Myanmar",
+                "mn": "Mongolia",
+                "mr": "Mauritania",
+                "mt": "Malta",
+                "mu": "Mauritius",
+                "mv": "Maldives",
+                "mw": "Malawi",
+                "mx": "Mexico",
+                "my": "Malasya",
+                "mz": "Mozambique",
+                "na": "Namibia",
+                "ne": "Republic of Niger",
+                "ng": "Nigeria",
+                "ni": "Nicaragua",
+                "nl": "Netherlands",
+                "no": "Norway",
+                "np": "Nepal",
+                "nr": "Republic of Nauru",
+                "nz": "New Zealand",
+                "om": "Oman",
+                "pa": "Panama",
+                "pe": "Peru",
+                "pg": "Papua New Guinea",
+                "ph": "Philippines",
+                "pk": "Pakistan",
+                "pl": "Polonia",
+                "pt": "Portugal",
+                "pw": "Palaos",
+                "py": "Paraguay",
+                "qa": "Qatar",
+                "ro": "Romania",
+                "rs": "Republic of Serbia",
+                "ru": "Russia",
+                "rw": "Rwanda",
+                "sa": "Saudi Arabia",
+                "sb": "Solomon Islands",
+                "sc": "Seychelles",
+                "sd": "Sudan",
+                "se": "Sweden",
+                "sg": "Singapore",
+                "si": "Slovenia",
+                "sk": "Slovakia",
+                "sl": "Sierra Leona",
+                "sm": "San Marino",
+                "sn": "Senegal",
+                "so": "Somalia",
+                "sr": "Suriname",
+                "ss": "South Sudan",
+                "st": "Sao Tome and Principe",
+                "sv": "Republic of El Salvador",
+                "sy": "The Syrian Arab Republic",
+                "sz": "Eswatini",
+                "td": "The Republic of Chad",
+                "tg": "Togo",
+                "th": "Thailand",
+                "tj": "Tajikistan",
+                "tl": "The Democratic Republic of Timor-Leste",
+                "tm": "Turkemistan",
+                "tn": "The Republic of Tunisia",
+                "to": "Tonga",
+                "tr": "Turkey",
+                "tt": "Trinidad and Tobago",
+                "tv": "Tuvalu",
+                "tw": "Taiwan",
+                "tz": "Tanzania",
+                "ua": "Ukraine",
+                "ug": "Uganda",
+                "us": "United States of America",
+                "uy": "Uruguay",
+                "uz": "Republic of Uzbekistan",
+                "va": "Holy See",
+                "vc": "Saint Vicent and the Grenadines",
+                "ve": "Venzuela",
+                "vn": "Vietnam",
+                "vu": "Vanuatu",
+                "ws": "Samoa",
+                "ye": "Yemen",
+                "za": "South Africa",
+                "zm": "Zambia",
+                "zw": "Zimbabwe"
+                }
+        return dicc
+
+    def iso3166_to_eng(self, locale):
+        dicc = self.dicc_iso3166_to_eng()
+        return dicc[locale]
