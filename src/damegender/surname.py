@@ -246,4 +246,4 @@ else:
 if (args.total in g.config['DATASET']['official_surnames']):
     print("Source: Official Statistics in %s" % (country))
 else:
-    print("Source: Wikidata")
+    print("Source: Wikidata (retrieved betwen March and April (2022)")
