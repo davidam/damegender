@@ -27,6 +27,7 @@
 
 from app.dame_gender import Gender
 from app.dame_wikidata import DameWikidata
+from app.dame_ethnicity import DameEthnicity
 import sys
 import os
 import re
@@ -45,6 +46,8 @@ parser.add_argument('--version', action='version', version='0.3')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
 
+de = DameEthnicity()
+country = de.iso3166_to_eng(args.total)
 results = []
 
 g = Gender()
@@ -227,16 +230,20 @@ surnames located by place where the person is living
         print("There are %s people using %s in United States of America"
               % (v[1], args.surname))
     else:
-        print("There are %s people using %s in this country"
-              % (v[1], args.surname))
+        print("There are %s people using %s in %s"
+              % (v[1], args.surname, country))
 else:
     if ((args.total == 'es') or (args.total == 'ine')):
-        print("There are not people using %s in Spain"
-              % args.surname)
+        print("There are not people using %s in %s"
+              % (args.surname, country))
     elif (args.total == 'us'):
-        print("There are not people using %s in United States of America"
-              % args.surname)
+        print("There are not people using %s in %s"
+              % (args.surname, country))
     else:
-        print("There are not people using %s in this country"
-              % args.surname)
+        print("There are not people using %s in %s"
+              % (args.surname, country))
         
+if (args.total in g.config['DATASET']['official_surnames']):
+    print("Source: Official Statistics in %s" % (country))
+else:
+    print("Source: Wikidata")
