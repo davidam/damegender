@@ -23,7 +23,7 @@
 # Boston, MA 02110-1301 USA,
 
 # DESCRIPTION: Given a surname returns countries where exists this
-# surname using spanish dataset (https://www.ine.es)
+# surname using offical datasets and Wikidata
 
 from app.dame_gender import Gender
 from app.dame_ethnicity import DameEthnicity
@@ -63,4 +63,4 @@ else:
     print("It has been detected the surname %s in these countries:" % surname)    
 
 for i in l1:
-    print("+ %s" % de.locale2eng(i))
+    print("+ %s" % de.iso3166_to_eng(i))
