@@ -683,8 +683,10 @@ class DameEthnicity(object):
             string = 'Argentina'
         elif (locale == 'am'):
             string = 'Armenia'
-        elif (locale == 'au'):
+        elif (locale == 'at'):
             string = 'Austria'
+        elif (locale == 'au'):
+            string = 'Australia'
         elif (locale == 'az'):
             string = 'Azerbaiyan'
         elif (locale == 'bd'):
@@ -745,6 +747,8 @@ class DameEthnicity(object):
             string = 'Egypt'
         elif (locale == 'er'):
             string = 'Eritrea'
+        elif (locale == 'es'):
+            string = 'Spain'
         elif (locale == 'et'):
             string = 'Ethiopia'
         elif (locale == 'fi'):
