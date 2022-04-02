@@ -1,0 +1,9 @@
+Retrieved with Wikidata: 
++ zasurnames.csv
++ zafemales.csv
++ zamales.csv
+
+Retrieved from Open Data Portal
+(https://data.openup.org.za/dataset/frequency-of-names-in-south-africa-6ik7-82ip)
++ orig/zanames.csv (a collection of South Africa names)
+
