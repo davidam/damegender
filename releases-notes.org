@@ -1,3 +1,8 @@
+* v0.4.5
+Dumping names and surnames for all countries from Wikidata.
+surnames.py and surnamesincountries.py has been updated to give
+support to Wikidata.
+
 * v0.4.4
 
 Official Datasets:
