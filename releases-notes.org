@@ -3,6 +3,12 @@ Dumping names and surnames for all countries from Wikidata.
 surnames.py and surnamesincountries.py has been updated to give
 support to Wikidata.
 
+For each country, we are choosing official statistics, but if there
+not official statistics from now we are allowing to the users the
+dataset provided by wikidata. The user will receive a messsaga about
+it, due to that Wikidata could be giving very few names in some
+countries, so the quality is worst with Wikidata.
+
 * v0.4.4
 
 Official Datasets:
