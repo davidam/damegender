@@ -20,5 +20,5 @@
 #  Boston, MA 02110-1301 USA,
 
 
-find files/names/names_*/orig -exec rm {} \;
+find src/damegender/files/names/names_*/orig -exec rm {} \;
 python3 setup.py register sdist
