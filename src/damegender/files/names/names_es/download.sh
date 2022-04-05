@@ -25,3 +25,6 @@ wget -c https://www.ine.es/daco/daco42/nombyapel/nombres_por_edad_media.xls
 ssconvert -S nombres_por_edad_media.xls nombres_por_edad_media.csv
 wget -c https://www.ine.es/daco/daco42/nombyapel/apellidos_frecuencia.xls
 ssconvert -S apellidos_frecuencia.xls apellidos_frecuencia.csv
+awk -F'\t' '{print "\""$1"\""}' OFS='","' apellidos_frecuencia.csv.0 > essurnames.csv
+sed -i 's/\"//g' essurnames.csv
+
