@@ -1,3 +1,6 @@
+The trsurnames.csv is obtained from Wikidata with the command:
+$ python3 get-wikidata-surnames.py --total=tr
+
 * Seen from
 ** Official Statistis
 + [ ] https://data.tuik.gov.tr/Search/Search?text=name (tables)
