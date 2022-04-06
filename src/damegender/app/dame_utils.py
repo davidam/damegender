@@ -413,17 +413,6 @@ class DameUtils():
                 l2.append(self.drop_pwd(fields[0]))
         return l2
 
-    def yes_or_not(self, question):
-        reply = str(input(question+' (y/n): ')).lower().strip()
-        ret = None
-        if ((reply[0] == 'y') or (reply[0] == 'yes')):
-            ret = True
-        elif ((reply[0] == 'n') or (reply[0] == 'no') or (reply[0] == 'not')):
-            ret = False
-        else:
-            ret = self.yes_or_not("Uhhhh... please enter ")
-        return ret
-
     def int2gender(self, int):
         if (int == 0):
             gender = "female"
