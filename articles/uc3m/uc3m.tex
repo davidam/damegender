@@ -139,10 +139,6 @@ to measure gender gap and gender detection tools from the name.
 Section~\ref{sec:design} is giving vocabulary and philosophy about to
 choose sources and to face the diversity troubles building a dataset.
 
-Section~\ref{sec:damegender} explains the Open Dataset Collection.
-
-Section~\ref{sec:webtech} shows applications on web technologies
-
 Section ~\ref{sec:measuring} explains an application about this
 dataset to measure gender gap in GNU/Linux.
 
@@ -328,7 +324,7 @@ ISO/IEC 5218 proposes a norm about coding gender: ``0 as not know'',
 ``1 as male'', ``2 as female'' and ``9 as not applicable''.
 
 The RFC 6350
-(vCard)~\footnote{https://datatracker.ietf.org/doc/html/rfc6350#page-32}
+(vCard)~\footnote{https://datatracker.ietf.org/doc/html/rfc6350}
 where the section Gender has these categories: ``m as male'', ``f as
 female'', ``o as other'', ``n as not applicable'' and ``u as
 undefined''. Based on this standard the people who is doing web
@@ -414,7 +410,7 @@ objective. On other hand, there are previous works to relate name and
 surnames with ethnicity using Wikipedia and Machine
 Learning~\cite{ambekar2009name}.
 
-\section{Damegender Open Datasets Collection}
+\subsection{Damegender Open Datasets Collection}
 \label{sec:damegender}
 
 In Damegender, we have unified the different formats to name, gender
@@ -486,55 +482,6 @@ We have made measurements about the international DameGender dataset,
 using as base of truth the dataset explained in
 \cite{10.7717/peerj-cs.156} reaching accuracy (0.8756), precision
 (0.9638), recall (1.0) and f1-score (0.925).
-
-\section{Web Technologies}
-\label{sec:webtech}
-
-\subsection{Semantic Web}
-\label{sec:semantic}
-
-When we are describing people with names and gender could be giving
-semantic richness with semantic markup taking into account the lessons
-learned about the domain, for example, using microformats. Changing the
-current situation using a poor html:
-
-\begin{verbatim}
-<table class="infobox" style="width:22.7em;
-line-height: 1.4em; text-align:left;
-padding:.23em;">
-  <tbody>
-    <tr><th colspan="3" class="cabecera"
-style="text-align:center;color:black;">
-           Juan</th></tr><tr>
-[...]
-<tr><th scope="row"
-style="text-align:left">
-<a href="/wiki/Identidad_sexual"
-   title="Identidad sexual">Género</a>
-</th><td colspan="2"> Masculino</td></tr>
-\end{verbatim}
-
-Towards the semantic way:
-
-\begin{verbatim}
-<div class="h-card">
-  <span class="p-name">Emma Goldman</span>
-  <span class="p-gender p-gender-female
-               p-gender-female-us
-               p-gender-female-inter">
-         Female
-  </span>
-  <span class="p-street-address">
-         123 Main St
-  </span>
-  <span class="p-locality">Some Town</span>
-  <span class="p-region">CA</span>
-  <span class="p-postal-code">90210</span>
-</div>
-\end{verbatim}
-
-With a richness markup take into account the gender in the context of
-a country.
 
 \subsection{Free APIs for Free Datasets?}
 \label{sec:freeapis}
