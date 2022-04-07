@@ -31,7 +31,7 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 
-echo "
+echo '
 [DEFAULT]
 genderapi = no
 genderize = no
@@ -45,7 +45,12 @@ genderize = files/apikeys/genderizepass.txt
 genderguesser = files/apikeys/genderguesserpass.txt
 namsor = files/apikeys/namsorpass.txt
 nameapi = files/apikeys/nameapipass.txt
-" > config.cfg
+
+[DATASET]
+official_surnames = ["ar", "es", "ru", "us"]
+official_names = ["ar", "ca", "ch", "de", "es", "fr", "gb", "ie", "fi", "no", "pt", "ru", "se", "uy", "us"]
+
+' > config.cfg
 
 python3 main.py David --total=es > files/tests/maindavid-$(date "+%Y-%m-%d").txt
 
@@ -547,10 +552,10 @@ else
 fi
 
 
-# echo "cleaning temporary files"
-# rm files/tests/*$(date "+%Y")*.txt
-# rm -rf files/tmp/*
+echo "cleaning temporary files"
+rm files/tests/*$(date "+%Y")*.txt
+rm -rf files/tmp/*
 
-# echo "restoring the config"
-# cp config.cfg.backup config.cfg
-# rm config.cfg.backup
+echo "restoring the config"
+cp config.cfg.backup config.cfg
+rm config.cfg.backup
