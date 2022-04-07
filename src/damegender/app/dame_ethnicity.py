@@ -856,7 +856,7 @@ class DameEthnicity(object):
                 "uz": "Republic of Uzbekistan",
                 "va": "Holy See",
                 "vc": "Saint Vicent and the Grenadines",
-                "ve": "Venzuela",
+                "ve": "Venezuela",
                 "vn": "Vietnam",
                 "vu": "Vanuatu",
                 "ws": "Samoa",
