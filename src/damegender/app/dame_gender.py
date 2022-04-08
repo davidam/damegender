@@ -788,10 +788,6 @@ class Gender(object):
             path = 'files/names/names_ru/rusurnames.csv'
             surname_position = 0
             counter_position = 1
-        elif (locale == "us"):
-            path = 'files/names/names_us/surnames.csv'
-            surname_position = 0
-            counter_position = 2
         else:
             path = 'files/names/names_' + locale + '/' + locale + 'surnames.csv'
             surname_position = 0
@@ -800,7 +796,6 @@ class Gender(object):
         boolean = False
         with open(path) as csvfile:
             surnamereader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(surnamereader, None)
             for row in surnamereader:
                 surname = row[surname_position]
                 if (surname.lower() == du.drop_accents(string.lower())):
