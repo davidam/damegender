@@ -19,4 +19,7 @@
 #  Boston, MA 02110-1301 USA,
 
 mkdir -p orig
-wget -c https://open.alberta.ca/dataset/11245675-b047-49fc-8bd1-cc2ce8314a6d/resource/e8aac308-c754-484c-b446-0c57ed0e8d37/download/baby-names-frequency.xlsx -O orig/baby-names-frequency.xlsx
+cd orig
+wget -c https://open.alberta.ca/dataset/11245675-b047-49fc-8bd1-cc2ce8314a6d/resource/e8aac308-c754-484c-b446-0c57ed0e8d37/download/baby-names-frequency.xlsx -O baby-names-frequency.xlsx
+ssconvert -S baby-names-frequency.xlsx baby-names-frequency.csv
+sed -n '5,$p' baby-names-frequency.csv.0 > baby-names-frequency.csv 

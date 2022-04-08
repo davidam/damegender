@@ -65,18 +65,28 @@ David Arroyo Menéndez \\ Grupo de Sistemas y Comunicaciones (GSyC) \\ Universid
   gender and frequency provided by statistics institutions making easy
   the peer review and opening doors to the semantic web and the
   attention to diversity.
-  
+
 \end{abstract}
 
 \section{Introduction}
-So, there are a goal in United Nations about gender
-gap\footnote{https://www.un.org/sustainabledevelopment/gender-equality/}. Then,
-is possible to understand that ``if you cannot measure it, you cannot
-improve it"~\cite{thompson1833electrical} and ``Software Engineering
-Economics is an invaluable guide to determining software costs,
-applying the fundamental concepts of microeconomics to software
+There are a goal in United Nations about gender
+gap\footnote{https://www.un.org/sustainabledevelopment/gender-equality/}. What
+can I do as software engineer?. The first step is to remember that
+``if you cannot measure it, you cannot improve
+it"~\cite{thompson1833electrical} and ``Software Engineering Economics
+is an invaluable guide to determining software costs, applying the
+fundamental concepts of microeconomics to software
 engineering~\cite{barry1981software}''. A common profit using Free
-Software and Open Data use to be the reduction of costs.
+Software and Open Data used to be the reduction of costs, for example,
+many people and institutions is using LibreOffice and Ubuntu
+(GNU/Linux) to avoid the payment by propietary licenses with similar
+solutions such as Microsoft Windows and Microsoft Office, the new
+costs used to be change a social inertia changing popular products by
+products without costs. There are a set of gender detection tools from
+the name is based on API solutions, giving a free software and open
+data solution, it will be making a competition in a market without a
+very strong leader, avoiding payments and thinking on strategies about
+profits from a trademark, such as, Firefox or Chrome.
 
 Detecting personal names, you can infer gender on academical papers,
 books, newspapers and many interactions on Internet. So, the task
@@ -128,10 +138,6 @@ to measure gender gap and gender detection tools from the name.
 
 Section~\ref{sec:design} is giving vocabulary and philosophy about to
 choose sources and to face the diversity troubles building a dataset.
-
-Section~\ref{sec:damegender} explains the Open Dataset Collection.
-
-Section~\ref{sec:webtech} shows applications on web technologies
 
 Section ~\ref{sec:measuring} explains an application about this
 dataset to measure gender gap in GNU/Linux.
@@ -193,13 +199,13 @@ contributors.
 
 \subsection{Counting Males and Females in Internet. Why? Where?}
 
-Our work is focused retrieving data from secondary sources such as
+This work is focused retrieving data from secondary sources such as
 GitHub, Wikipedia, APIs, websites in general, mailing lists, ...
 There are serious previous research works about factors modifying
 several gender gap indicators (economy, education, politics, ...) from
 secondary sources.
 
-For example, an expert studying gender gap in
+For example, a social scientist studying gender gap in
 journalism~\cite{alvarez2012journalism} can be counting males and
 females in Twitter. These metrics are important because the journalism
 is determining gender gap or not in political, education, economy,
@@ -312,12 +318,28 @@ extract lexical patterns. The candidates are ranked using various
 ranking scores. And to construct the ranking function was used
 ranking Support Vector Machines.
 
+\subsection{Standards related}
+
+ISO/IEC 5218 proposes a norm about coding gender: ``0 as not know'',
+``1 as male'', ``2 as female'' and ``9 as not applicable''.
+
+The RFC 6350
+(vCard)~\footnote{https://datatracker.ietf.org/doc/html/rfc6350}
+where the section Gender has these categories: ``m as male'', ``f as
+female'', ``o as other'', ``n as not applicable'' and ``u as
+undefined''. Based on this standard the people who is doing web
+publishing can use css classes using a web standard such a
+h-card~\footnote{https://github.com/microformats/h-card}
+microformats. And in the context of to write forms in web interfaces
+consider w3
+lectures~\footnote{https://www.w3.org/International/questions/qa-personal-names}
+
 \subsection{Summary}
 
 In the State of Art of gender inference is the first name the key
 factor to determine gender, although in many contexts there are more
-features: text, images, nicknames, ... The first name can be useful to
-infer another stuff such as race, ethnicity or culture, too.
+features: surnames, text, images, nicknames, ... The first name can be
+useful to infer another stuff such as race, ethnicity or culture, too.
 
 Machine Learning and the previous features selection is being used in
 many works, although the discussion about what is the best approach is
@@ -357,7 +379,7 @@ chances.
 
 Other sources to retrieve gender and names can be personal
 scientific websites, Wikipedia, or similar, but these sources is not
-giving the frequency, now. So, we are rejecting this idea. 
+giving the frequency, now. So, we are rejecting this idea.
 
 With an international free dataset about names, gender and frequency
 we can build reproducible science in fields such as Natural Language
@@ -388,13 +410,14 @@ objective. On other hand, there are previous works to relate name and
 surnames with ethnicity using Wikipedia and Machine
 Learning~\cite{ambekar2009name}.
 
-\section{Damegender Open Datasets Collection}
+\subsection{Damegender Open Datasets Collection}
 \label{sec:damegender}
 
 In Damegender, we have unified the different formats to name, gender
-and frequency from official sources in these countries: Austria,
-Australia, Belgium, Canada, Denmark, Germany, Spain, Finland, France,
-Great Britain, Ireland, Mexico, New Zealand, Portugal and Slovenia.
+and frequency from official sources in these countries: Argentina,
+Austria, Australia, Belgium, Canada, Denmark, Germany, Spain, Finland,
+France, Great Britain, Ireland, Mexico, New Zealand, Norway, Russia,
+Portugal, Slovenia and United States of America.
 
 We have found 2 main criteria counting males and females: number of
 births in a year and people using the name in a year. So, we have
@@ -414,6 +437,15 @@ built by a company in collaboration with the China government and
 contributed to R language program. We want compare precision about
 this dataset with the commercial solutions to understand the truth
 about these datasets.
+
+We have found surnames given by statistical institutions in Spain,
+Russia, United States of America and Argentina. So few statistical
+institutions is giving surnames. Understanding the diversity problem
+with this fact, we have retrieved surnames for all countries from
+Wikidata, these datasets contains few surnames being compared with
+datasets provided by statistical institutions. Although in names the
+diversity problem would be a minor problem we are giving names
+retrieved with Wikidata to the public.
 
 When the work is finished, we could to rebuild machine learning models
 to predict new names and nicknames in any language and culture. The
@@ -460,55 +492,6 @@ We have made measurements about the international DameGender dataset,
 using as base of truth the dataset explained in
 \cite{10.7717/peerj-cs.156} reaching accuracy (0.8756), precision
 (0.9638), recall (1.0) and f1-score (0.925).
-
-\section{Web Technologies}
-\label{sec:webtech}
-
-\subsection{Semantic Web}
-\label{sec:semantic}
-
-When we are describing people with names and gender could be giving
-semantic richness with semantic markup taking into account the lessons
-learned about the domain, for example, using microformats. Changing the
-current situation using a poor html:
-
-\begin{verbatim}
-<table class="infobox" style="width:22.7em; 
-line-height: 1.4em; text-align:left; 
-padding:.23em;">
-  <tbody>
-    <tr><th colspan="3" class="cabecera"
-style="text-align:center;color:black;">
-           Juan</th></tr><tr>
-[...]
-<tr><th scope="row"
-style="text-align:left">
-<a href="/wiki/Identidad_sexual" 
-   title="Identidad sexual">Género</a>
-</th><td colspan="2"> Masculino</td></tr>
-\end{verbatim}
-
-Towards the semantic way:
-
-\begin{verbatim}
-<div class="h-card">
-  <span class="p-name">Emma Goldman</span>
-  <span class="p-gender p-gender-female 
-               p-gender-female-us 
-               p-gender-female-inter">
-         Female
-  </span>      
-  <span class="p-street-address">
-         123 Main St
-  </span>
-  <span class="p-locality">Some Town</span>
-  <span class="p-region">CA</span>
-  <span class="p-postal-code">90210</span>
-</div>
-\end{verbatim}
-
-With a richness markup take into account the gender in the context of
-a country.
 
 \subsection{Free APIs for Free Datasets?}
 \label{sec:freeapis}
@@ -576,33 +559,33 @@ used with the version 0.3.4 of Damegender.
 
 \begin{verbatim}
 python3 csv2gender.py files/gnu.csv
- --first_name_position=0 
+ --first_name_position=0
  --title="GNU maintainers grouped by gender"
- --dataset="inter" 
+ --dataset="inter"
  --outcsv="files/gnu.gender.csv"
- --outimg="files/gnu.gender.png" 
+ --outimg="files/gnu.gender.png"
  --noshow --delete_duplicated
 
 python3 csv2gender.py files/linux.csv
- --first_name_position=0 
+ --first_name_position=0
  --title="Linux maintaners grouped by gender"
- --dataset="inter" 
+ --dataset="inter"
  --outcsv="files/linux.gender.csv"
- --outimg="files/linux.gender.png" 
+ --outimg="files/linux.gender.png"
  --noshow --delete_duplicated
 
 python3 csv2gender.py files/debian.csv
- --first_name_position=0 
+ --first_name_position=0
  --title="Debian maintaners grouped by gender"
- --dataset="inter" 
+ --dataset="inter"
  --outcsv="files/debian.gender.csv"
- --outimg="files/debian.gender.png" 
+ --outimg="files/debian.gender.png"
  --noshow --delete_duplicated
 \end{verbatim}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.6\textwidth]{images/debian-gnu-linux.pdf}     
+  \includegraphics[width=0.6\textwidth]{images/debian-gnu-linux.pdf}
   \caption[Caption for LOF]{Males (blue), Females (orange) and Unknows (green) in Debian, GNU and Linux}
 \end{figure}
 
@@ -689,7 +672,7 @@ datasets.
 Another industry is about match sites (Meetic, Tinder, ...) where only
 is important photos, age and gender generally. It could be possible to give
 to users gender, photo and interests from personal names our open data
-collection and information related in Internet. 
+collection and information related in Internet.
 
 %% These data reveals that the situation has been improved with respect
 %% the long time. In \cite{10.1007/978-3-319-39225-7_13} speaks about a
@@ -702,9 +685,7 @@ collection and information related in Internet.
 %% Arjona for starting this research field at URJC all those working with
 %% Jesus González Barahona and Gregorio Robles.
 
-\bibliographystyle{alpha} 
+\bibliographystyle{alpha}
 \bibliography{uc3m}
 
 \end{document}
-
-
