@@ -1359,3 +1359,13 @@ arbitraria.
 
 Quizás deba cancelar esta tarea y seguir abordándolo todo esto con los métodos que lo
 estaba haciendo
+* DONE Crear un script para descargar nombres desde wikidata especificando el país y el género
+- State "DONE"       from "TODO"       [2022-04-08 vie 23:56]
+* DONE Crear un script para desccarga apellidos desde Wikidata especificando el país
+- State "DONE"       from "TODO"       [2022-04-08 vie 23:57]
+* DONE Descargar los apellidos de todos los países
+  - State "DONE"       from "TODO"       [2022-04-08 vie 23:57]
+* DONE Crear un script en bash para realizar el empaquetamiento python (ej: packaging.sh)
+  - State "DONE"       from "TODO"       [2022-04-08 vie 23:59]
+* DONE Crear un script en bash para ejecutar los test python
+  - State "DONE"       from "TODO"       [2022-04-09 sáb 00:01]
