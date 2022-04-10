@@ -54,9 +54,12 @@ path = dicc[args.total]
 if (args.total == "cn"):
     print("Be careful")
     print("you must use Chinese characters and supported encoding")
-elif (args.total == "ru"):
-    print("Be carefull")
+elif ((args.total == "ru") or (args.total == "ru_ru")):
+    print("Be carefull,")
     print("you must use Russian characters and supported encoding")
+    print("If you want check russian names starting with latin letters,")    
+    print("you can use the keyword ru_en.")
+
 
 with open(path) as csvfile:
     sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
