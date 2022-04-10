@@ -226,21 +226,12 @@ surnames located by place where the person is living
 """
             print(string2)
 
-    elif (args.total == 'us'):
-        print("There are %s people using %s in United States of America"
-              % (v[1], args.surname))
-    else:
-        print("There are %s people using %s in %s"
-              % (v[1], args.surname, country))
 else:
-    if ((args.total == 'es') or (args.total == 'ine')):
-        print("There are not people using %s in %s"
-              % (args.surname, country))
-    elif (args.total == 'us'):
+    if (args.total in g.config['DATASET']['official_surnames']):
         print("There are not people using %s in %s"
               % (args.surname, country))
     else:
-        print("There are not people using %s in %s"
+        print("It has not been found %s in %s"
               % (args.surname, country))
         
 if (args.total in g.config['DATASET']['official_surnames']):
