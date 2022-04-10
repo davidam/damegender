@@ -25,6 +25,9 @@
 
 from unittest import TestCase
 
+import collections
+collections.Callable = collections.abc.Callable
+
 
 class TestEnvironment(TestCase):
     def test_testing_environment_works(self):

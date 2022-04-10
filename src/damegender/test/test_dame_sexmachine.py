@@ -27,6 +27,8 @@ import unittest
 import numpy as np
 import pickle
 import os.path
+import collections
+collections.Callable = collections.abc.Callable
 
 from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB

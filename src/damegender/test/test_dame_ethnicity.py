@@ -25,6 +25,9 @@
 import unittest
 import numpy as np
 import os
+import collections
+collections.Callable = collections.abc.Callable
+
 from app.dame_ethnicity import DameEthnicity
 
 

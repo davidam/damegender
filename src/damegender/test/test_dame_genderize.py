@@ -23,6 +23,9 @@
 # Boston, MA 02110-1301 USA,
 
 import unittest
+import collections
+collections.Callable = collections.abc.Callable
+
 from app.dame_genderize import DameGenderize
 
 

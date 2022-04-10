@@ -25,6 +25,9 @@
 
 import unittest
 import datetime
+import collections
+collections.Callable = collections.abc.Callable
+
 from datetime import timedelta
 from app.dame_perceval import DamePerceval
 

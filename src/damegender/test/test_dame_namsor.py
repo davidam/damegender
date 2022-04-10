@@ -25,6 +25,9 @@
 
 import unittest
 import os
+import collections
+collections.Callable = collections.abc.Callable
+
 from app.dame_utils import DameUtils
 from app.dame_statistics import DameStatistics
 from app.dame_namsor import DameNamsor

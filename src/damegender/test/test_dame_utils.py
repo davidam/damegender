@@ -25,6 +25,9 @@
 
 import unittest
 import os
+import collections
+collections.Callable = collections.abc.Callable
+
 from app.dame_utils import DameUtils
 from os.path import expanduser
 
@@ -105,6 +108,8 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual("In", u.drop_white_space_around(" In"))
         self.assertEqual("Juan Carlos I",
                          u.drop_white_space_around(" Juan Carlos I"))
+        self.assertEqual("Juan-Carlos ",
+                         u.drop_white_space_around("Juan-Carlos"))
         self.assertEqual("Juan Carlos I",
                          u.drop_white_space_around(" Juan Carlos I  "))
         self.assertEqual("Juan Carlos I",

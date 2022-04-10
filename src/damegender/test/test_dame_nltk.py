@@ -25,6 +25,9 @@
 
 import unittest
 import os
+import collections
+collections.Callable = collections.abc.Callable
+
 from app.dame_nltk import DameNLTK
 
 
