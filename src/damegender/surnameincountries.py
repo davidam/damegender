@@ -48,15 +48,15 @@ dwdicc = dw.dicc_countries()
 incountries = []
 l0 = list(dwdicc.keys())
 l1 = []
-for i in l0[0:20]:
+
+for i in l0:
     csvpath = dg.path_surname_dataset(i)
     columnlist = du.csvcolumn2list(csvpath)
     if ((surname.upper() in columnlist) or (surname in columnlist) or (surname.capitalize() in columnlist)):
         l1 = l1 + [i]
 
-# l1 = de.inesurname2ethnicity(surname, "all")
-
 l1 = sorted(du.clean_list(l1))
+
 if (len(l1) > 0):
     print("It has been detected the surname %s in these countries:" % surname)
 else:
