@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 #  Copyright (C) 2022 David Arroyo Menéndez
 
 #  Author: David Arroyo Menéndez <davidam@gmail.com> 
