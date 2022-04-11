@@ -49,37 +49,42 @@ with open(origfile) as csvfile:
     l = []
     dicc = {}
     for row1 in reader:
-        # this for is only to set the dicc
-        print(row1)
-        dicc[row1[1]] = {}
-print(dicc)
+        # this for is only to set the dicc about names
+        name = du.drop_external_quotes(du.drop_white_space_around(row1[1]))
+        name = name.capitalize()
+        if (not(name in dicc.keys()) and (name != "")):
+            dicc[name] = {}
 csvfile.close()
 
 with open(origfile) as csvfile2:
     reader2 = csv.reader(csvfile2, delimiter=',', quotechar='|')
     next(reader2, None)
     for row2 in reader2:
-        dicc[row2[1]][row2[4]] = {}
-        dicc[row2[1]][row2[4]]["male"] = {}
-        dicc[row2[1]][row2[4]]["female"] = {}
+        # this for is only to set the dicc about years and gender
+        name = du.drop_external_quotes(du.drop_white_space_around(row2[1]))
+        name = name.capitalize()
+        if (name != ""):
+            dicc[name][row2[4]] = {}
+            dicc[name][row2[4]]["male"] = {}
+            dicc[name][row2[4]]["female"] = {}
 csvfile2.close()
-print(dicc)
 
 with open(origfile) as csvfile3:
     reader3 = csv.reader(csvfile3, delimiter=',', quotechar='|')
     next(reader3, None)
     for row3 in reader3:
-        print(row3)
+        name = du.drop_external_quotes(du.drop_white_space_around(row3[1]))
+        name = name.capitalize()
         if (row3[3] == 'Girl'):
-            dicc[row3[1]][row3[4]]["female"] = row3[2]
+            dicc[name][row3[4]]["female"] = row3[2]
         elif (row3[3] == 'Boy'):
-            dicc[row3[1]][row3[4]]["male"] = row3[2]
-print(dicc)
+            dicc[name][row3[4]]["male"] = row3[2]
 
 for i in dicc.keys():
     males = 0
     females = 0
     for j in dicc[i].keys():
+#        print(j)
         if (dicc[i][j]["female"] == {}):
             num = 0
         else:
@@ -94,13 +99,13 @@ for i in dicc.keys():
     dicc[i]["females"] = females
     dicc[i]["males"] = males
 
-# # print(dicc["Paula"]["females"])
+# # # print(dicc["Paula"]["females"])
 jsonvar = json.dumps(dicc)
 fo = open("canames.json", "w")
 fo.write(jsonvar)
 fo.close()
 
-# # print(dicc.keys())
+# # # print(dicc.keys())
 
 file = open(outmales, "w")
 
@@ -108,7 +113,7 @@ for i in dicc.keys():
     if (dicc[i]["males"] > 0):
         line = du.drop_external_quotes(du.drop_white_space_around(str(i)))
         line = line + "," + str(dicc[i]["males"]) + "\n"
-        print(line)
+#        print(line)
         file.write(line)
 file.close()
 
@@ -117,6 +122,6 @@ for i in dicc.keys():
     if (dicc[i]["females"] > 0):
         line = du.drop_external_quotes(du.drop_white_space_around(str(i)))
         line = line + "," + str(dicc[i]["females"]) + "\n"
-        print(line)
+#        print(line)
         file.write(line)
 file.close()
