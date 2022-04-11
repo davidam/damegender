@@ -183,6 +183,23 @@ class DameUtils():
                 aux = aux + c
         return aux
 
+    def drop_external_quotes(self, s):
+        aux = ""
+        c = unicodedata.normalize('NFD', str(s))
+        i = 0
+        n = len(c)-1
+        while (i <= n):
+            if (i == 0):
+                if ((c[0] != '"') and (c[0] != "'")):
+                    aux = aux + c[i]
+            elif (i == n): 
+                if ((c[n] != '"') and (c[n] != "'")):
+                    aux = aux + c[i]
+            else:
+                aux = aux + c[i]
+            i = i + 1
+        return aux
+    
     def drop_white_space(self, s):
         aux = ""
         for c in unicodedata.normalize('NFD', str(s)):
@@ -226,7 +243,7 @@ class DameUtils():
         aux = ""
         arr = unicodedata.normalize('NFD', str(s))
         i = 0
-        j = -1
+        j = len(arr)
         while (i != j):
             if (arr[i] == " "):
                 aux = ""
@@ -236,7 +253,7 @@ class DameUtils():
             i = i + 1
         j = -1
         while (len(arr) > i) and (i != j):
-            if (arr[i].isalpha()):
+            if (arr[i] != " "):                
                 aux = aux + arr[i]
             elif ((arr[i] == " ") and (len(arr) == (i+1))):
                 j = i+1
