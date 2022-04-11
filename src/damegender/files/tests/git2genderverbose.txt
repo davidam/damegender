@@ -3,7 +3,7 @@ You are not using ml the process is not very slow,
 but perhaps you are not finding good results
 The number of males sending commits is 2
 The list of males sending commits is:
-['David Arroyo Menendez', 'David Arroyo']
+['David Arroyo Menendez', 'David Arroyo7']
 David Arroyo Menéndez <davidam@es.gnu.org> (67 commits)
 David Arroyo Menendez <davidam9@riseup.net> (49 commits)
 David Arroyo Menéndez <davidam@gmail.com> (20 commits)
