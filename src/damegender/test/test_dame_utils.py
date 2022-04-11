@@ -137,6 +137,11 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual('Hola Mexico', u.drop_quotes('Hola "Mexico'))
         self.assertEqual("Hola Mexico", u.drop_quotes("Hola' 'Mexico"))
 
+    def test_drop_external_quotes(self):
+        u = DameUtils()
+        self.assertEqual('Hola "Mexico', u.drop_external_quotes('"Hola "Mexico'))
+        self.assertEqual("Hola' 'Mexico", u.drop_external_quotes("'Hola' 'Mexico'"))
+        
     def test_delete_duplicated_identities(self):
         g = Gender()
         du = DameUtils()
