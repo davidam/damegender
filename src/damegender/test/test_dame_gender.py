@@ -268,9 +268,9 @@ class TddInPythonExample(unittest.TestCase):
                           'uy': 0.0, 'gb': 0.001, 'us': 0.998,
                           'nz': 0.0, 'ca': 0.0, 'fi': 0.0,
                           'au': 0.001, 'pt': 0.0},
-              'males': {'es': 0.091, 'ie': 0.0, 'is': 0.0,
-                        'uy': 0.0, 'gb': 0.016, 'us': 0.882,
-                        'nz': 0.009, 'ca': 0.0, 'fi': 0.0,
+              'males': {'es': 0.09, 'ie': 0.0, 'is': 0.0,
+                        'uy': 0.0, 'gb': 0.016, 'us': 0.88,
+                        'nz': 0.009, 'ca': 0.002, 'fi': 0.0,
                         'au': 0.001, 'pt': 0.0}}]
         self.assertEqual(x, g.name_prob_countries("David"))
         y = [{'males':
