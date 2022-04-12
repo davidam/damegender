@@ -100,7 +100,7 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_drop_white_space_around(self):
         u = DameUtils()
-        self.assertEqual("", u.drop_white_space_around(" "))        
+        self.assertEqual("", u.drop_white_space_around(" "))
         self.assertEqual("", u.drop_white_space_around(""))
         self.assertEqual(" 阿", u.drop_white_space_around("阿"))
         self.assertEqual(" 阿 ", u.drop_white_space_around("阿"))
@@ -141,7 +141,7 @@ class TddInPythonExample(unittest.TestCase):
         u = DameUtils()
         self.assertEqual('Hola "Mexico', u.drop_external_quotes('"Hola "Mexico'))
         self.assertEqual("Hola' 'Mexico", u.drop_external_quotes("'Hola' 'Mexico'"))
-        
+
     def test_delete_duplicated_identities(self):
         g = Gender()
         du = DameUtils()
@@ -239,7 +239,7 @@ class TddInPythonExample(unittest.TestCase):
         du = DameUtils()
         self.assertEqual(du.round_and_not_zero_division(4, 2), 2)
         self.assertEqual(du.round_and_not_zero_division(3, 2), 1.5)
-        self.assertEqual(du.round_and_not_zero_division(8, 7), 1.143)
+        self.assertEqual(du.round_and_not_zero_division(8, 7), 1.14)
 
     def test_identity2name_email(self):
         du = DameUtils()
@@ -306,13 +306,13 @@ class TddInPythonExample(unittest.TestCase):
         dicc = {}
         dicc['Ana'] = 3
         dicc['Cristina'] = 4
-        dicc['Maria'] = 7     
+        dicc['Maria'] = 7
         du.diccnames2csvfile(dicc, 'files/tests/dicc.csv')
         l0 = du.csvcolumn2list('files/tests/dicc.csv', position=0, header=False)
-        l1 = du.csvcolumn2list('files/tests/dicc.csv', position=1, header=False)        
+        l1 = du.csvcolumn2list('files/tests/dicc.csv', position=1, header=False)
         self.assertEqual(l0, ['Ana', 'Cristina', 'Maria'])
         self.assertEqual(l1, ['3', '4', '7'])
-        
+
     def test_number_or_zero(self):
         du = DameUtils()
         noz = du.number_or_zero("-")
