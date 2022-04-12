@@ -453,7 +453,7 @@ class DameUtils():
             return 0
         else:
             division = x / y
-            return (round(division, 3))
+            return (round(division, 2))
 
     def initial_letters(self, s):
         match = re.search(r'(([A-Z][\.| ]){1,2})|([A-Z]{2})', s)
