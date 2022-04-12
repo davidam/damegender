@@ -265,13 +265,13 @@ class TddInPythonExample(unittest.TestCase):
         g = Gender()
         self.assertEqual.__self__.maxDiff = None
         x = [{'females': {'es': 0.0, 'ie': 0.0, 'is': 0.0,
-                          'uy': 0.0, 'gb': 0.001, 'us': 0.998,
+                          'uy': 0.0, 'gb': 0.0, 'us': 1.0,
                           'nz': 0.0, 'ca': 0.0, 'fi': 0.0,
-                          'au': 0.001, 'pt': 0.0},
+                          'au': 0.0, 'pt': 0.0},
               'males': {'es': 0.09, 'ie': 0.0, 'is': 0.0,
-                        'uy': 0.0, 'gb': 0.016, 'us': 0.88,
-                        'nz': 0.009, 'ca': 0.002, 'fi': 0.0,
-                        'au': 0.001, 'pt': 0.0}}]
+                        'uy': 0.0, 'gb': 0.02, 'us': 0.88,
+                        'nz': 0.01, 'ca': 0.0, 'fi': 0.0,
+                        'au': 0.0, 'pt': 0.0}}]
         self.assertEqual(x, g.name_prob_countries("David"))
         y = [{'males':
               {'is': 0, 'ca': 0, 'fi': 0, 'au': 0,
