@@ -21,5 +21,7 @@
 
 mkdir -p orig
 wget -c https://www.scb.se/en/finding-statistics/statistics-by-subject-area/population/general-statistics/name-statistics/pong/tables-and-graphs/newborn--given-names-alphabetical-overview/boys-names/ -O orig/boys.xls
+ssconvert -S boys.xls boys.csv
 wget -c https://www.scb.se/en/finding-statistics/statistics-by-subject-area/population/general-statistics/name-statistics/pong/tables-and-graphs/newborn--given-names-alphabetical-overview/girls-names/ -O orig/girls.xls
-
+ssconvert -S girls.xls girls.csv
+cd ..
