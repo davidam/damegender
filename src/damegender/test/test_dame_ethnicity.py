@@ -56,3 +56,8 @@ class TddInPythonExample(unittest.TestCase):
         path = 'files/inesurnames/apellidos-afganistan.xls.csv'
         str1 = de.locale_match(surname="KHAN", path=path, locale="af")
         self.assertEqual(str1, "af")
+
+    def test_dame_ethnicity_iso3166_to_eng(self):
+        de = DameEthnicity()
+        string0 = de.iso3166_to_eng("zw")
+        self.assertEqual(string0, "Zimbabwe")
