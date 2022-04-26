@@ -20,6 +20,9 @@
 #  Boston, MA 02110-1301 USA,
 
 mkdir -p orig
-wget -c https://www.scb.se/en/finding-statistics/statistics-by-subject-area/population/general-statistics/name-statistics/pong/tables-and-graphs/newborn--given-names-alphabetical-overview/boys-names/ -O orig/boys.xls
-wget -c https://www.scb.se/en/finding-statistics/statistics-by-subject-area/population/general-statistics/name-statistics/pong/tables-and-graphs/newborn--given-names-alphabetical-overview/girls-names/ -O orig/girls.xls
-
+cd orig
+wget -c https://www.scb.se/en/finding-statistics/statistics-by-subject-area/population/general-statistics/name-statistics/pong/tables-and-graphs/newborn--given-names-alphabetical-overview/boys-names/ -O boys.xlsx
+ssconvert -S boys.xlsx boys.csv
+wget -c https://www.scb.se/en/finding-statistics/statistics-by-subject-area/population/general-statistics/name-statistics/pong/tables-and-graphs/newborn--given-names-alphabetical-overview/girls-names/ -O girls.xlsx
+ssconvert -S girls.xlsx girls.csv
+cd ..
