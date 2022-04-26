@@ -25,32 +25,12 @@
 # First, we save the current config and create the config for the tests
 
 cp config.cfg config.cfg.backup
+cp config.disabled.cfg config.cfg
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
-
-echo '
-[DEFAULT]
-genderapi = no
-genderize = no
-nameapi = no
-namsor = no
-customsearch = no
-
-[FILES]
-genderapi = files/apikeys/genderapipass.txt
-genderize = files/apikeys/genderizepass.txt
-genderguesser = files/apikeys/genderguesserpass.txt
-namsor = files/apikeys/namsorpass.txt
-nameapi = files/apikeys/nameapipass.txt
-
-[DATASET]
-official_surnames = ["ar", "es", "ru", "us"]
-official_names = ["ar", "ca", "ch", "de", "es", "fr", "gb", "ie", "fi", "no", "pt", "ru", "se", "uy", "us"]
-
-' > config.cfg
 
 python3 main.py David --total=es > files/tests/maindavid-$(date "+%Y-%m-%d").txt
 
