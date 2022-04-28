@@ -61,3 +61,8 @@ class TddInPythonExample(unittest.TestCase):
         de = DameEthnicity()
         string0 = de.iso3166_to_eng("zw")
         self.assertEqual(string0, "Zimbabwe")
+
+    def test_dame_ethnicity_dicc_iso639_2(self):
+        de = DameEthnicity()
+        dicc0 = de.dicc_iso639_2()
+        self.assertEqual(dicc0["baq"][0], "Basque")
