@@ -965,6 +965,7 @@ class DameEthnicity(object):
                 "chu": [["Church Slavic","Old Slavonic","Church Slavonic","Old Bulgarian","Old Church Slavonic"], ["slavon d'église","vieux slave","slavon liturgique","vieux bulgare"], "Kirchenslawisch"],
                 "chv": ["Chuvash", "tchouvache", "Tschuwaschisch"],
                 "chy": ["Cheyenne", "cheyenne", "Cheyenne-Sprache"],
+                "ces": ["Czech", "tchèque", "Tschechisch"],
                 "cmc": ["Chamic languages", "chames, langues", "Cham-Sprachen"],
                 "cnr": ["CheMontenegrinyenne", "monténégrin", "Montenegrinisch"],
                 "cop": ["Coptic", "copte", "Koptisch"],
@@ -975,12 +976,11 @@ class DameEthnicity(object):
                 "cpp": ["Creoles and pidgins, Portuguese-based", "créoles et pidgins basés sur le portugais", "Kreolisch-Portugiesisch (Andere)"],
                 "cre": ["Cree", "cree", "Cree-Sprache"],
                 "crh": [["Crimean Tatar","Crimean Turkish"], "tatar de Crimé", "Krimtatarisch"],
-                "crp": ["Creoles and pidgins", "créoles et pidgins", ["Kreolische Sprachen"."Pidginsprachen (Andere)"]],
+                "crp": ["Creoles and pidgins", "créoles et pidgins", ["Kreolische Sprachen", "Pidginsprachen (Andere)"]],
                 "csb": ["Kashubian", "kachoube", "Kaschubisch"],
                 "cus": ["Cushitic languages", "couchitiques, langues", "Kuschitische Sprachen (Andere)"],
                 "cym": ["Welsh", "gallois", "Kymrisch"],
                 "cze": ["Czech", "tchèque", "Tschechisch"],
-                "ces": ["Czech", "tchèque", "Tschechisch"],
                 "dak": ["Dakota", "dakota", "Dakota-Sprache"],
                 "dan": ["Danish", "danois", "Dänisch"],
                 "dar": ["Dargwa", "dargwa", "Darginisch"],
@@ -1384,6 +1384,5 @@ class DameEthnicity(object):
                 "zun": ["Zuni", "zuni", "Zuñi-Sprache"],
                 "zxx": [["No linguistic content"," Not applicable"], ["pas de contenu linguistique","non applicable"], "Kein linguistischer Inhalt"],
                 "zza": [["Zaza","Dimili","Dimli","Kirdki","Kirmanjki","Zazaki"], ["zaza","dimili","dimli","kirdki","kirmanjki","zazaki"], "Zazaki"],
-
             }
-    return dicc
+        return dicc
