@@ -35,11 +35,11 @@ import argparse
 
 dw = DameWikidata()
 isocodes = dw.dicc_countries().keys()
-
+codes = list(isocodes) + ["inter", "ine"]
 parser = argparse.ArgumentParser()
 parser.add_argument("surname", help="display the gender")
 parser.add_argument('--total', required=True,
-                    default="es", choices=isocodes)
+                    default="es", choices=codes)
 parser.add_argument('--spanish_provinces', default=False,
                     action="store_true")
 parser.add_argument('--version', action='version', version='0.3')
@@ -47,15 +47,27 @@ parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
 
 de = DameEthnicity()
-country = de.iso3166_to_eng(args.total)
+if (args.total == "inter"):
+    country = "International Dataset"
+else:
+    country = de.iso3166_to_eng(args.total)    
+
+    
 results = []
 
 g = Gender()
 v = g.guess_surname(args.surname, args.total)
 
 if v[0]:
-    if ((args.total == 'es') or (args.total == 'ine')):
-        print("There are %s people using %s in Spain" % (v[1], args.surname))
+    if (args.total == "inter"):
+        print("There are %s people using %s in %s"
+              % (v[1], args.surname, country))            
+    elif ((args.total in isocodes) and not((args.total == 'es') or (args.total == 'ine'))):
+        print("There are %s people using %s in %s"
+              % (v[1], args.surname, country))
+    elif ((args.total == 'es') or (args.total == 'ine')):
+        print("There are %s people using %s in Spain"
+              % (v[1], args.surname))
         if (args.spanish_provinces):
             string1 = """
 The next data is only for the 50 most frequently first
@@ -225,10 +237,6 @@ The previous data is only for the 50 most frequently first
 surnames located by place where the person is living
 """
             print(string2)
-
-    else:
-        print("There are %s people using %s in %s"
-              % (v[1], args.surname, country))
 else:
     print("It has not been found %s in %s"
           % (args.surname, country))
