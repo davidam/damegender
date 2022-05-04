@@ -48,10 +48,9 @@ args = parser.parse_args()
 
 de = DameEthnicity()
 if (args.total == "inter"):
-    country = "International Dataset"
+    country = "the International Dataset"
 else:
     country = de.iso3166_to_eng(args.total)    
-
     
 results = []
 
@@ -243,5 +242,7 @@ else:
 
 if (args.total in g.config['DATASET']['official_surnames']):
     print("Source: Official Statistics in %s" % (country))
+elif (args.total == "inter"):
+    print("Source: Official Statistics and Wikidata (retrieved betwen March and April (2022)")
 else:
     print("Source: Wikidata (retrieved betwen March and April (2022)")
