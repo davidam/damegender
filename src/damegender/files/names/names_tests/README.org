@@ -1,0 +1,15 @@
+* Spanish
+** Autores españoles en dominio público en 2022 (fallecidos en 1941) 
++ [ ] File: autores_dominio_publico.csv
++ [ ] Source: https://datos.gob.es/es/catalogo/ea0019768-autores-espanoles-en-dominio-publico-en-2022-fallecidos-en-1941
++ [ ] License: https://creativecommons.org/publicdomain/zero/1.0/
+
+** Represaliados y víctimas terrasenses del Fascismo 
++ [ ] File: represaliats.csv
++ [ ] Source: https://datos.gob.es/es/catalogo/l01082798-represaliados-y-victimas-terrasenses-del-fascismo
++ [ ] License: http://www.opendefinition.org/licenses/cc-by
+* French
+** Prénoms des enfants nés dans le département de la Haute-Garonne - année 2019
++ [ ] File: conseil-departmental-haute-garonne.csv
++ [ ] Source: https://www.data.gouv.fr/fr/datasets/r/a26910c1-4860-4fa6-b077-7f49d2b856d9
++ [ ] License: https://www.etalab.gouv.fr/licence-ouverte-open-licence/
