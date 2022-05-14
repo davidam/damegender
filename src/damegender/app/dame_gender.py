@@ -780,10 +780,10 @@ class Gender(object):
 
     def guess_surname(self, string, locale):
         counter = 0
-        if ((locale == "es") or (locale == "ine")):
-            path = 'files/inesurnames/apellidos_frecuencia.csv'
-            surname_position = 1
-            counter_position = 2
+        if (locale == "ine"):
+            path = 'files/names/names_es/essurnames.csv'
+            surname_position = 0
+            counter_position = 1
         elif ((locale == "ru_en") or (locale == "ru_ru") or (locale == "ru")):
             path = 'files/names/names_ru/rusurnames.csv'
             surname_position = 0
@@ -834,6 +834,7 @@ class Gender(object):
     def csv2gender_list(self, path, *args, **kwargs):
         # counting males, females and unknown
         header = kwargs.get('header', True)
+        gender_row = kwargs.get('gender_row', 4)        
         glist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='"')
@@ -845,7 +846,7 @@ class Gender(object):
             gender = ""
             for row in sexreader:
                 try:
-                    gender = row[4]
+                    gender = row[gender_row]
                 except IndexError:
                     print("The method csv2gender_list has not row[4]")
                     os.kill(os.getpid(), signal.SIGUSR1)
