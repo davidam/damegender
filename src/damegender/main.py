@@ -42,7 +42,7 @@ parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB',
 parser.add_argument('--total', default="inter",
                     choices=['ar', 'at', 'au', 'be', 'ca', 'ch',
                              'cn', 'de', 'dk', 'es', 'fi',
-                             'fr', 'gb', 'ie', 'is', 'no', 'nz',
+                             'fr', 'gb', 'ie', 'is', 'it', 'no', 'nz',
                              'mx', 'pt', 'ru', 'ru_ru',
                              'ru_en', 'se', 'si',
                              'uy', 'us', 'namdict', 'inter'])
@@ -161,6 +161,12 @@ elif ((args.verbose) or (args.total == "all")):
     print("%s males for %s from Iceland statistics"
           % (n_males, args.name))
     print("%s females for %s from Iceland statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(args.name, dataset="it")['males']
+    n_females = s.name_frec(args.name, dataset="it")['females']
+    print("%s males for %s from Italy statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Italy statistics"
           % (n_females, args.name))
     n_males = s.name_frec(args.name, dataset="fi")['males']
     n_females = s.name_frec(args.name, dataset="fi")['females']
@@ -348,6 +354,11 @@ else:
         print("%s males for %s from Iceland statistics"
               % (n_males, args.name))
         print("%s females for %s from Iceland statistics"
+              % (n_females, args.name))
+    elif (args.total == "it"):
+        print("%s males for %s from Italy statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Italy statistics"
               % (n_females, args.name))
     elif ((args.total == "ine") or (args.total == "es")):
         print("%s males for %s from Spain statistics (INE.es)"
