@@ -82,7 +82,7 @@ else
 fi
 
 
-python3 accuracy.py --measure="precision" --csv="files/names/min.csv" --api=genderize --jsondownloaded="files/names/genderizefiles_names_min.csv.json" > files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --measure="precision" --dataset_true="files/names/min.csv" --api=genderize --dataset_test="files/names/genderizefiles_names_min.csv.json" > files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracygenderizeminjsonprecision.txt files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -92,7 +92,7 @@ else
 fi
 
 
-python3 accuracy.py --api="genderguesser" --csv=files/names/min.csv --jsondownloaded=files/names/min.csv.json > files/tests/accuracygenderguesser-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --api="genderguesser" --dataset_true=files/names/min.csv --dataset_test=files/names/min.csv.json > files/tests/accuracygenderguesser-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracygenderguesser.txt files/tests/accuracygenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -101,7 +101,7 @@ else
 	echo -e  "accuracygenderguesser test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --api="genderguesser" --measure="precision" --csv=files/names/partialnoundefined.csv --jsondownloaded=files/names/partialnoundefined.csv.json > files/tests/accuracygenderguesserpartialnoundefinedjsonprecision-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --api="genderguesser" --measure="precision" --dataset_true=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json > files/tests/accuracygenderguesserpartialnoundefinedjsonprecision-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracygenderguesserpartialnoundefinedjsonprecision.txt files/tests/accuracygenderguesserpartialnoundefinedjsonprecision-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -110,7 +110,7 @@ else
 	echo -e  "accuracypartialprecisiongenderguesser test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --api="genderguesser" --measure="f1score" --csv=files/names/partialnoundefined.csv --jsondownloaded=files/names/partialnoundefined.csv.json > files/tests/accuracygenderguesserpartialnoundefinedjsonf1score-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --api="genderguesser" --measure="f1score" --dataset_true=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json > files/tests/accuracygenderguesserpartialnoundefinedjsonf1score-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracygenderguesserpartialnoundefinedjsonf1score.txt files/tests/accuracygenderguesserpartialnoundefinedjsonf1score-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -119,7 +119,7 @@ else
 	echo -e  "accuracypartialf1scoregenderguesser test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --api="genderguesser" --measure="recall" --csv=files/names/partialnoundefined.csv --jsondownloaded=files/names/partialnoundefined.csv.json > files/tests/accuracypartialrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --api="genderguesser" --measure="recall" --dataset_true=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json > files/tests/accuracypartialrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracypartialrecallgenderguesser.txt files/tests/accuracypartialrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -128,7 +128,7 @@ else
 	echo -e  "accuracypartialrecallgenderguesser test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --measure=accuracy --csv=files/names/partialnoundefined.csv --jsondownloaded=files/names/partialnoundefined.csv.json --api="damegender" > files/tests/accuracypartialnound-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --measure=accuracy --dataset_true=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json --api="damegender" > files/tests/accuracypartialnound-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracypartialnound.txt files/tests/accuracypartialnound-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
