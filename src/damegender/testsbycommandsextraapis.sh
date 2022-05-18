@@ -115,14 +115,6 @@ if [ -f files/apikeys/genderapipass.txt ]; then
 	echo -e "api2genderInésgenderapi test is ${GREEN}ok${NC}"
     fi
 
-    # python3 accuracy.py --api="genderapi" --csv="files/names/min.csv" > files/tests/accuracygenderapi-$(date "+%Y-%m-%d-%H").txt
-
-    # if ! diff files/tests/accuracygenderapi.txt files/tests/accuracygenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
-    # then
-    # 	echo "accuracygenderapi test is failing"
-    # else
-    # 	echo "accuracygenderapi test is ok"
-    # fi
 else
     echo "Doesn't exist files/apikeys/genderapipass.txt. You must introduce the api key in this file"
 
