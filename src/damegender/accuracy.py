@@ -37,6 +37,7 @@ from app.dame_utils import DameUtils
 import argparse
 import os
 parser = argparse.ArgumentParser()
+# TODO: dataset_true must be supported in json and csv (only csv now)
 parser.add_argument('--dataset_true', type=str, required=True,
                     default="files/names/min.csv",
                     help='csv test file with names, surnames and gender')
@@ -46,6 +47,7 @@ parser.add_argument('--dataset_true_row_surname', type=int,
                     required=False, default=1)
 parser.add_argument('--dataset_true_row_gender', type=int,
                     required=False, default=2)
+# TODO: dataset_test must be supported in json and csv (only json now)
 parser.add_argument('--dataset_test', required=True,
                     help='file generated with downloadjson.py or damegender2json.py')
 parser.add_argument('--dataset_test_row_name', type=int,
