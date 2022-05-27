@@ -13,3 +13,9 @@
 + [ ] File: conseil-departmental-haute-garonne.csv
 + [ ] Source: https://www.data.gouv.fr/fr/datasets/r/a26910c1-4860-4fa6-b077-7f49d2b856d9
 + [ ] License: https://www.etalab.gouv.fr/licence-ouverte-open-licence/
+
+* International
+** Performance of gender detection tools: a comparative study of name-to-gender inference services
++ [ ] File: gender_JMLA.dta
++ [ ] Source: https://osf.io/wjv7q/
++ [ ] License: https://raw.githubusercontent.com/CenterForOpenScience/cos.io/master/LICENSE
