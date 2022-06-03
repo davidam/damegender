@@ -77,7 +77,9 @@ elif (args.gender == "male"):
 
 if (int(args.names_by_multiple_files) == 1):
     for i in csvlist:
-        jsonfile = args.outdir + "/" + str(i[0].upper())
+        name = str(i[0].upper())
+        name = du.white_space_inside_by(name, "_")
+        jsonfile = args.outdir + "/" + name
         jsonfile = jsonfile + "_" + args.gender + ".json"
         file = open(jsonfile, "w")
         try:
