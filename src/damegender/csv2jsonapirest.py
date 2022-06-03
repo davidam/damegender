@@ -28,6 +28,7 @@
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
 import argparse
+import re
 
 parser = argparse.ArgumentParser()
 # Path is the path with the csv file of names.
@@ -79,6 +80,7 @@ if (int(args.names_by_multiple_files) == 1):
     for i in csvlist:
         name = str(i[0].upper())
         name = du.white_space_inside_by(name, "_")
+        name = re.sub(r'\-', r'_', name)        
         jsonfile = args.outdir + "/" + name
         jsonfile = jsonfile + "_" + args.gender + ".json"
         file = open(jsonfile, "w")
