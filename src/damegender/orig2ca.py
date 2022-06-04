@@ -42,19 +42,8 @@ outfemales = outpath + country  + "females.csv"
 
 origpath = outpath + "orig/"
 origfile = origpath + "baby-names-frequency.csv"
-    
-with open(origfile) as csvfile:
-    reader = csv.reader(csvfile, delimiter=',', quotechar='|')
-    next(reader, None)
-    l = []
-    dicc = {}
-    for row1 in reader:
-        # this for is only to set the dicc about names
-        name = du.drop_external_quotes(du.drop_white_space_around(row1[1]))
-        name = name.capitalize()
-        if (not(name in dicc.keys()) and (name != "")):
-            dicc[name] = {}
-csvfile.close()
+
+dicc = du.initialize_dictionary_names_from_file(origfile, 1)
 
 with open(origfile) as csvfile2:
     reader2 = csv.reader(csvfile2, delimiter=',', quotechar='|')
