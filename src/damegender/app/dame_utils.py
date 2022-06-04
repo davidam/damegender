@@ -468,7 +468,6 @@ class DameUtils():
     def initialize_dictionary_names_from_file(self, path, name_row_name):
         with open(path) as csvfile:
             reader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            next(reader, None)
             l = []
             dicc = {}
             for row1 in reader:
