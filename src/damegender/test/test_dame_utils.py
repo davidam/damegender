@@ -345,3 +345,11 @@ class TddInPythonExample(unittest.TestCase):
         id1 = 'David Arroyo Menéndez <davidam@es.gnu.org>'
         id2 = 'David Arroyo <davidam@gmail.com>'
         self.assertEqual(l2, [id1, id2])
+
+    def test_initialize_dictionary_names_from_file(self):
+        du = DameUtils()
+        file1 = "files/names/names_inter/dkfemales10.csv"
+        dicc = du.initialize_dictionary_names_from_file(file1, 0)
+        l = sorted(dicc.keys())
+        self.assertEqual(l, ["Clara", "Dilara", "Elena", "Julia", "Luisa", "Martin", "Roberta", "Rosa", "Sara", "Tabita", "Una"])
+        
