@@ -50,6 +50,7 @@ class DameUtils():
                     "ine": "files/names/names_es/esmasculinos.csv",
                     "inter": "files/names/names_inter/intermales.csv",
                     "is": "files/names/names_is/ismales.csv",
+                    "it": "files/names/names_it/itmales.csv",
                     "mx": "files/names/names_mx/hombres.csv",
                     "no": "files/names/names_no/nomales.csv",
                     "nz": "files/names/names_nz/nzmales.csv",
@@ -81,6 +82,7 @@ class DameUtils():
                     "ine": "files/names/names_es/esfemeninos.csv",
                     "inter": "files/names/names_inter/interfemales.csv",
                     "is": "files/names/names_is/isfemales.csv",
+                    "it": "files/names/names_it/itfemales.csv",
                     "mx": "files/names/names_mx/mujeres.csv",
                     "no": "files/names/names_no/nofemales.csv",
                     "nz": "files/names/names_nz/nzfemales.csv",
@@ -111,6 +113,7 @@ class DameUtils():
                     "ine": "files/names/names_es/esall.csv",
                     "inter": "files/names/names_inter/interall.csv",
                     "is": "files/names/names_is/isall.csv",
+                    "it": "files/names/names_it/itall.csv",                    
                     "mx": "files/names/names_mx/mxall.csv",
                     "no": "files/names/names_no/noall.csv",
                     "nz": "files/names/names_nz/nzall.csv",
@@ -461,3 +464,20 @@ class DameUtils():
             return True
         else:
             return False
+
+    def initialize_dictionary_names_from_file(self, path, name_row_name):
+        with open(path) as csvfile:
+            reader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            next(reader, None)
+            l = []
+            dicc = {}
+            for row1 in reader:
+                # this for is only to set the dicc about names
+                name = self.drop_external_quotes(self.drop_white_space_around(row1[name_row_name]))
+                name = name.capitalize()
+                if (not(name in dicc.keys()) and (name != "")):
+                    dicc[name] = {}
+        csvfile.close()
+        return dicc
+
+    
