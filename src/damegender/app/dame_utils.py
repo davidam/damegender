@@ -465,18 +465,34 @@ class DameUtils():
         else:
             return False
 
-    def initialize_dictionary_names_from_file(self, path, name_row_name):
+    def initialize_dictionary_names_from_file(self, path, row_name_position):
         with open(path) as csvfile:
             reader = csv.reader(csvfile, delimiter=',', quotechar='|')
             l = []
             dicc = {}
             for row1 in reader:
                 # this for is only to set the dicc about names
-                name = self.drop_external_quotes(self.drop_white_space_around(row1[name_row_name]))
+                name = self.drop_external_quotes(self.drop_white_space_around(row1[row_name_position]))
                 name = name.capitalize()
                 if (not(name in dicc.keys()) and (name != "")):
                     dicc[name] = {}
         csvfile.close()
         return dicc
 
-    
+    def initialize_dictionary_names_and_year_from_file(self, path, row_name_position, row_year_position):
+        dicc = {}
+        dicc = self.initialize_dictionary_names_from_file(path, row_name_position)
+        with open(path) as csvfile2:
+            reader2 = csv.reader(csvfile2, delimiter=',', quotechar='|')
+            next(reader2, None)
+            for row2 in reader2:
+                # this for is only to set the dicc about years and gender
+                name = self.drop_white_space_around(row2[row_name_position])
+                name = self.drop_external_quotes(name)
+                name = name.capitalize()
+                if (name != ""):
+                    dicc[name][row2[row_year_position]] = {}
+                    dicc[name][row2[row_year_position]]["male"] = {}
+                    dicc[name][row2[row_year_position]]["female"] = {}
+        csvfile2.close()
+        return dicc
