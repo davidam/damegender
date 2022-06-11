@@ -353,3 +353,11 @@ class TddInPythonExample(unittest.TestCase):
         l = sorted(dicc.keys())
         self.assertEqual(l, ["Clara", "Dilara", "Elena", "Julia", "Luisa", "Martin", "Roberta", "Rosa", "Sara", "Tabita", "Una"])
         
+    def test_initialize_dictionary_names_and_year_from_file(self):
+        du = DameUtils()
+        file1 = "files/names/names_uy/nombre_nacim_x_anio_sexo.csv"
+        dicc = du.initialize_dictionary_names_and_year_from_file(file1, 2, 0)
+        l = sorted(dicc.keys())
+        self.assertEqual(l[0:5], [' agustin', ' ambar', ' anita', ' axel', ' barbara'])
+        self.assertEqual(dicc[' agustin'], {'2004': {'female': {}, 'male': {}}, '2010': {'female': {}, 'male': {}}})
+        
