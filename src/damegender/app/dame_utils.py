@@ -164,6 +164,8 @@ class DameUtils():
         return arrs
 
     def path2file(self, s):
+        # Given s remove dots symbols
+        # in the string        
         aux = ""
         for c in unicodedata.normalize('NFD', str(s)):
             if ((c == ' ') | (c == '/')):
@@ -173,6 +175,8 @@ class DameUtils():
         return aux
 
     def drop_dots(self, s):
+        # Given s remove dots symbols
+        # in the string        
         aux = ""
         for c in unicodedata.normalize('NFD', str(s)):
             if (c != '.'):
@@ -180,6 +184,8 @@ class DameUtils():
         return aux
 
     def drop_quotes(self, s):
+        # Given s remove quotes symbols
+        # in the string        
         aux = ""
         for c in unicodedata.normalize('NFD', str(s)):
             if ((c != '"') and (c != "'")):
@@ -187,6 +193,8 @@ class DameUtils():
         return aux
 
     def drop_external_quotes(self, s):
+        # Given s remove quotes symbols
+        # in element zero and in the last element        
         aux = ""
         c = unicodedata.normalize('NFD', str(s))
         i = 0
@@ -202,8 +210,28 @@ class DameUtils():
                 aux = aux + c[i]
             i = i + 1
         return aux
-    
+
+    def drop_external_symbols(self, s, l):
+        # Given s remove symbols contained in l
+        # in element zero and in the last element
+        aux = ""
+        c = unicodedata.normalize('NFD', str(s))
+        i = 0
+        n = len(c)-1
+        while (i <= n):
+            if (i == 0):
+                if not(c[i] in l):
+                    aux = aux + c[i]
+            elif (i == n):
+                if not(c[i] in l):                
+                    aux = aux + c[i]
+            else:
+                aux = aux + c[i]
+            i = i + 1
+        return aux
+        
     def drop_white_space(self, s):
+        # Given s remove white space symbols 
         aux = ""
         for c in unicodedata.normalize('NFD', str(s)):
             if (c != ' '):
@@ -211,6 +239,7 @@ class DameUtils():
         return aux
 
     def single_hyphen_p(self, s):
+        # Given s return true if exists only one -
         cnt = 0
         for c in unicodedata.normalize('NFD', str(s)):
             if (c == '-'):
@@ -472,27 +501,30 @@ class DameUtils():
             dicc = {}
             for row1 in reader:
                 # this for is only to set the dicc about names
-                name = self.drop_external_quotes(self.drop_white_space_around(row1[row_name_position]))
+                name = row1[row_name_position]
+                name = self.drop_external_symbols(name, ['+', '"', "'"])
                 name = name.capitalize()
+                name = self.drop_white_space_around(name)                
                 if (not(name in dicc.keys()) and (name != "")):
                     dicc[name] = {}
         csvfile.close()
         return dicc
 
-    def initialize_dictionary_names_and_year_from_file(self, path, row_name_position, row_year_position):
-        dicc = {}
-        dicc = self.initialize_dictionary_names_from_file(path, row_name_position)
-        with open(path) as csvfile2:
-            reader2 = csv.reader(csvfile2, delimiter=',', quotechar='|')
-            next(reader2, None)
-            for row2 in reader2:
-                # this for is only to set the dicc about years and gender
-                name = self.drop_white_space_around(row2[row_name_position])
-                name = self.drop_external_quotes(name)
-                name = name.capitalize()
-                if (name != ""):
-                    dicc[name][row2[row_year_position]] = {}
-                    dicc[name][row2[row_year_position]]["male"] = {}
-                    dicc[name][row2[row_year_position]]["female"] = {}
-        csvfile2.close()
-        return dicc
+    # def initialize_dictionary_names_and_year_from_file(self, path, row_name_position, row_year_position):
+    #     dicc = {}
+    #     dicc = self.initialize_dictionary_names_from_file(path, row_name_position)
+    #     with open(path) as csvfile2:
+    #         reader2 = csv.reader(csvfile2, delimiter=',', quotechar='|')
+    #         next(reader2, None)
+    #         for row2 in reader2:
+    #             # this for is only to set the dicc about years and gender
+    #             name = row2[row_name_position]
+    #             name = self.drop_external_quotes(name)
+    #             name = name.capitalize()
+    #             name = self.drop_white_space_around(name)                
+    #             if (name != ""):
+    #                 dicc[name][row2[row_year_position]] = {}
+    #                 dicc[name][row2[row_year_position]]["males"] = 0
+    #                 dicc[name][row2[row_year_position]]["females"] = 0
+    #     csvfile2.close()
+    #     return dicc
