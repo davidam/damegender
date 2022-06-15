@@ -308,7 +308,14 @@ class TddInPythonExample(unittest.TestCase):
         self.assertTrue(s)
         s = du.initial_letters("JL")
         self.assertTrue(s)
+        s = du.initial_letters("A.Jose")
+        self.assertTrue(s)
+        s = du.initial_letters("A. Jose")
+        self.assertTrue(s)
+        s = du.initial_letters("Antonio Jose")
+        self.assertFalse(s)
 
+        
     def test_diccnames2csvfile(self):
         du = DameUtils()
         dicc = {}
