@@ -27,9 +27,9 @@
       \centering
       \begin{itemize}
       \item{\large If you want to determine gender gap in Free Software projects or mailing lists}\par
-      \item{\large If you don't know the gender about a name in Spanish or English}\par
+      \item{\large If you don't know the gender about a name}\par
       \item{\large If you want research with statistics about why a name is related with males or females.}\par
-      \item{\large If you want use the main solutions in gender detection (genderize, genderapi, namsor, nameapi and gender guesser) from a command.}\par
+      \item{\large If you want use the commercial apis in gender detection (genderize, genderapi, namsor, nameapi) from a command.}\par
       \end{itemize}
     \end{block}
     \vfill
@@ -46,6 +46,8 @@
            $$\$ python3 \hspace{1cm}  main.py \hspace{1cm}  David $$
            $$\$ python3 \hspace{1cm}  main.py \hspace{1cm}  Mesa \hspace{1cm} --ml=nltk $$
            $$\$ python3 \hspace{1cm} nameincountries.py \hspace{1cm} David $$
+           $$\$ python3 \hspace{1cm} surname.py \hspace{1cm} Arroyo --total=es $$ 
+           $$\$ python3 \hspace{1cm} surnameincountries.py \hspace{1cm} Arroyo $$                    
            $$\$ python3 \hspace{1cm} api2gender.py \hspace{1cm} Leticia \hspace{1cm}  -api=genderapi $$
         \end{block}
         \begin{block}{Statistics}
@@ -65,6 +67,7 @@
       \begin{column}{.48\linewidth}
         \begin{block}{Easy Installation and Testing}
           \centering
+           $$\$ \hspace{1cm} npm \hspace{1cm} i \hspace{1cm} damegender $$
            $$\$ \hspace{1cm} pip3 \hspace{1cm}  install \hspace{1cm}  damegender[all] $$
            $$\$ \hspace{1cm} python3 \hspace{1cm} apikeyadd.py $$
            $$\$ \hspace{1cm} cd \hspace{1cm} src/damegender \hspace{1cm} \& \hspace{1cm} nosetest3 \hspace{1cm} test $$
@@ -73,14 +76,9 @@
 
         \begin{block}{Open Datasets}
           \begin{itemize}
-          \item INE.es (Spanish) census names
-          \item United Kingdom census
-          \item USA census
-          \item Uruguay census
-          \item Ireland census
-          \item GenderGuesser
-          \item NLTK
+          \item Official Statistics Offices 
           \item Wikidata
+          \item GenderGuesser
           \end{itemize}
         \end{block}
       \end{column}
