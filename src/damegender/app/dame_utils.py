@@ -32,6 +32,8 @@ import csv
 class DameUtils():
 
     def dicc_dataset(self, sex):
+        # given the gender (sex) returns a dictionary where the key is
+        # the country and the value is the path with names and sex
         if ((sex == "male") or (sex == "males") or (sex == 1)):
             path = {"ar": "files/names/names_ar/armales.csv",
                     "at": "files/names/names_at/atmales.csv",
@@ -130,6 +132,7 @@ class DameUtils():
         return path
 
     def string2array(self, string):
+        # given a string returns an array splitted by white spaces
         res = ""
         string = unidecode.unidecode(string)
         if re.search(r' ', string):
@@ -138,9 +141,11 @@ class DameUtils():
         return array
 
     def is_not_blank(self, s):
+        # given a string returns True if it is not white spaces
         return bool(s and s.strip())
 
     def various_words_p(self, s):
+        # given a string returns True if the are several words
         match = re.search(r"( ?(\w+)( \w)+)|( ?(\w+)(\+\w)+)", s)
         if match:
             return 1
@@ -148,6 +153,7 @@ class DameUtils():
             return 0
 
     def represents_int(self, s):
+        # returns true if the string s is an integer
         try:
             int(s)
             return True
@@ -155,6 +161,7 @@ class DameUtils():
             return False
 
     def split(self, arr, size):
+        # TODO: to replace split name by divide_in_fragments
         arrs = []
         while len(arr) > size:
             pice = arr[:size]
@@ -164,8 +171,8 @@ class DameUtils():
         return arrs
 
     def path2file(self, s):
-        # Given s remove dots symbols
-        # in the string        
+        # given s replaces white spaces or slash symbols in
+        # the string by underscore
         aux = ""
         for c in unicodedata.normalize('NFD', str(s)):
             if ((c == ' ') | (c == '/')):
@@ -175,8 +182,7 @@ class DameUtils():
         return aux
 
     def drop_dots(self, s):
-        # Given s remove dots symbols
-        # in the string        
+        # given s removes dots symbols in the string        
         aux = ""
         for c in unicodedata.normalize('NFD', str(s)):
             if (c != '.'):
@@ -184,8 +190,7 @@ class DameUtils():
         return aux
 
     def drop_quotes(self, s):
-        # Given s remove quotes symbols
-        # in the string        
+        # given s removes quotes symbols in the string        
         aux = ""
         for c in unicodedata.normalize('NFD', str(s)):
             if ((c != '"') and (c != "'")):
@@ -193,7 +198,7 @@ class DameUtils():
         return aux
 
     def drop_external_quotes(self, s):
-        # Given s remove quotes symbols
+        # given s removes quotes symbols
         # in element zero and in the last element        
         aux = ""
         c = unicodedata.normalize('NFD', str(s))
@@ -212,7 +217,7 @@ class DameUtils():
         return aux
 
     def drop_external_symbols(self, s, l):
-        # Given s remove symbols contained in l
+        # given s removes symbols contained in l
         # in element zero and in the last element
         aux = ""
         c = unicodedata.normalize('NFD', str(s))
@@ -229,9 +234,9 @@ class DameUtils():
                 aux = aux + c[i]
             i = i + 1
         return aux
-        
+    
     def drop_white_space(self, s):
-        # Given s remove white space symbols 
+        # given s removes white space symbols 
         aux = ""
         for c in unicodedata.normalize('NFD', str(s)):
             if (c != ' '):
@@ -239,7 +244,7 @@ class DameUtils():
         return aux
 
     def single_hyphen_p(self, s):
-        # Given s return true if exists only one -
+        # given s returns true if exists only one -
         cnt = 0
         for c in unicodedata.normalize('NFD', str(s)):
             if (c == '-'):
@@ -261,6 +266,8 @@ class DameUtils():
         return aux
 
     def white_space_inside_by(self, s, by):
+        # given the string s and the character by replaces white
+        # spaces by the s character
         inside = 0
         aux = ""
         string = self.drop_white_space_around(s)
@@ -272,6 +279,7 @@ class DameUtils():
         return aux
 
     def drop_white_space_around(self, s):
+        # deleting white spaces around a string 
         aux = ""
         arr = unicodedata.normalize('NFD', str(s))
         i = 0
@@ -297,6 +305,7 @@ class DameUtils():
         return aux
 
     def drop_accents(self, s):
+        # given a string s delete accents
         return ''.join((c for c in unicodedata.normalize('NFD', s)
                         if unicodedata.category(c) != 'Mn'))
 
@@ -322,6 +331,8 @@ class DameUtils():
         return [fullname, email]
 
     def same_identity(self, string1, string2):
+        # given two strings with fullnames returns True
+        # when is the same person or identity
         same_identity = False
         string1 = self.drop_accents(string1)
         string2 = self.drop_accents(string2)
@@ -343,10 +354,12 @@ class DameUtils():
         return same_identity
 
     def list2lower(self, l1):
+        # returns a list with lower elements
         l2 = [element.lower() for element in l1]
         return l2
 
     def num_columns_in_csv(self, csvpath):
+        # returns the number of columns in a csv file
         with open(csvpath, 'r') as csvfile:
             first_line = csvfile.readline()
             ncol = first_line.count(',') + 1
@@ -408,6 +421,9 @@ class DameUtils():
         return 1
 
     def diccnames2csvfile(self, dicc, csvpath):
+        # given a dictionary where the names are keys make a csv file
+        # where the first column are names and the second column is
+        # the value of the name in the dictionary
         fo = open(csvpath, "w")
         for l1 in dicc.keys():
             fo.write(str(l1) + "," + str(dicc[l1]) + "\n")
@@ -415,6 +431,7 @@ class DameUtils():
         return 1
 
     def delete_duplicated(self, l1):
+        # given a list l1 returns a new list without duplicated elements
         if (len(l1) == 0):
             return []
         else:
@@ -425,6 +442,7 @@ class DameUtils():
         return nodup
 
     def delete_duplicated_identities(self, l1):
+        # given a list delete duplicated identities
         s = []
         for i in l1:
             if not(i in s):
@@ -463,6 +481,7 @@ class DameUtils():
         return l2
 
     def int2gender(self, int):
+        # given an integer returns the gender coded
         if (int == 0):
             gender = "female"
         elif (int == 1):
@@ -472,6 +491,8 @@ class DameUtils():
         return gender
 
     def number_or_zero(self, x):
+        # given the variable x returns a number or zero
+        # if x is not a number
         try:
             num = int(x)
         except ValueError:
@@ -479,6 +500,8 @@ class DameUtils():
         return num
 
     def round_and_not_zero_division(self, x, y):
+        # given x and y returns the division rounded
+        # or zero if x or y is zero
         if ((x == 0) and (y == 0)):
             return 0
         elif (y == 0):
@@ -488,6 +511,7 @@ class DameUtils():
             return (round(division, 2))
 
     def initial_letters(self, s):
+#        s = s.capitalize()
         match = re.search(r'(([A-Z][\.| ]){1,2})|([A-Z]{2})', s)
         if match:
             return True
