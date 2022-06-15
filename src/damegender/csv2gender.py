@@ -89,6 +89,8 @@ else:
 l1 = []
 
 for i in csvrowlist:
+    first_name_string = i[first_name_position]
+    first_name_string = du.white_space_inside_by(first_name_string, "_")
     first_name_string = du.drop_quotes(i[first_name_position])
     first_name_string = first_name_string.encode('utf-8')
     surname_string = ""
