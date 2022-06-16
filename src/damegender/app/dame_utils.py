@@ -256,6 +256,7 @@ class DameUtils():
         return boolean
 
     def replace_single_hyphen(self, s):
+        # given the string s replace hyphen by a white spaca
         if (self.single_hyphen_p(s)):
             aux = ""
             for c in unicodedata.normalize('NFD', str(s)):
@@ -310,6 +311,7 @@ class DameUtils():
                         if unicodedata.category(c) != 'Mn'))
 
     def drop_pwd(self, s):
+        # given a path drop the part of the that is pwd command
         cwd = os.getcwd()
         result = ""
         if re.search(cwd, s):
@@ -317,6 +319,7 @@ class DameUtils():
         return result
 
     def identity2name_email(self, s):
+        # given a string identify name and email in the string
         string1 = self.drop_accents(s)
         string2 = self.drop_quotes(string1)
         r1 = r"([\w+ ]*)<([\w\.\+\-]+\@[\w\.\+\-]+\.[a-z]{2,3})>"
@@ -405,6 +408,7 @@ class DameUtils():
         return l1
 
     def lists2csvfile(self, listoflists, csvpath, *args, **kwargs):
+        # given a list make a csv file
         samelen = True
         length0 = listoflists[0]
         name_position = kwargs.get('name_position', 0)
@@ -454,6 +458,7 @@ class DameUtils():
         return s
 
     def clean_list(self, l1):
+        # given a list drop elements with a pattern
         if (len(l1) == 0):
             print([])
         else:
@@ -464,6 +469,7 @@ class DameUtils():
         return aux
 
     def files_one_level(self, directory):
+        # given a folder returns a list with the files
         f = os.popen('find ' + directory)
         l1 = []
         for line in f:
@@ -472,6 +478,8 @@ class DameUtils():
         return l1
 
     def files_one_level_drop_pwd(self, directory):
+        # given a folder returns a list with the path of files
+        # without the part given by the pwd command
         f = os.popen('find ' + directory)
         l2 = []
         for line in f:
@@ -482,6 +490,8 @@ class DameUtils():
 
     def int2gender(self, int):
         # given an integer returns the gender coded
+        # TODO: ISO/IEC 5218 proposes a norm about coding gender:
+        #``0 as not know'',``1 as male'', ``2 as female'' and ``9 as not applicable''
         if (int == 0):
             gender = "female"
         elif (int == 1):
@@ -511,6 +521,7 @@ class DameUtils():
             return (round(division, 2))
 
     def initial_letters(self, s):
+        # returns true if the string seems initial from a full name
 #        s = s.capitalize()
         match = re.search(r'(([A-Z][\.| ]){1,2})|([A-Z]{2})', s)
         if match:
@@ -519,6 +530,8 @@ class DameUtils():
             return False
 
     def initialize_dictionary_names_from_file(self, path, row_name_position):
+        # first step processing orig files given a csv file
+        # returns a dictionary with the names set in the file
         with open(path) as csvfile:
             reader = csv.reader(csvfile, delimiter=',', quotechar='|')
             l = []
