@@ -27,6 +27,7 @@
 class DameWikidata():
 
     def dicc_countries(self):
+        # dictionary about wikidata codes and iso codes
         dicc = {"ad": "Q228",
                 "ae": "Q878",
                 "af": "Q889",
