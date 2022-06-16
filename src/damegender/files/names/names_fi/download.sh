@@ -21,6 +21,8 @@
 
 mkdir -p orig
 cd orig
-wget -c https://www.avoindata.fi/data/dataset/57282ad6-3ab1-48fb-983a-8aba5ff8d29a/resource/957d19a5-b87a-4c4d-8595-49c22d9d3c58/download/sukunimitilasto-2022-02-07-dvv.xlsx
-wget -c https://www.avoindata.fi/data/dataset/57282ad6-3ab1-48fb-983a-8aba5ff8d29a/resource/08c89936-a230-42e9-a9fc-288632e234f5/download/etunimitilasto-2022-02-07-dvv.xlsx
+wget -c https://www.avoindata.fi/data/dataset/57282ad6-3ab1-48fb-983a-8aba5ff8d29a/resource/957d19a5-b87a-4c4d-8595-49c22d9d3c58/download/sukunimitilasto-2022-02-07-dvv.xlsx -O sukunimitilasto.xlsx
+ssconvert -S sukunimitilasto.xlsx sukunimitilasto.csv
+wget -c https://www.avoindata.fi/data/dataset/57282ad6-3ab1-48fb-983a-8aba5ff8d29a/resource/08c89936-a230-42e9-a9fc-288632e234f5/download/etunimitilasto-2022-02-07-dvv.xlsx -O etunimitilasto.xlsx
+ssconvert -S etunimitilasto.xlsx etunimitilasto.csv
 cd ..
