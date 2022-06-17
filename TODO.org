@@ -1385,7 +1385,7 @@ estaba haciendo
 + [X] "gb"
 + [X] "ie"
 + [ ] "is"
-+ [ ] "no"
++ [X] "no"
 + [ ] "mx"
 + [X] "pt"
 + [X] "ru"
