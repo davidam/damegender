@@ -34,7 +34,14 @@ to the user
 
 Some LGTB associations are claiming by non binary options about gender,
 when these associations or collectives earns this idea in some state,
-we will be interested on to receive issues about it. 
+we will be interested on to receive issues about it.
+
+The standards has ideas about classifying male, female and other options.
+So, ISO/IEC 5218 proposes a norm about coding gender: ``0 as not know'',
+``1 as male'', ``2 as female'' and ``9 as not applicable''.
+The RFC 6350 where the section Gender has these categories: ``m as male'',
+``f as female'', ``o as other'', ``n as not applicable'' and ``u as
+undefined''. 
 
 ** Are you predicting ethical problems using machine learning for guess names?
 Machine learning is similar than statistics, so you don't be afraid
