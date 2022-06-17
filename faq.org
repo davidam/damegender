@@ -23,27 +23,18 @@ registering it. All states is using a binary ideology about the gender
 ** Is Damegender Free Software?
 
 Yes, it's. We are distributing the software in Pypi with GPLv3. You
-can read the license in all files and the full text in LICENSE file.
-
-On an experimental way we are using a better license for women in the
-dev branch. That's the copyright note: 
-
-You can share, copy and modify this software if you are a woman or you
-are David Arroyo Menéndez and you include this note.
-
-We have stopped this policy in some Open Source event (for example,
-Hacktoberfest) to speed up the development using only GPLv3. You will
-love hackaton spirit.
+can read the license in all files and the full text in GPL.txt file.
 
 ** Why are you guessing male or female?
 Some aplications are guessing unknown, but in Damegender we are
-thinking that this option is ok if the name is not in database. In
-this case, we are providing a binary response using machine learning.
+thinking that this option is ok if the name is not in database.
+We are providing a message about the problem with the dataset chosen
+and we are giving a guessed gender with machine learning giving intuitions
+to the user
 
-Some radical LGTB associations are claiming by non binary options
-about gender, that is not an option for us due to there not states
-acknowledging this need and providing Open Datasets about names and
-gender. The states are providing us the datasets.
+Some LGTB associations are claiming by non binary options about gender,
+when these associations or collectives earns this idea in some state,
+we will be interested on to receive issues about it. 
 
 ** Are you predicting ethical problems using machine learning for guess names?
 Machine learning is similar than statistics, so you don't be afraid
@@ -52,10 +43,10 @@ so that you are not depending of a very big company as Amazon for use
 the machine learning. 
 
 If you introduce a word such as chair, table, etc. you could have a
-gender ethical problem because you are giving a gender to a thing. In
-Afghanistan there are women with no names referenced as things, so the
-problem is dangerous. You can use Damegender to understand if the
-person is talking about a male or a female, but you must understand
+gender ethical problem because you are giving a gender to an object. In
+Afghanistan there are women with no names referenced as things, objects,
+..., so the problem is dangerous. You can use Damegender to understand
+if the person is talking about a male or a female, but you must understand
 that you must not self reference or reference to another people as
 things. Please be careful, it's your responsability.
 
@@ -64,8 +55,8 @@ More about Afghanistan and names:
 
 ** Is Damegender helping to preserve the cultural identity?
 Yes it's. When you can find in what countries are being used names and
-surnames you can understand the cultural identity with numbers. For
-example, the spanish names and surnames can be find in many countries
+surnames you can understand the cultural identity. For example,
+the spanish names and surnames can be find in many countries
 in South America, but don't with the same quantities. 
 
 ** Why are you using the word Damegender?
@@ -124,7 +115,7 @@ In my GNU/Linux installation you can access to Damegender from:
 /usr/local/lib/python3.7/site-packages/damegender
 #+END_SRC
 
-You can guess a name with
+You can guess a name with:
 
 #+BEGIN_SRC bash
 $ python3 main.py Clara
