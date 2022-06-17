@@ -21,5 +21,6 @@
 
 mkdir -p orig
 cd orig
-wget -c https://www.bfs.admin.ch/bfsstatic/dam/assets/18264297/master
+wget -c https://www.bfs.admin.ch/bfsstatic/dam/assets/18264297/master -O orig.xls
+ssconvert -S orig.xls orig.csv
 cd ..
