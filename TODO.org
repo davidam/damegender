@@ -1369,3 +1369,27 @@ estaba haciendo
   - State "DONE"       from "TODO"       [2022-04-08 vie 23:59]
 * DONE Crear un script en bash para ejecutar los test python
   - State "DONE"       from "TODO"       [2022-04-09 sáb 00:01]
+* TODO Reproducibilidad en Datasets
+** TODO download.sh en todos los paises con estadísticas oficiales
++ [X] "ar"
++ [X] "at"
++ [X] "au"
++ [X] "be"
++ [X] "ca"
++ [X] "ch"
++ [X] "de"
++ [ ] "dk"
++ [X] "es"
++ [X] "fi"
++ [X] "fr"
++ [X] "gb"
++ [X] "ie"
++ [ ] "is"
++ [ ] "no"
++ [ ] "mx"
++ [X] "pt"
++ [X] "ru"
++ [X] "se"
++ [X] "uy"
++ [X] "us"
+** TODO orig2.py en todos los paises con estadísticas oficiales
