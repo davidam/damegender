@@ -371,6 +371,20 @@ class TddInPythonExample(unittest.TestCase):
         # dicc2 = du.initialize_dictionary_names_from_file(file2, 2)
         # l2 = sorted(dicc2.keys())
         # self.assertEqual(l2[0:3], ["Clara", "Dilara", "Elena", "Julia"])
+
+    def test_reduce_csv_columns_to_name_and_freq(self):
+        du = DameUtils()
+        file1 = "files/tests/testorig1.csv"
+        file2 = "files/tmp/testres1.csv"
+        file3 = "files/tmp/testout1.csv"        
+        res = du.reduce_csv_columns_to_name_and_freq(file1, respath=file3, name=1, freq=2)
+        file2f = open(file2, 'r')
+        file3f = open(file3, 'r')
+        file2_lines = file2f.readlines()
+        file3_lines = file3f.readlines()
+        file2f.close()
+        file3f.close()
+        self.assertEqual(file2_lines, file3_lines)
         
     # def test_initialize_dictionary_names_and_year_from_file(self):
     #     du = DameUtils()
