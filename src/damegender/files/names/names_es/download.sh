@@ -23,6 +23,14 @@ mkdir -p orig
 cd orig
 wget -c https://www.ine.es/daco/daco42/nombyapel/nombres_por_edad_media.xls
 ssconvert -S nombres_por_edad_media.xls nombres_por_edad_media.csv
+cp nombres_por_edad_media.csv.0 masculinos_original.csv
+mv nombres_por_edad_media.csv.0 esmasculinos.csv
+sed "1,7d" esmasculinos.csv > aux.csv
+mv aux.csv esmasculinos.csv
+cp nombres_por_edad_media.csv.1 femeninos_original.csv
+mv nombres_por_edad_media.csv.1 esfemeninos.csv
+sed "1,7d" esfemeninos.csv > aux.csv
+mv aux.csv esfemeninos.csv
 wget -c https://www.ine.es/daco/daco42/nombyapel/apellidos_frecuencia.xls
 ssconvert -S apellidos_frecuencia.xls apellidos_frecuencia.csv
 awk -F'\t' '{print "\""$1"\""}' OFS='","' apellidos_frecuencia.csv.0 > essurnames.csv
