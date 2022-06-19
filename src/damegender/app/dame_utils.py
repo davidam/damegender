@@ -407,6 +407,19 @@ class DameUtils():
                         l1.append(row)
         return l1
 
+    def reduce_csv_columns_to_name_and_freq(self, csvpath, *args, **kwargs):
+        name = kwargs.get('name', 0)
+        freq = kwargs.get('freq', 1)
+        respath = kwargs.get('respath', 'files/tmp/respath.csv')        
+        l = self.csv2list(csvpath)
+        fo = open(respath, "w")
+        for i in l:
+            strname = self.drop_white_space_around(str(i[name]))
+            strfreq = self.drop_white_space_around(str(i[freq]))
+            fo.write(strname + "," + strfreq + "\n")
+        fo.close()
+        return 1
+    
     def lists2csvfile(self, listoflists, csvpath, *args, **kwargs):
         # given a list make a csv file
         samelen = True
@@ -541,7 +554,7 @@ class DameUtils():
                 name = row1[row_name_position]
                 name = self.drop_external_symbols(name, ['+', '"', "'"])
                 name = name.capitalize()
-                name = self.drop_white_space_around(name)                
+                name = self.drop_white_space_around(name)
                 if (not(name in dicc.keys()) and (name != "")):
                     dicc[name] = {}
         csvfile.close()
