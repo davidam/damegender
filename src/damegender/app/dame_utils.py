@@ -411,7 +411,7 @@ class DameUtils():
         name = kwargs.get('name', 0)
         freq = kwargs.get('freq', 1)
         respath = kwargs.get('respath', 'files/tmp/respath.csv')        
-        l = self.csv2list(csvpath)
+        l = self.csv2list(csvpath, header=False)
         fo = open(respath, "w")
         for i in l:
             strname = self.drop_white_space_around(str(i[name]))
