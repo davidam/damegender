@@ -414,7 +414,8 @@ class DameUtils():
         l = self.csv2list(csvpath, header=False)
         fo = open(respath, "w")
         for i in l:
-            strname = self.drop_white_space_around(str(i[name]))
+            strname = self.drop_quotes(str(i[name]))
+            strname = self.drop_white_space_around(strname)
             strfreq = self.drop_white_space_around(str(i[freq]))
             fo.write(strname + "," + strfreq + "\n")
         fo.close()
