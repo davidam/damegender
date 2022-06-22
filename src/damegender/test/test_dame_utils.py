@@ -139,6 +139,11 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual('Hola Mexico', u.drop_quotes('Hola "Mexico'))
         self.assertEqual("Hola Mexico", u.drop_quotes("Hola' 'Mexico"))
 
+    # def test_drop_symbols(self):
+    #     u = DameUtils()
+    #     self.assertEqual('Hola Mexico', u.drop_symbols('Hola "Mexico', ['"']))
+    #     self.assertEqual("Hola Mexico", u.drop_symbols("Hola@ #Mexico", ['@', '#']))
+        
     def test_drop_external_quotes(self):
         u = DameUtils()
         self.assertEqual('Hola "Mexico', u.drop_external_quotes('"Hola "Mexico'))
@@ -390,11 +395,19 @@ class TddInPythonExample(unittest.TestCase):
         file3f.close()
         self.assertEqual(file2_lines, file3_lines)
         
-    def test_initialize_dictionary_names_and_year_from_file(self):
+    def test_initialize_dictionary_names_and_years_from_file(self):
         du = DameUtils()
         file1 = "files/names/names_ie/orig/vsa10.csv"
-        dicc = du.initialize_dictionary_names_and_year_from_file(file1, 5, 2)
+        dicc = du.initialize_dictionary_names_and_years_from_file(file1, 5, 2)
         l = sorted(dicc.keys())
         self.assertEqual(l[0:5], ['Abbie', 'Abby', 'Abigail', 'Ada', 'Ailbhe'])
-
+        self.assertEqual(dicc["Ada"]["2019"]["females"], 0)
         
+    # def test_fill_dictionary_names_and_years_from_file(self):
+    #     du = DameUtils()
+    #     file1 = "files/names/names_ie/orig/vsa10.csv"
+    #     dicc = du.fill_dictionary_names_and_years_from_file(file1, 5, 2)
+    #     l = sorted(dicc.keys())
+    #     self.assertEqual(l[0:5], ['Abbie', 'Abby', 'Abigail', 'Ada', 'Ailbhe'])
+    #     print(dicc["Ada"])
+    #     self.assertTrue(dicc["Ada"]["2019"]["females"] > 0)
