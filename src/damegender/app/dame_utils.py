@@ -572,7 +572,7 @@ class DameUtils():
     #             name = row2[row_name_position]
     #             name = self.drop_external_quotes(name)
     #             name = name.capitalize()
-    #             name = self.drop_white_space_around(name)                
+    #             name = self.drop_white_space_around(name)
     #             if (name != ""):
     #                 dicc[name][row2[row_year_position]] = {}
     #                 dicc[name][row2[row_year_position]]["males"] = 0
