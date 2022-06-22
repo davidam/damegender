@@ -789,10 +789,11 @@ class Gender(object):
             surname_position = 0
             counter_position = 1
         else:
-            path = 'files/names/names_' + locale + '/' + locale + 'surnames.csv'
+            path = 'files/names/names_' + locale + '/'
+            path = path + locale + 'surnames.csv'
             surname_position = 0
             counter_position = 1
-            
+
         boolean = False
         with open(path) as csvfile:
             surnamereader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -834,7 +835,7 @@ class Gender(object):
     def csv2gender_list(self, path, *args, **kwargs):
         # counting males, females and unknown
         header = kwargs.get('header', True)
-        gender_row = kwargs.get('gender_row', 4)        
+        gender_row = kwargs.get('gender_row', 4)
         glist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='"')
