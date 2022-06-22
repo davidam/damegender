@@ -80,7 +80,7 @@ if (int(args.names_by_multiple_files) == 1):
     for i in csvlist:
         name = str(i[0].upper())
         name = du.white_space_inside_by(name, "_")
-        name = re.sub(r'\-', r'_', name)        
+        name = re.sub(r'\-', r'_', name)
         jsonfile = args.outdir + "/" + name
         jsonfile = jsonfile + "_" + args.gender + ".json"
         file = open(jsonfile, "w")
