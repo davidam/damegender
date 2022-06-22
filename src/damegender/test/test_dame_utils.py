@@ -367,6 +367,10 @@ class TddInPythonExample(unittest.TestCase):
         dicc = du.initialize_dictionary_names_from_file(file1, 0)
         l = sorted(dicc.keys())
         self.assertEqual(l, ["Clara", "Dilara", "Elena", "Julia", "Luisa", "Martin", "Roberta", "Rosa", "Sara", "Tabita", "Una"])
+        file2 = "files/names/names_ie/orig/vsa10.csv"
+        dicc2 = du.initialize_dictionary_names_from_file(file2, 5)
+        l2 = sorted(dicc2.keys())
+        self.assertEqual(l2[0:5], ['Abbie', 'Abby', 'Abigail', 'Ada', 'Ailbhe'])
         # file2 = "files/names/names_uy/orig/nombre_nacim_x_anio_sexo.csv"
         # dicc2 = du.initialize_dictionary_names_from_file(file2, 2)
         # l2 = sorted(dicc2.keys())
@@ -386,11 +390,11 @@ class TddInPythonExample(unittest.TestCase):
         file3f.close()
         self.assertEqual(file2_lines, file3_lines)
         
-    # def test_initialize_dictionary_names_and_year_from_file(self):
-    #     du = DameUtils()
-    #     file1 = "files/names/names_uy/orig/nombre_nacim_x_anio_sexo.csv"
-    #     dicc = du.initialize_dictionary_names_and_year_from_file(file1, 2, 0)
-    #     l = sorted(dicc.keys())
-    #     self.assertEqual(l[0:5], [' agustin', ' ambar', ' anita', ' axel', ' barbara'])
-    #     self.assertEqual(dicc[' agustin'], {'2004': {'female': {}, 'male': {}}, '2010': {'female': {}, 'male': {}}})
+    def test_initialize_dictionary_names_and_year_from_file(self):
+        du = DameUtils()
+        file1 = "files/names/names_ie/orig/vsa10.csv"
+        dicc = du.initialize_dictionary_names_and_year_from_file(file1, 5, 2)
+        l = sorted(dicc.keys())
+        self.assertEqual(l[0:5], ['Abbie', 'Abby', 'Abigail', 'Ada', 'Ailbhe'])
+
         
