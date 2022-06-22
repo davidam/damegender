@@ -551,10 +551,10 @@ class DameUtils():
             l = []
             dicc = {}
             for row1 in reader:
-                # this for is only to set the dicc about names
+                # to set the dicc about names
                 try:
                     name = row1[row_name_position]
-                    name = self.drop_external_symbols(name, ['+', '"', "'"])
+                    name = self.drop_quotes(name)
                     name = name.capitalize()
                     name = self.drop_white_space_around(name)
                     if (not(name in dicc.keys()) and (name != "")):
@@ -571,16 +571,18 @@ class DameUtils():
             reader2 = csv.reader(csvfile2, delimiter=',', quotechar='|')
             next(reader2, None)
             for row2 in reader2:
-                # this for is only to set the dicc about years and gender
+                # to set the dicc about years and gender
                 try:
                     name = row2[row_name_position]
-                    name = self.drop_external_quotes(name)
+                    name = self.drop_quotes(name)
                     name = name.capitalize()
                     name = self.drop_white_space_around(name)
                     if (name != ""):
-                        dicc[name][row2[row_year_position]] = {}
-                        dicc[name][row2[row_year_position]]["males"] = 0
-                        dicc[name][row2[row_year_position]]["females"] = 0
+                        year = row2[row_year_position]
+                        year = self.drop_quotes(year)
+                        dicc[name][year] = {}
+                        dicc[name][year]["males"] = 0
+                        dicc[name][year]["females"] = 0
                 except IndexError:
                     print("The program has troubles with the array indexes")
         csvfile2.close()
