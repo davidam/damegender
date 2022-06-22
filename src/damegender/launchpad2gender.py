@@ -89,9 +89,8 @@ if (len(sys.argv) > 1):
     if ((args.show == 'females') or (args.show == 'all')):
         print("The list of females using launchpad is:" % list_females)
         print(list_females)
-        
+
     print("The number of unknowns using launchpad is %s" % unknowns)
     if ((args.show == 'unknowns') or (args.show == 'all')):
         print("The list of unknowns using launchpad is:" % list_unknowns)
         print(list_unknowns)
-        
