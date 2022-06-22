@@ -103,7 +103,7 @@ if (len(sys.argv) > 1):
         for i in arraygender:
             try:
                 if ("Male" in i.text):
-                    print("Male")                    
+                    print("Male")
                 elif ("Female" in i.text):
                     female = True
             except:

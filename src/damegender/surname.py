@@ -50,18 +50,21 @@ de = DameEthnicity()
 if (args.total == "inter"):
     country = "the International Dataset"
 else:
-    country = de.iso3166_to_eng(args.total)    
-    
+    country = de.iso3166_to_eng(args.total)
+
 results = []
 
 g = Gender()
 v = g.guess_surname(args.surname, args.total)
 
 if v[0]:
+    bool1 = args.total in isocodes
+    bool2 = ((args.total == 'es') or (args.total == 'ine'))
+
     if (args.total == "inter"):
         print("There are %s people using %s in %s"
-              % (v[1], args.surname, country))            
-    elif ((args.total in isocodes) and not((args.total == 'es') or (args.total == 'ine'))):
+              % (v[1], args.surname, country))
+    elif (bool1 and bool2):
         print("There are %s people using %s in %s"
               % (v[1], args.surname, country))
     elif ((args.total == 'es') or (args.total == 'ine')):
@@ -243,6 +246,7 @@ else:
 if (args.total in g.config['DATASET']['official_surnames']):
     print("Source: Official Statistics in %s" % (country))
 elif (args.total == "inter"):
-    print("Source: Official Statistics and Wikidata (retrieved betwen March and April (2022)")
+    print("Source: Official Statistics and Wikidata")
+    print("(retrieved betwen March and April (2022)")
 else:
     print("Source: Wikidata (retrieved betwen March and April (2022)")
