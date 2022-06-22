@@ -54,6 +54,8 @@ class DameStatistics(object):
 # METHODS ABOUT STATISTICS #
 
     def count_true2guess(self, truevector, guessvector, true, guess):
+        # counting what is happenning between the true vector and
+        # the guess vector
         i = 0
         count = 0
         if (len(truevector) >= len(guessvector)):
@@ -67,33 +69,70 @@ class DameStatistics(object):
         return count
 
     def femalefemale(self, truevector, guessvector):
+        # how many times occurs that
+        # in the true vector there are female and
+        # in the guess vector there are female
+        # true positive in jargon math
         return self.count_true2guess(truevector, guessvector, 0, 0)
 
     def femalemale(self, truevector, guessvector):
+        # how many times occurs that
+        # in the true vector there are female and
+        # in the guess vector there are male
+        # false negative in jargon math
         return self.count_true2guess(truevector, guessvector, 0, 1)
 
     def femaleundefined(self, truevector, guessvector):
+        # how many times occurs that
+        # in the true vector there are female and
+        # in the guess vector there are undefined
         return self.count_true2guess(truevector, guessvector, 0, 2)
 
     def malefemale(self, truevector, guessvector):
+        # how many times occurs that
+        # in the true vector there are male and
+        # in the guess vector there are female
+        # false positive in jargon math
         return self.count_true2guess(truevector, guessvector, 1, 0)
 
     def malemale(self, truevector, guessvector):
+        # how many times occurs that
+        # in the true vector there are male and
+        # in the guess vector there are male
+        # true negative in jargon math
         return self.count_true2guess(truevector, guessvector, 1, 1)
 
     def maleundefined(self, truevector, guessvector):
+        # how many times occurs that in the true vector there are male
+        # and in the guess vector there are undefined
         return self.count_true2guess(truevector, guessvector, 1, 2)
 
     def undefinedfemale(self, truevector, guessvector):
+        # how many times occurs that
+        # in the true vector there are undefined and
+        # in the guess vector there are female
         return self.count_true2guess(truevector, guessvector, 2, 0)
 
     def undefinedmale(self, truevector, guessvector):
+        # how many times occurs that
+        # in the true vector there are undefined and
+        # in the guess vector there are male        
         return self.count_true2guess(truevector, guessvector, 2, 1)
 
     def undefinedundefined(self, truevector, guessvector):
+        # how many times occurs that
+        # in the true vector there are undefined and
+        # in the guess vector there are undefined        
         return self.count_true2guess(truevector, guessvector, 2, 2)
 
+    # STATISTICAL MEASURES LECTURES
+    # + https://towardsdatascience.com/a-look-at-precision-recall-and-f1-score-36b5fd0dd3ec
+    # + https://arxiv.org/abs/2010.16061
+    # + https://github.com/davidam/damegender/blob/dev/manual/damegender.pdf
+    
     def accuracy_score_dame(self, truevector, guessvector):
+        # accuracy score is about successful between true and guess:
+        # femalefemale + malemale dividing the sum of all options
         if (len(truevector) == len(guessvector)):
             divider = self.femalefemale(truevector, guessvector)
             divider = divider + self.malemale(truevector, guessvector)
@@ -114,6 +153,9 @@ class DameStatistics(object):
         return result
 
     def precision(self, truevector, guessvector):
+        # precision is about successful between true and guess:
+        # femalefemale + malemale dividing the sum of all options
+        # but not including undefined
         result = 0
         divider = self.femalefemale(truevector, guessvector)
         divider = divider + self.malemale(truevector, guessvector)
