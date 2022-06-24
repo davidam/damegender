@@ -234,6 +234,13 @@ class DameUtils():
                 aux = aux + c[i]
             i = i + 1
         return aux
+
+    def drop_all_external_symbols(self, s, l):
+        # given s removes all symbols contained in l
+        # in external positions of a string (name)        
+        while ((s[0] in l) or (s[-1] in l)):
+            s = self.drop_external_symbols(s, l)
+        return s
     
     def drop_white_space(self, s):
         # given s removes white space symbols 
@@ -554,9 +561,9 @@ class DameUtils():
                 # to set the dicc about names
                 try:
                     name = row1[row_name_position]
-                    name = self.drop_quotes(name)
+                    external = [" ", "'", '"']
+                    name = self.drop_all_external_symbols(name, external)
                     name = name.capitalize()
-                    name = self.drop_white_space_around(name)
                     if (not(name in dicc.keys()) and (name != "")):
                         dicc[name] = {}
                 except IndexError:

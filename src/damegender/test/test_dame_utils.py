@@ -151,9 +151,16 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_initialize_dictionary_drop_external_symbols(self):
         du = DameUtils()
+        self.assertEqual('', du.drop_external_symbols('"', ['"']))        
         self.assertEqual('Hola "Mexico', du.drop_external_symbols('"Hola "Mexico', ['"']))
         self.assertEqual('Hola', du.drop_external_symbols('-Hola+', ['-', '+']))
         self.assertEqual('Hola Mexico', du.drop_external_symbols('-Hola Mexico+', ['-', '+']))        
+
+    def test_initialize_dictionary_drop_external_symbols(self):
+        du = DameUtils()
+        self.assertEqual('', du.drop_external_symbols('"', ['"']))        
+        self.assertEqual('Hola "Mexico', du.drop_all_external_symbols('"""""Hola "Mexico', ['"']))
+
         
     def test_delete_duplicated_identities(self):
         g = Gender()
