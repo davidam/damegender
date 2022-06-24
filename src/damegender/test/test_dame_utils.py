@@ -366,14 +366,14 @@ class TddInPythonExample(unittest.TestCase):
         id2 = 'David Arroyo <davidam@gmail.com>'
         self.assertEqual(l2, [id1, id2])
 
-    def test_initialize_dictionary_names_from_file(self):
+    def test_init_dicc_names_from_file(self):
         du = DameUtils()
         file1 = "files/names/names_inter/dkfemales10.csv"
-        dicc = du.initialize_dictionary_names_from_file(file1, 0)
+        dicc = du.init_dicc_names_from_file(file1, 0)
         l = sorted(dicc.keys())
         self.assertEqual(l, ["Clara", "Dilara", "Elena", "Julia", "Luisa", "Martin", "Roberta", "Rosa", "Sara", "Tabita", "Una"])
         file2 = "files/names/names_ie/orig/vsa10.csv"
-        dicc2 = du.initialize_dictionary_names_from_file(file2, 5)
+        dicc2 = du.init_dicc_names_from_file(file2, 5)
         l2 = sorted(dicc2.keys())
         self.assertEqual(l2[0:5], ['Abbie', 'Abby', 'Abigail', 'Ada', 'Ailbhe'])
         # file2 = "files/names/names_uy/orig/nombre_nacim_x_anio_sexo.csv"
@@ -395,13 +395,24 @@ class TddInPythonExample(unittest.TestCase):
         file3f.close()
         self.assertEqual(file2_lines, file3_lines)
         
-    def test_initialize_dictionary_names_and_years_from_file(self):
+    def test_init_dicc_names_and_years_from_file(self):
         du = DameUtils()
         file1 = "files/names/names_ie/orig/vsa10.csv"
-        dicc = du.initialize_dictionary_names_and_years_from_file(file1, 5, 2)
+        dicc = du.init_dicc_names_and_years_from_file(file1, 5, 1998, 2019)
         l = sorted(dicc.keys())
         self.assertEqual(l[0:5], ['Abbie', 'Abby', 'Abigail', 'Ada', 'Ailbhe'])
-        self.assertEqual(dicc["Ada"]["2019"]["females"], 0)
+        self.assertEqual(dicc["Ada"][2019]["females"], 0)
+
+
+        
+    # def test_file_year2dicc_females(self):
+    #     du = DameUtils()
+    #     file1 = "files/names/names_de/orig/Vornamen_2020_Koeln.csv"
+    #     file2 = "files/names/names_de/orig/Vornamen_Koeln_2014.csv"
+    #     dicc = du.file_year2dicc_females(file1, name_position=1, quantity_position=0, gender_position=2, filter_females="w")
+    #     print(dicc["Marie"])
+    #     self.assertEqual(dicc["Marie"], 207)
+
         
     # def test_fill_dictionary_names_and_years_from_file(self):
     #     du = DameUtils()

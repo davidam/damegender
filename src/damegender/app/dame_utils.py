@@ -543,7 +543,7 @@ class DameUtils():
         else:
             return False
 
-    def initialize_dictionary_names_from_file(self, path, row_name_position):
+    def init_dicc_names_from_file(self, path, row_name_position):
         # first step processing orig files given a csv file
         # returns a dictionary with the names set in the file
         with open(path) as csvfile:
@@ -564,26 +564,78 @@ class DameUtils():
         csvfile.close()
         return dicc
 
-    def initialize_dictionary_names_and_year_from_file(self, path, row_name_position, row_year_position):
+    def init_dicc_names_and_years_from_file(self, path, row_name_position, from_year, until_year):
         dicc = {}
-        dicc = self.initialize_dictionary_names_from_file(path, row_name_position)
-        with open(path) as csvfile2:
-            reader2 = csv.reader(csvfile2, delimiter=',', quotechar='|')
-            next(reader2, None)
-            for row2 in reader2:
-                # to set the dicc about years and gender
-                try:
-                    name = row2[row_name_position]
-                    name = self.drop_quotes(name)
-                    name = name.capitalize()
-                    name = self.drop_white_space_around(name)
-                    if (name != ""):
-                        year = row2[row_year_position]
-                        year = self.drop_quotes(year)
-                        dicc[name][year] = {}
-                        dicc[name][year]["males"] = 0
-                        dicc[name][year]["females"] = 0
-                except IndexError:
-                    print("The program has troubles with the array indexes")
-        csvfile2.close()
+        dicc = self.init_dicc_names_from_file(path, row_name_position)
+        for d in dicc.keys():
+            if (from_year < until_year):
+                i = from_year
+            while (i <= until_year):
+                dicc[d][i] = {}
+                dicc[d][i]["males"] = 0
+                dicc[d][i]["females"] = 0
+                i = i + 1
         return dicc
+    
+    # def fill_dicc_names_and_years_from_file(self, inputpath, row_name_position, row_year_position):
+    #     dicc = {}
+    #     dicc = self.init_dicc_names_and_years_from_file(inputpath, row_name_position, row_year_position)
+    #     for i in dicc.keys():
+    #         males = 0
+    #         females = 0
+    #         print(i)
+    #         for j in dicc[i].keys():
+    #             print(j)
+    #             if (dicc[i][j]["females"] == 0):
+    #                 num = 0
+    #             else:
+    #                 num = dicc[i][j]["females"]
+    #             females = females + int(num)
+    #             if (dicc[i][j]["males"] == 0):
+    #                 num = 0
+    #             else:
+    #                 num = dicc[i][j]["males"]
+    #             males = males + int(num)
+    #         dicc[i]["females"] = females
+    #         dicc[i]["males"] = males
+    #     return dicc
+
+    # def file_year2dicc_males(self, inputpath, name_pos, quantity_pos, gender_pos, *args, **kwargs):
+    #     filter_males = kwargs.get('filter_males', 'm')
+    #     filter_position = kwargs.get('filter_pos', 1)
+
+    #     diccmales = {}
+    #     with open(inputpath) as csvfile:
+    #         next(csvfile) # skipping the header row, first row
+    #         sreader = csv.reader(csvfile, delimiter=';', quotechar='|')
+    #         for row in sreader:
+    #             if (row[gender_pos] == filter_males):
+    #                 if (row[name_pos] in diccmales.keys()):
+    #                     val = diccmales[row[name_pos]]
+    #                     diccmales[row[name_pos]] = int(val) + int(row[quantity_pos])
+    #                 else:
+    #                     diccmales[row[name_pos]] = row[quantity_pos]
+    #     return diccmales
+
+    # def file_year2dicc_females(self, inputpath, name_pos, quantity_pos, gender_pos, *args, **kwargs):
+    #     diccfemales = {}
+    #     with open(inputpath) as csvfile:
+    #         next(csvfile) # skipping the header row, first row
+    #         sreader = csv.reader(csvfile, delimiter=';', quotechar='|')
+    #         for row in sreader:
+    #             if (row[gender_pos] == filter_females):
+    #                 if (row[name_pos] in diccfemales.keys()):
+    #                     val = diccfemales[row[name_pos]]
+    #                     diccfemales[row[name_pos]] = int(val) + int(row[quantity_pos])
+    #                 else:
+    #                     diccfemales[row[name_pos]] = row[quantity_pos]
+    #     return diccfemales
+
+                # elif (row[2] == 'w'):
+                #     if (row[0] in diccfemales.keys()):
+                #         val = diccfemales[row[0]]
+                #         diccfemales[row[0]] = int(val) + int(row[1])
+                #     else:
+                #         diccfemales[row[0]] = row[1]
+
+        
