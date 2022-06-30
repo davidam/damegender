@@ -190,7 +190,7 @@ class DameUtils():
         return aux
 
     def drop_quotes(self, s):
-        # given s removes quotes symbols in the string        
+        # given s removes quotes symbols in the string
         aux = ""
         for c in unicodedata.normalize('NFD', str(s)):
             if ((c != '"') and (c != "'")):
@@ -199,7 +199,7 @@ class DameUtils():
 
     def drop_external_quotes(self, s):
         # given s removes quotes symbols
-        # in element zero and in the last element        
+        # in element zero and in the last element
         aux = ""
         c = unicodedata.normalize('NFD', str(s))
         i = 0
@@ -237,13 +237,13 @@ class DameUtils():
 
     def drop_all_external_symbols(self, s, l):
         # given s removes all symbols contained in l
-        # in external positions of a string (name)        
+        # in external positions of a string (name)
         while ((s[0] in l) or (s[-1] in l)):
             s = self.drop_external_symbols(s, l)
         return s
     
     def drop_white_space(self, s):
-        # given s removes white space symbols 
+        # given s removes white space symbols
         aux = ""
         for c in unicodedata.normalize('NFD', str(s)):
             if (c != ' '):
@@ -263,7 +263,7 @@ class DameUtils():
         return boolean
 
     def replace_single_hyphen(self, s):
-        # given the string s replace hyphen by a white spaca
+        # given the string s replace hyphen by a white space
         if (self.single_hyphen_p(s)):
             aux = ""
             for c in unicodedata.normalize('NFD', str(s)):
@@ -287,7 +287,7 @@ class DameUtils():
         return aux
 
     def drop_white_space_around(self, s):
-        # deleting white spaces around a string 
+        # deleting white spaces around a string
         aux = ""
         arr = unicodedata.normalize('NFD', str(s))
         i = 0
@@ -389,6 +389,26 @@ class DameUtils():
                 l1.append(row[position])
         return l1
 
+    def find_max_and_min_in_column(self, path, row_position, *args, **kwargs):
+        header = kwargs.get('header', True)
+        delimiter = kwargs.get('delimiter', ',')
+        l1 = []
+        l1 = self.csvcolumn2list(path,
+                                 position=row_position,
+                                 header=header,
+                                 delimiter=delimiter)
+        maxi = int(l1[0])
+        mini = int(l1[0])
+        for elem in l1:
+            elemint = int(elem)
+            if (elemint > maxi):
+                maxi = elemint
+            if (elemint < mini):
+                mini = elemint
+        l2 = []
+        l2 = [mini, maxi]
+        return l2
+    
     def csv2list(self, csvpath,  *args, **kwargs):
         # make a list from a csv file
         header = kwargs.get('header', True)
@@ -454,7 +474,7 @@ class DameUtils():
             fo.write(str(l1) + "," + str(dicc[l1]) + "\n")
         fo.close()
         return 1
-
+    
     def delete_duplicated(self, l1):
         # given a list l1 returns a new list without duplicated elements
         if (len(l1) == 0):
@@ -583,29 +603,30 @@ class DameUtils():
                 dicc[d][i]["females"] = 0
                 i = i + 1
         return dicc
+        
     
-    # def fill_dicc_names_and_years_from_file(self, inputpath, row_name_position, row_year_position):
-    #     dicc = {}
-    #     dicc = self.init_dicc_names_and_years_from_file(inputpath, row_name_position, row_year_position)
-    #     for i in dicc.keys():
-    #         males = 0
-    #         females = 0
-    #         print(i)
-    #         for j in dicc[i].keys():
-    #             print(j)
-    #             if (dicc[i][j]["females"] == 0):
-    #                 num = 0
-    #             else:
-    #                 num = dicc[i][j]["females"]
-    #             females = females + int(num)
-    #             if (dicc[i][j]["males"] == 0):
-    #                 num = 0
-    #             else:
-    #                 num = dicc[i][j]["males"]
-    #             males = males + int(num)
-    #         dicc[i]["females"] = females
-    #         dicc[i]["males"] = males
-    #     return dicc
+    def fill_dicc_names_and_years_from_file(self, inputpath, row_name_position, row_year_position):
+        dicc = {}
+        dicc = self.init_dicc_names_and_years_from_file(inputpath, row_name_position, row_year_position)
+        for i in dicc.keys():
+            males = 0
+            females = 0
+            print(i)
+            for j in dicc[i].keys():
+                print(j)
+                if (dicc[i][j]["females"] == 0):
+                    num = 0
+                else:
+                    num = dicc[i][j]["females"]
+                females = females + int(num)
+                if (dicc[i][j]["males"] == 0):
+                    num = 0
+                else:
+                    num = dicc[i][j]["males"]
+                males = males + int(num)
+            dicc[i]["females"] = females
+            dicc[i]["males"] = males
+        return dicc
 
     # def file_year2dicc_males(self, inputpath, name_pos, quantity_pos, gender_pos, *args, **kwargs):
     #     filter_males = kwargs.get('filter_males', 'm')

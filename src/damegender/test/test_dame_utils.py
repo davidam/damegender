@@ -156,11 +156,11 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual('Hola', du.drop_external_symbols('-Hola+', ['-', '+']))
         self.assertEqual('Hola Mexico', du.drop_external_symbols('-Hola Mexico+', ['-', '+']))        
 
-    def test_initialize_dictionary_drop_external_symbols(self):
+    def test_initialize_dictionary_drop_all_external_symbols(self):
         du = DameUtils()
-        self.assertEqual('', du.drop_external_symbols('"', ['"']))        
+        # self.assertEqual('', du.drop_all_external_symbols('', ['"']))                
+        # self.assertEqual('', du.drop_all_external_symbols('"', ['"']))        
         self.assertEqual('Hola "Mexico', du.drop_all_external_symbols('"""""Hola "Mexico', ['"']))
-
         
     def test_delete_duplicated_identities(self):
         g = Gender()
@@ -410,6 +410,13 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(l[0:5], ['Abbie', 'Abby', 'Abigail', 'Ada', 'Ailbhe'])
         self.assertEqual(dicc["Ada"][2019]["females"], 0)
 
+    def test_find_max_and_min_in_column(self):
+        du = DameUtils()
+        file1 = "files/tests/testatde.csv"
+        l = du.find_max_and_min_in_column(file1, 1)
+        self.assertEqual(100, l[0])
+        self.assertEqual(80445, l[1])
+        
 
         
     # def test_file_year2dicc_females(self):
