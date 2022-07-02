@@ -46,6 +46,7 @@ parser.add_argument('--version', action='version', version='0.3')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
 
+
 de = DameEthnicity()
 if (args.total == "inter"):
     country = "the International Dataset"
@@ -60,11 +61,7 @@ v = g.guess_surname(args.surname, args.total)
 if v[0]:
     bool1 = args.total in isocodes
     bool2 = ((args.total == 'es') or (args.total == 'ine'))
-    
     if (args.total == "inter"):
-        print("There are %s people using %s in %s"
-              % (v[1], args.surname, country))
-    elif bool1:
         print("There are %s people using %s in %s"
               % (v[1], args.surname, country))
     elif bool2:
@@ -239,6 +236,9 @@ The previous data is only for the 50 most frequently first
 surnames located by place where the person is living
 """
             print(string2)
+    elif bool1:
+        print("There are %s people using %s in %s"
+              % (v[1], args.surname, country))            
 else:
     print("It has not been found %s in %s"
           % (args.surname, country))
