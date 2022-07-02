@@ -52,7 +52,10 @@ l1 = []
 for i in l0:
     csvpath = dg.path_surname_dataset(i)
     columnlist = du.csvcolumn2list(csvpath)
-    if ((surname.upper() in columnlist) or (surname in columnlist) or (surname.capitalize() in columnlist)):
+    bool1 = (surname.upper() in columnlist)
+    bool2 = (surname in columnlist)
+    bool3 = (surname.capitalize() in columnlist)
+    if (bool1 or bool2 or bool3):
         l1 = l1 + [i]
 
 l1 = sorted(du.clean_list(l1))
@@ -60,7 +63,7 @@ l1 = sorted(du.clean_list(l1))
 if (len(l1) > 0):
     print("It has been detected the surname %s in these countries:" % surname)
 else:
-    print("It has been detected the surname %s in these countries:" % surname)    
+    print("It has been detected the surname %s in these countries:" % surname)
 
 for i in l1:
     print("+ %s" % de.iso3166_to_eng(i))
