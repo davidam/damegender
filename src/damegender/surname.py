@@ -60,14 +60,14 @@ v = g.guess_surname(args.surname, args.total)
 if v[0]:
     bool1 = args.total in isocodes
     bool2 = ((args.total == 'es') or (args.total == 'ine'))
-
+    
     if (args.total == "inter"):
         print("There are %s people using %s in %s"
               % (v[1], args.surname, country))
-    elif (bool1 and bool2):
+    elif bool1:
         print("There are %s people using %s in %s"
               % (v[1], args.surname, country))
-    elif ((args.total == 'es') or (args.total == 'ine')):
+    elif bool2:
         print("There are %s people using %s in Spain"
               % (v[1], args.surname))
         if (args.spanish_provinces):
