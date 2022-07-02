@@ -405,9 +405,10 @@ class DameUtils():
                 maxi = elemint
             if (elemint < mini):
                 mini = elemint
-        l2 = []
-        l2 = [mini, maxi]
-        return l2
+        dicc = {}
+        dicc["min"] = mini
+        dicc["max"] = maxi
+        return dicc
     
     def csv2list(self, csvpath,  *args, **kwargs):
         # make a list from a csv file
@@ -592,6 +593,8 @@ class DameUtils():
         return dicc
 
     def init_dicc_names_and_years_from_file(self, path, row_name_position, from_year, until_year):
+        # given a csv file, a row_name_position, and a range of years
+        # returns a dictionary with values set to zero
         dicc = {}
         dicc = self.init_dicc_names_from_file(path, row_name_position)
         for d in dicc.keys():
@@ -603,11 +606,11 @@ class DameUtils():
                 dicc[d][i]["females"] = 0
                 i = i + 1
         return dicc
-        
-    
-    def fill_dicc_names_and_years_from_file(self, inputpath, row_name_position, row_year_position):
-        dicc = {}
-        dicc = self.init_dicc_names_and_years_from_file(inputpath, row_name_position, row_year_position)
+
+    def fill_dicc_names_and_years_from_file(self, inputpath, row_name_position, from_year, until_year):
+        d0 = self.find_max_and_min_in_column(inputpath, row_name_position)
+        d1 = {}
+        d1 = self.init_dicc_names_and_years_from_file(inputpath, row_name_position, d0["min"], d0["max"])
         for i in dicc.keys():
             males = 0
             females = 0
@@ -665,5 +668,3 @@ class DameUtils():
                 #         diccfemales[row[0]] = int(val) + int(row[1])
                 #     else:
                 #         diccfemales[row[0]] = row[1]
-
-        
