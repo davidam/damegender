@@ -115,21 +115,21 @@ class DameStatistics(object):
 
     def undefinedmale(self, truevector, guessvector):
         # how many times occurs that
-        # in the true vector there are undefined and
-        # in the guess vector there are male        
+        # in the true vector there are undefined
+        # and in the guess vector there are male
         return self.count_true2guess(truevector, guessvector, 2, 1)
 
     def undefinedundefined(self, truevector, guessvector):
         # how many times occurs that
         # in the true vector there are undefined and
-        # in the guess vector there are undefined        
+        # in the guess vector there are undefined
         return self.count_true2guess(truevector, guessvector, 2, 2)
 
-    # STATISTICAL MEASURES LECTURES
-    # + https://towardsdatascience.com/a-look-at-precision-recall-and-f1-score-36b5fd0dd3ec
-    # + https://arxiv.org/abs/2010.16061
-    # + https://github.com/davidam/damegender/blob/dev/manual/damegender.pdf
-    
+# STATISTICAL MEASURES LECTURES
+# https://towardsdatascience.com/a-look-at-precision-recall-and-f1-score-36b5fd0dd3ec
+# https://arxiv.org/abs/2010.16061
+# https://github.com/davidam/damegender/blob/dev/manual/damegender.pdf
+
     def accuracy_score_dame(self, truevector, guessvector):
         # accuracy score is about successful between true and guess:
         # femalefemale + malemale dividing the sum of all options
@@ -280,7 +280,6 @@ class DameStatistics(object):
                [l1[1][0], l1[1][1], l1[1][2]],
                [l1[2][0], l1[2][1], l1[2][2]]]
         return res
-
 
     def print_measures(self, gl1, gl2, measure, api_name):
         if (measure == "accuracy"):
