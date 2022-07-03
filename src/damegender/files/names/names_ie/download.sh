@@ -23,6 +23,10 @@ mkdir -p orig
 cd orig
 # boys
 wget -c https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/VSA11/CSV/1.0/en -O vsa10.csv
+sed '1d' vsa10.csv > out.csv
+mv out.csv vsa10.csv
 # girls
 wget -c https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/VSA10/CSV/1.0/en -O vsa11.csv
+sed '1d' vsa11.csv > out.csv
+mv out.csv vsa11.csv
 cd ..
