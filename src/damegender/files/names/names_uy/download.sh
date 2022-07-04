@@ -22,4 +22,6 @@
 mkdir -p orig
 cd orig
 wget -c https://catalogodatos.gub.uy/dataset/6183293e-6ebc-4d7f-ac38-94a232c2881a/resource/8e125978-c9f6-43cd-8f06-064aab942e3e/download/nombre_nacim_x_anio_sexo.csv
+sed '1d' nombre_nacim_x_anio_sexo.csv > out.csv
+mv out.csv nombre_nacim_x_anio_sexo.csv
 cd ..
