@@ -391,7 +391,7 @@ class TddInPythonExample(unittest.TestCase):
     def test_reduce_csv_columns_to_name_and_freq(self):
         du = DameUtils()
         file1 = "files/tests/testorig1.csv"
-        file2 = "files/tmp/testres1.csv"
+        file2 = "files/tests/testres1.csv"
         file3 = "files/tmp/testout1.csv"        
         res = du.reduce_csv_columns_to_name_and_freq(file1, respath=file3, name=1, freq=2)
         file2f = open(file2, 'r')
@@ -413,12 +413,10 @@ class TddInPythonExample(unittest.TestCase):
     def test_find_max_and_min_in_column(self):
         du = DameUtils()
         file1 = "files/tests/testatde.csv"
-        l = du.find_max_and_min_in_column(file1, 1)
-        self.assertEqual(100, l[0])
-        self.assertEqual(80445, l[1])
-        
-
-        
+        dicc1 = du.find_max_and_min_in_column(file1, 1)
+        self.assertEqual(100, dicc1["min"])
+        self.assertEqual(80445, dicc1["max"])
+                
     # def test_file_year2dicc_females(self):
     #     du = DameUtils()
     #     file1 = "files/names/names_de/orig/Vornamen_2020_Koeln.csv"
@@ -427,7 +425,6 @@ class TddInPythonExample(unittest.TestCase):
     #     print(dicc["Marie"])
     #     self.assertEqual(dicc["Marie"], 207)
 
-        
     # def test_fill_dictionary_names_and_years_from_file(self):
     #     du = DameUtils()
     #     file1 = "files/names/names_ie/orig/vsa10.csv"
