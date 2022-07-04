@@ -402,10 +402,10 @@ class TddInPythonExample(unittest.TestCase):
         file3f.close()
         self.assertEqual(file2_lines, file3_lines)
         
-    def test_init_dicc_names_and_years_from_file(self):
+    def test_init_dicc_names_and_years(self):
         du = DameUtils()
         file1 = "files/names/names_ie/orig/vsa10.csv"
-        dicc = du.init_dicc_names_and_years_from_file(file1, 5, 1998, 2019)
+        dicc = du.init_dicc_names_and_years(file1, 5, 1998, 2019)
         l = sorted(dicc.keys())
         self.assertEqual(l[0:5], ['Abbie', 'Abby', 'Abigail', 'Ada', 'Ailbhe'])
         self.assertEqual(dicc["Ada"][2019]["females"], 0)

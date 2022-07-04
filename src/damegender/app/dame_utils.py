@@ -27,6 +27,7 @@ import unicodedata
 import re
 import os
 import csv
+import pdb
 
 
 class DameUtils():
@@ -115,7 +116,7 @@ class DameUtils():
                     "ine": "files/names/names_es/esall.csv",
                     "inter": "files/names/names_inter/interall.csv",
                     "is": "files/names/names_is/isall.csv",
-                    "it": "files/names/names_it/itall.csv",                    
+                    "it": "files/names/names_it/itall.csv",
                     "mx": "files/names/names_mx/mxall.csv",
                     "no": "files/names/names_no/noall.csv",
                     "nz": "files/names/names_nz/nzall.csv",
@@ -182,7 +183,7 @@ class DameUtils():
         return aux
 
     def drop_dots(self, s):
-        # given s removes dots symbols in the string        
+        # given s removes dots symbols in the string
         aux = ""
         for c in unicodedata.normalize('NFD', str(s)):
             if (c != '.'):
@@ -208,7 +209,7 @@ class DameUtils():
             if (i == 0):
                 if ((c[0] != '"') and (c[0] != "'")):
                     aux = aux + c[i]
-            elif (i == n): 
+            elif (i == n):
                 if ((c[n] != '"') and (c[n] != "'")):
                     aux = aux + c[i]
             else:
@@ -216,8 +217,8 @@ class DameUtils():
             i = i + 1
         return aux
 
-    def drop_external_symbols(self, s, l):
-        # given s removes symbols contained in l
+    def drop_external_symbols(self, s, li):
+        # given s removes symbols contained in li
         # in element zero and in the last element
         aux = ""
         c = unicodedata.normalize('NFD', str(s))
@@ -225,23 +226,23 @@ class DameUtils():
         n = len(c)-1
         while (i <= n):
             if (i == 0):
-                if not(c[i] in l):
+                if not(c[i] in li):
                     aux = aux + c[i]
             elif (i == n):
-                if not(c[i] in l):                
+                if not(c[i] in li):
                     aux = aux + c[i]
             else:
                 aux = aux + c[i]
             i = i + 1
         return aux
 
-    def drop_all_external_symbols(self, s, l):
-        # given s removes all symbols contained in l
+    def drop_all_external_symbols(self, s, li):
+        # given s removes all symbols contained in li
         # in external positions of a string (name)
-        while ((s[0] in l) or (s[-1] in l)):
-            s = self.drop_external_symbols(s, l)
+        while ((s[0] in li) or (s[-1] in li)):
+            s = self.drop_external_symbols(s, li)
         return s
-    
+
     def drop_white_space(self, s):
         # given s removes white space symbols
         aux = ""
@@ -301,7 +302,7 @@ class DameUtils():
             i = i + 1
         j = -1
         while (len(arr) > i) and (i != j):
-            if (arr[i] != " "):                
+            if (arr[i] != " "):
                 aux = aux + arr[i]
             elif ((arr[i] == " ") and (len(arr) == (i+1))):
                 j = i+1
@@ -393,10 +394,8 @@ class DameUtils():
         header = kwargs.get('header', True)
         delimiter = kwargs.get('delimiter', ',')
         l1 = []
-        l1 = self.csvcolumn2list(path,
-                                 position=row_position,
-                                 header=header,
-                                 delimiter=delimiter)
+        l1 = self.csvcolumn2list(path, position=row_position,
+                                 header=header, delimiter=delimiter)
         maxi = int(l1[0])
         mini = int(l1[0])
         for elem in l1:
@@ -409,7 +408,7 @@ class DameUtils():
         dicc["min"] = mini
         dicc["max"] = maxi
         return dicc
-    
+
     def csv2list(self, csvpath,  *args, **kwargs):
         # make a list from a csv file
         header = kwargs.get('header', True)
@@ -438,17 +437,17 @@ class DameUtils():
     def reduce_csv_columns_to_name_and_freq(self, csvpath, *args, **kwargs):
         name = kwargs.get('name', 0)
         freq = kwargs.get('freq', 1)
-        respath = kwargs.get('respath', 'files/tmp/respath.csv')        
-        l = self.csv2list(csvpath, header=False)
+        respath = kwargs.get('respath', 'files/tmp/respath.csv')
+        l1 = self.csv2list(csvpath, header=False)
         fo = open(respath, "w")
-        for i in l:
+        for i in l1:
             strname = self.drop_quotes(str(i[name]))
             strname = self.drop_white_space_around(strname)
             strfreq = self.drop_white_space_around(str(i[freq]))
             fo.write(strname + "," + strfreq + "\n")
         fo.close()
         return 1
-    
+
     def lists2csvfile(self, listoflists, csvpath, *args, **kwargs):
         # given a list make a csv file
         samelen = True
@@ -475,7 +474,7 @@ class DameUtils():
             fo.write(str(l1) + "," + str(dicc[l1]) + "\n")
         fo.close()
         return 1
-    
+
     def delete_duplicated(self, l1):
         # given a list l1 returns a new list without duplicated elements
         if (len(l1) == 0):
@@ -533,7 +532,8 @@ class DameUtils():
     def int2gender(self, int):
         # given an integer returns the gender coded
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
-        #``0 as not know'',``1 as male'', ``2 as female'' and ``9 as not applicable''
+        # ``0 as not know'',``1 as male'', ``2 as female''
+        # and ``9 as not applicable''
         if (int == 0):
             gender = "female"
         elif (int == 1):
@@ -564,7 +564,7 @@ class DameUtils():
 
     def initial_letters(self, s):
         # returns true if the string seems initial from a full name
-#        s = s.capitalize()
+        # s = s.capitalize()
         match = re.search(r'(([A-Z][\.| ]){1,2})|([A-Z]{2})', s)
         if match:
             return True
@@ -576,7 +576,6 @@ class DameUtils():
         # returns a dictionary with the names set in the file
         with open(path) as csvfile:
             reader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            l = []
             dicc = {}
             for row1 in reader:
                 # to set the dicc about names
@@ -592,11 +591,11 @@ class DameUtils():
         csvfile.close()
         return dicc
 
-    def init_dicc_names_and_years_from_file(self, path, row_name_position, from_year, until_year):
-        # given a csv file, a row_name_position, and a range of years
+    def init_dicc_names_and_years(self, path, row_name, from_year, until_year):
+        # given a csv file, a row name position, and a range of years
         # returns a dictionary with values set to zero
         dicc = {}
-        dicc = self.init_dicc_names_from_file(path, row_name_position)
+        dicc = self.init_dicc_names_from_file(path, row_name)
         for d in dicc.keys():
             if (from_year < until_year):
                 i = from_year
@@ -607,64 +606,26 @@ class DameUtils():
                 i = i + 1
         return dicc
 
-    def fill_dicc_names_and_years_from_file(self, inputpath, row_name_position, from_year, until_year):
-        d0 = self.find_max_and_min_in_column(inputpath, row_name_position)
+    def fill_dicc_names_and_years(self, inputpath, row_year, row_name):
+        d0 = self.find_max_and_min_in_column(inputpath, row_year)
         d1 = {}
-        d1 = self.init_dicc_names_and_years_from_file(inputpath, row_name_position, d0["min"], d0["max"])
-        for i in dicc.keys():
+        mi = d0["min"]
+        ma = d0["max"]
+        d1 = self.init_dicc_names_and_years(inputpath, row_name, mi, ma)
+        for i in d1.keys():
             males = 0
             females = 0
-            print(i)
-            for j in dicc[i].keys():
-                print(j)
-                if (dicc[i][j]["females"] == 0):
+            for j in d1[i].keys():
+                if (d1[i][j]["females"] == 0):
                     num = 0
                 else:
-                    num = dicc[i][j]["females"]
+                    num = d1[i][j]["females"]
                 females = females + int(num)
-                if (dicc[i][j]["males"] == 0):
+                if (d1[i][j]["males"] == 0):
                     num = 0
                 else:
-                    num = dicc[i][j]["males"]
+                    num = d1[i][j]["males"]
                 males = males + int(num)
-            dicc[i]["females"] = females
-            dicc[i]["males"] = males
-        return dicc
-
-    # def file_year2dicc_males(self, inputpath, name_pos, quantity_pos, gender_pos, *args, **kwargs):
-    #     filter_males = kwargs.get('filter_males', 'm')
-    #     filter_position = kwargs.get('filter_pos', 1)
-
-    #     diccmales = {}
-    #     with open(inputpath) as csvfile:
-    #         next(csvfile) # skipping the header row, first row
-    #         sreader = csv.reader(csvfile, delimiter=';', quotechar='|')
-    #         for row in sreader:
-    #             if (row[gender_pos] == filter_males):
-    #                 if (row[name_pos] in diccmales.keys()):
-    #                     val = diccmales[row[name_pos]]
-    #                     diccmales[row[name_pos]] = int(val) + int(row[quantity_pos])
-    #                 else:
-    #                     diccmales[row[name_pos]] = row[quantity_pos]
-    #     return diccmales
-
-    # def file_year2dicc_females(self, inputpath, name_pos, quantity_pos, gender_pos, *args, **kwargs):
-    #     diccfemales = {}
-    #     with open(inputpath) as csvfile:
-    #         next(csvfile) # skipping the header row, first row
-    #         sreader = csv.reader(csvfile, delimiter=';', quotechar='|')
-    #         for row in sreader:
-    #             if (row[gender_pos] == filter_females):
-    #                 if (row[name_pos] in diccfemales.keys()):
-    #                     val = diccfemales[row[name_pos]]
-    #                     diccfemales[row[name_pos]] = int(val) + int(row[quantity_pos])
-    #                 else:
-    #                     diccfemales[row[name_pos]] = row[quantity_pos]
-    #     return diccfemales
-
-                # elif (row[2] == 'w'):
-                #     if (row[0] in diccfemales.keys()):
-                #         val = diccfemales[row[0]]
-                #         diccfemales[row[0]] = int(val) + int(row[1])
-                #     else:
-                #         diccfemales[row[0]] = row[1]
+            d1[i]["females"] = females
+            d1[i]["males"] = males
+        return d1
