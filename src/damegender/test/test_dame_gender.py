@@ -122,8 +122,9 @@ class TddInPythonExample(unittest.TestCase):
         g = Gender()
         self.assertEqual(g.guess_surname("Smith", "us"), [True, 2376206])
         self.assertEqual(g.guess_surname("Serrano", "ar"), [True, 73])
-        self.assertEqual(g.guess_surname("Serrano", "es"), [True, 131520])
-
+        self.assertEqual(g.guess_surname("Serrano", "es"), [True, 131371])
+        self.assertEqual(g.guess_surname("Arroyo", "ine"), [True, 39834])
+        
     def test_dame_gender_string2gender(self):
         g = Gender()
         gender1 = g.string2gender("Arroyo Menéndez, David")
