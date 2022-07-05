@@ -48,3 +48,9 @@ wget -c https://statbel.fgov.be/sites/default/files/files/opendata/Voornamen%20b
 wget -c https://statbel.fgov.be/sites/default/files/files/opendata/Voornamen%20bevolking%20per%20gemeente/TA_POP_2009_F.zip
 
 for i in $(ls *zip); do unzip $i; done
+
+for i in $(ls *txt)
+do
+    sed '1d' $i > out.txt
+    mv out.txt $i
+done
