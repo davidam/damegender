@@ -33,7 +33,7 @@ outsurnames = outpath + country + "surnames.csv"
 
 origpath = outpath + "orig/"
 origfile = origpath + "personas.csv"
-
+print(origfile)
 
 print("Processing Argentina names ....")
 
@@ -74,7 +74,7 @@ filemal.close()
 
 print("Processing Argentina surnames ....")
 
-with open('origfile') as csvfile:
+with open(origfile) as csvfile:
     sreader = csv.reader(csvfile, delimiter=';', quotechar='|')
     next(sreader, None)
     filesurnames = open(outsurnames,'w')
