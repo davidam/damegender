@@ -29,9 +29,13 @@ country = "ar"
 outpath = "files/names/names_" + country + "/"
 outmales = outpath + country + "males.csv"
 outfemales = outpath + country + "females.csv"
+outsurnames = outpath + country + "surnames.csv"
 
 origpath = outpath + "orig/"
 origfile = origpath + "personas.csv"
+
+
+print("Processing Argentina names ....")
 
 with open(origfile) as csvfile:
     sreader2 = csv.reader(csvfile, delimiter=';', quotechar='|')
@@ -67,3 +71,22 @@ with open(origfile) as csvfile:
 
 filefem.close()
 filemal.close()
+
+print("Processing Argentina surnames ....")
+
+with open('origfile') as csvfile:
+    sreader = csv.reader(csvfile, delimiter=';', quotechar='|')
+    next(sreader, None)
+    filesurnames = open(outsurnames,'w')
+    diccsurnames = {}
+    for row in sreader:
+        if row[2] in diccsurnames.keys():
+                diccsurnames[row[2]] = diccsurnames[row[2]] + 1
+        else:
+                diccsurnames[row[2]] = 1
+        
+    for i in diccsurnames.keys():
+        filesurnames.write(str(i)+","+str(diccsurnames[i])+"\n")
+    
+filesurnames.close()
+
