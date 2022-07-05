@@ -31,7 +31,7 @@ origpath = "files/names/names_be/orig/"
 
 # We start collecting 2009 data for males
 with open(origpath + 'TA_POP_2009_M.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         #print(','.join(row))
@@ -42,7 +42,7 @@ with open(origpath + 'TA_POP_2009_M.txt') as csvfile:
             dicc[row[3]] = row[4]
 
 with open(origpath + 'TA_POP_2010_M.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         #print(','.join(row))
@@ -54,7 +54,7 @@ with open(origpath + 'TA_POP_2010_M.txt') as csvfile:
 
 
 with open(origpath + 'TA_POP_2011_M.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         #print(','.join(row))
@@ -66,7 +66,7 @@ with open(origpath + 'TA_POP_2011_M.txt') as csvfile:
 
 
 with open(origpath + 'TA_POP_2012_M.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         #print(','.join(row))
@@ -78,7 +78,7 @@ with open(origpath + 'TA_POP_2012_M.txt') as csvfile:
 
 
 with open(origpath + 'TA_POP_2013_M.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         #print(','.join(row))
@@ -90,7 +90,7 @@ with open(origpath + 'TA_POP_2013_M.txt') as csvfile:
 
 
 with open(origpath + 'TA_POP_2014_M.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         if (row[3] in dicc.keys()):
@@ -101,7 +101,7 @@ with open(origpath + 'TA_POP_2014_M.txt') as csvfile:
 
 
 with open(origpath + 'TA_POP_2015_M.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         if (row[3] in dicc.keys()):
@@ -112,7 +112,7 @@ with open(origpath + 'TA_POP_2015_M.txt') as csvfile:
 
 
 with open(origpath + 'TA_POP_2016_M.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         if (row[3] in dicc.keys()):
@@ -123,7 +123,7 @@ with open(origpath + 'TA_POP_2016_M.txt') as csvfile:
 
 
 with open(origpath + 'TA_POP_2017_M.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         if (row[3] in dicc.keys()):
@@ -133,7 +133,7 @@ with open(origpath + 'TA_POP_2017_M.txt') as csvfile:
             dicc[row[3]] = row[4]
 
 with open(origpath + 'TA_POP_2018_M.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         if (row[3] in dicc.keys()):
@@ -144,7 +144,7 @@ with open(origpath + 'TA_POP_2018_M.txt') as csvfile:
 
 
 # with open(origpath + 'TA_POP_MALE_2019.txt') as csvfile:
-#     next(csvfile) # skipping the header row, first row
+# 
 #     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
 #     for row in spamreader:
 #         if (row[3] in dicc.keys()):
@@ -164,7 +164,7 @@ fo.close()
 
 # We start collecting 2009 data for females
 with open(origpath + 'TA_POP_2009_F.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         #print(','.join(row))
@@ -175,7 +175,7 @@ with open(origpath + 'TA_POP_2009_F.txt') as csvfile:
             dicc[row[3]] = row[4]
 
 with open(origpath + 'TA_POP_2010_F.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         #print(','.join(row))
@@ -187,7 +187,7 @@ with open(origpath + 'TA_POP_2010_F.txt') as csvfile:
 
 
 with open(origpath + 'TA_POP_2011_F.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         #print(','.join(row))
@@ -199,7 +199,7 @@ with open(origpath + 'TA_POP_2011_F.txt') as csvfile:
 
 
 with open(origpath + 'TA_POP_2012_F.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         #print(','.join(row))
@@ -211,7 +211,7 @@ with open(origpath + 'TA_POP_2012_F.txt') as csvfile:
 
 
 with open(origpath + 'TA_POP_2013_F.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         #print(','.join(row))
@@ -223,7 +223,7 @@ with open(origpath + 'TA_POP_2013_F.txt') as csvfile:
 
 
 with open(origpath + 'TA_POP_2014_F.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         if (row[3] in dicc.keys()):
@@ -234,7 +234,7 @@ with open(origpath + 'TA_POP_2014_F.txt') as csvfile:
 
 
 with open(origpath + 'TA_POP_2015_F.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         if (row[3] in dicc.keys()):
@@ -245,7 +245,7 @@ with open(origpath + 'TA_POP_2015_F.txt') as csvfile:
 
 
 with open(origpath + 'TA_POP_2016_F.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         if (row[3] in dicc.keys()):
@@ -256,7 +256,7 @@ with open(origpath + 'TA_POP_2016_F.txt') as csvfile:
 
 
 with open(origpath + 'TA_POP_2017_F.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         if (row[3] in dicc.keys()):
@@ -266,7 +266,7 @@ with open(origpath + 'TA_POP_2017_F.txt') as csvfile:
             dicc[row[3]] = row[4]
 
 with open(origpath + 'TA_POP_2018_F.txt') as csvfile:
-    next(csvfile) # skipping the header row, first row
+
     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
     for row in spamreader:
         if (row[3] in dicc.keys()):
@@ -277,7 +277,7 @@ with open(origpath + 'TA_POP_2018_F.txt') as csvfile:
 
 
 # with open(origpath + 'TA_POP_FEMALE_2019.txt') as csvfile:
-#     next(csvfile) # skipping the header row, first row
+# 
 #     spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
 #     for row in spamreader:
 #         if (row[3] in dicc.keys()):
