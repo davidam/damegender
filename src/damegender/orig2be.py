@@ -19,7 +19,9 @@
 #  Boston, MA 02110-1301 USA,
 
 import csv
+from app.dame_utils import DameUtils
 
+du = DameUtils()
 total = []
 
 dicc = {}
@@ -81,119 +83,38 @@ fo.close()
 
 # ##### FEMALES
 
-# We start collecting 2009 data for females
-with open(origpath + 'TA_POP_2009_F.txt') as csvfile:
-
-    spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
-    for row in spamreader:
-        #print(','.join(row))
-        if (row[3] in dicc2.keys()):
-            val = dicc2[row[3]]
-            dicc2[row[3]] = int(val) + int(row[4])
-        else:
-            dicc2[row[3]] = row[4]
-
-with open(origpath + 'TA_POP_2010_F.txt') as csvfile:
-
-    spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
-    for row in spamreader:
-        #print(','.join(row))
-        if (row[3] in dicc2.keys()):
-            val = dicc2[row[3]]
-            dicc2[row[3]] = int(val) + int(row[4])
-        else:
-            dicc2[row[3]] = row[4]
-
-
-with open(origpath + 'TA_POP_2011_F.txt') as csvfile:
-
-    spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
-    for row in spamreader:
-        #print(','.join(row))
-        if (row[3] in dicc2.keys()):
-            val = dicc2[row[3]]
-            dicc2[row[3]] = int(val) + int(row[4])
-        else:
-            dicc2[row[3]] = row[4]
-
-
-with open(origpath + 'TA_POP_2012_F.txt') as csvfile:
-
-    spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
-    for row in spamreader:
-        #print(','.join(row))
-        if (row[3] in dicc2.keys()):
-            val = dicc2[row[3]]
-            dicc2[row[3]] = int(val) + int(row[4])
-        else:
-            dicc2[row[3]] = row[4]
-
-
-with open(origpath + 'TA_POP_2013_F.txt') as csvfile:
-
-    spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
-    for row in spamreader:
-        #print(','.join(row))
-        if (row[3] in dicc2.keys()):
-            val = dicc2[row[3]]
-            dicc2[row[3]] = int(val) + int(row[4])
-        else:
-            dicc2[row[3]] = row[4]
-
-
-with open(origpath + 'TA_POP_2014_F.txt') as csvfile:
-
-    spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
-    for row in spamreader:
-        if (row[3] in dicc2.keys()):
-            val = dicc2[row[3]]
-            dicc2[row[3]] = int(val) + int(row[4])
-        else:
-            dicc2[row[3]] = row[4]
-
-
-with open(origpath + 'TA_POP_2015_F.txt') as csvfile:
-
-    spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
-    for row in spamreader:
-        if (row[3] in dicc2.keys()):
-            val = dicc2[row[3]]
-            dicc2[row[3]] = int(val) + int(row[4])
-        else:
-            dicc2[row[3]] = row[4]
-
-
-with open(origpath + 'TA_POP_2016_F.txt') as csvfile:
-
-    spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
-    for row in spamreader:
-        if (row[3] in dicc2.keys()):
-            val = dicc2[row[3]]
-            dicc2[row[3]] = int(val) + int(row[4])
-        else:
-            dicc2[row[3]] = row[4]
-
-
-with open(origpath + 'TA_POP_2017_F.txt') as csvfile:
-
-    spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
-    for row in spamreader:
-        if (row[3] in dicc2.keys()):
-            val = dicc2[row[3]]
-            dicc2[row[3]] = int(val) + int(row[4])
-        else:
-            dicc2[row[3]] = row[4]
-
-with open(origpath + 'TA_POP_2018_F.txt') as csvfile:
-
-    spamreader = csv.reader(csvfile, delimiter='|', quotechar='|')
-    for row in spamreader:
-        if (row[3] in dicc2.keys()):
-            val = dicc2[row[3]]
-            dicc2[row[3]] = int(val) + int(row[4])
-        else:
-            dicc2[row[3]] = row[4]
-
+print("Belgium females")
+origfile = origpath + 'TA_POP_2009_F.txt'
+print(origfile)    
+dicc = {}
+dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+origfile = origpath + 'TA_POP_2010_F.txt'
+print(origfile)
+dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+origfile = origpath + 'TA_POP_2011_F.txt'
+print(origfile)
+dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+origfile = origpath + 'TA_POP_2012_F.txt'
+print(origfile)
+dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+origfile = origpath + 'TA_POP_2013_F.txt'
+print(origfile)
+dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+origfile = origpath + 'TA_POP_2014_F.txt'
+print(origfile)
+dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+origfile = origpath + 'TA_POP_2015_F.txt'
+print(origfile)
+dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+origfile = origpath + 'TA_POP_2016_F.txt'
+print(origfile)
+dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+origfile = origpath + 'TA_POP_2017_F.txt'
+print(origfile)
+dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+origfile = origpath + 'TA_POP_2018_F.txt'
+print(origfile)
+dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
 
 # with open(origpath + 'TA_POP_FEMALE_2019.txt') as csvfile:
 # 
