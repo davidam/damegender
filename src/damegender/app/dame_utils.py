@@ -605,7 +605,7 @@ class DameUtils():
                 dicc[d][i]["females"] = 0
                 i = i + 1
         return dicc
-
+    
     def fill_dicc_names_and_years(self, inputpath, row_year, row_name):
         d0 = self.find_max_and_min_in_column(inputpath, row_year)
         d1 = {}
@@ -629,3 +629,15 @@ class DameUtils():
             d1[i]["females"] = females
             d1[i]["males"] = males
         return d1
+
+    def fill_befile_in_dicc(self, inputpath, dicc, posname, posyear):
+        with open(inputpath) as csvfile:
+            r = csv.reader(csvfile, delimiter='|')
+            for row in r:
+                if (row[posname] in dicc.keys()):
+                    val = dicc[row[posname]]
+                    dicc[row[posname]] = int(val) + int(row[posyear])
+                else:
+                    dicc[row[posname]] = row[posyear]
+        return dicc
+
