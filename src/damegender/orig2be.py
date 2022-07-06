@@ -155,7 +155,7 @@ with open(origpath + 'TA_POP_2018_M.txt') as csvfile:
 
 fo = open(path + "bemales.csv", "w")
 for i in dicc.keys():
-    fo.write(str(i) + ", " + str(dicc[i]) + "\n")
+    fo.write(str(i) + "," + str(dicc[i]) + "\n")
 
 fo.close()
 
