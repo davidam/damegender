@@ -148,6 +148,66 @@ elif (country == "be"):
     
     print("Belgium females")    
 
+elif (country == "ca"):
+    origfile = origpath + "baby-names-frequency.csv"
+
+    dicc = du.init_dicc_names_and_years(origfile, 1, 1980, 2020)
+
+    with open(origfile) as csvfile3:
+        reader3 = csv.reader(csvfile3, delimiter=',', quotechar='|')
+        next(reader3, None)
+        for row3 in reader3:
+            name = row3[1]
+            symbols = [" ", "'", '"']
+            print(name)
+            name = du.drop_all_external_symbols(name, symbols)
+            name = name.capitalize()
+            if (row3[3] == 'Girl'):
+                dicc[name][int(row3[4])]["females"] = row3[2]
+            elif (row3[3] == 'Boy'):
+                dicc[name][int(row3[4])]["males"] = row3[2]
+
+    for i in dicc.keys():
+        males = 0
+        females = 0
+        for j in dicc[i].keys():
+            if (dicc[i][int(j)]["females"] == {}):
+                num = 0
+            else:
+                num = dicc[i][int(j)]["females"]
+            females = females + int(num)
+            if (dicc[i][int(j)]["males"] == {}):
+                num = 0
+            else:
+                num = dicc[i][int(j)]["males"]
+            males = males + int(num)
+        dicc[i]["females"] = females
+        dicc[i]["males"] = males
+
+    # # # print(dicc["Paula"]["females"])
+    jsonvar = json.dumps(dicc)
+    fo = open("canames.json", "w")
+    fo.write(jsonvar)
+    fo.close()
+
+    file = open(outmales, "w")
+
+    for i in dicc.keys():
+        if (dicc[i]["males"] > 0):
+            line = du.drop_external_quotes(du.drop_white_space_around(str(i)))
+            line = line + "," + str(dicc[i]["males"]) + "\n"
+            file.write(line)
+    file.close()
+
+    file = open(outfemales, "w")
+    for i in dicc.keys():
+        if (dicc[i]["females"] > 0):
+            line = du.drop_external_quotes(du.drop_white_space_around(str(i)))
+            line = line + "," + str(dicc[i]["females"]) + "\n"
+            file.write(line)
+    file.close()
+
+    
 elif (country == "es"):
     origpath = outpath + "orig/"    
     origfile = origpath + "esmasculinos.csv"
@@ -191,3 +251,4 @@ elif (country == "se"):
             fo.write(row[0] + "," + str(acum) + "\n")
 
     fo.close()
+
