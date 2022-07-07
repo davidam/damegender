@@ -148,7 +148,11 @@ elif (country == "be"):
     
     print("Belgium females")    
 
-# elif (country == "es"):
-#     du.reduce_csv_columns_to_name_and_freq(origfile, respath=outmales, name=1, freq=2)
-#     du.reduce_csv_columns_to_name_and_freq(origfile2, respath=outfemales, name=1, freq=2)
+elif (country == "es"):
+    origpath = outpath + "orig/"    
+    origfile = origpath + "esmasculinos.csv"
+    origfile2 = origpath + "esfemeninos.csv"
+
+    du.reduce_csv_columns_to_name_and_freq(origfile, respath=outmales, name=1, freq=2)
+    du.reduce_csv_columns_to_name_and_freq(origfile2, respath=outfemales, name=1, freq=2)
 
