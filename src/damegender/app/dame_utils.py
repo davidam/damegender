@@ -605,7 +605,7 @@ class DameUtils():
                 dicc[d][i]["females"] = 0
                 i = i + 1
         return dicc
-    
+
     def fill_dicc_names_and_years(self, inputpath, row_year, row_name):
         d0 = self.find_max_and_min_in_column(inputpath, row_year)
         d1 = {}
@@ -640,4 +640,3 @@ class DameUtils():
                 else:
                     dicc[row[posname]] = row[posyear]
         return dicc
-
