@@ -156,3 +156,38 @@ elif (country == "es"):
     du.reduce_csv_columns_to_name_and_freq(origfile, respath=outmales, name=1, freq=2)
     du.reduce_csv_columns_to_name_and_freq(origfile2, respath=outfemales, name=1, freq=2)
 
+elif (country == "se"):
+    origfemales = origpath + "girls.csv.0"
+    
+    input = csv.reader(open(origfemales, 'r'), delimiter=",", quotechar='|')
+    fo = open(outfemales, "w")
+
+    for cnt, row in enumerate(input):
+        if (cnt >= 9):
+            acum = 0
+            for i in range(1, 24):
+                if (row[i] == "-"):
+                    x = 0
+                else:
+                    x = int(row[i])
+                acum = acum + x
+            fo.write(row[0] + "," + str(acum) + "\n")
+    fo.close()
+
+    origmales = origpath + "boys.csv.0"
+
+    input = csv.reader(open(origmales, 'r'), delimiter=",", quotechar='|')
+    fo = open(outmales, "w")
+
+    for cnt, row in enumerate(input):
+        if (cnt >= 9):
+            acum = 0
+            for i in range(1, 24):
+                if (row[i] == "-"):
+                    x = 0
+                else:
+                    x = int(row[i])                
+                acum = acum + x
+            fo.write(row[0] + "," + str(acum) + "\n")
+
+    fo.close()
