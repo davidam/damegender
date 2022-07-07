@@ -160,7 +160,7 @@ rm scotland.py
 
 cd ..
 mkdir -p nisra
-cp nisra.py nisra
+cp ../nisra.py nisra
 cd nisra
 wget -c https://www.nisra.gov.uk/sites/nisra.gov.uk/files/publications/Full_Name_List_9718.xlsx
 
