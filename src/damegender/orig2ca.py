@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2020  David Arroyo Menéndez
+# Copyright (C) 2022  David Arroyo Menéndez
 
 # Author: David Arroyo Menéndez <davidam@gnu.org>
 # Maintainer: David Arroyo Menéndez <davidam@gnu.org>
@@ -43,46 +43,36 @@ outfemales = outpath + country  + "females.csv"
 origpath = outpath + "orig/"
 origfile = origpath + "baby-names-frequency.csv"
 
-dicc = du.initialize_dictionary_names_from_file(origfile, 1)
-
-with open(origfile) as csvfile2:
-    reader2 = csv.reader(csvfile2, delimiter=',', quotechar='|')
-    next(reader2, None)
-    for row2 in reader2:
-        # this for is only to set the dicc about years and gender
-        name = du.drop_external_quotes(du.drop_white_space_around(row2[1]))
-        name = name.capitalize()
-        if (name != ""):
-            dicc[name][row2[4]] = {}
-            dicc[name][row2[4]]["male"] = {}
-            dicc[name][row2[4]]["female"] = {}
-csvfile2.close()
+dicc = du.init_dicc_names_and_years(origfile, 1, 1980, 2020)
 
 with open(origfile) as csvfile3:
     reader3 = csv.reader(csvfile3, delimiter=',', quotechar='|')
     next(reader3, None)
     for row3 in reader3:
-        name = du.drop_external_quotes(du.drop_white_space_around(row3[1]))
+        name = row3[1]
+        symbols = [" ", "'", '"']
+        print(name)
+        name = du.drop_all_external_symbols(name, symbols)
         name = name.capitalize()
         if (row3[3] == 'Girl'):
-            dicc[name][row3[4]]["female"] = row3[2]
+            dicc[name][int(row3[4])]["females"] = row3[2]
         elif (row3[3] == 'Boy'):
-            dicc[name][row3[4]]["male"] = row3[2]
+            dicc[name][int(row3[4])]["males"] = row3[2]
 
 for i in dicc.keys():
     males = 0
     females = 0
     for j in dicc[i].keys():
 #        print(j)
-        if (dicc[i][j]["female"] == {}):
+        if (dicc[i][int(j)]["females"] == {}):
             num = 0
         else:
-            num = dicc[i][j]["female"]
+            num = dicc[i][int(j)]["females"]
         females = females + int(num)
-        if (dicc[i][j]["male"] == {}):
+        if (dicc[i][int(j)]["males"] == {}):
             num = 0
         else:
-            num = dicc[i][j]["male"]
+            num = dicc[i][int(j)]["males"]
         males = males + int(num)
 
     dicc[i]["females"] = females
