@@ -21,7 +21,11 @@
 #  Boston, MA 02110-1301 USA,
 
 import csv
+import json
 import argparse
+import subprocess
+import os
+
 from app.dame_utils import DameUtils
 from app.dame_wikidata import DameWikidata
 
@@ -51,9 +55,11 @@ origpath = outpath + "orig/"
 if (country == "ar"):
     origfile = origpath + "personas.csv"
     print(origfile)
-
+    print("Downloading Argentina names ...")
+    subprocess.call(outpath + "download.sh", shell=True)
     print("Processing Argentina names ....")
 
+    
     with open(origfile) as csvfile:
         sreader2 = csv.reader(csvfile, delimiter=';', quotechar='|')
         diccfemales = {}
@@ -109,6 +115,9 @@ if (country == "ar"):
 
 elif (country == "be"):
 
+    print("Downloading Belgium datasets ...")
+    subprocess.call(outpath + "download.sh", shell=True)
+    
     print("Belgium males")
     origfile = origpath + 'TA_POP_2009_M.txt'
     print(origfile)    
@@ -151,6 +160,9 @@ elif (country == "be"):
 elif (country == "ca"):
     origfile = origpath + "baby-names-frequency.csv"
 
+    print("Downloading Canada datasets ...")
+    subprocess.call(outpath + "download.sh", shell=True)
+    
     dicc = du.init_dicc_names_and_years(origfile, 1, 1980, 2020)
 
     with open(origfile) as csvfile3:
@@ -213,11 +225,17 @@ elif (country == "es"):
     origfile = origpath + "esmasculinos.csv"
     origfile2 = origpath + "esfemeninos.csv"
 
+    print("Downloading Spanish datasets ...")
+    subprocess.call(outpath + "download.sh", shell=True)
+    
     du.reduce_csv_columns_to_name_and_freq(origfile, respath=outmales, name=1, freq=2)
     du.reduce_csv_columns_to_name_and_freq(origfile2, respath=outfemales, name=1, freq=2)
 
 elif (country == "se"):
     origfemales = origpath + "girls.csv.0"
+
+    print("Downloading Sweden datasets ...")
+    subprocess.call(outpath + "download.sh", shell=True)
     
     input = csv.reader(open(origfemales, 'r'), delimiter=",", quotechar='|')
     fo = open(outfemales, "w")
