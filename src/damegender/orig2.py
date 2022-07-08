@@ -35,6 +35,8 @@ codes = list(isocodes) + ["inter", "ine"]
 
 parser = argparse.ArgumentParser()
 parser.add_argument('total', default="es", choices=codes)
+# parser.add_argument('--regen', default=False, action="store_true")
+parser.add_argument('--download', default=False, action="store_true")
 # More about iso codes on https://www.iso.org/obp/ui/
 # You can set alphabet with sufix:
 # So russian in latin alphabet would be ru_en
@@ -55,10 +57,11 @@ origpath = outpath + "orig/"
 if (country == "ar"):
     origfile = origpath + "personas.csv"
     print(origfile)
-    print("Downloading Argentina names ...")
-    subprocess.call(outpath + "download.sh", shell=True)
-    print("Processing Argentina names ....")
 
+    if (args.download):
+        print("Downloading Argentina names ...")        
+        subprocess.call(outpath + "download.sh", shell=True)
+    print("Processing Argentina names ....")
     
     with open(origfile) as csvfile:
         sreader2 = csv.reader(csvfile, delimiter=';', quotechar='|')
@@ -115,9 +118,10 @@ if (country == "ar"):
 
 elif (country == "be"):
 
-    print("Downloading Belgium datasets ...")
-    subprocess.call(outpath + "download.sh", shell=True)
-    
+    if (args.download):
+        print("Downloading Belgium datasets ...")
+        subprocess.call(outpath + "download.sh", shell=True) 
+   
     print("Belgium males")
     origfile = origpath + 'TA_POP_2009_M.txt'
     print(origfile)    
@@ -160,9 +164,10 @@ elif (country == "be"):
 elif (country == "ca"):
     origfile = origpath + "baby-names-frequency.csv"
 
-    print("Downloading Canada datasets ...")
-    subprocess.call(outpath + "download.sh", shell=True)
-    
+    if (args.download):
+        print("Downloading Canada datasets ...")        
+        subprocess.call(outpath + "download.sh", shell=True)
+
     dicc = du.init_dicc_names_and_years(origfile, 1, 1980, 2020)
 
     with open(origfile) as csvfile3:
@@ -225,8 +230,9 @@ elif (country == "es"):
     origfile = origpath + "esmasculinos.csv"
     origfile2 = origpath + "esfemeninos.csv"
 
-    print("Downloading Spanish datasets ...")
-    subprocess.call(outpath + "download.sh", shell=True)
+    if (args.download):
+        print("Downloading Spanish datasets ...")
+        subprocess.call(outpath + "download.sh", shell=True)
     
     du.reduce_csv_columns_to_name_and_freq(origfile, respath=outmales, name=1, freq=2)
     du.reduce_csv_columns_to_name_and_freq(origfile2, respath=outfemales, name=1, freq=2)
@@ -234,9 +240,10 @@ elif (country == "es"):
 elif (country == "se"):
     origfemales = origpath + "girls.csv.0"
 
-    print("Downloading Sweden datasets ...")
-    subprocess.call(outpath + "download.sh", shell=True)
-    
+    if (args.download):
+        print("Downloading Sweden datasets ...")        
+        subprocess.call(outpath + "download.sh", shell=True)
+
     input = csv.reader(open(origfemales, 'r'), delimiter=",", quotechar='|')
     fo = open(outfemales, "w")
 
@@ -270,3 +277,10 @@ elif (country == "se"):
 
     fo.close()
 
+# if (args.regen):
+#     subprocess.call("regenerate-gb-files.sh", shell=True)
+#     subprocess.call("regenerate-inter-files.sh", shell=True)
+#     print("Regenerating inter names and surnames ....")
+#     subprocess.call("regenerate-intersurnames.sh", shell=True)
+#     subprocess.call("regenerate-malefemale-files.sh", shell=True)
+    
