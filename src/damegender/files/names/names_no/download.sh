@@ -21,7 +21,11 @@
 mkdir -p orig
 cd orig
 echo "Downloading Norway names..."
+# One year
 wget -c https://www.ssb.no/en/statbank/sq/10069599
+# Range of years (2013-2021)
+wget -c https://www.ssb.no/en/statbank/sq/10070383
+wget -c https://www.ssb.no/en/statbank/sq/10070384
 echo "Downloading Norway surnames..."
 wget -c https://www.ssb.no/en/statbank/sq/10070379
 wget -c https://www.ssb.no/en/statbank/sq/12891/
