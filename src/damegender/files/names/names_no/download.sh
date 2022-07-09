@@ -20,5 +20,11 @@
 
 mkdir -p orig
 cd orig
+echo "Downloading Norway names..."
 wget -c https://www.ssb.no/en/statbank/sq/10069599
+echo "Downloading Norway surnames..."
+wget -c https://www.ssb.no/en/statbank/sq/10070379
+wget -c https://www.ssb.no/en/statbank/sq/12891/
+wget -c https://www.ssb.no/en/statbank/sq/10070380
+wget -c https://www.ssb.no/en/statbank/sq/10070381
 cd ..
