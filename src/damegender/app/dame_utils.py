@@ -640,3 +640,18 @@ class DameUtils():
                 else:
                     dicc[row[posname]] = row[posyear]
         return dicc
+
+    def dump_name_and_quantity_in_dicc(self, inputpath, posname, posquant, *args, **kwargs):
+        delimiter = kwargs.get('delimiter', '|')
+        dicc = kwargs.get('dicc', {})
+        with open(inputpath) as csvfile:
+            r = csv.reader(csvfile, delimiter=delimiter)
+            for row in r:
+                print(row)
+                if (row[posname] in dicc.keys()):
+                    val = dicc[row[posname]]
+                    dicc[row[posname]] = int(val) + int(row[posquant])
+                else:
+                    dicc[row[posname]] = int(row[posquant])
+        return dicc
+    
