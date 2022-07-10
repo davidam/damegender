@@ -22,9 +22,28 @@ mkdir -p orig
 cd orig
 echo "Downloading Norway names..."
 # One year
+
 wget -c https://www.ssb.no/en/statbank/sq/10069599
 sed "1,3d" 10069599 > aux
 mv aux 10069599
+sed 's/"//g' 10069599 > aux
+mv aux 10069599
+sed "s/;/,/g" 10069599 > aux
+mv aux 10069599
+sed "s/\./0/g" 10069599 > aux
+mv aux 10069599
+
+
+wget -c https://www.ssb.no/en/statbank/sq/10070388
+sed "1,3d" 10070388 > aux
+mv aux 10070388
+sed 's/"//g' 10070388 > aux
+mv aux 10070388
+sed "s/;/,/g" 10070388 > aux
+mv aux 10070388
+sed "s/\./0/g" 10070388 > aux
+mv aux 10070388
+
 # Range of years (2013-2021)
 wget -c https://www.ssb.no/en/statbank/sq/10070383
 sed "1,3d" 10070383 > aux
