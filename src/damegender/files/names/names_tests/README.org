@@ -8,6 +8,16 @@
 + [ ] File: represaliats.csv
 + [ ] Source: https://datos.gob.es/es/catalogo/l01082798-represaliados-y-victimas-terrasenses-del-fascismo
 + [ ] License: http://www.opendefinition.org/licenses/cc-by
+
+** Funcionarios Públicos de Uruguay
++ [ ] File: funcionarios.csv
++ [ ] Source: https://catalogodatos.gub.uy/dataset/ab3fa56a-2267-468a-bdd8-d353bc847a58/resource/2e28d48b-b667-45f1-ae79-a1573bc90ebc/download/funcionarios.csv
++ [ ] License: https://www.gub.uy/agencia-gobierno-electronico-sociedad-informacion-conocimiento/sites/agencia-gobierno-electronico-sociedad-informacion-conocimiento/files/documentos/publicaciones/licencia_de_datos_abiertos_0.pdf
+
+** Autores
++ [ ] File: autores.csv
++ [ ] Source: https://autores.uy/sites/default/files/datos/autores.csv.zip
++ [ ] License: https://creativecommons.org/licenses/by-sa/4.0/deed.es
 * French
 ** Prénoms des enfants nés dans le département de la Haute-Garonne - année 2019
 + [ ] File: conseil-departmental-haute-garonne.csv
