@@ -277,10 +277,31 @@ elif (country == "se"):
 
     fo.close()
 
+elif (country == "uy"):
+    origfile = origpath + "nombre_nacim_x_anio_sexo.csv"
+
+    posname = 2
+    posquant = 3
+    dicc0 = {}
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile, posname, posquant, dicc=dicc0, delimiter=",")
+    dicc1 = {}
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile, posname, posquant, dicc=dicc1, delimiter=",")
+
+    fo = open(outpath + "uymales.csv", "w")
+    for i in diccmales.keys():
+        fo.write(str(i) + "," + str(diccmales[i]) + "\n")
+    fo.close()
+
+    fo = open(outpath + "uyfemales.csv", "w")
+    for i in diccfemales.keys():
+        fo.write(str(i) + "," + str(diccfemales[i]) + "\n")
+    fo.close()
+    
 # if (args.regen):
-#     subprocess.call("regenerate-gb-files.sh", shell=True)
-#     subprocess.call("regenerate-inter-files.sh", shell=True)
+#     curpath = os.getcwd()
+#     subprocess.call(curpath + "/" + "regenerate-gb-files.sh", shell=True)
+#     subprocess.call(curpath + "/" + "regenerate-inter-files.sh", shell=True)
 #     print("Regenerating inter names and surnames ....")
-#     subprocess.call("regenerate-intersurnames.sh", shell=True)
-#     subprocess.call("regenerate-malefemale-files.sh", shell=True)
+#     subprocess.call(curpath + "/" + "regenerate-intersurnames.sh", shell=True)
+#     subprocess.call(curpath + "/" + "regenerate-malefemale-files.sh", shell=True)
     
