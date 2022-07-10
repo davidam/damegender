@@ -647,7 +647,6 @@ class DameUtils():
         with open(inputpath) as csvfile:
             r = csv.reader(csvfile, delimiter=delimiter)
             for row in r:
-                print(row)
                 if (row[posname] in dicc.keys()):
                     val = dicc[row[posname]]
                     dicc[row[posname]] = int(val) + int(row[posquant])
