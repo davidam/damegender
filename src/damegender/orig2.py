@@ -126,40 +126,79 @@ elif (country == "be"):
     origfile = origpath + 'TA_POP_2009_M.txt'
     print(origfile)    
     dicc = {}
-    dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
     origfile = origpath + 'TA_POP_2010_M.txt'
     print(origfile)
-    dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
     origfile = origpath + 'TA_POP_2011_M.txt'
     print(origfile)
-    dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
     origfile = origpath + 'TA_POP_2012_M.txt'
     print(origfile)
-    dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
     origfile = origpath + 'TA_POP_2013_M.txt'
     print(origfile)
-    dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
     origfile = origpath + 'TA_POP_2014_M.txt'
     print(origfile)
-    dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
     origfile = origpath + 'TA_POP_2015_M.txt'
     print(origfile)
-    dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
     origfile = origpath + 'TA_POP_2016_M.txt'
     print(origfile)
-    dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
     origfile = origpath + 'TA_POP_2017_M.txt'
     print(origfile)
-    dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
     origfile = origpath + 'TA_POP_2018_M.txt'
     print(origfile)
-    dicc = du.fill_befile_in_dicc(origfile, dicc, posname=3, posyear=4)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
+
+
     fo = open(outpath + "bemales.csv", "w")
     for i in dicc.keys():
         fo.write(str(i) + "," + str(dicc[i]) + "\n")
     fo.close()
     
     print("Belgium females")    
+
+    origfile = origpath + 'TA_POP_2009_F.txt'
+    print(origfile)    
+    dicc = {}
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
+    origfile = origpath + 'TA_POP_2010_F.txt'
+    print(origfile)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
+    origfile = origpath + 'TA_POP_2011_F.txt'
+    print(origfile)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
+    origfile = origpath + 'TA_POP_2012_F.txt'
+    print(origfile)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
+    origfile = origpath + 'TA_POP_2013_F.txt'
+    print(origfile)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
+    origfile = origpath + 'TA_POP_2014_F.txt'
+    print(origfile)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
+    origfile = origpath + 'TA_POP_2015_F.txt'
+    print(origfile)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
+    origfile = origpath + 'TA_POP_2016_F.txt'
+    print(origfile)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
+    origfile = origpath + 'TA_POP_2017_F.txt'
+    print(origfile)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
+    origfile = origpath + 'TA_POP_2018_F.txt'
+    print(origfile)
+    dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
+    fo = open(outpath + "befemales.csv", "w")
+    for i in dicc.keys():
+        fo.write(str(i) + "," + str(dicc[i]) + "\n")
+    fo.close()
 
 elif (country == "ca"):
     origfile = origpath + "baby-names-frequency.csv"
