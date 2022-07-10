@@ -23,12 +23,24 @@ cd orig
 echo "Downloading Norway names..."
 # One year
 wget -c https://www.ssb.no/en/statbank/sq/10069599
+sed "1,3d" 10069599 > aux
+mv aux 10069599
 # Range of years (2013-2021)
 wget -c https://www.ssb.no/en/statbank/sq/10070383
+sed "1,3d" 10070383 > aux
+mv aux 10070383
 wget -c https://www.ssb.no/en/statbank/sq/10070384
+sed "1,3d" 10070384 > aux
+mv aux 10070384
 echo "Downloading Norway surnames..."
 wget -c https://www.ssb.no/en/statbank/sq/10070379
-wget -c https://www.ssb.no/en/statbank/sq/12891/
-wget -c https://www.ssb.no/en/statbank/sq/10070380
+sed "1d" 10070379 > aux
+mv aux 10070379
+wget -c https://www.ssb.no/en/statbank/sq/10070387
+sed "1,3d" 10070387 > aux
+mv aux 10070387
 wget -c https://www.ssb.no/en/statbank/sq/10070381
+sed "1,3d" 10070381 > aux
+mv aux 10070381
+
 cd ..
