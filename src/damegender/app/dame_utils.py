@@ -630,17 +630,6 @@ class DameUtils():
             d1[i]["males"] = males
         return d1
 
-    def fill_befile_in_dicc(self, inputpath, dicc, posname, posyear):
-        with open(inputpath) as csvfile:
-            r = csv.reader(csvfile, delimiter='|')
-            for row in r:
-                if (row[posname] in dicc.keys()):
-                    val = dicc[row[posname]]
-                    dicc[row[posname]] = int(val) + int(row[posyear])
-                else:
-                    dicc[row[posname]] = row[posyear]
-        return dicc
-
     def dump_name_and_quantity_in_dicc(self, inputpath, posname, posquant, *args, **kwargs):
         delimiter = kwargs.get('delimiter', '|')
         dicc = kwargs.get('dicc', {})
