@@ -276,6 +276,37 @@ elif (country == "es"):
     du.reduce_csv_columns_to_name_and_freq(origfile, respath=outmales, name=1, freq=2)
     du.reduce_csv_columns_to_name_and_freq(origfile2, respath=outfemales, name=1, freq=2)
 
+elif (country == "ie"):
+    origpath = outpath + "orig/"    
+
+    if (args.download):
+        print("Downloading ireland datasets ...")
+        subprocess.call(outpath + "download.sh", shell=True)
+
+    origfile10 = origpath + 'vsa10.csv'
+    origfile11 = origpath + 'vsa11.csv'
+
+    print("Ireland names ...")
+    
+    diccmales = {}
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile11, 5, 7, delimiter=",")
+
+    fo = open(outpath + "iemales.csv", "w")
+
+    for i in diccmales.keys():
+        fo.write(str(i) + "," + str(diccmales[i]) + "\n")
+    fo.close()
+    
+    diccfemales = {}
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile10, 5, 7, delimiter=",")
+
+    fo = open(outpath + "iefemales.csv", "w")
+    
+    for i in diccfemales.keys():
+        fo.write(str(i) + "," + str(diccfemales[i]) + "\n")
+    fo.close()
+
+    
 elif (country == "it"):
     origpath = outpath + "orig/"    
 
