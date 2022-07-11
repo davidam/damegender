@@ -649,3 +649,10 @@ class DameUtils():
                     print("The program has troubles with the array indexes")
         return dicc
     
+    def simple_dicc_to_file(self, dicc, path):
+        outfile = open(path, 'w')
+        for i in dicc.keys():
+            str1 = str(i) + ","
+            str1 = str1 + str(dicc[i]) + "\n"
+            outfile.write(str1)
+        return 1
