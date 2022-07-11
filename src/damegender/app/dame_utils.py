@@ -132,6 +132,8 @@ class DameUtils():
                     "uy": "files/names/names_uy/uyall.csv"}
         return path
 
+
+    
     def string2array(self, string):
         # given a string returns an array splitted by white spaces
         res = ""
@@ -636,10 +638,14 @@ class DameUtils():
         with open(inputpath) as csvfile:
             r = csv.reader(csvfile, delimiter=delimiter)
             for row in r:
-                if (row[posname] in dicc.keys()):
-                    val = dicc[row[posname]]
-                    dicc[row[posname]] = int(val) + int(row[posquant])
-                else:
-                    dicc[row[posname]] = int(row[posquant])
+                try:
+                    num = self.number_or_zero(row[posquant])
+                    if (row[posname] in dicc.keys()):
+                        val = dicc[row[posname]]
+                        dicc[row[posname]] = int(val) + num
+                    else:
+                        dicc[row[posname]] = num
+                except IndexError:
+                    print("The program has troubles with the array indexes")
         return dicc
     
