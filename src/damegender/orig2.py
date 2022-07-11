@@ -83,20 +83,9 @@ if (country == "ar"):
                     diccmales[name] = int(diccmales[name]) + 1
                 else:
                     diccmales[name] = 1
-    filefem = open(outfemales, 'w')
-    filemal = open(outmales, 'w')
 
-    for i in diccfemales.keys():
-        str1 = str(i) + ","
-        str1 = str1 + str(diccfemales[i]) + "\n"
-        filefem.write(str1)
-    for j in diccmales.keys():
-        str2 = str(j) + ","
-        str2 = str2 + str(diccmales[j]) + "\n"
-        filemal.write(str2)
-
-    filefem.close()
-    filemal.close()
+    du.simple_dicc_to_file(diccmales, outmales)
+    du.simple_dicc_to_file(diccmales, outfemales)    
 
     print("Processing Argentina surnames ....")
 
@@ -115,7 +104,7 @@ if (country == "ar"):
             filesurnames.write(str(i)+","+str(diccsurnames[i])+"\n")
     
     filesurnames.close()
-
+            
 elif (country == "be"):
 
     if (args.download):
@@ -156,11 +145,7 @@ elif (country == "be"):
     print(origfile)
     dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
 
-
-    fo = open(outpath + "bemales.csv", "w")
-    for i in dicc.keys():
-        fo.write(str(i) + "," + str(dicc[i]) + "\n")
-    fo.close()
+    du.simple_dicc_to_file(dicc, outpath + "bemales.csv")
     
     print("Belgium females")    
 
@@ -195,10 +180,8 @@ elif (country == "be"):
     origfile = origpath + 'TA_POP_2018_F.txt'
     print(origfile)
     dicc = du.dump_name_and_quantity_in_dicc(origfile, 3, 4)
-    fo = open(outpath + "befemales.csv", "w")
-    for i in dicc.keys():
-        fo.write(str(i) + "," + str(dicc[i]) + "\n")
-    fo.close()
+
+    du.simple_dicc_to_file(dicc, outpath + "befemales.csv")
 
 elif (country == "ca"):
     origfile = origpath + "baby-names-frequency.csv"
@@ -263,7 +246,6 @@ elif (country == "ca"):
             file.write(line)
     file.close()
 
-    
 elif (country == "es"):
     origpath = outpath + "orig/"    
     origfile = origpath + "esmasculinos.csv"
@@ -277,7 +259,6 @@ elif (country == "es"):
     du.reduce_csv_columns_to_name_and_freq(origfile2, respath=outfemales, name=1, freq=2)
 
 elif (country == "ie"):
-    origpath = outpath + "orig/"    
 
     if (args.download):
         print("Downloading ireland datasets ...")
@@ -291,20 +272,24 @@ elif (country == "ie"):
     diccmales = {}
     diccmales = du.dump_name_and_quantity_in_dicc(origfile11, 5, 7, delimiter=",")
 
-    fo = open(outpath + "iemales.csv", "w")
+    du.simple_dicc_to_file(diccmales, outmales)
+        
+    # fo = open(outmales, "w")
 
-    for i in diccmales.keys():
-        fo.write(str(i) + "," + str(diccmales[i]) + "\n")
-    fo.close()
+    # for i in diccmales.keys():
+    #     fo.write(str(i) + "," + str(diccmales[i]) + "\n")
+    # fo.close()
     
     diccfemales = {}
     diccfemales = du.dump_name_and_quantity_in_dicc(origfile10, 5, 7, delimiter=",")
 
-    fo = open(outpath + "iefemales.csv", "w")
+    du.simple_dicc_to_file(diccmales, outmales)
+
+    # fo = open(outfemales, "w")
     
-    for i in diccfemales.keys():
-        fo.write(str(i) + "," + str(diccfemales[i]) + "\n")
-    fo.close()
+    # for i in diccfemales.keys():
+    #     fo.write(str(i) + "," + str(diccfemales[i]) + "\n")
+    # fo.close()
 
     
 elif (country == "it"):
@@ -313,7 +298,6 @@ elif (country == "it"):
     if (args.download):
         print("Downloading italian datasets ...")
         subprocess.call(outpath + "download.sh", shell=True)
-
 
     origfile2008 = origpath + '2008.csv'
     origfile2009 = origpath + '2009.csv'
@@ -342,11 +326,7 @@ elif (country == "it"):
     diccmales = du.dump_name_and_quantity_in_dicc(origfile2017, 1, 2, delimiter=",")
     diccmales = du.dump_name_and_quantity_in_dicc(origfile2018, 1, 2, delimiter=",")
 
-    fo = open(outpath + "itmales.csv", "w")
-
-    for i in diccmales.keys():
-        fo.write(str(i) + "," + str(diccmales[i]) + "\n")
-    fo.close()
+    du.simple_dicc_to_file(dicc, outmales)
     
     diccfemales = {}
     diccfemales = du.dump_name_and_quantity_in_dicc(origfile2008, 6, 7, delimiter=",")
@@ -361,11 +341,7 @@ elif (country == "it"):
     diccfemales = du.dump_name_and_quantity_in_dicc(origfile2017, 6, 7, delimiter=",")
     diccfemales = du.dump_name_and_quantity_in_dicc(origfile2018, 6, 7, delimiter=",")    
 
-    fo = open(outpath + "itfemales.csv", "w")
-    
-    for i in diccfemales.keys():
-        fo.write(str(i) + "," + str(diccfemales[i]) + "\n")
-    fo.close()
+    du.simple_dicc_to_file(dicc, outfemales)    
     
 elif (country == "se"):
     origfemales = origpath + "girls.csv.0"
@@ -408,24 +384,17 @@ elif (country == "se"):
     fo.close()
 
 elif (country == "uy"):
-    origfile = origpath + "nombre_nacim_x_anio_sexo.csv"
+    origmales = origpath + "origmales.csv"
+    origfemales = origpath + "origfemales.csv"    
 
     posname = 2
     posquant = 3
     dicc0 = {}
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile, posname, posquant, dicc=dicc0, delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(origmales, posname, posquant, dicc=dicc0, delimiter=",")
     dicc1 = {}
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile, posname, posquant, dicc=dicc1, delimiter=",")
-
-    fo = open(outpath + "uymales.csv", "w")
-    for i in diccmales.keys():
-        fo.write(str(i) + "," + str(diccmales[i]) + "\n")
-    fo.close()
-
-    fo = open(outpath + "uyfemales.csv", "w")
-    for i in diccfemales.keys():
-        fo.write(str(i) + "," + str(diccfemales[i]) + "\n")
-    fo.close()
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfemales, posname, posquant, dicc=dicc1, delimiter=",")
+    du.simple_dicc_to_file(diccfemales, outfemales)
+    du.simple_dicc_to_file(diccmales, outmales)
     
 # if (args.regen):
 #     curpath = os.getcwd()
