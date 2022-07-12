@@ -652,6 +652,10 @@ class DameUtils():
     def simple_dicc_to_file(self, dicc, path):
         outfile = open(path, 'w')
         for i in dicc.keys():
+            name = self.drop_white_space_around(str(i))
+            name = self.drop_external_quotes(name)
+            name = name.capitalize()
+            line = name + "," + str(dicc[i]) + "\n"
             str1 = str(i) + ","
             str1 = str1 + str(dicc[i]) + "\n"
             outfile.write(str1)
