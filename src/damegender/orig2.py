@@ -258,6 +258,39 @@ elif (country == "es"):
     du.reduce_csv_columns_to_name_and_freq(origfile, respath=outmales, name=1, freq=2)
     du.reduce_csv_columns_to_name_and_freq(origfile2, respath=outfemales, name=1, freq=2)
 
+elif (country == "ch"):
+
+    if (args.download):
+        print("Downloading swiss datasets ...")
+        subprocess.call(outpath + "download.sh", shell=True)
+
+    origfile0 = origpath + 'orig.csv.0'
+    origfile1 = origpath + 'orig.csv.1'
+    origfile2 = origpath + 'orig.csv.2'
+    origfile3 = origpath + 'orig.csv.3'
+    origfile4 = origpath + 'orig.csv.4'
+    origfile5 = origpath + 'orig.csv.5'    
+
+    print("Swiss names ...")
+    
+    diccmales = {}
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile0, 0, 2, dicc=diccmales, delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile1, 0, 2, dicc=diccmales, delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile2, 0, 2, dicc=diccmales, delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile3, 0, 2, dicc=diccmales, delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile4, 0, 2, dicc=diccmales, delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile5, 0, 2, dicc=diccmales, delimiter=",")
+    du.simple_dicc_to_file(diccmales, outmales)
+
+    diccfemales = {}
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile0, 0, 1, dicc=diccfemales, delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile1, 0, 1, dicc=diccfemales, delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2, 0, 1, dicc=diccfemales, delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile3, 0, 1, dicc=diccfemales, delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile4, 0, 1, dicc=diccfemales, delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile5, 0, 1, dicc=diccfemales, delimiter=",")
+    du.simple_dicc_to_file(diccfemales, outfemales)
+    
 elif (country == "ie"):
 
     if (args.download):
