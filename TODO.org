@@ -1393,24 +1393,37 @@ estaba haciendo
 + [X] "uy"
 + [X] "us"
 ** TODO orig2.py en todos los paises con estadísticas oficiales
-+ [X] "ar"
-+ [ ] "at"
-+ [ ] "au"
-+ [ ] "be"
-+ [X] "ca"
-+ [ ] "ch"
-+ [ ] "de"
-+ [ ] "dk"
-+ [X] "es"
-+ [ ] "fi"
-+ [ ] "fr"
-+ [ ] "gb"
-+ [ ] "ie"
-+ [ ] "is"
-+ [ ] "no"
-+ [ ] "mx"
-+ [ ] "pt"
-+ [ ] "ru"
-+ [ ] "se"
-+ [X] "uy"
-+ [ ] "us"
+*** TODO "ar"
+Falta incorporar el histórico de nombres, debido a que no da el sexo directamente en el fichero historico-nombres.csv. Los pasos serían:
+1. Determinar el sexo desde personas.csv y dar la cifra sumando el valor de la cantidad de personas y el historico
+2. Si el sexo no está en personas.csv pienso que el sexo lo daría el dataset español (conjunto de países que tienen el español como lengua oficial) y la cantidad es la Argentina
+*** TODO "at"
+*** TODO "au"
+*** DONE "be"
+- State "DONE"       from "TODO"       [2022-07-12 mar 11:49]
+*** DONE "ca"
+- State "DONE"       from "TODO"       [2022-07-12 mar 11:48]
+*** TODO "ch"
+*** TODO "de"
+*** TODO "dk"
+*** DONE "es"
+- State "DONE"       from "TODO"       [2022-07-12 mar 11:48]
+*** TODO "fi"
+*** TODO "fr"
+*** TODO "gb"
+*** DONE "ie"
+- State "DONE"       from "TODO"       [2022-07-12 mar 11:48]
+*** TODO "is"
+*** DONE "it"
+- State "DONE"       from "TODO"       [2022-07-12 mar 11:50]
+*** DONE "no"
+SCHEDULED: <2022-07-12 mar>
+- State "DONE"       from "TODO"       [2022-07-12 mar 11:48]
+*** TODO "mx"
+*** TODO "pt"
+*** TODO "ru"
+*** DONE "se"
+- State "DONE"       from "TODO"       [2022-07-12 mar 11:51]
+*** DONE "uy"
+- State "DONE"       from "TODO"       [2022-07-12 mar 11:49]
+*** TODO "us"
