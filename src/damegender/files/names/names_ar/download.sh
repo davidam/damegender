@@ -24,6 +24,15 @@ cd orig
 
 wget -c https://datasets.datos.mincyt.gob.ar/dataset/06ae9728-c376-47bd-9c41-fbdca68707c6/resource/8ab77b16-f1a8-4d3f-b664-67becf83a9b9/download/personas.csv 
 
+sed "1d" personas.csv > aux.csv
+mv aux.csv personas.csv
+
 wget -c https://infra.datos.gob.ar/catalog/otros/dataset/2/distribution/2.1/download/historico-nombres.zip
+
+unzip historico-nombres.zip
+
+sed "1d" historico-nombres.csv > aux.csv
+
+mv aux.csv historico-nombres.csv
 
 cd ..
