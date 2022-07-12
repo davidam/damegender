@@ -1419,8 +1419,10 @@ Falta incorporar el histórico de nombres, debido a que no da el sexo directamen
 *** DONE "no"
 SCHEDULED: <2022-07-12 mar>
 - State "DONE"       from "TODO"       [2022-07-12 mar 11:48]
-*** TODO "mx"
-*** TODO "pt"
+*** DONE "mx"
+- State "DONE"       from "TODO"       [2022-07-12 mar 16:07]
+*** DONE "pt"
+- State "DONE"       from "TODO"       [2022-07-12 mar 16:07]
 *** TODO "ru"
 *** DONE "se"
 - State "DONE"       from "TODO"       [2022-07-12 mar 11:51]
