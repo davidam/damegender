@@ -330,6 +330,18 @@ elif (country == "it"):
     diccfemales = du.dump_name_and_quantity_in_dicc(origfile2018, 6, 7, delimiter=",", dicc=diccfemales)    
 
     du.simple_dicc_to_file(dicc, outfemales)    
+
+elif (country == "mx"):
+    origmales = origpath + "hombres.csv"
+    origfemales = origpath + "mujeres.csv"    
+
+    posname = 0
+    posquant = 1
+    diccmales = du.dump_name_and_quantity_in_dicc(origmales, posname, posquant, delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfemales, posname, posquant, delimiter=",")
+    du.simple_dicc_to_file(diccfemales, outfemales)
+    du.simple_dicc_to_file(diccmales, outmales)
+
     
 elif (country == "se"):
     origfemales = origpath + "girls.csv.0"
