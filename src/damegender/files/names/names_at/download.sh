@@ -22,5 +22,14 @@
 mkdir -p orig
 cd orig
 wget -c https://www.wien.gv.at/gogv/l9ogdvornamentop500
+
 wget -c https://www.statistik.at/fileadmin/pages/426/Vornamen_syn-top.ods
+
+ssconvert -S Vornamen_syn-top.ods Vornamen_syn-top.csv
+
+for i in $(ls Vornamen_syn-top.csv.*); do
+    sed "1,4d" $i > aux.csv
+    mv aux.csv $i
+done
+
 cd ..
