@@ -9,6 +9,8 @@
 + https://creativecommons.org/licenses/by/4.0/deed.de
 
 * Criteria about how to count
-+ Liste aller jemals vergebenen ersten Vornamen 1984-2020
-+ List about names given between 1984 and 2020
-+ Source: first row and third row in bubennamen.csv and madchenamen.csv
+Wien dataset has >54600 names, Austria statistic is giving few names
+We have sum both datatets.
+
+The list about names given between 1984 and 2020
+
