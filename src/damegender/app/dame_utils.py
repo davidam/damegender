@@ -633,23 +633,39 @@ class DameUtils():
         return d1
 
     def dump_name_and_quantity_in_dicc(self, inputpath, posname, posquant, *args, **kwargs):
+        # Dumping names and quantity from csv file in a python dictionary
+        # csv delimiter (example: ';')
         delimiter = kwargs.get('delimiter', '|')
+        # dictionary where the data are dumped
         dicc = kwargs.get('dicc', {})
+        # filter is about csv position and gender char (example: 'F')
+        filter_pos = kwargs.get('filter_pos', 0)
+        filter_char = kwargs.get('filter_char', '')
         with open(inputpath) as csvfile:
             r = csv.reader(csvfile, delimiter=delimiter)
             for row in r:
                 try:
                     num = self.number_or_zero(row[posquant])
-                    if (row[posname] in dicc.keys()):
-                        val = dicc[row[posname]]
-                        dicc[row[posname]] = int(val) + num
+                    if (filter_char == ''):
+                        if (row[posname] in dicc.keys()):
+                            val = dicc[row[posname]]
+                            dicc[row[posname]] = int(val) + num
+                        else:
+                            dicc[row[posname]] = num
                     else:
-                        dicc[row[posname]] = num
+                        if (row[filter_pos] == filter_char):
+                            if (row[posname] in dicc.keys()):
+                                val = dicc[row[posname]]
+                                dicc[row[posname]] = int(val) + num
+                            else:
+                                dicc[row[posname]] = num                            
                 except IndexError:
                     print("The program has troubles with the array indexes")
         return dicc
     
     def simple_dicc_to_file(self, dicc, path):
+        # Dumping a python dictionary done with
+        # dump_name_and_quantity_in_dicc in a file
         outfile = open(path, 'w')
         for i in dicc.keys():
             name = self.drop_white_space_around(str(i))
