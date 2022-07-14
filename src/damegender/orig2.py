@@ -61,6 +61,7 @@ if (country == "ar"):
     if (args.download):
         print("Downloading Argentina names ...")        
         subprocess.call(outpath + "download.sh", shell=True)
+        
     print("Processing Argentina names ....")
     
     with open(origfile) as csvfile:
@@ -108,6 +109,10 @@ if (country == "ar"):
 elif (country == "at"):
     diccmales = {}
     diccfemales = {}    
+
+    if (args.download):
+        print("Downloading datasets from Austria ...")
+        subprocess.call(outpath + "download.sh", shell=True)
 
 #    origwien = origpath + 'l9ogdvornamentop500'
     origfile2 = origpath + 'Vornamen_syn-top.csv.2'
@@ -416,6 +421,10 @@ elif (country == "mx"):
     origmales = origpath + "hombres.csv"
     origfemales = origpath + "mujeres.csv"    
 
+    if (args.download):
+        print("Downloading datasets from Mexico ...")
+        subprocess.call(outpath + "download.sh", shell=True)
+
     posname = 0
     posquant = 1
     diccmales = du.dump_name_and_quantity_in_dicc(origmales, posname, posquant, delimiter=",")
@@ -468,6 +477,10 @@ elif (country == "uy"):
     origmales = origpath + "origmales.csv"
     origfemales = origpath + "origfemales.csv"    
 
+    if (args.download):
+        print("Downloading datasets from Uruguay ...")
+        subprocess.call(outpath + "download.sh", shell=True)
+    
     posname = 2
     posquant = 3
     dicc0 = {}
