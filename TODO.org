@@ -1397,14 +1397,17 @@ estaba haciendo
 Falta incorporar el histórico de nombres, debido a que no da el sexo directamente en el fichero historico-nombres.csv. Los pasos serían:
 1. Determinar el sexo desde personas.csv y dar la cifra sumando el valor de la cantidad de personas y el historico
 2. Si el sexo no está en personas.csv pienso que el sexo lo daría el dataset español (conjunto de países que tienen el español como lengua oficial) y la cantidad es la Argentina
-*** TODO "at"
+*** DONE "at"
+- State "DONE"       from "TODO"       [2022-07-14 jue 17:24]
 *** TODO "au"
 *** DONE "be"
 - State "DONE"       from "TODO"       [2022-07-12 mar 11:49]
 *** DONE "ca"
 - State "DONE"       from "TODO"       [2022-07-12 mar 11:48]
-*** TODO "ch"
-*** TODO "de"
+*** DONE "ch"
+- State "DONE"       from "TODO"       [2022-07-14 jue 18:35]
+*** DONE "de"
+- State "DONE"       from "TODO"       [2022-07-14 jue 18:35]
 *** TODO "dk"
 *** DONE "es"
 - State "DONE"       from "TODO"       [2022-07-12 mar 11:48]
