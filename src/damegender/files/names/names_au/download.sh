@@ -25,6 +25,15 @@ cd orig
 
 wget -c https://data.sa.gov.au/data/dataset/9849aa7f-e316-426e-8ab5-74658a62c7e6/resource/534d13f2-237c-4448-a6a3-93c07b1bb614/download/baby-names-1944-2013.zip
 
+unzip baby-names-1944-2013.zip
+
+cd "Baby Names 1944-2013"
+
+for i in $(ls *csv); do
+    sed "1d" $i > aux.csv
+    mv aux.csv $i
+done
+
 wget -c https://data.sa.gov.au/data/dataset/9849aa7f-e316-426e-8ab5-74658a62c7e6/resource/c11d4aff-fcb5-48a9-aa19-8e04bb8b716e/download/femalecy2014top.csv
 
 wget -c https://data.sa.gov.au/data/dataset/9849aa7f-e316-426e-8ab5-74658a62c7e6/resource/85f2d731-74bd-43fe-8895-f5f65e356c42/download/malecy2014top.csv
