@@ -80,13 +80,14 @@ if (country == "ar"):
                 else:
                     diccfemales[name] = 1
             elif (gender == '2'):
+                
                 if name in diccmales.keys():
                     diccmales[name] = int(diccmales[name]) + 1
                 else:
                     diccmales[name] = 1
 
     du.simple_dicc_to_file(diccmales, outmales)
-    du.simple_dicc_to_file(diccmales, outfemales)
+    du.simple_dicc_to_file(diccfemales, outfemales)
 
     print("Processing Argentina surnames ....")
 
@@ -149,7 +150,7 @@ elif (country == "at"):
     
     du.simple_dicc_to_file(diccmales, outmales)
     du.simple_dicc_to_file(diccfemales, outfemales)
-    
+
 elif (country == "be"):
 
     if (args.download):
@@ -350,7 +351,7 @@ elif (country == "de"):
     du.simple_dicc_to_file(diccmales, outmales)
     du.simple_dicc_to_file(diccfemales, outfemales)
     
-elif (country == "es"):
+elif ((country == "es") or (country == "ine")):
     origpath = outpath + "orig/"    
     origfile = origpath + "esmasculinos.csv"
     origfile2 = origpath + "esfemeninos.csv"
