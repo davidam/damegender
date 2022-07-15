@@ -28,34 +28,25 @@ NC='\033[0m' # No Color
 
 ARR=("ar" "at" "au" "be" "ca" "ch" "de" "dk" "es" "fi" "fr" "gb" "ie" "is" "no" "mx" "pt" "ru" "se" "uy" "us")
 
-for i in $ARR; do
+for i in "${ARR[@]}"; do
     python3 orig2.py $i &> /dev/null
     pathmales='files/names/names_'${i}'/'${i}'males.csv'
     echo $pathmales
     pathfemales='files/names/names_'${i}'/'${i}'females.csv'
     echo $pathfemales
     pathtest='files/tests/orig2'${i}'-'$(date "+%Y-%m-%d")'.txt'
-    echo pathtest
+    echo $pathtest
     git diff $pathmales > $pathtest
-    git diff $pathfemales >> files/tests/orig2at-$(date "+%Y-%m-%d").txt
-    if [ ! -s $pathtest ]
+    git diff $pathfemales >> $pathtest
+    if [ -s $pathtest ]
     then
-	echo -e "${i} dataset is ${GREEN}updated${NC}"
+	echo -e "${i} dataset is not ${RED}updated${NC}"
     else
-	echo -e "${i} dataset is not ${RED}updated${NC}"	
+	echo -e "${i} dataset is ${GREEN}updated${NC}"
     fi
 done
 
-# python3 orig2.py be --download &> /dev/null
-# git diff files/names/names_be/bemales.csv > files/tests/orig2be-$(date "+%Y-%m-%d").txt
-# git diff files/names/names_be/befemales.csv >> files/tests/orig2be-$(date "+%Y-%m-%d").txt
 
-# if [ -s files/tests/orig2be-$(date "+%Y-%m-%d").txt ]
-# then
-#     echo -e "belgium dataset is ${GREEN}updated${NC}"    
-# fi
-
-
-echo "cleaning temporary files"
-rm files/tests/*$(date "+%Y")*.txt
+# echo "cleaning temporary files"
+# rm files/tests/*$(date "+%Y")*.txt
 
