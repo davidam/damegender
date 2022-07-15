@@ -28,23 +28,50 @@ NC='\033[0m' # No Color
 
 ARR=("ar" "at" "au" "be" "ca" "ch" "de" "dk" "es" "fi" "fr" "gb" "ie" "is" "no" "mx" "pt" "ru" "se" "uy" "us")
 
-for i in "${ARR[@]}"; do
-    python3 orig2.py $i &> /dev/null
-    pathmales='files/names/names_'${i}'/'${i}'males.csv'
-    echo $pathmales
-    pathfemales='files/names/names_'${i}'/'${i}'females.csv'
-    echo $pathfemales
-    pathtest='files/tests/orig2'${i}'-'$(date "+%Y-%m-%d")'.txt'
-    echo $pathtest
-    git diff $pathmales > $pathtest
-    git diff $pathfemales >> $pathtest
-    if [ -s $pathtest ]
-    then
-	echo -e "${i} dataset is not ${RED}updated${NC}"
-    else
-	echo -e "${i} dataset is ${GREEN}updated${NC}"
-    fi
-done
+echo "Do you have internet connection and download new files (Y|N):"
+read internet
+
+if [[ "${internet}" == "Y" ]]; then 
+    echo "We are downloading datasets and checkig changes with your local files"
+    echo "Please be patient"
+    for i in "${ARR[@]}"; do
+	pathmales='files/names/names_'${i}'/'${i}'males.csv'
+	echo $pathmales
+	pathfemales='files/names/names_'${i}'/'${i}'females.csv'
+	echo $pathfemales
+	pathtest='files/tests/orig2'${i}'-'$(date "+%Y-%m-%d")'.txt'
+	echo $pathtest
+	python3 orig2.py $i --download 
+	git diff $pathmales > $pathtest
+	git diff $pathfemales >> $pathtest
+	if [ -s $pathtest ]
+	then
+	    echo -e "${i} dataset is not ${RED}updated${NC}"
+	else
+	    echo -e "${i} dataset is ${GREEN}updated${NC}"
+	fi
+    done
+else
+    echo "We are checkig changes with your local files"    
+    for i in "${ARR[@]}"; do
+	pathmales='files/names/names_'${i}'/'${i}'males.csv'
+	echo $pathmales
+	pathfemales='files/names/names_'${i}'/'${i}'females.csv'
+	echo $pathfemales
+	pathtest='files/tests/orig2'${i}'-'$(date "+%Y-%m-%d")'.txt'
+	echo $pathtest	
+	python3 orig2.py $i &> /dev/null
+	git diff $pathmales > $pathtest
+	git diff $pathfemales >> $pathtest
+	if [ -s $pathtest ]
+	then
+	    echo -e "${i} dataset is not ${RED}updated${NC}"
+	else
+	    echo -e "${i} dataset is ${GREEN}updated${NC}"
+	fi
+    done
+fi
+
 
 
 # echo "cleaning temporary files"
