@@ -19,6 +19,8 @@
 #  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 #  Boston, MA 02110-1301 USA,
 
+mkdir -p orig
+cd orig
 
 wget -c https://ngodata.ru/dataset/cbf99966-426a-462b-b493-e155209ceb86/resource/30269bb2-d58f-434d-a349-b968cf007b02/download/names_table.zip
 
