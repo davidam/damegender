@@ -27,7 +27,9 @@ wget -c https://data.sa.gov.au/data/dataset/9849aa7f-e316-426e-8ab5-74658a62c7e6
 
 unzip baby-names-1944-2013.zip
 
-cd "Baby Names 1944-2013"
+mv "Baby Names 1944-2013" "baby-names"
+
+cd baby-names
 
 for i in $(ls *csv); do
     sed "1d" $i > aux.csv
