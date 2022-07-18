@@ -151,6 +151,51 @@ elif (country == "at"):
     du.simple_dicc_to_file(diccmales, outmales)
     du.simple_dicc_to_file(diccfemales, outfemales)
 
+elif (country == "au"):
+    if (args.download):
+        print("Downloading australian datasets ...")
+        subprocess.call(outpath + "download.sh", shell=True) 
+
+    print("Australian names")
+    
+    origpath = origpath + "baby-names"    
+    # Females
+    diccfemales = {}
+#    for i in range(1944, 2013):
+    for i in range(1944, 2013):
+        origfile = origpath + "/" + "female_cy" + str(i) + "_top.csv"
+        diccfemales = du.dump_name_and_quantity_in_dicc(origfile, posname=0,
+                                                        posquant=1, dicc=diccfemales,
+                                                        delimiter=',')
+    for i in range(2014, 2016):
+        origfile = origpath + "/" + "femalecy" + str(i) + "top.csv"
+        diccfemales = du.dump_name_and_quantity_in_dicc(origfile, posname=0,
+                                                      posquant=1, dicc=diccfemales,
+                                                      delimiter=',')
+    
+    fo = open(outpath + "aufemales.csv", "w")
+    for i in diccfemales.keys():
+        fo.write(str(i) + "," + str(diccfemales[i]) + "\n")
+    fo.close()
+
+    # Males
+    diccmales = {}
+    for i in range(1944, 2013):
+        origfile = origpath + "/" + "male_cy" + str(i) + "_top.csv"
+        diccmales = du.dump_name_and_quantity_in_dicc(origfile, posname=0,
+                                                      posquant=1, dicc=diccmales,
+                                                      delimiter=',')
+    for i in range(2014, 2016):
+        origfile = origpath + "/" + "malecy" + str(i) + "top.csv"
+        diccmales = du.dump_name_and_quantity_in_dicc(origfile, posname=0,
+                                                      posquant=1, dicc=diccmales,
+                                                      delimiter=',')
+        
+    fo = open(outpath + "aumales.csv", "w")
+    for i in diccmales.keys():
+        fo.write(str(i) + "," + str(diccmales[i]) + "\n")
+    fo.close()
+
 elif (country == "be"):
 
     if (args.download):
@@ -451,7 +496,6 @@ elif (country == "mx"):
     du.simple_dicc_to_file(diccfemales, outfemales)
     du.simple_dicc_to_file(diccmales, outmales)
 
-    
 elif (country == "se"):
     origfemales = origpath + "girls.csv.0"
 
