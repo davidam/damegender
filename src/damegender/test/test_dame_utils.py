@@ -422,11 +422,19 @@ class TddInPythonExample(unittest.TestCase):
     def test_dump_name_and_quantity_in_dicc(self):
         du = DameUtils()
         file1 = "files/tests/bemin.csv"
+        posname = 3
+        posquant = 4
         dicc0 = {}
-        dicc1 = du.dump_name_and_quantity_in_dicc(file1, 3, 4, dicc=dicc0, delimiter=",")
+        dicc0 = du.dump_name_and_quantity_in_dicc(file1, posname, posquant, dicc=dicc0, delimiter=",")
         self.assertEqual(dicc0["Maria"], 370)
-        self.assertEqual(dicc0["Ingrid"], 62)
+        self.assertEqual(dicc0["Ingrid"], 62)        
+        filewien = "files/tests/testwien.csv"
+        diccmales = {} 
+        diccmales = du.dump_name_and_quantity_in_dicc(filewien, 7, 8, dicc=diccmales, delimiter=";",
+                                                      filter_pos=5, filter_char='1')
+        self.assertEqual(diccmales["David"], 169)
 
+        
 # def test_file_year2dicc_females(self):
 #     du = DameUtils()
 #     file1 = "files/names/names_de/orig/Vornamen_2020_Koeln.csv"
