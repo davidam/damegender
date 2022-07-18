@@ -649,16 +649,16 @@ class DameUtils():
                     if (filter_char == ''):
                         if (row[posname] in dicc.keys()):
                             val = dicc[row[posname]]
-                            dicc[row[posname]] = int(val) + num
+                            dicc[row[posname]] = int(val) + int(num)
                         else:
-                            dicc[row[posname]] = num
+                            dicc[row[posname]] = int(num)
                     else:
                         if (row[filter_pos] == filter_char):
                             if (row[posname] in dicc.keys()):
                                 val = dicc[row[posname]]
-                                dicc[row[posname]] = int(val) + num
+                                dicc[row[posname]] = int(val) + int(num)
                             else:
-                                dicc[row[posname]] = num                            
+                                dicc[row[posname]] = int(num)
                 except IndexError:
                     print("The program has troubles with the array indexes")
         return dicc
