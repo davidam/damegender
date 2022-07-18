@@ -2,12 +2,11 @@
 Added the 58 most popular italian names (29 males and 29 females)
 retrieved from istat (the italian statistics office).
 
-In the goal to reproducible research, we are starting to rewrite
-all scripts about process orig files from statistics to damegender
-csv files. Some countries, such as Canada (orig2ca.py) and Italy
-(orig2it.py) is using the new way. As soon as possible the only
-command will be orig2.py simplifying the processing. Some datasets
-has been updated in the process.
+In the goal to make very easy replicate the building of the dataset,
+we are starting to rewrite all scripts about process orig files
+from official statistics from states to damegender csv files.
+As soon as possible the only command will be orig2.py simplifying
+the processing. Some datasets has been updated in the process.
 
 * v0.4.5
 Dumping names and surnames for all countries from Wikidata.
