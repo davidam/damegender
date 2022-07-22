@@ -407,7 +407,29 @@ elif ((country == "es") or (country == "ine")):
     
     du.reduce_csv_columns_to_name_and_freq(origfile, respath=outmales, name=1, freq=2)
     du.reduce_csv_columns_to_name_and_freq(origfile2, respath=outfemales, name=1, freq=2)
+elif (country == "fr"):
+    origpath = outpath + "orig/"    
+    origfile = origpath + "nat2020.csv"
     
+    if (args.download):
+        print("Downloading french datasets ...")
+        subprocess.call(outpath + "download.sh", shell=True)
+
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile, 1, 3,
+                                                  dicc={},
+                                                  delimiter=";",
+                                                  filter_pos=0,
+                                                  filter_char='1')
+    
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile, 1, 3,
+                                                    dicc={},
+                                                    delimiter=";",
+                                                    filter_pos=0,
+                                                    filter_char='2')
+    du.simple_dicc_to_file(diccmales, outmales)
+    du.simple_dicc_to_file(diccfemales, outfemales)
+
+        
 elif (country == "ie"):
 
     if (args.download):
