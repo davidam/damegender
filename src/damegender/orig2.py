@@ -63,7 +63,8 @@ if (country == "ar"):
         subprocess.call(outpath + "download.sh", shell=True)
 
     print("Processing Argentina names ....")
-
+    
+    # personas.csv
     with open(origfile) as csvfile:
         sreader2 = csv.reader(csvfile, delimiter=';', quotechar='|')
         diccfemales = {}
@@ -79,8 +80,7 @@ if (country == "ar"):
                     diccfemales[name] = int(diccfemales[name]) + 1
                 else:
                     diccfemales[name] = 1
-            elif (gender == '2'):
-                
+            elif (gender == '2'):                
                 if name in diccmales.keys():
                     diccmales[name] = int(diccmales[name]) + 1
                 else:
@@ -429,6 +429,9 @@ elif (country == "ie"):
 
     du.simple_dicc_to_file(diccmales, outmales)
 
+elif (country == "is"):
+    print("this country code is not running yet")
+    print("This command is being developed")    
     
 elif (country == "it"):
     origpath = outpath + "orig/"    
@@ -496,6 +499,7 @@ elif (country == "mx"):
     du.simple_dicc_to_file(diccfemales, outfemales)
     du.simple_dicc_to_file(diccmales, outmales)
 
+    
 elif (country == "se"):
     origfemales = origpath + "girls.csv.0"
 
@@ -536,23 +540,6 @@ elif (country == "se"):
 
     fo.close()
 
-elif (country == "uy"):
-    origmales = origpath + "origmales.csv"
-    origfemales = origpath + "origfemales.csv"    
-
-    if (args.download):
-        print("Downloading datasets from Uruguay ...")
-        subprocess.call(outpath + "download.sh", shell=True)
-    
-    posname = 2
-    posquant = 3
-    dicc0 = {}
-    diccmales = du.dump_name_and_quantity_in_dicc(origmales, posname, posquant, dicc=dicc0, delimiter=",")
-    dicc1 = {}
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfemales, posname, posquant, dicc=dicc1, delimiter=",")
-    du.simple_dicc_to_file(diccfemales, outfemales)
-    du.simple_dicc_to_file(diccmales, outmales)
-
 elif (country == "pt"):
 
     if (args.download):
@@ -582,7 +569,53 @@ elif (country == "pt"):
     diccfemales = du.dump_name_and_quantity_in_dicc(origfilef16, 0, 2, delimiter=",", dicc=diccfemales)
 
     du.simple_dicc_to_file(diccfemales, outfemales)
+
     
+elif (country == "ru"):
+    print("Russian option is not running yet")
+    print("This command is being developed")
+
+    # jsondata = open(origpath + 'names_table.jsonl').read()
+    # d = json.loads(jsondata)
+    # print(d)
+    # fof = open(outpath + "rufemales.csv", "w")
+    # fom = open(outpath + "rumales.csv", "w")
+    # for i in d:
+    #     print(d)
+    #     if (i["gender"] == "f"):
+    #         fof.write(i["text"] + "," + str(i["num"]) + "\n")
+    #     elif (i["gender"] == "m"):
+    #         fom.write(i["text"] + "," + str(i["num"]) + "\n")
+    # fof.close()
+    # fom.close()
+
+    
+elif (country == "us"):
+    print("US option is not running yet")
+    print("This command is being developed")    
+
+elif (country == "uy"):
+    origmales = origpath + "origmales.csv"
+    origfemales = origpath + "origfemales.csv"    
+
+    if (args.download):
+        print("Downloading datasets from Uruguay ...")
+        subprocess.call(outpath + "download.sh", shell=True)
+    
+    posname = 2
+    posquant = 3
+    dicc0 = {}
+    diccmales = du.dump_name_and_quantity_in_dicc(origmales, posname, posquant, dicc=dicc0, delimiter=",")
+    dicc1 = {}
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfemales, posname, posquant, dicc=dicc1, delimiter=",")
+    du.simple_dicc_to_file(diccfemales, outfemales)
+    du.simple_dicc_to_file(diccmales, outmales)
+
+    
+else: 
+    print("this country code is not running yet")
+    print("This command is being developed")    
+   
 # if (args.regen):
 #     curpath = os.getcwd()
 #     subprocess.call(curpath + "/" + "regenerate-gb-files.sh", shell=True)
