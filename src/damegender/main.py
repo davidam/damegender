@@ -95,6 +95,12 @@ if (args.total == "namdict"):
                 print("you can try predict with --ml")
 
 elif ((args.verbose) or (args.total == "all")):
+    n_males = s.name_frec(args.name, dataset="ar")['males']
+    n_females = s.name_frec(args.name, dataset="ar")['females']
+    print("%s males for %s from Argentina statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Argentina statistics"
+          % (n_females, args.name))
     n_males = s.name_frec(args.name, dataset="at")['males']
     n_females = s.name_frec(args.name, dataset="at")['females']
     print("%s males for %s from Austria statistics"
@@ -304,7 +310,12 @@ else:
             sex = "unknown"
         print("%s gender predicted is %s" % (str(args.name), sex))
 
-    if (args.total == "at"):
+    if (args.total == "ar"):
+        print("%s males for %s from Argentina statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Argentina statistics"
+              % (n_females, args.name))        
+    elif (args.total == "at"):
         print("%s males for %s from Austria statistics"
               % (n_males, args.name))
         print("%s females for %s from Austria statistics"
