@@ -1,30 +1,34 @@
-62814 males for David from Austria statistics
+56 males for David from Argentina statistics
+0 females for David from Argentina statistics
+90451 males for David from Austria statistics
 0 females for David from Austria statistics
-5604 males for David from Australia statistics
+19719 males for David from Australia statistics
 7 females for David from Australia statistics
- 379319 males for David from Belgium statistics
+343917 males for David from Belgium statistics
 0 females for David from Belgium statistics
 8375 males for David from Canada statistics
 1 females for David from Canada statistics
-32641 males for David from Swiss statistics
+190241 males for David from Swiss statistics
 0 females for David from Swiss statistics
 Warning: China option only runs with China alphabet
 0 males for David from China statistics
 0 females for David from China statistics
-797 males for David from Deutchsland statistics
-2 females for David from Deutchsland statistics
+373 males for David from Deutchsland statistics
+1 females for David from Deutchsland statistics
 8625 males for David from Denmark statistics
 0 females for David from Denmark statistics
-365196 males for David from Spain statistics (INE.es)
+369633 males for David from Spain statistics (INE.es)
 0 females for David from Spain statistics (INE.es)
-360 males for David from Ireland statistics
+8506 males for David from Ireland statistics
 0 females for David from Ireland statistics
 0 males for David from Iceland statistics
 0 females for David from Iceland statistics
+0 males for David from Italy statistics
+0 females for David from Italy statistics
 912 males for David from Finland statistics
 0 females for David from Finland statistics
-313229 males for David from France statistics
-134 females for David from France statistics
+313846 males for David from France statistics
+139 females for David from France statistics
 64237 males for David from United Kingdom of Great Britain and Northern Ireland statistics
 14 females for David from United Kingdom of Great Britain and Northern Ireland statistics
 2276 males for David from Mexico statistics
@@ -33,7 +37,7 @@ Warning: China option only runs with China alphabet
 0 females for David from Norway statistics
 36890 males for David from New Zealand statistics
 0 females for David from New Zealand statistics
-744 males for David from Portugal statistics
+2093 males for David from Portugal statistics
 0 females for David from Portugal statistics
 Warning: russian option only runs with russian alphabet
 0 males for David from Russia statistics
@@ -46,6 +50,6 @@ Warning: russian option only runs with russian alphabet
 12826 females for David from United States of America statistics
 1193 males for David from Uruguay statistics
 5 females for David from Uruguay statistics
-4956646 males for David from international statistics
+4924568 males for David from international statistics
 12997 females for David from international statistics
 David gender predicted with nltk is male
