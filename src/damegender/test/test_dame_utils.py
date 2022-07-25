@@ -381,7 +381,7 @@ class TddInPythonExample(unittest.TestCase):
                              "Julia", "Luisa", "Martin",
                              "Roberta", "Rosa", "Sara",
                              "Tabita", "Una"])
-        file2 = "files/names/names_ie/orig/vsa10.csv"
+        file2 = "files/tests/vsa10.csv"
         dicc2 = du.init_dicc_names_from_file(file2, 5)
         l2 = sorted(dicc2.keys())
         self.assertEqual(l2[0:5], ['Abbie', 'Abby', 'Abigail', 'Ada', 'Ailbhe'])
@@ -406,7 +406,7 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_init_dicc_names_and_years(self):
         du = DameUtils()
-        file1 = "files/names/names_ie/orig/vsa10.csv"
+        file1 = "files/tests/vsa10.csv"
         dicc = du.init_dicc_names_and_years(file1, 5, 1998, 2019)
         l = sorted(dicc.keys())
         self.assertEqual(l[0:5], ['Abbie', 'Abby', 'Abigail', 'Ada', 'Ailbhe'])
