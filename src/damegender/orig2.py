@@ -407,6 +407,42 @@ elif ((country == "es") or (country == "ine")):
     
     du.reduce_csv_columns_to_name_and_freq(origfile, respath=outmales, name=1, freq=2)
     du.reduce_csv_columns_to_name_and_freq(origfile2, respath=outfemales, name=1, freq=2)
+elif (country == "fi"):
+    origpath = outpath + "orig/"    
+    origmale0 = origpath + "etunimitilasto.csv.0"
+    origmale1 = origpath + "etunimitilasto.csv.1"
+    origmale2 = origpath + "etunimitilasto.csv.2"    
+    origfemale0 = origpath + "etunimitilasto.csv.3"
+    origfemale1 = origpath + "etunimitilasto.csv.4"
+    origfemale2 = origpath + "etunimitilasto.csv.5"
+    
+    if (args.download):
+        print("Downloading finnish datasets ...")
+        subprocess.call(outpath + "download.sh", shell=True)
+
+    diccmales = {}
+    diccfemales = {}
+    diccmales = du.dump_name_and_quantity_in_dicc(origmale0, 0, 1,
+                                                  dicc=diccmales,
+                                                  delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(origmale1, 0, 1,
+                                                  dicc=diccmales,
+                                                  delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(origmale2, 0, 1,
+                                                  dicc=diccmales,
+                                                  delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfemale0, 0, 1,
+                                                    dicc=diccfemales,
+                                                    delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfemale1, 0, 1,
+                                                    dicc=diccfemales,
+                                                    delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfemale2, 0, 1,
+                                                    dicc=diccfemales,
+                                                    delimiter=",")
+    du.simple_dicc_to_file(diccmales, outmales)
+    du.simple_dicc_to_file(diccfemales, outfemales)
+    
 elif (country == "fr"):
     origpath = outpath + "orig/"    
     origfile = origpath + "nat2020.csv"
