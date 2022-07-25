@@ -404,11 +404,18 @@ elif ((country == "es") or (country == "ine")):
     if (args.download):
         print("Downloading spanish datasets ...")
         subprocess.call(outpath + "download.sh", shell=True)
+        
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile, 1, 2,
+                                                  dicc={},
+                                                  delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2, 1, 2,
+                                                  dicc={},
+                                                  delimiter=",")
+    du.simple_dicc_to_file(diccmales, outmales)
+    du.simple_dicc_to_file(diccfemales, outfemales)
     
-    du.reduce_csv_columns_to_name_and_freq(origfile, respath=outmales, name=1, freq=2)
-    du.reduce_csv_columns_to_name_and_freq(origfile2, respath=outfemales, name=1, freq=2)
 elif (country == "fi"):
-    origpath = outpath + "orig/"    
+    origpath = outpath + "orig/"
     origmale0 = origpath + "etunimitilasto.csv.0"
     origmale1 = origpath + "etunimitilasto.csv.1"
     origmale2 = origpath + "etunimitilasto.csv.2"    
@@ -424,7 +431,7 @@ elif (country == "fi"):
     diccfemales = {}
     diccmales = du.dump_name_and_quantity_in_dicc(origmale0, 0, 1,
                                                   dicc=diccmales,
-                                                  delimiter=",")
+                                                  delimiter=",")    
     diccmales = du.dump_name_and_quantity_in_dicc(origmale1, 0, 1,
                                                   dicc=diccmales,
                                                   delimiter=",")
@@ -440,6 +447,11 @@ elif (country == "fi"):
     diccfemales = du.dump_name_and_quantity_in_dicc(origfemale2, 0, 1,
                                                     dicc=diccfemales,
                                                     delimiter=",")
+    
+    diccsurnames = du.dump_name_and_quantity_in_dicc(origsurnames, 0, 1,
+                                                    dicc=diccsurnames,
+                                                    delimiter=",")
+    
     du.simple_dicc_to_file(diccmales, outmales)
     du.simple_dicc_to_file(diccfemales, outfemales)
     
