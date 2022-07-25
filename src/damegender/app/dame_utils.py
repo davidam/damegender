@@ -44,13 +44,13 @@ class DameUtils():
                     "ch": "files/names/names_ch/chmales.csv",
                     "cn": "files/names/names_cn/cnmales.csv",
                     "de": "files/names/names_de/demales.csv",
-                    "dk": "files/names/names_dk/males.csv",
-                    "es": "files/names/names_es/esmasculinos.csv",
+                    "dk": "files/names/names_dk/dkmales.csv",
+                    "es": "files/names/names_es/esmales.csv",
                     "fi": "files/names/names_fi/fimales.csv",
                     "fr": "files/names/names_fr/frmales.csv",
                     "gb": "files/names/names_gb/gbmales.csv",
                     "ie": "files/names/names_ie/iemales.csv",
-                    "ine": "files/names/names_es/esmasculinos.csv",
+                    "ine": "files/names/names_es/esmales.csv",
                     "inter": "files/names/names_inter/intermales.csv",
                     "is": "files/names/names_is/ismales.csv",
                     "it": "files/names/names_it/itmales.csv",
@@ -66,7 +66,7 @@ class DameUtils():
                     # "tr": "files/names/names_tr/trmales.csv",
                     "us": "files/names/names_us/usmales.csv",
                     "usa": "files/names/names_us/usmales.csv",
-                    "uy": "files/names/names_uy/uymasculinos.csv"}
+                    "uy": "files/names/names_uy/uymales.csv"}
         elif ((sex == "female") or (sex == "females") or (sex == 0)):
             path = {"ar": "files/names/names_ar/arfemales.csv",
                     "at": "files/names/names_at/atfemales.csv",
@@ -76,8 +76,8 @@ class DameUtils():
                     "ch": "files/names/names_ch/chfemales.csv",
                     "cn": "files/names/names_cn/cnfemales.csv",
                     "de": "files/names/names_de/defemales.csv",
-                    "dk": "files/names/names_dk/females.csv",
-                    "es": "files/names/names_es/esfemeninos.csv",
+                    "dk": "files/names/names_dk/dkfemales.csv",
+                    "es": "files/names/names_es/esfemales.csv",
                     "fi": "files/names/names_fi/fifemales.csv",
                     "fr": "files/names/names_fr/frfemales.csv",
                     "gb": "files/names/names_gb/gbfemales.csv",
@@ -98,7 +98,7 @@ class DameUtils():
                     # "tr": "files/names/names_tr/trfemales.csv",
                     "us": "files/names/names_us/usfemales.csv",
                     "usa": "files/names/names_us/usfemales.csv",
-                    "uy": "files/names/names_uy/uyfemeninos.csv"}
+                    "uy": "files/names/names_uy/uyfemales.csv"}
         elif ((sex == "all") or (sex == 2)):
             path = {"ar": "files/names/names_ar/arall.csv",
                     "at": "files/names/names_at/atall.csv",
