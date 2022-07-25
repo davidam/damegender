@@ -25,4 +25,10 @@ wget -c https://www.avoindata.fi/data/dataset/57282ad6-3ab1-48fb-983a-8aba5ff8d2
 ssconvert -S sukunimitilasto.xlsx sukunimitilasto.csv
 wget -c https://www.avoindata.fi/data/dataset/57282ad6-3ab1-48fb-983a-8aba5ff8d29a/resource/08c89936-a230-42e9-a9fc-288632e234f5/download/etunimitilasto-2022-02-07-dvv.xlsx -O etunimitilasto.xlsx
 ssconvert -S etunimitilasto.xlsx etunimitilasto.csv
+for i in $(ls *csv*); do
+    sed "1d" $i > aux.csv
+    mv aux.csv $i
+done
+rm aux.csv
+cp sukunimitilasto.csv.0 ../fisurnames.csv
 cd ..
