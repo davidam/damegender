@@ -25,7 +25,7 @@ Warning: China option only runs with China alphabet
 0 females for David from Iceland statistics
 0 males for David from Italy statistics
 0 females for David from Italy statistics
-912 males for David from Finland statistics
+4106 males for David from Finland statistics
 0 females for David from Finland statistics
 313846 males for David from France statistics
 139 females for David from France statistics
@@ -48,8 +48,8 @@ Warning: russian option only runs with russian alphabet
 0 females for David from Slovenia statistics
 3552580 males for David from United States of America statistics
 12826 females for David from United States of America statistics
-1193 males for David from Uruguay statistics
-5 females for David from Uruguay statistics
-4924568 males for David from international statistics
+1536 males for David from Uruguay statistics
+4 females for David from Uruguay statistics
+4956646 males for David from international statistics
 12997 females for David from international statistics
 David gender predicted with nltk is male
