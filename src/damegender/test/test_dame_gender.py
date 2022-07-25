@@ -228,12 +228,12 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_gender_name_frec(self):
         g = Gender()
         frec1 = g.name_frec("INES", dataset='ine')
-        self.assertEqual(int(frec1['females']), 63026)
+        self.assertEqual(int(frec1['females']), 63378)
         self.assertEqual(int(frec1['males']), 0)
         frec2 = g.name_frec("BEATRIZ", dataset='ine')
-        self.assertEqual(int(frec2['females']), 123191)
+        self.assertEqual(int(frec2['females']), 122917)
         frec3 = g.name_frec("ALMUDENA", dataset='ine')
-        self.assertEqual(int(frec3['females']), 30498)
+        self.assertEqual(int(frec3['females']), 30517)
         frec5 = g.name_frec("ELIZABETH", dataset='us')
         self.assertEqual(int(frec5['females']), 1581894)
         frec5n = g.name_frec("ELISABETH", dataset='us')
@@ -255,7 +255,7 @@ class TddInPythonExample(unittest.TestCase):
         g = Gender()
         path = "files/names/names_at/atmales.csv"
         num = g.name_frec_from_file("David", path)
-        self.assertEqual(num, '62814')
+        self.assertEqual(num, '90451')
 
     def test_dame_gender_path_surname_dataset(self):
         dg = Gender()
@@ -270,7 +270,7 @@ class TddInPythonExample(unittest.TestCase):
                           'nz': 0.0, 'ca': 0.0, 'fi': 0.0,
                           'au': 0.0, 'pt': 0.0},
               'males': {'es': 0.09, 'ie': 0.0, 'is': 0.0,
-                        'uy': 0.0, 'gb': 0.02, 'us': 0.88,
+                        'uy': 0.0, 'gb': 0.02, 'us': 0.87,
                         'nz': 0.01, 'ca': 0.0, 'fi': 0.0,
                         'au': 0.0, 'pt': 0.0}}]
         self.assertEqual(x, g.name_prob_countries("David"))
