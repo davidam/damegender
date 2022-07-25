@@ -31,7 +31,6 @@ collections.Callable = collections.abc.Callable
 from datetime import timedelta
 from app.dame_perceval import DamePerceval
 
-
 class TddInPythonExample(unittest.TestCase):
 
     def test_numcommits_method_returns_correct_result(self):
@@ -95,8 +94,8 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(j["blog"], "http://www.davidam.com")
         self.assertEqual(j["html_url"], "https://github.com/davidam")
 
-    def test_list_launchpad_method_returns_correct_result(self):
-        dp = DamePerceval()
-        d = datetime.datetime.now() - timedelta(hours=12)
-        l1 = dp.list_launchpad("ubuntu", d)
-        self.assertTrue(len(l1) > 1)
+    # def test_list_launchpad_method_returns_correct_result(self):
+    #     dp = DamePerceval()
+    #     d = datetime.datetime.now() - timedelta(hours=12)
+    #     l1 = dp.list_launchpad("ubuntu", d)
+    #     self.assertTrue(len(l1) > 1)
