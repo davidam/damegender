@@ -22,10 +22,22 @@
 mkdir -p orig
 cd orig
 
-wget -c https://datasets.datos.mincyt.gob.ar/dataset/06ae9728-c376-47bd-9c41-fbdca68707c6/resource/8ab77b16-f1a8-4d3f-b664-67becf83a9b9/download/personas.csv 
+# nombres permitidos (nombres y género)
 
+wget -c https://cdn.buenosaires.gob.ar/datosabiertos/datasets/ministerio-de-gobierno/nombres/nombres-permitidos.csv
+
+# nombres usados (nombres y género)
+
+wget -c https://cdn.buenosaires.gob.ar/datosabiertos/datasets/ministerio-de-gobierno/nombres/nombres-usados.xlsx
+ssconvert -S nombres-usados.xlsx nombres-usados.csv
+
+# nombres, apellidos, género
+
+wget -c https://datasets.datos.mincyt.gob.ar/dataset/06ae9728-c376-47bd-9c41-fbdca68707c6/resource/8ab77b16-f1a8-4d3f-b664-67becf83a9b9/download/personas.csv 
 sed "1d" personas.csv > aux.csv
 mv aux.csv personas.csv
+
+# nombres y frecuencias (sin género)
 
 wget -c https://infra.datos.gob.ar/catalog/otros/dataset/2/distribution/2.1/download/historico-nombres.zip
 
