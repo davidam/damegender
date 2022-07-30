@@ -24,8 +24,19 @@
 + [ ] Source: https://www.data.gouv.fr/fr/datasets/r/a26910c1-4860-4fa6-b077-7f49d2b856d9
 + [ ] License: https://www.etalab.gouv.fr/licence-ouverte-open-licence/
 
+* English
+** Popular baby names provided by Department of Health and Mental Hygiene (DOHMH) (New York City)
++ [ ] File: popular_baby_names_nyc_dohmh.csv
++ [ ] Source: https://data.cityofnewyork.us/api/views/25th-nujf/rows.csv?accessType=DOWNLOAD
++ [ ] License: https://opendata.cityofnewyork.us/overview/#termsofuse
+
 * International
 ** Performance of gender detection tools: a comparative study of name-to-gender inference services
 + [ ] File: gender_JMLA.dta
 + [ ] Source: https://osf.io/wjv7q/
 + [ ] License: https://raw.githubusercontent.com/CenterForOpenScience/cos.io/master/LICENSE
+
+** FIFA
++ [ ] File: fifa.csv
++ [ ] Source: https://www.kaggle.com/datasets/thec03u5/fifa-18-demo-player-dataset
++ [ ] License: https://creativecommons.org/licenses/by-nc-sa/4.0/
