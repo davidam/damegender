@@ -24,6 +24,10 @@
 + [ ] Source: https://www.data.gouv.fr/fr/datasets/r/a26910c1-4860-4fa6-b077-7f49d2b856d9
 + [ ] License: https://www.etalab.gouv.fr/licence-ouverte-open-licence/
 
+** Paris Prénoms
++ [ ] File: liste_des_prenoms.csv
++ [ ] Source: https://opendata.paris.fr/explore/dataset/liste_des_prenoms/export/?disjunctive.annee&disjunctive.prenoms
++ [ ] License: https://opendatacommons.org/licenses/odbl/  
 * English
 ** Popular baby names provided by Department of Health and Mental Hygiene (DOHMH) (New York City)
 + [ ] File: popular_baby_names_nyc_dohmh.csv
