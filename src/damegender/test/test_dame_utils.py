@@ -156,11 +156,10 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual('Hola', du.drop_external_symbols('-Hola+', ['-', '+']))
         self.assertEqual('Hola Mexico', du.drop_external_symbols('-Hola Mexico+', ['-', '+']))
 
-    # def test_initialize_dictionary_drop_all_external_symbols(self):
-    #     du = DameUtils()
-    #     self.assertEqual('', du.drop_all_external_symbols('', ['"']))
-    #     self.assertEqual('', du.drop_all_external_symbols('"', ['"']))
-    #     self.assertEqual('Hola "Mexico', du.drop_all_external_symbols('"""""Hola "Mexico', ['"']))
+    def test_initialize_dictionary_drop_all_external_symbols(self):
+        du = DameUtils()
+        self.assertEqual('', du.drop_all_external_symbols('', ['"']))
+        self.assertEqual('Hola "Mexico', du.drop_all_external_symbols('"""""Hola "Mexico', ['"']))
 
     def test_delete_duplicated_identities(self):
         g = Gender()
@@ -390,19 +389,20 @@ class TddInPythonExample(unittest.TestCase):
         # l2 = sorted(dicc2.keys())
         # self.assertEqual(l2[0:3], ["Clara", "Dilara", "Elena", "Julia"])
 
-    def test_reduce_csv_columns_to_name_and_freq(self):
-        du = DameUtils()
-        file1 = "files/tests/testorig1.csv"
-        file2 = "files/tests/testres1.csv"
-        file3 = "files/tmp/testout1.csv"      
-        res = du.reduce_csv_columns_to_name_and_freq(file1, respath=file3, name=1, freq=2)
-        file2f = open(file2, 'r')
-        file3f = open(file3, 'r')
-        file2_lines = file2f.readlines()
-        file3_lines = file3f.readlines()
-        file2f.close()
-        file3f.close()
-        self.assertEqual(file2_lines, file3_lines)
+    # def test_reduce_csv_columns_to_name_and_freq(self):
+    #### THIS METHOD HAS BEEN REPLACED BY dump_name_and_quantity_in_dicc and simple_dicc_to_file
+    #     du = DameUtils()
+    #     file1 = "files/tests/testorig1.csv"
+    #     file2 = "files/tests/testres1.csv"
+    #     file3 = "files/tmp/testout1.csv"      
+    #     res = du.reduce_csv_columns_to_name_and_freq(file1, respath=file3, name=1, freq=2)
+    #     file2f = open(file2, 'r')
+    #     file3f = open(file3, 'r')
+    #     file2_lines = file2f.readlines()
+    #     file3_lines = file3f.readlines()
+    #     file2f.close()
+    #     file3f.close()
+    #     self.assertEqual(file2_lines, file3_lines)
 
     def test_init_dicc_names_and_years(self):
         du = DameUtils()

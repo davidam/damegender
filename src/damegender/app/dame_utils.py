@@ -241,8 +241,10 @@ class DameUtils():
     def drop_all_external_symbols(self, s, li):
         # given s removes all symbols contained in li
         # in external positions of a string (name)
-        while ((s[0] in li) or (s[-1] in li)):
-            s = self.drop_external_symbols(s, li)
+        m = re.match(r"(.*)([a-z]|[A-Z])+(.*)", s)        
+        if ((li != []) and (s != []) and m):
+            while ((s[0] in li) or (s[-1] in li)):
+                s = self.drop_external_symbols(s, li)
         return s
 
     def drop_white_space(self, s):
