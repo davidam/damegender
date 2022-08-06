@@ -648,19 +648,21 @@ class DameUtils():
             for row in r:
                 try:
                     num = self.number_or_zero(row[posquant])
+                    name = row[posname]
+                    name = self.drop_all_external_symbols(name, ["'", '"', ","])
                     if (filter_char == ''):
-                        if (row[posname] in dicc.keys()):
-                            val = dicc[row[posname]]
-                            dicc[row[posname]] = int(val) + int(num)
+                        if (name in dicc.keys()):
+                            val = dicc[name]
+                            dicc[name] = int(val) + int(num)
                         else:
-                            dicc[row[posname]] = int(num)
+                            dicc[name] = int(num)
                     else:
                         if (row[filter_pos] == filter_char):
-                            if (row[posname] in dicc.keys()):
-                                val = dicc[row[posname]]
-                                dicc[row[posname]] = int(val) + int(num)
+                            if (name in dicc.keys()):
+                                val = dicc[name]
+                                dicc[name] = int(val) + int(num)
                             else:
-                                dicc[row[posname]] = int(num)
+                                dicc[name] = int(num)
                 except IndexError:
                     print("The program has troubles with the array indexes")
         return dicc
