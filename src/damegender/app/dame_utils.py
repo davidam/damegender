@@ -649,7 +649,8 @@ class DameUtils():
                 try:
                     num = self.number_or_zero(row[posquant])
                     name = row[posname]
-                    name = self.drop_all_external_symbols(name, ["'", '"', ","])
+                    name = name.upper()
+                    name = self.drop_all_external_symbols(name, ["'", '"', ",", " "])
                     if (filter_char == ''):
                         if (name in dicc.keys()):
                             val = dicc[name]
