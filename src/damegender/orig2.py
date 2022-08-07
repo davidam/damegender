@@ -619,13 +619,13 @@ elif (country == "pt"):
     origfilem14 = origpath + 'hombres-2014.csv'
     origfilem15 = origpath + 'hombres-2015.csv'
     origfilem16 = origpath + 'hombres-2016.csv'
-    
+
     origfilef14 = origpath + 'mujeres-2014.csv'
     origfilef15 = origpath + 'mujeres-2015.csv'
-    origfilef16 = origpath + 'mujeres-2016.csv'    
+    origfilef16 = origpath + 'mujeres-2016.csv'
 
     print("Portugal names ...")
-    
+
     diccmales = {}
     diccmales = du.dump_name_and_quantity_in_dicc(origfilem14, 0, 1, delimiter=",", dicc=diccmales)
     diccmales = du.dump_name_and_quantity_in_dicc(origfilem15, 0, 2, delimiter=",", dicc=diccmales)
@@ -639,25 +639,46 @@ elif (country == "pt"):
     diccfemales = du.dump_name_and_quantity_in_dicc(origfilef16, 0, 2, delimiter=",", dicc=diccfemales)
 
     du.simple_dicc_to_file(diccfemales, outfemales)
-
     
 elif (country == "ru"):
     print("Russian option is not running yet")
     print("This command is being developed")
 
-    # jsondata = open(origpath + 'names_table.jsonl').read()
-    # d = json.loads(jsondata)
-    # print(d)
-    # fof = open(outpath + "rufemales.csv", "w")
-    # fom = open(outpath + "rumales.csv", "w")
-    # for i in d:
-    #     print(d)
-    #     if (i["gender"] == "f"):
-    #         fof.write(i["text"] + "," + str(i["num"]) + "\n")
-    #     elif (i["gender"] == "m"):
-    #         fom.write(i["text"] + "," + str(i["num"]) + "\n")
-    # fof.close()
-    # fom.close()
+    jsondata = open(origpath + 'names_table.jsonl').read()
+    d = json.loads(jsondata)
+    print(d)
+    fof = open(outpath + "rufemales.csv", "w")
+    fom = open(outpath + "rumales.csv", "w")
+    for i in d:
+        print(d)
+        if (i["gender"] == "f"):
+            fof.write(i["text"] + "," + str(i["num"]) + "\n")
+        elif (i["gender"] == "m"):
+            fom.write(i["text"] + "," + str(i["num"]) + "\n")
+    fof.close()
+    fom.close()
+    
+    from transliterate import translit, get_available_language_codes
+    
+    print("You must install transliterate if you want reproduce russian names in latin alphabet")
+    print("Try with:")
+    print("$ pip3 install transliterate")
+
+    with open('rufemales.csv') as csvfile:
+        sreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+        fo = open("rufemales.en.csv", "w")
+        for row in sreader:
+            print(translit(row[0], 'ru', reversed=True))
+            fo.write(translit(row[0], 'ru', reversed=True) + ',' + row[1] + "\n")
+        fo.close()
+
+    with open('rumales.csv') as csvfile:
+        sreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+        fo = open("rumales.en.csv", "w")
+        for row in sreader:
+            print(translit(row[0], 'ru', reversed=True))
+            fo.write(translit(row[0], 'ru', reversed=True) + ',' + row[1] + "\n")
+        fo.close()
 
     
 elif (country == "us"):
@@ -680,12 +701,11 @@ elif (country == "uy"):
     diccfemales = du.dump_name_and_quantity_in_dicc(origfemales, posname, posquant, dicc=dicc1, delimiter=",")
     du.simple_dicc_to_file(diccfemales, outfemales)
     du.simple_dicc_to_file(diccmales, outmales)
-
     
 else: 
     print("this country code is not running yet")
     print("This command is being developed")    
-   
+
 # if (args.regen):
 #     curpath = os.getcwd()
 #     subprocess.call(curpath + "/" + "regenerate-gb-files.sh", shell=True)
