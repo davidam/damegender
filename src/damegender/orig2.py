@@ -641,6 +641,10 @@ elif (country == "pt"):
     du.simple_dicc_to_file(diccfemales, outfemales)
     
 elif (country == "ru"):
+    if (args.download):
+        print("Downloading datasets from Russia ...")
+        subprocess.call(outpath + "download.sh", shell=True)
+    
     print("Russian option is not running yet")
     print("This command is being developed")
 
@@ -664,20 +668,20 @@ elif (country == "ru"):
     print("Try with:")
     print("$ pip3 install transliterate")
 
-    with open('rufemales.csv') as csvfile:
+    with open(outpath + 'rufemales.csv') as csvfile:
         sreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-        fo = open("rufemales.en.csv", "w")
+        fo = open(outpath + "rufemales.en.csv", "w")
         for row in sreader:
             print(translit(row[0], 'ru', reversed=True))
-            fo.write(translit(row[0], 'ru', reversed=True) + ',' + row[1] + "\n")
+            fo.write(du.drop_quotes(translit(row[0], 'ru', reversed=True)) + ',' + row[1] + "\n")
         fo.close()
 
-    with open('rumales.csv') as csvfile:
+    with open(outpath + 'rumales.csv') as csvfile:
         sreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-        fo = open("rumales.en.csv", "w")
+        fo = open(outpath + "rumales.en.csv", "w")
         for row in sreader:
             print(translit(row[0], 'ru', reversed=True))
-            fo.write(translit(row[0], 'ru', reversed=True) + ',' + row[1] + "\n")
+            fo.write(du.drop_quotes(translit(row[0], 'ru', reversed=True)) + ',' + row[1] + "\n")
         fo.close()
 
     
