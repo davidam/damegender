@@ -833,12 +833,18 @@ class Gender(object):
         return slist
 
     def csv2gender_list(self, path, *args, **kwargs):
-        # counting males, females and unknown
+        # generating a list of 0, 1, 2 as females, males and unknows
+        # TODO: ISO/IEC 5218 proposes a norm about coding gender:
+        # ``0 as not know'',``1 as male'', ``2 as female''
+        # and ``9 as not applicable''        
         header = kwargs.get('header', True)
         gender_row = kwargs.get('gender_row', 4)
+        gender_f_chars = kwargs.get('gender_f_chars', 'f')
+        gender_m_chars = kwargs.get('gender_m_chars', 'm')
+        delimiter = kwargs.get('delimiter', ',')        
         glist = []
         with open(path) as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=',', quotechar='"')
+            sexreader = csv.reader(csvfile, delimiter=delimiter, quotechar='"')
             if header:
                 next(sexreader, None)
             count_females = 0
@@ -849,12 +855,12 @@ class Gender(object):
                 try:
                     gender = row[gender_row]
                 except IndexError:
-                    print("The method csv2gender_list has not row[4]")
+                    print("The method csv2gender_list has not row[" + gender_row + "]")
                     os.kill(os.getpid(), signal.SIGUSR1)
-                if (gender == 'f'):
+                if (gender == gender_f_chars):
                     g = 0
                     count_females = count_females + 1
-                elif (gender == 'm'):
+                elif (gender == gender_m_chars):
                     g = 1
                     count_males = count_males + 1
                 else:
@@ -867,6 +873,10 @@ class Gender(object):
         return glist
 
     def pretty_gg_list(self, path, jsonf, *args, **kwargs):
+        # print the gender list and the guess list
+        # with a measure (e.g: accuracy)
+        # from a json file (guess list)
+        # and a csv test file (gender list)
         measure = kwargs.get('measure', 'accuracy')
         binary = kwargs.get('binary', True)
         ml = kwargs.get('ml', 'nltk')
