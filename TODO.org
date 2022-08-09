@@ -1386,7 +1386,7 @@ estaba haciendo
 + [X] "ie"
 + [ ] "is"
 + [X] "no"
-+ [ ] "mx"
++ [X] "mx"
 + [X] "pt"
 + [X] "ru"
 + [X] "se"
@@ -1410,7 +1410,8 @@ estaba haciendo
 *** TODO "dk"
 *** DONE "es"
 - State "DONE"       from "TODO"       [2022-07-12 mar 11:48]
-*** TODO "fi"
+*** DONE "fi"
+- State "DONE"       from "TODO"       [2022-07-24 dom 21:50]
 *** DONE "fr"
 - State "DONE"       from "TODO"       [2022-07-22 vie 03:45]
 *** TODO "gb"
@@ -1426,7 +1427,8 @@ SCHEDULED: <2022-07-12 mar>
 - State "DONE"       from "TODO"       [2022-07-12 mar 16:07]
 *** DONE "pt"
 - State "DONE"       from "TODO"       [2022-07-12 mar 16:07]
-*** TODO "ru"
+*** DONE "ru"
+- State "DONE"       from "TODO"       [2022-08-07 dom 18:34]
 *** DONE "se"
 - State "DONE"       from "TODO"       [2022-07-12 mar 11:51]
 *** DONE "uy"
@@ -1440,3 +1442,17 @@ dando una explicación, por ejemplo, decir que el dataset es menor
 de 1000 nombres y, por tanto, estamos asumiendo que el nombre podría
 existir en el territorio italiano, pero no podemos dar el género
 con el dataset científico y damos la respuesta internacional.
+* TODO Escribir csv2pretty_gg_list y renombrar pretty_gg_list a json2pretty_gg_list
+    def csv2pretty_gg_list(self, path, csvf, *args, **kwargs):
+        # print the gender list and the guess list
+        # with a measure (e.g: accuracy)
+        # from a csv file (guess list)
+        # and a csv test file (gender list)
+        measure = kwargs.get('measure', 'accuracy')
+        binary = kwargs.get('binary', True)
+        ml = kwargs.get('ml', 'nltk')
+        api = kwargs.get('api', 'damegender')
+        header = kwargs.get('header', True)
+        gl = self.csv2gender_list(path=path)
+        return 1
+        
