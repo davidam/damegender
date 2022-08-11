@@ -28,7 +28,7 @@ import re
 import os
 import csv
 import pdb
-
+import json
 
 class DameUtils():
 
@@ -681,3 +681,15 @@ class DameUtils():
             str1 = str1 + str(dicc[i]) + "\n"
             outfile.write(str1)
         return 1
+
+    def is_json(self, myjson):
+        # Given a path returns if exist a file that is a json file
+        with open(myjson, encoding='utf8') as f:
+            text = f.read().strip()
+        try:
+            json_object = json.loads(text)
+        except ValueError as e:
+            return False
+        f.close()
+        return True
+
