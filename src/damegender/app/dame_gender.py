@@ -872,39 +872,86 @@ class Gender(object):
         self.unknown = count_unknown
         return glist
 
-    def pretty_gg_list(self, path, jsonf, *args, **kwargs):
+    def pretty_gg_list(self, guessf, testf, *args, **kwargs):
         # print the gender list and the guess list
         # with a measure (e.g: accuracy)
-        # from a json file (guess list)
-        # and a csv test file (gender list)
+        # from a guessed file (guess list)
+        # and a gender test file as base of truth (gender list)
         measure = kwargs.get('measure', 'accuracy')
         binary = kwargs.get('binary', True)
         ml = kwargs.get('ml', 'nltk')
         api = kwargs.get('api', 'damegender')
         header = kwargs.get('header', True)
-        gl = self.csv2gender_list(path=path)
+        difflen = False
+        if ((os.path.isfile(guessf)) and (os.path.isfile(testf))):
+            if (is_csv(guessf)):
+                gl = self.csv2gender_list(path=guessf)
+                guessnames = self.csv2names(path=guessf)                
+                if (is_csv(testf)):
+                    tl = self.csv2gender_list(path=testf, binary=True)
+                    testnames = self.csv2names(path=testf)
+                    if (len(guessnames) == len(testnames)):
+                        print("################### " + api + "!!")
+                        print("Guess list:  " + str(gl))
+                        print("Gender Test list: " + str(tl))        
+                        dst.print_measures(tl, gl, measure, api)
+                    else:
+                        difflen = True
+                if (is_json(testf)):
+                    tl = self.json2gender_list(path=testf, binary=True)
+                    testnames = self.json2names(path=testf, surnames=False)
+                    if (len(guessnames) == len(testnames)):
+                        print("################### " + api + "!!")
+                        print("Guess list:  " + str(gl))
+                        print("Gender Test list: " + str(tl))
+                        dst.print_measures(tl, gl, measure, api)
+                    else:
+                        difflen = True                        
+            if (is_json(guessf)):
+                gl = self.json2gender_list(path=guessf, binary=True)
+                guessnames = self.csv2names(path=guessf)
+                if (is_csv(testf)):
+                    tl = self.csv2gender_list(path=testf, binary=True)
+                    testnames = self.csv2names(path=testf)
+                    if (len(guessnames) == len(testnames)):
+                        print("################### " + api + "!!")
+                        print("Guess list:  " + str(gl))
+                        print("Gender Test list: " + str(tl))        
+                        dst.print_measures(tl, gl, measure, api)
+                    else:
+                        difflen = True
+                        v = self.first_uneq_json_and_csv_in_names(jsonf=jsonf,
+                                                                  path=path)
+                        
+                if (is_json(testf)):
+                    tl = self.json2gender_list(path=testf, binary=True)
+                    testnames = self.json2names(path=testf, surnames=False)
+                    if (len(guessnames) == len(testnames)):
+                        print("################### " + api + "!!")
+                        print("Guess list:  " + str(gl))
+                        print("Gender Test list: " + str(tl))        
+                        dst.print_measures(tl, gl, measure, api)
+                    else:
+                        difflen = True                                        
+        else:
+            print("Check arguments in pretty_gg_list:")
+            print("You must introduce a file for test file and")
+            print("a file for guessed file")            
 
-        if (os.path.isfile(jsonf)):
-            if (self.json_eq_csv_in_names(jsonf=jsonf, path=path)):
-                print("################### " + api + "!!")
-                print("Gender list: " + str(gl))
-                sl = self.json2gender_list(jsonf=jsonf, binary=True)
-                print("Guess list:  " + str(sl))
-                dst.print_measures(gl, sl, measure, api)
-            else:
-                print("Names in json and csv are differents")
-                print("%s names in csv" %
-                      len(self.csv2names(path=path, header=header)))
-                print("%s names in json" %
-                      len(self.json2names(jsonf=jsonf, surnames=False)))
-                v = self.first_uneq_json_and_csv_in_names(jsonf=jsonf,
-                                                          path=path)
-                print("The unmatched names starts in %s and the name is %s" %
-                      (v[1], v[0]))
-                print("Names in csv: %s:" %
-                      self.csv2names(path=path, header=header))
-                print("Names in json: %s:" %
-                      self.json2names(jsonf=jsonf, surnames=False))
+        if difflen:
+            print("Names in test file and guessed file are differents")
+            print("%s names in test file" %
+                  len(self.csv2names(path=path, header=header)))
+            print("%s names in json" %
+                  len(self.json2names(jsonf=jsonf, surnames=False)))
+            v = self.first_uneq_json_and_csv_in_names(jsonf=jsonf,
+                                                      path=path)
+            print("The unmatched names starts in %s and the name is %s" %
+                  (v[1], v[0]))
+            print("Names in csv: %s:" %
+                  self.csv2names(path=path, header=header))
+            print("Names in json: %s:" %
+                  self.json2names(jsonf=jsonf, surnames=False))
         else:
             print("In the path %s doesn't exist file" % jsonf)
             print("You can create one with:")
