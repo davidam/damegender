@@ -438,12 +438,13 @@ class TddInPythonExample(unittest.TestCase):
         du = DameUtils()
         file1 = "files/pca.json"
         self.assertTrue(du.is_json(file1))
+        file2 = "files/gnu-maintainers.csv"
+        self.assertFalse(du.is_json(file2))
 
     def test_is_csv(self):
         du = DameUtils()
         file1 = "files/gnu-maintainers.csv"
         self.assertTrue(du.is_csv(file1))
-
         
 # def test_file_year2dicc_females(self):
 #     du = DameUtils()
