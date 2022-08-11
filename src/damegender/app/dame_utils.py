@@ -693,3 +693,14 @@ class DameUtils():
         f.close()
         return True
 
+    def is_csv(self, mycsv):
+        import csv, sys
+        boolean = False
+        with open(mycsv, newline='') as f:
+            reader = csv.reader(f)
+            try:
+                for row in reader:
+                    boolean = True
+            except csv.Error as e:
+                return False
+        return boolean
