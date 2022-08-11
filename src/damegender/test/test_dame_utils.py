@@ -434,6 +434,10 @@ class TddInPythonExample(unittest.TestCase):
                                                       filter_pos=5, filter_char='1')
         self.assertEqual(diccmales["DAVID"], 169)
 
+    def test_is_json(self):
+        du = DameUtils()
+        file1 = "files/pca.json"
+        self.assertTrue(du.is_json(file1))
 
         
 # def test_file_year2dicc_females(self):
