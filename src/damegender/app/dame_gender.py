@@ -897,6 +897,9 @@ class Gender(object):
                         dst.print_measures(tl, gl, measure, api)
                     else:
                         difflen = True
+                        v = self.first_uneq_json_and_csv_in_names(csv1=guessf,
+                                                                  csv2=testf)
+
                 if (is_json(testf)):
                     tl = self.json2gender_list(path=testf, binary=True)
                     testnames = self.json2names(path=testf, surnames=False)
@@ -906,7 +909,9 @@ class Gender(object):
                         print("Gender Test list: " + str(tl))
                         dst.print_measures(tl, gl, measure, api)
                     else:
-                        difflen = True                        
+                        difflen = True
+                        v = self.first_uneq_json_and_csv_in_names(jsonf=testf,
+                                                                  csvf=guessf)                        
             if (is_json(guessf)):
                 gl = self.json2gender_list(path=guessf, binary=True)
                 guessnames = self.csv2names(path=guessf)
@@ -920,8 +925,8 @@ class Gender(object):
                         dst.print_measures(tl, gl, measure, api)
                     else:
                         difflen = True
-                        v = self.first_uneq_json_and_csv_in_names(jsonf=jsonf,
-                                                                  path=path)
+                        v = self.first_uneq_json_and_csv_in_names(jsonf=guessf,
+                                                                  csvf=testf)
                         
                 if (is_json(testf)):
                     tl = self.json2gender_list(path=testf, binary=True)
@@ -932,7 +937,9 @@ class Gender(object):
                         print("Gender Test list: " + str(tl))        
                         dst.print_measures(tl, gl, measure, api)
                     else:
-                        difflen = True                                        
+                        difflen = True
+                        v = self.first_uneq_json_and_csv_in_names(json1=guessf,
+                                                                  json2=testf)                        
         else:
             print("Check arguments in pretty_gg_list:")
             print("You must introduce a file for test file and")
@@ -941,23 +948,15 @@ class Gender(object):
         if difflen:
             print("Names in test file and guessed file are differents")
             print("%s names in test file" %
-                  len(self.csv2names(path=path, header=header)))
-            print("%s names in json" %
-                  len(self.json2names(jsonf=jsonf, surnames=False)))
-            v = self.first_uneq_json_and_csv_in_names(jsonf=jsonf,
-                                                      path=path)
+                  len(testnames))
+            print("%s names in guessed file" %
+                  len(guessnames))
             print("The unmatched names starts in %s and the name is %s" %
                   (v[1], v[0]))
-            print("Names in csv: %s:" %
-                  self.csv2names(path=path, header=header))
-            print("Names in json: %s:" %
-                  self.json2names(jsonf=jsonf, surnames=False))
-        else:
-            print("In the path %s doesn't exist file" % jsonf)
-            print("You can create one with:")
-            string1 = "$ python3 damegender2json.py --csv=%s --ml=%s "
-            string1 = string1 + "--jsonoutput=files/names/partial.csv.%s.json"
-            print(string1 % (path, ml, ml))
+            print("Names in test file: %s:" %
+                  testnames)
+            print("Names in guessed file: %s:" %
+                  guessnames)
         return 1
 
     def pretty_cm(self, path, jsonf, *args, **kwargs):
@@ -1055,6 +1054,48 @@ class Gender(object):
             ret = json[i].lower()
         return [ret, i]
 
+    def first_uneq_json_and_json_in_names(self, json1="", json2="",
+                                             *args, **kwargs):
+        header = kwargs.get('header', True)
+        json1 = self.json2names(jsonf=jsonf, surnames=False)
+        json2 = self.json2names(jsonf=jsonf, surnames=False)
+        i = 0
+        maxi_json1 = len(json1) - 1
+        maxi_json2 = len(json2) - 1
+        while ((i < maxi_json1) and
+               (i < maxi_json2) and
+               (json1[i].lower() == json2[i].lower())):
+            i = i + 1
+        ret = json1[i].lower()
+        if ((i > maxi_json1) and (i > maxi_json2)):
+            ret = ""
+        elif (i > maxi_json1):
+            ret = json2[i].lower()
+        elif (i > maxi_json2):
+            ret = json1[i].lower()
+        return [ret, i]
+
+    def first_uneq_csv_and_csv_in_names(self, csv1="", csv2="",
+                                         *args, **kwargs):
+        header = kwargs.get('header', True)
+        csv1 = self.csv2names(path=path, header=header)
+        csv2 = self.csv2names(path=path, header=header)
+        i = 0
+        maxi_csv1 = len(csv1) - 1
+        maxi_csv2 = len(csv2) - 1        
+        while ((i < maxi_csv1) and
+               (i < maxi_csv2) and
+               (csv1[i].lower() == csv2[i].lower())):
+            i = i + 1
+        ret = csv1[i].lower()
+        if ((i > maxi_csv1) and (i > maxi_csv2)):
+            ret = ""
+        elif (i > maxi_csv1):
+            ret = csv1[i].lower()
+        elif (i > maxi_csv2):
+            ret = csv2[i].lower()
+        return [ret, i]
+    
     def confusion_matrix_gender(self, path='', jsonf=''):
         # this method is an interfaz to confusion_matrix_table
         # allowing introduce a json file in dame_sexmachine
