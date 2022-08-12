@@ -324,8 +324,9 @@ class TddInPythonExample(unittest.TestCase):
         path2 = "files/names/min.csv"
         path3 = "files/names/nameapifiles_names_min.csv.json"
         path4 = "files/names/partial.csv"
+        path5 = "files/names/genderizefiles_names_min.csv.json"
         sabina = g.first_uneq_json_and_csv_in_names(jsonf=path1, path=path2)[0]
-        self.assertEqual("sabina", sabina)
+        self.assertEqual("", sabina)
         five = g.first_uneq_json_and_csv_in_names(jsonf=path1, path=path2)[1]
         self.assertEqual(5, five)
         guille = g.first_uneq_json_and_csv_in_names(jsonf=path3, path=path4)[0]
@@ -334,6 +335,10 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(4, four)
         guille2 = g.first_uneq_csv_and_csv_in_names(csv1=path2, csv2=path4)[0]
         self.assertEqual("guillermo", guille2)
+        api = g.first_uneq_json_and_json_in_names(json1=path1, json2=path3)[0]
+        self.assertEqual("", api)
+        api2 = g.first_uneq_json_and_json_in_names(json1=path1, json2=path5)[0]
+        self.assertEqual("", api2)
         
 # THE NEXT TESTS HAS BEEN COMMENTED BY TIME REASONS EXECUTING TESTS
 #     def test_dame_gender_features_list_categorical(self):
