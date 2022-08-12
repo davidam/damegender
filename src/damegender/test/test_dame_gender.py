@@ -332,7 +332,9 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual("guillermo", guille)
         four = g.first_uneq_json_and_csv_in_names(jsonf=path3, path=path4)[1]
         self.assertEqual(4, four)
-
+        guille2 = g.first_uneq_csv_and_csv_in_names(csv1=path2, csv2=path4)[0]
+        self.assertEqual("guillermo", guille2)
+        
 # THE NEXT TESTS HAS BEEN COMMENTED BY TIME REASONS EXECUTING TESTS
 #     def test_dame_gender_features_list_categorical(self):
 #         g = Gender()
