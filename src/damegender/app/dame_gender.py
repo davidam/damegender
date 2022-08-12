@@ -882,13 +882,21 @@ class Gender(object):
         ml = kwargs.get('ml', 'nltk')
         api = kwargs.get('api', 'damegender')
         header = kwargs.get('header', True)
+        gender_csv_row = kwargs.get('gender_csv_row', 4)
+        gender_f_chars = kwargs.get('gender_f_chars', 'f')
+        gender_m_chars = kwargs.get('gender_m_chars', 'm')
+        delimiter = kwargs.get('delimiter', ',')        
         difflen = False
         if ((os.path.isfile(guessf)) and (os.path.isfile(testf))):
             if (is_csv(guessf)):
                 gl = self.csv2gender_list(path=guessf)
                 guessnames = self.csv2names(path=guessf)                
                 if (is_csv(testf)):
-                    tl = self.csv2gender_list(path=testf, binary=True)
+                    tl = self.csv2gender_list(path=testf, binary=True,
+                                              gender_row=gender_csv_row,
+                                              gender_f_chars=gender_f_chars,
+                                              gender_m_chars=gender_m_chars,
+                                              delimiter=delimiter)
                     testnames = self.csv2names(path=testf)
                     if (len(guessnames) == len(testnames)):
                         print("################### " + api + "!!")
@@ -916,7 +924,12 @@ class Gender(object):
                 gl = self.json2gender_list(path=guessf, binary=True)
                 guessnames = self.csv2names(path=guessf)
                 if (is_csv(testf)):
-                    tl = self.csv2gender_list(path=testf, binary=True)
+                    tl = self.csv2gender_list(path=testf, binary=True,
+                                              gender_row=gender_row,
+                                              gender_f_chars=gender_f_chars,
+                                              gender_m_chars=gender_m_chars,
+                                              delimiter=delimiter)
+                    
                     testnames = self.csv2names(path=testf)
                     if (len(guessnames) == len(testnames)):
                         print("################### " + api + "!!")
