@@ -689,6 +689,11 @@ elif (country == "us"):
     print("US option is not running yet")
     print("This command is being developed")    
 
+    if (args.download):
+        print("Downloading datasets from United States of America ...")
+        subprocess.call(outpath + "download.sh", shell=True)
+        
+    
 elif (country == "uy"):
     origmales = origpath + "origmales.csv"
     origfemales = origpath + "origfemales.csv"    
