@@ -897,7 +897,7 @@ class Gender(object):
                         dst.print_measures(tl, gl, measure, api)
                     else:
                         difflen = True
-                        v = self.first_uneq_json_and_csv_in_names(csv1=guessf,
+                        v = self.first_uneq_csv_and_csv_in_names(csv1=guessf,
                                                                   csv2=testf)
 
                 if (is_json(testf)):
@@ -938,7 +938,7 @@ class Gender(object):
                         dst.print_measures(tl, gl, measure, api)
                     else:
                         difflen = True
-                        v = self.first_uneq_json_and_csv_in_names(json1=guessf,
+                        v = self.first_uneq_json_and_json_in_names(json1=guessf,
                                                                   json2=testf)                        
         else:
             print("Check arguments in pretty_gg_list:")
@@ -1078,8 +1078,8 @@ class Gender(object):
     def first_uneq_csv_and_csv_in_names(self, csv1="", csv2="",
                                          *args, **kwargs):
         header = kwargs.get('header', True)
-        csv1 = self.csv2names(path=path, header=header)
-        csv2 = self.csv2names(path=path, header=header)
+        csv1 = self.csv2names(path=csv1, header=header)
+        csv2 = self.csv2names(path=csv2, header=header)
         i = 0
         maxi_csv1 = len(csv1) - 1
         maxi_csv2 = len(csv2) - 1        
