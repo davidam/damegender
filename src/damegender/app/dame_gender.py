@@ -1052,13 +1052,15 @@ class Gender(object):
             ret = csv[i].lower()
         elif (i > maxi_csv):
             ret = json[i].lower()
+        elif (csv[i].lower() == json[i].lower()):
+            ret = ""            
         return [ret, i]
 
     def first_uneq_json_and_json_in_names(self, json1="", json2="",
                                              *args, **kwargs):
         header = kwargs.get('header', True)
-        json1 = self.json2names(jsonf=jsonf, surnames=False)
-        json2 = self.json2names(jsonf=jsonf, surnames=False)
+        json1 = self.json2names(jsonf=json1, surnames=False)
+        json2 = self.json2names(jsonf=json2, surnames=False)
         i = 0
         maxi_json1 = len(json1) - 1
         maxi_json2 = len(json2) - 1
@@ -1073,6 +1075,8 @@ class Gender(object):
             ret = json2[i].lower()
         elif (i > maxi_json2):
             ret = json1[i].lower()
+        elif (json1[i].lower() == json2[i].lower()):
+            ret = ""
         return [ret, i]
 
     def first_uneq_csv_and_csv_in_names(self, csv1="", csv2="",
@@ -1094,6 +1098,8 @@ class Gender(object):
             ret = csv1[i].lower()
         elif (i > maxi_csv2):
             ret = csv2[i].lower()
+        elif (csv1[i].lower() == csv2[i].lower()):
+            ret = ""            
         return [ret, i]
     
     def confusion_matrix_gender(self, path='', jsonf=''):
