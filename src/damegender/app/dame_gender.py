@@ -902,7 +902,7 @@ class Gender(object):
                     testnames = self.csv2names(path=testf)
                     if (len(guessnames) == len(testnames)):
                         print("################### " + api + "!!")
-                        print("Guess list:  " + str(gl))
+                        print("Guess list:       " + str(gl))
                         print("Gender Test list: " + str(tl))        
                         dst.print_measures(tl, gl, measure, api)
                     else:
@@ -915,7 +915,7 @@ class Gender(object):
                     testnames = self.json2names(path=testf, surnames=False)
                     if (len(guessnames) == len(testnames)):
                         print("################### " + api + "!!")
-                        print("Guess list:  " + str(gl))
+                        print("Guess list:       " + str(gl))
                         print("Gender Test list: " + str(tl))
                         dst.print_measures(tl, gl, measure, api)
                     else:
@@ -935,7 +935,7 @@ class Gender(object):
                     testnames = self.csv2names(path=testf)
                     if (len(guessnames) == len(testnames)):
                         print("################### " + api + "!!")
-                        print("Guess list:  " + str(gl))
+                        print("Guess list:       " + str(gl))
                         print("Gender Test list: " + str(tl))        
                         dst.print_measures(tl, gl, measure, api)
                     else:
@@ -948,7 +948,7 @@ class Gender(object):
                     testnames = self.json2names(path=testf, surnames=False)
                     if (len(guessnames) == len(testnames)):
                         print("################### " + api + "!!")
-                        print("Guess list:  " + str(gl))
+                        print("Guess list:       " + str(gl))
                         print("Gender Test list: " + str(tl))        
                         dst.print_measures(tl, gl, measure, api)
                     else:
