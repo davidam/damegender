@@ -299,9 +299,10 @@ class Gender(object):
         # make a list from a csv file
         surnames = kwargs.get('surnames', False)
         header = kwargs.get('header', True)
+        delimiter = kwargs.get('delimiter', ',')        
         csvlist = []
         with open(path) as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            sexreader = csv.reader(csvfile, delimiter=delimiter, quotechar='|')
             if header:
                 next(sexreader, None)
             for row in sexreader:
@@ -855,7 +856,7 @@ class Gender(object):
                 try:
                     gender = row[gender_row]
                 except IndexError:
-                    print("The method csv2gender_list has not row[" + gender_row + "]")
+                    print("The method csv2gender_list has not row[%s]" % str(gender_row) )
                     os.kill(os.getpid(), signal.SIGUSR1)
                 if (gender == gender_f_chars):
                     g = 0
@@ -885,18 +886,19 @@ class Gender(object):
         gender_csv_row = kwargs.get('gender_csv_row', 4)
         gender_f_chars = kwargs.get('gender_f_chars', 'f')
         gender_m_chars = kwargs.get('gender_m_chars', 'm')
-        delimiter = kwargs.get('delimiter', ',')        
+        delimiter_testf = kwargs.get('delimiter_testf', ',')
+        delimiter_guessf = kwargs.get('delimiter_guessf', ',')        
         difflen = False
         if ((os.path.isfile(guessf)) and (os.path.isfile(testf))):
-            if (is_csv(guessf)):
+            if (du.is_csv(guessf)):
                 gl = self.csv2gender_list(path=guessf)
                 guessnames = self.csv2names(path=guessf)                
-                if (is_csv(testf)):
+                if (du.is_csv(testf)):
                     tl = self.csv2gender_list(path=testf, binary=True,
                                               gender_row=gender_csv_row,
                                               gender_f_chars=gender_f_chars,
                                               gender_m_chars=gender_m_chars,
-                                              delimiter=delimiter)
+                                              delimiter_testf=delimiter_testf)
                     testnames = self.csv2names(path=testf)
                     if (len(guessnames) == len(testnames)):
                         print("################### " + api + "!!")
@@ -908,7 +910,7 @@ class Gender(object):
                         v = self.first_uneq_csv_and_csv_in_names(csv1=guessf,
                                                                   csv2=testf)
 
-                if (is_json(testf)):
+                if (du.is_json(testf)):
                     tl = self.json2gender_list(path=testf, binary=True)
                     testnames = self.json2names(path=testf, surnames=False)
                     if (len(guessnames) == len(testnames)):
@@ -920,10 +922,10 @@ class Gender(object):
                         difflen = True
                         v = self.first_uneq_json_and_csv_in_names(jsonf=testf,
                                                                   csvf=guessf)                        
-            if (is_json(guessf)):
+            if (du.is_json(guessf)):
                 gl = self.json2gender_list(path=guessf, binary=True)
                 guessnames = self.csv2names(path=guessf)
-                if (is_csv(testf)):
+                if (du.is_csv(testf)):
                     tl = self.csv2gender_list(path=testf, binary=True,
                                               gender_row=gender_row,
                                               gender_f_chars=gender_f_chars,
