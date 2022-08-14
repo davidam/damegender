@@ -890,16 +890,13 @@ class Gender(object):
         delimiter_guessf = kwargs.get('delimiter_guessf', ',')        
         difflen = False
         if ((os.path.isfile(guessf)) and (os.path.isfile(testf))):
-            if (du.is_csv(guessf)):
-                gl = self.csv2gender_list(path=guessf)
-                guessnames = self.csv2names(path=guessf)                
-                if (du.is_csv(testf)):
-                    tl = self.csv2gender_list(path=testf, binary=True,
-                                              gender_row=gender_csv_row,
-                                              gender_f_chars=gender_f_chars,
-                                              gender_m_chars=gender_m_chars,
-                                              delimiter_testf=delimiter_testf)
-                    testnames = self.csv2names(path=testf)
+            if (du.is_json(guessf)):
+                gl = self.json2gender_list(jsonf=guessf, binary=True)
+                guessnames = self.csv2names(path=guessf)
+                        
+                if (du.is_json(testf)):
+                    tl = self.json2gender_list(jsonf=testf, binary=True)
+                    testnames = self.json2names(path=testf, surnames=False)
                     if (len(guessnames) == len(testnames)):
                         print("################### " + api + "!!")
                         print("Guess list:       " + str(gl))
@@ -907,25 +904,9 @@ class Gender(object):
                         dst.print_measures(tl, gl, measure, api)
                     else:
                         difflen = True
-                        v = self.first_uneq_csv_and_csv_in_names(csv1=guessf,
-                                                                  csv2=testf)
-
-                if (du.is_json(testf)):
-                    tl = self.json2gender_list(path=testf, binary=True)
-                    testnames = self.json2names(path=testf, surnames=False)
-                    if (len(guessnames) == len(testnames)):
-                        print("################### " + api + "!!")
-                        print("Guess list:       " + str(gl))
-                        print("Gender Test list: " + str(tl))
-                        dst.print_measures(tl, gl, measure, api)
-                    else:
-                        difflen = True
-                        v = self.first_uneq_json_and_csv_in_names(jsonf=testf,
-                                                                  csvf=guessf)                        
-            if (du.is_json(guessf)):
-                gl = self.json2gender_list(path=guessf, binary=True)
-                guessnames = self.csv2names(path=guessf)
-                if (du.is_csv(testf)):
+                        v = self.first_uneq_json_and_json_in_names(json1=guessf,
+                                                                  json2=testf)
+                elif (du.is_csv(testf)):
                     tl = self.csv2gender_list(path=testf, binary=True,
                                               gender_row=gender_row,
                                               gender_f_chars=gender_f_chars,
@@ -943,9 +924,29 @@ class Gender(object):
                         v = self.first_uneq_json_and_csv_in_names(jsonf=guessf,
                                                                   csvf=testf)
                         
-                if (is_json(testf)):
-                    tl = self.json2gender_list(path=testf, binary=True)
-                    testnames = self.json2names(path=testf, surnames=False)
+            elif (du.is_csv(guessf)):
+                gl = self.csv2gender_list(path=guessf)
+                guessnames = self.csv2names(path=guessf)
+                if (du.is_json(testf)):
+                    tl = self.json2gender_list(jsonf=testf, binary=True)
+                    testnames = self.json2names(jsonf=testf, surnames=False)
+                    if (len(guessnames) == len(testnames)):
+                        print("################### " + api + "!!")
+                        print("Guess list:       " + str(gl))
+                        print("Gender Test list: " + str(tl))
+                        dst.print_measures(tl, gl, measure, api)
+                    else:
+                        difflen = True
+                        v = self.first_uneq_json_and_csv_in_names(jsonf=testf,
+                                                                  csvf=guessf)                        
+
+                elif (du.is_csv(testf)):
+                    tl = self.csv2gender_list(path=testf, binary=True,
+                                              gender_row=gender_csv_row,
+                                              gender_f_chars=gender_f_chars,
+                                              gender_m_chars=gender_m_chars,
+                                              delimiter_testf=delimiter_testf)
+                    testnames = self.csv2names(path=testf)
                     if (len(guessnames) == len(testnames)):
                         print("################### " + api + "!!")
                         print("Guess list:       " + str(gl))
@@ -953,8 +954,10 @@ class Gender(object):
                         dst.print_measures(tl, gl, measure, api)
                     else:
                         difflen = True
-                        v = self.first_uneq_json_and_json_in_names(json1=guessf,
-                                                                  json2=testf)                        
+                        v = self.first_uneq_csv_and_csv_in_names(csv1=guessf,
+                                                                  csv2=testf)
+
+                        
         else:
             print("Check arguments in pretty_gg_list:")
             print("You must introduce a file for test file and")
