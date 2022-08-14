@@ -137,6 +137,33 @@ else
 	echo -e  "accuracypartialdamegender test is ${GREEN}ok${NC}"
 fi
 
+python3 accuracy.py --dataset_test=files/names/min.csv.json --measure=precision --api=damegender --dataset_true=files/names/min.csv.json > files/tests/accuracyminjsonjson-$(date "+%Y-%m-%d-%H").txt
+
+if ! diff files/tests/accuracyminjsonjson.txt files/tests/accuracyminjsonjson-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo -e  "accuracyminjsonjson test is ${RED}failing${NC}"
+else
+	echo -e  "accuracyminjsonjson test is ${GREEN}ok${NC}"
+fi
+
+python3 accuracy.py --dataset_test=files/names/min.csv --measure=accuracy --api=damegender --dataset_true=files/names/min.csv.json > files/tests/accuracymincsvjson-$(date "+%Y-%m-%d-%H").txt
+
+if ! diff files/tests/accuracymincsvjson.txt files/tests/accuracymincsvjson-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo -e  "accuracymincsvjson test is ${RED}failing${NC}"
+else
+	echo -e  "accuracymincsvjson test is ${GREEN}ok${NC}"
+fi
+
+python3 accuracy.py --dataset_test=files/names/min.csv.json --measure=precision --api=damegender --dataset_true=files/names/min.csv > files/tests/accuracyminjsoncsv-$(date "+%Y-%m-%d-%H").txt
+
+if ! diff files/tests/accuracyminjsoncsv.txt files/tests/accuracyminjsoncsv-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo -e  "accuracyminjsoncsv test is ${RED}failing${NC}"
+else
+	echo -e  "accuracyminjsoncsv test is ${GREEN}ok${NC}"
+fi
+
 
 python3 confusion.py --api="damegender" --dimensions=2x3 --csv=files/names/min.csv --jsondownloaded=files/names/min.csv.json > files/tests/confusiondamegender-$(date "+%Y-%m-%d-%H").txt
 
