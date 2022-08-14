@@ -1442,17 +1442,20 @@ dando una explicación, por ejemplo, decir que el dataset es menor
 de 1000 nombres y, por tanto, estamos asumiendo que el nombre podría
 existir en el territorio italiano, pero no podemos dar el género
 con el dataset científico y damos la respuesta internacional.
-* TODO Escribir csv2pretty_gg_list y renombrar pretty_gg_list a json2pretty_gg_list
-    def csv2pretty_gg_list(self, path, csvf, *args, **kwargs):
-        # print the gender list and the guess list
-        # with a measure (e.g: accuracy)
-        # from a csv file (guess list)
-        # and a csv test file (gender list)
-        measure = kwargs.get('measure', 'accuracy')
-        binary = kwargs.get('binary', True)
-        ml = kwargs.get('ml', 'nltk')
-        api = kwargs.get('api', 'damegender')
-        header = kwargs.get('header', True)
-        gl = self.csv2gender_list(path=path)
-        return 1
-        
+* TODO Reescribir pretty_gg_list para aceptar json y csv
+* DONE Elegir el logo de gender equity como logo oficial de Damegender
+SCHEDULED: <2022-08-10 mié>
+- State "DONE"       from "TODO"       [2022-08-14 dom 13:56]
+En sintonía con el Objetivo de Desarrollo Sostenible 5 de Naciones Unidas
+y, anticipándonos a la versión 0.5 de Damegender se ha elegido el logo
+de Equidad de Género como logo oficial del proyecto Damegender.
+Generando un listado de canciones que se considera en sintonía
+con la nueva línea del proyecto. 
+* TODO Echar un vistazo a este accuracy mal calculado tras reescribir pretty_gg_list
+SCHEDULED: <2022-08-14 dom>
+% python3 accuracy.py --dataset_test=files/names/partial.csv --measure=accuracy --api=damegender --dataset_true=files/names/partial.csv.json 
+################### Damegender!!
+Guess list:       [1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
+Gender Test list: [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
+Damegender accuracy: 1.0
+
