@@ -892,11 +892,11 @@ class Gender(object):
         if ((os.path.isfile(guessf)) and (os.path.isfile(testf))):
             if (du.is_json(guessf)):
                 gl = self.json2gender_list(jsonf=guessf, binary=True)
-                guessnames = self.csv2names(path=guessf)
+                guessnames = self.json2names(jsonf=guessf)
                         
                 if (du.is_json(testf)):
                     tl = self.json2gender_list(jsonf=testf, binary=True)
-                    testnames = self.json2names(path=testf, surnames=False)
+                    testnames = self.json2names(jsonf=testf, surnames=False)
                     if (len(guessnames) == len(testnames)):
                         print("################### " + api + "!!")
                         print("Guess list:       " + str(gl))
