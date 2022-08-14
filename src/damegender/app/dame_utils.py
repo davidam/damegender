@@ -693,14 +693,18 @@ class DameUtils():
         f.close()
         return True
 
-    def is_csv(self, mycsv):
+    def is_csv(self, mycsv, *args, **kwargs):
+        delimiter = kwargs.get('delimiter', ',')
         import csv, sys
         boolean = False
-        with open(mycsv, newline='') as f:
-            reader = csv.reader(f)
-            try:
-                for row in reader:
-                    boolean = True
-            except csv.Error as e:
-                return False
+        if (self.is_json(mycsv)):
+            boolean = False
+        else:
+            with open(mycsv) as f:
+                reader = csv.reader(f, delimiter=delimiter)
+                try:
+                    for row in reader:
+                        boolean = True
+                except csv.Error as e:
+                    return False
         return boolean
