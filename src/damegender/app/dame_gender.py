@@ -908,10 +908,10 @@ class Gender(object):
                                                                   json2=testf)
                 elif (du.is_csv(testf)):
                     tl = self.csv2gender_list(path=testf, binary=True,
-                                              gender_row=gender_row,
+                                              gender_row=gender_csv_row,
                                               gender_f_chars=gender_f_chars,
                                               gender_m_chars=gender_m_chars,
-                                              delimiter=delimiter)
+                                              delimiter=delimiter_testf)
                     
                     testnames = self.csv2names(path=testf)
                     if (len(guessnames) == len(testnames)):
