@@ -686,12 +686,25 @@ elif (country == "ru"):
 
     
 elif (country == "us"):
-    print("US option is not running yet")
-    print("This command is being developed")    
 
     if (args.download):
         print("Downloading datasets from United States of America ...")
         subprocess.call(outpath + "download.sh", shell=True)
+
+    l0 = []
+    diccfemales = {}
+    diccmales = {}
+    
+    for i in range(1883, 2022):
+        filei = origpath + "yob" + str(i) + '.txt'
+        diccfemales = du.dump_name_and_quantity_in_dicc(filei, posname=0, posquant=2,
+                                                        filter_char="F", filter_pos=1,
+                                                        delimiter=",", dicc=diccfemales)
+        diccmales = du.dump_name_and_quantity_in_dicc(filei, posname=0, posquant=2,
+                                                      filter_char="M", filter_pos=1,
+                                                      delimiter=",", dicc=diccmales)
+    du.simple_dicc_to_file(diccfemales, outfemales)
+    du.simple_dicc_to_file(diccmales, outmales)
         
     
 elif (country == "uy"):
