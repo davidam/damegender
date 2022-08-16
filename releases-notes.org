@@ -1,3 +1,12 @@
+* v0.4.7
+The method pretty_gg_list has been rewritten allowing some combination
+of csv or json files as arguments. This will be very useful for a
+Damegender non dependent of Lucia&Helena dataset. So, very good
+datasets saved in files/names/names_tests will can be used for check
+benchmarks of accuracies, precision, f1score, recall, ...
+
+More countries has been added to orig2.py
+
 * v0.4.6
 Added the 58 most popular italian names (29 males and 29 females)
 retrieved from istat (the italian statistics office).
