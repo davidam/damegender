@@ -235,9 +235,9 @@ class TddInPythonExample(unittest.TestCase):
         frec3 = g.name_frec("ALMUDENA", dataset='ine')
         self.assertEqual(int(frec3['females']), 30517)
         frec5 = g.name_frec("ELIZABETH", dataset='us')
-        self.assertEqual(int(frec5['females']), 1581894)
+        self.assertEqual(int(frec5['females']), 1655053)
         frec5n = g.name_frec("ELISABETH", dataset='us')
-        self.assertEqual(int(frec5n['females']), 43531)
+        self.assertEqual(int(frec5n['females']), 46811)
         frec6 = g.name_frec("MARIA", dataset='gb')
         self.assertEqual(int(frec6['females']), 10401)
         frec7 = g.name_frec("JULIAN", dataset='gb')
@@ -270,7 +270,7 @@ class TddInPythonExample(unittest.TestCase):
                           'nz': 0.0, 'ca': 0.0, 'fi': 0.0,
                           'au': 0.0, 'pt': 0.0},
               'males': {'es': 0.09, 'ie': 0.0, 'is': 0.0,
-                        'uy': 0.0, 'gb': 0.02, 'us': 0.87,
+                        'uy': 0.0, 'gb': 0.02, 'us': 0.88,
                         'nz': 0.01, 'ca': 0.0, 'fi': 0.0,
                         'au': 0.0, 'pt': 0.0}}]
         self.assertEqual(x, g.name_prob_countries("David"))
