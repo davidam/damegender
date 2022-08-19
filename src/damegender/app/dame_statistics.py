@@ -53,7 +53,7 @@ class DameStatistics(object):
 
 # METHODS ABOUT STATISTICS #
 
-    def count_true2guess(self, truevector, guessvector, true, guess):
+    def count_true2guess(self, truevector, guessvector, mytrue, myguess):
         # counting what is happenning between the true vector and
         # the guess vector
         i = 0
@@ -63,7 +63,7 @@ class DameStatistics(object):
         else:
             maxi = len(truevector)
         while (i < maxi):
-            if ((truevector[i] == true) and (guessvector[i] == guess)):
+            if ((truevector[i] == mytrue) and (guessvector[i] == myguess)):
                 count = count + 1
             i = i + 1
         return count
@@ -133,23 +133,52 @@ class DameStatistics(object):
     def accuracy_score_dame(self, truevector, guessvector):
         # accuracy score is about successful between true and guess:
         # femalefemale + malemale dividing the sum of all options
-        if (len(truevector) == len(guessvector)):
-            divider = self.femalefemale(truevector, guessvector)
-            divider = divider + self.malemale(truevector, guessvector)
-            dividend = self.femalefemale(truevector, guessvector)
-            dividend = dividend + self.malemale(truevector, guessvector)
-            dividend = dividend + self.malefemale(truevector, guessvector)
-            dividend = dividend + self.femalemale(truevector, guessvector)
-            dividend = dividend + self.femaleundefined(truevector, guessvector)
-            dividend = dividend + self.maleundefined(truevector, guessvector)
-            result = divider / dividend
+        if ((2 in truevector) or (2 in guessvector)):
+        # (femalefemale + malemale + undefinedundefined ) /
+        # (femalefemale + malemale + malefemale + femalemale +
+        #  + femaleundefined + undefinedfemale + undefinedmale + maleundefined)
+            if (len(truevector) == len(guessvector)):
+                divider = self.femalefemale(truevector, guessvector)
+                divider = divider + self.malemale(truevector, guessvector)
+                divider = divider + self.undefinedundefined(truevector, guessvector)
+                print("divider: %s" % divider)
+                dividend = self.femalefemale(truevector, guessvector)
+                dividend = dividend + self.femalemale(truevector, guessvector)
+                dividend = dividend + self.femaleundefined(truevector, guessvector)
+                dividend = dividend + self.malefemale(truevector, guessvector)
+                dividend = dividend + self.malemale(truevector, guessvector)            
+                dividend = dividend + self.maleundefined(truevector, guessvector)
+                dividend = dividend + self.undefinedfemale(truevector, guessvector)
+                dividend = dividend + self.undefinedmale(truevector, guessvector)                
+                dividend = dividend + self.undefinedundefined(truevector, guessvector)
+                print("dividend: %s" % dividend)                
+                result = divider / dividend
+            else:
+                result = 0
+                print("Both vectors must have the same length")
+                print("truevector length: %s" % len(truevector))
+                print("guessvector length: %s" % len(guessvector))
+                print("truevector: %s" % truevector)
+                print("guessvector: %s" % guessvector)
         else:
-            result = 0
-            print("Both vectors must have the same length")
-            print("truevector length: %s" % len(truevector))
-            print("guessvector length: %s" % len(guessvector))
-            print("truevector: %s" % truevector)
-            print("guessvector: %s" % guessvector)
+        # (femalefemale + malemale ) /
+        # (femalefemale + malemale + malefemale + femalemale) 
+            if (len(truevector) == len(guessvector)):
+                divider = self.femalefemale(truevector, guessvector)
+                divider = divider + self.malemale(truevector, guessvector)
+                dividend = self.femalefemale(truevector, guessvector)
+                dividend = dividend + self.femalemale(truevector, guessvector)
+                dividend = dividend + self.malefemale(truevector, guessvector)
+                dividend = dividend + self.malemale(truevector, guessvector)            
+                result = divider / dividend
+            else:
+                result = 0
+                print("Both vectors must have the same length")
+                print("truevector length: %s" % len(truevector))
+                print("guessvector length: %s" % len(guessvector))
+                print("truevector: %s" % truevector)
+                print("guessvector: %s" % guessvector)            
+        
         return result
 
     def precision(self, truevector, guessvector):
