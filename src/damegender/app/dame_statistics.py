@@ -141,7 +141,6 @@ class DameStatistics(object):
                 divider = self.femalefemale(truevector, guessvector)
                 divider = divider + self.malemale(truevector, guessvector)
                 divider = divider + self.undefinedundefined(truevector, guessvector)
-                print("divider: %s" % divider)
                 dividend = self.femalefemale(truevector, guessvector)
                 dividend = dividend + self.femalemale(truevector, guessvector)
                 dividend = dividend + self.femaleundefined(truevector, guessvector)
@@ -151,7 +150,6 @@ class DameStatistics(object):
                 dividend = dividend + self.undefinedfemale(truevector, guessvector)
                 dividend = dividend + self.undefinedmale(truevector, guessvector)                
                 dividend = dividend + self.undefinedundefined(truevector, guessvector)
-                print("dividend: %s" % dividend)                
                 result = divider / dividend
             else:
                 result = 0
