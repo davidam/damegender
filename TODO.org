@@ -1433,7 +1433,8 @@ SCHEDULED: <2022-07-12 mar>
 - State "DONE"       from "TODO"       [2022-07-12 mar 11:51]
 *** DONE "uy"
 - State "DONE"       from "TODO"       [2022-07-12 mar 11:49]
-*** TODO "us"
+*** DONE "us"
+- State "DONE"       from "TODO"       [2022-08-15 lun 16:59]
 * TODO Los datasets pequeños deben dar respuesta INTER
 Cuando tenemos un dataset como el de Italia que aunque recuperado
 de manera replicable desde institución estadística oficial da un
@@ -1451,11 +1452,13 @@ y, anticipándonos a la versión 0.5 de Damegender se ha elegido el logo
 de Equidad de Género como logo oficial del proyecto Damegender.
 Generando un listado de canciones que se considera en sintonía
 con la nueva línea del proyecto. 
-* TODO Echar un vistazo a este accuracy mal calculado tras reescribir pretty_gg_list
+* DONE Echar un vistazo a este accuracy mal calculado tras reescribir pretty_gg_list
 SCHEDULED: <2022-08-14 dom>
+- State "DONE"       from "TODO"       [2022-08-19 vie 19:13]
 % python3 accuracy.py --dataset_test=files/names/partial.csv --measure=accuracy --api=damegender --dataset_true=files/names/partial.csv.json 
 ################### Damegender!!
 Guess list:       [1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
 Gender Test list: [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
 Damegender accuracy: 1.0
 
+accuracy_score_dame had been used and tested only without undefined because in the first paper was deleted, now accuracy_score_dame has been rewritten to give support to vectors using undefined
