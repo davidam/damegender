@@ -898,9 +898,9 @@ class Gender(object):
                     tl = self.json2gender_list(jsonf=testf, binary=True)
                     testnames = self.json2names(jsonf=testf, surnames=False)
                     if (len(guessnames) == len(testnames)):
-                        print("################### " + api + "!!")
-                        print("Guess list:       " + str(gl))
-                        print("Gender Test list: " + str(tl))        
+                        print("########################## " + api + "!!")
+                        print("Gender Guess (guess list): " + str(gl))
+                        print("Gender Test   (true list): " + str(tl))        
                         dst.print_measures(tl, gl, measure, api)
                     else:
                         difflen = True
@@ -915,9 +915,9 @@ class Gender(object):
                     
                     testnames = self.csv2names(path=testf)
                     if (len(guessnames) == len(testnames)):
-                        print("################### " + api + "!!")
-                        print("Guess list:       " + str(gl))
-                        print("Gender Test list: " + str(tl))        
+                        print("########################## " + api + "!!")
+                        print("Gender Guess (guess list): " + str(gl))
+                        print("Gender Test   (true list): " + str(tl))        
                         dst.print_measures(tl, gl, measure, api)
                     else:
                         difflen = True
@@ -931,9 +931,9 @@ class Gender(object):
                     tl = self.json2gender_list(jsonf=testf, binary=True)
                     testnames = self.json2names(jsonf=testf, surnames=False)
                     if (len(guessnames) == len(testnames)):
-                        print("################### " + api + "!!")
-                        print("Guess list:       " + str(gl))
-                        print("Gender Test list: " + str(tl))
+                        print("########################## " + api + "!!")
+                        print("Gender Guess (guess list): " + str(gl))
+                        print("Gender Test   (true list): " + str(tl))
                         dst.print_measures(tl, gl, measure, api)
                     else:
                         difflen = True
@@ -948,9 +948,9 @@ class Gender(object):
                                               delimiter_testf=delimiter_testf)
                     testnames = self.csv2names(path=testf)
                     if (len(guessnames) == len(testnames)):
-                        print("################### " + api + "!!")
-                        print("Guess list:       " + str(gl))
-                        print("Gender Test list: " + str(tl))        
+                        print("######################### " + api + "!!")
+                        print("Guess Guess (guess list): " + str(gl))
+                        print("Gender Test  (true list): " + str(tl))        
                         dst.print_measures(tl, gl, measure, api)
                     else:
                         difflen = True
