@@ -79,50 +79,55 @@ class DameStatistics(object):
         # how many times occurs that
         # in the true vector there are female and
         # in the guess vector there are male
-        # false negative in jargon math
+        # true negative in jargon math
         return self.count_true2guess(truevector, guessvector, 0, 1)
 
     def femaleundefined(self, truevector, guessvector):
         # how many times occurs that
         # in the true vector there are female and
         # in the guess vector there are undefined
+        # true negative in jargon math
         return self.count_true2guess(truevector, guessvector, 0, 2)
 
     def malefemale(self, truevector, guessvector):
         # how many times occurs that
         # in the true vector there are male and
         # in the guess vector there are female
-        # false positive in jargon math
+        # true negative in jargon math
         return self.count_true2guess(truevector, guessvector, 1, 0)
 
     def malemale(self, truevector, guessvector):
         # how many times occurs that
         # in the true vector there are male and
         # in the guess vector there are male
-        # true negative in jargon math
+        # true positive in jargon math
         return self.count_true2guess(truevector, guessvector, 1, 1)
 
     def maleundefined(self, truevector, guessvector):
         # how many times occurs that in the true vector there are male
         # and in the guess vector there are undefined
+        # true negative in jargon math
         return self.count_true2guess(truevector, guessvector, 1, 2)
 
     def undefinedfemale(self, truevector, guessvector):
         # how many times occurs that
         # in the true vector there are undefined and
         # in the guess vector there are female
+        # false positive in jargon math
         return self.count_true2guess(truevector, guessvector, 2, 0)
 
     def undefinedmale(self, truevector, guessvector):
         # how many times occurs that
         # in the true vector there are undefined
         # and in the guess vector there are male
+        # false positive in jargon math
         return self.count_true2guess(truevector, guessvector, 2, 1)
 
     def undefinedundefined(self, truevector, guessvector):
         # how many times occurs that
         # in the true vector there are undefined and
         # in the guess vector there are undefined
+        # false negative in jargon math
         return self.count_true2guess(truevector, guessvector, 2, 2)
 
 # STATISTICAL MEASURES LECTURES
