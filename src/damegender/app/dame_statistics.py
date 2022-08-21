@@ -187,8 +187,9 @@ class DameStatistics(object):
         divider = self.femalefemale(truevector, guessvector)
         divider = divider + self.malemale(truevector, guessvector)
         dividend = self.femalefemale(truevector, guessvector)
-        dividend = dividend + self.malemale(truevector, guessvector)
+        dividend = dividend + self.femalemale(truevector, guessvector)
         dividend = dividend + self.malefemale(truevector, guessvector)
+        dividend = dividend + self.malemale(truevector, guessvector)            
         result = divider / dividend
         return result
 
