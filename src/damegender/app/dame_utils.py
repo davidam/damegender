@@ -373,11 +373,12 @@ class DameUtils():
         l2 = [element.lower() for element in l1]
         return l2
 
-    def num_columns_in_csv(self, csvpath):
+    def num_columns_in_csv(self, csvpath, *args, **kwargs):
+        delimiter = kwargs.get('delimiter', ',')
         # returns the number of columns in a csv file
         with open(csvpath, 'r') as csvfile:
             first_line = csvfile.readline()
-            ncol = first_line.count(',') + 1
+            ncol = first_line.count(delimiter) + 1
         return ncol
 
     def csvcolumn2list(self, csvpath,  *args, **kwargs):
