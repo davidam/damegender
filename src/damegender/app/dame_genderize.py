@@ -61,6 +61,11 @@ class DameGenderize(Gender):
         return d
 
     def guess(self, name, binary=False, *args, **kwargs):
+        # returning 0, 1, 2 as female, male or unknown
+        # if binary is false it returns female, male, or unknown
+        # TODO: ISO/IEC 5218 proposes a norm about coding gender:
+        # ``0 as not know'',``1 as male'', ``2 as female''
+        # and ``9 as not applicable''        
         country_id = kwargs.get('dataset', 'us')
         d = self.get(name, country_id)
         if (binary is True):
@@ -109,6 +114,10 @@ class DameGenderize(Gender):
         return res
 
     def json2gender_list(self, jsonf="", binary=False):
+        # generating a list of 0, 1, 2 as females, males and unknows
+        # TODO: ISO/IEC 5218 proposes a norm about coding gender:
+        # ``0 as not know'',``1 as male'', ``2 as female''
+        # and ``9 as not applicable''        
         jsondata = open(jsonf).read()
         json_object = json.loads(jsondata)
         guesslist = []
