@@ -72,62 +72,79 @@ class DameStatistics(object):
         # how many times occurs that
         # in the true vector there are female and
         # in the guess vector there are female
-        # true positive in jargon math
+        # true positive in jargon math (universe: female, male, undefined)
+        # in this universe the property is to be defined and to be truth the sex        
+        # true negative in jargon math (universe: female, male)
+        # in the universe female male the property is to be male
         return self.count_true2guess(truevector, guessvector, 0, 0)
 
     def femalemale(self, truevector, guessvector):
         # how many times occurs that
         # in the true vector there are female and
         # in the guess vector there are male
-        # true negative in jargon math
+        # true negative in jargon math (universe: female, male, undefined)
+        # in this universe the property is to be defined and to be truth the sex
+        # false positive in jargon math (universe: female, male)
+        # in the universe female male the property is to be male
         return self.count_true2guess(truevector, guessvector, 0, 1)
 
     def femaleundefined(self, truevector, guessvector):
         # how many times occurs that
         # in the true vector there are female and
         # in the guess vector there are undefined
-        # true negative in jargon math
+        # true negative in jargon math (universe: female, male, undefined)
+        # in this universe the property is to be defined and to be truth the sex        
         return self.count_true2guess(truevector, guessvector, 0, 2)
 
     def malefemale(self, truevector, guessvector):
         # how many times occurs that
         # in the true vector there are male and
         # in the guess vector there are female
-        # true negative in jargon math
+        # true negative in jargon math (universe: female, male, undefined)
+        # in this universe the property is to be defined and to be truth the sex        
+        # false negative in jargon math (universe: female, male)
+        # in this universe the property it to be male        
         return self.count_true2guess(truevector, guessvector, 1, 0)
 
     def malemale(self, truevector, guessvector):
         # how many times occurs that
         # in the true vector there are male and
         # in the guess vector there are male
-        # true positive in jargon math
+        # true positive in jargon math (universe: female, male, undefined)
+        # in this universe the property is to be defined and to be truth the sex        
+        # true positive in jargon math (universe: female, male)
+        # in this universe the property it to be male
         return self.count_true2guess(truevector, guessvector, 1, 1)
 
     def maleundefined(self, truevector, guessvector):
         # how many times occurs that in the true vector there are male
         # and in the guess vector there are undefined
-        # true negative in jargon math
+        # true negative in jargon math (universe: female, male, undefined)
+        # in this universe the property is to be defined and to be truth the sex        
         return self.count_true2guess(truevector, guessvector, 1, 2)
 
     def undefinedfemale(self, truevector, guessvector):
         # how many times occurs that
         # in the true vector there are undefined and
         # in the guess vector there are female
-        # false positive in jargon math
+        # false positive in jargon math (universe: female, male, undefined)
+        # in this universe the property is to be defined and to be truth the sex        
         return self.count_true2guess(truevector, guessvector, 2, 0)
 
     def undefinedmale(self, truevector, guessvector):
         # how many times occurs that
         # in the true vector there are undefined
         # and in the guess vector there are male
-        # false positive in jargon math
+        # false positive in jargon math (universe: female, male, undefined)
+        # in this universe the property is to be defined and to be truth the sex        
         return self.count_true2guess(truevector, guessvector, 2, 1)
 
     def undefinedundefined(self, truevector, guessvector):
         # how many times occurs that
         # in the true vector there are undefined and
         # in the guess vector there are undefined
-        # false negative in jargon math
+        # false negative in jargon math (universe: female, male, undefined)
+        # in this universe the property is to be defined and to be truth the sex        
         return self.count_true2guess(truevector, guessvector, 2, 2)
 
 # STATISTICAL MEASURES LECTURES
@@ -143,18 +160,30 @@ class DameStatistics(object):
         # (femalefemale + malemale + malefemale + femalemale +
         #  + femaleundefined + undefinedfemale + undefinedmale + maleundefined)
             if (len(truevector) == len(guessvector)):
-                divider = self.femalefemale(truevector, guessvector)
-                divider = divider + self.malemale(truevector, guessvector)
-                divider = divider + self.undefinedundefined(truevector, guessvector)
-                dividend = self.femalefemale(truevector, guessvector)
-                dividend = dividend + self.femalemale(truevector, guessvector)
-                dividend = dividend + self.femaleundefined(truevector, guessvector)
-                dividend = dividend + self.malefemale(truevector, guessvector)
-                dividend = dividend + self.malemale(truevector, guessvector)            
-                dividend = dividend + self.maleundefined(truevector, guessvector)
-                dividend = dividend + self.undefinedfemale(truevector, guessvector)
-                dividend = dividend + self.undefinedmale(truevector, guessvector)                
-                dividend = dividend + self.undefinedundefined(truevector, guessvector)
+                divider = self.femalefemale(truevector,
+                                            guessvector)
+                divider = divider + self.malemale(truevector,
+                                                  guessvector)
+                divider = divider + self.undefinedundefined(truevector,
+                                                            guessvector)
+                dividend = self.femalefemale(truevector,
+                                             guessvector)
+                dividend = dividend + self.femalemale(truevector,
+                                                      guessvector)
+                dividend = dividend + self.femaleundefined(truevector,
+                                                           guessvector)
+                dividend = dividend + self.malefemale(truevector,
+                                                      guessvector)
+                dividend = dividend + self.malemale(truevector,
+                                                    guessvector)
+                dividend = dividend + self.maleundefined(truevector,
+                                                         guessvector)
+                dividend = dividend + self.undefinedfemale(truevector,
+                                                           guessvector)
+                dividend = dividend + self.undefinedmale(truevector,
+                                                         guessvector)
+                dividend = dividend + self.undefinedundefined(truevector,
+                                                              guessvector)
                 result = divider / dividend
             else:
                 result = 0
@@ -165,14 +194,15 @@ class DameStatistics(object):
                 print("guessvector: %s" % guessvector)
         else:
         # (femalefemale + malemale ) /
-        # (femalefemale + malemale + malefemale + femalemale) 
+        # (femalefemale + malemale +
+        #   malefemale + femalemale)
             if (len(truevector) == len(guessvector)):
                 divider = self.femalefemale(truevector, guessvector)
                 divider = divider + self.malemale(truevector, guessvector)
                 dividend = self.femalefemale(truevector, guessvector)
                 dividend = dividend + self.femalemale(truevector, guessvector)
                 dividend = dividend + self.malefemale(truevector, guessvector)
-                dividend = dividend + self.malemale(truevector, guessvector)            
+                dividend = dividend + self.malemale(truevector, guessvector)
                 result = divider / dividend
             else:
                 result = 0
@@ -180,8 +210,7 @@ class DameStatistics(object):
                 print("truevector length: %s" % len(truevector))
                 print("guessvector length: %s" % len(guessvector))
                 print("truevector: %s" % truevector)
-                print("guessvector: %s" % guessvector)            
-        
+                print("guessvector: %s" % guessvector)
         return result
 
     def precision(self, truevector, guessvector):
@@ -194,7 +223,7 @@ class DameStatistics(object):
         dividend = self.femalefemale(truevector, guessvector)
         dividend = dividend + self.femalemale(truevector, guessvector)
         dividend = dividend + self.malefemale(truevector, guessvector)
-        dividend = dividend + self.malemale(truevector, guessvector)            
+        dividend = dividend + self.malemale(truevector, guessvector)
         result = divider / dividend
         return result
 
