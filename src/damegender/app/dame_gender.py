@@ -997,6 +997,10 @@ class Gender(object):
             print("In the path %s doesn't exist file" % jsonf)
 
     def json2gender_list(self, jsonf="", binary=False):
+        # generating a list of 0, 1, 2 as females, males and unknows
+        # TODO: ISO/IEC 5218 proposes a norm about coding gender:
+        # ``0 as not know'',``1 as male'', ``2 as female''
+        # and ``9 as not applicable''            
         jsondata = open(jsonf).read()
         json_object = json.loads(jsondata)
         guesslist = []
