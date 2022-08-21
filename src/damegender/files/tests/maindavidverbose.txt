@@ -46,8 +46,8 @@ Warning: russian option only runs with russian alphabet
 0 females for David from Sweden statistics
 104966 males for David from Slovenia statistics
 0 females for David from Slovenia statistics
-3552580 males for David from United States of America statistics
-12826 females for David from United States of America statistics
+3644446 males for David from United States of America statistics
+12936 females for David from United States of America statistics
 1536 males for David from Uruguay statistics
 4 females for David from Uruguay statistics
 4956646 males for David from international statistics
