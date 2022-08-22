@@ -445,6 +445,13 @@ class TddInPythonExample(unittest.TestCase):
         du = DameUtils()
         file1 = "files/gnu-maintainers.csv"
         self.assertTrue(du.is_csv(file1))
+        file2 = "files/pca.json"
+        self.assertFalse(du.is_csv(file2))
+        file3 = "files/names/min.commas.csv"
+        self.assertTrue(du.is_csv(file3))
+        self.assertTrue(du.is_csv(file3, delimiter=";"))        
+        file4 = "files/names/min.csv"
+        self.assertTrue(du.is_csv(file4))
         
 # def test_file_year2dicc_females(self):
 #     du = DameUtils()
