@@ -51,16 +51,20 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(ds.count_true2guess(vv2, vv1, 1, 1), 2)  # malemale
         self.assertEqual(ds.count_true2guess(vv2, vv1, 0, 1), 1)  # femalemale
         self.assertEqual(ds.count_true2guess(vv2, vv1, 1, 0), 1)  # malefemale
-        vvv1 = [1, 0, 2, 2, 1]
-        vvv2 = [2, 0, 1, 2, 1]
-        t2g = ds.count_true2guess(vvv2, vvv1, 2, 2)  # undefinedundefined
-        self.assertEqual(t2g, 1)
+        vvv1 = [1, 0, 2, 2, 1, 2, 2]
+        vvv2 = [2, 0, 1, 2, 0, 2, 1]
+        t2g = ds.count_true2guess(vvv1, vvv2, 2, 2)  # undefinedundefined
+        self.assertEqual(t2g, 2)
         uu = ds.undefinedundefined(vvv2, vvv1)
-        self.assertEqual(uu, 1)
-        t3g = ds.count_true2guess(vvv2, vvv1, 2, 1)
-        self.assertEqual(t3g, 1)  # undefinedmale
-        t4g = ds.count_true2guess(vvv2, vvv1, 1, 2)
-        self.assertEqual(t4g, 1)  # maleundefined 
+        self.assertEqual(uu, 2)
+        t3g = ds.count_true2guess(vvv1, vvv2, 2, 1)
+        self.assertEqual(t3g, 2)  # undefinedmale
+        um = ds.undefinedmale(vvv1, vvv2)
+        self.assertEqual(um, 2)
+        t4g = ds.count_true2guess(vvv1, vvv2, 1, 2)
+        self.assertEqual(t4g, 1)  # maleundefined
+        mu = ds.maleundefined(vvv1, vvv2)
+        self.assertEqual(mu, 1)
         vvv1 = [0, 0, 0, 0, 1]
         vvv2 = [2, 0, 1, 2, 1]
         t5g = ds.count_true2guess(vvv1, vvv2, 0, 2)
@@ -121,6 +125,11 @@ class TddInPythonExample(unittest.TestCase):
         v2 = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
         score5 = ds.accuracy_score_dame(v1, v2)
         self.assertEqual(round(score5, 3), 0.905)
+        v1 = [1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
+        v2 = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
+        score6 = ds.accuracy_score_dame(v1, v2)
+        self.assertEqual(round(score6, 3), 0.905)        
+
         
     def test_precision(self):
         ds = DameStatistics()
