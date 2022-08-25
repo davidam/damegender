@@ -1,8 +1,8 @@
 #!/bin/sh
 #  Copyright (C) 2022 David Arroyo Menendez
 
-#  Author: David Arroyo Menendez <darroyome@MacBook-Pro-de-David.local> 
-#  Maintainer: David Arroyo Menendez <darroyome@MacBook-Pro-de-David.local> 
+#  Author: David Arroyo Menendez <davidam@gmail.com> 
+#  Maintainer: David Arroyo Menendez <davidam@gmail.com> 
 #  This file is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
 #  the Free Software Foundation; either version 3, or (at your option)
