@@ -219,6 +219,22 @@ class DameUtils():
             i = i + 1
         return aux
 
+    def drop_internal_symbols(self, s):
+        # given s removes not alfanumeric symbols 
+        aux = ""
+        c = unicodedata.normalize('NFD', str(s))
+        i = 0
+        n = len(c)-1
+        while (i <= n):
+            try:
+                r0 = re.match(r"([a-z]|[A-Z])+", s[i])
+                if r0:
+                    aux = aux + str(c[i])
+                i = i + 1
+            except IndexError:
+                print("We force an exception due to an IndexError")
+        return aux
+    
     def drop_external_symbols(self, s, li):
         # given s removes symbols contained in li
         # in element zero and in the last element
@@ -386,9 +402,10 @@ class DameUtils():
         position = kwargs.get('position', 0)
         header = kwargs.get('header', True)
         delimiter = kwargs.get('delimiter', ',')
+        quotechar = kwargs.get('quotechar', '|')
         l1 = []
         with open(csvpath) as csvfile:
-            rowreader = csv.reader(csvfile, delimiter=delimiter, quotechar='|')
+            rowreader = csv.reader(csvfile, delimiter=delimiter, quotechar=quotechar)
             if header:
                 next(rowreader, None)
             for row in rowreader:
@@ -421,9 +438,10 @@ class DameUtils():
         noemptyfield = kwargs.get('noemptyfield', False)
         deletewhitespaces = kwargs.get('deletewhitespaces', False)
         deletequotes = kwargs.get('deletequotes', False)
+        quotechar = kwargs.get('quotechar', ",")
         l1 = []
         with open(csvpath) as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=delimiter, quotechar='|')
+            sexreader = csv.reader(csvfile, delimiter=delimiter, quotechar=quotechar)
             if header:
                 next(sexreader, None)
             for row in sexreader:
@@ -644,8 +662,9 @@ class DameUtils():
         # filter is about csv position and gender char (example: 'F')
         filter_pos = kwargs.get('filter_pos', 0)
         filter_char = kwargs.get('filter_char', '')
+        quotechar = kwargs.get('quotechar', '"')
         with open(inputpath) as csvfile:
-            r = csv.reader(csvfile, delimiter=delimiter)
+            r = csv.reader(csvfile, delimiter=delimiter, quotechar=quotechar)
             for row in r:
                 try:
                     num = self.number_or_zero(row[posquant])
