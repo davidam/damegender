@@ -32,6 +32,10 @@ wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2013.csv
 wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2012.csv
 wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2011.csv
 wget -c https://offenedaten-koeln.de/sites/default/files/Vornamen_Koeln_2010.csv
+
+sed -i '/^,.*/d' Vornamen_Koeln_2013.csv > out.csv
+mv out.csv Vornamen_Koeln_2013.csv
+
 cd ..
 
 
