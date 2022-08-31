@@ -31,7 +31,7 @@ ARR=("ar" "at" "au" "be" "ca" "ch" "de" "dk" "es" "fi" "fr" "gb" "ie" "is" "no" 
 echo "Do you have internet connection and download new files (Y|N):"
 read internet
 
-if [[ "${internet}" == "Y" ]]; then 
+if [[ "${internet}" == "Y" || "${internet}" == "y" ]]; then 
     echo "We are downloading datasets and checkig changes with your local files"
     echo "Please be patient"
     for i in "${ARR[@]}"; do
