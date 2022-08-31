@@ -718,9 +718,9 @@ elif (country == "uy"):
     posname = 2
     posquant = 3
     dicc0 = {}
-    diccmales = du.dump_name_and_quantity_in_dicc(origmales, posname, posquant, dicc=dicc0, delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(origmales, posname, posquant, dicc=dicc0, delimiter=",", quotechar='"')
     dicc1 = {}
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfemales, posname, posquant, dicc=dicc1, delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfemales, posname, posquant, dicc=dicc1, delimiter=",", quotechar='"')
     du.simple_dicc_to_file(diccfemales, outfemales)
     du.simple_dicc_to_file(diccmales, outmales)
     
