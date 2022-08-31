@@ -219,21 +219,17 @@ class DameUtils():
             i = i + 1
         return aux
 
-    def drop_internal_symbols(self, s):
-        # given s removes not alfanumeric symbols 
-        aux = ""
-        c = unicodedata.normalize('NFD', str(s))
-        i = 0
-        n = len(c)-1
-        while (i <= n):
-            try:
-                r0 = re.match(r"([a-z]|[A-Z])+", s[i])
-                if r0:
-                    aux = aux + str(c[i])
-                i = i + 1
-            except IndexError:
-                print("We force an exception due to an IndexError")
-        return aux
+    # def drop_internal_symbols(self, s, li):
+    #     # given s removes not alfanumeric symbols 
+    #     aux = ""
+    #     c = unicodedata.normalize('NFD', str(s))
+    #     i = 0
+    #     n = len(s)
+    #     while (i < n):
+    #         if not(s[i] in li):
+    #             aux = aux + c[i]
+    #         i = i + 1
+    #     return aux
     
     def drop_external_symbols(self, s, li):
         # given s removes symbols contained in li
