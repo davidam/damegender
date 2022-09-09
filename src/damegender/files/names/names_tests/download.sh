@@ -29,6 +29,7 @@ wget -c https://catalogodatos.gub.uy/dataset/ab3fa56a-2267-468a-bdd8-d353bc847a5
 
 # Base de datos de Autores de Uruguay
 wget -c https://autores.uy/sites/default/files/datos/autores.csv.zip
+echo "y" | unzip autores.csv.zip
 
 # French database
 wget -c https://www.data.gouv.fr/fr/datasets/r/a26910c1-4860-4fa6-b077-7f49d2b856d9
