@@ -34,7 +34,7 @@ wget -c https://autores.uy/sites/default/files/datos/autores.csv.zip
 wget -c https://www.data.gouv.fr/fr/datasets/r/a26910c1-4860-4fa6-b077-7f49d2b856d9
 
 # New York Database
-wget -c https://data.cityofnewyork.us/api/views/25th-nujf/rows.csv -O popular_baby_names_.csv
+wget -c https://data.cityofnewyork.us/api/views/25th-nujf/rows.csv -O popular_baby_names.csv
 
 # Paris prenoms
 wget -c https://opendata.paris.fr/explore/dataset/liste_des_prenoms/export/?disjunctive.annee&disjunctive.prenoms
