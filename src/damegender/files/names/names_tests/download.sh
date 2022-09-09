@@ -22,7 +22,7 @@
 wget -c https://www.bne.es/media/datosgob/dominiopublico/Dominio-publico-1941-CP1252.csv
 
 # Represaliats terrasa
-wget -c https://datos.gob.es/es/catalogo/l01082798-represaliados-y-victimas-terrasenses-del-fascismo.csv
+wget -c https://datos.gob.es/es/catalogo/l01082798-represaliados-y-victimas-terrasenses-del-fascismo.csv -O represaliats.csv
 
 # Funcionarios Uruguay
 wget -c https://catalogodatos.gub.uy/dataset/ab3fa56a-2267-468a-bdd8-d353bc847a58/resource/2e28d48b-b667-45f1-ae79-a1573bc90ebc/download/funcionarios.csv
