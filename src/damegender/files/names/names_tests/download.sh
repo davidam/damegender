@@ -39,7 +39,7 @@ wget -c https://www.data.gouv.fr/fr/datasets/r/a26910c1-4860-4fa6-b077-7f49d2b85
 wget -c https://data.cityofnewyork.us/api/views/25th-nujf/rows.csv -O popular_baby_names.csv
 
 # Paris prenoms
-wget -c https://opendata.paris.fr/explore/dataset/liste_des_prenoms/export/?disjunctive.annee&disjunctive.prenoms
+wget -c "https://opendata.paris.fr/explore/dataset/liste_des_prenoms/download/?format=csv&timezone=America/Argentina/Buenos_Aires&lang=fr&use_labels_for_header=true&csv_separator=%3B" -O liste_des_prenoms.paris.csv
 
 # Performance of gender detection tools: a comparative study of name-to-gender inference services
 wget -c https://osf.io/wjv7q/
