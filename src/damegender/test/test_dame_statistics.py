@@ -79,18 +79,24 @@ class TddInPythonExample(unittest.TestCase):
         v1 = [1, 0, 1, 1]
         v2 = [1, 1, 1, 0]
         self.assertEqual(ds.error_coded(v1, v2), 0.5)
+        v3 = [1, 0, 1, 1, 2, 1, 2, 0]
+        v4 = [1, 1, 1, 0, 2, 0, 1, 0]
+        self.assertEqual(ds.error_coded(v3, v4), 0.5)
 
     def test_error_coded_without_na(self):
         ds = DameStatistics()
         v1 = [1, 0, 1, 1]
         v2 = [1, 1, 1, 0]
         self.assertEqual(ds.error_coded_without_na(v1, v2), 0.5)
-
+        
     def test_na_coded(self):
         ds = DameStatistics()
         v1 = [0, 1, 1, 1]
         v2 = [2, 0, 1, 1]
         self.assertEqual(ds.na_coded(v1, v2), 0.25)
+        v3 = [1, 0, 1, 1, 2, 1, 2, 1]
+        v4 = [1, 1, 1, 0, 2, 0, 1, 2]
+        self.assertEqual(ds.na_coded(v3, v4), 0.25)
 
     def test_error_gender_bias(self):
         ds = DameStatistics()
