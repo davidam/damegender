@@ -1,4 +1,4 @@
-################### Genderize!!
-Guess list:       [1, 1, 1, 1, 1, 0]
-Gender Test list: [1, 1, 1, 1, 1, 0]
+########################## Genderize!!
+Gender Guess (guess list): [1, 1, 1, 1, 1, 0]
+Gender Test   (true list): [1, 1, 1, 1, 1, 0]
 Genderize precision: 1.0
