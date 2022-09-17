@@ -157,6 +157,7 @@ class DameStatistics(object):
 # https://arxiv.org/abs/2010.16061
 # https://github.com/davidam/damegender/blob/dev/manual/damegender.pdf
 # https://en.wikipedia.org/wiki/Precision_and_recall
+# https://peerj.com/articles/cs-156/
 
 # Cosidering actual condition in the column
 # and predicted condition in the row ...
@@ -287,21 +288,30 @@ class DameStatistics(object):
         return result
 
     def error_coded(self, truevector, guessvector):
+        # error coded is about errors 
+        # divided by all results
         result = 0
         divider = self.femalemale(truevector, guessvector)
         divider = divider + self.malefemale(truevector, guessvector)
-        divider = divider + self.maleundefined(truevector, guessvector)
         divider = divider + self.femaleundefined(truevector, guessvector)
-        dividend = self.malemale(truevector, guessvector)
+        divider = divider + self.maleundefined(truevector, guessvector)
+        divider = divider + self.undefinedfemale(truevector, guessvector)
+        divider = divider + self.undefinedmale(truevector, guessvector)
+        dividend = self.femalefemale(truevector, guessvector)
         dividend = dividend + self.femalemale(truevector, guessvector)
+        dividend = dividend + self.femaleundefined(truevector, guessvector)        
         dividend = dividend + self.malefemale(truevector, guessvector)
-        dividend = dividend + self.femalefemale(truevector, guessvector)
+        dividend = dividend + self.malemale(truevector, guessvector)
         dividend = dividend + self.maleundefined(truevector, guessvector)
-        dividend = dividend + self.femaleundefined(truevector, guessvector)
+        dividend = dividend + self.undefinedmale(truevector, guessvector)
+        dividend = dividend + self.undefinedfemale(truevector, guessvector)
+        dividend = dividend + self.undefinedundefined(truevector, guessvector)        
         result = divider / dividend
         return result
 
     def error_coded_without_na(self, truevector, guessvector):
+        # error coded without na is about errors
+        # without taking into account missing values
         result = 0
         divider = self.femalemale(truevector, guessvector)
         divider = divider + self.malefemale(truevector, guessvector)
@@ -313,19 +323,29 @@ class DameStatistics(object):
         return result
 
     def na_coded(self, truevector, guessvector):
+        # this measure is about 
+        # missing values divided by
+        # all results
         result = 0
         divider = self.maleundefined(truevector, guessvector)
         divider = divider + self.femaleundefined(truevector, guessvector)
+        divider = divider + self.undefinedfemale(truevector, guessvector)
+        divider = divider + self.undefinedmale(truevector, guessvector)         
         dividend = self.malemale(truevector, guessvector)
         dividend = dividend + self.femalemale(truevector, guessvector)
         dividend = dividend + self.malefemale(truevector, guessvector)
         dividend = dividend + self.femalefemale(truevector, guessvector)
         dividend = dividend + self.maleundefined(truevector, guessvector)
         dividend = dividend + self.femaleundefined(truevector, guessvector)
+        dividend = dividend + self.undefinedmale(truevector, guessvector)
+        dividend = dividend + self.undefinedfemale(truevector, guessvector)
+        dividend = dividend + self.undefinedundefined(truevector, guessvector)        
         result = divider / dividend
         return result
 
     def error_gender_bias(self, truevector, guessvector):
+        # this measure is about the error is doing biases
+        # in males or in females
         divider = self.malefemale(truevector, guessvector)
         divider = divider - self.femalemale(truevector, guessvector)
         dividend = self.malemale(truevector, guessvector)
@@ -336,6 +356,8 @@ class DameStatistics(object):
         return result
 
     def weighted_error(self, truevector, guessvector, w):
+        # this measure is about the error giving a weight w
+        # https://peerj.com/articles/cs-156/
         divider = self.femalemale(truevector, guessvector)
         divider = divider + self.malefemale(truevector, guessvector)
         dot = self.maleundefined(truevector, guessvector)
