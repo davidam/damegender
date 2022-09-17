@@ -274,7 +274,10 @@ class DameStatistics(object):
         return result
 
     def f1score(self, truevector, guessvector):
-        
+        # f1score is about precision and recall:
+        # 2 multiplied by
+        # (precision * recall) divided by
+        # (precision + recall)
         result = 0
         divider = self.precision(truevector, guessvector)
         divider = divider * self.recall(truevector, guessvector)
