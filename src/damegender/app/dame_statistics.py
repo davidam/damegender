@@ -72,26 +72,29 @@ class DameStatistics(object):
         # how many times occurs that
         # in the true vector there are female and
         # in the guess vector there are female
+        # 
         # true positive in jargon math (universe: female, male, undefined)
         # in this universe the property is to be defined and to be truth the sex        
-        # true negative in jargon math (universe: female, male)
-        # in the universe female male the property is to be male
+        # true positive in jargon math (universe: female, male)
+        # in the universe female male the property is to be female
         return self.count_true2guess(truevector, guessvector, 0, 0)
 
     def femalemale(self, truevector, guessvector):
         # how many times occurs that
         # in the true vector there are female and
         # in the guess vector there are male
+        #
         # true negative in jargon math (universe: female, male, undefined)
         # in this universe the property is to be defined and to be truth the sex
         # false positive in jargon math (universe: female, male)
-        # in the universe female male the property is to be male
+        # in the universe female male the property is to be female
         return self.count_true2guess(truevector, guessvector, 0, 1)
 
     def femaleundefined(self, truevector, guessvector):
         # how many times occurs that
         # in the true vector there are female and
         # in the guess vector there are undefined
+        # 
         # true negative in jargon math (universe: female, male, undefined)
         # in this universe the property is to be defined and to be truth the sex        
         return self.count_true2guess(truevector, guessvector, 0, 2)
@@ -100,20 +103,22 @@ class DameStatistics(object):
         # how many times occurs that
         # in the true vector there are male and
         # in the guess vector there are female
+        # 
         # true negative in jargon math (universe: female, male, undefined)
         # in this universe the property is to be defined and to be truth the sex        
         # false negative in jargon math (universe: female, male)
-        # in this universe the property it to be male        
+        # in this universe the property it to be female        
         return self.count_true2guess(truevector, guessvector, 1, 0)
 
     def malemale(self, truevector, guessvector):
         # how many times occurs that
         # in the true vector there are male and
         # in the guess vector there are male
+        # 
         # true positive in jargon math (universe: female, male, undefined)
         # in this universe the property is to be defined and to be truth the sex        
-        # true positive in jargon math (universe: female, male)
-        # in this universe the property it to be male
+        # true negative in jargon math (universe: female, male)
+        # in this universe the property it to be female
         return self.count_true2guess(truevector, guessvector, 1, 1)
 
     def maleundefined(self, truevector, guessvector):
@@ -151,14 +156,39 @@ class DameStatistics(object):
 # https://towardsdatascience.com/a-look-at-precision-recall-and-f1-score-36b5fd0dd3ec
 # https://arxiv.org/abs/2010.16061
 # https://github.com/davidam/damegender/blob/dev/manual/damegender.pdf
+# https://en.wikipedia.org/wiki/Precision_and_recall
+
+# Cosidering actual condition in the column
+# and predicted condition in the row ...
+# Our current matrix in the dimension female, male is:
+# #####################
+# femalefemale    malefemale
+# femalemale      malemale
+# #####################
+# because female had been coded as 0 and male as 1
+#
+# #############################
+# true positive  false negative
+# false positve  true negative
+###############################
+
+# This situation could be changed in the future
+# TODO: ISO/IEC 5218 proposes a norm about coding gender
+# ``0 as not know'',``1 as male'', ``2 as female''
+# and ``9 as not applicable''
 
     def accuracy_score_dame(self, truevector, guessvector):
         # accuracy score is about successful between true and guess:
+        # true positive + true negative dividing
+        # true positive + true negative + false negative + false positive
         # femalefemale + malemale dividing the sum of all options
+        # or
+        # femalefemale + malemale + undefinedundefined dividing
+        # by the sum of all options
         if ((2 in truevector) or (2 in guessvector)):
         # (femalefemale + malemale + undefinedundefined ) /
         # (femalefemale + malemale + malefemale + femalemale +
-        #  + femaleundefined + undefinedfemale + undefinedmale + maleundefined)
+        # + femaleundefined + undefinedfemale + undefinedmale + maleundefined)
             if (len(truevector) == len(guessvector)):
                 divider = self.femalefemale(truevector,
                                             guessvector)
@@ -214,9 +244,10 @@ class DameStatistics(object):
         return result
 
     def precision(self, truevector, guessvector):
-        # precision is about successful between true and guess:
+        # precision is about successful in the predicted positive:
+        # true positive divinding
+        # true positive + false positive
         # femalefemale + malemale dividing the sum of all options
-        # but not including undefined
         result = 0
         divider = self.femalefemale(truevector, guessvector)
         divider = divider + self.malemale(truevector, guessvector)
@@ -228,6 +259,9 @@ class DameStatistics(object):
         return result
 
     def recall(self, truevector, guessvector):
+        # recall is about success in the actual positive:
+        # true positive dividing
+        # false negative + true positive
         result = 0
         divider = self.femalefemale(truevector, guessvector)
         divider = divider + self.malemale(truevector, guessvector)
@@ -240,6 +274,7 @@ class DameStatistics(object):
         return result
 
     def f1score(self, truevector, guessvector):
+        
         result = 0
         divider = self.precision(truevector, guessvector)
         divider = divider * self.recall(truevector, guessvector)
