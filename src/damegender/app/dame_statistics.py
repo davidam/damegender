@@ -47,6 +47,7 @@ class DameStatistics(object):
     def __init__(self):
         self.config = configparser.RawConfigParser()
         self.config.read('config.cfg')
+        self.binary = {"female": 0, "male": 1}
         self.males = 0
         self.females = 0
         self.unknown = 0
@@ -151,7 +152,7 @@ class DameStatistics(object):
         # false negative in jargon math (universe: female, male, undefined)
         # in this universe the property is to be defined and to be truth the sex        
         return self.count_true2guess(truevector, guessvector, 2, 2)
-
+    
 # STATISTICAL MEASURES LECTURES
 # https://towardsdatascience.com/a-look-at-precision-recall-and-f1-score-36b5fd0dd3ec
 # https://arxiv.org/abs/2010.16061
@@ -178,7 +179,34 @@ class DameStatistics(object):
 # ``0 as not know'',``1 as male'', ``2 as female''
 # and ``9 as not applicable''
 
-    def accuracy_score_dame(self, truevector, guessvector):
+    def true_positive(self, testvector, guessvector, *args, **kwargs):
+        withundefined = {"female": 0, "male": 1, "undefined": 2}
+        dimension = kwargs.get('dimension', self.binary)
+        if (dimension == self.binary):
+            res = self.femalefemale(testvector, guessvector)
+        return res
+
+    def false_negative(self, testvector, guessvector, *args, **kwargs):
+        dimension = kwargs.get('dimension', self.binary)
+        if (dimension == self.binary):
+            res = self.femalemale(testvector, guessvector)
+        return res
+
+    def false_positive(self, testvector, guessvector, *args, **kwargs):
+        dimension = kwargs.get('dimension', self.binary)
+        boolean = False
+        if (dimension == self.binary):
+            res = self.malefemale(testvector, guessvector)
+        return res
+
+    def true_negative(self, testvector, guessvector, *args, **kwargs):
+        dimension = kwargs.get('dimension', self.binary)
+        boolean = False
+        if (dimension == self.binary):
+            res = self.malemale(testvector, guessvector)
+        return boolean
+
+    def accuracy_score_dame(self, testvector, guessvector):
         # accuracy score is about successful between true and guess:
         # true positive + true negative dividing
         # true positive + true negative + false negative + false positive
@@ -186,213 +214,213 @@ class DameStatistics(object):
         # or
         # femalefemale + malemale + undefinedundefined dividing
         # by the sum of all options
-        if ((2 in truevector) or (2 in guessvector)):
+        if ((2 in testvector) or (2 in guessvector)):
         # (femalefemale + malemale + undefinedundefined ) /
         # (femalefemale + malemale + malefemale + femalemale +
         # + femaleundefined + undefinedfemale + undefinedmale + maleundefined)
-            if (len(truevector) == len(guessvector)):
-                divider = self.femalefemale(truevector,
+            if (len(testvector) == len(guessvector)):
+                divider = self.femalefemale(testvector,
                                             guessvector)
-                divider = divider + self.malemale(truevector,
+                divider = divider + self.malemale(testvector,
                                                   guessvector)
-                divider = divider + self.undefinedundefined(truevector,
+                divider = divider + self.undefinedundefined(testvector,
                                                             guessvector)
-                dividend = self.femalefemale(truevector,
+                dividend = self.femalefemale(testvector,
                                              guessvector)
-                dividend = dividend + self.femalemale(truevector,
+                dividend = dividend + self.femalemale(testvector,
                                                       guessvector)
-                dividend = dividend + self.femaleundefined(truevector,
+                dividend = dividend + self.femaleundefined(testvector,
                                                            guessvector)
-                dividend = dividend + self.malefemale(truevector,
+                dividend = dividend + self.malefemale(testvector,
                                                       guessvector)
-                dividend = dividend + self.malemale(truevector,
+                dividend = dividend + self.malemale(testvector,
                                                     guessvector)
-                dividend = dividend + self.maleundefined(truevector,
+                dividend = dividend + self.maleundefined(testvector,
                                                          guessvector)
-                dividend = dividend + self.undefinedfemale(truevector,
+                dividend = dividend + self.undefinedfemale(testvector,
                                                            guessvector)
-                dividend = dividend + self.undefinedmale(truevector,
+                dividend = dividend + self.undefinedmale(testvector,
                                                          guessvector)
-                dividend = dividend + self.undefinedundefined(truevector,
+                dividend = dividend + self.undefinedundefined(testvector,
                                                               guessvector)
                 result = divider / dividend
             else:
                 result = 0
                 print("Both vectors must have the same length")
-                print("truevector length: %s" % len(truevector))
+                print("testvector length: %s" % len(testvector))
                 print("guessvector length: %s" % len(guessvector))
-                print("truevector: %s" % truevector)
+                print("testvector: %s" % testvector)
                 print("guessvector: %s" % guessvector)
         else:
         # (femalefemale + malemale ) /
         # (femalefemale + malemale +
         #   malefemale + femalemale)
-            if (len(truevector) == len(guessvector)):
-                divider = self.femalefemale(truevector, guessvector)
-                divider = divider + self.malemale(truevector, guessvector)
-                dividend = self.femalefemale(truevector, guessvector)
-                dividend = dividend + self.femalemale(truevector, guessvector)
-                dividend = dividend + self.malefemale(truevector, guessvector)
-                dividend = dividend + self.malemale(truevector, guessvector)
+            if (len(testvector) == len(guessvector)):
+                divider = self.femalefemale(testvector, guessvector)
+                divider = divider + self.malemale(testvector, guessvector)
+                dividend = self.femalefemale(testvector, guessvector)
+                dividend = dividend + self.femalemale(testvector, guessvector)
+                dividend = dividend + self.malefemale(testvector, guessvector)
+                dividend = dividend + self.malemale(testvector, guessvector)
                 result = divider / dividend
             else:
                 result = 0
                 print("Both vectors must have the same length")
-                print("truevector length: %s" % len(truevector))
+                print("testvector length: %s" % len(testvector))
                 print("guessvector length: %s" % len(guessvector))
-                print("truevector: %s" % truevector)
+                print("testvector: %s" % testvector)
                 print("guessvector: %s" % guessvector)
         return result
 
-    def precision(self, truevector, guessvector):
+    def precision(self, testvector, guessvector):
         # precision is about successful in the predicted positive:
         # true positive divinding
         # true positive + false positive
         # femalefemale + malemale dividing the sum of all options
         result = 0
-        divider = self.femalefemale(truevector, guessvector)
-        divider = divider + self.malemale(truevector, guessvector)
-        dividend = self.femalefemale(truevector, guessvector)
-        dividend = dividend + self.femalemale(truevector, guessvector)
-        dividend = dividend + self.malefemale(truevector, guessvector)
-        dividend = dividend + self.malemale(truevector, guessvector)
+        divider = self.femalefemale(testvector, guessvector)
+        divider = divider + self.malemale(testvector, guessvector)
+        dividend = self.femalefemale(testvector, guessvector)
+        dividend = dividend + self.femalemale(testvector, guessvector)
+        dividend = dividend + self.malefemale(testvector, guessvector)
+        dividend = dividend + self.malemale(testvector, guessvector)
         result = divider / dividend
         return result
 
-    def recall(self, truevector, guessvector):
+    def recall(self, testvector, guessvector):
         # recall is about success in the actual positive:
         # true positive dividing
         # false negative + true positive
         result = 0
-        divider = self.femalefemale(truevector, guessvector)
-        divider = divider + self.malemale(truevector, guessvector)
-        dividend = self.femalefemale(truevector, guessvector)
-        dividend = dividend + self.malemale(truevector, guessvector)
-        dividend = dividend + self.malefemale(truevector, guessvector)
-        dividend = dividend + self.femaleundefined(truevector, guessvector)
-        dividend = dividend + self.maleundefined(truevector, guessvector)
+        divider = self.femalefemale(testvector, guessvector)
+        divider = divider + self.malemale(testvector, guessvector)
+        dividend = self.femalefemale(testvector, guessvector)
+        dividend = dividend + self.malemale(testvector, guessvector)
+        dividend = dividend + self.malefemale(testvector, guessvector)
+        dividend = dividend + self.femaleundefined(testvector, guessvector)
+        dividend = dividend + self.maleundefined(testvector, guessvector)
         result = divider / dividend
         return result
 
-    def f1score(self, truevector, guessvector):
+    def f1score(self, testvector, guessvector):
         # f1score is about precision and recall:
         # 2 multiplied by
         # (precision * recall) divided by
         # (precision + recall)
         result = 0
-        divider = self.precision(truevector, guessvector)
-        divider = divider * self.recall(truevector, guessvector)
-        dividend = self.precision(truevector, guessvector)
-        dividend = dividend + self.recall(truevector, guessvector)
+        divider = self.precision(testvector, guessvector)
+        divider = divider * self.recall(testvector, guessvector)
+        dividend = self.precision(testvector, guessvector)
+        dividend = dividend + self.recall(testvector, guessvector)
         result = 2 * (divider / dividend)
         return result
 
-    def error_coded(self, truevector, guessvector):
+    def error_coded(self, testvector, guessvector):
         # error coded is about errors 
         # divided by all results
         result = 0
-        divider = self.femalemale(truevector, guessvector)
-        divider = divider + self.malefemale(truevector, guessvector)
-        divider = divider + self.femaleundefined(truevector, guessvector)
-        divider = divider + self.maleundefined(truevector, guessvector)
-        divider = divider + self.undefinedfemale(truevector, guessvector)
-        divider = divider + self.undefinedmale(truevector, guessvector)
-        dividend = self.femalefemale(truevector, guessvector)
-        dividend = dividend + self.femalemale(truevector, guessvector)
-        dividend = dividend + self.femaleundefined(truevector, guessvector)        
-        dividend = dividend + self.malefemale(truevector, guessvector)
-        dividend = dividend + self.malemale(truevector, guessvector)
-        dividend = dividend + self.maleundefined(truevector, guessvector)
-        dividend = dividend + self.undefinedmale(truevector, guessvector)
-        dividend = dividend + self.undefinedfemale(truevector, guessvector)
-        dividend = dividend + self.undefinedundefined(truevector, guessvector)        
+        divider = self.femalemale(testvector, guessvector)
+        divider = divider + self.malefemale(testvector, guessvector)
+        divider = divider + self.femaleundefined(testvector, guessvector)
+        divider = divider + self.maleundefined(testvector, guessvector)
+        divider = divider + self.undefinedfemale(testvector, guessvector)
+        divider = divider + self.undefinedmale(testvector, guessvector)
+        dividend = self.femalefemale(testvector, guessvector)
+        dividend = dividend + self.femalemale(testvector, guessvector)
+        dividend = dividend + self.femaleundefined(testvector, guessvector)        
+        dividend = dividend + self.malefemale(testvector, guessvector)
+        dividend = dividend + self.malemale(testvector, guessvector)
+        dividend = dividend + self.maleundefined(testvector, guessvector)
+        dividend = dividend + self.undefinedmale(testvector, guessvector)
+        dividend = dividend + self.undefinedfemale(testvector, guessvector)
+        dividend = dividend + self.undefinedundefined(testvector, guessvector)        
         result = divider / dividend
         return result
 
-    def error_coded_without_na(self, truevector, guessvector):
+    def error_coded_without_na(self, testvector, guessvector):
         # error coded without na is about errors
         # without taking into account missing values
         result = 0
-        divider = self.femalemale(truevector, guessvector)
-        divider = divider + self.malefemale(truevector, guessvector)
-        dividend = self.malemale(truevector, guessvector)
-        dividend = dividend + self.femalemale(truevector, guessvector)
-        dividend = dividend + self.malefemale(truevector, guessvector)
-        dividend = dividend + self.femalefemale(truevector, guessvector)
+        divider = self.femalemale(testvector, guessvector)
+        divider = divider + self.malefemale(testvector, guessvector)
+        dividend = self.malemale(testvector, guessvector)
+        dividend = dividend + self.femalemale(testvector, guessvector)
+        dividend = dividend + self.malefemale(testvector, guessvector)
+        dividend = dividend + self.femalefemale(testvector, guessvector)
         result = divider / dividend
         return result
 
-    def na_coded(self, truevector, guessvector):
+    def na_coded(self, testvector, guessvector):
         # this measure is about 
         # missing values divided by
         # all results
         result = 0
-        divider = self.maleundefined(truevector, guessvector)
-        divider = divider + self.femaleundefined(truevector, guessvector)
-        divider = divider + self.undefinedfemale(truevector, guessvector)
-        divider = divider + self.undefinedmale(truevector, guessvector)         
-        dividend = self.malemale(truevector, guessvector)
-        dividend = dividend + self.femalemale(truevector, guessvector)
-        dividend = dividend + self.malefemale(truevector, guessvector)
-        dividend = dividend + self.femalefemale(truevector, guessvector)
-        dividend = dividend + self.maleundefined(truevector, guessvector)
-        dividend = dividend + self.femaleundefined(truevector, guessvector)
-        dividend = dividend + self.undefinedmale(truevector, guessvector)
-        dividend = dividend + self.undefinedfemale(truevector, guessvector)
-        dividend = dividend + self.undefinedundefined(truevector, guessvector)        
+        divider = self.maleundefined(testvector, guessvector)
+        divider = divider + self.femaleundefined(testvector, guessvector)
+        divider = divider + self.undefinedfemale(testvector, guessvector)
+        divider = divider + self.undefinedmale(testvector, guessvector)         
+        dividend = self.malemale(testvector, guessvector)
+        dividend = dividend + self.femalemale(testvector, guessvector)
+        dividend = dividend + self.malefemale(testvector, guessvector)
+        dividend = dividend + self.femalefemale(testvector, guessvector)
+        dividend = dividend + self.maleundefined(testvector, guessvector)
+        dividend = dividend + self.femaleundefined(testvector, guessvector)
+        dividend = dividend + self.undefinedmale(testvector, guessvector)
+        dividend = dividend + self.undefinedfemale(testvector, guessvector)
+        dividend = dividend + self.undefinedundefined(testvector, guessvector)        
         result = divider / dividend
         return result
 
-    def error_gender_bias(self, truevector, guessvector):
+    def error_gender_bias(self, testvector, guessvector):
         # this measure is about the error is doing biases
         # in males or in females
-        divider = self.malefemale(truevector, guessvector)
-        divider = divider - self.femalemale(truevector, guessvector)
-        dividend = self.malemale(truevector, guessvector)
-        dividend = dividend + self.femalemale(truevector, guessvector)
-        dividend = dividend + self.malefemale(truevector, guessvector)
-        dividend = dividend + self.femalefemale(truevector, guessvector)
+        divider = self.malefemale(testvector, guessvector)
+        divider = divider - self.femalemale(testvector, guessvector)
+        dividend = self.malemale(testvector, guessvector)
+        dividend = dividend + self.femalemale(testvector, guessvector)
+        dividend = dividend + self.malefemale(testvector, guessvector)
+        dividend = dividend + self.femalefemale(testvector, guessvector)
         result = divider / dividend
         return result
 
-    def weighted_error(self, truevector, guessvector, w):
+    def weighted_error(self, testvector, guessvector, w):
         # this measure is about the error giving a weight w
         # https://peerj.com/articles/cs-156/
-        divider = self.femalemale(truevector, guessvector)
-        divider = divider + self.malefemale(truevector, guessvector)
-        dot = self.maleundefined(truevector, guessvector)
-        dot = dot + self.femaleundefined(truevector, guessvector)
+        divider = self.femalemale(testvector, guessvector)
+        divider = divider + self.malefemale(testvector, guessvector)
+        dot = self.maleundefined(testvector, guessvector)
+        dot = dot + self.femaleundefined(testvector, guessvector)
         divider = divider + w * dot
-        dividend = self.malemale(truevector, guessvector)
-        dividend = dividend + self.femalemale(truevector, guessvector)
-        dividend = dividend + self.malefemale(truevector, guessvector)
-        dividend = dividend + self.femalefemale(truevector, guessvector)
-        dot = self.maleundefined(truevector, guessvector)
-        dot = dot + self.femaleundefined(truevector, guessvector)
+        dividend = self.malemale(testvector, guessvector)
+        dividend = dividend + self.femalemale(testvector, guessvector)
+        dividend = dividend + self.malefemale(testvector, guessvector)
+        dividend = dividend + self.femalefemale(testvector, guessvector)
+        dot = self.maleundefined(testvector, guessvector)
+        dot = dot + self.femaleundefined(testvector, guessvector)
         dividend = dividend + w * dot
         result = divider / dividend
         return result
 
-    def confusion_matrix_table(self, truevector, guessvector):
+    def confusion_matrix_table(self, testvector, guessvector):
         # this method returns a 3x3 confusion matrix as python vectors
         # femalefemale
-        self.ff = self.count_true2guess(truevector, guessvector, 0, 0)
+        self.ff = self.count_true2guess(testvector, guessvector, 0, 0)
         # femalemale
-        self.fm = self.count_true2guess(truevector, guessvector, 0, 1)
+        self.fm = self.count_true2guess(testvector, guessvector, 0, 1)
         # femaundefined
-        self.fu = self.count_true2guess(truevector, guessvector, 0, 2)
+        self.fu = self.count_true2guess(testvector, guessvector, 0, 2)
         # malefemale
-        self.mf = self.count_true2guess(truevector, guessvector, 1, 0)
+        self.mf = self.count_true2guess(testvector, guessvector, 1, 0)
         # malemale
-        self.mm = self.count_true2guess(truevector, guessvector, 1, 1)
+        self.mm = self.count_true2guess(testvector, guessvector, 1, 1)
         # maleundefined
-        self.mu = self.count_true2guess(truevector, guessvector, 1, 2)
+        self.mu = self.count_true2guess(testvector, guessvector, 1, 2)
         # undefinedfemale
-        self.uf = self.count_true2guess(truevector, guessvector, 1, 0)
+        self.uf = self.count_true2guess(testvector, guessvector, 1, 0)
         # undefinedmale
-        self.um = self.count_true2guess(truevector, guessvector, 1, 1)
+        self.um = self.count_true2guess(testvector, guessvector, 1, 1)
         # undefinedundefined
-        self.uu = self.count_true2guess(truevector, guessvector, 1, 2)
+        self.uu = self.count_true2guess(testvector, guessvector, 1, 2)
 
         l1 = [[self.ff, self.fm, self.fu],
               [self.mf, self.mm, self.mu],
