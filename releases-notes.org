@@ -5,6 +5,10 @@ Damegender non dependent of Lucia&Helena dataset. So, very good
 datasets saved in files/names/names_tests will can be used for check
 benchmarks of accuracies, precision, f1score, recall, ...
 
+With identical goal in mind, many methods has been added to
+dame_statistics.py respecting the jargon math (true_negative,
+false_negative, false_positive, true_positive). 
+
 More countries has been added to orig2.py
 
 * v0.4.6
