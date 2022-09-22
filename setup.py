@@ -98,7 +98,7 @@ setup(name='damegender',
           'mails_and_repositories' : ["perceval"],
           'apis': ["genderize"],
           'all' : ["perceval", "genderize", "newspaper3k", "sklearn"],
-          'all_extended' : ["perceval", "gender_guesser", "genderize", "newspaper3k", "sklearn"]
+          'all_extended' : ["perceval", "gender_guesser", "genderize", "newspaper3k", "sklearn", "translitereate"]
       },
       test_suite='nose.collector',
       tests_require=['nose', 'nose-cover3'],
