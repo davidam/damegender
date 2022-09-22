@@ -184,3 +184,31 @@ class TddInPythonExample(unittest.TestCase):
         l2 = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
         cmt2 = ds.confusion_matrix_table(l1, l2)
         self.assertEqual(cmt2, [[3, 0, 0], [0, 16, 0], [0, 16, 0]])
+
+    def test_true_positive(self):
+        ds = DameStatistics()
+        test = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
+        guess = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]        
+        res = ds.true_positive(test, guess)
+        self.assertEqual(res, 3)
+
+    def test_false_negative(self):
+        ds = DameStatistics()
+        test = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
+        guess = [1, 1, 1, 1, 2, 1, 1, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]        
+        res = ds.false_negative(test, guess)
+        self.assertEqual(res, 1)
+
+    def test_false_positive(self):
+        ds = DameStatistics()
+        test = [1, 1, 1, 1]
+        guess = [0, 0, 0, 1]
+        res = ds.false_positive(test, guess)
+        self.assertEqual(res, 3)
+        
+    def test_true_negative(self):
+        ds = DameStatistics()
+        test = [1, 1, 0, 0]
+        guess = [1, 0, 0, 1]
+        res = ds.true_negative(test, guess)
+        self.assertEqual(res, 1)

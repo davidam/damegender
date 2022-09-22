@@ -160,7 +160,7 @@ class DameStatistics(object):
 # https://en.wikipedia.org/wiki/Precision_and_recall
 # https://peerj.com/articles/cs-156/
 
-# Cosidering actual condition in the column
+# Cosidering test condition in the column
 # and predicted condition in the row ...
 # Our current matrix in the dimension female, male is:
 # #####################
@@ -194,17 +194,15 @@ class DameStatistics(object):
 
     def false_positive(self, testvector, guessvector, *args, **kwargs):
         dimension = kwargs.get('dimension', self.binary)
-        boolean = False
         if (dimension == self.binary):
             res = self.malefemale(testvector, guessvector)
         return res
 
     def true_negative(self, testvector, guessvector, *args, **kwargs):
         dimension = kwargs.get('dimension', self.binary)
-        boolean = False
         if (dimension == self.binary):
             res = self.malemale(testvector, guessvector)
-        return boolean
+        return res
 
     def accuracy_score_dame(self, testvector, guessvector):
         # accuracy score is about successful between true and guess:
