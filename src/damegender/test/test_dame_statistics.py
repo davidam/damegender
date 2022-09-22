@@ -190,8 +190,8 @@ class TddInPythonExample(unittest.TestCase):
         test = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
         guess = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]        
         res = ds.true_positive(test, guess)
-        self.assertEqual(res, 3)
-
+        self.assertEqual(res, 16)
+        
     def test_false_negative(self):
         ds = DameStatistics()
         test = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]

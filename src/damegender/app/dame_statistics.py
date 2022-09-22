@@ -160,19 +160,30 @@ class DameStatistics(object):
 # https://en.wikipedia.org/wiki/Precision_and_recall
 # https://peerj.com/articles/cs-156/
 
+# One example about illness:
+# Diagnostic     |   Illness (predicted)
+# (verified)     +----------------------------
+#                | Absence        | Presence
+# Test negative  | True Negative  | False Negative
+# Test positive  | False Positive | True Positive 
+
+# One example about to be male:
+# Diagnostic     |   To be male (predicted)
+# (verified)     +----------------------------
+#                | Absence        | Presence
+# Test negative  | True Negative  | False Negative
+# Test positive  | False Positive | True Positive 
+
 # Cosidering test condition in the column
 # and predicted condition in the row ...
-# Our current matrix in the dimension female, male is:
+# One matrix with property to be male in the dimension female, male is:
 # #####################
 # femalefemale    malefemale
 # femalemale      malemale
 # #####################
 # because female had been coded as 0 and male as 1
 #
-# #############################
-# true positive  false negative
-# false positve  true negative
-###############################
+
 
 # This situation could be changed in the future
 # TODO: ISO/IEC 5218 proposes a norm about coding gender
@@ -183,7 +194,7 @@ class DameStatistics(object):
         withundefined = {"female": 0, "male": 1, "undefined": 2}
         dimension = kwargs.get('dimension', self.binary)
         if (dimension == self.binary):
-            res = self.femalefemale(testvector, guessvector)
+            res = self.malemale(testvector, guessvector)
         return res
 
     def false_negative(self, testvector, guessvector, *args, **kwargs):
@@ -201,7 +212,7 @@ class DameStatistics(object):
     def true_negative(self, testvector, guessvector, *args, **kwargs):
         dimension = kwargs.get('dimension', self.binary)
         if (dimension == self.binary):
-            res = self.malemale(testvector, guessvector)
+            res = self.femalefemale(testvector, guessvector)
         return res
 
     def accuracy_score_dame(self, testvector, guessvector):
@@ -272,17 +283,20 @@ class DameStatistics(object):
 
     def precision(self, testvector, guessvector):
         # precision is about successful in the predicted positive:
-        # true positive divinding
+        # true positive dividing
         # true positive + false positive
         # femalefemale + malemale dividing the sum of all options
         result = 0
-        divider = self.femalefemale(testvector, guessvector)
-        divider = divider + self.malemale(testvector, guessvector)
-        dividend = self.femalefemale(testvector, guessvector)
-        dividend = dividend + self.femalemale(testvector, guessvector)
-        dividend = dividend + self.malefemale(testvector, guessvector)
-        dividend = dividend + self.malemale(testvector, guessvector)
-        result = divider / dividend
+        divider = self.true_positive(testvector, guessvector)
+        dividend = self.true_positive(testvector, guessvector)
+        dividend = dividend + self.false_positive(testvector, guessvector)
+        try :
+            result = divider / dividend
+            # note that braces () are necessary here for multiple exceptions
+        except(ZeroDivisionError, NameError):
+            print("\nprecision has troubles with the zero division")
+            print("\nand the zero is being given as result")            
+
         return result
 
     def recall(self, testvector, guessvector):
