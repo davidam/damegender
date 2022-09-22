@@ -265,12 +265,12 @@ class DameStatistics(object):
         # (femalefemale + malemale +
         #   malefemale + femalemale)
             if (len(testvector) == len(guessvector)):
-                divider = self.femalefemale(testvector, guessvector)
-                divider = divider + self.malemale(testvector, guessvector)
-                dividend = self.femalefemale(testvector, guessvector)
-                dividend = dividend + self.femalemale(testvector, guessvector)
-                dividend = dividend + self.malefemale(testvector, guessvector)
-                dividend = dividend + self.malemale(testvector, guessvector)
+                divider = self.true_positive(testvector, guessvector)
+                divider = divider + self.true_negative(testvector, guessvector)
+                dividend = self.true_positive(testvector, guessvector)
+                dividend = dividend + self.true_negative(testvector, guessvector)
+                dividend = dividend + self.false_negative(testvector, guessvector)
+                dividend = dividend + self.false_positive(testvector, guessvector)
                 result = divider / dividend
             else:
                 result = 0
@@ -285,7 +285,6 @@ class DameStatistics(object):
         # precision is about successful in the predicted positive:
         # true positive dividing
         # true positive + false positive
-        # femalefemale + malemale dividing the sum of all options
         result = 0
         divider = self.true_positive(testvector, guessvector)
         dividend = self.true_positive(testvector, guessvector)
