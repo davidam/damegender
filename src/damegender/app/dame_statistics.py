@@ -190,11 +190,10 @@ class DameStatistics(object):
 # ``0 as not know'',``1 as male'', ``2 as female''
 # and ``9 as not applicable''
 
-    def true_positive(self, testvector, guessvector, *args, **kwargs):
-        withundefined = {"female": 0, "male": 1, "undefined": 2}
+    def true_negative(self, testvector, guessvector, *args, **kwargs):
         dimension = kwargs.get('dimension', self.binary)
         if (dimension == self.binary):
-            res = self.malemale(testvector, guessvector)
+            res = self.femalefemale(testvector, guessvector)
         return res
 
     def false_negative(self, testvector, guessvector, *args, **kwargs):
@@ -209,12 +208,13 @@ class DameStatistics(object):
             res = self.malefemale(testvector, guessvector)
         return res
 
-    def true_negative(self, testvector, guessvector, *args, **kwargs):
+    def true_positive(self, testvector, guessvector, *args, **kwargs):
+        withundefined = {"female": 0, "male": 1, "undefined": 2}
         dimension = kwargs.get('dimension', self.binary)
         if (dimension == self.binary):
-            res = self.femalefemale(testvector, guessvector)
+            res = self.malemale(testvector, guessvector)
         return res
-
+    
     def accuracy_score_dame(self, testvector, guessvector):
         # accuracy score is about successful between true and guess:
         # true positive + true negative dividing
@@ -303,13 +303,19 @@ class DameStatistics(object):
         # true positive dividing
         # false negative + true positive
         result = 0
-        divider = self.femalefemale(testvector, guessvector)
-        divider = divider + self.malemale(testvector, guessvector)
-        dividend = self.femalefemale(testvector, guessvector)
-        dividend = dividend + self.malemale(testvector, guessvector)
-        dividend = dividend + self.malefemale(testvector, guessvector)
-        dividend = dividend + self.femaleundefined(testvector, guessvector)
-        dividend = dividend + self.maleundefined(testvector, guessvector)
+        
+        if ((2 in testvector) or (2 in guessvector)):
+            divider = self.femalefemale(testvector, guessvector)
+            divider = divider + self.malemale(testvector, guessvector)
+            dividend = self.femalefemale(testvector, guessvector)
+            dividend = dividend + self.malemale(testvector, guessvector)
+            dividend = dividend + self.malefemale(testvector, guessvector)
+            dividend = dividend + self.femaleundefined(testvector, guessvector)
+            dividend = dividend + self.maleundefined(testvector, guessvector)
+        else:
+            divider = self.true_positive(testvector, guessvector)
+            dividend = self.false_negative(testvector, guessvector)
+            dividend = self.true_positive(testvector, guessvector)
         result = divider / dividend
         return result
 
