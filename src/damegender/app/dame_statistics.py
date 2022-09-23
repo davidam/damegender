@@ -47,7 +47,8 @@ class DameStatistics(object):
     def __init__(self):
         self.config = configparser.RawConfigParser()
         self.config.read('config.cfg')
-        self.binary = {"female": 0, "male": 1}
+        self.binary = {0: "female", 1: "male"}
+        self.isoiec5218 = {0: "not know", 1: "male", 2: "female", 9: "not applicable"}
         self.males = 0
         self.females = 0
         self.unknown = 0
@@ -174,6 +175,16 @@ class DameStatistics(object):
 # Test negative  | True Negative  | False Negative
 # Test positive  | False Positive | True Positive 
 
+# One example about to be precise guessing gender:
+# You can detect "not know", "male", "female" or "not applicable"
+# Diagnostic     |   To be precise guessing gender
+# (verified)     |   (predicted)
+#                +----------------------------
+#                | Absence        | Presence
+# Test negative  | True Negative  | False Negative
+# Test positive  | False Positive | True Positive 
+#
+
 # Cosidering test condition in the column
 # and predicted condition in the row ...
 # One matrix with property to be male in the dimension female, male is:
@@ -183,7 +194,6 @@ class DameStatistics(object):
 # #####################
 # because female had been coded as 0 and male as 1
 #
-
 
 # This situation could be changed in the future
 # TODO: ISO/IEC 5218 proposes a norm about coding gender
