@@ -1,4 +1,4 @@
-################### Genderguesser!!
-Guess list:       [1, 1, 1, 1, 1, 0]
-Gender Test list: [1, 1, 1, 1, 1, 0]
+########################## Genderguesser!!
+Gender Guess (guess list): [1, 1, 1, 1, 1, 0]
+Gender Test   (true list): [1, 1, 1, 1, 1, 0]
 Genderguesser accuracy: 1.0
