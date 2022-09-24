@@ -1462,3 +1462,4 @@ Gender Test list: [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1
 Damegender accuracy: 1.0
 
 accuracy_score_dame had been used and tested only without undefined because in the first paper was deleted, now accuracy_score_dame has been rewritten to give support to vectors using undefined
+* TODO Revisar a mano todas las medidas de precision y error de los tests: accuracy, precision, f1score, recall, errors, ...
