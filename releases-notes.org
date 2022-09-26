@@ -7,7 +7,9 @@ benchmarks of accuracies, precision, f1score, recall, ...
 
 With identical goal in mind, many methods has been added to
 dame_statistics.py respecting the jargon math (true_negative,
-false_negative, false_positive, true_positive). 
+false_negative, false_positive, true_positive). Remember that
+there are many datasets stored in files/names/names_tests and tests
+are welcome!
 
 More countries has been added to orig2.py
 
