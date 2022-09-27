@@ -66,6 +66,7 @@ if (args.components > 0):
     x = pd.read_csv(features)
 
     y = g.dataset2genderlist(dataset="files/names/allnoundefined.csv")
+    # TODO: dataset2genderlist is obsolete must by replaced by csv2list or csvcolumn2list
 
     # STEP2: ADDING TARGET
     target = pd.DataFrame(data=y, columns=['target component'])
