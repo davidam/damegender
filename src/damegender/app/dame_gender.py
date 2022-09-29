@@ -856,7 +856,8 @@ class Gender(object):
                 try:
                     gender = row[gender_row]
                 except IndexError:
-                    print("The method csv2gender_list has not row[%s]" % str(gender_row) )
+                    print("The method csv2gender_list has not row[%s]" % str(gender_row))
+                    print("Please, review that gender row is determined in the input")
                     os.kill(os.getpid(), signal.SIGUSR1)
                 if (gender == gender_f_chars):
                     g = 0
