@@ -119,7 +119,8 @@ elif (args.api == "damegender"):
     ds = DameSexmachine()
     ds.pretty_gg_list(guessf=args.dataset_guess, testf=args.dataset_test,
                       measure=args.measure, api='Damegender',
-                      gender_csv_row=4, delimiter_guessf=args.dataset_guess_delimiter,
+                      gender_csv_row=args.dataset_test_row_gender,
+                      delimiter_guessf=args.dataset_guess_delimiter,
                       delimiter_testf=args.dataset_test_delimiter)
 
 elif (args.api == "genderapi"):
