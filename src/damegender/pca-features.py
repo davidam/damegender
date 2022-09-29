@@ -50,8 +50,10 @@ if (args.components > 0):
     du = DameUtils()
 
     fileallnoundefined = 'files/names/names_tests/allnoundefined.csv'
+    fileall = 'files/names/names_tests/all.csv'
     try:
         file1 = open(fileallnoundefined, "r+")
+        file2 = open(fileall, "r+")
     except FileNotFoundError:
         print("The program has not found the file, it stops.")
         print("You can need execute...")
@@ -72,14 +74,14 @@ if (args.components > 0):
         features = "files/features_list_no_cat.csv"
     else:
         g.features_list2csv(categorical="both",
-                            path="files/names/names_tests/all.csv")
+                            path=fileall)
         features = "files/features_list.csv"
     # STEP1: N COMPONENTS + 1 TARGET
     x = pd.read_csv(features)
 
     # y = g.csvcolumn2list(dataset="files/names/names_tests/allnoundefined.csv")
     
-    y = du.csvcolumn2list(file0, position=4, header=True)
+    y = du.csvcolumn2list(fileallnoundefined, position=4, header=True)
     ybinary = []
     for i in y:
         if (i == '"m"'):
