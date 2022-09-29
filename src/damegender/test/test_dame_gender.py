@@ -82,7 +82,7 @@ class TddInPythonExample(unittest.TestCase):
                                          dataset='files/names/names_es')
         self.assertTrue(guess, 1)
         guess = g.name2gender_in_dataset("David",
-                                         dataset='files/names/all.csv')
+                                         dataset='files/names/min.csv')
         self.assertTrue(guess, 1)
         guess = g.name2gender_in_dataset("David",
                                          dataset='files/names/yob2017.csv')
@@ -91,7 +91,7 @@ class TddInPythonExample(unittest.TestCase):
                                          dataset='files/names/names_es')
         self.assertTrue(guess, 0)
         guess = g.name2gender_in_dataset("Laura",
-                                         dataset='files/names/all.csv')
+                                         dataset='files/names/min.csv')
         self.assertTrue(guess, 0)
         guess = g.name2gender_in_dataset("Laura",
                                          dataset='files/names/yob2017.csv')
@@ -197,11 +197,11 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(g.males, 16)
         self.assertEqual(g.unknown, 2)
 
-    def test_dame_gender_dataset2genderlist(self):
-        g = Gender()
-        path1 = "files/names/all.csv"
-        gl = g.dataset2genderlist(dataset=path1)
-        self.assertEqual(gl[0:4], [1, 1, 1, 1])
+    # def test_dame_gender_dataset2genderlist(self):
+    #     g = Gender()
+    #     path1 = "files/names/min.noheader.csv"
+    #     gl = g.dataset2genderlist(dataset=path1)
+    #     self.assertEqual(gl, [1, 1, 1, 1])
 
     def test_dame_gender_features_list(self):
         g = Gender()
