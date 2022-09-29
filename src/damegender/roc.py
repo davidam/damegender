@@ -53,8 +53,20 @@ args = parser.parse_args()
 
 
 ds = DameSexmachine()
-X = np.array(ds.features_list(path="files/names/allnoundefined.csv"))
-y = ds.csv2gender_list(path="files/names/allnoundefined.csv")
+
+fileallnoundefined = 'files/names/names_tests/allnoundefined.csv'
+fileall = 'files/names/names_tests/all.csv'
+try:
+    file1 = open(fileallnoundefined, "r+")
+    file2 = open(fileall, "r+")        
+except FileNotFoundError:
+    print("The program has not found the file, it stops.")
+    print("You can need execute...")
+    print("$ cd files/names/names_tests/")
+    print("$ ./download.sh")
+
+X = np.array(ds.features_list(path=fileallnoundefined))
+y = ds.csv2gender_list(path=fileallnoundefined)
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
 if (args.verbose):
