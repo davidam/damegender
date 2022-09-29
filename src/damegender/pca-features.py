@@ -35,6 +35,7 @@ from pprint import pprint
 from sklearn.decomposition import PCA
 from app.dame_sexmachine import DameSexmachine
 from app.dame_gender import Gender
+from app.dame_utils import DameUtils
 
 # PARAMETERS
 parser = argparse.ArgumentParser()
@@ -46,26 +47,47 @@ args = parser.parse_args()
 if (args.components > 0):
     # LOAD DATASET
     g = Gender()
+    du = DameUtils()
+
+    fileallnoundefined = 'files/names/names_tests/allnoundefined.csv'
+    try:
+        file1 = open(fileallnoundefined, "r+")
+    except FileNotFoundError:
+        print("The program has not found the file, it stops.")
+        print("You can need execute...")
+        print("$ cd files/names/names_tests/")
+        print("$ ./download.sh")
+    
     if (args.categorical == "both"):
         g.features_list2csv(categorical="both",
-                            path="files/names/allnoundefined.csv")
+                            path=fileallnoundefined)
         features = "files/features_list_no_undefined.csv"
     elif (args.categorical == "noletters"):
         g.features_list2csv(categorical="noletters",
-                            path="files/names/allnoundefined.csv")
+                            path=fileallnoundefined)
         features = "files/features_list_cat.csv"
     elif (args.categorical == "nocategorical"):
         g.features_list2csv(categorical="nocategorical",
-                            path="files/names/allnoundefined.csv")
+                            path=fileallnoundefined)
         features = "files/features_list_no_cat.csv"
     else:
         g.features_list2csv(categorical="both",
-                            path="files/names/all.csv")
+                            path="files/names/names_tests/all.csv")
         features = "files/features_list.csv"
     # STEP1: N COMPONENTS + 1 TARGET
     x = pd.read_csv(features)
 
-    y = g.dataset2genderlist(dataset="files/names/allnoundefined.csv")
+    # y = g.csvcolumn2list(dataset="files/names/names_tests/allnoundefined.csv")
+    
+    y = du.csvcolumn2list(file0, position=4, header=True)
+    ybinary = []
+    for i in y:
+        if (i == '"m"'):
+            ybinary = ybinary + [1]
+        else:
+            ybinary = ybinary + [0]
+    y = ybinary
+    # print(ybinary)
     # TODO: dataset2genderlist is obsolete must by replaced by csv2list or csvcolumn2list
 
     # STEP2: ADDING TARGET
