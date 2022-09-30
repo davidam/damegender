@@ -212,38 +212,47 @@ if [ -f files/images/pca_components_files_features_list.csv.png ]; then
     rm files/images/pca_components_files_features_list.csv.png
 fi
 
-python3 pca-components.py --csv='files/features_list.csv' --no-show
-if [ -f files/images/pca_components_files_features_list.csv.png ]; then
+if [ -a files/names/names_tests/allnoundefined.csv ]; then
+    python3 pca-components.py --csv='files/features_list.csv' --no-show
+    if [ -f files/images/pca_components_files_features_list.csv.png ]; then
 	echo -e  "pca-components test is ${GREEN}ok${NC}"
-else
+    else
 	echo -e  "pca-components test is ${RED}failing${NC}"
+    fi
 fi
 
-python3 pca-features.py --categorical="both" --components=7 > files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt
-if ! diff files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
-then
+
+if [ -a files/names/names_tests/allnoundefined.csv ]; then
+    python3 pca-features.py --categorical="both" --components=7 > files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt
+    if ! diff files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
+    then
 	echo -e  "pca-features-both test is ${RED}failing${NC}"
-else
+    else
 	echo -e  "pca-features-both test is ${GREEN}ok${NC}"
+    fi
 fi
 
 if [ -f files/images/pca_components_files_features_list_no_cat.csv.png ]; then
     rm files/images/pca_components_files_features_list_no_cat.csv.png
 fi
 
-python3 pca-components.py --csv='files/features_list_no_cat.csv' --no-show
-if [ -f files/images/pca_components_files_features_list_no_cat.csv.png ]; then
+if [ -a files/names/names_tests/allnoundefined.csv ]; then
+    python3 pca-components.py --csv='files/features_list_no_cat.csv' --no-show
+    if [ -f files/images/pca_components_files_features_list_no_cat.csv.png ]; then
 	echo -e  "pca-components-nocategorical test is ${GREEN}ok${NC}"
-else
+    else
 	echo -e  "pca-components-nocategorical test is ${RED}failing${NC}"
+    fi
 fi
 
-python3 pca-features.py --categorical="nocategorical" --components=7 > files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt
-if ! diff files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
-then
+if [ -a files/names/names_tests/allnoundefined.csv ]; then
+    python3 pca-features.py --categorical="nocategorical" --components=7 > files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt
+    if ! diff files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
+    then
 	echo -e  "pca-features-nocategorical test is ${RED}failing${NC}"
-else
+    else
 	echo -e  "pca-features-nocategorical test is ${GREEN}ok${NC}"
+    fi
 fi
 
 if [ -f files/images/pca_components_files_features_list_cat.csv.png ]; then
@@ -252,17 +261,19 @@ fi
 
 python3 pca-components.py --csv='files/features_list_cat.csv' --no-show
 if [ -f files/images/pca_components_files_features_list_cat.csv.png ]; then
-	echo -e  "pca-components-categorical test is ${GREEN}ok${NC}"
+    echo -e  "pca-components-categorical test is ${GREEN}ok${NC}"
 else
-	echo -e  "pca-components-categorical test is ${RED}failing${NC}"
+    echo -e  "pca-components-categorical test is ${RED}failing${NC}"
 fi
 
-python3 pca-features.py --categorical="noletters" --components=3 > files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt
-if ! diff files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
-then
+if [ -a files/names/names_tests/allnoundefined.csv ]; then
+    python3 pca-features.py --categorical="noletters" --components=3 > files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt
+    if ! diff files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
+    then
 	echo -e  "pca-features-nocategorical test is ${RED}failing${NC}"
-else
+    else
 	echo -e  "pca-features-nocategorical test is ${GREEN}ok${NC}"
+    fi
 fi
 
 if [ -f files/images/pca_components_files_features_list_no_undefined.csv.png ]; then
@@ -276,21 +287,24 @@ else
 	echo -e  "pca-components-no-undefined test is ${RED}failing${NC}"
 fi
 
-python3 pca-features.py --categorical="both" --components=3 > files/tests/pca-features-both-$(date "+%Y-%m-%d").txt
-if ! diff files/tests/pca-features-both.txt files/tests/pca-features-both-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
-then
+if [ -a files/names/names_tests/allnoundefined.csv ]; then
+    python3 pca-features.py --categorical="both" --components=3 > files/tests/pca-features-both-$(date "+%Y-%m-%d").txt
+    if ! diff files/tests/pca-features-both.txt files/tests/pca-features-both-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
+    then
 	echo -e  "pca-features-both test is ${RED}failing${NC}"
-else
+    else
 	echo -e  "pca-features-both test is ${GREEN}ok${NC}"
+    fi
 fi
 
-
-python3 pca-features.py --categorical="noletters" --components=3 > files/tests/pca-features-categorical-$(date "+%Y-%m-%d").txt
-if ! diff files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
-then
+if [ -a files/names/names_tests/allnoundefined.csv ]; then
+    python3 pca-features.py --categorical="noletters" --components=3 > files/tests/pca-features-categorical-$(date "+%Y-%m-%d").txt
+    if ! diff files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
+    then
 	echo -e  "pca-features-nocategorical test is ${RED}failing${NC}"
-else
+    else
 	echo -e  "pca-features-nocategorical test is ${GREEN}ok${NC}"
+    fi
 fi
 
 python3 confusion.py --csv="files/names/min.csv" --api=damegender --jsondownloaded=files/names/min.csv.json > files/tests/confusiondamegender-$(date "+%Y-%m-%d").txt
@@ -317,7 +331,6 @@ else
 	echo -e  "confusion genderapi jsondonwloaded test is ${GREEN}ok${NC}"
 fi
 
-
 python3 confusion.py --csv=files/names/partialnoundefined.csv --api=genderize --jsondownloaded=files/names/genderizefiles_names_partialnoundefined.csv.json --reverse > files/tests/confusion-genderize-partialnoun-$(date "+%Y-%m-%d").txt
 
 if ! diff files/tests/confusion-genderize-partialnoun.txt files/tests/confusion-genderize-partialnoun-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
@@ -327,7 +340,6 @@ else
 	echo -e  "confusion genderize jsondonwloaded test is ${GREEN}ok${NC}"
 fi
 
-
 python3 confusion.py --csv="files/names/partial.csv" --api=nameapi --jsondownloaded="files/names/nameapifiles_names_partial.csv.json" --reverse > files/tests/confusionnameapijsondownloaded-$(date "+%Y-%m-%d").txt
 if ! diff files/tests/confusionnameapijsondownloaded.txt files/tests/confusionnameapijsondownloaded-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
 then
@@ -335,7 +347,6 @@ then
 else
 	echo -e  "confusion nameapi jsondonwloaded test is ${GREEN}ok${NC}"
 fi
-
 
 python3 accuracy.py --dataset_guess="files/names/min.csv" --api=genderapi --dataset_test="files/names/genderapifiles_names_min.csv.json" > files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d").txt
 if ! diff files/tests/accuracygenderapijsondownloaded.txt files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
@@ -386,7 +397,6 @@ else
 	echo -e  "accuracy genderize recall jsondonwloaded test is ${GREEN}ok${NC}"
 fi
 
-
 python3 damegender2json.py --notoutput --csv=files/names/min.csv --jsonoutput=files/names/min.csv.$(date "+%Y-%m-%d").json
 
 if ! diff files/names/min.csv.json files/names/min.csv.$(date "+%Y-%m-%d").json
@@ -395,7 +405,6 @@ then
 else
 	echo -e  "damegender2json test is ${GREEN}ok${NC}"
 fi
-
 
 python3 damegender2json.py --notoutput --csv=files/names/partial.csv --ml=svc --jsonoutput=files/names/partial.csv.svc.$(date "+%Y-%m-%d").json
 
@@ -501,7 +510,7 @@ if [ -f files/images/roc_gaussianNB.png ]; then
     rm files/images/roc_gaussianNB.png
 fi
 
-if [ -f files/names/names_test/allnoundefined.csv ]; then
+if [ -a files/names/names_tests/allnoundefined.csv ]; then
     python3 roc.py gaussianNB --noshow
     if [ -f files/images/roc_gaussianNB.png ]; then
 	echo -e  "roc test is ${GREEN}ok${NC}"
