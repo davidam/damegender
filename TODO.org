@@ -1443,7 +1443,8 @@ dando una explicación, por ejemplo, decir que el dataset es menor
 de 1000 nombres y, por tanto, estamos asumiendo que el nombre podría
 existir en el territorio italiano, pero no podemos dar el género
 con el dataset científico y damos la respuesta internacional.
-* TODO Reescribir pretty_gg_list para aceptar json y csv
+* DONE Reescribir pretty_gg_list para aceptar json y csv
+- State "DONE"       from "TODO"       [2022-10-04 mar 21:37]
 * DONE Elegir el logo de gender equity como logo oficial de Damegender
 SCHEDULED: <2022-08-10 mié>
 - State "DONE"       from "TODO"       [2022-08-14 dom 13:56]
@@ -1463,3 +1464,5 @@ Damegender accuracy: 1.0
 
 accuracy_score_dame had been used and tested only without undefined because in the first paper was deleted, now accuracy_score_dame has been rewritten to give support to vectors using undefined
 * TODO Revisar a mano todas las medidas de precision y error de los tests: accuracy, precision, f1score, recall, errors, ...
+- State "DONE"       from "TODO"       [2022-10-04 mar 21:38]
+* DONE Comprobar que no se llama al dataset de Lucia&Helena desde los tests a menos que solicite descarga
