@@ -1978,7 +1978,7 @@ To explain some philosophies for to give explanations to the data.
 @cindex Acknowledgements
 
 Damegender is dedicated to the INTER Project.
-I want give thanks to:
+I, David Arroyo Menéndez wants to give thanks to:
 
 @itemize @bullet
 @item
@@ -1988,7 +1988,13 @@ To my mother.
 To Bitergia team by the motivation towards Python and Perceval
 
 @item
+To Jesús González Barahona and Gregorio Robles guiding me towards the success in the publication.
+
+@item
 To GAPLEN team (Leticia Mart@'{@dotless{i}}n Fuertes, Ana Gonz@'alez Ledesma, ...) by the motivation towards Natural Language Processing.
+
+@item
+To Gema Rodríguez Pérez by the comments and motivation in the subject and the shared lectures.
 
 @item
 To the feminist movement by show me the problems related with the gender gap.
@@ -2000,6 +2006,8 @@ happy hacking sessions.
 @item
 To URJC by the seminars.
 
+@item
+To Damegender contributors of code (Luz Galvis, Oriol Tauleria and Jesús González Barahona)
 
 @end itemize
 
