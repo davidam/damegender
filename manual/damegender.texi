@@ -35,7 +35,7 @@ This manual is for Damegender (version @value{VERSION}, @value{UPDATED}).
 * Theorical Frameworks::
 * Conclusions::
 * Further Reading::
-* Acknowledgements::
+* Acknowledgments::
 * License::
 * Photos::
 * Index::
@@ -1973,9 +1973,9 @@ To explain some philosophies for to give explanations to the data.
 
 @end itemize
 
-@node Acknowledgements
-@unnumbered Acknowledgements
-@cindex Acknowledgements
+@node Acknowledgments
+@unnumbered Acknowledgments
+@cindex Acknowledgments
 
 Damegender is dedicated to the INTER Project.
 I, David Arroyo Menéndez wants to give thanks to:
