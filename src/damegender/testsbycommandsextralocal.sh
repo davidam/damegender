@@ -81,8 +81,7 @@ else
 	echo -e  "api2genderDavidgenderguesser test is ${GREEN}ok${NC}"
 fi
 
-
-python3 accuracy.py --measure="precision" --dataset_true="files/names/min.csv" --api=genderize --dataset_test="files/names/genderizefiles_names_min.csv.json" > files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --measure="precision" --dataset_test="files/names/min.csv" --api=genderize --dataset_guess="files/names/genderizefiles_names_min.csv.json" > files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracygenderizeminjsonprecision.txt files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -92,7 +91,7 @@ else
 fi
 
 
-python3 accuracy.py --api="genderguesser" --dataset_true=files/names/min.csv --dataset_test=files/names/min.csv.json > files/tests/accuracygenderguesser-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --api="genderguesser" --dataset_guess=files/names/min.csv --dataset_test=files/names/min.csv.json > files/tests/accuracygenderguesser-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracygenderguesser.txt files/tests/accuracygenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -101,7 +100,7 @@ else
 	echo -e  "accuracygenderguesser test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --api="genderguesser" --measure="precision" --dataset_true=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json > files/tests/accuracygenderguesserpartialnoundefinedjsonprecision-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --api="genderguesser" --measure="precision" --dataset_guess=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json > files/tests/accuracygenderguesserpartialnoundefinedjsonprecision-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracygenderguesserpartialnoundefinedjsonprecision.txt files/tests/accuracygenderguesserpartialnoundefinedjsonprecision-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -110,7 +109,7 @@ else
 	echo -e  "accuracypartialprecisiongenderguesser test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --api="genderguesser" --measure="f1score" --dataset_true=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json > files/tests/accuracygenderguesserpartialnoundefinedjsonf1score-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --api="genderguesser" --measure="f1score" --dataset_guess=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json > files/tests/accuracygenderguesserpartialnoundefinedjsonf1score-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracygenderguesserpartialnoundefinedjsonf1score.txt files/tests/accuracygenderguesserpartialnoundefinedjsonf1score-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -119,7 +118,7 @@ else
 	echo -e  "accuracypartialf1scoregenderguesser test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --api="genderguesser" --measure="recall" --dataset_true=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json > files/tests/accuracypartialrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --api="genderguesser" --measure="recall" --dataset_guess=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json > files/tests/accuracypartialrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracypartialrecallgenderguesser.txt files/tests/accuracypartialrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -128,7 +127,7 @@ else
 	echo -e  "accuracypartialrecallgenderguesser test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --measure=accuracy --dataset_true=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json --api="damegender" > files/tests/accuracypartialnound-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --measure=accuracy --dataset_guess=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json --api="damegender" > files/tests/accuracypartialnound-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracypartialnound.txt files/tests/accuracypartialnound-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -137,7 +136,7 @@ else
 	echo -e  "accuracypartialdamegender test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --dataset_test=files/names/min.csv.json --measure=precision --api=damegender --dataset_true=files/names/min.csv.json > files/tests/accuracyminjsonjson-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --dataset_guess=files/names/min.csv.json --measure=precision --api=damegender --dataset_test=files/names/min.csv.json > files/tests/accuracyminjsonjson-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracyminjsonjson.txt files/tests/accuracyminjsonjson-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -146,7 +145,7 @@ else
 	echo -e  "accuracyminjsonjson test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --dataset_test=files/names/min.csv --measure=accuracy --api=damegender --dataset_true=files/names/min.csv.json > files/tests/accuracymincsvjson-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --dataset_guess=files/names/min.csv --measure=accuracy --api=damegender --dataset_test=files/names/min.csv.json > files/tests/accuracymincsvjson-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracymincsvjson.txt files/tests/accuracymincsvjson-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -155,7 +154,7 @@ else
 	echo -e  "accuracymincsvjson test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --dataset_test=files/names/min.csv.json --measure=precision --api=damegender --dataset_true=files/names/min.csv > files/tests/accuracyminjsoncsv-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --dataset_guess=files/names/min.csv.json --measure=precision --api=damegender --dataset_test=files/names/min.csv > files/tests/accuracyminjsoncsv-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracyminjsoncsv.txt files/tests/accuracyminjsoncsv-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -164,6 +163,14 @@ else
 	echo -e  "accuracyminjsoncsv test is ${GREEN}ok${NC}"
 fi
 
+python3 accuracy.py --dataset_guess=files/names/min.csv --dataset_guess_row_gender=4 --measure=accuracy --api=damegender --dataset_test=files/names/min.csv --dataset_test_row_gender=4 > files/tests/accuracycsv-$(date "+%Y-%m-%d-%H").txt
+
+if ! diff files/tests/accuracycsv.txt files/tests/accuracycsv-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
+then
+	echo -e  "accuracycsv test is ${RED}failing${NC}"
+else
+	echo -e  "accuracycsv test is ${GREEN}ok${NC}"
+fi
 
 python3 confusion.py --api="damegender" --dimensions=2x3 --csv=files/names/min.csv --jsondownloaded=files/names/min.csv.json > files/tests/confusiondamegender-$(date "+%Y-%m-%d-%H").txt
 
@@ -210,7 +217,6 @@ then
 else
 	echo -e  "errorsgenderguesser test is ${GREEN}ok${NC}"
 fi
-
 
 
 rm -rf /tmp/clonedir
