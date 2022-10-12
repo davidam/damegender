@@ -299,7 +299,7 @@ class Gender(object):
         # make a list from a csv file
         surnames = kwargs.get('surnames', False)
         header = kwargs.get('header', True)
-        delimiter = kwargs.get('delimiter', ',')        
+        delimiter = kwargs.get('delimiter', ',')
         csvlist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=delimiter, quotechar='|')
@@ -837,12 +837,12 @@ class Gender(object):
         # generating a list of 0, 1, 2 as females, males and unknows
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
         # ``0 as not know'',``1 as male'', ``2 as female''
-        # and ``9 as not applicable''        
+        # and ``9 as not applicable''
         header = kwargs.get('header', True)
         gender_row = kwargs.get('gender_row', 4)
         gender_f_chars = kwargs.get('gender_f_chars', 'f')
         gender_m_chars = kwargs.get('gender_m_chars', 'm')
-        delimiter = kwargs.get('delimiter', ',')        
+        delimiter = kwargs.get('delimiter', ',')
         glist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=delimiter, quotechar='"')
@@ -888,20 +888,20 @@ class Gender(object):
         gender_f_chars = kwargs.get('gender_f_chars', 'f')
         gender_m_chars = kwargs.get('gender_m_chars', 'm')
         delimiter_testf = kwargs.get('delimiter_testf', ',')
-        delimiter_guessf = kwargs.get('delimiter_guessf', ',')        
+        delimiter_guessf = kwargs.get('delimiter_guessf', ',')
         difflen = False
         if ((os.path.isfile(guessf)) and (os.path.isfile(testf))):
             if (du.is_json(guessf)):
                 gl = self.json2gender_list(jsonf=guessf, binary=True)
                 guessnames = self.json2names(jsonf=guessf)
-                        
+
                 if (du.is_json(testf)):
                     tl = self.json2gender_list(jsonf=testf, binary=True)
                     testnames = self.json2names(jsonf=testf, surnames=False)
                     if (len(guessnames) == len(testnames)):
                         print("########################## " + api + "!!")
                         print("Gender Guess (guess list): " + str(gl))
-                        print("Gender Test   (true list): " + str(tl))        
+                        print("Gender Test   (true list): " + str(tl))
                         dst.print_measures(tl, gl, measure, api)
                     else:
                         difflen = True
@@ -918,7 +918,7 @@ class Gender(object):
                     if (len(guessnames) == len(testnames)):
                         print("########################## " + api + "!!")
                         print("Gender Guess (guess list): " + str(gl))
-                        print("Gender Test   (true list): " + str(tl))        
+                        print("Gender Test   (true list): " + str(tl))
                         dst.print_measures(tl, gl, measure, api)
                     else:
                         difflen = True
@@ -939,7 +939,7 @@ class Gender(object):
                     else:
                         difflen = True
                         v = self.first_uneq_json_and_csv_in_names(jsonf=testf,
-                                                                  csvf=guessf)                        
+                                                                  csvf=guessf)
 
                 elif (du.is_csv(testf)):
                     tl = self.csv2gender_list(path=testf, binary=True,
@@ -951,18 +951,17 @@ class Gender(object):
                     if (len(guessnames) == len(testnames)):
                         print("######################### " + api + "!!")
                         print("Guess Guess (guess list): " + str(gl))
-                        print("Gender Test  (true list): " + str(tl))        
+                        print("Gender Test  (true list): " + str(tl))
                         dst.print_measures(tl, gl, measure, api)
                     else:
                         difflen = True
                         v = self.first_uneq_csv_and_csv_in_names(csv1=guessf,
                                                                   csv2=testf)
 
-                        
         else:
             print("Check arguments in pretty_gg_list:")
             print("You must introduce a file for test file and")
-            print("a file for guessed file")            
+            print("a file for guessed file")
 
         if difflen:
             print("Names in test file and guessed file are differents")
@@ -1001,7 +1000,7 @@ class Gender(object):
         # generating a list of 0, 1, 2 as females, males and unknows
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
         # ``0 as not know'',``1 as male'', ``2 as female''
-        # and ``9 as not applicable''            
+        # and ``9 as not applicable''
         jsondata = open(jsonf).read()
         json_object = json.loads(jsondata)
         guesslist = []
@@ -1122,9 +1121,9 @@ class Gender(object):
         elif (i > maxi_csv2):
             ret = csv2[i].lower()
         elif (csv1[i].lower() == csv2[i].lower()):
-            ret = ""            
+            ret = ""
         return [ret, i]
-    
+
     def confusion_matrix_gender(self, path='', jsonf=''):
         # this method is an interfaz to confusion_matrix_table
         # allowing introduce a json file in dame_sexmachine
@@ -1148,14 +1147,14 @@ class Gender(object):
             cmd = self.confusion_matrix_gender(path)
 
         if (dimensions == "1x1"):
-            if not(reverse):
+            if not (reverse):
                 print("      M    ")
                 print("M  [[ %s ]]" % (cmd[1][1]))
             elif reverse:
                 print("      F    ")
                 print("F  [[ %s ]]" % (cmd[0][0]))
         elif (dimensions == "1x2"):
-            if not(reverse):
+            if not (reverse):
                 print("      M    F   ")
                 print("M  [[ %s,   %s ]]" %
                       (cmd[1][1], cmd[1][0]))
@@ -1164,7 +1163,7 @@ class Gender(object):
                 print("F  [[ %s,   %s ]]" %
                       (cmd[0][0], cmd[0][1]))
         elif (dimensions == "1x3"):
-            if not(reverse):
+            if not (reverse):
                 print("      M    F   U   ")
                 print("M  [[ %s, %s, %s ]]" %
                       (cmd[1][1], cmd[1][0], cmd[1][2]))
@@ -1173,7 +1172,7 @@ class Gender(object):
                 print("F [[ %s, %s, %s ]]" %
                       (cmd[0][0], cmd[0][1], cmd[0][2]))
         elif (dimensions == "2x1"):
-            if not(reverse):
+            if not (reverse):
                 print("      M  ")
                 print("M  [[ %s ]" %
                       (cmd[1][1]))
@@ -1184,7 +1183,7 @@ class Gender(object):
                 print("F  [[ %s ] " % (cmd[0][0]))
                 print("M   [ %s ]]" % (cmd[0][1]))
         elif (dimensions == "2x2"):
-            if not(reverse):
+            if not (reverse):
                 print("      M    F  ")
                 print("M  [[ %s , %s ]" %
                       (cmd[1][1], cmd[1][0]))
@@ -1197,7 +1196,7 @@ class Gender(object):
                 print("M   [ %s , %s ]]" %
                       (cmd[1][0], cmd[1][1]))
         elif (dimensions == "2x3"):
-            if not(reverse):
+            if not (reverse):
                 print("      M   F   U  ")
                 print("M  [[ %s,  %s,  %s ]" %
                       (cmd[1][1], cmd[1][0], cmd[1][2]))
@@ -1210,7 +1209,7 @@ class Gender(object):
                 print("M   [ %s,  %s,  %s ]]" %
                       (cmd[1][0], cmd[1][1], cmd[1][2]))
         elif (dimensions == "3x1"):
-            if not(reverse):
+            if not (reverse):
                 print("       M   ")
                 print("M  [[ %s ]" % (cmd[1][1]))
                 print("F   [ %s ]" % (cmd[0][1]))
@@ -1221,7 +1220,7 @@ class Gender(object):
                 print("M    [ %s ]" % (cmd[1][0]))
                 print("U    [ %s ]]" % (cmd[2][0]))
         elif (dimensions == "3x2"):
-            if not(reverse):
+            if not (reverse):
                 print("      M    F  ")
                 print("M  [[ %s ,  %s ]" %
                       (cmd[1][1], cmd[1][0]))
@@ -1238,7 +1237,7 @@ class Gender(object):
                 print("U   [ %s,  %s ]]" %
                       (cmd[2][0], cmd[2][1]))
         elif (dimensions == "3x3"):
-            if not(reverse):
+            if not (reverse):
                 print("      M  F  U   ")
                 print("M  [[ %s, %s, %s ]" %
                       (cmd[1][1], cmd[1][0], cmd[1][2]))
