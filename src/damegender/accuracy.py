@@ -59,6 +59,8 @@ parser.add_argument('--dataset_test_row_surname', type=int,
                     required=False, default=1)
 parser.add_argument('--dataset_test_row_gender', type=int,
                     required=False, default=2)
+parser.add_argument('--dataset_test_row_gender_chars', type=str,
+                    required=False, default="f,m")
 parser.add_argument('--dataset_test_delimiter', type=str, required=False, default=",")
 parser.add_argument('--measure', default="accuracy",
                     choices=['accuracy', 'precision', 'recall', 'f1score'])
@@ -70,50 +72,65 @@ parser.add_argument('--api', required=True,
 args = parser.parse_args()
 du = DameUtils()
 
+# set gender_values array
+gender_values = args.dataset_test_row_gender_chars.split(",")
+fem = gender_values[0]
+mal = gender_values[1]
+
+
 if (args.api == "all"):
 
     if (dg.config['DEFAULT']['namsor'] == 'yes'):
         dn = DameNamsor()
         dn.pretty_gg_list(guessf=args.dataset_guess, testf=args.dataset_test,
-                          measure=args.measure, api='Namsor')
+                          measure=args.measure, api='Namsor',
+                          gender_f_chars=fem, gender_m_chars=mal)
 
     if (dg.config['DEFAULT']['genderize'] == 'yes'):
         dg = DameGenderize()
         dg.pretty_gg_list(guessf=args.dataset_guess, testf=args.dataset_test,
-                          measure=args.measure, api='Genderize')
+                          measure=args.measure, api='Genderize',
+                          gender_f_chars=fem, gender_m_chars=mal)
 
     dgg = DameGenderGuesser()
     dgg.pretty_gg_list(guessf=args.dataset_guess, testf=args.dataset_test,
-                       measure=args.measure, api='Genderguesser')
+                       measure=args.measure, api='Genderguesser',
+                       gender_f_chars=fem, gender_m_chars=mal)
 
     ds = DameSexmachine()
     ds.pretty_gg_list(guessf=args.dataset_guess, testf=args.dataset_test,
-                      measure=args.measure, api='Damegender')
+                      measure=args.measure, api='Damegender',
+                      gender_f_chars=fem, gender_m_chars=mal)
 
     if (dg.config['DEFAULT']['genderapi'] == 'yes'):
         dga = DameGenderApi()
         dga.pretty_gg_list(guessf=args.dataset_guess, testf=args.dataset_test,
-                           measure=args.measure, api='Genderapi')
+                           measure=args.measure, api='Genderapi',
+                           gender_f_chars=fem, gender_m_chars=mal)                           
 
     if (dg.config['DEFAULT']['nameapi'] == 'yes'):
         dna = DameNameapi()
         dna.pretty_gg_list(guessf=args.dataset_guess, testf=args.dataset_test,
-                           measure=args.measure, api='Nameapi')
+                           measure=args.measure, api='Nameapi',
+                           gender_f_chars=fem, gender_m_chars=mal)
 
 elif (args.api == "namsor"):
     dn = DameNamsor()
     dn.pretty_gg_list(guessf=args.dataset_guess, testf=args.dataset_test,
-                      measure=args.measure, api='Namsor')
+                      measure=args.measure, api='Namsor',
+                      gender_f_chars=fem, gender_m_chars=mal)
 
 elif (args.api == "genderize"):
     dg = DameGenderize()
     dg.pretty_gg_list(guessf=args.dataset_guess, testf=args.dataset_test,
-                      measure=args.measure, api='Genderize')
+                      measure=args.measure, api='Genderize',
+                      gender_f_chars=fem, gender_m_chars=mal)
 
 elif (args.api == "genderguesser"):
     dgg = DameGenderGuesser()
     dgg.pretty_gg_list(guessf=args.dataset_guess, testf=args.dataset_test,
-                       measure=args.measure, api='Genderguesser')
+                       measure=args.measure, api='Genderguesser',
+                       gender_f_chars=fem, gender_m_chars=mal)
 
 elif (args.api == "damegender"):
     ds = DameSexmachine()
@@ -121,14 +138,17 @@ elif (args.api == "damegender"):
                       measure=args.measure, api='Damegender',
                       gender_csv_row=args.dataset_test_row_gender,
                       delimiter_guessf=args.dataset_guess_delimiter,
-                      delimiter_testf=args.dataset_test_delimiter)
+                      delimiter_testf=args.dataset_test_delimiter,
+                      gender_f_chars=fem, gender_m_chars=mal)
 
 elif (args.api == "genderapi"):
     dga = DameGenderApi()
     dga.pretty_gg_list(guessf=args.dataset_guess, testf=args.dataset_test,
-                       measure=args.measure, api='Genderapi')
+                       measure=args.measure, api='Genderapi',
+                       gender_f_chars=fem, gender_m_chars=mal)
 
 elif (args.api == "nameapi"):
     dna = DameNameapi()
     dna.pretty_gg_list(guessf=args.dataset_guess, testf=args.dataset_test,
-                       measure=args.measure, api='Nameapi')
+                       measure=args.measure, api='Nameapi',
+                       gender_f_chars=fem, gender_m_chars=mal)
