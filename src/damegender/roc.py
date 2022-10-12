@@ -58,7 +58,7 @@ fileallnoundefined = 'files/names/names_tests/allnoundefined.csv'
 fileall = 'files/names/names_tests/all.csv'
 try:
     file1 = open(fileallnoundefined, "r+")
-    file2 = open(fileall, "r+")        
+    file2 = open(fileall, "r+")
 except FileNotFoundError:
     print("The program has not found the file, it stops.")
     print("You can need execute...")
