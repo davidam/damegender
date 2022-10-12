@@ -238,7 +238,7 @@ surnames located by place where the person is living
             print(string2)
     elif bool1:
         print("There are %s people using %s in %s"
-              % (v[1], args.surname, country))            
+              % (v[1], args.surname, country))
 else:
     print("It has not been found %s in %s"
           % (args.surname, country))
