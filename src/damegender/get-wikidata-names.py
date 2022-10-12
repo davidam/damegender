@@ -84,7 +84,7 @@ for d in data["results"]["bindings"]:
     match2 = re.search(r'(^[A-Z]\.\,*)', d['nameLabel']['value'])
     # some names as Yelena/Elena must splitted in two names
     match3 = re.search(r'(.*)\/(.*)', d['nameLabel']['value'])
-    if (not(match1) and not(match2)):
+    if (not (match1) and not (match2)):
         if match3:
             try:
                 key = du.drop_white_space_around(match3.group(1))
