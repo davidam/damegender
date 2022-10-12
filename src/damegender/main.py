@@ -314,7 +314,7 @@ else:
         print("%s males for %s from Argentina statistics"
               % (n_males, args.name))
         print("%s females for %s from Argentina statistics"
-              % (n_females, args.name))        
+              % (n_females, args.name))
     elif (args.total == "at"):
         print("%s males for %s from Austria statistics"
               % (n_males, args.name))
