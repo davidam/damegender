@@ -59,7 +59,7 @@ if (args.components > 0):
         print("You can need execute...")
         print("$ cd files/names/names_tests/")
         print("$ ./download.sh")
-    
+
     if (args.categorical == "both"):
         g.features_list2csv(categorical="both",
                             path=fileallnoundefined)
@@ -78,9 +78,6 @@ if (args.components > 0):
         features = "files/features_list.csv"
     # STEP1: N COMPONENTS + 1 TARGET
     x = pd.read_csv(features)
-
-    # y = g.csvcolumn2list(dataset="files/names/names_tests/allnoundefined.csv")
-    
     y = du.csvcolumn2list(fileallnoundefined, position=4, header=True)
     ybinary = []
     for i in y:
@@ -89,9 +86,6 @@ if (args.components > 0):
         else:
             ybinary = ybinary + [0]
     y = ybinary
-    # print(ybinary)
-    # TODO: dataset2genderlist is obsolete must by replaced by csv2list or csvcolumn2list
-
     # STEP2: ADDING TARGET
     target = pd.DataFrame(data=y, columns=['target component'])
     finalDf = x.join(target)
