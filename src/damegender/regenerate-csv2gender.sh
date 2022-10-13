@@ -22,3 +22,5 @@
 
 python3 csv2gender.py files/names/names_tests/autores.csv --first_name_position=2 --dataset=inter --noshow --outcsv=files/names/names_tests/autores.interguessed.csv
 
+python3 csv2gender.py files/names/names_tests/autores.csv --first_name_position=2 --dataset=es --noshow --outcsv=files/names/names_tests/autores.esguessed.csv
+
