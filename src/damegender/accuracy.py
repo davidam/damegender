@@ -48,7 +48,8 @@ parser.add_argument('--dataset_guess_row_surname', type=int,
                     required=False, default=1)
 parser.add_argument('--dataset_guess_row_gender', type=int,
                     required=False, default=2)
-parser.add_argument('--dataset_guess_delimiter', type=str, required=False, default=",")
+parser.add_argument('--dataset_guess_delimiter', type=str,
+                    required=False, default=",")
 # dataset_test is a dataset such as files/names/names_tests/fifa.csv
 # or files/names/allnoundefined.csv.mlp.json
 parser.add_argument('--dataset_test', required=True,
@@ -61,7 +62,8 @@ parser.add_argument('--dataset_test_row_gender', type=int,
                     required=False, default=2)
 parser.add_argument('--dataset_test_row_gender_chars', type=str,
                     required=False, default="f,m")
-parser.add_argument('--dataset_test_delimiter', type=str, required=False, default=",")
+parser.add_argument('--dataset_test_delimiter', type=str,
+                    required=False, default=",")
 parser.add_argument('--measure', default="accuracy",
                     choices=['accuracy', 'precision', 'recall', 'f1score'])
 parser.add_argument('--api', required=True,
@@ -106,7 +108,7 @@ if (args.api == "all"):
         dga = DameGenderApi()
         dga.pretty_gg_list(guessf=args.dataset_guess, testf=args.dataset_test,
                            measure=args.measure, api='Genderapi',
-                           gender_f_chars=fem, gender_m_chars=mal)                           
+                           gender_f_chars=fem, gender_m_chars=mal)
 
     if (dg.config['DEFAULT']['nameapi'] == 'yes'):
         dna = DameNameapi()
