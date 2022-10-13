@@ -39,6 +39,8 @@ parser.add_argument('--first_name_position', required=True,
 
 parser.add_argument('--surname_position', required=False,
                     type=int, choices=[0, 1, 2, 3, 4], default=-99999)
+parser.add_argument('--delimiter_csv', required=False,
+                    type=str, default=",")
 parser.add_argument('--dataset', default="us",
                     choices=['at', 'au', 'be', 'ca', 'ch', 'cn', 'de',
                              'dk', 'es', 'fi', 'fr', 'gb', 'ie', 'ine',
@@ -81,36 +83,38 @@ if (first_name_position == surname_position):
 
 
 if (args.skip_header):
-    csvrowlist = du.csv2list(args.path)
+    csvrowlist = du.csv2list(args.path, quotechar=args.delimiter_csv)
 else:
-    csvrowlist = du.csv2list(args.path, header=False)
-
+    csvrowlist = du.csv2list(args.path,
+                             quotechar=args.delimiter_csv,
+                             header=False)
 
 l1 = []
-
 for i in csvrowlist:
+    ii = i[0].split(args.delimiter_csv)
     try:
-        first_name_string = i[first_name_position]
+        first_name_string = ii[first_name_position]
         first_name_string = du.white_space_inside_by(first_name_string, "_")
-        first_name_string = du.drop_quotes(i[first_name_position])
+        first_name_string = du.drop_quotes(ii[first_name_position])
         first_name_string = first_name_string.encode('utf-8')
+        surname_string = ""
+        if (surname_position != -99999):
+            surname_string = du.drop_quotes(ii[surname_position])
+            surname_string = surname_string.encode('utf-8')
+        sex = s.guess(first_name_string.decode('utf-8'),
+                      binary=False,
+                      dataset=args.dataset)
+        if (sex == "male"):
+            males_list.append(first_name_string)
+        elif (sex == "female"):
+            females_list.append(first_name_string)
+        else:
+            unknows_list.append(first_name_string)
+        l1.append([first_name_string, sex, surname_string])
+            
     except IndexError:        
         print("Troubles with row ... %s " % i)
-
-    surname_string = ""
-    if (surname_position != -99999):
-        surname_string = du.drop_quotes(i[surname_position])
-        surname_string = surname_string.encode('utf-8')
-    sex = s.guess(first_name_string.decode('utf-8'),
-                  binary=False,
-                  dataset=args.dataset)
-    if (sex == "male"):
-        males_list.append(first_name_string)
-    elif (sex == "female"):
-        females_list.append(first_name_string)
-    else:
-        unknows_list.append(first_name_string)
-    l1.append([first_name_string, sex, surname_string])
+        print(ii)
 
         
 file = open(args.outcsv, "w")
