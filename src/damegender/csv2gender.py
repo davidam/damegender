@@ -89,10 +89,14 @@ else:
 l1 = []
 
 for i in csvrowlist:
-    first_name_string = i[first_name_position]
-    first_name_string = du.white_space_inside_by(first_name_string, "_")
-    first_name_string = du.drop_quotes(i[first_name_position])
-    first_name_string = first_name_string.encode('utf-8')
+    try:
+        first_name_string = i[first_name_position]
+        first_name_string = du.white_space_inside_by(first_name_string, "_")
+        first_name_string = du.drop_quotes(i[first_name_position])
+        first_name_string = first_name_string.encode('utf-8')
+    except IndexError:        
+        print("Troubles with row ... %s " % i)
+
     surname_string = ""
     if (surname_position != -99999):
         surname_string = du.drop_quotes(i[surname_position])
@@ -108,6 +112,7 @@ for i in csvrowlist:
         unknows_list.append(first_name_string)
     l1.append([first_name_string, sex, surname_string])
 
+        
 file = open(args.outcsv, "w")
 for i in l1:
     file.write(str(i[0].decode('utf-8')) + "," + str(i[1]) + "\n")
