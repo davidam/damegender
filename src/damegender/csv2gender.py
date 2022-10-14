@@ -91,7 +91,10 @@ else:
 
 l1 = []
 for i in csvrowlist:
-    ii = i[0].split(args.delimiter_csv)
+    if (len(i) > 0) and isinstance(i, list):
+        ii = i
+    else:
+        ii = i[0].split(args.delimiter_csv)
     try:
         first_name_string = ii[first_name_position]
         first_name_string = du.white_space_inside_by(first_name_string, "_")
