@@ -36,11 +36,13 @@ parser = argparse.ArgumentParser()
 parser.add_argument("path", help="csv file")
 parser.add_argument('--first_name_position', required=True,
                     type=int, choices=[0, 1, 2, 3, 4], default=0)
-
+# What is the position of the first name in the csv?
 parser.add_argument('--surname_position', required=False,
                     type=int, choices=[0, 1, 2, 3, 4], default=-99999)
+# What is the position of the surname in the csv?
 parser.add_argument('--delimiter_csv', required=False,
                     type=str, default=",")
+# Is the csv separated by commas?
 parser.add_argument('--dataset', default="us",
                     choices=['at', 'au', 'be', 'ca', 'ch', 'cn', 'de',
                              'dk', 'es', 'fi', 'fr', 'gb', 'ie', 'ine',
@@ -51,13 +53,18 @@ parser.add_argument('--outcsv', default="files/names/out.csv")
 parser.add_argument('--outjson', default="files/names/out.json")
 parser.add_argument('--outimg', default="files/images/csv2gender.png")
 parser.add_argument('--title', default="People grouped by gender")
+# display a title for the matplotlib graph
 parser.add_argument('--noshow', dest='noshow', action='store_true')
+# no show the graph deployed with matplotlib
 parser.add_argument('--skip_header', dest='skip_header', action='store_true')
+# the first row in the csv file is excluded
 parser.add_argument('--guess_with_first_name_strict', dest='guess_with_first_name_strict', action='store_true')
+# only the first word in the first name is used to guess the gender
+# it can be valid in dataset with names in english, spanish and other languages
 parser.add_argument('--delete_duplicated', dest='delete_duplicated',
                     action='store_true')
 parser.add_argument('--verbose', dest='verbose', action='store_true')
-parser.add_argument('--version', action='version', version='0.3')
+parser.add_argument('--version', action='version', version='0.4')
 args = parser.parse_args()
 
 
