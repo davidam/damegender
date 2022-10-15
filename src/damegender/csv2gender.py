@@ -53,6 +53,7 @@ parser.add_argument('--outimg', default="files/images/csv2gender.png")
 parser.add_argument('--title', default="People grouped by gender")
 parser.add_argument('--noshow', dest='noshow', action='store_true')
 parser.add_argument('--skip_header', dest='skip_header', action='store_true')
+parser.add_argument('--guess_with_first_name_strict', dest='guess_with_first_name_strict', action='store_true')
 parser.add_argument('--delete_duplicated', dest='delete_duplicated',
                     action='store_true')
 parser.add_argument('--verbose', dest='verbose', action='store_true')
@@ -96,9 +97,13 @@ for i in csvrowlist:
     else:
         ii = i[0].split(args.delimiter_csv)
     try:
-        first_name_string = ii[first_name_position]
+        original_first_name_string = ii[first_name_position]
+        first_name_string = original_first_name_string
+        if (args.guess_with_first_name_strict):
+            l2 = str(first_name_string).split(" ")
+            first_name_string = l2[0]
         first_name_string = du.white_space_inside_by(first_name_string, "_")
-        first_name_string = du.drop_quotes(ii[first_name_position])
+        first_name_string = du.drop_quotes(first_name_string)
         first_name_string = first_name_string.encode('utf-8')
         surname_string = ""
         if (surname_position != -99999):
@@ -113,7 +118,7 @@ for i in csvrowlist:
             females_list.append(first_name_string)
         else:
             unknows_list.append(first_name_string)
-        l1.append([first_name_string, sex, surname_string])
+        l1.append([original_first_name_string, sex, surname_string])
             
     except IndexError:        
         print("Troubles with row ... %s " % i)
@@ -122,7 +127,7 @@ for i in csvrowlist:
         
 file = open(args.outcsv, "w")
 for i in l1:
-    file.write(str(i[0].decode('utf-8')) + "," + str(i[1]) + "\n")
+    file.write(str(i[0]) + "," + str(i[1]) + "\n")
 
 file.close()
 
@@ -131,7 +136,7 @@ file.write("[")
 for i in l1:
     if (l1[0] == i):
         file.write("{\n")
-    file.write('"name": "' + str(first_name_string.decode('utf-8')) + '",\n')
+    file.write('"name": "' + str(i[0]) + '",\n')
     bool1 = (int(args.first_name_position) != int(args.surname_position))
     bool2 = (args.surname_position != -99999)
     if bool1 and bool2:
