@@ -35,3 +35,7 @@ python3 csv2gender.py files/names/names_tests/liste_des_prenoms.csv --first_name
 python3 csv2gender.py files/names/names_tests/liste_des_prenoms.csv --first_name_position=3 --dataset=es --noshow --outcsv=files/names/names_tests/liste_des_prenoms.esguessed.csv --skip_header --delimiter_csv=';'
 
 python3 csv2gender.py files/names/names_tests/liste_des_prenoms.csv --first_name_position=3 --dataset=ca --noshow --outcsv=files/names/names_tests/liste_des_prenoms.caguessed.csv --skip_header --delimiter_csv=';'
+
+python3 csv2gender.py files/names/names_tests/gender_JMLA.dta.csv --first_name_position=1 --dataset=inter --noshow --outcsv=files/names/names_tests/gender_JMLA.interguessed.dta.csv
+
+python3 csv2gender.py files/names/names_tests/gender_JMLA.dta.csv --first_name_position=1 --dataset=us --noshow --outcsv=files/names/names_tests/gender_JMLA.usguessed.dta.csv
