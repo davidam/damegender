@@ -1470,3 +1470,9 @@ accuracy_score_dame had been used and tested only without undefined because in t
 Por ejemplo:
      data = pd.io.stata.read_stata(path)
      data.to_csv(path+'.csv')
+* TODO Eliminar de los dataset las iniciales.
+En el dataset inter se ha dado género a nombres como A. o J.M. esto es claramente un error
+aunque vengan en los datasets nacionales mientras tengan en el dataset nacional menos de 100
+no lo debemos considerar y, sobre todo no para los internacionales va a ser muy común encontrar
+el string "A " o "A." y siempre van a ser iniciales de nombres sobre todo si lo encontramos
+como primer nombre
