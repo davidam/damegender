@@ -1476,3 +1476,6 @@ aunque vengan en los datasets nacionales mientras tengan en el dataset nacional 
 no lo debemos considerar y, sobre todo no para los internacionales va a ser muy común encontrar
 el string "A " o "A." y siempre van a ser iniciales de nombres sobre todo si lo encontramos
 como primer nombre
+* TODO Escribir los scripts de demostración de las reglas del lenguaje
+Por ejemplo, el primer nombre estricto en "Jose Antonio" sería "Jose" es el que determina el
+nombre en los países de nombres derivados del latín.
