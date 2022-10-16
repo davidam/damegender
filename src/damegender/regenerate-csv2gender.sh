@@ -40,3 +40,11 @@ python3 csv2gender.py files/names/names_tests/liste_des_prenoms.csv --first_name
 python3 csv2gender.py files/names/names_tests/gender_JMLA.dta.csv --first_name_position=1 --dataset=inter --noshow --outcsv=files/names/names_tests/gender_JMLA.interguessed.dta.csv
 
 python3 csv2gender.py files/names/names_tests/gender_JMLA.dta.csv --first_name_position=1 --dataset=us --noshow --outcsv=files/names/names_tests/gender_JMLA.usguessed.dta.csv
+
+python3 csv2gender.py files/names/names_tests/conseil-departmental-haute-garonne.csv --first_name_position=1 --dataset=fr --noshow --outcsv=files/names/names_tests/conseil-departmental-haute-garonne.frguessed.csv --delimiter_csv=";" --skip_header
+
+python3 csv2gender.py files/names/names_tests/conseil-departmental-haute-garonne.csv --first_name_position=1 --dataset=inter --noshow --outcsv=files/names/names_tests/conseil-departmental-haute-garonne.interguessed.csv --delimiter_csv=";" --skip_header
+
+python3 csv2gender.py files/names/names_tests/female-scientists.csv --first_name_position=0 --dataset=inter --noshow --outcsv=files/names/names_tests/female-scientists.interguessed.csv --delimiter=',' --skip_header --guess_with_first_name_strict
+
+python3 csv2gender.py files/names/names_tests/male-scientists.csv --first_name_position=0 --dataset=inter --noshow --outcsv=files/names/names_tests/male-scientists.interguessed.csv --delimiter=',' --skip_header --guess_with_first_name_strict
