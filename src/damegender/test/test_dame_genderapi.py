@@ -26,11 +26,10 @@ import unittest
 import os
 import requests
 import json
-import collections
-collections.Callable = collections.abc.Callable
-
 from app.dame_genderapi import DameGenderApi
 from app.dame_utils import DameUtils
+import collections
+collections.Callable = collections.abc.Callable
 
 
 class TddInPythonExample(unittest.TestCase):
