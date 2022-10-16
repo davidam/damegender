@@ -27,8 +27,10 @@ import unicodedata
 import re
 import os
 import csv
+import sys
 import pdb
 import json
+
 
 class DameUtils():
 
@@ -132,8 +134,6 @@ class DameUtils():
                     "uy": "files/names/names_uy/uyall.csv"}
         return path
 
-
-    
     def string2array(self, string):
         # given a string returns an array splitted by white spaces
         res = ""
@@ -220,7 +220,7 @@ class DameUtils():
         return aux
 
     # def drop_internal_symbols(self, s, li):
-    #     # given s removes not alfanumeric symbols 
+    #     # given s removes not alfanumeric symbols
     #     aux = ""
     #     c = unicodedata.normalize('NFD', str(s))
     #     i = 0
@@ -230,7 +230,7 @@ class DameUtils():
     #             aux = aux + c[i]
     #         i = i + 1
     #     return aux
-    
+
     def drop_external_symbols(self, s, li):
         # given s removes symbols contained in li
         # in element zero and in the last element
@@ -240,10 +240,10 @@ class DameUtils():
         n = len(c)-1
         while (i <= n):
             if (i == 0):
-                if not(c[i] in li):
+                if not (c[i] in li):
                     aux = aux + c[i]
             elif (i == n):
-                if not(c[i] in li):
+                if not (c[i] in li):
                     aux = aux + c[i]
             else:
                 aux = aux + c[i]
@@ -253,7 +253,7 @@ class DameUtils():
     def drop_all_external_symbols(self, s, li):
         # given s removes all symbols contained in li
         # in external positions of a string (name)
-        m = re.match(r"(.*)([a-z]|[A-Z])+(.*)", s)        
+        m = re.match(r"(.*)([a-z]|[A-Z])+(.*)", s)
         if ((li != []) and (s != []) and m):
             while ((s[0] in li) or (s[-1] in li)):
                 s = self.drop_external_symbols(s, li)
@@ -401,7 +401,9 @@ class DameUtils():
         quotechar = kwargs.get('quotechar', '|')
         l1 = []
         with open(csvpath) as csvfile:
-            rowreader = csv.reader(csvfile, delimiter=delimiter, quotechar=quotechar)
+            rowreader = csv.reader(csvfile,
+                                   delimiter=delimiter,
+                                   quotechar=quotechar)
             if header:
                 next(rowreader, None)
             for row in rowreader:
@@ -437,7 +439,9 @@ class DameUtils():
         quotechar = kwargs.get('quotechar', ",")
         l1 = []
         with open(csvpath) as csvfile:
-            sexreader = csv.reader(csvfile, delimiter=delimiter, quotechar=quotechar)
+            sexreader = csv.reader(csvfile,
+                                   delimiter=delimiter,
+                                   quotechar=quotechar)
             if header:
                 next(sexreader, None)
             for row in sexreader:
@@ -501,7 +505,7 @@ class DameUtils():
         else:
             nodup = []
             for i in l1:
-                if (not(i in nodup)):
+                if (not (i in nodup)):
                     nodup.append(i)
         return nodup
 
@@ -509,11 +513,11 @@ class DameUtils():
         # given a list delete duplicated identities
         s = []
         for i in l1:
-            if not(i in s):
+            if not (i in s):
                 identity_dup = False
                 for j in s:
                     identity_dup = (identity_dup or self.same_identity(i, j))
-                if (not(identity_dup)):
+                if (not (identity_dup)):
                     s.append(i)
         return s
 
@@ -524,7 +528,7 @@ class DameUtils():
         else:
             aux = []
             for i in l1:
-                if ((i != "") and (not(re.search(r' ?.*@.*\..*', i)))):
+                if ((i != "") and (not (re.search(r' ?.*@.*\..*', i)))):
                     aux = aux + [i]
         return aux
 
@@ -544,7 +548,7 @@ class DameUtils():
         l2 = []
         for line in f:
             fields = line.strip().split()
-            if not(os.path.isdir(fields[0])):
+            if not (os.path.isdir(fields[0])):
                 l2.append(self.drop_pwd(fields[0]))
         return l2
 
@@ -603,7 +607,7 @@ class DameUtils():
                     external = [" ", "'", '"']
                     name = self.drop_all_external_symbols(name, external)
                     name = name.capitalize()
-                    if (not(name in dicc.keys()) and (name != "")):
+                    if (not (name in dicc.keys()) and (name != "")):
                         dicc[name] = {}
                 except IndexError:
                     print("The program has troubles with the array indexes")
@@ -649,7 +653,8 @@ class DameUtils():
             d1[i]["males"] = males
         return d1
 
-    def dump_name_and_quantity_in_dicc(self, inputpath, posname, posquant, *args, **kwargs):
+    def dump_name_and_quantity_in_dicc(self, inputpath, posname,
+                                       posquant, *args, **kwargs):
         # Dumping names and quantity from csv file in a python dictionary
         # csv delimiter (example: ';')
         delimiter = kwargs.get('delimiter', '|')
@@ -666,7 +671,8 @@ class DameUtils():
                     num = self.number_or_zero(row[posquant])
                     name = row[posname]
                     name = name.upper()
-                    name = self.drop_all_external_symbols(name, ["'", '"', ",", " "])
+                    name = self.drop_all_external_symbols(name,
+                                                          ["'", '"', ",", " "])
                     if (filter_char == ''):
                         if (name in dicc.keys()):
                             val = dicc[name]
@@ -683,7 +689,7 @@ class DameUtils():
                 except IndexError:
                     print("The program has troubles with the array indexes")
         return dicc
-    
+
     def simple_dicc_to_file(self, dicc, path):
         # Dumping a python dictionary done with
         # dump_name_and_quantity_in_dicc in a file
@@ -711,7 +717,6 @@ class DameUtils():
 
     def is_csv(self, mycsv, *args, **kwargs):
         delimiter = kwargs.get('delimiter', ',')
-        import csv, sys
         boolean = False
         if (self.is_json(mycsv)):
             boolean = False
