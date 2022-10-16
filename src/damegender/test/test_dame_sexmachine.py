@@ -27,15 +27,14 @@ import unittest
 import numpy as np
 import pickle
 import os.path
-import collections
-collections.Callable = collections.abc.Callable
-
 from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.linear_model import SGDClassifier
 from sklearn import svm
 from app.dame_sexmachine import DameSexmachine
+import collections
+collections.Callable = collections.abc.Callable
 
 
 class TddInPythonExample(unittest.TestCase):
