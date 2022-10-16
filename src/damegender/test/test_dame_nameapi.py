@@ -23,11 +23,10 @@
 # Boston, MA 02110-1301 USA,
 
 import unittest
-import collections
-collections.Callable = collections.abc.Callable
-
 from app.dame_gender import Gender
 from app.dame_nameapi import DameNameapi
+import collections
+collections.Callable = collections.abc.Callable
 
 
 class TddInPythonExample(unittest.TestCase):
