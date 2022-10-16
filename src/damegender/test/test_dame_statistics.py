@@ -71,9 +71,9 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(t5g, 2)  # femaleundefined
         vvv1 = [2, 2, 0, 2, 1]
         vvv2 = [2, 0, 1, 2, 1]
-        t6g = ds.count_true2guess(vvv1, vvv2, 2, 0)        
+        t6g = ds.count_true2guess(vvv1, vvv2, 2, 0)
         self.assertEqual(t6g, 1)  # undefinedfemale
-        
+
     def test_error_coded(self):
         ds = DameStatistics()
         v1 = [1, 0, 1, 1]
@@ -88,7 +88,7 @@ class TddInPythonExample(unittest.TestCase):
         v1 = [1, 0, 1, 1]
         v2 = [1, 1, 1, 0]
         self.assertEqual(ds.error_coded_without_na(v1, v2), 0.5)
-        
+
     def test_na_coded(self):
         ds = DameStatistics()
         v1 = [0, 1, 1, 1]
@@ -134,9 +134,8 @@ class TddInPythonExample(unittest.TestCase):
         v1 = [1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
         v2 = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
         score6 = ds.accuracy_score_dame(v1, v2)
-        self.assertEqual(round(score6, 3), 0.905)        
+        self.assertEqual(round(score6, 3), 0.905)
 
-        
     def test_precision(self):
         ds = DameStatistics()
         score1 = ds.precision([1, 1], [1, 1])
@@ -188,14 +187,14 @@ class TddInPythonExample(unittest.TestCase):
     def test_true_positive(self):
         ds = DameStatistics()
         test = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
-        guess = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]        
+        guess = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
         res = ds.true_positive(test, guess)
         self.assertEqual(res, 16)
-        
+
     def test_false_negative(self):
         ds = DameStatistics()
         test = [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
-        guess = [1, 1, 1, 1, 2, 1, 1, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]        
+        guess = [1, 1, 1, 1, 2, 1, 1, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
         res = ds.false_negative(test, guess)
         self.assertEqual(res, 1)
 
@@ -205,7 +204,7 @@ class TddInPythonExample(unittest.TestCase):
         guess = [0, 0, 0, 1]
         res = ds.false_positive(test, guess)
         self.assertEqual(res, 3)
-        
+
     def test_true_negative(self):
         ds = DameStatistics()
         test = [1, 1, 0, 0]
