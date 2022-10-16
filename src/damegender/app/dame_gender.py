@@ -813,7 +813,7 @@ class Gender(object):
         i = 0
         while ((name == "") and (len(arr) > i)):
             bool1 = self.guess_surname(arr[i], locale="us")[0]
-            if (not(bool1) and (len(string) > 0)):
+            if (not (bool1) and (len(string) > 0)):
                 name = arr[i]
             i = i + 1
         return self.guess(name)
@@ -856,8 +856,9 @@ class Gender(object):
                 try:
                     gender = row[gender_row]
                 except IndexError:
-                    print("The method csv2gender_list has not row[%s]" % str(gender_row))
-                    print("Please, review that gender row is determined in the input")
+                    print("The method csv2gender_list has not row[%s]" %
+                          str(gender_row))
+                    print("To review that gender row is set in the input")
                     os.kill(os.getpid(), signal.SIGUSR1)
                 if (gender == gender_f_chars):
                     g = 0
@@ -905,15 +906,15 @@ class Gender(object):
                         dst.print_measures(tl, gl, measure, api)
                     else:
                         difflen = True
-                        v = self.first_uneq_json_and_json_in_names(json1=guessf,
-                                                                  json2=testf)
+                        v = self.first_uneq_json_and_json_in_names(
+                            json1=guessf, json2=testf)
                 elif (du.is_csv(testf)):
                     tl = self.csv2gender_list(path=testf, binary=True,
                                               gender_row=gender_csv_row,
                                               gender_f_chars=gender_f_chars,
                                               gender_m_chars=gender_m_chars,
                                               delimiter=delimiter_testf)
-                    
+
                     testnames = self.csv2names(path=testf)
                     if (len(guessnames) == len(testnames)):
                         print("########################## " + api + "!!")
@@ -924,7 +925,7 @@ class Gender(object):
                         difflen = True
                         v = self.first_uneq_json_and_csv_in_names(jsonf=guessf,
                                                                   csvf=testf)
-                        
+
             elif (du.is_csv(guessf)):
                 gl = self.csv2gender_list(path=guessf)
                 guessnames = self.csv2names(path=guessf)
@@ -956,7 +957,7 @@ class Gender(object):
                     else:
                         difflen = True
                         v = self.first_uneq_csv_and_csv_in_names(csv1=guessf,
-                                                                  csv2=testf)
+                                                                 csv2=testf)
 
         else:
             print("Check arguments in pretty_gg_list:")
@@ -1075,11 +1076,11 @@ class Gender(object):
         elif (i > maxi_csv):
             ret = json[i].lower()
         elif (csv[i].lower() == json[i].lower()):
-            ret = ""            
+            ret = ""
         return [ret, i]
 
     def first_uneq_json_and_json_in_names(self, json1="", json2="",
-                                             *args, **kwargs):
+                                          *args, **kwargs):
         header = kwargs.get('header', True)
         json1 = self.json2names(jsonf=json1, surnames=False)
         json2 = self.json2names(jsonf=json2, surnames=False)
@@ -1102,13 +1103,13 @@ class Gender(object):
         return [ret, i]
 
     def first_uneq_csv_and_csv_in_names(self, csv1="", csv2="",
-                                         *args, **kwargs):
+                                        *args, **kwargs):
         header = kwargs.get('header', True)
         csv1 = self.csv2names(path=csv1, header=header)
         csv2 = self.csv2names(path=csv2, header=header)
         i = 0
         maxi_csv1 = len(csv1) - 1
-        maxi_csv2 = len(csv2) - 1        
+        maxi_csv2 = len(csv2) - 1
         while ((i < maxi_csv1) and
                (i < maxi_csv2) and
                (csv1[i].lower() == csv2[i].lower())):
