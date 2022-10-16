@@ -297,7 +297,7 @@ class DameSexmachine(Gender):
         # guess method to check names dictionary and nltk classifier
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
         # ``0 as not know'',``1 as male'', ``2 as female''
-        # and ``9 as not applicable''        
+        # and ``9 as not applicable''
         dataset = kwargs.get('dataset', 'us')
         guess = 2
         guess = super().guess(name, binary, dataset)
