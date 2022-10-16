@@ -99,9 +99,9 @@ else:
 
 l1 = []
 for i in csvrowlist:
-    if (len(i) > 0) and isinstance(i, list):
+    if (len(i) > 1) and isinstance(i, list):
         ii = i
-    else:
+    elif (len(i) == 1) and isinstance(i, list):
         ii = i[0].split(args.delimiter_csv)
     try:
         original_first_name_string = ii[first_name_position]
