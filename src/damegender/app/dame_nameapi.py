@@ -132,7 +132,7 @@ class DameNameapi(Gender):
     def guess(self, name, surname, binary=False):
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
         # ``0 as not know'',``1 as male'', ``2 as female''
-        # and ``9 as not applicable''        
+        # and ``9 as not applicable''
         v = self.get(name, surname, binary)
         return v[0]
 
