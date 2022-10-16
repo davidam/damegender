@@ -66,7 +66,7 @@ class DameNamsor(Gender):
         # guess method to check names dictionary
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
         # ``0 as not know'',``1 as male'', ``2 as female''
-        # and ``9 as not applicable''                
+        # and ``9 as not applicable''
         v = self.get(name, surname)
         if ((v[0] == 'female') and binary):
             guess = 0
