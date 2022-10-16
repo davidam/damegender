@@ -25,11 +25,11 @@
 
 import unittest
 import datetime
+from datetime import timedelta
+from app.dame_perceval import DamePerceval
 import collections
 collections.Callable = collections.abc.Callable
 
-from datetime import timedelta
-from app.dame_perceval import DamePerceval
 
 class TddInPythonExample(unittest.TestCase):
 
