@@ -26,10 +26,9 @@
 import unittest
 import numpy as np
 import os
+from app.dame_gender import Gender
 import collections
 collections.Callable = collections.abc.Callable
-
-from app.dame_gender import Gender
 
 
 class TddInPythonExample(unittest.TestCase):
@@ -124,7 +123,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(g.guess_surname("Serrano", "ar"), [True, 73])
         self.assertEqual(g.guess_surname("Serrano", "es"), [True, 131371])
         self.assertEqual(g.guess_surname("Arroyo", "ine"), [True, 39834])
-        
+
     def test_dame_gender_string2gender(self):
         g = Gender()
         gender1 = g.string2gender("Arroyo Menéndez, David")
@@ -339,7 +338,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual("", api)
         api2 = g.first_uneq_json_and_json_in_names(json1=path1, json2=path5)[0]
         self.assertEqual("", api2)
-        
+
 # THE NEXT TESTS HAS BEEN COMMENTED BY TIME REASONS EXECUTING TESTS
 #     def test_dame_gender_features_list_categorical(self):
 #         g = Gender()
