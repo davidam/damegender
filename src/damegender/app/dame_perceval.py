@@ -79,7 +79,7 @@ class DamePerceval(object):
         repo = Git(uri=url, gitpath=directory)
         authors = {}
         for user in repo.fetch():
-            if not(user['data']['Author'] in authors):
+            if not (user['data']['Author'] in authors):
                 authors[user['data']['Author']] = 1
             tmp = authors[user['data']['Author']]
             authors[user['data']['Author']] = tmp + 1
@@ -89,7 +89,7 @@ class DamePerceval(object):
         repo = MBox(uri=url, dirpath=directory)
         authors = {}
         for message in repo.fetch():
-            if not(message['data']['From'] in authors.keys()):
+            if not (message['data']['From'] in authors.keys()):
                 authors[message['data']['From']] = 1
             tmp = authors[message['data']['From']]
             authors[message['data']['From']] = tmp + 1
