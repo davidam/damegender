@@ -20,11 +20,12 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
-python3 csv2gender.py files/names/names_tests/autores.csv --first_name_position=2 --dataset=inter --noshow --outcsv=files/names/names_tests/autores.interguessed.csv --skip_header
 
-python3 csv2gender.py files/names/names_tests/autores.csv --first_name_position=2 --dataset=es --noshow --outcsv=files/names/names_tests/autores.esguessed.csv --skip_header
+python3 csv2gender.py files/names/names_tests/autores.csv --first_name_position=2 --dataset=inter --noshow --outcsv=files/names/names_tests/autores.firstnamestrict.interguessed.csv --skip_header --guess_with_first_name_strict
 
-python3 csv2gender.py files/names/names_tests/autores.csv --first_name_position=2 --dataset=us --noshow --outcsv=files/names/names_tests/autores.usguessed.csv --skip_header
+python3 csv2gender.py files/names/names_tests/autores.csv --first_name_position=2 --dataset=es --noshow --outcsv=files/names/names_tests/autores.esguessed.csv --skip_header --guess_with_first_name_strict
+
+python3 csv2gender.py files/names/names_tests/autores.csv --first_name_position=2 --dataset=us --noshow --outcsv=files/names/names_tests/autores.usguessed.csv --skip_header --guess_with_first_name_strict
 
 python3 csv2gender.py files/names/names_tests/liste_des_prenoms.csv --first_name_position=3 --dataset=inter --noshow --outcsv=files/names/names_tests/liste_des_prenoms.interguessed.csv --skip_header --delimiter_csv=';'
 
