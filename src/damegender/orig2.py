@@ -113,12 +113,17 @@ elif (country == "at"):
         print("Downloading datasets from Austria ...")
         subprocess.call(outpath + "download.sh", shell=True)
 
-    l0 = ['Vornamen_syn-top.csv.2', 'Vornamen_syn-top.csv.3',
-         'Vornamen_syn-top.csv.4', 'Vornamen_syn-top.csv.5',
-         'Vornamen_syn-top.csv.6', 'Vornamen_syn-top.csv.7',
-         'Vornamen_syn-top.csv.8', 'Vornamen_syn-top.csv.9',
-         'Vornamen_syn-top.csv.10', 'Vornamen_syn-top.csv.11',
-         'Vornamen_syn-top.csv.12']
+    l0 = ['Vornamen_syn-top.csv.2',
+          'Vornamen_syn-top.csv.3',
+          'Vornamen_syn-top.csv.4',
+          'Vornamen_syn-top.csv.5',
+          'Vornamen_syn-top.csv.6',
+          'Vornamen_syn-top.csv.7',
+          'Vornamen_syn-top.csv.8',
+          'Vornamen_syn-top.csv.9',
+          'Vornamen_syn-top.csv.10',
+          'Vornamen_syn-top.csv.11',
+          'Vornamen_syn-top.csv.12']
 
     origfile = origpath + 'l9ogdvornamentop500'
 
@@ -137,12 +142,12 @@ elif (country == "at"):
     for i in l0:
         path = origpath + '/' + i
         diccmales = du.dump_name_and_quantity_in_dicc(path, 1, 2,
-                                                  dicc=diccmales,
-                                                  delimiter=",")
+                                                      dicc=diccmales,
+                                                      delimiter=",")
 
         diccfemales = du.dump_name_and_quantity_in_dicc(path, 6, 7,
-                                                    dicc=diccfemales,
-                                                    delimiter=",")
+                                                        dicc=diccfemales,
+                                                        delimiter=",")
     du.simple_dicc_to_file(diccmales, outmales)
     du.simple_dicc_to_file(diccfemales, outfemales)
 
@@ -157,14 +162,18 @@ elif (country == "au"):
 #    for i in range(1944, 2013):
     for i in range(1944, 2013):
         origfile = origpath + "/" + "female_cy" + str(i) + "_top.csv"
-        diccfemales = du.dump_name_and_quantity_in_dicc(origfile, posname=0,
-                                                        posquant=1, dicc=diccfemales,
+        diccfemales = du.dump_name_and_quantity_in_dicc(origfile,
+                                                        posname=0,
+                                                        posquant=1,
+                                                        dicc=diccfemales,
                                                         delimiter=',')
     for i in range(2014, 2016):
         origfile = origpath + "/" + "femalecy" + str(i) + "top.csv"
-        diccfemales = du.dump_name_and_quantity_in_dicc(origfile, posname=0,
-                                                      posquant=1, dicc=diccfemales,
-                                                      delimiter=',')
+        diccfemales = du.dump_name_and_quantity_in_dicc(origfile,
+                                                        posname=0,
+                                                        posquant=1,
+                                                        dicc=diccfemales,
+                                                        delimiter=',')
     fo = open(outpath + "aufemales.csv", "w")
     for i in diccfemales.keys():
         fo.write(str(i) + "," + str(diccfemales[i]) + "\n")
@@ -174,13 +183,17 @@ elif (country == "au"):
     diccmales = {}
     for i in range(1944, 2013):
         origfile = origpath + "/" + "male_cy" + str(i) + "_top.csv"
-        diccmales = du.dump_name_and_quantity_in_dicc(origfile, posname=0,
-                                                      posquant=1, dicc=diccmales,
+        diccmales = du.dump_name_and_quantity_in_dicc(origfile,
+                                                      posname=0,
+                                                      posquant=1,
+                                                      dicc=diccmales,
                                                       delimiter=',')
     for i in range(2014, 2016):
         origfile = origpath + "/" + "malecy" + str(i) + "top.csv"
-        diccmales = du.dump_name_and_quantity_in_dicc(origfile, posname=0,
-                                                      posquant=1, dicc=diccmales,
+        diccmales = du.dump_name_and_quantity_in_dicc(origfile,
+                                                      posname=0,
+                                                      posquant=1,
+                                                      dicc=diccmales,
                                                       delimiter=',')
 
     fo = open(outpath + "aumales.csv", "w")
@@ -339,20 +352,56 @@ elif (country == "ch"):
     origfile5 = origpath + 'orig.csv.5'
     print("Swiss names ...")
     diccmales = {}
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile0, 0, 2, dicc=diccmales, delimiter=",")
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile1, 0, 2, dicc=diccmales, delimiter=",")
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile2, 0, 2, dicc=diccmales, delimiter=",")
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile3, 0, 2, dicc=diccmales, delimiter=",")
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile4, 0, 2, dicc=diccmales, delimiter=",")
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile5, 0, 2, dicc=diccmales, delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile0,
+                                                  0, 2,
+                                                  dicc=diccmales,
+                                                  delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile1,
+                                                  0, 2,
+                                                  dicc=diccmales,
+                                                  delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile2,
+                                                  0, 2,
+                                                  dicc=diccmales,
+                                                  delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile3,
+                                                  0, 2,
+                                                  dicc=diccmales,
+                                                  delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile4,
+                                                  0, 2,
+                                                  dicc=diccmales,
+                                                  delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile5,
+                                                  0, 2,
+                                                  dicc=diccmales,
+                                                  delimiter=",")
     du.simple_dicc_to_file(diccmales, outmales)
     diccfemales = {}
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile0, 0, 1, dicc=diccfemales, delimiter=",")
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile1, 0, 1, dicc=diccfemales, delimiter=",")
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2, 0, 1, dicc=diccfemales, delimiter=",")
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile3, 0, 1, dicc=diccfemales, delimiter=",")
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile4, 0, 1, dicc=diccfemales, delimiter=",")
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile5, 0, 1, dicc=diccfemales, delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile0,
+                                                    0, 1,
+                                                    dicc=diccfemales,
+                                                    delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile1,
+                                                    0, 1,
+                                                    dicc=diccfemales,
+                                                    delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2,
+                                                    0, 1,
+                                                    dicc=diccfemales,
+                                                    delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile3,
+                                                    0, 1,
+                                                    dicc=diccfemales,
+                                                    delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile4,
+                                                    0, 1,
+                                                    dicc=diccfemales,
+                                                    delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile5,
+                                                    0, 1,
+                                                    dicc=diccfemales,
+                                                    delimiter=",")
     du.simple_dicc_to_file(diccfemales, outfemales)
 
 elif (country == "de"):
@@ -364,16 +413,26 @@ elif (country == "de"):
     diccmales = {}
     diccfemales = {}
 
-    l = ["Vornamen_Koeln_2010.csv", "Vornamen_Koeln_2011.csv", "Vornamen_Koeln_2012.csv",
-         "Vornamen_Koeln_2013.csv", "Vornamen_Koeln_2014.csv", "Vornamen_Koeln_2015.csv",
-         "Vornamen_Koeln_2016.csv", "Vornamen_Koeln_2017.csv", "Vornamen_2018_Koeln.csv",
-         "Vornamen_2019_Koeln.csv", "Vornamen_2020_Koeln.csv"]
+    l0 = ["Vornamen_Koeln_2010.csv",
+          "Vornamen_Koeln_2011.csv",
+          "Vornamen_Koeln_2012.csv",
+          "Vornamen_Koeln_2013.csv",
+          "Vornamen_Koeln_2014.csv",
+          "Vornamen_Koeln_2015.csv",
+          "Vornamen_Koeln_2016.csv",
+          "Vornamen_Koeln_2017.csv",
+          "Vornamen_2018_Koeln.csv",
+          "Vornamen_2019_Koeln.csv",
+          "Vornamen_2020_Koeln.csv"]
 
-    for i in l:
+    for i in l0:
         path = origpath + '/' + i
-        diccmales = du.dump_name_and_quantity_in_dicc(path, 0, 1, delimiter=",",
-                                                  dicc=diccmales, filter_pos=2,
-                                                  filter_char='m')
+        diccmales = du.dump_name_and_quantity_in_dicc(path,
+                                                      0, 1,
+                                                      delimiter=",",
+                                                      dicc=diccmales,
+                                                      filter_pos=2,
+                                                      filter_char='m')
         diccfemales = du.dump_name_and_quantity_in_dicc(path, 0, 1,
                                                         delimiter=",",
                                                         dicc=diccfemales,
@@ -393,8 +452,8 @@ elif ((country == "es") or (country == "ine")):
                                                   dicc={},
                                                   delimiter=",")
     diccfemales = du.dump_name_and_quantity_in_dicc(origfile2, 1, 2,
-                                                  dicc={},
-                                                  delimiter=",")
+                                                    dicc={},
+                                                    delimiter=",")
     du.simple_dicc_to_file(diccmales, outmales)
     du.simple_dicc_to_file(diccfemales, outfemales)
 
@@ -431,8 +490,8 @@ elif (country == "fi"):
                                                     dicc=diccfemales,
                                                     delimiter=",")
     diccsurnames = du.dump_name_and_quantity_in_dicc(origsurnames, 0, 1,
-                                                    dicc=diccsurnames,
-                                                    delimiter=",")
+                                                     dicc=diccsurnames,
+                                                     delimiter=",")
     du.simple_dicc_to_file(diccmales, outmales)
     du.simple_dicc_to_file(diccfemales, outfemales)
 
@@ -467,16 +526,19 @@ elif (country == "ie"):
     origfile11 = origpath + 'vsa11.csv'
     print("Ireland names ...")
     diccmales = {}
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile11, 5, 7, delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile11,
+                                                  5, 7,
+                                                  delimiter=",")
     du.simple_dicc_to_file(diccmales, outmales)
     diccfemales = {}
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile10, 5, 7, delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile10,
+                                                    5, 7,
+                                                    delimiter=",")
     du.simple_dicc_to_file(diccmales, outmales)
 
 elif (country == "is"):
     print("this country code is not running yet")
     print("This command is being developed")
-    
 elif (country == "it"):
     origpath = outpath + "orig/"
 
@@ -497,32 +559,98 @@ elif (country == "it"):
     origfile2018 = origpath + '2018.csv'
     print("Italian names ...")
     diccmales = {}
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile2008, 1, 2, delimiter=",", dicc=diccmales)
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile2009, 1, 2, delimiter=",", dicc=diccmales)
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile2010, 1, 2, delimiter=",", dicc=diccmales)
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile2011, 1, 2, delimiter=",", dicc=diccmales)
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile2012, 1, 2, delimiter=",", dicc=diccmales)
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile2013, 1, 2, delimiter=",", dicc=diccmales)
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile2014, 1, 2, delimiter=",", dicc=diccmales)
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile2015, 1, 2, delimiter=",", dicc=diccmales)
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile2016, 1, 2, delimiter=",", dicc=diccmales)
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile2017, 1, 2, delimiter=",", dicc=diccmales)
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile2018, 1, 2, delimiter=",", dicc=diccmales)
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile2008,
+                                                  1, 2,
+                                                  delimiter=",",
+                                                  dicc=diccmales)
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile2009,
+                                                  1, 2,
+                                                  delimiter=",",
+                                                  dicc=diccmales)
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile2010,
+                                                  1, 2,
+                                                  delimiter=",",
+                                                  dicc=diccmales)
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile2011,
+                                                  1, 2,
+                                                  delimiter=",",
+                                                  dicc=diccmales)
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile2012,
+                                                  1, 2,
+                                                  delimiter=",",
+                                                  dicc=diccmales)
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile2013,
+                                                  1, 2,
+                                                  delimiter=",",
+                                                  dicc=diccmales)
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile2014,
+                                                  1, 2,
+                                                  delimiter=",",
+                                                  dicc=diccmales)
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile2015,
+                                                  1, 2,
+                                                  delimiter=",",
+                                                  dicc=diccmales)
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile2016,
+                                                  1, 2,
+                                                  delimiter=",",
+                                                  dicc=diccmales)
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile2017,
+                                                  1, 2,
+                                                  delimiter=",",
+                                                  dicc=diccmales)
+    diccmales = du.dump_name_and_quantity_in_dicc(origfile2018,
+                                                  1, 2,
+                                                  delimiter=",",
+                                                  dicc=diccmales)
 
     du.simple_dicc_to_file(dicc, outmales, dicc=diccmales)
 
     diccfemales = {}
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2008, 6, 7, delimiter=",", dicc=diccfemales)
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2009, 6, 7, delimiter=",", dicc=diccfemales)
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2010, 6, 7, delimiter=",", dicc=diccfemales)
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2011, 6, 7, delimiter=",", dicc=diccfemales)
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2012, 6, 7, delimiter=",", dicc=diccfemales)
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2013, 6, 7, delimiter=",", dicc=diccfemales)
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2014, 6, 7, delimiter=",", dicc=diccfemales)
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2015, 6, 7, delimiter=",", dicc=diccfemales)
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2016, 6, 7, delimiter=",", dicc=diccfemales)
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2017, 6, 7, delimiter=",", dicc=diccfemales)
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2018, 6, 7, delimiter=",", dicc=diccfemales)
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2008,
+                                                    6, 7,
+                                                    delimiter=",",
+                                                    dicc=diccfemales)
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2009,
+                                                    6, 7,
+                                                    delimiter=",",
+                                                    dicc=diccfemales)
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2010,
+                                                    6, 7,
+                                                    delimiter=",",
+                                                    dicc=diccfemales)
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2011,
+                                                    6, 7,
+                                                    delimiter=",",
+                                                    dicc=diccfemales)
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2012,
+                                                    6, 7,
+                                                    delimiter=",",
+                                                    dicc=diccfemales)
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2013,
+                                                    6, 7,
+                                                    delimiter=",",
+                                                    dicc=diccfemales)
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2014,
+                                                    6, 7,
+                                                    delimiter=",",
+                                                    dicc=diccfemales)
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2015,
+                                                    6, 7,
+                                                    delimiter=",",
+                                                    dicc=diccfemales)
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2016,
+                                                    6, 7,
+                                                    delimiter=",",
+                                                    dicc=diccfemales)
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2017,
+                                                    6, 7,
+                                                    delimiter=",",
+                                                    dicc=diccfemales)
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfile2018,
+                                                    6, 7,
+                                                    delimiter=",",
+                                                    dicc=diccfemales)
 
     du.simple_dicc_to_file(dicc, outfemales)
 
@@ -536,8 +664,14 @@ elif (country == "mx"):
 
     posname = 0
     posquant = 1
-    diccmales = du.dump_name_and_quantity_in_dicc(origmales, posname, posquant, delimiter=",")
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfemales, posname, posquant, delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(origmales,
+                                                  posname,
+                                                  posquant,
+                                                  delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfemales,
+                                                    posname,
+                                                    posquant,
+                                                    delimiter=",")
     du.simple_dicc_to_file(diccfemales, outfemales)
     du.simple_dicc_to_file(diccmales, outmales)
 
@@ -598,15 +732,27 @@ elif (country == "pt"):
     print("Portugal names ...")
 
     diccmales = {}
-    diccmales = du.dump_name_and_quantity_in_dicc(origfilem14, 0, 1, delimiter=",", dicc=diccmales)
-    diccmales = du.dump_name_and_quantity_in_dicc(origfilem15, 0, 2, delimiter=",", dicc=diccmales)
-    diccmales = du.dump_name_and_quantity_in_dicc(origfilem16, 0, 2, delimiter=",", dicc=diccmales)
+    diccmales = du.dump_name_and_quantity_in_dicc(origfilem14, 0, 1,
+                                                  delimiter=",",
+                                                  dicc=diccmales)
+    diccmales = du.dump_name_and_quantity_in_dicc(origfilem15, 0, 2,
+                                                  delimiter=",",
+                                                  dicc=diccmales)
+    diccmales = du.dump_name_and_quantity_in_dicc(origfilem16, 0, 2,
+                                                  delimiter=",",
+                                                  dicc=diccmales)
     du.simple_dicc_to_file(diccmales, outmales)
 
     diccfemales = {}
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfilef14, 0, 1, delimiter=",", dicc=diccfemales)
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfilef15, 0, 2, delimiter=",", dicc=diccfemales)
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfilef16, 0, 2, delimiter=",", dicc=diccfemales)
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfilef14, 0, 1,
+                                                    delimiter=",",
+                                                    dicc=diccfemales)
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfilef15, 0, 2,
+                                                    delimiter=",",
+                                                    dicc=diccfemales)
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfilef16, 0, 2,
+                                                    delimiter=",",
+                                                    dicc=diccfemales)
     du.simple_dicc_to_file(diccfemales, outfemales)
 
 elif (country == "ru"):
@@ -631,7 +777,9 @@ elif (country == "ru"):
     fom.close()
 
     from transliterate import translit, get_available_language_codes
-    print("You must install transliterate if you want reproduce russian names in latin alphabet")
+    str0 = "You must install transliterate if you want "
+    str0 = str0 + "reproduce russian names in latin alphabet"
+    print(str0)
     print("Try with:")
     print("$ pip3 install transliterate")
 
@@ -640,7 +788,9 @@ elif (country == "ru"):
         fo = open(outpath + "rufemales.en.csv", "w")
         for row in sreader:
             print(translit(row[0], 'ru', reversed=True))
-            fo.write(du.drop_quotes(translit(row[0], 'ru', reversed=True)) + ',' + row[1] + "\n")
+            str0 = du.drop_quotes(translit(row[0], 'ru', reversed=True))
+            str0 = str0 + ',' + row[1] + "\n"
+            fo.write(str0)
         fo.close()
 
     with open(outpath + 'rumales.csv') as csvfile:
