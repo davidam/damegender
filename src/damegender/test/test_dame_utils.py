@@ -25,11 +25,10 @@
 
 import unittest
 import os
-import collections
-collections.Callable = collections.abc.Callable
-
 from app.dame_utils import DameUtils
 from os.path import expanduser
+import collections
+collections.Callable = collections.abc.Callable
 
 
 class TddInPythonExample(unittest.TestCase):
@@ -107,7 +106,6 @@ class TddInPythonExample(unittest.TestCase):
     #     self.assertEqual("JuanCarlosI",
     #                      u.drop_internal_symbols("Juan Carlos I ", [' ']))
 
-        
     def test_drop_white_space_around(self):
         u = DameUtils()
         self.assertEqual("", u.drop_white_space_around(" "))
@@ -149,27 +147,30 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual('Hola Mexico', u.drop_quotes('Hola "Mexico'))
         self.assertEqual("Hola Mexico", u.drop_quotes("Hola' 'Mexico"))
 
-    # def test_drop_symbols(self):
-    #     u = DameUtils()
-    #     self.assertEqual('Hola Mexico', u.drop_symbols('Hola "Mexico', ['"']))
-    #     self.assertEqual("Hola Mexico", u.drop_symbols("Hola@ #Mexico", ['@', '#']))
-
     def test_drop_external_quotes(self):
         u = DameUtils()
-        self.assertEqual('Hola "Mexico', u.drop_external_quotes('"Hola "Mexico'))
-        self.assertEqual("Hola' 'Mexico", u.drop_external_quotes("'Hola' 'Mexico'"))
+        self.assertEqual('Hola "Mexico',
+                         u.drop_external_quotes('"Hola "Mexico'))
+        self.assertEqual("Hola' 'Mexico",
+                         u.drop_external_quotes("'Hola' 'Mexico'"))
 
     def test_initialize_dictionary_drop_external_symbols(self):
         du = DameUtils()
-        self.assertEqual('', du.drop_external_symbols('"', ['"']))
-        self.assertEqual('Hola "Mexico', du.drop_external_symbols('"Hola "Mexico', ['"']))
-        self.assertEqual('Hola', du.drop_external_symbols('-Hola+', ['-', '+']))
-        self.assertEqual('Hola Mexico', du.drop_external_symbols('-Hola Mexico+', ['-', '+']))
+        self.assertEqual('',
+                         du.drop_external_symbols('"', ['"']))
+        self.assertEqual('Hola "Mexico',
+                         du.drop_external_symbols('"Hola "Mexico', ['"']))
+        self.assertEqual('Hola',
+                         du.drop_external_symbols('-Hola+', ['-', '+']))
+        self.assertEqual('Hola Mexico',
+                         du.drop_external_symbols('-Hola Mexico+', ['-', '+']))
 
     def test_initialize_dictionary_drop_all_external_symbols(self):
         du = DameUtils()
-        self.assertEqual('', du.drop_all_external_symbols('', ['"']))
-        self.assertEqual('Hola "Mexico', du.drop_all_external_symbols('"""""Hola "Mexico', ['"']))
+        self.assertEqual('',
+                         du.drop_all_external_symbols('', ['"']))
+        self.assertEqual('Hola "Mexico',
+                         du.drop_all_external_symbols('"Hola "Mexico', ['"']))
 
     def test_delete_duplicated_identities(self):
         g = Gender()
@@ -228,7 +229,8 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_csvcolumn2list(self):
         du = DameUtils()
-        l1 = du.csvcolumn2list('files/names/partial.csv', position=0, header=True)
+        l1 = du.csvcolumn2list('files/names/partial.csv',
+                               position=0, header=True)
         self.assertEqual(len(l1), 21)
         self.assertEqual(['"pierre"', '"raul"', '"adriano"', '"ralf"',
                           '"teppei"', '"guillermo"', '"catherine"',
@@ -343,8 +345,10 @@ class TddInPythonExample(unittest.TestCase):
         dicc['Cristina'] = 4
         dicc['Maria'] = 7
         du.diccnames2csvfile(dicc, 'files/tests/dicc.csv')
-        l0 = du.csvcolumn2list('files/tests/dicc.csv', position=0, header=False)
-        l1 = du.csvcolumn2list('files/tests/dicc.csv', position=1, header=False)
+        l0 = du.csvcolumn2list('files/tests/dicc.csv',
+                               position=0, header=False)
+        l1 = du.csvcolumn2list('files/tests/dicc.csv',
+                               position=1, header=False)
         self.assertEqual(l0, ['Ana', 'Cristina', 'Maria'])
         self.assertEqual(l1, ['3', '4', '7'])
 
@@ -385,41 +389,25 @@ class TddInPythonExample(unittest.TestCase):
         du = DameUtils()
         file1 = "files/names/names_inter/dkfemales10.csv"
         dicc = du.init_dicc_names_from_file(file1, 0)
-        l = sorted(dicc.keys())
-        self.assertEqual(l, ["Clara", "Dilara", "Elena",
-                             "Julia", "Luisa", "Martin",
-                             "Roberta", "Rosa", "Sara",
-                             "Tabita", "Una"])
+        l0 = sorted(dicc.keys())
+        self.assertEqual(l0, ["Clara", "Dilara", "Elena",
+                              "Julia", "Luisa", "Martin",
+                              "Roberta", "Rosa", "Sara",
+                              "Tabita", "Una"])
         file2 = "files/tests/vsa10.csv"
         dicc2 = du.init_dicc_names_from_file(file2, 5)
         l2 = sorted(dicc2.keys())
-        self.assertEqual(l2[0:5], ['Abbie', 'Abby', 'Abigail', 'Ada', 'Ailbhe'])
-        # file2 = "files/names/names_uy/orig/nombre_nacim_x_anio_sexo.csv"
-        # dicc2 = du.initialize_dictionary_names_from_file(file2, 2)
-        # l2 = sorted(dicc2.keys())
-        # self.assertEqual(l2[0:3], ["Clara", "Dilara", "Elena", "Julia"])
-
-    # def test_reduce_csv_columns_to_name_and_freq(self):
-    #### THIS METHOD HAS BEEN REPLACED BY dump_name_and_quantity_in_dicc and simple_dicc_to_file
-    #     du = DameUtils()
-    #     file1 = "files/tests/testorig1.csv"
-    #     file2 = "files/tests/testres1.csv"
-    #     file3 = "files/tmp/testout1.csv"      
-    #     res = du.reduce_csv_columns_to_name_and_freq(file1, respath=file3, name=1, freq=2)
-    #     file2f = open(file2, 'r')
-    #     file3f = open(file3, 'r')
-    #     file2_lines = file2f.readlines()
-    #     file3_lines = file3f.readlines()
-    #     file2f.close()
-    #     file3f.close()
-    #     self.assertEqual(file2_lines, file3_lines)
+        self.assertEqual(l2[0:5], ['Abbie', 'Abby',
+                                   'Abigail', 'Ada',
+                                   'Ailbhe'])
 
     def test_init_dicc_names_and_years(self):
         du = DameUtils()
         file1 = "files/tests/vsa10.csv"
         dicc = du.init_dicc_names_and_years(file1, 5, 1998, 2019)
-        l = sorted(dicc.keys())
-        self.assertEqual(l[0:5], ['Abbie', 'Abby', 'Abigail', 'Ada', 'Ailbhe'])
+        l0 = sorted(dicc.keys())
+        self.assertEqual(l0[0:5],
+                         ['Abbie', 'Abby', 'Abigail', 'Ada', 'Ailbhe'])
         self.assertEqual(dicc["Ada"][2019]["females"], 0)
 
     def test_find_max_and_min_in_column(self):
@@ -435,13 +423,20 @@ class TddInPythonExample(unittest.TestCase):
         posname = 3
         posquant = 4
         dicc0 = {}
-        dicc0 = du.dump_name_and_quantity_in_dicc(file1, posname, posquant, dicc=dicc0, delimiter=",")
+        dicc0 = du.dump_name_and_quantity_in_dicc(file1,
+                                                  posname,
+                                                  posquant,
+                                                  dicc=dicc0,
+                                                  delimiter=",")
         self.assertEqual(dicc0["MARIA"], 370)
-        self.assertEqual(dicc0["INGRID"], 62)        
+        self.assertEqual(dicc0["INGRID"], 62)
         filewien = "files/tests/testwien.csv"
-        diccmales = {} 
-        diccmales = du.dump_name_and_quantity_in_dicc(filewien, 7, 8, dicc=diccmales, delimiter=";",
-                                                      filter_pos=5, filter_char='1')
+        diccmales = {}
+        diccmales = du.dump_name_and_quantity_in_dicc(filewien, 7, 8,
+                                                      dicc=diccmales,
+                                                      delimiter=";",
+                                                      filter_pos=5,
+                                                      filter_char='1')
         self.assertEqual(diccmales["DAVID"], 169)
 
     def test_is_json(self):
@@ -459,17 +454,10 @@ class TddInPythonExample(unittest.TestCase):
         self.assertFalse(du.is_csv(file2))
         file3 = "files/names/min.commas.csv"
         self.assertTrue(du.is_csv(file3))
-        self.assertTrue(du.is_csv(file3, delimiter=";"))        
+        self.assertTrue(du.is_csv(file3, delimiter=";"))
         file4 = "files/names/min.csv"
         self.assertTrue(du.is_csv(file4))
-        
-# def test_file_year2dicc_females(self):
-#     du = DameUtils()
-#     file1 = "files/names/names_de/orig/Vornamen_2020_Koeln.csv"
-#     file2 = "files/names/names_de/orig/Vornamen_Koeln_2014.csv"
-#     dicc = du.file_year2dicc_females(file1, name_position=1, quantity_position=0, gender_position=2, filter_females="w")
-#     print(dicc["Marie"])
-#     self.assertEqual(dicc["Marie"], 207)
+
 
 # def test_fill_dictionary_names_and_years_from_file(self):
 #     du = DameUtils()
