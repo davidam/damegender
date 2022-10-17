@@ -24,11 +24,10 @@
 
 
 import unittest
-import collections
-collections.Callable = collections.abc.Callable
-
 from app.dame_genderguesser import DameGenderGuesser
 from app.dame_statistics import DameStatistics
+import collections
+collections.Callable = collections.abc.Callable
 
 
 class TddInPythonExample(unittest.TestCase):
