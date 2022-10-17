@@ -58,7 +58,9 @@ parser.add_argument('--noshow', dest='noshow', action='store_true')
 # no show the graph deployed with matplotlib
 parser.add_argument('--skip_header', dest='skip_header', action='store_true')
 # the first row in the csv file is excluded
-parser.add_argument('--guess_with_first_name_strict', dest='guess_with_first_name_strict', action='store_true')
+parser.add_argument('--guess_with_first_name_strict',
+                    dest='guess_with_first_name_strict',
+                    action='store_true')
 # only the first word in the first name is used to guess the gender
 # it can be valid in dataset with names in english, spanish and other languages
 parser.add_argument('--delete_duplicated', dest='delete_duplicated',
@@ -126,12 +128,11 @@ for i in csvrowlist:
         else:
             unknows_list.append(first_name_string)
         l1.append([original_first_name_string, sex, surname_string])
-            
-    except IndexError:        
+
+    except IndexError:
         print("Troubles with row ... %s " % i)
         print(ii)
 
-        
 file = open(args.outcsv, "w")
 for i in l1:
     file.write(str(i[0]) + "," + str(i[1]) + "\n")
