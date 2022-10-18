@@ -45,11 +45,12 @@ def get_results(endpoint_url, query):
 
 results = get_results(endpoint_url, query)
 
-print("showing some results")
+print("SPARQL and Wikidata is not a very stable system")
+print("Perhaps you need execute the script several times")
+print("Good luck!")
 
 fo = open("female-scientists.csv", "w")
 for result in results["results"]["bindings"]:
-    print(result)
     fo.write(result['womenLabel']['value'] + "," + result['women']['value'] +  "\n");
 
 # Cerramos el archivo fichero.txt
