@@ -424,7 +424,7 @@ Maximiliano,male
 Francisco,male
 Manuel,male
 Raúl,male
-E.,female
+E.,unknown
 Horacio,male
 Teresa,female
 Jorge,male
@@ -1741,7 +1741,7 @@ Hugo,male
 Cruz,male
 "Violeta Blanca",female
 "Luis Domingo",male
-"J. Salvador",male
+"J. Salvador",unknown
 Ana,female
 Norberto,male
 Stella,female
@@ -1781,7 +1781,7 @@ Jorge,male
 "Ana María",female
 Alción,unknown
 "Miguel Ángel",male
-"J. Alberto",male
+"J. Alberto",unknown
 Gerónimo,male
 Domenica,female
 Epaminondas,male
@@ -1820,7 +1820,7 @@ Humberto,male
 "Carlos W.",male
 Lucas,male
 Ciro,male
-"B. J.",male
+"B. J.",unknown
 Carlos,male
 Gerardo,male
 Arturo,male
@@ -1881,7 +1881,7 @@ Fernando,male
 Emilio,male
 Carlos,male
 Juanito,male
-R.J.,male
+R.J.,unknown
 Hiber,male
 Dante,male
 Paul,male
@@ -2254,7 +2254,7 @@ Francisco,male
 Antonio,male
 Crisanto,male
 "María Isabel",female
-L.,male
+L.,unknown
 Griselda,female
 Manolo,male
 "Celestino Celsius",male
@@ -2276,7 +2276,7 @@ Hugo,male
 "Manuel Raúl",male
 Dante,male
 Gregorio,male
-"C. M.",male
+"C. M.",unknown
 Jorge,male
 Álvaro,male
 Conrado,male
@@ -3110,7 +3110,7 @@ Juan,male
 Salvador,male
 "Daniel R.",male
 Oscar,male
-"J. Manuel",male
+"J. Manuel",unknown
 "María Margarita",female
 Felipe,male
 Manuel,male
@@ -3197,7 +3197,7 @@ Carlos,male
 Gabriel,male
 María,female
 Luis,male
-B.,male
+B.,unknown
 "Ángel María",male
 Antonio,male
 Gorgias,male
@@ -3305,7 +3305,7 @@ Oribe,male
 "Juan Carlos",male
 "Enrique Alberto",male
 Carlos,male
-N.,female
+N.,unknown
 "Juan C.",male
 Francisco,male
 "Juan Carlos",male
@@ -3647,7 +3647,7 @@ Emilio,male
 Mariella,female
 "Julio César",male
 Wilson,male
-"J. A.",male
+"J. A.",unknown
 "Nelly María",female
 Javier,male
 Roberto,male
@@ -3873,7 +3873,7 @@ Nelson,male
 Manuel,male
 Leonardo,male
 Cristina,female
-"L. Juan",male
+"L. Juan",unknown
 Francisco,male
 "Myriam Cristina",female
 "Francisco Curt",male
@@ -3947,7 +3947,7 @@ Alejandro,male
 "Félix R.",male
 Estrella,female
 Barthélemy,male
-J.,male
+J.,unknown
 "Francisco Caraciolo",male
 Raúl,male
 Gustavo,male
@@ -4196,7 +4196,7 @@ Alejandro,male
 Josefina,female
 Héctor,male
 Susana,female
-P.,male
+P.,unknown
 Othilia,female
 "Juan Carlos",male
 "Marta V.",female
@@ -6483,7 +6483,7 @@ Katusha,female
 Magalí,female
 Ricardo,male
 Eladio,male
-J.,male
+J.,unknown
 Rosario,female
 Vicente,male
 Hilary,female
@@ -6852,7 +6852,7 @@ Celso,male
 Eduviges,female
 Alfonso,male
 "Walter E.",male
-W.,female
+W.,unknown
 Guillermo,male
 "José Miguel",male
 "José María",male
@@ -7339,7 +7339,7 @@ Teófilo,male
 Osvaldo,male
 Eusebio,male
 Valentín,male
-"G. de la C.",female
+"G. de la C.",unknown
 Estanislao,male
 Alfredo,male
 "Juan Carlos",male
