@@ -1466,16 +1466,29 @@ accuracy_score_dame had been used and tested only without undefined because in t
 * TODO Revisar a mano todas las medidas de precision y error de los tests: accuracy, precision, f1score, recall, errors, ...
 - State "DONE"       from "TODO"       [2022-10-04 mar 21:38]
 * DONE Comprobar que no se llama al dataset de Lucia&Helena desde los tests a menos que solicite descarga
-* TODO Introducir en orig2.py los procesamientos de tests que sean necesarios
-Por ejemplo:
+* TODO Introducir en orig2.py los procesamientos de files/names/names_tests que sean necesarios
+Por ejemplo pasar un fichero de formato stata a csv:
      data = pd.io.stata.read_stata(path)
      data.to_csv(path+'.csv')
-* TODO Eliminar de los dataset las iniciales.
+     
+* DONE Eliminar de los dataset inter las iniciales.
+- State "DONE"       from "TODO"       [2022-10-22 sáb 08:12]
+
 En el dataset inter se ha dado género a nombres como A. o J.M. esto es claramente un error
 aunque vengan en los datasets nacionales mientras tengan en el dataset nacional menos de 100
 no lo debemos considerar y, sobre todo no para los internacionales va a ser muy común encontrar
 el string "A " o "A." y siempre van a ser iniciales de nombres sobre todo si lo encontramos
 como primer nombre
+
+He creado un script:
++ [ ] files/names/names_inter/remove-initials.sh
+
 * TODO Escribir los scripts de demostración de las reglas del lenguaje
 Por ejemplo, el primer nombre estricto en "Jose Antonio" sería "Jose" es el que determina el
 nombre en los países de nombres derivados del latín.
+* TODO Ver qué ocurre con el nombre "ANDRÉ-JEAN" del dataset inter
+No funciona bien el name_frec, ni guess. Podría ser un tema acento o el tratamiento del guión
+* TODO Escribir nuevo argumento para csv2gender.py
+--first-name-strict-if-unknow
+Si hay un nombre compuesto predecir desde el primer nombre que es el primer string
+si solo si el nombre compuesto no existe en la base de datos
