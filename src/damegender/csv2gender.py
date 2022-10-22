@@ -65,6 +65,8 @@ parser.add_argument('--guess_with_first_name_strict',
 # it can be valid in dataset with names in english, spanish and other languages
 parser.add_argument('--delete_duplicated', dest='delete_duplicated',
                     action='store_true')
+parser.add_argument('--respect_accents', dest='respect_accents',
+                    action='store_true')
 parser.add_argument('--verbose', dest='verbose', action='store_true')
 parser.add_argument('--version', action='version', version='0.4')
 args = parser.parse_args()
@@ -108,19 +110,26 @@ for i in csvrowlist:
     try:
         original_first_name_string = ii[first_name_position]
         first_name_string = original_first_name_string
+        first_name_string = first_name_string.upper()
         if (args.guess_with_first_name_strict):
             l2 = str(first_name_string).split(" ")
             first_name_string = l2[0]
-        first_name_string = du.white_space_inside_by(first_name_string, "_")
         first_name_string = du.drop_quotes(first_name_string)
         first_name_string = first_name_string.encode('utf-8')
         surname_string = ""
         if (surname_position != -99999):
             surname_string = du.drop_quotes(ii[surname_position])
             surname_string = surname_string.encode('utf-8')
-        sex = s.guess(first_name_string.decode('utf-8'),
-                      binary=False,
-                      dataset=args.dataset)
+        if (args.respect_accents):
+            sex = s.guess(first_name_string.decode('utf-8'),
+                          binary=False,
+                          drop_accents=False,
+                          dataset=args.dataset)
+        else:
+            sex = s.guess(first_name_string.decode('utf-8'),
+                          binary=False,
+                          dataset=args.dataset)
+            
         if (sex == "male"):
             males_list.append(first_name_string)
         elif (sex == "female"):
