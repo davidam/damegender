@@ -19,6 +19,7 @@
 #  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 #  Boston, MA 02110-1301 USA,
 
+echo "remove names that are initials in interfemales.csv"
 sed '/^A\./d' interfemales.csv > tmp.txt
 cp tmp.txt interfemales.csv
 sed '/^B\./d' interfemales.csv > tmp.txt
@@ -72,7 +73,7 @@ cp tmp.txt interfemales.csv
 sed '/^Z\./d' interfemales.csv > tmp.txt
 cp tmp.txt interfemales.csv
 
-
+echo "remove names that are initials in intermales.csv"
 sed '/^A\./d' intermales.csv > tmp.txt
 cp tmp.txt intermales.csv
 sed '/^B\./d' intermales.csv > tmp.txt
@@ -125,3 +126,57 @@ sed '/^Y\./d' intermales.csv > tmp.txt
 cp tmp.txt intermales.csv
 sed '/^Z\./d' intermales.csv > tmp.txt
 cp tmp.txt intermales.csv
+
+echo "remove names that are initials in interall.csv"
+sed '/^A\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^B\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^C\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^D\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^E\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^F\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^G\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^H\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^I\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^J\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^K\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^L\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^M\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^N\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^O\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^P\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^Q\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^R\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^S\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^T\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^U\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^V\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^W\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^X\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^Y\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
+sed '/^Z\./d' interall.csv > tmp.txt
+cp tmp.txt interall.csv
