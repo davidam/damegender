@@ -116,6 +116,8 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(r, "female")
         r = g.guess(name="Andrea", binary=True)
         self.assertEqual(r, 0)
+        r = g.guess(name="ANA-MARIA", binary=True, dataset="inter")
+        self.assertEqual(r, 0)
 
     def test_dame_gender_guess_surname(self):
         g = Gender()
@@ -249,7 +251,10 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(int(frec6['females']), 1725)
         frec7 = g.name_frec("MARIA", dataset='si')
         self.assertEqual(int(frec7['females']), 2867)
-
+        frec37 = g.name_frec("ANA-MARIA", dataset='inter')
+        self.assertEqual(int(frec37['females']), 4130)
+        self.assertEqual(int(frec37['males']), 0)        
+        
     def test_dame_gender_name_frec_from_file(self):
         g = Gender()
         path = "files/names/names_at/atmales.csv"
