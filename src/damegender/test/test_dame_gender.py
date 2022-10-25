@@ -148,7 +148,13 @@ class TddInPythonExample(unittest.TestCase):
               ['Adriano', 'moura'], ['Ralf', 'kieser'],
               ['Guillermo', 'leon-de-la-barra'], ['Sabina', 'pannek']]
         self.assertEqual(l3, names)
+        l4 = g.csv2names(path='files/names/names_tests/gender_JMLA.min.dta.csv',
+                         header=True, delimiter=",", name_position=1)
+        names = ['A. Nehad', 'Aaron Mathieu', 'Aarti', 'Abdelkarim', 'Abdirahman', 'Abdullah', 'Abiram', 'Abran Lois Esther', 'Adam', 'Adam', 'Adel']
+        self.assertEqual(l4, names)
+        self.assertTrue(len(l4) > 5)
 
+        
     def test_dame_gender_csv2json(self):
         g = Gender()
         g.csv2json(path="files/names/min.csv")
