@@ -79,7 +79,6 @@ gender_values = args.dataset_test_row_gender_chars.split(",")
 fem = gender_values[0]
 mal = gender_values[1]
 
-
 if (args.api == "all"):
 
     if (dg.config['DEFAULT']['namsor'] == 'yes'):
@@ -138,7 +137,8 @@ elif (args.api == "damegender"):
     ds = DameSexmachine()
     ds.pretty_gg_list(guessf=args.dataset_guess, testf=args.dataset_test,
                       measure=args.measure, api='Damegender',
-                      gender_csv_row=args.dataset_test_row_gender,
+                      gender_test_row=args.dataset_test_row_gender,
+                      gender_guess_row=args.dataset_guess_row_gender,                      
                       delimiter_guessf=args.dataset_guess_delimiter,
                       delimiter_testf=args.dataset_test_delimiter,
                       gender_f_chars=fem, gender_m_chars=mal)
