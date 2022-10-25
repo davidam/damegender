@@ -1492,3 +1492,5 @@ No funciona bien el name_frec, ni guess. Podría ser un tema acento o el tratami
 --first-name-strict-if-unknow
 Si hay un nombre compuesto predecir desde el primer nombre que es el primer string
 si solo si el nombre compuesto no existe en la base de datos
+* TODO Revisar todo lo hablado en el paper con una versión más moderna de Damegender
+Podría ser ya la versión 0.5
