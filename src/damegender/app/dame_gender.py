@@ -300,13 +300,15 @@ class Gender(object):
         surnames = kwargs.get('surnames', False)
         header = kwargs.get('header', True)
         delimiter = kwargs.get('delimiter', ',')
+        name_position = kwargs.get('name_position', 0)
+        surname_position = kwargs.get('surname_position', 2)
         csvlist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=delimiter, quotechar='|')
             if header:
                 next(sexreader, None)
             for row in sexreader:
-                name = row[0].title()
+                name = row[name_position].title()
                 name = name.replace('\"', '')
                 # middlename = row[1].replace(' ', '')
                 # middlename = row[1].replace('\"', '')
@@ -316,8 +318,8 @@ class Gender(object):
                 #     name = name.title()
 
                 if surnames:
-                    surname = row[2].title()
-                    surname = row[2].replace('\"', '')
+                    surname = row[surname_position].title()
+                    surname = row[surname_position].replace('\"', '')
                     elem = [name, surname]
                     csvlist.append(elem)
                 else:
@@ -885,7 +887,8 @@ class Gender(object):
         ml = kwargs.get('ml', 'nltk')
         api = kwargs.get('api', 'damegender')
         header = kwargs.get('header', True)
-        gender_csv_row = kwargs.get('gender_csv_row', 4)
+        gender_test_row = kwargs.get('gender_test_row', 4)
+        gender_guess_row = kwargs.get('gender_guess_row', 4)        
         gender_f_chars = kwargs.get('gender_f_chars', 'f')
         gender_m_chars = kwargs.get('gender_m_chars', 'm')
         delimiter_testf = kwargs.get('delimiter_testf', ',')
@@ -910,7 +913,7 @@ class Gender(object):
                             json1=guessf, json2=testf)
                 elif (du.is_csv(testf)):
                     tl = self.csv2gender_list(path=testf, binary=True,
-                                              gender_row=gender_csv_row,
+                                              gender_row=gender_test_row,
                                               gender_f_chars=gender_f_chars,
                                               gender_m_chars=gender_m_chars,
                                               delimiter=delimiter_testf)
@@ -927,7 +930,11 @@ class Gender(object):
                                                                   csvf=testf)
 
             elif (du.is_csv(guessf)):
-                gl = self.csv2gender_list(path=guessf)
+                gl = self.csv2gender_list(path=guessf, binary=True,
+                                          gender_row=gender_guess_row,
+                                          gender_f_chars=gender_f_chars,
+                                          gender_m_chars=gender_m_chars,
+                                          delimiter_guessf=delimiter_guessf)
                 guessnames = self.csv2names(path=guessf)
                 if (du.is_json(testf)):
                     tl = self.json2gender_list(jsonf=testf, binary=True)
@@ -944,7 +951,7 @@ class Gender(object):
 
                 elif (du.is_csv(testf)):
                     tl = self.csv2gender_list(path=testf, binary=True,
-                                              gender_row=gender_csv_row,
+                                              gender_row=gender_test_row,
                                               gender_f_chars=gender_f_chars,
                                               gender_m_chars=gender_m_chars,
                                               delimiter_testf=delimiter_testf)
