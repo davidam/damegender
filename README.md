@@ -2,17 +2,15 @@
 
 Damegender is a gender detection tool from the name coded by David Arroyo MEnéndez (DAME)
 
-
-
 # Why?
 
-- If you want determine gender gap in free software projects or mailing lists.
-- If you don't know the gender about a name
-- If you want research with statistics about why a name is related with males or females.
-- If you want use a free gender detection tool from a name from a command with
+- If you want to determine gender gap in free software projects or mailing lists.
+- If you don't know the gender about a name.
+- If you want research with statistics about why a name is related with a specific gender.
+- If you want to use a free gender detection tool from a name using a command with
   open data.
-- If you want use the main solutions in gender detection (genderize,
-  genderapi, namsor, nameapi and gender guesser) from a command.
+- If you want to use the main solutions in gender detection (genderize,
+  GenderAPI, Namsor, NameAPI and Gender Guesser) using a command.
 
 DAMe Gender is for you!
 
@@ -24,7 +22,7 @@ DAMe Gender is for you!
 # Websites
 
 -   [Damegender](https://damegender.davidam.com)
--   [Damegender pypi](https://pypi.org/project/damegender/)
+-   [Damegender PyPI](https://pypi.org/project/damegender/)
 
 # Install
 
@@ -62,9 +60,9 @@ To install all possible dependencies
 
     $ pip3 install damegender[all]
 
-## Obtaining an api key
+## Obtaining an API key
 
-Currently you can need an api key from:
+Currently you will need an API key from:
 -   [Genderize](https://store.genderize.io/documentation)
 -   [Gender API](https://gender-api.com)
 -   [NameAPI](https://www.nameapi.org/)
@@ -114,14 +112,16 @@ To configure your api key
 
 -   [Open South Code (Málaga, 2019)](https://www.opensouthcode.org/conferences/opensouthcode2019/program/proposals/183)
 
--   Group Retreat 2019 Workshop (URJC, 2019)
+-   [Group Retreat 2019 Workshop (URJC, 2019)](https://github.com/davidam/damegender)
 
 -   [PyBCN - Damegender: gender detection with NLTK and Scikit
     (Barcelona, 2019)](https://www.youtube.com/watch?v=dvN0lMgQ9Pc)
 
 # Beautiful Snakes
 
-![img](https://raw.githubusercontent.com/davidam/damegender/master/src/damegender/files/images/violet-snake3.png)
+<p align="center">
+<img src="https://raw.githubusercontent.com/davidam/damegender/master/src/damegender/files/images/violet-snake3.png">
+</p>
 
 # Dame Music
 
