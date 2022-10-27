@@ -3,23 +3,22 @@
 Damegender is a gender detection tool from the name coded by David Arroyo MEnéndez (DAME)
 
 
-
 # Why?
 
-- If you want determine gender gap in free software projects or mailing lists.
+- If you want to determine gender gap in Free Software projects or mailing lists.
 - If you don't know the gender about a name
-- If you want research with statistics about why a name is related with males or females.
-- If you want use a free gender detection tool from a name from a command with
+- If you want to research with statistics about why a name is related with males or females.
+- If you want to use a free gender detection tool from a name from a command with
   open data.
-- If you want use the main solutions in gender detection (genderize,
-  genderapi, namsor, nameapi and gender guesser) from a command.
+- If you want to use the main solutions in gender detection (Genderize,
+  Genderapi, Namsor, Nameapi and Gender Guesser) from a command.
 
 DAMe Gender is for you!
 
 # Tell me about DAMe Gender papers 
 
 -   [Damegender:Writing and Comparing Gender Detection Tools (CEUR)](http://ceur-ws.org/Vol-2754/paper3.pdf)
--   [Damegender: Towards an International and Free Dataset about Name, Gender and Frequency](https://easychair.org/publications/preprint/q911)
+-   [Damegender: Towards an International and Free Dataset about Name, Gender and Frequency](https://easychair.org/publications/preprint_open/zTxh)
 
 # Websites
 
@@ -52,7 +51,7 @@ DAMe Gender is for you!
 
 To install APIs extra dependencies:
 
-    $ pip3 install damegender[APIs]
+    $ pip3 install damegender[apis]
 
 To install mailing lists and repositories extra dependencies:
 
@@ -65,16 +64,27 @@ To install all possible dependencies
 ## Obtaining an api key
 
 Currently you can need an api key from:
--   [Genderize](https://store.genderize.io/documentation)
+-   [Genderize](https://store.genderize.io/)
 -   [Gender API](https://gender-api.com)
 -   [NameAPI](https://www.nameapi.org/)
--   [Namsor](https://v2.namsor.com/NamSorAPIv2/sign-in.html)
+-   [Namsor](https://namsor.app/api-documentation)
 
 You can execute:
 
     $ python3 apikeyadd.py
 
 To configure your api key
+
+To remember that this idea is optional.
+Damegender doesn't need api keys to be executed.
+
+Only api2gender.py or downloadjson.py is requiring
+to configure some API key from (Genderize, Namsor,
+GenderAPI, NameAPI)
+
+The rest of commands is based in datasets released
+with licenses allowing to copy and to distribute
+freeely.
 
 ## Configuring nltk
 
