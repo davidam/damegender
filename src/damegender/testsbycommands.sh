@@ -397,7 +397,7 @@ else
 fi
 
 
-python3 accuracy.py --dataset_test=files/names/min.csv.json --measure=recall --api=damegender --dataset_guess=files/names/min.csv > files/tests/accuracygenderizeminjsonrecall-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --dataset_test=files/names/min.csv.json --measure=recall --api=damegender --dataset_guess=files/names/min.csv --dataset_guess_row_gender=4  > files/tests/accuracygenderizeminjsonrecall-$(date "+%Y-%m-%d").txt
 if ! diff files/tests/accuracygenderizeminjsonrecall.txt files/tests/accuracygenderizeminjsonrecall-$(date "+%Y-%m-%d").txt
 then
 	echo -e  "accuracy genderize recall jsondonwloaded test is ${RED}failing${NC}"
