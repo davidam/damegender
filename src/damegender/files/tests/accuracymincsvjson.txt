@@ -1,4 +1,4 @@
 ########################## Damegender!!
 Gender Guess (guess list): [1, 1, 1, 1, 1, 0]
 Gender Test   (true list): [1, 1, 1, 1, 1, 0]
-Damegender accuracy: 1.0
+Damegender precision: 1.0
