@@ -147,7 +147,7 @@ else
 	echo -e  "accuracyminjsonjson test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --dataset_guess=files/names/min.csv --measure=accuracy --api=damegender --dataset_test=files/names/min.csv.json --dataset_test_row_gender=4 > files/tests/accuracymincsvjson-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --dataset_guess=files/names/min.csv --measure=accuracy --api=damegender --dataset_test=files/names/min.csv.json --dataset_guess_row_gender=4 > files/tests/accuracymincsvjson-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracymincsvjson.txt files/tests/accuracymincsvjson-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
