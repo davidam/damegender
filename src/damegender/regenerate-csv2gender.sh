@@ -48,3 +48,8 @@ python3 csv2gender.py files/names/names_tests/conseil-departmental-haute-garonne
 python3 csv2gender.py files/names/names_tests/female-scientists.csv --first_name_position=0 --dataset=inter --noshow --outcsv=files/names/names_tests/female-scientists.interguessed.csv --delimiter=',' --skip_header --guess_with_first_name_strict
 
 python3 csv2gender.py files/names/names_tests/male-scientists.csv --first_name_position=0 --dataset=inter --noshow --outcsv=files/names/names_tests/male-scientists.interguessed.csv --delimiter=',' --skip_header --guess_with_first_name_strict
+
+python3 csv2gender.py files/names/names_tests/female-scientists.csv --first_name_position=0 --dataset=us --noshow --outcsv=files/names/names_tests/female-scientists.usguessed.csv --delimiter=',' --skip_header --guess_with_first_name_strict
+
+python3 csv2gender.py files/names/names_tests/fifa.csv --first_name_position=2 --dataset=inter --outcsv=files/names/names_tests/fifa.interguessed.csv --delimiter=';' --skip_header --guess_with_first_name_strict
+
