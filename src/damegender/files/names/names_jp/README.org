@@ -1,2 +1,6 @@
-Retrieved with Wikidata
+* Retrieved with Wikidata
 Japan
+
+* Other sources
++ [ ] https://github.com/siikamiika/japanese-family-names/blob/master/myoji-yurai-readings.csv
++ [ ] https://github.com/siikamiika/japanese-family-names/blob/master/myoji-yurai.csv
