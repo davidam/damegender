@@ -57,3 +57,6 @@ grep -v ',"u",' all.csv > allnoundefined.csv
 python3 wikidata-female-scientists.py
 python3 wikidata-male-scientists.py
 
+# Indonesian names
+# To see https://arxiv.org/pdf/1707.07129.pdf
+wget -c https://raw.githubusercontent.com/vck/indonesian-name-gender-dataset/master/name_gender.csv
