@@ -34,7 +34,12 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--file1", help="display the gender")
 parser.add_argument("--file2", help="display the gender")
 parser.add_argument('--output', default="interfemales.csv")
+# To add --malefemale generates countryall.csv
+# a csv file with names, frequencies and percentages
 parser.add_argument('--malefemale', default=False, action="store_true")
+# To add --malefemale_onlygender generates countryonlygender.csv
+# a csv file with names and gender
+parser.add_argument('--malefemale_onlygender', default=False, action="store_true")
 parser.add_argument('--verbose', default=False, action="store_true")
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
@@ -97,7 +102,7 @@ if (args.verbose):
 
 file = open(args.output, "w")
 for k in dicc.keys():
-    if (args.malefemale):
+    if (args.malefemale or args.malefemale_onlygender):
         frec_file1 = 0
         frec_file2 = 0
         if k in dicci:
@@ -108,15 +113,21 @@ for k in dicc.keys():
             frec_file2 = diccj[k]
         else:
             frec_file2 = 0
-        if ((frec_file1 > 0) or (frec_file2 > 0)):
-            percentage_file1 = (frec_file1 / (frec_file1 + frec_file2)) * 100
-            percentage_file2 = (frec_file2 / (frec_file1 + frec_file2)) * 100
-            line = k + "," + str(dicc[k]) + "," + str(percentage_file1)
-            line = line + "," + str(percentage_file2) + "\n"
-        elif ((frec_file1 == 0) and (frec_file2 == 0)):
-            line = k + ",0,0,0\n"
-        else:
-            line = k + "," + str(dicc[k]) + "\n"
+        if (args.malefemale):
+            if ((frec_file1 > 0) or (frec_file2 > 0)):
+                percentage_file1 = (frec_file1 / (frec_file1 + frec_file2)) * 100
+                percentage_file2 = (frec_file2 / (frec_file1 + frec_file2)) * 100
+                line = k + "," + str(dicc[k]) + "," + str(percentage_file1)
+                line = line + "," + str(percentage_file2) + "\n"
+            elif ((frec_file1 == 0) and (frec_file2 == 0)):
+                line = k + ",0,0,0\n"
+            else:
+                line = k + "," + str(dicc[k]) + "\n"
+        elif (args.malefemale_onlygender):
+            if (frec_file1 > frec_file2):            
+                line = k + ",female\n"
+            else:
+                line = k + ",male\n"
     else:
         line = k + "," + str(dicc[k]) + "\n"
     file.write(line)
