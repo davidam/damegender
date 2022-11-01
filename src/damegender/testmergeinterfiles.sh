@@ -82,6 +82,15 @@ else
     echo -e "dkmalesfemales5and10 is ${GREEN}ok${NC}"
 fi
 
+python3 mergeinterfiles.py --file1=files/names/names_inter/dkmales5.csv --file2=files/names/names_inter/dkfemales10.csv --output=files/tests/dkmalesfemales5and10onlygender-$(date "+%Y-%m-%d-%H").csv --malefemale_onlygender
+# checking few males and many females
+if ! cmp files/tests/dkmalesfemales5and10onlygender.csv files/tests/dkmalesfemales5and10onlygender-$(date "+%Y-%m-%d-%H").csv >/dev/null 2>&1
+then
+    echo -e "dkmalesfemales5and10onlygender is ${RED}failing${NC}"
+else
+    echo -e "dkmalesfemales5and10onlygender is ${GREEN}ok${NC}"
+fi
+
 
 
 rm files/tests/*-2021-*
