@@ -67,3 +67,5 @@ echo "Sweden done"
 # python3 mergeinterfiles.py --file1="files/names/names_tr/trmales.csv" --file2="files/names/names_tr/trfemales.csv" --output=files/names/names_tr/trall.csv --malefemale
 python3 mergeinterfiles.py --file1="files/names/names_uy/uymasculinos.csv" --file2="files/names/names_uy/uyfemeninos.csv" --output=files/names/names_uy/uyall.csv --malefemale
 echo "Uruguay done"
+python3 mergeinterfiles.py --file1="files/names/names_us/usmales.csv" --file2="files/names/names_us/usfemales.csv" --output=files/names/names_us/usall.csv --malefemale
+echo "United States of America done"
