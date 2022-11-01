@@ -60,3 +60,7 @@ python3 wikidata-male-scientists.py
 # Indonesian names
 # To see https://arxiv.org/pdf/1707.07129.pdf
 wget -c https://raw.githubusercontent.com/vck/indonesian-name-gender-dataset/master/name_gender.csv
+
+# Japanese names
+wget -c https://github.com/siikamiika/japanese-family-names/blob/master/myoji-yurai.csv
+wget -c https://github.com/siikamiika/japanese-family-names/blob/master/myoji-yurai-readings.csv
