@@ -58,11 +58,19 @@ if (args.verbose):
 
 lenli = len(li)
 dicci = {}
+
 for i in li:
     if i[0].upper() in dicci.keys():
         dicci[i[0].upper()] = int(dicci[i[0].upper()]) + int(i[1])
     else:
-        dicci[i[0].upper()] = int(i[1])
+        try:
+            dicci[i[0].upper()] = int(i[1])
+        except IndexError:
+            print("The program has troubles with the array indexes")
+            print("To check the next variables:")
+            print("dicci[i[0].upper()]): %s" % dicci[i[0].upper()])
+            print("int(i[1]): %s" % int(i[1]))
+
 
 if (args.verbose):
     print(lenli)
@@ -90,10 +98,25 @@ if (args.verbose):
 dicc = {}
 for i in ll:
     if i[0].upper() in dicc.keys():
-        dicc[i[0].upper()] = int(dicc[i[0].upper()]) + int(i[1])
+        try:
+            dicc[i[0].upper()] = int(dicc[i[0].upper()]) + int(i[1])
+        except IndexError:
+            print("The program has troubles with the array indexes")
+            print("To check the next variables:")
+            print("dicc[i[0].upper()]): %s" % dicc[i[0].upper()])
+            print("int(dicc[i[0].upper()]): %s" % int(dicc[i[0].upper()]))
+            print("int(i[1]): %s" % int(i[1]))
+            
     else:
-        dicc[i[0].upper()] = int(i[1])
+        try:
+            dicc[i[0].upper()] = int(i[1])
+        except:
+            print("The program has troubles with the array indexes")
+            print("To check the next variables:")
+            print("dicc[i[0].upper()]): %s" % dicc[i[0].upper()])
+            print("int(i[1]): %s" % int(i[1]))
 
+            
 if (args.verbose):
     print(dicc)
     print(dicc.keys())
