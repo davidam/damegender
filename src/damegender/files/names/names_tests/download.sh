@@ -64,3 +64,8 @@ wget -c https://raw.githubusercontent.com/vck/indonesian-name-gender-dataset/mas
 # Japanese names
 wget -c https://github.com/siikamiika/japanese-family-names/blob/master/myoji-yurai.csv
 wget -c https://github.com/siikamiika/japanese-family-names/blob/master/myoji-yurai-readings.csv
+
+# Indian names
+wget -c https://raw.githubusercontent.com/balasahebgulave/Dataset-Indian-Names/master/Indian-Female-Names.csv
+wget -c https://raw.githubusercontent.com/balasahebgulave/Dataset-Indian-Names/master/Indian-Male-Names.csv
+wget -c https://raw.githubusercontent.com/balasahebgulave/Dataset-Indian-Names/master/Indian_Names.csv
