@@ -79,3 +79,7 @@ wget -c https://raw.githubusercontent.com/zakahmad/ArabicNameGenderFinder/master
 
 wget -c https://raw.githubusercontent.com/zakahmad/ArabicNameGenderFinder/master/males_ar.csv
 wget -c https://raw.githubusercontent.com/zakahmad/ArabicNameGenderFinder/master/males_en.csv
+
+# Persian names
+wget -c https://github.com/jadijadi/persianwords/blob/master/name_boy.txt
+wget -c https://github.com/jadijadi/persianwords/blob/master/name_girl.txt
