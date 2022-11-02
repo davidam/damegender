@@ -69,3 +69,6 @@ wget -c https://github.com/siikamiika/japanese-family-names/blob/master/myoji-yu
 wget -c https://raw.githubusercontent.com/balasahebgulave/Dataset-Indian-Names/master/Indian-Female-Names.csv
 wget -c https://raw.githubusercontent.com/balasahebgulave/Dataset-Indian-Names/master/Indian-Male-Names.csv
 wget -c https://raw.githubusercontent.com/balasahebgulave/Dataset-Indian-Names/master/Indian_Names.csv
+
+# Hebrew names
+wget -c https://raw.githubusercontent.com/eyaler/hebrew_wordlists/main/israeli_family_names.csv
