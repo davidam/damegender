@@ -72,3 +72,10 @@ wget -c https://raw.githubusercontent.com/balasahebgulave/Dataset-Indian-Names/m
 
 # Hebrew names
 wget -c https://raw.githubusercontent.com/eyaler/hebrew_wordlists/main/israeli_family_names.csv
+
+# Arabic names
+wget -c https://raw.githubusercontent.com/zakahmad/ArabicNameGenderFinder/master/females_ar.csv
+wget -c https://raw.githubusercontent.com/zakahmad/ArabicNameGenderFinder/master/females_en.csv
+
+wget -c https://raw.githubusercontent.com/zakahmad/ArabicNameGenderFinder/master/males_ar.csv
+wget -c https://raw.githubusercontent.com/zakahmad/ArabicNameGenderFinder/master/males_en.csv
