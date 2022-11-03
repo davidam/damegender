@@ -83,3 +83,8 @@ wget -c https://raw.githubusercontent.com/zakahmad/ArabicNameGenderFinder/master
 # Persian names
 wget -c https://github.com/jadijadi/persianwords/blob/master/name_boy.txt
 wget -c https://github.com/jadijadi/persianwords/blob/master/name_girl.txt
+
+# Mongolian names
+wget -c "https://github.com/tugstugi/mongolian-nlp/blob/master/datasets/mongolian_personal_names.csv.gz?raw=true"
+mv "mongolian_personal_names.csv.gz?raw=true" mongolian_personal_names.csv.gz
+gunzip mongolian_personal_names.csv.gz
