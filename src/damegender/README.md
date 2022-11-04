@@ -24,10 +24,12 @@ Damegender is released under GPLv3.
 -   [Damegender:Writing and Comparing Gender Detection Tools (CEUR)](http://ceur-ws.org/Vol-2754/paper3.pdf)
 -   [Damegender: Towards an International and Free Dataset about Name, Gender and Frequency](https://easychair.org/publications/preprint_open/zTxh)
 
-# Websites
+# More info?
 
--   [Damegender](https://damegender.davidam.com)
+-   [Damegender website](https://damegender.davidam.com)
 -   [Damegender pypi](https://pypi.org/project/damegender/)
+-   [Damegender manual](https://github.com/davidam/damegender/blob/master/manual/damegender.pdf)
+-   [Damegender FAQ](https://github.com/davidam/damegender/blob/master/faq.org)
 
 # Install
 
