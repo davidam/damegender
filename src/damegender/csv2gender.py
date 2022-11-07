@@ -67,6 +67,8 @@ parser.add_argument('--delete_duplicated', dest='delete_duplicated',
                     action='store_true')
 parser.add_argument('--respect_accents', dest='respect_accents',
                     action='store_true')
+parser.add_argument('--force_whitespaces', dest='force_whitespaces',
+                    action='store_true')
 parser.add_argument('--verbose', dest='verbose', action='store_true')
 parser.add_argument('--version', action='version', version='0.4')
 args = parser.parse_args()
@@ -124,10 +126,12 @@ for i in csvrowlist:
             sex = s.guess(first_name_string.decode('utf-8'),
                           binary=False,
                           drop_accents=False,
+                          force_whitespaces=args.force_whitespaces,
                           dataset=args.dataset)
         else:
             sex = s.guess(first_name_string.decode('utf-8'),
                           binary=False,
+                          force_whitespaces=args.force_whitespaces,                          
                           dataset=args.dataset)
             
         if (sex == "male"):
