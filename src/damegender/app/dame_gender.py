@@ -482,8 +482,11 @@ class Gender(object):
     def name_frec(self, name, *args, **kwargs):
         # guess list method
         dataset = kwargs.get('dataset', "us")
+        force_whitespaces = kwargs.get('force_whitespaces', False)        
         du = DameUtils()
         name = du.drop_accents(name)
+        if force_whitespaces:
+            name = du.force_whitespaces(name)
         dicc_males = du.dicc_dataset("male")
         path_males = dicc_males[dataset]
         file_males = open(path_males, 'r')
@@ -744,10 +747,11 @@ class Gender(object):
     def guess(self, name, binary=False, dataset='us', *args, **kwargs):
         # guess method to check names dictionary
         nonamerange = kwargs.get('nonamerange', 0)
+        force_whitespaces = kwargs.get('force_whitespaces', False)        
         guess = ''
         name = unidecode.unidecode(name).title()
         name.replace(name, "")
-        dicc = self.name_frec(name, dataset=dataset)
+        dicc = self.name_frec(name, dataset=dataset, force_whitespaces=force_whitespaces)
         m = int(dicc['males'])
         f = int(dicc['females'])
         # nonamerange must be greater than 500
@@ -972,9 +976,11 @@ class Gender(object):
 
         else:
             print("Check arguments in pretty_gg_list:")
-            print("You must introduce a file for test file and")
+            print("You must introduce a file for test file")
+            print(testf)
             print("a file for guessed file")
-
+            print(guessf)
+            
         if difflen:
             print("Names in test file and guessed file are differents")
             print("%s names in test file" %
