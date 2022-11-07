@@ -118,6 +118,8 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(r, 0)
         r = g.guess(name="ANA-MARIA", binary=True, dataset="inter")
         self.assertEqual(r, 0)
+        r = g.guess(name="ANA-MARIA", binary=True, dataset="inter", force_whitespaces=True)
+        self.assertEqual(r, 0)
 
     def test_dame_gender_guess_surname(self):
         g = Gender()
