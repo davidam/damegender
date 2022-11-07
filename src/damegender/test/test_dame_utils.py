@@ -74,6 +74,11 @@ class TddInPythonExample(unittest.TestCase):
     def test_drop_dots(self):
         u = DameUtils()
         self.assertEqual(1212, int(u.drop_dots(12.12)))
+        
+    def test_force_white_spaces(self):
+        u = DameUtils()
+        self.assertEqual("JUAN DAVID", u.force_white_spaces("JUAN-DAVID"))
+        self.assertEqual("JUAN DAVID", u.force_white_spaces("JUAN_DAVID"))        
 
     def test_drop_accents(self):
         u = DameUtils()
@@ -260,7 +265,10 @@ class TddInPythonExample(unittest.TestCase):
                           '"pierre paul grivel"', '"m"', '"zbmath"'], l2[0])
         self.assertEqual(['"raul"', '""', '"serapioni"',
                           '"raul serapioni"', '"m"', '"zbmath"'], l2[1])
+        # l3 = du.csv2list('files/tests/csvbuggy.csv', delimiter=",", header=False, noemptyfield=0)
+        # self.assertEqual([["WLATER", "1"], ["YIMI", "16"], ["YONNY", "65"], ["ZULISBER", "1"], ["ABEDULIA", "1"]], l3)
 
+        
     def test_num_columns_in_csv(self):
         du = DameUtils()
         n = du.num_columns_in_csv('files/names/partial.csv')

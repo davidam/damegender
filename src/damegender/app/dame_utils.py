@@ -267,6 +267,16 @@ class DameUtils():
                 aux = aux + c
         return aux
 
+    def force_white_spaces(self, s):
+        # replace underscore, hyphens, ... by white spaces
+        aux = ""
+        for c in unicodedata.normalize('NFD', str(s)):
+            if ((c == "_") or (c == '-')):
+                aux = aux + " "
+            else:
+                aux = aux + c
+        return aux
+    
     def single_hyphen_p(self, s):
         # given s returns true if exists only one -
         cnt = 0
@@ -447,14 +457,14 @@ class DameUtils():
             for row in sexreader:
                 if (row != []):
                     if ((noemptyfield is False) or (row[noemptyfield] != "")):
-                        i = 0
-                        while i < len(row):
-                            if deletewhitespaces:
-                                row[i] = drop_white_spaces(row[i])
-                            if deletequotes:
-                                row[i] = drop_quotes(row[i])
-                            i = i + 1
-                        l1.append(row)
+                         i = 0
+                         while i < len(row):
+                             if deletewhitespaces:
+                                 row[i] = drop_white_spaces(row[i])
+                             if deletequotes:
+                                 row[i] = drop_quotes(row[i])
+                             i = i + 1
+                         l1.append(row)
         return l1
 
     def reduce_csv_columns_to_name_and_freq(self, csvpath, *args, **kwargs):
