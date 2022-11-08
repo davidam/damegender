@@ -20,9 +20,9 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
-python3 csv2gender.py files/linux-maintainers.csv --first_name_position=0  --title="Linux maintaners grouped by gender" --dataset="inter"  --outcsv="files/linux.gender.$(date "+%Y-%m-%d").csv"  --outimg="files/linux.gender.$(date "+%Y-%m-%d").png" --noshow --delete_duplicated
+python3 csv2gender.py files/linux-maintainers.csv --first_name_position=0  --title="Linux maintaners grouped by gender" --dataset="inter"  --outcsv="files/logs/linux.gender.$(date "+%Y-%m-%d").csv"  --outimg="files/images/linux.gender.$(date "+%Y-%m-%d").png" --noshow --delete_duplicated
 
-python3 csv2gender.py files/gnu-maintainers.csv --first_name_position=0 --title="GNU maintainers grouped by gender" --dataset="inter" --outcsv="files/gnu.gender.$(date "+%Y-%m-%d").csv" --outimg="files/gnu.gender.$(date "+%Y-%m-%d").png" --noshow --delete_duplicated 
+python3 csv2gender.py files/gnu-maintainers.csv --first_name_position=0 --title="GNU maintainers grouped by gender" --dataset="inter" --outcsv="files/logs/gnu.gender.$(date "+%Y-%m-%d").csv" --outimg="files/images/gnu.gender.$(date "+%Y-%m-%d").png" --noshow --delete_duplicated 
 
 python3 csv2gender.py files/debian-maintainers-gpg-2020-04-01.csv --first_name_position=0 --title="Debian maintainers grouped by gender" --dataset="inter" --outcsv="files/logs/debian.gender.$(date "+%Y-%m-%d").csv" --outimg="files/images/debian.gender.$(date "+%Y-%m-%d").png" --noshow --delete_duplicated
 
