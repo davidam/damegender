@@ -75,7 +75,7 @@ class TddInPythonExample(unittest.TestCase):
         u = DameUtils()
         self.assertEqual(1212, int(u.drop_dots(12.12)))
         
-    def test_force_white_spaces(self):
+    def test_force_whitespaces(self):
         u = DameUtils()
         self.assertEqual("JUAN DAVID", u.force_white_spaces("JUAN-DAVID"))
         self.assertEqual("JUAN DAVID", u.force_white_spaces("JUAN_DAVID"))        
