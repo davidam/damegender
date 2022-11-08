@@ -267,7 +267,7 @@ class DameUtils():
                 aux = aux + c
         return aux
 
-    def force_white_spaces(self, s):
+    def force_whitespaces(self, s):
         # replace underscore, hyphens, ... by white spaces
         aux = ""
         for c in unicodedata.normalize('NFD', str(s)):
