@@ -44,3 +44,18 @@
 + [ ] File: fifa.csv
 + [ ] Source: https://www.kaggle.com/datasets/thec03u5/fifa-18-demo-player-dataset
 + [ ] License: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+* Sources to be verified
+An interesting task in the world of the datasets is about to discover if a dataset is valid.
+
+We are collecting a good bunch of datasets from non official sources and we are inviting to discover it.
+
+You can use Genderapi, or other external gender detection tool to learn about it.
+
+** Thailand names
+
++ [ ] Folder: thai-names-corpus
++ [ ] Source: https://github.com/korkeatw/thai-names-corpus
++ [ ] License: https://creativecommons.org/licenses/by-sa/4.0/
+
+**   
