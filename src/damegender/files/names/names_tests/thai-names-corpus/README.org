@@ -1,0 +1,5 @@
+* Retrieved from
++ [ ] https://github.com/korkeatw/thai-names-corpus
+
+* License
++ [ ] Creative Commons Attribution-ShareAlike 4.0 International Public License
