@@ -207,6 +207,14 @@ python3 mergeinterfiles.py --file1="files/names/names_se/semales.csv" --file2="f
 python3 mergeinterfiles.py --file1="files/names/names_se/semales.csv" --file2="files/names/names_se/sefemales.csv" --output=files/names/names_se/seonlygender.csv --malefemale_onlygender
 echo "Sweden done"
 
+sed '/^\,.*$/d' files/names/names_si/simales.csv > files/tmp/simales.csv
+cp files/tmp/simales.csv files/names/names_si/
+sed '/^\,.*$/d' files/names/names_si/sifemales.csv > files/tmp/sifemales.csv
+cp files/tmp/sifemales.csv files/names/names_si/
+python3 mergeinterfiles.py --file1="files/names/names_si/simales.csv" --file2="files/names/names_si/sifemales.csv" --output=files/names/names_si/siall.csv --malefemale
+python3 mergeinterfiles.py --file1="files/names/names_si/simales.csv" --file2="files/names/names_si/sifemales.csv" --output=files/names/names_si/sionlygender.csv --malefemale_onlygender
+echo "Slovenia done"
+
 # # python3 mergeinterfiles.py --file1="files/names/names_tr/trmales.csv" --file2="files/names/names_tr/trfemales.csv" --output=files/names/names_tr/trall.csv --malefemale
 # # python3 mergeinterfiles.py --file1="files/names/names_tr/trmales.csv" --file2="files/names/names_tr/trfemales.csv" --output=files/names/names_tr/trall.csv --malefemale_onlygender
 # # echo "Turkish done"
