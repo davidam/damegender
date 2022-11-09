@@ -1,6 +1,9 @@
 * Retrieved with Wikidata
 Japan
 
+* Papers related:
++ [ ] https://www.frontiersin.org/articles/10.3389/fpsyg.2015.01490/full
+
 * Other sources
 + [ ] https://github.com/siikamiika/japanese-family-names/blob/master/myoji-yurai-readings.csv
 + [ ] https://github.com/siikamiika/japanese-family-names/blob/master/myoji-yurai.csv
