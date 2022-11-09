@@ -83,10 +83,25 @@ lenlj = len(lj)
 diccj = {}
 for i in lj:
     if i[0].upper() in diccj.keys():
-        diccj[i[0].upper()] = int(diccj[i[0].upper()]) + int(i[1])
+        try:
+            diccj[i[0].upper()] = int(diccj[i[0].upper()]) + int(i[1])
+        except IndexError:
+            print("The program has troubles with the array indexes")
+            print("To check the next variables:")
+            print("diccj[i[0].upper()]): %s" % diccj[i[0].upper()])
+            print("int(diccj[i[0].upper()]): %s" % int(diccj[i[0].upper()]))
+            print("int(i[1]): %s" % int(i[1]))
     else:
-        diccj[i[0].upper()] = int(i[1])
+        try:
+            diccj[i[0].upper()] = int(i[1])
+        except IndexError:
+            print("The program has troubles with the array indexes")
+            print("To check the next variables:")
+            print("diccj[i[0].upper()]): %s" % diccj[i[0].upper()])
+            print("int(diccj[i[0].upper()]): %s" % int(diccj[i[0].upper()]))
+            print("int(i[1]): %s" % int(i[1]))
 
+            
 if (args.verbose):
     print(lenlj)
 
