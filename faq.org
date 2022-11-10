@@ -205,7 +205,7 @@ python3 orig2.py es
 + pca-components.py and pca-features.py
 + infofeatures.py
 
-** Give me some real examples about count males and females in communities
+** Give me some real examples about to count males and females in communities
 #+BEGIN_SRC bash
 $ python3 count-debian-gender.py
 $ python3 count-scientifics.py
@@ -236,6 +236,10 @@ $ python3 top.py es --position --number=5 --sex=female
 5) ANA MARIA: 273319
 #+END_SRC
 
+** How can I convert a csv file of names, gender and frequency to json?
+#+BEGIN_SRC bash
+python3 csv2jsonapirest.py files/names/names_inter/dkfemales10.csv --outdir="files/tmp" --gender=female --names_by_multiple_files=1
+#+END_SRC
 * Data
 ** What happens if I see chances between the original source and the dataset provided in Damegender?
 Please, open an issue in https://github.com/davidam/damegender/issues.
