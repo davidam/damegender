@@ -265,5 +265,10 @@ Not, I don't. The datasets remains with the same license provided by
 the states. From src/damegender/files/names/ you can access to the
 folder for each country and you will find the license.
 
+** What principles is being guided about to manage the datasets?
 
-
+In Damegender we are working on these principles:
++ To be scientific: we want to publish and to disseminate in scientific events.
++ To be usable: we want to allow retrieve data, easy as using a search engine.
++ To be hacker: we want to allow distribute software and data in hacker networks: github, pypi, npm, ...
++ To be legal: we must be clever with licenses as in the Free Software Foundation.
