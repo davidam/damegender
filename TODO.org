@@ -1488,9 +1488,12 @@ Por ejemplo, el primer nombre estricto en "Jose Antonio" sería "Jose" es el que
 nombre en los países de nombres derivados del latín.
 * TODO Ver qué ocurre con el nombre "ANDRÉ-JEAN" del dataset inter
 No funciona bien el name_frec, ni guess. Podría ser un tema acento o el tratamiento del guión
-* TODO Escribir nuevo argumento para csv2gender.py
+* DONE Escribir nuevo argumento para csv2gender.py
+- State "DONE"       from "TODO"       [2022-11-10 jue 17:47]
 --first-name-strict-if-unknow
 Si hay un nombre compuesto predecir desde el primer nombre que es el primer string
 si solo si el nombre compuesto no existe en la base de datos
+
+Hecho con --guess_with_first_name_strict
 * TODO Revisar todo lo hablado en el paper con una versión más moderna de Damegender
 Podría ser ya la versión 0.5
