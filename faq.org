@@ -245,6 +245,12 @@ python3 csv2jsonapirest.py files/names/names_inter/dkfemales10.csv --outdir="fil
 #+BEGIN_SRC bash
 python3 mergeinterfiles.py --file1=files/names/names_inter/dkmales5.csv --file2=files/names/names_inter/dkfemales10.csv --output=files/tests/dkmalesfemales5and10-$(date "+%Y-%m-%d-%H").csv --malefemale
 #+END_SRC
+
+** How can I dump a csv file applying a machine learning model in a json file?
+#+BEGIN_SRC bash
+python3 damegender2json.py --notoutput --csv=files/names/min.csv --jsonoutput=files/names/min.csv.today.json
+#+END_SRC
+
 * Data
 ** What happens if I see chances between the original source and the dataset provided in Damegender?
 Please, open an issue in https://github.com/davidam/damegender/issues.
