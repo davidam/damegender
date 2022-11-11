@@ -726,6 +726,7 @@ class DameUtils():
         return True
 
     def is_csv(self, mycsv, *args, **kwargs):
+        # Given a path returns if exist a file that is a csv file
         delimiter = kwargs.get('delimiter', ',')
         boolean = False
         if (self.is_json(mycsv)):
