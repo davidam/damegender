@@ -207,8 +207,8 @@ python3 orig2.py es
 
 ** Give me some real examples about to count males and females in communities
 #+BEGIN_SRC bash
-$ python3 count-debian-gender.py
-$ python3 count-scientifics.py
+$ python3 csv2gender.py files/gnu-maintainers.csv --first_name_position=0 --title="GNU maintainers grouped by gender" --dataset="inter" --outcsv="files/gnu-maintainers.gender.csv" --outimg="files/gnu-maintainers.gender.png" --noshow --delete_duplicated
+$ python3 csv2gender.py files/debian-maintainers-gpg-2020-04-01.csv --first_name_position=0 --title="Debian maintaners grouped by gender" --dataset="inter" --outcsv="files/debian-maintainers.gender.csv" --outimg="files/debian-maintainers.gender.png" --noshow --delete_duplicated
 #+END_SRC
 ** How can I use another solutions in gender detection from damegender?
 First, you must register an account in genderapi, genderize, namsor or
@@ -258,6 +258,13 @@ For, example, give me names in a country with percentage about males and females
 #+BEGIN_SRC bash
 python3 percentage2names.py 40 --percentage_until=70 --outcsv=files/tests/40-70.txt
 #+END_SRC
+
+If you need the list with french people, you can execute
+
+#+BEGIN_SRC bash
+python3 percentage2names.py 40 --percentage_until=70 --outcsv=files/tests/40-70.txt --total=fr
+#+END_SRC
+
 
 * Data
 ** What happens if I see chances between the original source and the dataset provided in Damegender?
