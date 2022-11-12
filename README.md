@@ -15,10 +15,6 @@ Damegender is a gender detection tool from the name coded by David Arroyo MEnén
 
 DAMe Gender is for you!
 
-# License
-
-Damegender is released under GPLv3.
-
 # Tell me about DAMe Gender papers 
 
 -   [Damegender:Writing and Comparing Gender Detection Tools (CEUR)](http://ceur-ws.org/Vol-2754/paper3.pdf)
@@ -143,7 +139,11 @@ freeely.
 
 [Listen music](https://www.youtube.com/playlist?list=PLeobXV-Yyn-IgIRxmEyJxaFstJ02ebtRH)
 
-# License
+# License of Damegender
+
+Damegender is released under GPLv3.
+
+# License of this document
 
 Copyright (C) 2019 David Arroyo Menéndez
     Permission is granted to copy, distribute and/or modify this document
