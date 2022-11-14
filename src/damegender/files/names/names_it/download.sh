@@ -21,6 +21,7 @@
 
 mkdir -p orig
 cd orig
+echo "Official sources"
 wget -c https://demo.istat.it/altridati/IscrittiNascita/2018/T2.9.xls -O 2018.xls
 ssconvert -S 2018.xls 2018.csv
 sed '1,5d' 2018.csv.0 > 2018.csv
@@ -54,3 +55,6 @@ sed '1,5d' 2009.csv.0 > 2009.csv
 wget -c https://demo.istat.it/altridati/IscrittiNascita/2008/T2.9.xls -O 2008.xls
 ssconvert -S 2008.xls 2008.csv
 sed '1,5d' 2008.csv.0 > 2008.csv
+
+echo "External sources"
+wget -c https://raw.githubusercontent.com/mrblasco/genderNamesITA/master/gender_firstnames_ITA.csv 
