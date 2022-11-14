@@ -88,3 +88,6 @@ wget -c https://github.com/jadijadi/persianwords/blob/master/name_girl.txt
 wget -c "https://github.com/tugstugi/mongolian-nlp/blob/master/datasets/mongolian_personal_names.csv.gz?raw=true"
 mv "mongolian_personal_names.csv.gz?raw=true" mongolian_personal_names.csv.gz
 gunzip mongolian_personal_names.csv.gz
+
+# Italian names
+wget -c https://raw.githubusercontent.com/mrblasco/genderNamesITA/master/gender_firstnames_ITA.csv 
