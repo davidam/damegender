@@ -75,10 +75,14 @@ class DameGenderApi(Gender):
         return v[2]
 
     def download(self, path="files/names/partial.csv", *args, **kwargs):
-        name_position = kwargs.get('name_position', 0)        
         du = DameUtils()
+        name_position = kwargs.get('name_position', 0)
+        backup = kwargs.get('backup', "files/names/genderapi"+du.path2file(path)+".json")
         fichero = open("files/apikeys/genderapipass.txt", "r+")
-        backup = open("files/names/genderapi"+du.path2file(path)+".json", "w+")
+        if backup:
+            backup = open(backup, "w+")
+        else:
+            backup = open("files/names/genderapi"+du.path2file(path)+".json", "w+")
         contenido = fichero.readline()
         contenido = contenido.replace('\n', '')
         string = ""
@@ -96,7 +100,6 @@ class DameGenderApi(Gender):
                 else:
                     stringaux = stringaux + n
                 count = count + 1
-                #            string = string + ";" + stringaux
             url1 = 'https://gender-api.com/get?name=' + stringaux
             url1 = url1 + '&multi=true&key=' + contenido
             r = requests.get(url1)
