@@ -44,6 +44,8 @@ parser.add_argument('--api', required=True,
                     choices=['namsor', 'genderize', 'genderapi', 'nameapi'])
 parser.add_argument("--surnames", default=False,
                     action="store_true", help="Flag to surnames")
+parser.add_argument('--outjson', type=str, required=True,
+                    default="files/tmp/genderapi.json", help='input file for names')
 args = parser.parse_args()
 
 
@@ -54,11 +56,11 @@ elif (args.api == 'genderapi'):
     dga = DameGenderApi()
     if (dga.config['DEFAULT']['genderapi'] == 'yes'):
         if (dga.apikey_limit_exceeded_p() is False):
-            text1 = dga.download(path=args.csv, name_position=args.name_position)
+            text1 = dga.download(path=args.csv, name_position=args.name_position, backup=args.outjson)
         elif (dga.apikey_count_requests() < len(dga.csv2names(args.csv, name_position=args.name_position))):
             print("You don't have enough requests with this api key")
         elif (dga.apikey_count_requests() >= len(dga.csv2names(args.csv, name_position=args.name_position))):
-            text1 = dga.download(path=args.csv, name_position=args.name_position)
+            text1 = dga.download(path=args.csv, name_position=args.name_position, backup=args.outjson)
         else:
             print("You have not money with this api key")
     else:
