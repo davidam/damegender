@@ -106,6 +106,14 @@ if [ -f files/apikeys/genderapipass.txt ]; then
 	echo -e "download genderapi files names min is ${RED}failing${NC}"
     fi
 
+    python3 downloadjson.py --api=genderapi --csv=files/names/names_tests/gender_JMLA.min.dta.csv --name_position=1
+
+    if [ -f files/names/genderapifiles_names_min.csv.json ]; then
+	echo -e "download genderapi files names min is ${GREEN}ok${NC}"
+    else
+	echo -e "download genderapi files names min is ${RED}failing${NC}"
+    fi
+    
     python3 api2gender.py Inés --api="genderapi" > files/tests/api2genderInésgenderapi-$(date "+%Y-%m-%d-%H").txt
 
     if ! diff files/tests/api2genderInésgenderapi.txt files/tests/api2genderInésgenderapi-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
