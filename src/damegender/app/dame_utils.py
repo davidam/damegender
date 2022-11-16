@@ -469,6 +469,7 @@ class DameUtils():
         return l1
 
     def reduce_csv_columns_to_name_and_freq(self, csvpath, *args, **kwargs):
+        #pass a csv to another csv with name and frequency
         name = kwargs.get('name', 0)
         freq = kwargs.get('freq', 1)
         respath = kwargs.get('respath', 'files/tmp/respath.csv')
@@ -641,6 +642,7 @@ class DameUtils():
         return dicc
 
     def fill_dicc_names_and_years(self, inputpath, year_position, name_position):
+        #a csv is dumped into a dictionary
         d0 = self.find_max_and_min_in_column(inputpath, year_position)
         d1 = {}
         mi = d0["min"]
