@@ -421,6 +421,7 @@ class DameUtils():
         return l1
 
     def find_max_and_min_in_column(self, path, row_position, *args, **kwargs):
+        #is a column of integers and the maximum and minimum must be returned.
         header = kwargs.get('header', True)
         delimiter = kwargs.get('delimiter', ',')
         l1 = []
@@ -640,6 +641,7 @@ class DameUtils():
         return dicc
 
     def fill_dicc_names_and_years(self, inputpath, row_year, row_name):
+
         d0 = self.find_max_and_min_in_column(inputpath, row_year)
         d1 = {}
         mi = d0["min"]

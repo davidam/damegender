@@ -30,6 +30,7 @@ from app.dame_utils import DameUtils
 class DameEthnicity(object):
 
     def surname2ethnicity(self, surname):
+        #Given a surname returns the race of the surname according to the US dataset.
         du = DameUtils()
         surname = du.drop_accents(surname).upper()
         path = 'files/names/names_us/surnames.csv'
