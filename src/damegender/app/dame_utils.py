@@ -420,12 +420,12 @@ class DameUtils():
                 l1.append(row[position])
         return l1
 
-    def find_max_and_min_in_column(self, path, row_position, *args, **kwargs):
-        #is a column of integers and the maximum and minimum must be returned.
+    def find_max_and_min_in_column(self, path, column_position, *args, **kwargs):
+        # it's a column of integers and the maximum and minimum must be returned.
         header = kwargs.get('header', True)
         delimiter = kwargs.get('delimiter', ',')
         l1 = []
-        l1 = self.csvcolumn2list(path, position=row_position,
+        l1 = self.csvcolumn2list(path, position=column_position,
                                  header=header, delimiter=delimiter)
         maxi = int(l1[0])
         mini = int(l1[0])
@@ -605,7 +605,7 @@ class DameUtils():
         else:
             return False
 
-    def init_dicc_names_from_file(self, path, row_name_position):
+    def init_dicc_names_from_file(self, path, name_position):
         # first step processing orig files given a csv file
         # returns a dictionary with the names set in the file
         with open(path) as csvfile:
@@ -614,7 +614,7 @@ class DameUtils():
             for row1 in reader:
                 # to set the dicc about names
                 try:
-                    name = row1[row_name_position]
+                    name = row1[name_position]
                     external = [" ", "'", '"']
                     name = self.drop_all_external_symbols(name, external)
                     name = name.capitalize()
@@ -625,11 +625,11 @@ class DameUtils():
         csvfile.close()
         return dicc
 
-    def init_dicc_names_and_years(self, path, row_name, from_year, until_year):
-        # given a csv file, a row name position, and a range of years
+    def init_dicc_names_and_years(self, path, column_name, from_year, until_year):
+        # given a csv file, a column name position, and a range of years
         # returns a dictionary with values set to zero
         dicc = {}
-        dicc = self.init_dicc_names_from_file(path, row_name)
+        dicc = self.init_dicc_names_from_file(path, column_name)
         for d in dicc.keys():
             if (from_year < until_year):
                 i = from_year
@@ -640,13 +640,12 @@ class DameUtils():
                 i = i + 1
         return dicc
 
-    def fill_dicc_names_and_years(self, inputpath, row_year, row_name):
-
-        d0 = self.find_max_and_min_in_column(inputpath, row_year)
+    def fill_dicc_names_and_years(self, inputpath, year_position, name_position):
+        d0 = self.find_max_and_min_in_column(inputpath, year_position)
         d1 = {}
         mi = d0["min"]
         ma = d0["max"]
-        d1 = self.init_dicc_names_and_years(inputpath, row_name, mi, ma)
+        d1 = self.init_dicc_names_and_years(inputpath, name_position, mi, ma)
         for i in d1.keys():
             males = 0
             females = 0
