@@ -918,7 +918,7 @@ class Gender(object):
                             json1=guessf, json2=testf)
                 elif (du.is_csv(testf)):
                     tl = self.csv2gender_list(path=testf, binary=True,
-                                              gender_row=gender_test_row,
+                                              gender_column=gender_test_row,
                                               gender_f_chars=gender_f_chars,
                                               gender_m_chars=gender_m_chars,
                                               delimiter=delimiter_testf)
@@ -937,7 +937,7 @@ class Gender(object):
 
             elif (du.is_csv(guessf)):
                 gl = self.csv2gender_list(path=guessf, binary=True,
-                                          gender_row=gender_guess_row,
+                                          gender_column=gender_guess_row,
                                           gender_f_chars=gender_f_chars,
                                           gender_m_chars=gender_m_chars,
                                           delimiter_guessf=delimiter_guessf)
@@ -958,7 +958,7 @@ class Gender(object):
 
                 elif (du.is_csv(testf)):
                     tl = self.csv2gender_list(path=testf, binary=True,
-                                              gender_row=gender_test_row,
+                                              gender_column=gender_test_row,
                                               gender_f_chars=gender_f_chars,
                                               gender_m_chars=gender_m_chars,
                                               delimiter_testf=delimiter_testf)
