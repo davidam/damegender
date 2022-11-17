@@ -845,7 +845,7 @@ class Gender(object):
         # ``0 as not know'',``1 as male'', ``2 as female''
         # and ``9 as not applicable''
         header = kwargs.get('header', True)
-        gender_row = kwargs.get('gender_row', 4)
+        gender_column = kwargs.get('gender_column', 4)
         gender_f_chars = kwargs.get('gender_f_chars', 'f')
         gender_m_chars = kwargs.get('gender_m_chars', 'm')
         delimiter = kwargs.get('delimiter', ',')
@@ -860,10 +860,10 @@ class Gender(object):
             gender = ""
             for row in sexreader:
                 try:
-                    gender = row[gender_row]
+                    gender = row[gender_column]
                 except IndexError:
                     print("The method csv2gender_list has not row[%s]" %
-                          str(gender_row))
+                          str(gender_column))
                     print("To review that gender row is set in the input")
                     os.kill(os.getpid(), signal.SIGUSR1)
                 if (gender == gender_f_chars):
