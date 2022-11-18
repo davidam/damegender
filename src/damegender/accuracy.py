@@ -46,6 +46,8 @@ parser.add_argument('--dataset_guess_position_gender', type=int,
                     required=True, default=2)
 parser.add_argument('--dataset_guess_delimiter', type=str,
                     required=False, default=",")
+parser.add_argument('--dataset_guess_gender_chars', type=str,
+                    required=True, default="f,m")
 # dataset_test is a dataset such as files/names/names_tests/fifa.csv
 # or files/names/allnoundefined.csv.mlp.json
 parser.add_argument('--dataset_test', required=True,
