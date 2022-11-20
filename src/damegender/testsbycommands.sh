@@ -397,14 +397,13 @@ fi
 # fi
 
 
-# python3 accuracy.py --dataset_test=files/names/min.csv.json --measure=recall --api=damegender --dataset_guess=files/names/min.csv --dataset_guess_row_gender=4  > files/tests/accuracygenderizeminjsonrecall-$(date "+%Y-%m-%d").txt
-# if ! diff files/tests/accuracygenderizeminjsonrecall.txt files/tests/accuracygenderizeminjsonrecall-$(date "+%Y-%m-%d").txt
-# then
-# 	echo -e  "accuracy genderize recall jsondonwloaded test is ${RED}failing${NC}"
-# else
-# 	echo -e  "accuracy genderize recall jsondonwloaded test is ${GREEN}ok${NC}"
-# fi
-
+python3 accuracy.py --dataset_test=files/names/min.csv.json --measure=recall --api=damegender --dataset_guess=files/names/min.csv --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_position_gender=4 --dataset_test_gender_chars="f,m"   > files/tests/accuracygenderizeminjsonrecall-$(date "+%Y-%m-%d").txt
+if ! diff files/tests/accuracygenderizeminjsonrecall.txt files/tests/accuracygenderizeminjsonrecall-$(date "+%Y-%m-%d").txt
+then
+	echo -e  "accuracy genderize recall jsondonwloaded test is ${RED}failing${NC}"
+else
+	echo -e  "accuracy genderize recall jsondonwloaded test is ${GREEN}ok${NC}"
+fi
 
 python3 accuracy.py --measure=accuracy --dataset_guess=files/names/names_tests/fifa.interguessed.csv --dataset_guess_position_gender=1 --dataset_test=files/names/names_tests/fifa.interguessed.csv --dataset_test_position_gender=1 --api=damegender --dataset_test_gender_chars="female,male" --dataset_guess_gender_chars="female,male" > files/tests/accuracyfifafifa-$(date "+%Y-%m-%d").txt
 if ! diff files/tests/accuracyfifafifa.txt files/tests/accuracyfifafifa-$(date "+%Y-%m-%d").txt
