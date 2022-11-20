@@ -1,2 +1,6 @@
-Retrieved with Wikidata
+** Retrieved with Wikidata
 Ukraine
+
+** Other sources
+A names translator from Russian names to Ukranian names
++ [ ] https://raw.githubusercontent.com/dchaplinsky/names-translator/master/names_translator/data/ua2ru.csv
