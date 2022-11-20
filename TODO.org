@@ -1497,3 +1497,12 @@ si solo si el nombre compuesto no existe en la base de datos
 Hecho con --guess_with_first_name_strict
 * TODO Revisar todo lo hablado en el paper con una versión más moderna de Damegender
 Podría ser ya la versión 0.5
+* TODO Corroborar que los nombres escrapeados están bien con alguna api de género
+** TODO Brazil 
+Dataset situado en:
++ [ ] files/names/names_br/nomes2.csv
+Licencia:
++ [ ] BY-SA: https://creativecommons.org/licenses/by-sa/4.0/
++ [ ] Extraida de: https://brasil.io/dataset/genero-nomes/nomes/ 
+** TODO China
+*** TODO Aprender a transformar caracteres chinos a latinos
