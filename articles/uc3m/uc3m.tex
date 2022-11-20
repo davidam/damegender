@@ -253,90 +253,90 @@ arXiv.
 
 \subsection{Automatic approaches to infer gender}
 
-There are several tasks related with infer gender from Internet
-sources: hand written, images, documents, names, ...
+There are several ways to infer gender from Internet
+sources: hand written, images, documents and names.
 
-In ~\cite{liwicki2011automatic} presents a method inferring gender from
-hand written texts with a 67.5 \% of accuracy.
+~\cite{liwicki2011automatic} presents a method inferring gender from
+hand written texts with a 67.5 \% accuracy.
 
-Related to infer gender from images~\cite{gallagher2008estimating}
-combines image based gender and age classifiers with the cultural
-context information provided by first names to recognize people with
-no labeled examples with results near to 60 \% of accuracy.
+~\cite{gallagher2008estimating} combines image based gender and age
+classifiers with the cultural information provided by first
+names to recognize people with no labeled examples with results near
+to 60 \% accurate.
 
-In ~\cite{argamon2003gender} explains that the females uses many more
-pronouns and males use many more noun specifiers in a large subset of
-the British National Corpus covering a range of genres. So, in
-~\cite{koppel2002automatically} is being presented a document
-classification system with accuracy of approximately 80 per cent. And
-in ~\cite{cheng2011author} exposes a feature selection and a model
-built using Machine Learning earning an accuracy of 85.1 per cent
-identifying gender from text.
+~\cite{argamon2003gender} explains that females use many more
+pronouns, while males use many more noun specifiers, in a large subset of
+the British National Corpus covering a range of genres. Therefore,
+~\cite{koppel2002automatically} presented a document classification
+system with accuracy of approximately 80 \%. ~\cite{cheng2011author}
+exposes a feature selection and a model built using machine learning
+resulting in 85.1 \% accurate rate for identifying gender from text.
 
-\subsection{Infering gender from the name}
+\subsection{Infering gender from name}
 
-Generally, the tools to infer gender from the name is based on
-datasets that is including gender and name as minimum.
+The tools used to infer gender from a name are tipically based on
+datasets that, at a minimum, is include gender and name as minimum.
 
-In ~\cite{liu2013s} has been presented a method to infer gender from
-first names in Twitter, the dataset was built on hand coded by the
-agreement of 3 Amazon workers with 50000 Twitter users select at
-random out with only 12681 gender labels. The goal of this study was
+~\cite{liu2013s} presented a method to infer gender from
+first names in Twitter, the dataset was hand coded by agreement
+between three Amazon workers with 50,000 Twitter users select at
+random with only 12,681 gender labels. The goal of this study was
 to determine the incremental value of using the user name as a feature
 in gender inference based on tweets.
 
-In ~\cite{mueller2016gender} presents how to infer gender in
-Twitter. They are using namdict and us census as datasets. The
-features are 'number of consonants', 'number of vowels', 'number of
+~\cite{mueller2016gender} presented how to infer gender in
+Twitter. They used namdict and the United States census as datasets. The
+features were 'number of consonants', 'number of vowels', 'number of
 syllables', 'number of bouba consonants', 'number of bouba vowels',
 'number of kiki consonants', 'number of kiki vowels'. The
-classification model is using SVM.
+classification model was created using SVM.
 
-\subsection{Other ideas related}
+\subsection{Related ideas}
 
-So, in ~\cite{ambekar2009name} was presented a system to classify name
-and ethnicity from Open Sources using Machine Learning extracting a
-name list from Wikipedia. A more recent work is
-~\cite{nadri2021relationship} where is presented NamPrism being
+~\cite{ambekar2009name} presented a system to classify name
+and ethnicity from open sources using machine learning to
+extract a name list from Wikipedia. A more recent work is
+~\cite{nadri2021relationship}, in which presented NamPrism was
 applied to massive software repositories.
 
-Another approach was presented in ~\cite{bollegala2010automatic} a
-lexical-pattern-based approach to extract aliases of a given
-name. With a set of names and their aliases as training data to
-extract lexical patterns. The candidates are ranked using various
-ranking scores. And to construct the ranking function was used
-ranking Support Vector Machines.
+~\cite{bollegala2010automatic} presented another approach that
+used a lexical-pattern-based approach to extract aliases of a
+given name, with a set of names and their aliases as training
+data to extract lexical patterns. The candidates are ranked
+using various ranking scores. Support vector machines were
+used to construct the ranking function.
 
-\subsection{Standards related}
+\subsection{Related Standards}
 
-ISO/IEC 5218 proposes a norm about coding gender: ``0 as not know'',
-``1 as male'', ``2 as female'' and ``9 as not applicable''.
+ISO/IEC 5218 proposes the following norm about coding
+gender: ``0 as not know'', ``1 as male'', ``2 as female''
+and ``9 as not applicable''.
 
 The RFC 6350
 (vCard)~\footnote{https://datatracker.ietf.org/doc/html/rfc6350}
-where the section Gender has these categories: ``m as male'', ``f as
+has these categories: ``m as male'', ``f as
 female'', ``o as other'', ``n as not applicable'' and ``u as
-undefined''. Based on this standard the people who is doing web
-publishing can use css classes using a web standard such a
+undefined''. Based on this standard, those conducting web
+publishing can use CSS classes using a web standard such as
 h-card~\footnote{https://github.com/microformats/h-card}
-microformats. And in the context of to write forms in web interfaces
-consider w3
-lectures~\footnote{https://www.w3.org/International/questions/qa-personal-names}
+microformats in the context of to write forms in web interfaces
+consider w3 lectures~\footnote{https://www.w3.org/International/questions/qa-personal-names}
 
 \subsection{Summary}
 
-In the State of Art of gender inference is the first name the key
-factor to determine gender, although in many contexts there are more
-features: surnames, text, images, nicknames, ... The first name can be
-useful to infer another stuff such as race, ethnicity or culture, too.
+The first name of a subject is the is the key factor used to
+determine gender in the State of Art gender inference tool.
+However, in many contexts there are more features: surnames,
+text, images, nicknames, ... The first name can be useful to
+infer another stuff such as race, ethnicity or culture, too.
 
-Machine Learning and the previous features selection is being used in
-many works, although the discussion about what is the best approach is
-an open discussion.
+Machine learning and the previous features selection is being
+used in many works, although there is an open discussing as
+to which is the best approach
 
-The datasets can be built on hand by human experts, although there are
-some Open Datasets used several times in these researches, such as
-namdict, or us census.
+The datasets can be built by human experts, although there are
+some open datasets used several times in these researches, such as
+namdict, or the United States census.
 
 \section{Design}
 \label{sec:design}
