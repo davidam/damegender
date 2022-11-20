@@ -390,7 +390,7 @@ has originated from to help to detect gender.
 Some countries, such as Spain, are providing free datasets for
 surnames but we need more efforts from many countries on this
 objective. However, Wikipedia and machine learning are working
-to relate name and surnames with ethnicity~\cite{ambekar2009name}.
+to relate names and surnames with ethnicity~\cite{ambekar2009name}.
 
 \subsection{Damegender open datasets collection}
 \label{sec:damegender}
@@ -411,7 +411,7 @@ births or total of people using names in the country. Later, it
 has been merged these datasets building a free and international
 dataset. 
 
-We have found surnames given by statistical institutions in Spain,
+It has been found surnames given by statistical institutions in Spain,
 Russia, United States of America and Argentina. So few statistical
 institutions is giving surnames. Understanding the diversity problem
 with this fact, we have retrieved surnames for all countries from
@@ -423,32 +423,32 @@ about surnames and frequencies, too.
 
 When the work is finished, we could to rebuild machine learning models
 to predict new names and nicknames in any language and culture. The
-results is the longest list of public names.
+results is the longest list of public names with a scientific approach.
 
 \begin{table}[t]
 \footnotesize
 \begin{tabular}[]{lcccc}
   \hline
   Dataset & SSA & namdict & NLTK & Damegender \tabularnewline
-  males & 91.320 & 48.821 & 2.943 & 278.928 \tabularnewline
-  females & 91.320 & 48.821 & 5.001 & 299.870 \tabularnewline
+  males & 91.320 & 48.821 & 2.943 & 257.925 \tabularnewline
+  females & 91.320 & 48.821 & 5.001 & 304.553 \tabularnewline
   \hline
 \end{tabular}
-\caption{Comparison about the number of names between Open Data solutions}
+\caption{Comparison of the number of names between open data solutions}
 \label{table:DifferentNamesMeasures}
 \end{table}
 
-A possible criticism about our idea is the Leslie
-Problem\cite{blevins2015jane}: the match between gender and name has
-been changing in some years. And the answer is about you need
-introduce the age of the person to solve it. The most used use case is
+A possible criticism about this approach is the Leslie
+Problem\cite{blevins2015jane}: the match between gender and name
+depends of the year. The solution to this problem is to introduce the
+age of the person in question. The most common use case states that
 the input is the name and the output must be gender, frequency and
-percentage. So, we are deciding without age, surname, ... in the most
-of use cases. The idea about this dataset is to be designed for the
-most used use case. Although, we can take into account other inputs,
-such as surname or age to improve the accuracy. There are many Open
-Datasets with names and frequencies classified by years. So, this
-problem can be fixed with Open Data, too.
+percentage. Therefore, a decision about gender must be made without
+data on the age or surname in most cases. This dataset was designed for
+the most of used use cases. We can take into account other inputs,
+such as surname or age to improve the accuracy. There are many open
+datasets with names and frequencies that have been classified by years.
+Therefore, this problem can be fixed with open data, too.
 
 \begin{table}[t]
 \footnotesize
@@ -462,34 +462,30 @@ problem can be fixed with Open Data, too.
 \label{table:DifferentAccuracyMeasures}
 \end{table}
 
-We have made measurements about the international DameGender dataset,
-using as base of truth the dataset explained in
-\cite{10.7717/peerj-cs.156} reaching accuracy (0.8756), precision
+We have measured about the international DameGender dataset,
+using the dataset explained in
+\cite{10.7717/peerj-cs.156} to reach accuracy (0.8756), precision
 (0.9638), recall (1.0) and f1-score (0.925). With other test datasets
-we are finding similar results:
+was found similar results:
 
 \begin{itemize}
 \item Females scientists in Wikipedia (accuracy: 0.89)
 \item Males scientists in Wikipedia (accuracy: 0.98)
 \item FIFA football dataset (accuracy: 0.93)
-\item Scientific test Dataset designed\cite{sebo2021performance} (accuracy: 0.88)
+\item Scientific test dataset designed\cite{sebo2021performance} (accuracy: 0.88)
 \end{itemize}
 
 
 \subsection{Free APIs for Free Datasets?}
 \label{sec:freeapis}
 
-Many websites about Open Data is delivering methods to retrieve Open
-Data with a structured format and without costs for the user, such as,
-Wikipedia with SPARQL, OpenStreetMap with API rest, ...
+There area number of open data websites that allow the user to retrieve structured open data without cost. These sites include Wikipedia with SPARQL and OpenStreetMap with API rest, among others.
 
-We are detecting that the Open Datasets about names, gender and
-frequency are being modified one time per year as maximum for each
-statistical institution.
+The open datasets for names, gender, and frequency are being modified once a year, at most for each statistical institution.
 
-Damegender contains python scripts designed to create the
-different datasets and publish json files that could be used as a Free
-API Rest publishing the json files in sites as github pages, gitlab
+DameGender contains python scripts designed to create the
+different datasets and publish json files that could be used as a free
+API rest publishing the json files in sites as GitHub pages, GitLab
 pages, or similar sites with free uploads.
 
 \begin{verbatim}
@@ -502,38 +498,38 @@ pages, or similar sites with free uploads.
   }]
 \end{verbatim}
 
-So, we could think that could have Free API Rest about names, gender
-and frequency reaching reduce costs to fix the gender gap on a
-collaborative way similar to Wikipedia, OpenStreetMap or many Free
-Software projects.
+Therefore, it may be possible to have free API rest about names,
+gender, and frequency with reduced costs to fix the gender gap
+in a collaborative way similar to Wikipedia, OpenStreetMap or
+many Free Software projects.
 
-\section{Measuring Gender Gap. GNU/Linux as Use Case}
+\section{Measuring gender gap. GNU/Linux as use case}
 \label{sec:measuring}
 
-With a trust open dataset about names, gender and frequency is too
-easy to measure gender gap. Doing cheap to measure gender gap more
-students and academic people could work in the fifth Objective
-Development Sustainable of United Nations: to delete the gender gap.
+With a trust open dataset for names, gender and frequency it is
+easy to measure the gender gap. Students and academics could
+measure the gender gap inexpensively and meet the fifth Sustainable
+Development Objective of the United Nations, which is to erase
+the gender gap completely.
 
-This section is divided counting males and females in Debian, GNU and
-Linux.
+This section is divided into counting males and females using
+Debian, GNU, and Linux.
 
-We have reached the csv files from different ways to know the names
-about the people in these communities.
+We obtained the csv files using different methods to determine
+the names about the people in these communities.
 
-When this paper was being wrote in the Debian community all members
-must be collaborating with a gpg key, so we can count males and females
-from the keyring. The keyring was imported with gpg commands and later
-was dumped the keyring in a csv file.
+In the Debian community all members must collaborate with
+a gpg key, so we can count males and females from the keyring.
+The keyring was imported with gpg commands and later 
+the keyring was placed in a csv file.
 
-In the moment to write this paper
 GNU\footnote{https://www.gnu.org/people/} and
 Linux\footnote{https://www.kernel.org/doc/html/latest/process/maintainers}
-has websites with the people collaborating in these projects. So,
-making web scraping scripts we have downloaded the people and processed
-the people to csv files
+have collaborate websites for these projects. So, making web
+scraping scripts we have downloaded the people and processed
+the people to csv files.
 
-In Damegender, we have developed csv2gender, a software with a csv
+In DameGender, has been developed csv2gender, a software with a csv
 file as input and deploy a statistics graph and/or return the result
 of males, females and unknowns about the input.
 
