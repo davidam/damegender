@@ -341,87 +341,75 @@ namdict, or the United States census.
 \section{Design}
 \label{sec:design}
 
-\subsection{Truth and Falsehood in names, gender and frequency}
+\subsection{Truth and falsehood in names, gender, and frequency}
 \label{sec:truthandfalsehood}
 
-The current idea in the field is the data about name, gender and
-frequency is ok because there are people who is paying by it, or many
-people is downloading a product. This intuition is right generally,
-although sometimes the people is paying by a bad product due to a good
-marketing strategy, a monopoly or there is a fraud, ... Another idea
-is the people trust in the government about statistics such as economy,
-demography, democracy, ... So the people can trust on names, gender
-and frequency. In Damegender, we are trusting in both notions about
-truth: the market's point of view and the official statistic's
+The current idea in the field accepts that using name, gender and
+frequency is ok because there are people paying for or downloading
+a product. Typically, this is an acceptable assumption, although
+the consumer may purchase a bad product due to a good marketing
+strategy, a monopoly or there is a fraud, ... Consumers may also 
+trust in the government statistics regarding the economy,
+demography, or democracy. Therefor the people may trust the data
+for names, gender, and frequency. In Damegender, we are trusting
+in: the market's point of view and the official statistic's
 point of view.
 
-Sometimes there are problems downloading the official statistics, but
-there are people who has retrieved these data, for example, with
-web scraping. We want classify these files with another idea about
-truth.
+Sometimes there are problems downloading official statistics, but
+there are people who have retrieved these data with web scraping.
+These files with another idea about truth.
 
-Another problem arises when the government does little chances in the
-data, sometimes communicating it to the users and other times
-not. That could be a problem about upgrades, but it's not a problem
-with the truth, although it's possible make a trace about these
-chances.
+Another problem arises when the government changes the data,
+sometimes communicating it to the users and other times
+not. This may be problematic for upgrades, but not with the truth,
+since changes can be traced. 
 
-With an international free dataset about names, gender and frequency
-we can build reproducible science in fields such as Natural Language
-Processing (gender detection from the name), social sciences or
+With an international free dataset of names, gender, and frequency,
+we can build reproducible science in fields such as natural language
+processing (gender detection from the name), the social sciences, 
 journalism (gender
 gap~\cite{holman2018gender,mislove2011understanding,niemi2017gendered,de2014genero}),
-linguistic~\cite{lawson2005russian,krueger1962mongolian,van2020gender,agyekum2006sociolinguistic,fraser1987lexicon},
-software engineering~\cite{vasilescu2012gender}, ...
+linguistics~\cite{lawson2005russian,krueger1962mongolian,van2020gender,agyekum2006sociolinguistic,fraser1987lexicon},
+or software engineering~\cite{vasilescu2012gender}.
 
-\subsection{Gender, Language, Nation and Diversity}
+\subsection{Gender, language, nation and diversity}
 \label{sec:diversity}
 
-There are rules and exceptions in the languages to predict if a name
-is about male or female when you don't know the name. For example, in
-Spanish or English there are more names ending with 'a' classified as
-females than classified as males. And Andrea is female in Spain and
-male in Italy. So, it's useful to understand the language and culture
+There are rules and exceptions in different languages to predict if
+a name is about male or female when you don't know the name. For example,
+in Spanish or English, there are more names ending with 'a' classified as
+females than classified as males. However, Andrea is female in Spain and
+male in Italy. So, it is useful to understand the language and culture
 associated with a name. Language is close to nation, but there are
-differences, for example, in Spain there are several languages basque,
-catalan, castillian, ... or the Spanish is the main language in Spain
-and in other countries such as Argentina, Mexico, Ecuador, Bolivia,
-... So, it would be useful to detect the language and nation from
-names and surnames to help to detect gender.
+differences, for example, in Spain there are several languages Basque,
+Catalan, Castillian. Spanish is the main language in Spain.
+and in other countries such as Argentina, Mexico, Ecuador and Bolivia,
+Thus, it is helpful to know the language and nation a name or surname
+has originated from to help to detect gender.
 
-Some countries, such as Spain, are providing free datasets about
+Some countries, such as Spain, are providing free datasets for
 surnames but we need more efforts from many countries on this
-objective. On other hand, there are previous works to relate name and
-surnames with ethnicity using Wikipedia and Machine
-Learning~\cite{ambekar2009name}.
+objective. However, Wikipedia and machine learning are working
+to relate name and surnames with ethnicity~\cite{ambekar2009name}.
 
-\subsection{Damegender Open Datasets Collection}
+\subsection{Damegender open datasets collection}
 \label{sec:damegender}
 
-In Damegender, we have unified the different formats to name, gender
-and frequency from official sources in these countries: Argentina,
-Austria, Australia, Belgium, Canada, Denmark, Germany, Spain, Finland,
-France, Great Britain, Ireland, Mexico, New Zealand, Norway, Russia,
-Portugal, Slovenia, United States of America and Uruguay.
+In Damegender, we unified the different formats for name, gender,
+and frequency from statistical offices of the following countries:
+Argentina, Austria, Australia, Belgium, Canada, Switzerland, Germany,
+Denmark, Spain, Finland, France, Great Britain, Ireland, Iceland,
+Norway, New Zealand, Mexico, Portugal, Russia, Slovenia, Sweden,
+the United States of America and Uruguay.
 
-We have found 2 main criteria counting males and females: number of
-births in a year and people using the name in a year. So, we have
-divided the files being to able of make merging. The criteria making
-the count is: the average of the last twenty years where the data has
-been provided. Both criteria are good indicators to understand how
-many people is using a name as male or as female.
-
-Later, we have merged these datasets building a free and international
-dataset.
-
-We have found open datasets about countries such as Turkey and China
-retrieved by other open source developers that is being included in
-Damegender, but not in the international dataset. In Turkey the data
-has been retrieved using web scraping. And in China the data has been
-built by a company in collaboration with the China government and
-contributed to R language program. We want compare precision about
-this dataset with the commercial solutions to understand the truth
-about these datasets.
+It has been applied the criteria that one person usign a name is
+a gender vote (male or female)\footnote{On the future, laws about
+non binary could be including other options, but only male and
+female was found as valid options in the open datasets when this
+article is being written}. So, for each country has been choosen
+births or total of people using names in the country. Later, it
+has been merged these datasets building a free and international
+dataset. 
 
 We have found surnames given by statistical institutions in Spain,
 Russia, United States of America and Argentina. So few statistical
