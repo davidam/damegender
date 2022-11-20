@@ -348,7 +348,7 @@ else
 	echo -e  "confusion nameapi jsondonwloaded test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --api=damegender --measure=accuracy --dataset_guess=files/names/names_tests/gender_JMLA.min.interguessed.csv --dataset_guess_position_gender=1 --dataset_test=files/names/names_tests/gender_JMLA.min.dta.csv --dataset_test_position_gender=2 --dataset_test_gender_chars="female,male" > files/tests/accuracygender_JMLA-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --api=damegender --measure=accuracy --dataset_guess=files/names/names_tests/gender_JMLA.min.interguessed.csv --dataset_guess_position_gender=1 --dataset_test=files/names/names_tests/gender_JMLA.min.dta.csv --dataset_test_position_gender=2 --dataset_test_gender_chars="female,male" --dataset_guess_gender_chars="female,male" > files/tests/accuracygender_JMLA-$(date "+%Y-%m-%d").txt
 if ! diff files/tests/accuracygender_JMLA.txt files/tests/accuracygender_JMLA-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
 then
 	echo -e  "accuracy JMLA dataset test is ${RED}failing${NC}"
@@ -406,7 +406,7 @@ fi
 # fi
 
 
-python3 accuracy.py --measure=accuracy --dataset_guess=files/names/names_tests/fifa.interguessed.csv --dataset_guess_position_gender=1 --dataset_test=files/names/names_tests/fifa.interguessed.csv --dataset_test_position_gender=1 --api=damegender --dataset_test_gender_chars="female,male" > files/tests/accuracyfifafifa-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --measure=accuracy --dataset_guess=files/names/names_tests/fifa.interguessed.csv --dataset_guess_position_gender=1 --dataset_test=files/names/names_tests/fifa.interguessed.csv --dataset_test_position_gender=1 --api=damegender --dataset_test_gender_chars="female,male" --dataset_guess_gender_chars="female,male" > files/tests/accuracyfifafifa-$(date "+%Y-%m-%d").txt
 if ! diff files/tests/accuracyfifafifa.txt files/tests/accuracyfifafifa-$(date "+%Y-%m-%d").txt
 then
 	echo -e  "accuracy fifa test is ${RED}failing${NC}"
