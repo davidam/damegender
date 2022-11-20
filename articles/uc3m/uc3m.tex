@@ -68,97 +68,92 @@ David Arroyo Menéndez, Madrid, Spain \\ \{davidam@gmail\}.com
 \end{abstract}
 
 \section{Introduction}
-There are a goal in United Nations about gender
-gap\footnote{https://www.un.org/sustainabledevelopment/gender-equality/}. What
-can I do as software engineer?. The first step is to remember that
-``if you cannot measure it, you cannot improve
-it"~\cite{thompson1833electrical} and ``Software Engineering Economics
-is an invaluable guide to determining software costs, applying the
-fundamental concepts of microeconomics to software
-engineering~\cite{barry1981software}''. A common profit using Free
-Software and Open Data used to be the reduction of costs, for example,
-many people and institutions is using LibreOffice and Ubuntu
-(GNU/Linux) to avoid the payment by propietary licenses with similar
-solutions such as Microsoft Windows and Microsoft Office, the new
-costs used to be change a social inertia changing popular products by
-products without costs. There are a set of gender detection tools from
-the name is based on API solutions, giving a free software and open
-data solution, it will be making a competition in a market without a
-very strong leader, avoiding payments and thinking on strategies about
-profits from a trademark, such as, Firefox or Chrome.
+The United Nations has a goal to address the gender
+gap\footnote{https://www.un.org/sustainabledevelopment/gender-equality/}.
+You must remember that ``if you cannot measure it, you cannot
+improve it"~\cite{thompson1833electrical} and ``Software
+Engineering Economics is an invaluable guide to determining
+software costs, applying the fundamental concepts of microeconomics
+to software engineering~\cite{barry1981software}''. Free software and open
+data lead to a reduction in costs, for example, many people and
+institutions is using LibreOffice and Ubuntu (GNU/Linux) to avoid paying
+the fees with similar products such as Microsoft Windows and Microsoft
+Office. Gender detection tools based on the user name is based on API
+solutions, providing a free software and open data solution. This will
+createit competition in a market without a very strong leader, avoiding
+payments and strategizing profits from a trademark, such as, Firefox or
+Chrome.
 
-Detecting personal names, you can infer gender on academical papers,
-books, newspapers and many interactions on Internet. So, the task
-about detect gender from the names could be a strategical task to
+Through the use of personal names, one may infer gender on
+academical papers, books, newspapers and many interactions on Internet.
+So, detecting gender from the names may be a strategical way to
 measure gender gap.
 
-Nowadays, many people are using APIs such as Genderapi, Genderize,
-Namsor, or NameApi. Another people is using solutions based on
-Wikipedia, or Free Software solutions (NLTK\cite{loper2002nltk}, R
-Gender, Gender Detector, Gender
-Computer\footnote{https://github.com/tue-mdse/genderComputer}, ...)
+Many users today are using APIs such as Genderapi, Genderize,
+Namsor, or NameApi, Wikipedia, or Free Software solutions
+(NLTK\cite{loper2002nltk}, R Gender, Gender Detector and Gender
+Computer\footnote{https://github.com/tue-mdse/genderComputer}.
 
-Open Source solutions has a few number of names due to use files of a
-single country or being software not maintained in the long time. And
-Wikipedia is not taking into account the frequency of the personal
-names.
+Traditional open source solutions has a few number of names due to
+use files of a single country or being software not maintained in
+the long time. And Wikipedia is storing few names per country.
 
 However, the gender gap is a problem recognised in United Nations and
-the IT market is leading big inequalities in the world in economy and
-gender gap. This paper presents a real work collecting data with a
-scientific perspective to solve the problem giving a full toolkit that
-is solving a good number of problems (search engine, infer gender in
-csv files, names in different countries, wide dataset, ...) faced by
-the industry and other problems not solved in an industrial way such
-as count males and females in Github repositories, mailing lists, ...
+the IT market is leading big inequalities in economic and gender gap.
+This article presents data collected to assist in finding the solution
+to a number of problems (search engine, infering gender in csv files,
+names in different countries, wide dataset) faced by
+the industry as well as other problems not solved in an industrial way
+such as counting males and females in GitHub repositories, mailing lists,
+...
 
-Another previous work~\cite{karimi2016inferring} about this kind of
-tools is discussing about the datasets as a way to improve the
-accuracies, comparing tools that is using different public datasets
-(SSA, IPUMS, namdict, ...)
+A previous study~\cite{karimi2016inferring} dicussed these datasets as
+a way to improve their accuracy, comparing tools that use different
+public datasets (SSA~\footnote{https://www.ssa.gov/oact/babynames/limits.html},
+IPUMS~\footnote{https://www.ssa.gov/oact/babynames/limits.html},
+namdict~\footnote{https://raw.githubusercontent.com/lead-ratings/gender-guesser/master/gender_guesser/data/nam_dict.txt}, etc)
 
-The solutions is being faced by a practical way: augmenting the number
-of names using official statistics and taking into account diversity
-goals such as non binary gender and cultural minorities.
+So, a goal is to augment the number of names using official statistics
+and taking into account diversity goals such as non binary gender and
+cultural minorities.
 
-With DameGender we will make science
-reproducible\cite{peng2011reproducible} in fields where has done
-similar works such as Natural Language Processing (gender detection
-from the name~\cite{sun2019mitigating}), social sciences or journalism
-(gender
+With DameGender we will make science reproducible\cite{peng2011reproducible}
+in fields with similar works such as Natural Language Processing
+(gender detection from the name~\cite{sun2019mitigating}), social
+sciences or journalism (gender
 gap~\cite{holman2018gender,mislove2011understanding,niemi2017gendered,de2014genero}),
 linguistic~\cite{hutson2016gender,van2020gender,okal2018linguistic},
-software engineering~\cite{vasilescu2012gender}, ...
+software engineering~\cite{vasilescu2012gender}, among other fields.
 
-The remainder of this paper is structured as follows:
+The remainder of this article is structured as follows:
 
-In Section~\ref{sec:stateofart} presents the main research works about
-to measure gender gap and gender detection tools from the name.
+Section~\ref{sec:stateofart} presents the main research measuring the
+gender gap and gender detection tools using name.
 
-Section~\ref{sec:design} is giving vocabulary and philosophy about to
+Section~\ref{sec:design} gives vocabulary and philosophy about to
 choose sources and to face the diversity troubles building a dataset.
 
-Section ~\ref{sec:measuring} explains an application about this
-dataset to measure gender gap in GNU/Linux.
+Section ~\ref{sec:measuring} explains an application for this
+dataset: to measure gender gap in GNU/Linux.
 
 Section~\ref{sec:conclusions} points a summary about this approach and
 future works.
 
-The contributions to the State of Art presented in this paper are:
+The contributions of this article are:
 
-1. An integrated solution where make experiments in the different
-applications field relative to inferring gender from the name.
+1. An integrated solution in the different applications field relative
+to inferring gender from the name.
 
-2. A collection of Open Datasets retrieved from statistical sources
-and standardized in an unique format about gender, name and frequency
+2. A collection of open datasets retrieved from statistical sources
+and standardized in an unique format.
 
 3. A new study applying DameGender to count males and females in
-GNU/Linux
+GNU/Linux.
 
 4. An approach based on reproducible results.
 
 
-\section{State of Art}
+\section{State of the Art}
 \label{sec:stateofart}
 
 \subsection{About Gender Gap}
