@@ -31,6 +31,8 @@ dicc = dw.dicc_countries()
 parser = argparse.ArgumentParser()
 parser.add_argument('--total', default="us",
                     choices=dicc.keys())
+parser.add_argument('--outcsv',
+                    default="surnames.csv")
 args = parser.parse_args()
 
 url = 'https://query.wikidata.org/sparql'
@@ -55,8 +57,8 @@ ORDER BY DESC(?count)
 r = requests.get(url, params={'format': 'json', 'query': query2})
 data = r.json()
 
-print("Dumping to surnames.csv")
-fo = open("surnames.csv", "w")
+print("Dumping to %s" % args.outcsv)
+fo = open(args.outcsv, "w")
 for d in data["results"]["bindings"]:
     fo.write(d['surnameLabel']['value'] + "," + d['count']['value'] + "\n")
 
