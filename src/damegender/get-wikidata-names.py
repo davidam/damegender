@@ -36,6 +36,7 @@ parser.add_argument('gender', default="female",
                     choices=['female', 'male'])
 parser.add_argument('--total', default="us",
                     choices=dicc.keys())
+parser.add_argument('--outcsv', default="names.csv")
 args = parser.parse_args()
 
 url = 'https://query.wikidata.org/sparql'
@@ -74,7 +75,7 @@ ORDER BY DESC(?count)
 r = requests.get(url, params={'format': 'json', 'query': query2})
 data = r.json()
 
-print("Dumping to names.csv")
+print("Dumping to %s" % args.outcsv)
 
 dicc = {}
 for d in data["results"]["bindings"]:
@@ -100,4 +101,4 @@ for d in data["results"]["bindings"]:
         else:
             dicc[d['nameLabel']['value']] = d['count']['value']
 
-du.diccnames2csvfile(dicc, "names.csv")
+du.diccnames2csvfile(dicc, args.outcsv)
