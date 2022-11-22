@@ -365,29 +365,29 @@ else
 	echo -e  "accuracy genderapi jsondonwloaded test is ${GREEN}ok${NC}"
 fi
 
-# python3 accuracy.py --dataset_guess=files/names/partial.csv --api=nameapi --dataset_test="files/names/nameapifiles_names_partial.csv.json" > files/tests/accuracypartialjsonnameapi-$(date "+%Y-%m-%d").txt
-# if ! diff files/tests/accuracypartialjsonnameapi.txt files/tests/accuracypartialjsonnameapi-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
-# then
-# 	echo -e  "accuracy nameapi jsondonwloaded test is ${RED}failing${NC}"
-# else
-# 	echo -e  "accuracy nameapi jsondonwloaded test is ${GREEN}ok${NC}"
-# fi
+python3 accuracy.py --dataset_guess=files/names/partial.csv --api=nameapi --dataset_test="files/names/nameapifiles_names_partial.csv.json" --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_position_gender=0 --dataset_test_gender_chars="1,0" > files/tests/accuracypartialjsonnameapi-$(date "+%Y-%m-%d").txt
+if ! diff files/tests/accuracypartialjsonnameapi.txt files/tests/accuracypartialjsonnameapi-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
+then
+	echo -e  "accuracy nameapi jsondonwloaded test is ${RED}failing${NC}"
+else
+	echo -e  "accuracy nameapi jsondonwloaded test is ${GREEN}ok${NC}"
+fi
 
-# python3 accuracy.py --dataset_test=files/names/genderizefiles_names_partialnoundefined.csv.json --measure=f1score --api=genderize --dataset_guess=files/names/partialnoundefined.csv > files/tests/accuracygenderizepartialjsonf1score-$(date "+%Y-%m-%d").txt
-# if ! diff files/tests/accuracygenderizepartialjsonf1score.txt files/tests/accuracygenderizepartialjsonf1score-$(date "+%Y-%m-%d").txt
-# then
-# 	echo -e  "accuracy genderize f1score jsondonwloaded test is ${RED}failing${NC}"
-# else
-# 	echo -e  "accuracy genderize f1score jsondonwloaded test is ${GREEN}ok${NC}"
-# fi
+python3 accuracy.py --dataset_test=files/names/genderizefiles_names_partialnoundefined.csv.json --measure=f1score --api=genderize --dataset_guess=files/names/partialnoundefined.csv --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_position_gender=3 --dataset_test_gender_chars="female,male" > files/tests/accuracygenderizepartialjsonf1score-$(date "+%Y-%m-%d").txt
+if ! diff files/tests/accuracygenderizepartialjsonf1score.txt files/tests/accuracygenderizepartialjsonf1score-$(date "+%Y-%m-%d").txt
+then
+	echo -e  "accuracy genderize f1score jsondonwloaded test is ${RED}failing${NC}"
+else
+	echo -e  "accuracy genderize f1score jsondonwloaded test is ${GREEN}ok${NC}"
+fi
 
-# python3 accuracy.py --dataset_test=files/names/genderizefiles_names_partialnoundefined.csv.json --measure=precision --api=genderize --dataset_guess=files/names/partialnoundefined.csv > files/tests/accuracygenderizepartialjsonprecision-$(date "+%Y-%m-%d").txt
-# if ! diff files/tests/accuracygenderizepartialjsonprecision.txt files/tests/accuracygenderizepartialjsonprecision-$(date "+%Y-%m-%d").txt
-# then
-# 	echo -e  "accuracy genderize precision jsondonwloaded test is ${RED}failing${NC}"
-# else
-# 	echo -e  "accuracy genderize precision jsondonwloaded test is ${GREEN}ok${NC}"
-# fi
+python3 accuracy.py --dataset_test=files/names/genderizefiles_names_partialnoundefined.csv.json --measure=precision --api=genderize --dataset_guess=files/names/partialnoundefined.csv --dataset_guess_gender_chars="f,m" --dataset_guess_position_gender=4 --dataset_test_position_gender=0 --dataset_test_gender_chars="female,male" > files/tests/accuracygenderizepartialjsonprecision-$(date "+%Y-%m-%d").txt
+if ! diff files/tests/accuracygenderizepartialjsonprecision.txt files/tests/accuracygenderizepartialjsonprecision-$(date "+%Y-%m-%d").txt
+then
+	echo -e  "accuracy genderize precision jsondonwloaded test is ${RED}failing${NC}"
+else
+	echo -e  "accuracy genderize precision jsondonwloaded test is ${GREEN}ok${NC}"
+fi
 
 # python3 accuracy.py --dataset_test=files/names/genderizefiles_names_partialnoundefined.csv.json --measure=accuracy --api=genderize --dataset_guess=files/names/partialnoundefined.csv > files/tests/accuracygenderizepartialjsonaccuracy-$(date "+%Y-%m-%d").txt
 # if ! diff files/tests/accuracygenderizepartialjsonaccuracy.txt files/tests/accuracygenderizepartialjsonaccuracy-$(date "+%Y-%m-%d").txt
