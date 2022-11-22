@@ -356,13 +356,14 @@ else
 	echo -e  "accuracy JMLA dataset test is ${GREEN}ok${NC}"
 fi
 
-# python3 accuracy.py --dataset_guess="files/names/min.csv" --api=genderapi --dataset_test="files/names/genderapifiles_names_min.csv.json" > files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d").txt
-# if ! diff files/tests/accuracygenderapijsondownloaded.txt files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
-# then
-# 	echo -e  "accuracy genderapi jsondonwloaded test is ${RED}failing${NC}"
-# else
-# 	echo -e  "accuracy genderapi jsondonwloaded test is ${GREEN}ok${NC}"
-# fi
+python3 accuracy.py --dataset_guess="files/names/min.csv" --api=genderapi --dataset_test="files/names/genderapifiles_names_min.csv.json" --dataset_test_gender_chars="female,male" --dataset_test_position_gender=0 --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" > files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d").txt
+
+if ! diff files/tests/accuracygenderapijsondownloaded.txt files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
+then
+	echo -e  "accuracy genderapi jsondonwloaded test is ${RED}failing${NC}"
+else
+	echo -e  "accuracy genderapi jsondonwloaded test is ${GREEN}ok${NC}"
+fi
 
 # python3 accuracy.py --dataset_guess=files/names/partial.csv --api=nameapi --dataset_test="files/names/nameapifiles_names_partial.csv.json" > files/tests/accuracypartialjsonnameapi-$(date "+%Y-%m-%d").txt
 # if ! diff files/tests/accuracypartialjsonnameapi.txt files/tests/accuracypartialjsonnameapi-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
