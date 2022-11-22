@@ -1496,7 +1496,9 @@ si solo si el nombre compuesto no existe en la base de datos
 
 Hecho con --guess_with_first_name_strict
 * TODO Revisar todo lo hablado en el paper con una versión más moderna de Damegender
-Podría ser ya la versión 0.5
+Podría ser ya la versión 0.5. Puedes buscar en el paper:
+"To make easy to reproduce the experiment we are pasting the commands
+used with the version 0.3.4 of Damegender."
 * TODO Corroborar que los nombres escrapeados están bien con alguna api de género
 ** TODO Brazil 
 Dataset situado en:
@@ -1506,3 +1508,13 @@ Licencia:
 + [ ] Extraida de: https://brasil.io/dataset/genero-nomes/nomes/ 
 ** TODO China
 *** TODO Aprender a transformar caracteres chinos a latinos
+* TODO Repensar el regenerate-inter-files.sh
+La idea sería ir generando merges por lenguas a países de manera que
+se almacenarán esos datasets de idiomas (español, francés, inglés, ...)
+
+Y, finalmente juntar todas las lenguas.
+
+Sería bueno que estuvieran los principales idiomas de todos los países del
+mundo. Generalmente, los nombres y apellidos se asocian más a idiomas que
+a países. Esto se puede demostrar también.
+
