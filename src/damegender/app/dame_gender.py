@@ -895,8 +895,10 @@ class Gender(object):
         name_guess_row = kwargs.get('name_guess_row', 0)        
         gender_test_row = kwargs.get('gender_test_row', 4)
         gender_guess_row = kwargs.get('gender_guess_row', 4)        
-        gender_f_chars = kwargs.get('gender_f_chars', 'f')
-        gender_m_chars = kwargs.get('gender_m_chars', 'm')
+        guess_f_chars = kwargs.get('gender_f_chars', 'f')
+        guess_m_chars = kwargs.get('gender_m_chars', 'm')
+        test_f_chars = kwargs.get('test_f_chars', 'f')
+        test_m_chars = kwargs.get('test_m_chars', 'm')
         delimiter_testf = kwargs.get('delimiter_testf', ',')
         delimiter_guessf = kwargs.get('delimiter_guessf', ',')
         difflen = False
@@ -919,8 +921,8 @@ class Gender(object):
                 elif (du.is_csv(testf)):
                     tl = self.csv2gender_list(path=testf, binary=True,
                                               gender_column=gender_test_row,
-                                              gender_f_chars=gender_f_chars,
-                                              gender_m_chars=gender_m_chars,
+                                              test_f_chars=test_f_chars,
+                                              test_m_chars=test_m_chars,
                                               delimiter=delimiter_testf)
 
                     testnames = self.csv2names(path=testf,
@@ -938,8 +940,8 @@ class Gender(object):
             elif (du.is_csv(guessf)):
                 gl = self.csv2gender_list(path=guessf, binary=True,
                                           gender_column=gender_guess_row,
-                                          gender_f_chars=gender_f_chars,
-                                          gender_m_chars=gender_m_chars,
+                                          guess_f_chars=guess_f_chars,
+                                          guess_m_chars=guess_m_chars,
                                           delimiter_guessf=delimiter_guessf)
                 guessnames = self.csv2names(path=guessf,
                                             name_position=name_guess_row)
@@ -959,8 +961,8 @@ class Gender(object):
                 elif (du.is_csv(testf)):
                     tl = self.csv2gender_list(path=testf, binary=True,
                                               gender_column=gender_test_row,
-                                              gender_f_chars=gender_f_chars,
-                                              gender_m_chars=gender_m_chars,
+                                              test_f_chars=test_f_chars,
+                                              test_m_chars=test_m_chars,
                                               delimiter_testf=delimiter_testf)
                     testnames = self.csv2names(path=testf,
                                                name_position=name_test_row)
