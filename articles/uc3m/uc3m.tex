@@ -504,17 +504,17 @@ many free software projects.
 \section{Measuring gender gap. GNU/Linux as use case}
 \label{sec:measuring}
 
-With a trust open dataset for names, gender and frequency it is
+With a trust open dataset for names, gender, and frequency it is
 easy to measure the gender gap. Students and academics could
-measure the gender gap inexpensively and meet the fifth Sustainable
-Development Objective of the United Nations, which is to erase
-the gender gap completely.
+measure the gender gap inexpensively and meet the fifth
+Sustainable Development Objective of the United Nations,
+which is to erase the gender gap completely. 
 
 This section is divided into counting males and females using
 Debian, GNU, and Linux.
 
-We obtained the csv files using different methods to determine
-the names about the people in these communities.
+It has been obtained the csv files using different methods
+to determine the names about the people in these communities.
 
 In the Debian community all members must collaborate with
 a gpg key, so we can count males and females from the keyring.
@@ -523,16 +523,16 @@ the keyring was placed in a csv file.
 
 GNU\footnote{https://www.gnu.org/people/} and
 Linux\footnote{https://www.kernel.org/doc/html/latest/process/maintainers}
-have collaborate websites for these projects. So, making web
-scraping scripts we have downloaded the people and processed
-the people to csv files.
+have collaborative websites for these projects. Therefore, making web
+scraping scripts has been downloaded the people and processed
+the people to csv files in this experiment.
 
 In DameGender, has been developed csv2gender, a software with a csv
-file as input and deploy a statistics graph and/or return the result
+file as input and deployed a statistics graph and/or return the result
 of males, females and unknowns about the input.
 
 To make easy to reproduce the experiment we are pasting the commands
-used with the version 0.3.4 of Damegender.
+used with a modern version of Damegender.
 
 \begin{verbatim}
 python3 csv2gender.py files/gnu.csv
@@ -541,7 +541,6 @@ python3 csv2gender.py files/gnu.csv
  --dataset="inter"
  --outcsv="files/gnu.gender.csv"
  --outimg="files/gnu.gender.png"
- --noshow --delete_duplicated
 
 python3 csv2gender.py files/linux.csv
  --first_name_position=0
@@ -549,7 +548,7 @@ python3 csv2gender.py files/linux.csv
  --dataset="inter"
  --outcsv="files/linux.gender.csv"
  --outimg="files/linux.gender.png"
- --noshow --delete_duplicated
+ --delete_duplicated
 
 python3 csv2gender.py files/debian.csv
  --first_name_position=0
@@ -557,7 +556,7 @@ python3 csv2gender.py files/debian.csv
  --dataset="inter"
  --outcsv="files/debian.gender.csv"
  --outimg="files/debian.gender.png"
- --noshow --delete_duplicated
+ --delete_duplicated
 \end{verbatim}
 
 \begin{figure}
@@ -566,36 +565,27 @@ python3 csv2gender.py files/debian.csv
   \caption[Caption for LOF]{Males (blue), Females (orange) and Unknows (green) in Debian, GNU and Linux}
 \end{figure}
 
-The inter dataset was created merging several open datasets downloaded
-from official statistics sites from different nations: Austria,
-Australia, Belgium, Canada, Germany, Denmark, Spain, Finland, Ireland,
-Iceland, Mexico, New Zealand, Portugal, Slovenia, United States of
-America, Uruguay and France. That's a good representation of the
-Western World and the Free Software world is populating this world's
-area\cite{gonzalez2008geographic}.
+The inter dataset was created by merging several open datasets
+downloaded from official statistics sites from different nations,
+being a good representation of the Western World and the free
+software world is populating this world's area\cite{gonzalez2008geographic}.
 
-Linux divides the developers in 537 males (73.9\%), 98 females
-(13.5\%) and 92 unknowns (12.7\%). The number of unknowns is due to
+Linux divides the developers in 1891 males (90.09\%), 78 females
+(3.72\%) and 130 unknowns (6.78\%). The number of unknowns is due to
 different reasons, but it's so common in Linux that the developer is a
 company and not a name of a person.
 
-GNU divides the developers in 164 males (89.6\%), 12 females (6.6\%)
-and 7 unknowns (3.8\%)
-
-The GNU people has a number lowest in females, they are the founder of
-the Free Software philosophy, the Debian principles and the Open
-Source philosophy was invented later influenced by GNU with very
-similar practical decisions (for example: deciding licenses for the
-software). Richard Stallman returned to be president recently
-apologizing by his personal behaviour with the
+GNU divides the developers in 215 males (91.49\%), 12 females (5.11\%)
+and 7 unknowns (2.98\%) Richard Stallman, the GNU founder returned to
+be president apologizing by his personal behaviour with the
 females.\footnote{https://www.fsf.org/news/rms-addresses-the-free-software-community}
 
 Debian is a distribution, the project who makes the CD/DVD and the
 software ready to be downloaded from Internet with the
 dependencies. There are many distributions, such as, Ubuntu or RedHat
 so it is not representative, but it's interesting to understand that
-the numbers are similar in Debian dividing the developers in 408 males
-(75\%), 69 females (12.7\%) and 67 unknowns (12.3\%).
+the numbers are similar in Debian dividing the developers in 863 males
+(85.53\%), 44 females (4.36\%) and 102 unknowns (10.1\%).
 
 %% \includegraphics[width=0.9\textwidth]{images/debian.gender.pdf}
 
