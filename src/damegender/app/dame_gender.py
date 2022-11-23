@@ -891,8 +891,6 @@ class Gender(object):
         ml = kwargs.get('ml', 'nltk')
         api = kwargs.get('api', 'damegender')
         header = kwargs.get('header', True)
-        name_test_row = kwargs.get('name_test_row', 0)
-        name_guess_row = kwargs.get('name_guess_row', 0)        
         gender_test_row = kwargs.get('gender_test_row', 4)
         gender_guess_row = kwargs.get('gender_guess_row', 4)        
         guess_f_chars = kwargs.get('gender_f_chars', 'f')
@@ -905,11 +903,9 @@ class Gender(object):
         if ((os.path.isfile(guessf)) and (os.path.isfile(testf))):
             if (du.is_json(guessf)):
                 gl = self.json2gender_list(jsonf=guessf, binary=True)
-                guessnames = self.json2names(jsonf=guessf)
                 if (du.is_json(testf)):
                     tl = self.json2gender_list(jsonf=testf, binary=True)
-                    testnames = self.json2names(jsonf=testf, surnames=False)
-                    if (len(guessnames) == len(testnames)):
+                    if (len(gl) == len(tl)):
                         print("########################## " + api + "!!")
                         print("Gender Guess (guess list): " + str(gl))
                         print("Gender Test   (true list): " + str(tl))
@@ -925,9 +921,7 @@ class Gender(object):
                                               test_m_chars=test_m_chars,
                                               delimiter=delimiter_testf)
 
-                    testnames = self.csv2names(path=testf,
-                                               name_position=name_test_row)
-                    if (len(guessnames) == len(testnames)):
+                    if (len(gl) == len(tl)):
                         print("########################## " + api + "!!")
                         print("Gender Guess (guess list): " + str(gl))
                         print("Gender Test   (true list): " + str(tl))
@@ -943,12 +937,9 @@ class Gender(object):
                                           guess_f_chars=guess_f_chars,
                                           guess_m_chars=guess_m_chars,
                                           delimiter_guessf=delimiter_guessf)
-                guessnames = self.csv2names(path=guessf,
-                                            name_position=name_guess_row)
                 if (du.is_json(testf)):
                     tl = self.json2gender_list(jsonf=testf, binary=True)
-                    testnames = self.json2names(jsonf=testf, surnames=False)
-                    if (len(guessnames) == len(testnames)):
+                    if (len(gl) == len(tl)):
                         print("########################## " + api + "!!")
                         print("Gender Guess (guess list): " + str(gl))
                         print("Gender Test   (true list): " + str(tl))
@@ -964,9 +955,7 @@ class Gender(object):
                                               test_f_chars=test_f_chars,
                                               test_m_chars=test_m_chars,
                                               delimiter_testf=delimiter_testf)
-                    testnames = self.csv2names(path=testf,
-                                               name_position=name_test_row)
-                    if (len(guessnames) == len(testnames)):
+                    if (len(gl) == len(tl)):
                         print("######################### " + api + "!!")
                         print("Guess Guess (guess list): " + str(gl))
                         print("Gender Test  (true list): " + str(tl))
