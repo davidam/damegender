@@ -81,7 +81,7 @@ else
 	echo -e  "api2genderDavidgenderguesser test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --measure="precision" --dataset_test="files/names/min.csv" --api=genderize --dataset_guess="files/names/genderizefiles_names_min.csv.json" > files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --measure="precision" --dataset_test="files/names/min.csv" --api=genderize --dataset_guess="files/names/genderizefiles_names_min.csv.json" --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_position_gender=4 --dataset_test_gender_chars="f,m" > files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracygenderizeminjsonprecision.txt files/tests/accuracygenderizeminjsonprecision-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
