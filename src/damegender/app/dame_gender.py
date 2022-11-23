@@ -915,10 +915,10 @@ class Gender(object):
                         v = self.first_uneq_json_and_json_in_names(
                             json1=guessf, json2=testf)
                 elif (du.is_csv(testf)):
-                    tl = self.csv2gender_list(path=testf, binary=True,
+                    tl = self.csv2gender_list(path=testf,
                                               gender_column=gender_test_row,
-                                              test_f_chars=test_f_chars,
-                                              test_m_chars=test_m_chars,
+                                              gender_f_chars=test_f_chars,
+                                              gender_m_chars=test_m_chars,
                                               delimiter=delimiter_testf)
 
                     if (len(gl) == len(tl)):
@@ -934,8 +934,8 @@ class Gender(object):
             elif (du.is_csv(guessf)):
                 gl = self.csv2gender_list(path=guessf, binary=True,
                                           gender_column=gender_guess_row,
-                                          guess_f_chars=guess_f_chars,
-                                          guess_m_chars=guess_m_chars,
+                                          gender_f_chars=guess_f_chars,
+                                          gender_m_chars=guess_m_chars,
                                           delimiter_guessf=delimiter_guessf)
                 if (du.is_json(testf)):
                     tl = self.json2gender_list(jsonf=testf, binary=True)
@@ -950,10 +950,10 @@ class Gender(object):
                                                                   csvf=guessf)
 
                 elif (du.is_csv(testf)):
-                    tl = self.csv2gender_list(path=testf, binary=True,
+                    tl = self.csv2gender_list(path=testf, 
                                               gender_column=gender_test_row,
-                                              test_f_chars=test_f_chars,
-                                              test_m_chars=test_m_chars,
+                                              gender_f_chars=test_f_chars,
+                                              gender_m_chars=test_m_chars,
                                               delimiter_testf=delimiter_testf)
                     if (len(gl) == len(tl)):
                         print("######################### " + api + "!!")
@@ -975,15 +975,15 @@ class Gender(object):
         if difflen:
             print("Names in test file and guessed file are differents")
             print("%s names in test file" %
-                  len(testnames))
+                  len(tl))
             print("%s names in guessed file" %
-                  len(guessnames))
-            print("The unmatched names starts in %s and the name is %s" %
-                  (v[1], v[0]))
-            print("Names in test file: %s:" %
-                  testnames)
-            print("Names in guessed file: %s:" %
-                  guessnames)
+                  len(gl))
+            # print("The unmatched names starts in %s and the name is %s" %
+            #       (v[1], v[0]))
+            # print("Names in test file: %s:" %
+            #       testnames)
+            # print("Names in guessed file: %s:" %
+            #       guessnames)
         return 1
 
     def pretty_cm(self, path, jsonf, *args, **kwargs):
