@@ -91,7 +91,7 @@ else
 fi
 
 
-python3 accuracy.py --api="genderguesser" --dataset_guess=files/names/min.csv --dataset_test=files/names/min.csv.json > files/tests/accuracygenderguesser-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --api="genderguesser" --dataset_guess=files/names/min.csv --dataset_test=files/names/min.csv.json --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_position_gender=4 --dataset_test_gender_chars="f,m" > files/tests/accuracygenderguesser-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracygenderguesser.txt files/tests/accuracygenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
