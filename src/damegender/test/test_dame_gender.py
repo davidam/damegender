@@ -205,6 +205,15 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(g.females, 3)
         self.assertEqual(g.males, 16)
         self.assertEqual(g.unknown, 2)
+        jmla_path = "files/names/names_tests/gender_JMLA.min.dta.csv"
+        gl2 = g.csv2gender_list(path=jmla_path, gender_column=2,
+                                gender_f_chars="female",
+                                gender_m_chars="male")
+        self.assertEqual(gl2, [1, 0, 1, 1, 1, 1, 0, 1, 1, 1])
+        self.assertEqual(len(gl), 21)
+        self.assertEqual(g.females, 2)
+        self.assertEqual(g.males, 8)
+        self.assertEqual(g.unknown, 0)
 
     # def test_dame_gender_dataset2genderlist(self):
     #     g = Gender()
