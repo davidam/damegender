@@ -893,8 +893,8 @@ class Gender(object):
         header = kwargs.get('header', True)
         gender_test_row = kwargs.get('gender_test_row', 4)
         gender_guess_row = kwargs.get('gender_guess_row', 4)        
-        guess_f_chars = kwargs.get('gender_f_chars', 'f')
-        guess_m_chars = kwargs.get('gender_m_chars', 'm')
+        guess_f_chars = kwargs.get('guess_f_chars', 'f')
+        guess_m_chars = kwargs.get('guess_m_chars', 'm')
         test_f_chars = kwargs.get('test_f_chars', 'f')
         test_m_chars = kwargs.get('test_m_chars', 'm')
         delimiter_testf = kwargs.get('delimiter_testf', ',')
@@ -936,7 +936,7 @@ class Gender(object):
                                           gender_column=gender_guess_row,
                                           gender_f_chars=guess_f_chars,
                                           gender_m_chars=guess_m_chars,
-                                          delimiter_guessf=delimiter_guessf)
+                                          delimiter=delimiter_guessf)
                 if (du.is_json(testf)):
                     tl = self.json2gender_list(jsonf=testf, binary=True)
                     if (len(gl) == len(tl)):
@@ -954,7 +954,7 @@ class Gender(object):
                                               gender_column=gender_test_row,
                                               gender_f_chars=test_f_chars,
                                               gender_m_chars=test_m_chars,
-                                              delimiter_testf=delimiter_testf)
+                                              delimiter=delimiter_testf)
                     if (len(gl) == len(tl)):
                         print("######################### " + api + "!!")
                         print("Guess Guess (guess list): " + str(gl))
