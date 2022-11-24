@@ -109,7 +109,7 @@ else
 	echo -e  "accuracypartialprecisiongenderguesser test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --api="genderguesser" --measure="f1score" --dataset_guess=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json > files/tests/accuracygenderguesserpartialnoundefinedjsonf1score-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --api="genderguesser" --measure="f1score" --dataset_guess=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_position_gender=4 --dataset_test_gender_chars="f,m" > files/tests/accuracygenderguesserpartialnoundefinedjsonf1score-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracygenderguesserpartialnoundefinedjsonf1score.txt files/tests/accuracygenderguesserpartialnoundefinedjsonf1score-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -118,7 +118,7 @@ else
 	echo -e  "accuracypartialf1scoregenderguesser test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --api="genderguesser" --measure="recall" --dataset_guess=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json > files/tests/accuracypartialrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --api="genderguesser" --measure="recall" --dataset_guess=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_position_gender=4  --dataset_test_gender_chars="f,m" > files/tests/accuracypartialrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracypartialrecallgenderguesser.txt files/tests/accuracypartialrecallgenderguesser-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
