@@ -1517,4 +1517,8 @@ Y, finalmente juntar todas las lenguas.
 Sería bueno que estuvieran los principales idiomas de todos los países del
 mundo. Generalmente, los nombres y apellidos se asocian más a idiomas que
 a países. Esto se puede demostrar también.
-
+* TODO Hacer un dataset de unknows
+Por ejemplo, generar strings de consonantes sin sílabas, strings de una letra, o nombres clasificados por científicos como unknow.
+* TODO Mejorar nameincountries
+Ahora mismo solo funciona namdict
+Se podría usar name_frec de manera que para cada país investiga si es mayor que 0 y concatena el país con la frecuencia
