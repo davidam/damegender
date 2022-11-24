@@ -1,6 +1,26 @@
+* v0.5
+
++ accuracy.py: bug fixes
++ main.py:
+     adding --force_whitespaces
++ csv2gender.py:
+     adding --force_whitespaces
+     adding Argentina dataset
++ downloadjson.py:
+     adding --outjson 
+     adding --name_position
++ get-wikidata-names.py:
+     adding --outcsv argument
++ get-wikidata-surnames.py:
+     adding --outcsv argument
++ mergeinterfiles.py:
+     adding --malefemale_onlygender argument
++ nameincountries.py:
+     adding message about dataset used
+     
 * v0.4.8
 
-Bug fixes related to pretty_gg_list in accuracy.py
+Bug fixes in accuracy.py
 
 * v0.4.7
 The method pretty_gg_list has been rewritten allowing some combination
