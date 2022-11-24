@@ -100,7 +100,7 @@ else
 	echo -e  "accuracygenderguesser test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --api="genderguesser" --measure="precision" --dataset_guess=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json > files/tests/accuracygenderguesserpartialnoundefinedjsonprecision-$(date "+%Y-%m-%d-%H").txt
+python3 accuracy.py --api="genderguesser" --measure="precision" --dataset_guess=files/names/partialnoundefined.csv --dataset_test=files/names/partialnoundefined.csv.json --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_position_gender=4 --dataset_test_gender_chars="f,m" > files/tests/accuracygenderguesserpartialnoundefinedjsonprecision-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/accuracygenderguesserpartialnoundefinedjsonprecision.txt files/tests/accuracygenderguesserpartialnoundefinedjsonprecision-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
