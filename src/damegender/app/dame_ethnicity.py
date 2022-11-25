@@ -673,6 +673,7 @@ class DameEthnicity(object):
         return l1
 
     def dicc_iso3166_to_eng(self):
+        # This dictionary implements iso3166 where the key is 2 letters and the value is a string that is the location in the english language
         dicc = {"ad": "Andorra",
                 "ae": "United Arab Emirates",
                 "af": "Afghanistan",
