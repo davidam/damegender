@@ -85,6 +85,7 @@ class DameEthnicity(object):
         return string
 
     def inesurname2ethnicity(self, surname, locale):
+        # Given the INE.es surnames returns the countries where a specific surname is present
         du = DameUtils()
         surname = du.drop_accents(surname).upper()
         l1 = []
