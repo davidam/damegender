@@ -30,10 +30,17 @@ import os
 import csv
 import sys
 from app.dame_utils import DameUtils
+from app.dame_gender import Gender
+from app.dame_ethnicity import DameEthnicity
 import argparse
+
+du = DameUtils()
+de = DameEthnicity()
+g = Gender()
 
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the country")
+parser.add_argument('--damegender', default=False, action="store_true")
 args = parser.parse_args()
 
 print("We are using nam_dict.txt as dataset in this script")
@@ -62,8 +69,6 @@ keyscountries = {"30": "Great Britain", "31": "Ireland", "32": "USA",
                  "77": "Arabia/Persia", "78": "Israel", "79": "China",
                  "80": "India/Sri Lanka", "81": "Japan", "82": "Korea",
                  "83": "Vietnam", "84": "other countries"}
-
-du = DameUtils()
 
 
 def exists_in_country(num, arr):
@@ -118,3 +123,15 @@ if (len(sys.argv) > 1):
     print("males: " + (str(sorted(males))))
     print("females: " + str(sorted(females)))
     print("both: " + str(sorted(both)))
+
+if (args.damegender):
+    official_names = ["ar", "at", "au", "be", "ca", "ch", "de", "dk", "es", "fi", "fr", "gb", "ie", "is", "no", "nz", "mx", "pt", "ru", "se", "si", "us", "uy"]
+    males = []
+    females = []
+    both = []
+    iso3166_to_eng = de.dicc_iso3166_to_eng()
+    for i in official_names:
+        dicc = g.name_frec(args.name, dataset=i)
+        if ((int(dicc["females"]) > 10) or (int(dicc["males"]) > 10)):
+            print("%s (females: %s, males: %s)" % (iso3166_to_eng[i], dicc["females"], dicc["males"]))
+
