@@ -22,23 +22,25 @@
 
 #### INTER DATASET
 
-echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.inter.json --measure=accuracy --api=damegender --dataset_guess_row_gender=4 > files/logs/accuracy-inter-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-inter-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.inter.json --measure=accuracy --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_position_gender=2 --dataset_test_position_gender=2 --dataset_test_gender_chars="female,male" > files/logs/accuracy-inter-"$(date "+%Y-%m-%d")".txt > files/logs/accuracy-inter-$(date "+%Y-%m-%d").txt
 
-python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.inter.json --measure=accuracy --api=damegender --dataset_guess_row_gender=4 > files/logs/accuracy-inter-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.inter.json --measure=accuracy --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_test_position_gender=2 --dataset_test_position_gender=2 --dataset_test_gender_chars='female,male'" > files/logs/precision-inter-"$(date "+%Y-%m-%d")".txt 
 
-echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.inter.json --measure=precision --api=damegender --dataset_guess_row_gender=4 > files/logs/precision-inter-"$(date "+%Y-%m-%d")".txt " > files/logs/precision-inter-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.inter.json --measure=precision --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_position_gender=4 --dataset_test_gender_chars="female,male" > files/logs/precision-inter-$(date "+%Y-%m-%d").txt
 
-python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.inter.json --measure=precision --api=damegender --dataset_guess_row_gender=4 > files/logs/precision-inter-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.inter.json --measure=recall --api=damegender --dataset_guess_position_gender=4 --dataset_test_position_gender=2 --dataset_test_gender_chars='female,male' --dataset_guess_gender_chars='f,m'" > files/logs/recall-inter-"$(date "+%Y-%m-%d")".txt 
 
-echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.inter.json --measure=recall --api=damegender --dataset_guess_row_gender=4 > files/logs/recall-inter-"$(date "+%Y-%m-%d")".txt " > files/logs/recall-inter-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.inter.json --measure=recall --api=damegender --dataset_guess_position_gender=4 --dataset_test_position_gender=2 --dataset_test_gender_chars="female,male" --dataset_guess_gender_chars="f,m" > files/logs/recall-inter-$(date "+%Y-%m-%d").txt
 
-python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.inter.json --measure=recall --api=damegender --dataset_guess_row_gender=4 > files/logs/recall-inter-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.inter.json --measure=f1score --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_test_gender_chars='female,male' --dataset_test_position_gender=2 > files/logs/f1score-inter-$(date "+%Y-%m-%d").txt" 
 
-echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.inter.json --measure=f1score --api=damegender --dataset_guess_row_gender=4 > files/logs/f1score-inter-"$(date "+%Y-%m-%d")".txt " > files/logs/f1score-inter-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.inter.json --measure=f1score --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_gender_chars="female,male" --dataset_test_position_gender=2 > files/logs/f1score-inter-$(date "+%Y-%m-%d").txt
 
-python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.inter.json --measure=f1score --api=damegender --dataset_guess_row_gender=4 > files/logs/f1score-inter-$(date "+%Y-%m-%d").txt
+# echo "python3 accuracy.py --dataset_guess=files/names/names_inter/intermales.csv --dataset_test=files/names/names_tests/fifa.csv --measure=accuracy --api=damegender --dataset_guess_row_gender=4 > files/logs/accuracy-inter-males-$(date "+%Y-%m-%d").txt"
 
-echo "python3 accuracy.py --dataset_guess=files/names/names_inter/intermales.csv --dataset_test=files/names/names_tests/fifa.csv --measure=accuracy --api=damegender --dataset_guess_row_gender=4 > files/logs/accuracy-inter-males-$(date "+%Y-%m-%d").txt"
+# mkdir -p files/tmp/
+# cp files/names/names_tests/fifa.csv files/tmp/fifa+gender.csv
+# sed -i "s/$/;male/g" files/tmp/fifa+gender.csv
 
 python3 accuracy.py --dataset_guess=files/names/names_inter/intermales.csv --dataset_test=files/names/names_tests/fifa.csv --dataset_guess_position_name=3 --dataset_guess_position_gender=185 --dataset_guess_delimiter=; --measure=accuracy --api=damegender > files/logs/accuracy-inter-males-$(date "+%Y-%m-%d").txt
 
