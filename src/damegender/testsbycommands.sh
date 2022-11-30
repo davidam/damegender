@@ -356,7 +356,7 @@ else
 	echo -e  "accuracy JMLA dataset test is ${GREEN}ok${NC}"
 fi
 
-python3 accuracy.py --dataset_guess="files/names/min.csv" --api=genderapi --dataset_test="files/names/genderapifiles_names_min.csv.json" --dataset_test_gender_chars="female,male" --dataset_test_position_gender=0 --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" > files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --dataset_guess="files/names/min.csv" --api=genderapi --dataset_test="files/names/genderapifiles_names_min.csv.json" --dataset_test_gender_chars="female,male" --dataset_test_position_gender=0 --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_guess_delimiter="," --dataset_test_delimiter="," > files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d").txt
 
 if ! diff files/tests/accuracygenderapijsondownloaded.txt files/tests/accuracygenderapijsondownloaded-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
 then
@@ -389,14 +389,13 @@ else
 	echo -e  "accuracy genderize precision jsondonwloaded test is ${GREEN}ok${NC}"
 fi
 
-# python3 accuracy.py --dataset_test=files/names/genderizefiles_names_partialnoundefined.csv.json --measure=accuracy --api=genderize --dataset_guess=files/names/partialnoundefined.csv > files/tests/accuracygenderizepartialjsonaccuracy-$(date "+%Y-%m-%d").txt
-# if ! diff files/tests/accuracygenderizepartialjsonaccuracy.txt files/tests/accuracygenderizepartialjsonaccuracy-$(date "+%Y-%m-%d").txt
-# then
-# 	echo -e  "accuracy genderize accuracy jsondonwloaded test is ${RED}failing${NC}"
-# else
-# 	echo -e  "accuracy genderize accuracy jsondonwloaded test is ${GREEN}ok${NC}"
-# fi
-
+python3 accuracy.py --dataset_test=files/names/genderizefiles_names_partialnoundefined.csv.json --measure=accuracy --api=genderize --dataset_guess=files/names/partialnoundefined.csv --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_gender_chars="female,male" --dataset_test_position_gender=4 > files/tests/accuracygenderizepartialjsonaccuracy-$(date "+%Y-%m-%d").txt
+if ! diff files/tests/accuracygenderizepartialjsonaccuracy.txt files/tests/accuracygenderizepartialjsonaccuracy-$(date "+%Y-%m-%d").txt
+then
+	echo -e  "accuracy genderize accuracy jsondonwloaded test is ${RED}failing${NC}"
+else
+	echo -e  "accuracy genderize accuracy jsondonwloaded test is ${GREEN}ok${NC}"
+fi
 
 python3 accuracy.py --dataset_test=files/names/min.csv.json --measure=recall --api=damegender --dataset_guess=files/names/min.csv --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_position_gender=4 --dataset_test_gender_chars="f,m"   > files/tests/accuracygenderizeminjsonrecall-$(date "+%Y-%m-%d").txt
 if ! diff files/tests/accuracygenderizeminjsonrecall.txt files/tests/accuracygenderizeminjsonrecall-$(date "+%Y-%m-%d").txt
