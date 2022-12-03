@@ -33,7 +33,7 @@ from app.dame_utils import DameUtils
 class DameGenderApi(Gender):
 
     def get(self, name):
-        #Allows you to download an API name
+        # it allows to download a name from an API
         if (self.config['DEFAULT']['genderapi'] == 'yes'):
             fichero = open("files/apikeys/genderapipass.txt", "r+")
             contenido = fichero.readline()
@@ -46,7 +46,7 @@ class DameGenderApi(Gender):
         return v
 
     def guess(self, name, binary=False):
-        #It is used to leave it with a standard Damegender coding.
+        # returns a gender from a name 
         v = self.get(name)
         if (self.config['DEFAULT']['genderapi'] == 'yes'):
             guess = v[0]
@@ -69,17 +69,17 @@ class DameGenderApi(Gender):
         return guess
 
     def accuracy(self, name):
-        #It is a way of naming the percentage of men or women.
+        # returns the percentage of men or women using a name
         v = self.get(name)
         return v[1]
 
     def samples(self, name):
-        #The number of persons is obtained
+        # returns the number of people using a name 
         v = self.get(name)
         return v[2]
 
     def download(self, path="files/names/partial.csv", *args, **kwargs):
-        #download a csv of people's names in a json
+        # download a json of people's names from a csv given
         du = DameUtils()
         name_position = kwargs.get('name_position', 0)
         backup = kwargs.get('backup', "files/names/genderapi"+du.path2file(path)+".json")
@@ -116,7 +116,7 @@ class DameGenderApi(Gender):
         return 1
 
     def json2gender_list(self, jsonf="", binary=False):
-        #transforms the json into a binary array of males and females
+        # transforms the json into a binary array of males and females
         jsondata = open(jsonf).read()
         json_object = json.loads(jsondata)
         guesslist = []
@@ -133,7 +133,7 @@ class DameGenderApi(Gender):
         return guesslist
 
     def json2names(self, jsonf="", surnames=False):
-        #transforms the json into an array of male and female names
+        # transforms the json into an array of male and female names
         jsondata = open(jsonf).read()
         json_object = json.loads(jsondata)
         nameslist = []
@@ -146,7 +146,7 @@ class DameGenderApi(Gender):
         return nameslist
 
     def guess_list(self, path="files/names/partial.csv", binary=False):
-        #Displays random name using the api
+        # returns a list of males, females
         du = DameUtils()
         fichero = open("files/apikeys/genderapipass.txt", "r+")
         contenido = fichero.readline()
@@ -190,6 +190,8 @@ class DameGenderApi(Gender):
         return list_total
 
     def apikey_limit_exceeded_p(self):
+        # returns a boolean explaining if the limit
+        # has been exceeded
         j = ""
         limit_exceeded_p = True
         if (self.config['DEFAULT']['genderapi'] == 'yes'):
@@ -203,6 +205,7 @@ class DameGenderApi(Gender):
         return limit_exceeded_p
 
     def apikey_count_requests(self):
+        # returns the count of request done to the API
         count = -1
         if (self.config['DEFAULT']['genderapi'] == 'yes'):
             fichero = open("files/apikeys/genderapipass.txt", "r+")
