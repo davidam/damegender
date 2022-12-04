@@ -27,6 +27,7 @@
 
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
+from app.dame_ethnicity import DameEthnicity
 import argparse
 import re
 
@@ -48,6 +49,7 @@ parser.add_argument('--skip_header',
                     action='store_true')
 # By default split the csv with 1 name per json file
 parser.add_argument('--names_by_multiple_files', default=1)
+parser.add_argument('--names_in_countries', default=False, action="store_true")
 parser.add_argument('--gender',
                     required=True,
                     choices=["male", "female", "all"])
@@ -55,7 +57,8 @@ parser.add_argument('--gender',
 args = parser.parse_args()
 
 du = DameUtils()
-s = Gender()
+de = DameEthnicity()
+g = Gender()
 
 if (args.skip_header):
     csvlist = du.csv2list(args.path, header=True)
@@ -102,7 +105,29 @@ if (int(args.names_by_multiple_files) == 1):
         file.write('"frequency": ' + str(i[1]) + ',\n')
         if (args.gender == "all"):
             file.write('"males": "' + str(i[2]) + ' %",\n')
-            file.write('"females": "' + str(i[3]) + ' %"\n')
+            if (args.names_in_countries):
+                file.write('"females": "' + str(i[3]) + ' %",\n')
+            else:
+                file.write('"females": "' + str(i[3]) + ' %"\n')                
+            if (args.names_in_countries):
+                official_names = ["ar", "at", "au", "be", "ca", "ch", "de", "dk", "es", "fi", "fr", "gb", "ie", "is", "no", "nz", "mx", "pt", "ru", "se", "si", "us", "uy"]
+                iso3166_to_eng = de.dicc_iso3166_to_eng()
+                for i in official_names:
+                    dicc = g.name_frec(name, dataset=i)                    
+                    if ((int(dicc["females"]) > 10) or (int(dicc["males"]) > 10)):
+                        last = i
+                for i in official_names:
+                    dicc = g.name_frec(name, dataset=i)
+                    if ((int(dicc["females"]) > 10) or (int(dicc["males"]) > 10)):
+                        file.write('"'+i+'": [\n')
+                        file.write('{ \n')
+                        file.write('"males": ' + str(dicc["males"]) + ',\n')
+                        file.write('"females": ' + str(dicc["females"]) + '\n')
+                        file.write('} \n')
+                        if (i == last):
+                            file.write('] \n')
+                        else:
+                            file.write('], \n')                        
         else:
             file.write('"gender": "' + str(args.gender) + '"\n')
         file.write('}]\n')
