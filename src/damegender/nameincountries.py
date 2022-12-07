@@ -40,13 +40,10 @@ g = Gender()
 
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the country")
-parser.add_argument('--damegender', default=False, action="store_true")
+parser.add_argument('--dataset', default="inter",
+                    choices=['namdict', 'inter', 'damegender'])
 args = parser.parse_args()
 
-print("We are using nam_dict.txt as dataset in this script")
-# print("by default. ")
-# print("You can use damegender datasets using")
-# print("--damegender")
 
 # Dictionary of countries and person names in files/names/nam_dict.txt
 keyscountries = {"30": "Great Britain", "31": "Ireland", "32": "USA",
@@ -70,7 +67,6 @@ keyscountries = {"30": "Great Britain", "31": "Ireland", "32": "USA",
                  "80": "India/Sri Lanka", "81": "Japan", "82": "Korea",
                  "83": "Vietnam", "84": "other countries"}
 
-
 def exists_in_country(num, arr):
     bool1 = (str(arr[num]) == "A") or (str(arr[num]) == "B")
     bool1 = bool1 or (str(arr[num]) == "C")
@@ -85,8 +81,8 @@ def exists_in_country(num, arr):
     else:
         return False
 
-
-if (len(sys.argv) > 1):
+if (args.dataset == "namdict"):
+    print("We are using nam_dict.txt as dataset in this script")
     cmd = 'grep -i " ' + args.name
     cmd = cmd + ' " files/names/nam_dict.txt > files/logs/grep.tmp'
     print(cmd)
@@ -124,7 +120,8 @@ if (len(sys.argv) > 1):
     print("females: " + str(sorted(females)))
     print("both: " + str(sorted(both)))
 
-if (args.damegender):
+elif ((args.dataset == "damegender") or (args.dataset == "inter")):
+    print("We are using the international dataset in this script")
     official_names = ["ar", "at", "au", "be", "ca", "ch", "de", "dk", "es", "fi", "fr", "gb", "ie", "is", "no", "nz", "mx", "pt", "ru", "se", "si", "us", "uy"]
     males = []
     females = []
