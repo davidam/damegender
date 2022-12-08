@@ -162,7 +162,7 @@ else
 fi
 
 
-python3 nameincountries.py David > files/tests/nameincountriesdavid-$(date "+%Y-%m-%d").txt
+python3 nameincountries.py David --dataset="namdict" > files/tests/nameincountriesdavid-$(date "+%Y-%m-%d").txt
 
 if ! diff files/tests/nameincountriesdavid.txt files/tests/nameincountriesdavid-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
 then
@@ -171,7 +171,7 @@ else
 	echo -e  "nameincountries david test is ${GREEN}ok${NC}"
 fi
 
-python3 nameincountries.py david > files/tests/nameincountriesdavid2-$(date "+%Y-%m-%d").txt
+python3 nameincountries.py david --dataset="namdict" > files/tests/nameincountriesdavid2-$(date "+%Y-%m-%d").txt
 
 if ! diff files/tests/nameincountriesdavid2.txt files/tests/nameincountriesdavid2-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
 then
@@ -180,8 +180,16 @@ else
 	echo -e  "nameincountries david donwcase test is ${GREEN}ok${NC}"
 fi
 
+python3 nameincountries.py david --dataset="inter" > files/tests/nameincountriesdavidinter-$(date "+%Y-%m-%d").txt
 
-python3 nameincountries.py Jesús > files/tests/nameincountriesjesus-$(date "+%Y-%m-%d").txt
+if ! diff files/tests/nameincountriesdavidinter.txt files/tests/nameincountriesdavidinter-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
+then
+	echo -e  "nameincountries david inter test is ${RED}failing${NC}"
+else
+	echo -e  "nameincountries david inter test is ${GREEN}ok${NC}"
+fi
+
+python3 nameincountries.py Jesús --dataset="namdict" > files/tests/nameincountriesjesus-$(date "+%Y-%m-%d").txt
 
 if ! diff files/tests/nameincountriesjesus.txt files/tests/nameincountriesjesus-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
 then
