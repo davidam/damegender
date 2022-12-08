@@ -1522,3 +1522,36 @@ Por ejemplo, generar strings de consonantes sin sílabas, strings de una letra, 
 * TODO Mejorar nameincountries
 Ahora mismo solo funciona namdict
 Se podría usar name_frec de manera que para cada país investiga si es mayor que 0 y concatena el país con la frecuencia
+* TODO Escribir funcionalidades gitcoin
+Hay muchas funcionalidades de DameGender (python+bash) que pueden ser deseadas por los usuarios de la web (nodejs)
+Apuntamos unas cuantas para ponerles un precio por si hay gente interesada en pagar eso.
+** TODO nameincountries (1500€)
+Dado un nombre en el buscador desplegar países que lo usan y frecuencia de personas usándolo en cada país.
+** TODO Machine Learning (2000€)
+Dado un nombre no encontrado en el INTER forzar una respuesta DameGender al género utilizando Machine Learning
+** TODO CSV2GENDER (2000€)
+Dado un dataset csv con una columna de primer nombre y quizás otras columnas de segundos nombres y/o apellidos devolver un nuevo csv y/o json con género otorgado por Damegender
+** TODO Accuracy (2000€)
+Dado dos datasets que cada cual tiene al menos primer nombre y género y donde uno lo nombramos como test y otro como guess devolver:
++ Accuracy
++ Precision
++ F1Score
+** TODO Confusion Matrix (2000€)
+Dado dos datasets que cada cual tiene al menos primer nombre y género y donde uno lo nombramos como test y otro como guess devolver:
++ Matriz de Confusión
+** TODO git2gender (2000€)
+Dado una url de un repositorio GIT devolver el número de hombres y mujeres que tienes autoría en el código
+** TODO newspaper2gender (2000€)
+Dada una url de una noticia de periódico devolver el número de hombres y mujeres que tienen autoría
+** TODO top (5000 €)
+Sacar un listado de cada país con dataset oficiales dónde haya los 10-100-1000 nombres más utilizados pudiendo hacer filtrado de género (masculinos, femeninos, ambos)
+** TODO surname (3000 €)
+Crear una caja de búsqueda que dado un apellido detecte la presencia en países y el número de personas otorgando la fuente de datos (ej: Wikipedia, Estadísticas Oficiales)
+** TODO startwith con ajax (2000 €)
+Según va escribiendo en la caja de búsqueda ir autocompletando con posibles nombres al estilo Google
+** TODO csv2jsonapirest (2000€)
+Dado un csv, por ejemplo, el INTER dataset generar ficheros json con uno o más nombres cada uno y devolver ese conjuto de ficheros comprimido en un .zip
+** TODO percentage2names (2000€)
+Para personas que quieran conocer deminombres, esto es, buscar nombres en base a porcentajes de masculinidad y feminidad habría que crear un formulario dando como parámetros masculinidad máxima y mínima, feminidad máxima y mínima y origen nacional del nombre
+** TODO infofeatures o las reglas del lenguaje (10000€)
+Dado un origen nacional o lengua desplegar información estadística acerca de las reglas de ese conjunto de nombres. Debería dar la información explicativa de los n-gramas y las características más significativas con PCA
