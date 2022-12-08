@@ -70,4 +70,11 @@ class TddInPythonExample(unittest.TestCase):
         gl2 = dgg.guess_list(path="files/names/partial.csv",
                              binary=True)
         self.assertTrue(ds.accuracy_score_dame(gl1, gl2) >= 0.5)
-#        self.assertTrue(ds.accuracy(path="files/names/partial.csv") >= 0.5)
+        # self.assertTrue(ds.accuracy(path="files/names/partial.csv") >= 0.5)
+
+    def test_dame_genderguesser_keyscountries(self):
+        dgg = DameGenderGuesser()
+        gb = dgg.keyscountries["30"]
+        us = dgg.keyscountries["32"]
+        self.assertEqual(gb, "Great Britain")
+        self.assertEqual(us, "USA")
