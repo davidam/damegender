@@ -482,7 +482,7 @@ class Gender(object):
     def name_frec(self, name, *args, **kwargs):
         # guess list method
         dataset = kwargs.get('dataset', "us")
-        force_whitespaces = kwargs.get('force_whitespaces', False)        
+        force_whitespaces = kwargs.get('force_whitespaces', False)
         du = DameUtils()
         name = du.drop_accents(name)
         if force_whitespaces:
@@ -747,11 +747,13 @@ class Gender(object):
     def guess(self, name, binary=False, dataset='us', *args, **kwargs):
         # guess method to check names dictionary
         nonamerange = kwargs.get('nonamerange', 0)
-        force_whitespaces = kwargs.get('force_whitespaces', False)        
+        force_whitespaces = kwargs.get('force_whitespaces', False)
         guess = ''
         name = unidecode.unidecode(name).title()
         name.replace(name, "")
-        dicc = self.name_frec(name, dataset=dataset, force_whitespaces=force_whitespaces)
+        dicc = self.name_frec(name,
+                              dataset=dataset,
+                              force_whitespaces=force_whitespaces)
         m = int(dicc['males'])
         f = int(dicc['females'])
         # nonamerange must be greater than 500
@@ -892,7 +894,7 @@ class Gender(object):
         api = kwargs.get('api', 'damegender')
         header = kwargs.get('header', True)
         gender_test_row = kwargs.get('gender_test_row', 4)
-        gender_guess_row = kwargs.get('gender_guess_row', 4)        
+        gender_guess_row = kwargs.get('gender_guess_row', 4)
         guess_f_chars = kwargs.get('guess_f_chars', 'f')
         guess_m_chars = kwargs.get('guess_m_chars', 'm')
         test_f_chars = kwargs.get('test_f_chars', 'f')
@@ -950,7 +952,7 @@ class Gender(object):
                                                                   csvf=guessf)
 
                 elif (du.is_csv(testf)):
-                    tl = self.csv2gender_list(path=testf, 
+                    tl = self.csv2gender_list(path=testf,
                                               gender_column=gender_test_row,
                                               gender_f_chars=test_f_chars,
                                               gender_m_chars=test_m_chars,
@@ -971,7 +973,7 @@ class Gender(object):
             print(testf)
             print("a file for guessed file")
             print(guessf)
-            
+
         if difflen:
             print("Names in test file and guessed file are differents")
             print("%s names in test file" %
