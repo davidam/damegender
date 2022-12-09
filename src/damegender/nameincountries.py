@@ -87,7 +87,10 @@ if (args.dataset == "namdict"):
 
 elif ((args.dataset == "damegender") or (args.dataset == "inter")):
     print("We are using the international dataset in this script")
-    official_names = ["ar", "at", "au", "be", "ca", "ch", "de", "dk", "es", "fi", "fr", "gb", "ie", "is", "no", "nz", "mx", "pt", "ru", "se", "si", "us", "uy"]
+    official_names = ["ar", "at", "au", "be", "ca", "ch", "de",
+                      "dk", "es", "fi", "fr", "gb", "ie", "is",
+                      "no", "nz", "mx", "pt", "ru", "se", "si",
+                      "us", "uy"]
     males = []
     females = []
     both = []
@@ -95,5 +98,5 @@ elif ((args.dataset == "damegender") or (args.dataset == "inter")):
     for i in official_names:
         dicc = g.name_frec(args.name, dataset=i)
         if ((int(dicc["females"]) > 10) or (int(dicc["males"]) > 10)):
-            print("%s (females: %s, males: %s)" % (iso3166_to_eng[i], dicc["females"], dicc["males"]))
-
+            print("%s (females: %s, males: %s)" %
+                  (iso3166_to_eng[i], dicc["females"], dicc["males"]))
