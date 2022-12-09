@@ -108,18 +108,26 @@ if (int(args.names_by_multiple_files) == 1):
             if (args.names_in_countries):
                 file.write('"females": "' + str(i[3]) + ' %",\n')
             else:
-                file.write('"females": "' + str(i[3]) + ' %"\n')                
+                file.write('"females": "' + str(i[3]) + ' %"\n')
             if (args.names_in_countries):
-                official_names = ["ar", "at", "au", "be", "ca", "ch", "de", "dk", "es", "fi", "fr", "gb", "ie", "is", "no", "nz", "mx", "pt", "ru", "se", "si", "us", "uy"]
+                official_names = ["ar", "at", "au", "be", "ca",
+                                  "ch", "de", "dk", "es", "fi",
+                                  "fr", "gb", "ie", "is", "no",
+                                  "nz", "mx", "pt", "ru", "se",
+                                  "si", "us", "uy"]
                 iso3166_to_eng = de.dicc_iso3166_to_eng()
                 for i in official_names:
-                    dicc = g.name_frec(name, dataset=i)                    
-                    if ((int(dicc["females"]) > 10) or (int(dicc["males"]) > 10)):
+                    dicc = g.name_frec(name, dataset=i)
+                    boolfemales = (int(dicc["females"]) > 10)
+                    boolmales = (int(dicc["males"]) > 10)
+                    if (boolfemales or boolmales):
                         last = i
                 for i in official_names:
                     dicc = g.name_frec(name, dataset=i)
-                    if ((int(dicc["females"]) > 10) or (int(dicc["males"]) > 10)):
-                        file.write('"'+i+'": [\n')
+                    boolfemales = (int(dicc["females"]) > 10)
+                    boolmales = (int(dicc["males"]) > 10)
+                    if (boolfemales or boolmales):
+                        file.write('"'+str(i)+'": [\n')
                         file.write('{ \n')
                         file.write('"males": ' + str(dicc["males"]) + ',\n')
                         file.write('"females": ' + str(dicc["females"]) + '\n')
@@ -127,7 +135,7 @@ if (int(args.names_by_multiple_files) == 1):
                         if (i == last):
                             file.write('] \n')
                         else:
-                            file.write('], \n')                        
+                            file.write('], \n')
         else:
             file.write('"gender": "' + str(args.gender) + '"\n')
         file.write('}]\n')
