@@ -123,17 +123,18 @@ for i in csvrowlist:
             surname_string = du.drop_quotes(ii[surname_position])
             surname_string = surname_string.encode('utf-8')
         if (args.respect_accents):
-            sex = s.guess(first_name_string.decode('utf-8'),
-                          binary=False,
-                          drop_accents=False,
-                          force_whitespaces=args.force_whitespaces,
-                          dataset=args.dataset)
+            sex = s.guess(
+                first_name_string.decode('utf-8'),
+                binary=False,
+                drop_accents=False,
+                force_whitespaces=args.force_whitespaces,
+                dataset=args.dataset)
         else:
-            sex = s.guess(first_name_string.decode('utf-8'),
-                          binary=False,
-                          force_whitespaces=args.force_whitespaces,                          
-                          dataset=args.dataset)
-            
+            sex = s.guess(
+                first_name_string.decode('utf-8'),
+                binary=False,
+                force_whitespaces=args.force_whitespaces,
+                dataset=args.dataset)
         if (sex == "male"):
             males_list.append(first_name_string)
         elif (sex == "female"):
