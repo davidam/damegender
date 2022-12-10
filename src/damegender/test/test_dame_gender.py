@@ -116,9 +116,11 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(r, "female")
         r = g.guess(name="Andrea", binary=True)
         self.assertEqual(r, 0)
-        r = g.guess(name="ANA-MARIA", binary=True, dataset="inter")
+        r = g.guess(name="ANA-MARIA", binary=True,
+                    dataset="inter")
         self.assertEqual(r, 0)
-        r = g.guess(name="ANA-MARIA", binary=True, dataset="inter", force_whitespaces=True)
+        r = g.guess(name="ANA-MARIA", binary=True,
+                    dataset="inter", force_whitespaces=True)
         self.assertEqual(r, 0)
 
     def test_dame_gender_guess_surname(self):
@@ -150,13 +152,15 @@ class TddInPythonExample(unittest.TestCase):
               ['Adriano', 'moura'], ['Ralf', 'kieser'],
               ['Guillermo', 'leon-de-la-barra'], ['Sabina', 'pannek']]
         self.assertEqual(l3, names)
-        l4 = g.csv2names(path='files/names/names_tests/gender_JMLA.min.dta.csv',
+        pathvar = 'files/names/names_tests/gender_JMLA.min.dta.csv'
+        l4 = g.csv2names(path=pathvar,
                          header=False, delimiter=",", name_position=1)
-        names = ['A. Nehad', 'Aaron Mathieu', 'Aarti', 'Abdelkarim', 'Abdirahman', 'Abdullah', 'Abiram', 'Abran Lois Esther', 'Adam', 'Adam', 'Adel']
+        names = ['A. Nehad', 'Aaron Mathieu', 'Aarti', 'Abdelkarim',
+                 'Abdirahman', 'Abdullah', 'Abiram', 'Abran Lois Esther',
+                 'Adam', 'Adam', 'Adel']
         self.assertEqual(l4, names)
         self.assertTrue(len(l4) > 5)
 
-        
     def test_dame_gender_csv2json(self):
         g = Gender()
         g.csv2json(path="files/names/min.csv")
@@ -214,7 +218,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(g.females, 2)
         self.assertEqual(g.males, 8)
         self.assertEqual(g.unknown, 0)
-        jmla_inter_path = "files/names/names_tests/gender_JMLA.min.interguessed.csv"
+        jmlai_path = "files/names/names_tests/gender_JMLA.min.interguessed.csv"
         gl3 = g.csv2gender_list(header=False,
                                 path=jmla_inter_path,
                                 gender_column=1,
@@ -225,13 +229,6 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(g.females, 1)
         self.assertEqual(g.males, 7)
         self.assertEqual(g.unknown, 3)
-        
-        
-    # def test_dame_gender_dataset2genderlist(self):
-    #     g = Gender()
-    #     path1 = "files/names/min.noheader.csv"
-    #     gl = g.dataset2genderlist(dataset=path1)
-    #     self.assertEqual(gl, [1, 1, 1, 1])
 
     def test_dame_gender_features_list(self):
         g = Gender()
@@ -282,11 +279,13 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(int(frec7['females']), 2867)
         frec37 = g.name_frec("ANA-MARIA", dataset='inter')
         self.assertEqual(int(frec37['females']), 4130)
-        self.assertEqual(int(frec37['males']), 0)        
-        frec38 = g.name_frec("ANA-MARIA", force_whitespaces=True, dataset='inter')
+        self.assertEqual(int(frec37['males']), 0)
+        frec38 = g.name_frec("ANA-MARIA",
+                             force_whitespaces=True,
+                             dataset='inter')
         self.assertEqual(int(frec38['females']), 277337)
         self.assertEqual(int(frec38['males']), 5)
-        
+
     def test_dame_gender_name_frec_from_file(self):
         g = Gender()
         path = "files/names/names_at/atmales.csv"
