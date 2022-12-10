@@ -220,7 +220,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(g.unknown, 0)
         jmlai_path = "files/names/names_tests/gender_JMLA.min.interguessed.csv"
         gl3 = g.csv2gender_list(header=False,
-                                path=jmla_inter_path,
+                                path=jmlai_path,
                                 gender_column=1,
                                 gender_f_chars="female",
                                 gender_m_chars="male")
