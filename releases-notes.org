@@ -1,3 +1,11 @@
+* v0.5.1
+
++ reviewing PEP8 coding style
++ nameincountries.py:
+     giving support to INTER dataset
++ csv2jsonapirest.py:
+     adding --names_in_countries
+
 * v0.5
 
 + accuracy.py: bug fixes
