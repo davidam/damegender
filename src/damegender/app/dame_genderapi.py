@@ -46,7 +46,7 @@ class DameGenderApi(Gender):
         return v
 
     def guess(self, name, binary=False):
-        # returns a gender from a name 
+        # returns a gender from a name
         v = self.get(name)
         if (self.config['DEFAULT']['genderapi'] == 'yes'):
             guess = v[0]
@@ -74,7 +74,7 @@ class DameGenderApi(Gender):
         return v[1]
 
     def samples(self, name):
-        # returns the number of people using a name 
+        # returns the number of people using a name
         v = self.get(name)
         return v[2]
 
@@ -82,12 +82,13 @@ class DameGenderApi(Gender):
         # download a json of people's names from a csv given
         du = DameUtils()
         name_position = kwargs.get('name_position', 0)
-        backup = kwargs.get('backup', "files/names/genderapi"+du.path2file(path)+".json")
+        genderapipath = "files/names/genderapi" + du.path2file(path) + ".json"
+        backup = kwargs.get('backup', genderapipath)
         fichero = open("files/apikeys/genderapipass.txt", "r+")
         if backup:
             backup = open(backup, "w+")
         else:
-            backup = open("files/names/genderapi"+du.path2file(path)+".json", "w+")
+            backup = open(genderapipath, "w+")
         contenido = fichero.readline()
         contenido = contenido.replace('\n', '')
         string = ""
