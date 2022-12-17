@@ -33,7 +33,8 @@ cd baby-names
 
 for i in $(ls *csv); do
     sed "1d" $i > aux.csv
-    mv aux.csv $i
+    sed -i '/^,.*/d' aux.csv > aux2.csv
+    mv aux2.csv $i
 done
 
 wget -c https://data.sa.gov.au/data/dataset/9849aa7f-e316-426e-8ab5-74658a62c7e6/resource/c11d4aff-fcb5-48a9-aa19-8e04bb8b716e/download/femalecy2014top.csv
