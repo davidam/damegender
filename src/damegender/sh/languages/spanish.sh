@@ -30,8 +30,18 @@ echo "Merging Uruguay"
 python3 mergeinterfiles.py --file1="files/tmp/aresfemales.csv" --file2="files/names/names_uy/uyfemales.csv" --output=files/tmp/aresuyfemales.csv
 echo "Merging Mexico"
 python3 mergeinterfiles.py --file1="files/tmp/aresuyfemales.csv" --file2="files/names/names_mx/mxfemales.csv" --output=files/tmp/aresuymxfemales.csv
-cp files/tmp/aresuyfemales.csv files/names/spanish.csv
+cp files/tmp/aresuyfemales.csv files/names/languages/spanishfemales.csv
 
 
-# echo "Cleaning temporal files"
-# rm files/tmp/*
+echo "Building spanishmales.csv"
+echo "Merging Argentina and Spanish"
+python3 mergeinterfiles.py --file1="files/names/names_ar/armales.csv" --file2="files/names/names_es/esmales.csv" --output=files/tmp/aresmales.csv
+echo "Merging Uruguay"
+python3 mergeinterfiles.py --file1="files/tmp/aresmales.csv" --file2="files/names/names_uy/uymales.csv" --output=files/tmp/aresuymales.csv
+echo "Merging Mexico"
+python3 mergeinterfiles.py --file1="files/tmp/aresuymales.csv" --file2="files/names/names_mx/mxmales.csv" --output=files/tmp/aresuymxmales.csv
+cp files/tmp/aresuymales.csv files/names/languages/spanishmales.csv
+
+
+echo "Cleaning temporal files"
+rm files/tmp/*
