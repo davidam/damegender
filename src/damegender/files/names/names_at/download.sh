@@ -22,13 +22,17 @@
 mkdir -p orig
 cd orig
 wget -c https://www.wien.gv.at/statistik/ogd/vie-bdl-pop-sex-rank-name-phon-2010f.csv
+sed "/^\,/d" vie-bdl-pop-sex-rank-name-phon-2010f.csv > out.csv
+mv out.csv vie-bdl-pop-sex-rank-name-phon-2010f.csv
 wget -c https://www.wien.gv.at/statistik/ogd/vornamen-synonymliste.csv
+sed "/^\,/d" vornamen-synonymliste.csv > out2.csv
+mv out2.csv vornamen-synonymliste.csv 
 wget -c https://statistik.at/fileadmin/pages/426/Vornamen_1984_bis_2021_original_Schreibweise.ods
-#ssconvert -S Vornamen_syn-top.ods Vornamen_syn-top.csv
 ssconvert -S Vornamen_1984_bis_2021_original_Schreibweise.ods Vornamen_1984_bis_2021_original_Schreibweise.csv
-for i in $(ls Vornamen_1984_bis_2021_original_Schreibweise.csv.*); do
-    sed "1,4d" $i > aux.csv
-    mv aux.csv $i
+for i in $(seq 1 10); do
+    sed "1,4d" Vornamen_1984_bis_2021_original_Schreibweise.csv.$i > aux.csv
+    sed "/^\,/d" aux.csv > aux2.csv
+    mv aux2.csv Vornamen_1984_bis_2021_original_Schreibweise.csv.$i
 done
 
 cd ..
