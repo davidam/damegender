@@ -1,6 +1,6 @@
 * Retrieved with Wikidata
 Poland
 
-* Other sources:
+* Non official data sources:
 Kaggle provides interesting free data sources
 https://www.kaggle.com/datasets/djablo/list-of-polish-first-and-last-names?resource=download&select=polish_male_firstnames.txt
