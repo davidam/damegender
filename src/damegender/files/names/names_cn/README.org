@@ -2,6 +2,8 @@
 + https://github.com/psychbruce/ChineseNames
 + Originally obtained from National Citizen Identity Information Center (NCIC) of China.
 
++ The dictionary english and chinese was retrieved from (https://github.com/wainshine/Chinese-Names-Corpus)
+    
 * Papers related
 + Paper related: https://www.frontiersin.org/articles/10.3389/fpsyg.2021.731244/full
   
