@@ -49,6 +49,9 @@ wget -c https://osf.io/wjv7q/
 # FIFA
 wget -c https://www.kaggle.com/datasets/thec03u5/fifa-18-demo-player-dataset
 
+# Amazon Top 50 Best Selling Books (2009-2019)
+wget -c https://www.kaggle.com/datasets/sootersaalu/amazon-top-50-bestselling-books-2009-2019/download?datasetVersionNumber=1
+
 # Lucia and Helena Dataset
 wget -c https://raw.githubusercontent.com/GenderGapSTEM-PublicationAnalysis/name_gender_inference/main/name_gender_inference/test_data/raw_data/all.csv
 grep -v ',"u",' all.csv > allnoundefined.csv
