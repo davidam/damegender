@@ -1,4 +1,5 @@
-Retrieved with Wikidata: 
+Retrieved with Wikidata:
+South Africa
 + zasurnames.csv
 + zafemales.csv
 + zamales.csv
@@ -7,3 +8,15 @@ Retrieved from Open Data Portal
 (https://data.openup.org.za/dataset/frequency-of-names-in-south-africa-6ik7-82ip)
 + orig/zanames.csv (a collection of South Africa names)
 
+Official Languages (11):
+Zulu
+Xhosa
+Afrikaans
+English
+Sepedi
+Swazi
+Sesotho
+Setswana
+Xitsonga
+Tshivenda
+Ndebele
