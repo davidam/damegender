@@ -1,0 +1,10 @@
+Retrieved with Wikidata:
+Vanuatu
++ vusurnames.csv
++ vufemales.csv
++ vumales.csv
+
+Official Languages:
++ Bislama
++ English
++ French
