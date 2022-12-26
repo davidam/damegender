@@ -21,7 +21,10 @@
 
 mkdir -p orig
 cd orig
-wget -c https://www.insee.fr/fr/statistiques/fichier/2540004/dpt_2000_2020_csv.zip
-wget -c https://www.insee.fr/fr/statistiques/fichier/2540004/dpt2020_csv.zip
-wget -c https://www.insee.fr/fr/statistiques/fichier/2540004/nat2020_csv.zip
+wget -c https://www.insee.fr/fr/statistiques/fichier/2540004/dpt_2000_2021_csv.zip
+unzip dpt_2000_2020_csv.zip
+wget -c https://www.insee.fr/fr/statistiques/fichier/2540004/dpt2021_csv.zip
+unzip dpt_2000_csv.zip
+wget -c https://www.insee.fr/fr/statistiques/fichier/2540004/nat2021_csv.zip
+unzip nat2020_csv.zip
 cd ..
