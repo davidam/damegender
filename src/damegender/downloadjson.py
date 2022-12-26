@@ -68,7 +68,6 @@ elif (args.api == 'genderapi'):
         elif (dga.apikey_count_requests() >= num):
             text1 = dga.download(path=args.csv,
                                  name_position=args.name_position,
-                                 backup=args.outjson,
                                  backup=args.outjson)
         else:
             print("You have not money with this api key")
