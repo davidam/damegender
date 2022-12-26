@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 # Copyright (C) 2020  David Arroyo Menéndez (davidam@gmail.com)
 # This file is part of Damegender.
 
@@ -19,6 +19,13 @@
 # along with DameGender; see the file GPL.txt.  If not, write to
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
+
+
+cd ../../files/names
+wget -c https://raw.githubusercontent.com/GenderGapSTEM-PublicationAnalysis/name_gender_inference/main/name_gender_inference/test_data/raw_data/all.csv
+grep -v ',"u",' all.csv > allnoundefined.csv
+
+cd ../..
 
 #### INTER DATASET
 
