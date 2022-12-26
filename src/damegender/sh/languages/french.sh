@@ -24,14 +24,16 @@ cd ../../
 mkdir -p files/tmp
 
 echo "Building frenchfemales.csv"
-echo "Merging France and Canada"
+echo "Merging french countries, building females"
 python3 mergeinterfiles.py --file1="files/names/names_fr/frfemales.csv" --file2="files/names/names_ca/cafemales.csv" --output=files/tmp/frcafemales.csv
-cp files/tmp/frcafemales.csv files/names/frenchfemales.csv
+python3 mergeinterfiles.py --file1="files/tmp/frcafemales.csv" --file2="files/names/names_tg/tgfemales.csv" --output=files/tmp/frcatgfemales.csv
+cp files/tmp/frcatgfemales.csv files/names/languages/frenchfemales.csv
 
 echo "Building frenchmales.csv"
-echo "Merging France and Canada"
+echo "Merging french countries, building males"
 python3 mergeinterfiles.py --file1="files/names/names_fr/frmales.csv" --file2="files/names/names_ca/camales.csv" --output=files/tmp/frcamales.csv
-cp files/tmp/frcamales.csv files/names/frenchmales.csv
+python3 mergeinterfiles.py --file1="files/tmp/frcamales.csv" --file2="files/names/names_tg/tgmales.csv" --output=files/tmp/frcatgmales.csv
+cp files/tmp/frcatgmales.csv files/names/languages/frenchmales.csv
 
 
 echo "Cleaning temporal files"
