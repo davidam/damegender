@@ -101,7 +101,8 @@ if (country == "ar"):
                 diccsurnames[row[2]] = 1
 
         for i in diccsurnames.keys():
-            filesurnames.write(str(i)+","+str(diccsurnames[i])+"\n")
+            if i:
+                filesurnames.write(str(i)+","+str(diccsurnames[i])+"\n")
 
     filesurnames.close()
 
@@ -113,31 +114,20 @@ elif (country == "at"):
         print("Downloading datasets from Austria ...")
         subprocess.call(outpath + "download.sh", shell=True)
 
-    l0 = ['Vornamen_syn-top.csv.2',
-          'Vornamen_syn-top.csv.3',
-          'Vornamen_syn-top.csv.4',
-          'Vornamen_syn-top.csv.5',
-          'Vornamen_syn-top.csv.6',
-          'Vornamen_syn-top.csv.7',
-          'Vornamen_syn-top.csv.8',
-          'Vornamen_syn-top.csv.9',
-          'Vornamen_syn-top.csv.10',
-          'Vornamen_syn-top.csv.11',
-          'Vornamen_syn-top.csv.12']
+    l0 = ['Vornamen_1984_bis_2021_original_Schreibweise.csv.2',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.3',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.4',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.5',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.6',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.7',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.8',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.9',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.10',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.11',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.12',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.13']
 
-    origfile = origpath + 'l9ogdvornamentop500'
-
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile, 7, 8,
-                                                  dicc={},
-                                                  delimiter=";",
-                                                  filter_pos=5,
-                                                  filter_char='1')
-
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile, 7, 8,
-                                                    dicc={},
-                                                    delimiter=";",
-                                                    filter_pos=5,
-                                                    filter_char='2')
+    # origfile = origpath + 'l9ogdvornamentop500'
 
     for i in l0:
         path = origpath + '/' + i
@@ -497,7 +487,7 @@ elif (country == "fi"):
 
 elif (country == "fr"):
     origpath = outpath + "orig/"
-    origfile = origpath + "nat2020.csv"
+    origfile = origpath + "nat2021.csv"
     if (args.download):
         print("Downloading french datasets ...")
         subprocess.call(outpath + "download.sh", shell=True)
