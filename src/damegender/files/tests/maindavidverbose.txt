@@ -1,6 +1,6 @@
 56 males for David from Argentina statistics
 0 females for David from Argentina statistics
-90451 males for David from Austria statistics
+89952 males for David from Austria statistics
 0 females for David from Austria statistics
 19719 males for David from Australia statistics
 7 females for David from Australia statistics
@@ -27,8 +27,8 @@ Warning: China option only runs with China alphabet
 0 females for David from Italy statistics
 4106 males for David from Finland statistics
 0 females for David from Finland statistics
-313846 males for David from France statistics
-139 females for David from France statistics
+314449 males for David from France statistics
+70 females for David from France statistics
 64237 males for David from United Kingdom of Great Britain and Northern Ireland statistics
 14 females for David from United Kingdom of Great Britain and Northern Ireland statistics
 2276 males for David from Mexico statistics
