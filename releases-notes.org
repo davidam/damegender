@@ -5,7 +5,10 @@
      giving support to INTER dataset
 + csv2jsonapirest.py:
      adding --names_in_countries
-
++ sh files has been moved to sh folder
++ starting sh scripts about merging datasets in languages
++ more datasets has been added (genderize, indonesia, amazon best sellers, gutember authors , ...)
+  
 * v0.5
 
 + accuracy.py: bug fixes
