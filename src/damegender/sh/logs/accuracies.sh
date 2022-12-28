@@ -72,7 +72,7 @@ echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv 
 python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=recall --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_position_gender=4 --dataset_test_gender_chars="female,male" > files/logs/accuracy-mlp-recall-$(date "+%Y-%m-%d").txt
 
 
-SGD ALGORITHM
+######## SGD ALGORITHM
 
 echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.sgd.json --measure=f1score --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male'"
 
@@ -90,23 +90,24 @@ echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined.csv --datas
 
 python3 accuracy.py --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.sgd.json --measure=recall --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male' > files/logs/accuracy-sgd-recall-$(date "+%Y-%m-%d").txt
 
-#### SVC ALGORITHM
+########### SVC ALGORITHM
 
-echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.svc.json --measure=f1score --api=damegender --dataset_guess_row_gender=4 > files/logs/accuracy-svc-f1score-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-svc-f1score-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_guess=files/names/allnoundefined+header.csv --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male' --dataset_test=files/names/allnoundefined.csv.svc.json --measure=f1score --api=damegender" 
 
-python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.svc.json --measure=f1score --api=damegender --dataset_guess_row_gender=4 >> files/logs/accuracy-svc-f1score-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_guess=files/names/allnoundefined+header.csv --dataset_test_position_gender=4 --dataset_test_gender_chars="female,male" --dataset_test=files/names/allnoundefined.csv.svc.json --measure=f1score --api=damegender > files/logs/accuracy-svc-f1score-$(date "+%Y-%m-%d").txt
 
-echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.svc.json --measure=accuracy --api=damegender --dataset_guess_row_gender=4 > files/logs/accuracy-svc-accuracy-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-svc-accuracy-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_guess=files/names/allnoundefined+header.csv --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male' --dataset_test=files/names/allnoundefined.csv.svc.json --measure=accuracy --api=damegender"
 
-python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.svc.json --measure=accuracy --api=damegender --dataset_guess_row_gender=4 >> files/logs/accuracy-svc-accuracy-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_guess=files/names/allnoundefined+header.csv --dataset_test_position_gender=4 --dataset_test_gender_chars="female,male" --dataset_test=files/names/allnoundefined.csv.svc.json --measure=accuracy --api=damegender > files/logs/accuracy-svc-accuracy-$(date "+%Y-%m-%d").txt
 
-echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.svc.json --measure=precision --api=damegender --dataset_guess_row_gender=4 > files/logs/accuracy-svc-precision-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-svc-precision-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_guess=files/names/allnoundefined+header.csv --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male' --dataset_test=files/names/allnoundefined.csv.svc.json --measure=precision --api=damegender"
 
-python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.svc.json --measure=precision --api=damegender --dataset_guess_row_gender=4 >> files/logs/accuracy-svc-precision-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_guess=files/names/allnoundefined+header.csv --dataset_test_position_gender=4 --dataset_test_gender_chars="female,male" --dataset_test=files/names/allnoundefined.csv.svc.json --measure=precision --api=damegender > files/logs/accuracy-svc-precision-$(date "+%Y-%m-%d").txt
+ 
+echo "python3 accuracy.py --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_guess=files/names/allnoundefined+header.csv --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male' --dataset_test=files/names/allnoundefined.csv.svc.json --measure=recall --api=damegender" 
 
-echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.svc.json --measure=recall --api=damegender --dataset_guess_row_gender=4 > files/logs/accuracy-svc-recall-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-svc-recall-$(date "+%Y-%m-%d").txt
-
-python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.svc.json --measure=recall --api=damegender --dataset_guess_row_gender=4 >> files/logs/accuracy-svc-recall-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_guess=files/names/allnoundefined+header.csv --dataset_test_position_gender=4 --dataset_test_gender_chars="female,male" --dataset_test=files/names/allnoundefined.csv.svc.json --measure=recall --api=damegender > files/logs/accuracy-svc-recall-$(date "+%Y-%m-%d").txt
+ 
 
 #### TREE ALGORITHM
 
