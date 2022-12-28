@@ -55,21 +55,22 @@ python3 accuracy.py --dataset_guess=files/tmp/intermales+gender.csv --dataset_te
 
 #### MLP ALGORITHM
 
-echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --api=damegender --dataset_guess_row_gender=4 > files/logs/accuracy-mlp-f1score-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-nltk-f1score-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=f1score --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male'" > files/logs/accuracy-mlp-f1score-'$(date "+%Y-%m-%d")'.txt   > files/logs/accuracy-mlp-f1score-$(date "+%Y-%m-%d").txt
 
-python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=f1score --api=damegender --dataset_guess_row_gender=4 > files/logs/accuracy-mlp-f1score-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=f1score --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_position_gender=4 --dataset_test_gender_chars="female,male" > files/logs/accuracy-mlp-f1score-$(date "+%Y-%m-%d").txt
 
-echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=accuracy --api=damegender --dataset_guess_row_gender=4 > files/logs/accuracy-mlp-accuracy-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-mlp-accuracy-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=accuracy --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male'"
 
-python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=accuracy --api=damegender --dataset_guess_row_gender=4 >> files/logs/accuracy-mlp-accuracy-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=accuracy --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_position_gender=4 --dataset_test_gender_chars="female,male" > files/logs/accuracy-mlp-accuracy-$(date "+%Y-%m-%d").txt
 
-echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=precision --api=damegender --dataset_guess_row_gender=4 > files/logs/accuracy-mlp-precision-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-mlp-precision-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=precision --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male'" > files/logs/accuracy-mlp-precision-'$(date "+%Y-%m-%d")'.txt  
 
-python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=precision --api=damegender >> files/logs/accuracy-mlp-precision-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=precision --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_position_gender=4 --dataset_test_gender_chars="female,male" > files/logs/accuracy-mlp-f1score-$(date "+%Y-%m-%d").txt
 
-echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=recall --api=damegender --dataset_guess_row_gender=4 > files/logs/accuracy-mlp-recall-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-mlp-recall-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=recall --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male'" > files/logs/accuracy-mlp-recall-'$(date "+%Y-%m-%d")'.txt  
 
-python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=recall --api=damegender --dataset_guess_row_gender=4 >> files/logs/accuracy-mlp-recall-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=recall --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_test_position_gender=4 --dataset_test_gender_chars="female,male" > files/logs/accuracy-mlp-recall-$(date "+%Y-%m-%d").txt
+
 
 #### SGD ALGORITHM
 
