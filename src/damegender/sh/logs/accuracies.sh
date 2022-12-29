@@ -111,22 +111,21 @@ python3 accuracy.py --dataset_guess_position_gender=4 --dataset_guess_gender_cha
 
 #### TREE ALGORITHM
 
-echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.tree.json --measure=f1score --api=damegender --dataset_guess_row_gender=4 > files/logs/accuracy-tree-f1score-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-tree-f1score-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.tree.json --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male' --measure=f1score --api=damegender" 
 
-python3 accuracy.py --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.tree.json --measure=f1score --api=damegender --dataset_guess_row_gender=4 >> files/logs/accuracy-tree-f1score-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --dataset_guess_position_gender=4 --dataset_guess_gender_chars="f,m" --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.tree.json --dataset_test_position_gender=4 --dataset_test_gender_chars="female,male" --measure=f1score --api=damegender > files/logs/accuracy-tree-f1score-$(date "+%Y-%m-%d").txt
 
-echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.tree.json --measure=accuracy --api=damegender --dataset_guess_row_gender=4 > files/logs/accuracy-tree-accuracy-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-tree-accuracy-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.tree.json --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male' --measure=accuracy --api=damegender"
 
-python3 accuracy.py --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.tree.json --measure=accuracy --api=damegender --dataset_guess_row_gender=4 >> files/logs/accuracy-tree-accuracy-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.tree.json --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male' --measure=accuracy --api=damegender > files/logs/accuracy-tree-accuracy-$(date "+%Y-%m-%d").txt
 
-echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.tree.json --measure=precision --api=damegender --dataset_guess_row_gender=4 > files/logs/accuracy-tree-precision-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-tree-precision-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.tree.json --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male' --measure=precision --api=damegender"
 
-python3 accuracy.py --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.tree.json --measure=precision --api=damegender --dataset_guess_row_gender=4 >> files/logs/accuracy-tree-precision-$(date "+%Y-%m-%d").txt
+python3 accuracy.py --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.tree.json --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male' --measure=precision --api=damegender > files/logs/accuracy-tree-precision-$(date "+%Y-%m-%d").txt
 
-echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.tree.json --measure=recall --api=damegender --dataset_guess_row_gender=4 > files/logs/accuracy-tree-recall-"$(date "+%Y-%m-%d")".txt " > files/logs/accuracy-tree-recall-$(date "+%Y-%m-%d").txt
+echo "python3 accuracy.py --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.tree.json --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male' --measure=recall --api=damegender"
 
-python3 accuracy.py --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.tree.json --measure=recall --api=damegender --dataset_guess_row_gender=4 >> files/logs/accuracy-tree-recall-$(date "+%Y-%m-%d").txt
-
+python3 accuracy.py --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_guess=files/names/allnoundefined.csv --dataset_test=files/names/allnoundefined.csv.tree.json --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male' --measure=recall --api=damegender > files/logs/accuracy-tree-recall-$(date "+%Y-%m-%d").txt
 
 #### NLTK ALGORITHM
 
