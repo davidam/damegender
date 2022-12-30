@@ -134,7 +134,7 @@ elif (args.less and (args.sex == 'all')):
 
 # BOTH
 c2l = c2lfemales + c2lmales
-    
+
 if (args.sex == "male"):
     position = 1
     for i in c2lmales[0:n]:
@@ -195,52 +195,50 @@ if args.outjson:
     if (args.sex == "female"):
         fo = open(args.outjson, "w")
         str0 = '['
-        j = 0
+        j = 1
         for i in c2lfemales[0:n]:
-            if (j > 0):
+            if (j > 1):
                 str0 = str0 + ',\n'
             str0 = str0 + '{'
             str0 = str0 + '"position":' + str(j) + ','
             str0 = str0 + '"name":' + i[0] + ","
-            str0 = str0 + '"count":' + i[1] 
-            str0 = str0 + "}"
-            j = j + 1
-        str0 = str0 + ']'
-        fo.write(str0);
-        fo.close()
-            
-    elif (args.sex == "male"):
-        fo = open(args.outjson, "w")
-        str0 = '['
-        j = 0
-        for i in c2lmales[0:n]:
-            if (j > 0):
-                str0 = str0 + ',\n'
-            str0 = str0 + '{'
-            str0 = str0 + '"position":' + str(j) + ','
-            str0 = str0 + '"name":' + i[0] + ","
-            str0 = str0 + '"count":' + i[1] 
-            str0 = str0 + "}"
-            j = j + 1
-        str0 = str0 + ']'
-        fo.write(str0);
-        fo.close()
-            
-    elif (args.sex == "all"):
-        fo = open(args.outjson, "w")
-        str0 = '['
-        j = 0
-        for i in c2l[0:n]:
-            if (j > 0):
-                str0 = str0 + ',\n'
-            str0 = str0 + '{'
-            str0 = str0 + '"position":' + str(j) + ','
-            str0 = str0 + '"name":' + i[0] + ","
-            str0 = str0 + '"count":' + i[1] 
+            str0 = str0 + '"count":' + i[1]
             str0 = str0 + "}"
             j = j + 1
         str0 = str0 + ']'
         fo.write(str0);
         fo.close()
 
-        
+    elif (args.sex == "male"):
+        fo = open(args.outjson, "w")
+        str0 = '['
+        j = 1
+        for i in c2lmales[0:n]:
+            if (j > 1):
+                str0 = str0 + ',\n'
+            str0 = str0 + '{'
+            str0 = str0 + '"position":' + str(j) + ','
+            str0 = str0 + '"name":' + i[0] + ","
+            str0 = str0 + '"count":' + i[1]
+            str0 = str0 + "}"
+            j = j + 1
+        str0 = str0 + ']'
+        fo.write(str0);
+        fo.close()
+
+    elif (args.sex == "all"):
+        fo = open(args.outjson, "w")
+        str0 = '['
+        j = 1
+        for i in c2l[0:n]:
+            if (j > 1):
+                str0 = str0 + ',\n'
+            str0 = str0 + '{'
+            str0 = str0 + '"position":' + str(j) + ','
+            str0 = str0 + '"name":' + i[0] + ","
+            str0 = str0 + '"count":' + i[1]
+            str0 = str0 + "}"
+            j = j + 1
+        str0 = str0 + ']'
+        fo.write(str0);
+        fo.close()
