@@ -1,9 +1,11 @@
 * Retrieved from
+Originally obtained from National Citizen Identity Information Center (NCIC) of China and currently stored in github
 + https://github.com/psychbruce/ChineseNames
-+ Originally obtained from National Citizen Identity Information Center (NCIC) of China.
 
-+ The dictionary english and chinese was retrieved from (https://github.com/wainshine/Chinese-Names-Corpus)
-    
+The sources about a dictionary english and chinese names was retrieved from 
++ https://github.com/wainshine/Chinese-Names-Corpus
++ https://github.com/hfyxin/pinyin_english_names    
+
 * Papers related
 + Paper related: https://www.frontiersin.org/articles/10.3389/fpsyg.2021.731244/full
   
