@@ -201,7 +201,7 @@ if args.outjson:
                 str0 = str0 + ',\n'
             str0 = str0 + '{'
             str0 = str0 + '"position":' + str(j) + ','
-            str0 = str0 + '"name":' + i[0] + ","
+            str0 = str0 + '"name": "' + i[0] + '",'
             str0 = str0 + '"count":' + i[1]
             str0 = str0 + "}"
             j = j + 1
@@ -218,7 +218,7 @@ if args.outjson:
                 str0 = str0 + ',\n'
             str0 = str0 + '{'
             str0 = str0 + '"position":' + str(j) + ','
-            str0 = str0 + '"name":' + i[0] + ","
+            str0 = str0 + '"name": "' + i[0] + '",'
             str0 = str0 + '"count":' + i[1]
             str0 = str0 + "}"
             j = j + 1
@@ -235,7 +235,7 @@ if args.outjson:
                 str0 = str0 + ',\n'
             str0 = str0 + '{'
             str0 = str0 + '"position":' + str(j) + ','
-            str0 = str0 + '"name":' + i[0] + ","
+            str0 = str0 + '"name": "' + i[0] + '",'
             str0 = str0 + '"count":' + i[1]
             str0 = str0 + "}"
             j = j + 1
