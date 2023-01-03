@@ -1555,3 +1555,13 @@ Dado un csv, por ejemplo, el INTER dataset generar ficheros json con uno o más 
 Para personas que quieran conocer deminombres, esto es, buscar nombres en base a porcentajes de masculinidad y feminidad habría que crear un formulario dando como parámetros masculinidad máxima y mínima, feminidad máxima y mínima y origen nacional del nombre
 ** TODO infofeatures o las reglas del lenguaje (10000€)
 Dado un origen nacional o lengua desplegar información estadística acerca de las reglas de ese conjunto de nombres. Debería dar la información explicativa de los n-gramas y las características más significativas con PCA
+* TODO Checklist a cada csv de un país
+** TODO Cada row es un nombre
++ [ ] Se han eliminado todo tipo de comentarios, cabeceras y footers
++ [ ] No hay nombres que tengan como primer nombre una inicial. Las iniciales pueden aparecer con punto o sin punto
++ [ ] No hay nombres que no se puedan pronunciar. Debería haber al menos una vocal en casi todos los idiomas.
++ [ ] No hay rows con nombres vacíos
++ [ ] No hay dos veces el mismo nombre en un dataset
+** TODO Con respecto a columnas y filas
++ [ ] El número de columnas es el mismo en todas las filas
++ [ ] En cada row nombre y frecuencia aparecen en las mismas posiciones
