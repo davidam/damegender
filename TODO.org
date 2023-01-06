@@ -1483,7 +1483,8 @@ accuracy_score_dame had been used and tested only without undefined because in t
 * TODO Revisar a mano todas las medidas de precision y error de los tests: accuracy, precision, f1score, recall, errors, ...
 - State "DONE"       from "TODO"       [2022-10-04 mar 21:38]
 * DONE Comprobar que no se llama al dataset de Lucia&Helena desde los tests a menos que solicite descarga
-* TODO Introducir en orig2.py los procesamientos de files/names/names_tests que sean necesarios
+* DONE Introducir en orig2.py los procesamientos de files/names/names_tests que sean necesarios
+  - State "DONE"       from "TODO"       [2023-01-06 vie 12:57]
 Por ejemplo pasar un fichero de formato stata a csv:
      data = pd.io.stata.read_stata(path)
      data.to_csv(path+'.csv')
