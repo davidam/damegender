@@ -31,7 +31,7 @@ from app.dame_wikidata import DameWikidata
 
 dw = DameWikidata()
 isocodes = dw.dicc_countries().keys()
-codes = list(isocodes) + ["inter", "ine"]
+codes = list(isocodes) + ["inter", "ine", "tests"]
 
 parser = argparse.ArgumentParser()
 parser.add_argument('total', default="es", choices=codes)
@@ -849,6 +849,12 @@ elif (country == "uy"):
                                                     quotechar='"')
     du.simple_dicc_to_file(diccfemales, outfemales)
     du.simple_dicc_to_file(diccmales, outmales)
+
+elif (country == "tests"):
+    path = "files/names/names_tests/"
+    if (args.download):
+        print("Downloading datasets from several servers ...")
+        subprocess.call(path + "download.sh", shell=True)
 
 else:
     print("this country code is not running yet")
