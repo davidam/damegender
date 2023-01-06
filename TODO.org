@@ -1335,7 +1335,11 @@ y ver que las desviaciones son razonables
   - State "DONE"       from "TODO"       [2022-03-07 lun 10:27]
   Tratar de reemplazar por librería nativa para evitar problemas de dependencias
   https://docs.python.org/3/library/xml.etree.elementtree.html
-* TODO Crear un método normalize_names_and_white_spaces
+* CANCELED Crear un método normalize_names_and_white_spaces
+  - State "CANCELED"   from "TODO"       [2023-01-06 vie 12:43]
+ESTA TAREA HA SIDO REESCRITA COMO "Checklist a cada csv de un país"
+
+
 La entrada es una cadena y si tiene cadenas de caracteres candidatas a nombres
 y espacios en blanco devuelve true
 
@@ -1359,6 +1363,8 @@ arbitraria.
 
 Quizás deba cancelar esta tarea y seguir abordándolo todo esto con los métodos que lo
 estaba haciendo
+
+
 * DONE Crear un script para descargar nombres desde wikidata especificando el país y el género
 - State "DONE"       from "TODO"       [2022-04-08 vie 23:56]
 * DONE Crear un script para desccarga apellidos desde Wikidata especificando el país
@@ -1369,8 +1375,10 @@ estaba haciendo
   - State "DONE"       from "TODO"       [2022-04-08 vie 23:59]
 * DONE Crear un script en bash para ejecutar los test python
   - State "DONE"       from "TODO"       [2022-04-09 sáb 00:01]
-* TODO Reproducibilidad en Datasets
-** TODO download.sh en todos los paises con estadísticas oficiales
+* DONE Reproducibilidad en Datasets
+  - State "DONE"       from "TODO"       [2023-01-06 vie 12:41]
+** DONE download.sh en todos los paises con estadísticas oficiales
+   - State "DONE"       from "TODO"       [2023-01-06 vie 12:41]
 + [X] "ar"
 + [X] "at"
 + [X] "au"
@@ -1392,7 +1400,8 @@ estaba haciendo
 + [X] "se"
 + [X] "uy"
 + [X] "us"
-** TODO orig2.py en todos los paises con estadísticas oficiales
+** DONE orig2.py en todos los paises con estadísticas oficiales
+   - State "DONE"       from "TODO"       [2023-01-06 vie 12:41]
 *** DONE "ar"
 - State "DONE"       from "TODO"       [2022-07-22 vie 03:46]
 *** DONE "at"
@@ -1565,3 +1574,7 @@ Dado un origen nacional o lengua desplegar información estadística acerca de l
 ** TODO Con respecto a columnas y filas
 + [ ] El número de columnas es el mismo en todas las filas
 + [ ] En cada row nombre y frecuencia aparecen en las mismas posiciones
+- State "DONE"       from "TODO"       [2023-01-06 vie 12:40]
+
+* DONE Deploy most used names in damegender-web
+Visit https://damegender.davidam.com/top.html
