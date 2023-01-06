@@ -1256,8 +1256,12 @@ https://github.com/mkozturk/turkishnames/
 * DONE Hacer trabajos técnicos a favor de la incorporación de China en DameGender
   - State "DONE"       from "TODO"       [2021-05-10 lun 08:54]
 Mirar el paquete de R ChineseNames
-* FUTURE Unifying criteria counting males and females
+* DONE Unifying criteria counting males and females
   SCHEDULED: <2021-10-09 sáb>
+  - State "DONE"       from "FUTURE"     [2023-01-06 vie 12:47]
+The criteria was unified: one person, one vote. So, we can choose borns or total, but not both.
+
+** Old description
 We have found 2 main criteria counting males and females: number of
 borns in a year and people using the name in a year. Both criteria are
 good indicators to understand how many people is using a name as male
@@ -1270,14 +1274,18 @@ not changed too much changing the method to count, the accuracy will be
 improved a little bit in some names, but the biases in the current
 state is happening due to lack of countries and alphabets.
 
-* TODO [#A] Usar csv o json debe ser una opción en base de verdad y comparación con respecto confusion y accuracy
-** TODO 1. Debemos unificar nombres de métodos
+* DONE [#A] Usar csv o json debe ser una opción en base de verdad y comparación con respecto confusion y accuracy
+  - State "DONE"       from "TODO"       [2023-01-06 vie 12:48]
+** DONE 1. Debemos unificar nombres de métodos
+   - State "DONE"       from "TODO"       [2023-01-06 vie 12:47]
 + [ ] gender_list by csv2gender_list
 + [ ] json2guess_list by json2gender_list
 
-** TODO 2. En confusion y accuracy deben reescribirse los argumentos --csv y --jsondownloaded a --csv-base-of-truth, --json-base-of-truth, --json-to-compare y --csv-to-compare
+** DONE 2. En confusion y accuracy deben reescribirse los argumentos --csv y --jsondownloaded a --csv-base-of-truth, --json-base-of-truth, --json-to-compare y --csv-to-compare
   SCHEDULED: <2021-05-08 sáb>
-** TODO 3. Escribir csv2json.py
+  - State "DONE"       from "TODO"       [2023-01-06 vie 12:47]
+** DONE 3. Escribir csv2json.py
+   - State "DONE"       from "TODO"       [2023-01-06 vie 12:48]
 Los campos de cada persona
 + name (obligatorio)
 + surname (opcional, por defecto vacío)
