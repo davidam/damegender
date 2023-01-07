@@ -26,12 +26,20 @@ mkdir -p files/tmp
 echo "Building germanfemales.csv"
 echo "Merging German Females Datasets"
 python3 mergeinterfiles.py --file1="files/names/names_de/defemales.csv" --file2="files/names/names_at/atfemales.csv" --output=files/tmp/deatfemales.csv
-cp files/tmp/deatfemales.csv files/names/languages/germanfemales.csv
+python3 mergeinterfiles.py --file1="files/tmp/deatfemales.csv" --file2="files/names/names_li/lifemales.csv" --output=files/tmp/deatlifemales.csv
+cp files/tmp/deatlifemales.csv files/names/languages/germanfemales.csv
 
 echo "Building germanmales.csv"
 echo "Merging German Males Datasets"
 python3 mergeinterfiles.py --file1="files/names/names_de/demales.csv" --file2="files/names/names_at/atmales.csv" --output=files/tmp/deatmales.csv
-cp files/tmp/deatmales.csv files/names/languages/germanmales.csv
+python3 mergeinterfiles.py --file1="files/tmp/deatmales.csv" --file2="files/names/names_li/limales.csv" --output=files/tmp/deatlimales.csv
+cp files/tmp/deatlimales.csv files/names/languages/germanmales.csv
+
+echo "Building germansurnames.csv"
+echo "Merging German Surnames Datasets"
+python3 mergeinterfiles.py --file1="files/names/names_de/desurnames.csv" --file2="files/names/names_at/atsurnames.csv" --output=files/tmp/deatsurnames.csv
+python3 mergeinterfiles.py --file1="files/tmp/deatsurnames.csv" --file2="files/names/names_li/lisurnames.csv" --output=files/tmp/deatlisurnames.csv
+cp files/tmp/deatlisurnames.csv files/names/languages/germansurnames.csv
 
 echo "Cleaning temporal files"
 rm files/tmp/*
