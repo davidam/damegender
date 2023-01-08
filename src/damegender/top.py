@@ -41,7 +41,8 @@ import tempfile
 
 parser = argparse.ArgumentParser()
 parser.add_argument("country", default="usa",
-                    choices=['ar', 'at', 'au', 'be', 'ca', 'ch',
+                    choices=['ar', 'at', 'au', 'be', 'ca',
+                             'ch', 'cl',
                              'dk', 'de', 'es', 'fr', 'fi',
                              'gb', 'ie', 'ine', 'inter',
                              'is', 'no', 'nz', 'mx', 'pt',
