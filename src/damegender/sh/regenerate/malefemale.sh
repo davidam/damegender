@@ -73,6 +73,14 @@ python3 mergeinterfiles.py --file1="files/names/names_ca/camales.csv" --file2="f
 python3 mergeinterfiles.py --file1="files/names/names_ca/camales.csv" --file2="files/names/names_ca/cafemales.csv" --output=files/names/names_ca/caonlygender.csv --malefemale_onlygender
 echo "Canada done"
 
+sed '/^\,.*$/d' files/names/names_ch/chmales.csv > files/tmp/chmales.csv
+cp files/tmp/chmales.csv files/names/names_ch/
+sed '/^\,.*$/d' files/names/names_ch/chfemales.csv > files/tmp/chfemales.csv
+cp files/tmp/chfemales.csv files/names/names_ch/
+python3 mergeinterfiles.py --file1="files/names/names_ch/chmales.csv" --file2="files/names/names_ch/chfemales.csv" --output=files/names/names_ch/chall.csv --malefemale
+python3 mergeinterfiles.py --file1="files/names/names_ch/chmales.csv" --file2="files/names/names_ch/chfemales.csv" --output=files/names/names_ch/chonlygender.csv --malefemale_onlygender
+echo "Switzerland done"
+
 sed '/^\,.*$/d' files/names/names_de/demales.csv > files/tmp/demales.csv
 cp files/tmp/demales.csv files/names/names_de/
 sed '/^\,.*$/d' files/names/names_de/defemales.csv > files/tmp/defemales.csv
