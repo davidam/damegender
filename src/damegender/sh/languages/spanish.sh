@@ -32,7 +32,9 @@ echo "Merging Mexico"
 python3 mergeinterfiles.py --file1="files/tmp/aresuyfemales.csv" --file2="files/names/names_mx/mxfemales.csv" --output=files/tmp/aresuymxfemales.csv
 echo "Merging Venezuela"
 python3 mergeinterfiles.py --file1="files/tmp/aresuymxfemales.csv" --file2="files/names/names_ve/vefemales.csv" --output=files/tmp/aresuymxvefemales.csv
-cp files/tmp/aresuymxvefemales.csv files/names/languages/spanishfemales.csv
+echo "Merging Chile"
+python3 mergeinterfiles.py --file1="files/tmp/aresuymxvefemales.csv" --file2="files/names/names_cl/clfemales.csv" --output=files/tmp/aresuymxveclfemales.csv
+cp files/tmp/aresuymxveclfemales.csv files/names/languages/spanishfemales.csv
 
 
 echo "Building spanishmales.csv"
@@ -44,7 +46,10 @@ echo "Merging Mexico"
 python3 mergeinterfiles.py --file1="files/tmp/aresuymales.csv" --file2="files/names/names_mx/mxmales.csv" --output=files/tmp/aresuymxmales.csv
 echo "Merging Venezuela"
 python3 mergeinterfiles.py --file1="files/tmp/aresuymxmales.csv" --file2="files/names/names_ve/vemales.csv" --output=files/tmp/aresuymxvemales.csv
-cp files/tmp/aresuymxvemales.csv files/names/languages/spanishmales.csv
+echo "Merging Chile"
+python3 mergeinterfiles.py --file1="files/tmp/aresuymxvefemales.csv" --file2="files/names/names_cl/clmales.csv" --output=files/tmp/aresuymxveclfemales.csv
+
+cp files/tmp/aresuymxveclmales.csv files/names/languages/spanishmales.csv
 
 
 echo "Cleaning temporal files"
