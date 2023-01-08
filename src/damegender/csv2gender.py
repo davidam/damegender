@@ -44,11 +44,11 @@ parser.add_argument('--delimiter_csv', required=False,
                     type=str, default=",")
 # Is the csv separated by commas?
 parser.add_argument('--dataset', default="us",
-                    choices=['ar', 'at', 'au', 'be', 'ca', 'ch', 'cn', 'de',
-                             'dk', 'es', 'fi', 'fr', 'gb', 'ie', 'ine',
-                             'inter', 'is', 'mx', 'no', 'nz', 'pt',
-                             'ru', 'ru_en', 'ru_ru', 'se', 'si', 'uy',
-                             'us', 'genderguesser'])
+                    choices=['ar', 'at', 'au', 'be', 'ca', 'ch', 'cl',
+                             'cn', 'de', 'dk', 'es', 'fi', 'fr', 'gb',
+                             'ie', 'ine', 'inter', 'is', 'mx', 'no',
+                             'nz', 'pt', 'ru', 'ru_en', 'ru_ru',
+                             'se', 'si', 'uy', 'us', 'genderguesser'])
 parser.add_argument('--outcsv', default="files/names/out.csv")
 parser.add_argument('--outjson', default="files/names/out.json")
 parser.add_argument('--outimg', default="files/images/csv2gender.png")
