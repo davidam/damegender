@@ -44,6 +44,7 @@ class DameUtils():
                     "be": "files/names/names_be/bemales.csv",
                     "ca": "files/names/names_ca/camales.csv",
                     "ch": "files/names/names_ch/chmales.csv",
+                    "cl": "files/names/names_cl/clmales.csv",
                     "cn": "files/names/names_cn/cnmales.csv",
                     "de": "files/names/names_de/demales.csv",
                     "dk": "files/names/names_dk/dkmales.csv",
@@ -76,6 +77,7 @@ class DameUtils():
                     "be": "files/names/names_be/befemales.csv",
                     "ca": "files/names/names_ca/cafemales.csv",
                     "ch": "files/names/names_ch/chfemales.csv",
+                    "cl": "files/names/names_cl/clfemales.csv",                    
                     "cn": "files/names/names_cn/cnfemales.csv",
                     "de": "files/names/names_de/defemales.csv",
                     "dk": "files/names/names_dk/dkfemales.csv",
@@ -107,6 +109,7 @@ class DameUtils():
                     "au": "files/names/names_au/auall.csv",
                     "be": "files/names/names_be/beall.csv",
                     "ca": "files/names/names_ca/caall.csv",
+                    "cl": "files/names/names_ca/clall.csv",                    
                     "cn": "files/names/names_cn/cnall.csv",
                     "de": "files/names/names_de/deall.csv",
                     "dk": "files/names/names_dk/dkall.csv",
@@ -484,6 +487,20 @@ class DameUtils():
             fo.write(strname + "," + strfreq + "\n")
         fo.close()
         return 1
+
+    def csv_columns_to_dict_with_name_and_freq(self, csvpath, *args, **kwargs):
+        # to convert csv columns to dictionary with name and frequency
+        name = kwargs.get('name', 0)
+        freq = kwargs.get('freq', 1)
+        respath = kwargs.get('respath', 'files/tmp/respath.csv')
+        l1 = self.csv2list(csvpath, header=False)
+        dicc = {}
+        for i in l1:
+            strname = self.drop_quotes(str(i[name]))
+            strname = self.drop_white_space_around(strname)
+            strfreq = self.drop_white_space_around(str(i[freq]))
+            dicc[strname] = int(strfreq)
+        return dicc
 
     def lists2csvfile(self, listoflists, csvpath, *args, **kwargs):
         # given a list make a csv file
