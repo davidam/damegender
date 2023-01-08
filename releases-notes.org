@@ -1,3 +1,15 @@
+* v0.5.2
+
+Official Datasets:
++ [X] Chile: 7024 females, 5433 males
+
++ top.py:
+     adding --outjson giving this wonderful feature: to export top names to websites
+
++ sh/languages:
+     adding german.sh and portuguese.sh
+
+
 * v0.5.1
 
 + reviewing PEP8 coding style
