@@ -41,7 +41,7 @@ parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB',
                                      'forest', 'tree', 'mlp'])
 parser.add_argument('--total', default="inter",
                     choices=['ar', 'at', 'au', 'be', 'ca', 'ch',
-                             'cn', 'de', 'dk', 'es', 'fi',
+                             'cl', 'cn', 'de', 'dk', 'es', 'fi',
                              'fr', 'gb', 'ie', 'is', 'it', 'no', 'nz',
                              'mx', 'pt', 'ru', 'ru_ru',
                              'ru_en', 'se', 'si',
@@ -155,6 +155,16 @@ elif ((args.verbose) or (args.total == "all")):
     print("%s males for %s from Swiss statistics"
           % (n_males, args.name))
     print("%s females for %s from Swiss statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(
+        args.name, dataset="cl",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="cl",
+        force_whitespaces=args.force_whitespaces)['females']
+    print("%s males for %s from Chile statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Chile statistics"
           % (n_females, args.name))
     n_males = s.name_frec(
         args.name, dataset="cn",
@@ -460,6 +470,11 @@ else:
         print("%s males for %s from Swiss statistics"
               % (n_males, args.name))
         print("%s females for %s from Swiss statistics"
+              % (n_females, args.name))
+    elif (args.total == "cl"):
+        print("%s males for %s from Chile statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Chile statistics"
               % (n_females, args.name))
     elif (args.total == "cn"):
         print("Warning: total=cn only runs with chinese alphabet")
