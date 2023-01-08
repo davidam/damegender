@@ -25,7 +25,7 @@ cd ../..
 
 mkdir -p files/tmp/
 
-ARR=("ar" "at" "au" "be" "ca" "ch" "de" "dk" "es" "fi" "fr" "gb" "ie" "is" "no" "mx" "pt" "ru" "se" "uy" "us")
+ARR=("ar" "at" "au" "be" "ca" "ch" "cl" "de" "dk" "es" "fi" "fr" "gb" "ie" "is" "no" "mx" "pt" "ru" "se" "uy" "us")
 
 for i in "${ARR[@]}"; do
     python3 top.py $i --sex=female --outjson='files/tmp/'$i'fem.json' --number=200
