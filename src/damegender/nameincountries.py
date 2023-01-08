@@ -87,7 +87,7 @@ if (args.dataset == "namdict"):
 
 elif ((args.dataset == "damegender") or (args.dataset == "inter")):
     print("We are using the international dataset in this script")
-    official_names = ["ar", "at", "au", "be", "ca", "ch", "de",
+    official_names = ["ar", "at", "au", "be", "ca", "ch", "cl", "de",
                       "dk", "es", "fi", "fr", "gb", "ie", "is",
                       "no", "nz", "mx", "pt", "ru", "se", "si",
                       "us", "uy"]
