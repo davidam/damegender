@@ -29,6 +29,8 @@
 #     echo "$i done"
 # done
 
+cd ../..
+
 sed '/^\,.*$/d' files/names/names_at/atmales.csv > files/tmp/atmales.csv
 cp files/tmp/atmales.csv files/names/names_at/
 sed '/^\,.*$/d' files/names/names_at/atfemales.csv > files/tmp/atfemales.csv
