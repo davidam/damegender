@@ -26,13 +26,14 @@
 import csv
 from app.dame_utils import DameUtils
 
+du = DameUtils()
+
 
 class DameEthnicity(object):
 
     def surname2ethnicity(self, surname):
         # Given a surname returns the race of the surname according
         # to the US dataset.
-        du = DameUtils()
         surname = du.drop_accents(surname).upper()
         path = 'files/names/names_us/surnames.csv'
         boolean = False
@@ -73,7 +74,6 @@ class DameEthnicity(object):
         return res
 
     def locale_match(self, surname, path, locale):
-        du = DameUtils()
         surname = du.drop_accents(surname).upper()
         string = ""
         with open(path) as csvfile:
@@ -88,7 +88,6 @@ class DameEthnicity(object):
     def inesurname2ethnicity(self, surname, locale):
         # Given the INE.es surnames returns the countries
         # where a specific surname is present
-        du = DameUtils()
         surname = du.drop_accents(surname).upper()
         l1 = []
         # ISO 3166
