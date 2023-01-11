@@ -28,7 +28,7 @@ import json
 import os
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
-
+du = DameUtils()
 
 class DameGenderApi(Gender):
 
@@ -80,7 +80,6 @@ class DameGenderApi(Gender):
 
     def download(self, path="files/names/partial.csv", *args, **kwargs):
         # download a json of people's names from a csv given
-        du = DameUtils()
         name_position = kwargs.get('name_position', 0)
         genderapipath = "files/names/genderapi" + du.path2file(path) + ".json"
         backup = kwargs.get('backup', genderapipath)
@@ -148,7 +147,6 @@ class DameGenderApi(Gender):
 
     def guess_list(self, path="files/names/partial.csv", binary=False):
         # returns a list of males, females
-        du = DameUtils()
         fichero = open("files/apikeys/genderapipass.txt", "r+")
         contenido = fichero.readline()
         string = ""
