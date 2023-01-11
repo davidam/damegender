@@ -23,6 +23,7 @@
 
 import requests
 import argparse
+import re
 from app.dame_wikidata import DameWikidata
 
 dw = DameWikidata()
@@ -60,6 +61,9 @@ data = r.json()
 print("Dumping to %s" % args.outcsv)
 fo = open(args.outcsv, "w")
 for d in data["results"]["bindings"]:
-    fo.write(d['surnameLabel']['value'] + "," + d['count']['value'] + "\n")
+    # names as Q010234 is a wikidata identifier not a name
+    match1 = re.search(r'(Q[0-9]*)', d['surnameLabel']['value'])
+    if not(match1):
+        fo.write(d['surnameLabel']['value'] + "," + d['count']['value'] + "\n")
 
 fo.close()
