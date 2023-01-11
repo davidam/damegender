@@ -77,7 +77,7 @@ class DameUtils():
                     "be": "files/names/names_be/befemales.csv",
                     "ca": "files/names/names_ca/cafemales.csv",
                     "ch": "files/names/names_ch/chfemales.csv",
-                    "cl": "files/names/names_cl/clfemales.csv",                    
+                    "cl": "files/names/names_cl/clfemales.csv",
                     "cn": "files/names/names_cn/cnfemales.csv",
                     "de": "files/names/names_de/defemales.csv",
                     "dk": "files/names/names_dk/dkfemales.csv",
@@ -109,7 +109,7 @@ class DameUtils():
                     "au": "files/names/names_au/auall.csv",
                     "be": "files/names/names_be/beall.csv",
                     "ca": "files/names/names_ca/caall.csv",
-                    "cl": "files/names/names_ca/clall.csv",                    
+                    "cl": "files/names/names_ca/clall.csv",
                     "cn": "files/names/names_cn/cnall.csv",
                     "de": "files/names/names_de/deall.csv",
                     "dk": "files/names/names_dk/dkall.csv",
@@ -528,6 +528,18 @@ class DameUtils():
             fo.write(str(l1) + "," + str(dicc[l1]) + "\n")
         fo.close()
         return 1
+
+    def detect_duplicated(self, l1):
+        # given a list l1 returns a boolean as true if there are some element duplicated
+        if (len(l1) == 0):
+            return []
+        else:
+            nodup = []
+            for i in l1:
+                if (not (i in nodup)):
+                    nodup.append(i)
+        duplicated_bool = (l1 != nodup)
+        return duplicated_bool
 
     def delete_duplicated(self, l1):
         # given a list l1 returns a new list without duplicated elements
