@@ -30,6 +30,7 @@ import numpy as np
 from app.dame_utils import DameUtils
 from app.dame_gender import Gender
 
+du = DameUtils()
 
 class DameNamsor(Gender):
 
@@ -48,7 +49,6 @@ class DameNamsor(Gender):
         return v
 
     def getGeo(self, name, surname, locale, binary=False):
-        du = DameUtils()
         # obtaining data from namsor
         fichero = open("files/apikeys/namsorpass.txt", "r+")
         contenido = fichero.readline().rstrip()
@@ -98,8 +98,6 @@ class DameNamsor(Gender):
         return slist
 
     def download(self, path="files/names/min.csv"):
-        du = DameUtils()
-#        namsorjson = path
         namsorpath = "files/names/namsor" + du.path2file(path) + ".json"
         namsorjson = open(namsorpath, "w+")
         surnames = True
