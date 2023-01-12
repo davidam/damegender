@@ -94,3 +94,12 @@ gunzip mongolian_personal_names.csv.gz
 
 # Italian names
 wget -c https://raw.githubusercontent.com/mrblasco/genderNamesITA/master/gender_firstnames_ITA.csv 
+
+# Player names and hyphenation for 7 sports leagues from the 1950s to 2010s.
+wget -c https://data.world/the-pudding/the-rise-of-hyphenated-names-in-sports/workspace/file?filename=allCombinedNames.csv
+
+# WTA players
+wget -c https://raw.githubusercontent.com/JeffSackmann/tennis_wta/master/wta_players.csv
+
+# Arabic Names from open source solution
+wget -c https://github.com/hamdongunner/arabic-names-to-en/blob/master/cases/fullnamedb.js
