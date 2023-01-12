@@ -1,2 +1,12 @@
 Retrieved from Wikidata
 Ethiopia
+
+Other Datasets: 
+https://raw.githubusercontent.com/Simonbelete/ethiopic-names/main/names.csv
+
+Official Languages
+Afar
+Amharic
+Oromo
+Somali
+Tigrinya
