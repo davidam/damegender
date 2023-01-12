@@ -41,5 +41,15 @@ python3 mergeinterfiles.py --file1="files/tmp/aebhegsamales.csv" --file2="files/
 python3 mergeinterfiles.py --file1="files/tmp/aebhegsasymales.csv" --file2="files/names/names_ye/yemales.csv" --output=files/tmp/aebhegsasyyemales.csv
 cp files/tmp/aebhegsasyyemales.csv files/names/languages/arabicmales.csv
 
+
+echo "Building arabicsurnames.csv"
+echo "Merging arabic countries, building surnames"
+python3 mergeinterfiles.py --file1="files/names/names_ae/aesurnames.csv" --file2="files/names/names_bh/bhsurnames.csv" --output=files/tmp/aebhsurnames.csv
+python3 mergeinterfiles.py --file1="files/tmp/aebhsurnames.csv" --file2="files/names/names_eg/egsurnames.csv" --output=files/tmp/aebhegsurnames.csv
+python3 mergeinterfiles.py --file1="files/tmp/aebhegsurnames.csv" --file2="files/names/names_sa/sasurnames.csv" --output=files/tmp/aebhegsasurnames.csv
+python3 mergeinterfiles.py --file1="files/tmp/aebhegsasurnames.csv" --file2="files/names/names_sy/sysurnames.csv" --output=files/tmp/aebhegsasysurnames.csv
+python3 mergeinterfiles.py --file1="files/tmp/aebhegsasysurnames.csv" --file2="files/names/names_ye/yesurnames.csv" --output=files/tmp/aebhegsasyyesurnames.csv
+cp files/tmp/aebhegsasyyesurnames.csv files/names/languages/arabicsurnames.csv
+
 #echo "Cleaning temporal files"
 #rm files/tmp/*
