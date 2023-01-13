@@ -163,9 +163,9 @@ for k in dicc.keys():
                 line = k + "," + str(dicc[k]) + "\n"
         elif (args.malefemale_onlygender):
             if (frec_file1 > frec_file2):
-                line = k + ",female\n"
-            else:
                 line = k + ",male\n"
+            else:
+                line = k + ",female\n"
     else:
         line = k + "," + str(dicc[k]) + "\n"
     file.write(line)
