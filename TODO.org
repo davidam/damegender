@@ -1576,14 +1576,59 @@ Dado un origen nacional o lengua desplegar información estadística acerca de l
 * TODO Checklist a cada csv de un país
 ** TODO Cada row es un nombre
 + [ ] Se han eliminado todo tipo de comentarios, cabeceras y footers
-+ [ ] No hay nombres que tengan como primer nombre una inicial. Las iniciales pueden aparecer con punto o sin punto
-+ [ ] No hay nombres que no se puedan pronunciar. Debería haber al menos una vocal en casi todos los idiomas.
-+ [ ] No hay rows con nombres vacíos
-+ [ ] No hay dos veces el mismo nombre en un dataset
+*** TODO No hay nombres que tengan como primer nombre una inicial. Las iniciales pueden aparecer con punto o sin punto
+def initial_letters(self, s):
+*** TODO No hay nombres que no se puedan pronunciar. Debería haber al menos una vocal en casi todos los idiomas.
+a|e|i|o|u|y in string
+def only_consonants_in_string(self, s):
+*** TODO No hay rows con nombres vacíos
+*** TODO No hay dos veces el mismo nombre en un dataset
+def detect_duplicated
 ** TODO Con respecto a columnas y filas
-+ [ ] El número de columnas es el mismo en todas las filas
-+ [ ] En cada row nombre y frecuencia aparecen en las mismas posiciones
-- State "DONE"       from "TODO"       [2023-01-06 vie 12:40]
+*** TODO El número de columnas es el mismo en todas las filas
+def csv_with_same_columns
+*** TODO En cada row nombre y frecuencia aparecen en las mismas posiciones
+def only_string_in_column
+def only_integer_in_column
 
 * DONE Deploy most used names in damegender-web
 Visit https://damegender.davidam.com/top.html
+* TODO Make the accuracy between Portuguese language and Brazil country
+  SCHEDULED: <2023-01-10 mar>
+* TODO Tomando cada dataset oficial como dataset guess entender el sesgo nacional
+** TODO csv2gender con el dataset INTER
+** TODO accuracy pensando que INTER es guess y el dataset oficial es test
+
+* TODO HIPÓTESIS 1
+Los sesgos que se generan en idiomas o países (casos como Andrea, Jaime, ...) son de poco interés significativo respecto a utilizar un dataset INTER.
+
+* TODO HIPÓTESIS 2
+Los sesgos que se generan por efecto Lesley son también de poco interés significativo
+
+* TODO HIPÓTESIS 3
+El sesgo de error de utilizar un dataset INTER en vez de detectar y aplicar el idioma o nación local es del 10%
+
+* TODO HIPÓTESIS 4
+Un dataset INTER construido únicamente con datasets de WikiData tendría un menor acierto que uno construido con instituciones estadísticas Open Data. 
+Esto sería así por un menor número de nombres y no por un desacierto de género y nombre.
+
+* TODO HIPÓTESIS 5
+El dataset de Estados Unidos es el dataset-nación que mejor funciona debido al alto número de nombres y, no por cuestiones de calidad en el resto de instituciones estadísticas.
+
+* TODO HIPÓTESIS 6
+Haciendo crecer el dataset en número de nombres de, por ejemplo, Estados Unidos con otros países quizás incluso aleatoriamente la mejora del accuracy sería muy significativa hasta 200.000 nombres y, luego débilmente desde 300.000
+
+* TODO HIPÓTESIS 7
+Si el dataset tiene más de 1.000.000 nombres reales con el género bien asignado, las mejoras de accuracy no vendría de un mayor número de nombres con el género bien asignado.
+
+** Comentarios a la hipótesis
+Este principio, pararía posibles tendencias de la industria de hacer márketing aumentando número de nombres como indicador de calidad de la herramienta, en vez de accuracy. Puesto que pasado el millón de nombres tal vez hay un efecto contrario que se está asignando género a no nombres, incluso a veces strings impronunciables (solo consonantes). 
+
+En el caso que un cliente o usuario demande un género a una cadena de caracteres que no esté contenido en el millón de nombres podría decirse no está en la base de datos y, mediante ML inferir el género.
+
+* TODO HIPÓTESIS 8
+Las naciones con un mismo idioma tienen variaciones poco significativas con respecto a la asignación de género y nombre con respecto un dataset INTER de lengua específica construido con datasets de estadísticas oficiales o wikidata.
+
+** Comentarios a la hipótesis
+Este principio, permitiría medir la veracidad de un scraping a un dataset de fuente estadística oficial, por ejemplo.
+
