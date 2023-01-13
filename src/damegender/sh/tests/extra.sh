@@ -25,6 +25,7 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
+cd ../..
 
 cp config.cfg config.cfg.backup
 
@@ -43,7 +44,6 @@ genderguesser = files/apikeys/genderguesserpass.txt
 namsor = files/apikeys/namsorpass.txt
 nameapi = files/apikeys/nameapipass.txt
 " > config.cfg
-
 
 python3 main.py "Jesús" --total=namdict > files/tests/mainjesusnamdict-$(date "+%Y-%m-%d-%H").txt
 
