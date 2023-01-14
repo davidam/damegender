@@ -1590,6 +1590,11 @@ def csv_with_same_columns
 *** TODO En cada row nombre y frecuencia aparecen en las mismas posiciones
 def only_string_in_column
 def only_integer_in_column
+*** TODO En cada row nombre y apellido están siempre en las mismas posiciones
+def num_surnames_know_in_list
+def num_names_know_in_list
+
+Un caso de interés para pruebas es files/names/names_tests/funcionarios.csv donde están realmente mezclados ocupando los nombres la posición de los apellidos y, al revés.
 
 * DONE Deploy most used names in damegender-web
 Visit https://damegender.davidam.com/top.html
