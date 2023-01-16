@@ -113,7 +113,8 @@ class Gender(object):
         return features_int
 
     def features_list(self, path='files/names/partial.csv', sexdataset=''):
-        #Reads a CSV file specified by the path 'files/names/partial.csv' and extracts the data for each row.
+        # Reads a CSV file specified by the path 'files/names/partial.csv'
+        # and extracts the data for each row.
         flist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -125,7 +126,8 @@ class Gender(object):
         return flist
 
     def features_list_categorical(self, path='files/names/partial.csv'):
-        #Read a specific CSV file (path='files/names/partial.csv') and create a feature list for each name in the file.
+        # Read a specific CSV file (path='files/names/partial.csv') and
+        # create a feature list for each name in the file.
         flist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -143,7 +145,12 @@ class Gender(object):
         return flist
 
     def features_list_no_categorical(self, path='files/names/partial.csv'):
-        #Reads a CSV file specified by the 'path' parameter and extracts non-categorical features from the names contained in it. These features include the number of letters a-z, the number of vowels, and the number of consonants. The code creates a list called "flist" to store these values, and then returns the list at the end.
+        # Reads a CSV file specified by the 'path' parameter and extracts
+        # non-categorical features from the names contained in it.
+        # These features includes the number of letters a-z, the number of
+        # vowels, and the number of consonants. The code creates a list
+        # called "flist" to store these values, and then returns the list
+        # at the end.
         flist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -183,7 +190,12 @@ class Gender(object):
         return flist
 
     def features_list_no_letters(self, path='files/names/partial.csv'):
-        #Read a specific CSV file (path='files/names/partial.csv') and create a feature list for each name in the file. These features include the first and last letters of the name, the number of vowels and consonants, whether the first and last letters are vowels or consonants, whether the last letter is "a" or "o".
+        # Read a specific CSV file (path='files/names/partial.csv')
+        # and create a feature list for each name in the file. These
+        # features include the first and last letters of the name,
+        # the number of vowels and consonants, whether the first and
+        # last letters are vowels or consonants, whether the last
+        # letter is "a" or "o".
         flist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -205,7 +217,9 @@ class Gender(object):
         return flist
 
     def features_list_no_undefined(self, path=''):
-        #Reads a specific CSV file and returns a list of features. The CSV file contains information about names, genders, and other characteristics.
+        # Reads a specific CSV file and returns a list of features.
+        # The CSV file contains information about names, genders,
+        # and other characteristics.
         flist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -219,7 +233,11 @@ class Gender(object):
         return flist
 
     def features_list2csv(self, path, categorical="both"):
-        #Creates a CSV file with the features list attributes at the specified path. Depending on the value of the "categorical" parameter, the function will create a CSV file with different sets of attributes. If the parameter is not specified, all attributes will be used.
+        # Creates a CSV file with the features list attributes
+        # at the specified path. Depending on the value of the
+        # "categorical" parameter, the function will create a
+        # CSV file with different sets of attributes. If the
+        # parameter is not specified, all attributes will be used.
         if (categorical == "categorical"):
             fl = self.features_list_categorical(path)
             first_line = "first_letter, last_letter, last_letter_a, " \
@@ -271,15 +289,22 @@ class Gender(object):
     # DATASETS METHODS #
 
     def path_surname_dataset(self, locale):
-        #Define a function called path_surname_dataset. This function takes a location parameter as an argument and returns a string with the path to a specific CSV file. The text string contains the location of the file, which is "files/names/names_" followed by the location parameter and then "/" followed by the location parameter again and "surnames.csv".
+        # Define a function called path_surname_dataset.
+        # This function takes a location parameter as an
+        # argument and returns a string with the path to
+        # a specific CSV file. The text string contains
+        # the location of the file, which is
+        # "files/names/names_" followed by the location
+        # parameter and then "/" followed by the location
+        # parameter again and "surnames.csv".
         return "files/names/names_" + locale + "/" + locale + "surnames.csv"
 
     def males_list(self, corpus='es'):
-<<<<<<< HEAD
-        #A function called males_list is defined. This function takes a corpus (default is "es") as a parameter and returns a list of masculine names.
+        # A function called males_list is defined.
+        # This function takes a corpus (default is "es")
+        # as a parameter and returns a list of masculine
+        # names.
         du = DameUtils()
-=======
->>>>>>> d672f1ba0e1eee926d0f09de658db4abd0777a89
         dicc_males = du.dicc_dataset("male")
         path_males = dicc_males[corpus]
         m = []
@@ -293,11 +318,9 @@ class Gender(object):
         return m
 
     def females_list(self, corpus='es'):
-<<<<<<< HEAD
-        #Defines a function called "females_list" that is used to create a list of women.
+        # Defines a function called "females_list"
+        # that is used to create a list of women.
         du = DameUtils()
-=======
->>>>>>> d672f1ba0e1eee926d0f09de658db4abd0777a89
         dicc_females = du.dicc_dataset("female")
         path_females = dicc_females[corpus]
         f = []
@@ -415,7 +438,8 @@ class Gender(object):
 
                 
     def name2gender_in_dataset(self, name, dataset=''):
-        #This function is used to determine the gender of a noun in a specific data set.
+        # This function is used to determine the gender
+        # of a noun in a specific data set.
         guess = 2
         if (dataset == "names_es"):
             with open(dataset + "/" + "femeninos.txt") as csvfile:
@@ -476,7 +500,9 @@ class Gender(object):
         return guess
 
     def dataset2genderlist(self, dataset=''):
-        #List of genera from a specific data set. Read the data set and extract the information needed to determine the gender.
+        # List of gender chars from a specific data set.
+        # Read the data set and extract the information
+        # needed to determine the gender.
         genderlist = []
         path_all = "files/names/all.csv"
         path_allnoun = "files/names/allnoundefined.csv"
@@ -511,7 +537,8 @@ class Gender(object):
         return genderlist
 
     def name_frec(self, name, *args, **kwargs):
-        # guess list method
+        # returns the number of ocurrencies of a name
+        # from a dataset being us the defaul dataset
         dataset = kwargs.get('dataset', "us")
         force_whitespaces = kwargs.get('force_whitespaces', False)
         name = du.drop_accents(name)
@@ -541,7 +568,9 @@ class Gender(object):
         return dicc
 
     def name_frec_from_file(self, name, path):
-        #This code looks up a specific name in a CSV file and returns the frequency associated with that name.
+        # This code looks up a specific name in a CSV
+        # file and returns the frequency associated
+        # with that name.
         filef = open(path, 'r')
         readerf = csv.reader(filef, delimiter=',', quotechar='|')
         cnt = 0
@@ -672,11 +701,10 @@ class Gender(object):
         return quantity
 
     def name_prob_countries(self, name):
-<<<<<<< HEAD
-        #Calculates the probability that a given name is used by men or women in some countries
+        # It calculates the probability that a
+        # given name is used by men or women
+        # in some countries
         du = DameUtils()
-=======
->>>>>>> d672f1ba0e1eee926d0f09de658db4abd0777a89
         es = self.name_frec(name, dataset="es")
         ie = self.name_frec(name, dataset="ie")
         isl = self.name_frec(name, dataset="is")
@@ -752,7 +780,8 @@ class Gender(object):
         return prob
 
     def namdict2file(self):
-        #iterates through each line of the file and extracts the characters from position 3 to 25
+        # it iterates through each line of the file and
+        # extracts the characters from position 3 to 25
         filepath = 'files/names/nam_dict.txt'
         mylist = []
         with open(filepath) as fp:
@@ -768,7 +797,8 @@ class Gender(object):
         file.close()
 
     def filenamdict2list(self):
-        #It walks through the file and creates a list with the names read from the file.
+        # It walks through the file and creates a list
+        # with the names read from the file.
         names = []
         dataset = 'files/names/nam_dict_list.txt'
         with open(dataset, 'r') as csvFile:
@@ -823,7 +853,8 @@ class Gender(object):
         return guess
 
     def guess_surname(self, string, locale):
-        #Searches the CSV files corresponding to the specified locale for the last name matching the given string.
+        # Searches the CSV files corresponding to the specified
+        # locale for the last name matching the given string.
         counter = 0
         if (locale == "ine"):
             path = 'files/names/names_es/essurnames.csv'
@@ -863,7 +894,7 @@ class Gender(object):
 
     def guess_list(self, path='files/names/partial.csv',
                    binary=False, dataset='us', *args, **kwargs):
-        # guess list method
+        # returns a list of gender chars using the guess method 
         header = kwargs.get('header', True)
         slist = []
         with open(path) as csvfile:
@@ -1070,7 +1101,8 @@ class Gender(object):
         return guesslist
 
     def json2names(self, jsonf="", surnames=False):
-        #Reads a JSON file and creates a list of names from the data in the file.
+        # reads a JSON file and creates a list of names
+        # from the data in the file.
         jsondata = open(jsonf).read()
         json_object = json.loads(jsondata)
         nameslist = []
@@ -1083,7 +1115,9 @@ class Gender(object):
         return nameslist
 
     def json_eq_csv_in_names(self, jsonf="", path="", *args, **kwargs):
-        #compares the names of a JSON file with the names of a CSV file.
+        # it compares the names of a JSON file with the
+        # names of a CSV file and returns True if it is
+        # equal number in both
         header = kwargs.get('header', True)
         boolean = False
         json = self.json2names(jsonf=jsonf, surnames=False)
@@ -1105,7 +1139,9 @@ class Gender(object):
 
     def first_uneq_json_and_csv_in_names(self, jsonf="", path="",
                                          *args, **kwargs):
-        #Compares two files, one in JSON format and one in CSV, to find the first name that doesn't match between the two.
+        # it compares two files, one in JSON format and one in
+        # CSV, to find the first name that doesn't match between
+        # the two.
         header = kwargs.get('header', True)
         json = self.json2names(jsonf=jsonf, surnames=False)
         csv = self.csv2names(path=path, header=header)
@@ -1129,7 +1165,7 @@ class Gender(object):
 
     def first_uneq_json_and_json_in_names(self, json1="", json2="",
                                           *args, **kwargs):
-        #Find the first element of two JSONs that are not equal.
+        # Find the first element of two JSONs that are not equal.
         header = kwargs.get('header', True)
         json1 = self.json2names(jsonf=json1, surnames=False)
         json2 = self.json2names(jsonf=json2, surnames=False)
@@ -1153,7 +1189,8 @@ class Gender(object):
 
     def first_uneq_csv_and_csv_in_names(self, csv1="", csv2="",
                                         *args, **kwargs):
-        #Compares two CSV files and returns the first non-equal name between the two.
+        # it compares two CSV files and returns the first
+        # non-equal name between the two.
         header = kwargs.get('header', True)
         csv1 = self.csv2names(path=csv1, header=header)
         csv2 = self.csv2names(path=csv2, header=header)
@@ -1189,7 +1226,9 @@ class Gender(object):
 
     def print_confusion_matrix_gender(self, path='', dimensions='',
                                       *args, **kwargs):
-        #prints a gender confusion matrix. The confusion matrix is ​​a tool used to evaluate the performance of a machine learning model.
+        # prints a gender confusion matrix. The confusion matrix
+        # is a tool used to evaluate the performance of a machine
+        # learning model.
         reverse = kwargs.get('reverse', False)
         jsonf = kwargs.get('jsonf', '')
         jf = os.getcwd() + "/" + jsonf
