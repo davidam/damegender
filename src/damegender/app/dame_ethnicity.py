@@ -74,11 +74,10 @@ class DameEthnicity(object):
         return res
 
     def locale_match(self, surname, path, locale):
-<<<<<<< HEAD
-        #searches for a specific last name in a CSV file and returns the location value if found.
+        # searches for a specific last name in a CSV file and
+        # returns the value if found.
+        # it only runs with INE surnames files 
         du = DameUtils()
-=======
->>>>>>> d672f1ba0e1eee926d0f09de658db4abd0777a89
         surname = du.drop_accents(surname).upper()
         string = ""
         with open(path) as csvfile:
@@ -680,7 +679,7 @@ class DameEthnicity(object):
 
     def dicc_iso3166_to_eng(self):
         # This dictionary implements iso3166 where the key is
-        # 2 letters and the value is a string that is the location
+        # 2 letters and the value is a string that is the country
         # in the english language
         dicc = {"ad": "Andorra",
                 "ae": "United Arab Emirates",
@@ -880,7 +879,9 @@ class DameEthnicity(object):
         return dicc
 
     def iso3166_to_eng(self, locale):
-        #Define a function called iso3166_to_eng that takes a parameter called locale. Allows you to convert an ISO 3166 code to its equivalent in English
+        # Define a function called iso3166_to_eng that takes a
+        # parameter called locale. It allows you to convert an ISO
+        # 3166 code to its equivalent in english
         dicc = self.dicc_iso3166_to_eng()
         return dicc[locale]
 
