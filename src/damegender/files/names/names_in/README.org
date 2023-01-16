@@ -1,3 +1,6 @@
 * Retrieved from Wikidata
 * Other sources
 https://raw.githubusercontent.com/balasahebgulave/Dataset-Indian-Names
+* Official Languages:
+Hindi
+English

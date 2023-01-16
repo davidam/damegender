@@ -466,13 +466,21 @@ using the dataset explained in
 (0.9638), recall (1.0) and f1-score (0.925). With other test datasets,
 similar results:
 
-\begin{itemize}
-\item Females scientists in Wikipedia (accuracy: 0.89)
-\item Males scientists in Wikipedia (accuracy: 0.98)
-\item FIFA football dataset (accuracy: 0.93)
-\item Scientific test dataset designed\cite{sebo2021performance} (accuracy: 0.88)
-\end{itemize}
-
+\begin{table}[t]
+  \footnotesize
+  \begin{tabular}[]{lc}
+    \hline
+    Dataset & Accuracy  \tabularnewline
+    Scientists Wikipedia & 0.93 \tabularnewline
+    FIFA soccer & 0.93 \tabularnewline
+    WTA tenis & 0.91 \tabularnewline
+    P Sebo\cite{sebo2021performance} & 0.88 \tabularnewline
+    Santamaria \& Mihaljevic\cite{10.7717/peerj-cs.156} & 0.88 \tabularnewline
+    Average & 0.91 \tabularnewline
+  \end{tabular}
+  \caption{Accuracies using several test datasets about the DameGender international dataset}
+  \label{table:SeveralTests}
+\end{table}
 
 \subsection{Free APIs for free datasets?}
 \label{sec:freeapis}

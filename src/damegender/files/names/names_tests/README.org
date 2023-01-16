@@ -45,6 +45,16 @@
 + [ ] Source: https://www.kaggle.com/datasets/thec03u5/fifa-18-demo-player-dataset
 + [ ] License: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
+** Amazon Best Sellers
++ [ ] File: amazon-bestsellers-with-categories.csv
++ [ ] Source: https://www.kaggle.com/datasets/sootersaalu/amazon-top-50-bestselling-books-2009-2019?select=bestsellers+with+categories.csv
++ [ ] License: https://creativecommons.org/publicdomain/zero/1.0/
+
+** Gutenberg
++ [ ] File: gutenberg_metadata.csv
++ [ ] Source: https://www.kaggle.com/datasets/mateibejan/15000-gutenberg-books?select=gutenberg_metadata.csv
++ [ ] License: https://www.kaggle.com/datasets/mateibejan/15000-gutenberg-books?select=gutenberg_metadata.csv
+
 * Sources to be verified
 An interesting task in the world of the datasets is about to discover if a dataset is valid.
 

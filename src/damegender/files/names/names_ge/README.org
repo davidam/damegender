@@ -1,2 +1,7 @@
 Retrieved with Wikidata
 Georgia
+
+Other data sources:
+https://raw.githubusercontent.com/JumpStartGeorgia/Georgian-Names/master/db/spreadsheets/first_name_gender.csv
+
+Official language: Georgian

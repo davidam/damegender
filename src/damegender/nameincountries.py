@@ -32,61 +32,22 @@ import sys
 from app.dame_utils import DameUtils
 from app.dame_gender import Gender
 from app.dame_ethnicity import DameEthnicity
+from app.dame_genderguesser import DameGenderGuesser
 import argparse
 
 du = DameUtils()
 de = DameEthnicity()
+dgg = DameGenderGuesser()
 g = Gender()
 
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the country")
-parser.add_argument('--damegender', default=False, action="store_true")
+parser.add_argument('--dataset', default="inter",
+                    choices=['namdict', 'inter', 'damegender'])
 args = parser.parse_args()
 
-print("We are using nam_dict.txt as dataset in this script")
-# print("by default. ")
-# print("You can use damegender datasets using")
-# print("--damegender")
-
-# Dictionary of countries and person names in files/names/nam_dict.txt
-keyscountries = {"30": "Great Britain", "31": "Ireland", "32": "USA",
-                 "33": "Italy", "34": "Malta", "35": "Portugal",
-                 "36": "Spain", "37": "France", "38": "Belgium",
-                 "39": "Luxembourg", "40": "The Netherlands",
-                 "41": "East Frisia", "42": "Germany", "43": "Austria",
-                 "44": "Swiss", "45": "Iceland", "46": "Denmark",
-                 "47": "Norway", "48": "Sweden", "49": "Finland",
-                 "50": "Estonia", "51": "Latvia", "52": "Lithuania",
-                 "53": "Poland", "54": "Czech Republic", "55": "Slovakia",
-                 "56": "Hungary", "57": "Romania", "58": "Bulgaria",
-                 "59": "Bosnia and Herzegovina", "60": "Croatia",
-                 "61": "Kosovo", "62": "Macedonia", "63": "Montenegro",
-                 "64": "Serbia", "65": "Slovenia", "66": "Albania",
-                 "67": "Greece", "68": "Rusia", "69": "Belarus",
-                 "70": "Moldova", "71": "Ukraine", "72": "Armenia",
-                 "73": "Azerbaijan", "74": "Georgia",
-                 "75": "Kazakhstan/Uzbekistan", "76": "Turkey",
-                 "77": "Arabia/Persia", "78": "Israel", "79": "China",
-                 "80": "India/Sri Lanka", "81": "Japan", "82": "Korea",
-                 "83": "Vietnam", "84": "other countries"}
-
-
-def exists_in_country(num, arr):
-    bool1 = (str(arr[num]) == "A") or (str(arr[num]) == "B")
-    bool1 = bool1 or (str(arr[num]) == "C")
-    bool1 = bool1 or (str(arr[num]) == "D")
-    if du.is_not_blank(arr[num]):
-        if bool1:
-            return True
-        elif (int(arr[num]) > 0):
-            return True
-        else:
-            return False
-    else:
-        return False
-
-
-if (len(sys.argv) > 1):
+if (args.dataset == "namdict"):
+    print("We are using nam_dict.txt as dataset in this script")
     cmd = 'grep -i " ' + args.name
     cmd = cmd + ' " files/names/nam_dict.txt > files/logs/grep.tmp'
     print(cmd)
@@ -106,7 +67,7 @@ if (len(sys.argv) > 1):
         if (namecapitalize == du.drop_white_space(string)):
             twochars = rowres[0] + rowres[1]
             for i in range(30, 84):
-                if (exists_in_country(int(i), rowres)):
+                if (dgg.exists_in_country(int(i), rowres)):
                     bool1 = (rowres[0].title() == "M")
                     bool1 = bool1 or (twochars.title() == "1M")
                     bool1 = bool1 or (twochars.title() == "?M")
@@ -114,18 +75,22 @@ if (len(sys.argv) > 1):
                     bool2 = bool2 or (twochars.title() == "1F")
                     bool2 = bool2 or (twochars.title() == "?F")
                     if bool1:
-                        males.append(keyscountries[str(i)])
+                        males.append(dgg.keyscountries[str(i)])
                     elif bool2:
-                        females.append(keyscountries[str(i)])
+                        females.append(dgg.keyscountries[str(i)])
                     elif (rowres[0].title() == "="):
-                        both.append(keyscountries[str(i)])
+                        both.append(dgg.keyscountries[str(i)])
 
     print("males: " + (str(sorted(males))))
     print("females: " + str(sorted(females)))
     print("both: " + str(sorted(both)))
 
-if (args.damegender):
-    official_names = ["ar", "at", "au", "be", "ca", "ch", "de", "dk", "es", "fi", "fr", "gb", "ie", "is", "no", "nz", "mx", "pt", "ru", "se", "si", "us", "uy"]
+elif ((args.dataset == "damegender") or (args.dataset == "inter")):
+    print("We are using the international dataset in this script")
+    official_names = ["ar", "at", "au", "be", "ca", "ch", "cl", "de",
+                      "dk", "es", "fi", "fr", "gb", "ie", "is",
+                      "no", "nz", "mx", "pt", "ru", "se", "si",
+                      "us", "uy"]
     males = []
     females = []
     both = []
@@ -133,5 +98,5 @@ if (args.damegender):
     for i in official_names:
         dicc = g.name_frec(args.name, dataset=i)
         if ((int(dicc["females"]) > 10) or (int(dicc["males"]) > 10)):
-            print("%s (females: %s, males: %s)" % (iso3166_to_eng[i], dicc["females"], dicc["males"]))
-
+            print("%s (females: %s, males: %s)" %
+                  (iso3166_to_eng[i], dicc["females"], dicc["males"]))

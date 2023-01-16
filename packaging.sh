@@ -19,6 +19,5 @@
 #  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 #  Boston, MA 02110-1301 USA,
 
-
-find src/damegender/files/names/names_*/orig -exec rm {} \;
+./rm-orig.sh
 python3 setup.py register sdist

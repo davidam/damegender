@@ -44,11 +44,11 @@ parser.add_argument('--delimiter_csv', required=False,
                     type=str, default=",")
 # Is the csv separated by commas?
 parser.add_argument('--dataset', default="us",
-                    choices=['ar', 'at', 'au', 'be', 'ca', 'ch', 'cn', 'de',
-                             'dk', 'es', 'fi', 'fr', 'gb', 'ie', 'ine',
-                             'inter', 'is', 'mx', 'no', 'nz', 'pt',
-                             'ru', 'ru_en', 'ru_ru', 'se', 'si', 'uy',
-                             'us', 'genderguesser'])
+                    choices=['ar', 'at', 'au', 'be', 'ca', 'ch', 'cl',
+                             'cn', 'de', 'dk', 'es', 'fi', 'fr', 'gb',
+                             'ie', 'ine', 'inter', 'is', 'mx', 'no',
+                             'nz', 'pt', 'ru', 'ru_en', 'ru_ru',
+                             'se', 'si', 'uy', 'us', 'genderguesser'])
 parser.add_argument('--outcsv', default="files/names/out.csv")
 parser.add_argument('--outjson', default="files/names/out.json")
 parser.add_argument('--outimg', default="files/images/csv2gender.png")
@@ -123,17 +123,18 @@ for i in csvrowlist:
             surname_string = du.drop_quotes(ii[surname_position])
             surname_string = surname_string.encode('utf-8')
         if (args.respect_accents):
-            sex = s.guess(first_name_string.decode('utf-8'),
-                          binary=False,
-                          drop_accents=False,
-                          force_whitespaces=args.force_whitespaces,
-                          dataset=args.dataset)
+            sex = s.guess(
+                first_name_string.decode('utf-8'),
+                binary=False,
+                drop_accents=False,
+                force_whitespaces=args.force_whitespaces,
+                dataset=args.dataset)
         else:
-            sex = s.guess(first_name_string.decode('utf-8'),
-                          binary=False,
-                          force_whitespaces=args.force_whitespaces,                          
-                          dataset=args.dataset)
-            
+            sex = s.guess(
+                first_name_string.decode('utf-8'),
+                binary=False,
+                force_whitespaces=args.force_whitespaces,
+                dataset=args.dataset)
         if (sex == "male"):
             males_list.append(first_name_string)
         elif (sex == "female"):

@@ -191,6 +191,13 @@ class TddInPythonExample(unittest.TestCase):
         l1 = sorted(du.delete_duplicated([1, 5, 2, 2, 1, 3, 5, 5, 5, 5]))
         self.assertEqual(l1, [1, 2, 3, 5])
 
+    def test_detect_duplicated(self):
+        du = DameUtils()
+        bool0 = du.detect_duplicated([1, 5, 2, 2, 1, 3, 5, 5, 5, 5])
+        self.assertTrue(bool0)
+        bool1 = du.detect_duplicated([5, 2, 1, 3])
+        self.assertFalse(bool1)
+
     def test_clean_list(self):
         du = DameUtils()
         self.assertEqual(
@@ -265,8 +272,14 @@ class TddInPythonExample(unittest.TestCase):
                           '"pierre paul grivel"', '"m"', '"zbmath"'], l2[0])
         self.assertEqual(['"raul"', '""', '"serapioni"',
                           '"raul serapioni"', '"m"', '"zbmath"'], l2[1])
-        l3 = du.csv2list('files/tests/csvbuggy.csv', delimiter=",", header=False, noemptyfield=0)
-        self.assertEqual([["WLATER", "1"], ["YIMI", "16"], ["YONNY", "65"]], l3[0:3])
+        l3 = du.csv2list('files/tests/csvbuggy.csv',
+                         delimiter=",",
+                         header=False,
+                         noemptyfield=0)
+        self.assertEqual([["WLATER", "1"],
+                          ["YIMI", "16"],
+                          ["YONNY", "65"]],
+                         l3[0:3])
 
     def test_num_columns_in_csv(self):
         du = DameUtils()

@@ -29,7 +29,8 @@ import json
 import os.path
 import codecs
 from app.dame_gender import Gender
-
+from app.dame_utils import DameUtils
+du = DameUtils()
 
 class DameGenderGuesser(Gender):
     COUNTRIES = """
@@ -49,6 +50,28 @@ class DameGenderGuesser(Gender):
         """Creates a detector parsing given data file"""
         self.case_sensitive = case_sensitive
         self._parse("files/names/nam_dict.txt")
+        # Dictionary of countries and person names in files/names/nam_dict.txt
+        self.keyscountries = {
+            "30": "Great Britain", "31": "Ireland", "32": "USA",
+            "33": "Italy", "34": "Malta", "35": "Portugal",
+            "36": "Spain", "37": "France", "38": "Belgium",
+            "39": "Luxembourg", "40": "The Netherlands",
+            "41": "East Frisia", "42": "Germany", "43": "Austria",
+            "44": "Swiss", "45": "Iceland", "46": "Denmark",
+            "47": "Norway", "48": "Sweden", "49": "Finland",
+            "50": "Estonia", "51": "Latvia", "52": "Lithuania",
+            "53": "Poland", "54": "Czech Republic", "55": "Slovakia",
+            "56": "Hungary", "57": "Romania", "58": "Bulgaria",
+            "59": "Bosnia and Herzegovina", "60": "Croatia",
+            "61": "Kosovo", "62": "Macedonia", "63": "Montenegro",
+            "64": "Serbia", "65": "Slovenia", "66": "Albania",
+            "67": "Greece", "68": "Rusia", "69": "Belarus",
+            "70": "Moldova", "71": "Ukraine", "72": "Armenia",
+            "73": "Azerbaijan", "74": "Georgia",
+            "75": "Kazakhstan/Uzbekistan", "76": "Turkey",
+            "77": "Arabia/Persia", "78": "Israel", "79": "China",
+            "80": "India/Sri Lanka", "81": "Japan", "82": "Korea",
+            "83": "Vietnam", "84": "other countries"}
 
     def _parse(self, filename):
         """Opens data file and for each line, calls _eat_name_line"""
@@ -65,7 +88,6 @@ class DameGenderGuesser(Gender):
             name = parts[1]
             if not self.case_sensitive:
                 name = name.lower()
-
             if parts[0] == "M":
                 self._set(name, u"male", country_values)
             elif parts[0] == "1M" or parts[0] == "?M":
@@ -157,3 +179,18 @@ class DameGenderGuesser(Gender):
                 name = name.replace('\"', '')
                 slist.append(self.guess(name, binary))
         return slist
+
+    def exists_in_country(self, num, arr):
+        bool1 = (str(arr[num]) == "A") or (str(arr[num]) == "B")
+        bool1 = bool1 or (str(arr[num]) == "C")
+        bool1 = bool1 or (str(arr[num]) == "D")
+        if du.is_not_blank(arr[num]):
+            if bool1:
+                return True
+            elif (int(arr[num]) > 0):
+                return True
+            else:
+                return False
+        else:
+            return False
+    

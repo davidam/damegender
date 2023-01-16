@@ -1,3 +1,28 @@
+* v0.5.2
+
+Official Datasets:
++ [X] Chile: 7024 females, 5433 males
+
++ top.py:
+     adding --outjson giving this wonderful feature: to export top names to websites
+
++ sh/languages:
+     adding arabic.sh, german.sh and portuguese.sh
+
++ files/names/names_tests:
+     adding wta-players.csv, names_leagues.csv
+
+* v0.5.1
+
++ reviewing PEP8 coding style
++ nameincountries.py:
+     giving support to INTER dataset
++ csv2jsonapirest.py:
+     adding --names_in_countries
++ sh files has been moved to sh folder
++ starting sh scripts about merging datasets in languages
++ more datasets has been added (genderize, indonesia, amazon best sellers, gutember authors , ...)
+  
 * v0.5
 
 + accuracy.py: bug fixes

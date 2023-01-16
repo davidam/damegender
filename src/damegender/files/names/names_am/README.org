@@ -6,3 +6,5 @@ https://armstat.am/en/
 
 * Paper:
 https://www.jstor.org/stable/454102
+
+* Official language: Armenian

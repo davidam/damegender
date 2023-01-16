@@ -41,7 +41,7 @@ parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB',
                                      'forest', 'tree', 'mlp'])
 parser.add_argument('--total', default="inter",
                     choices=['ar', 'at', 'au', 'be', 'ca', 'ch',
-                             'cn', 'de', 'dk', 'es', 'fi',
+                             'cl', 'cn', 'de', 'dk', 'es', 'fi',
                              'fr', 'gb', 'ie', 'is', 'it', 'no', 'nz',
                              'mx', 'pt', 'ru', 'ru_ru',
                              'ru_en', 'se', 'si',
@@ -96,189 +96,245 @@ if (args.total == "namdict"):
                 print("you can try predict with --ml")
 
 elif ((args.verbose) or (args.total == "all")):
-    n_males = s.name_frec(args.name, dataset="ar",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="ar",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="ar",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="ar",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Argentina statistics"
           % (n_males, args.name))
     print("%s females for %s from Argentina statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="at",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="at",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="at",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="at",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Austria statistics"
           % (n_males, args.name))
     print("%s females for %s from Austria statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="au",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="au",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="au",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="au",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Australia statistics"
           % (n_males, args.name))
     print("%s females for %s from Australia statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="be",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="be",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="be",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="be",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Belgium statistics"
           % (n_males, args.name))
     print("%s females for %s from Belgium statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="ca",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="ca",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="ca",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="ca",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Canada statistics"
           % (n_males, args.name))
     print("%s females for %s from Canada statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="ch",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="ch",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="ch",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="ch",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Swiss statistics"
           % (n_males, args.name))
     print("%s females for %s from Swiss statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="cn",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="cn",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="cl",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="cl",
+        force_whitespaces=args.force_whitespaces)['females']
+    print("%s males for %s from Chile statistics"
+          % (n_males, args.name))
+    print("%s females for %s from Chile statistics"
+          % (n_females, args.name))
+    n_males = s.name_frec(
+        args.name, dataset="cn",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="cn",
+        force_whitespaces=args.force_whitespaces)['females']
     print("Warning: China option only runs with China alphabet")
     print("%s males for %s from China statistics"
           % (n_males, args.name))
     print("%s females for %s from China statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="de",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="de",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="de",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="de",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Deutchsland statistics"
           % (n_males, args.name))
     print("%s females for %s from Deutchsland statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="dk",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="dk",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="dk",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="dk",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Denmark statistics"
           % (n_males, args.name))
     print("%s females for %s from Denmark statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="ine",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="ine",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="ine",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="ine",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Spain statistics (INE.es)"
           % (n_males, args.name))
     print("%s females for %s from Spain statistics (INE.es)"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="ie",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="ie",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="ie",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="ie",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Ireland statistics"
           % (n_males, args.name))
     print("%s females for %s from Ireland statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="is",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="is",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="is",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="is",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Iceland statistics"
           % (n_males, args.name))
     print("%s females for %s from Iceland statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="it",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="it",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="it",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="it",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Italy statistics"
           % (n_males, args.name))
     print("%s females for %s from Italy statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="fi",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="fi",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="fi",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="fi",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Finland statistics"
           % (n_males, args.name))
     print("%s females for %s from Finland statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="fr",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="fr",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="fr",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="fr",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from France statistics"
           % (n_males, args.name))
     print("%s females for %s from France statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="gb",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="gb",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="gb",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="gb",
+        force_whitespaces=args.force_whitespaces)['females']
     gb = "United Kingdom of Great Britain and Northern Ireland"
     print("%s males for %s from %s statistics"
           % (n_males, args.name, gb))
     print("%s females for %s from %s statistics"
           % (n_females, args.name, gb))
-    n_males = s.name_frec(args.name, dataset="mx",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="mx",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="mx",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="mx",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Mexico statistics"
           % (n_males, args.name))
     print("%s females for %s from Mexico statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="no",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="no",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="no",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="no",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Norway statistics"
           % (n_males, args.name))
     print("%s females for %s from Norway statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="nz",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="nz",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="nz",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="nz",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from New Zealand statistics"
           % (n_males, args.name))
     print("%s females for %s from New Zealand statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="pt",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="pt",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="pt",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="pt",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Portugal statistics"
           % (n_males, args.name))
     print("%s females for %s from Portugal statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="ru",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="ru",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="ru",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="ru",
+        force_whitespaces=args.force_whitespaces)['females']
     print("Warning: russian option only runs with russian alphabet")
     print("%s males for %s from Russia statistics"
           % (n_males, args.name))
     print("%s females for %s from Russia statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="se",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="se",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="se",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="se",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Sweden statistics"
           % (n_males, args.name))
     print("%s females for %s from Sweden statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="si",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="si",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="si",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="si",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Slovenia statistics"
           % (n_males, args.name))
     print("%s females for %s from Slovenia statistics"
@@ -289,43 +345,52 @@ elif ((args.verbose) or (args.total == "all")):
     #       % (n_males, args.name))
     # print("%s females for %s from Turkish statistics"
     #       % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="us",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="us",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="us",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="us",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from United States of America statistics"
           % (n_males, args.name))
     print("%s females for %s from United States of America statistics"
           % (n_females, args.name))
-    n_males = s.name_frec(args.name, dataset="uy",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="uy",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="uy",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="uy",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from Uruguay statistics"
           % (n_males, args.name))
     print("%s females for %s from Uruguay statistics"
           % (n_females, args.name))
 
-    n_males = s.name_frec(args.name, dataset="inter",
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset="inter",
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset="inter",
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset="inter",
+        force_whitespaces=args.force_whitespaces)['females']
     print("%s males for %s from international statistics"
           % (n_males, args.name))
     print("%s females for %s from international statistics"
           % (n_females, args.name))
 
-    guess = s.guess(args.name, binary=True, ml="nltk",
-                    force_whitespaces=args.force_whitespaces)
+    guess = s.guess(
+        args.name, binary=True, ml="nltk",
+        force_whitespaces=args.force_whitespaces)
     print("%s gender predicted with nltk is %s"
           % (str(args.name), du.int2gender(guess)))
 
 else:
     s = DameSexmachine()
-    n_males = s.name_frec(args.name, dataset=args.total,
-                          force_whitespaces=args.force_whitespaces)['males']
-    n_females = s.name_frec(args.name, dataset=args.total,
-                            force_whitespaces=args.force_whitespaces)['females']
+    n_males = s.name_frec(
+        args.name, dataset=args.total,
+        force_whitespaces=args.force_whitespaces)['males']
+    n_females = s.name_frec(
+        args.name, dataset=args.total,
+        force_whitespaces=args.force_whitespaces)['females']
     if (int(n_males) > int(n_females)):
         print("%s's gender is male" % (str(args.name)))
         prob = int(n_males) / (int(n_males) + int(n_females))
@@ -405,6 +470,11 @@ else:
         print("%s males for %s from Swiss statistics"
               % (n_males, args.name))
         print("%s females for %s from Swiss statistics"
+              % (n_females, args.name))
+    elif (args.total == "cl"):
+        print("%s males for %s from Chile statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Chile statistics"
               % (n_females, args.name))
     elif (args.total == "cn"):
         print("Warning: total=cn only runs with chinese alphabet")

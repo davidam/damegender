@@ -31,7 +31,7 @@ from app.dame_wikidata import DameWikidata
 
 dw = DameWikidata()
 isocodes = dw.dicc_countries().keys()
-codes = list(isocodes) + ["inter", "ine"]
+codes = list(isocodes) + ["inter", "ine", "tests"]
 
 parser = argparse.ArgumentParser()
 parser.add_argument('total', default="es", choices=codes)
@@ -101,7 +101,8 @@ if (country == "ar"):
                 diccsurnames[row[2]] = 1
 
         for i in diccsurnames.keys():
-            filesurnames.write(str(i)+","+str(diccsurnames[i])+"\n")
+            if i:
+                filesurnames.write(str(i)+","+str(diccsurnames[i])+"\n")
 
     filesurnames.close()
 
@@ -113,31 +114,20 @@ elif (country == "at"):
         print("Downloading datasets from Austria ...")
         subprocess.call(outpath + "download.sh", shell=True)
 
-    l0 = ['Vornamen_syn-top.csv.2',
-          'Vornamen_syn-top.csv.3',
-          'Vornamen_syn-top.csv.4',
-          'Vornamen_syn-top.csv.5',
-          'Vornamen_syn-top.csv.6',
-          'Vornamen_syn-top.csv.7',
-          'Vornamen_syn-top.csv.8',
-          'Vornamen_syn-top.csv.9',
-          'Vornamen_syn-top.csv.10',
-          'Vornamen_syn-top.csv.11',
-          'Vornamen_syn-top.csv.12']
+    l0 = ['Vornamen_1984_bis_2021_original_Schreibweise.csv.2',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.3',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.4',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.5',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.6',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.7',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.8',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.9',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.10',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.11',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.12',
+          'Vornamen_1984_bis_2021_original_Schreibweise.csv.13']
 
-    origfile = origpath + 'l9ogdvornamentop500'
-
-    diccmales = du.dump_name_and_quantity_in_dicc(origfile, 7, 8,
-                                                  dicc={},
-                                                  delimiter=";",
-                                                  filter_pos=5,
-                                                  filter_char='1')
-
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfile, 7, 8,
-                                                    dicc={},
-                                                    delimiter=";",
-                                                    filter_pos=5,
-                                                    filter_char='2')
+    # origfile = origpath + 'l9ogdvornamentop500'
 
     for i in l0:
         path = origpath + '/' + i
@@ -404,6 +394,52 @@ elif (country == "ch"):
                                                     delimiter=",")
     du.simple_dicc_to_file(diccfemales, outfemales)
 
+elif (country == "cl"):
+
+    if (args.download):
+        print("Downloading Chile datasets ...")
+        print("Opps, this feature is not enable, yet ...")
+        print("You can to become the hacker developing this feature ...")
+        print("git pull request is our friend ...")                
+    #     subprocess.call(outpath + "download.sh", shell=True)
+
+    filefem2019 = origpath + 'females2019.csv'
+    filefem2020 = origpath + 'females2020.csv'
+    filefem2021 = origpath + 'females2021.csv'
+    filemal2019 = origpath + 'males2019.csv'
+    filemal2020 = origpath + 'males2020.csv'
+    filemal2021 = origpath + 'males2021.csv'
+    print("Chile names ...")
+    diccfemales = {}
+    diccmales = {}
+    diccmales = du.dump_name_and_quantity_in_dicc(filemal2019,
+                                                  0, 1,
+                                                  dicc=diccmales,
+                                                  delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(filemal2020,
+                                                  0, 1,
+                                                  dicc=diccmales,
+                                                  delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(filemal2021,
+                                                  0, 1,
+                                                  dicc=diccmales,
+                                                  delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(filefem2019,
+                                                    0, 1,
+                                                    dicc=diccfemales,
+                                                    delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(filefem2020,
+                                                    0, 1,
+                                                    dicc=diccfemales,
+                                                    delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(filefem2021,
+                                                    0, 1,
+                                                    dicc=diccfemales,
+                                                    delimiter=",")
+    du.simple_dicc_to_file(diccmales, outmales)
+    du.simple_dicc_to_file(diccfemales, outfemales)
+
+    
 elif (country == "de"):
 
     if (args.download):
@@ -497,7 +533,7 @@ elif (country == "fi"):
 
 elif (country == "fr"):
     origpath = outpath + "orig/"
-    origfile = origpath + "nat2020.csv"
+    origfile = origpath + "nat2021.csv"
     if (args.download):
         print("Downloading french datasets ...")
         subprocess.call(outpath + "download.sh", shell=True)
@@ -859,6 +895,12 @@ elif (country == "uy"):
                                                     quotechar='"')
     du.simple_dicc_to_file(diccfemales, outfemales)
     du.simple_dicc_to_file(diccmales, outmales)
+
+elif (country == "tests"):
+    path = "files/names/names_tests/"
+    if (args.download):
+        print("Downloading datasets from several servers ...")
+        subprocess.call(path + "download.sh", shell=True)
 
 else:
     print("this country code is not running yet")

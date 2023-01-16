@@ -4,3 +4,4 @@ Retrieved from:
 License: Licencia de Datos Abiertos de Uruguay
 + https://www.gub.uy/agencia-gobierno-electronico-sociedad-informacion-conocimiento/sites/agencia-gobierno-electronico-sociedad-informacion-conocimiento/files/documentos/publicaciones/licencia_de_datos_abiertos_0.pd
 
+Official Language: Spanish

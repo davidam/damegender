@@ -23,14 +23,17 @@ cd orig
 
 wget -c http://datamx.io/dataset/2f4f2e93-fb20-423b-bf44-e68256bcc635/resource/df9d4714-a5a3-469f-ae9a-d4c28b34d954/download/hombres.csv
 sed '1d' hombres.csv > aux.csv
-mv aux.csv hombres.csv
+sed '/^,/d' aux.csv > aux2.csv
+mv aux2.csv hombres.csv
 
 wget -c http://datamx.io/dataset/2f4f2e93-fb20-423b-bf44-e68256bcc635/resource/8047ffa2-dac3-4675-87e1-e7eb4de09825/download/mujeres.csv
 sed '1d' mujeres.csv > aux.csv
-mv aux.csv mujeres.csv
+sed '/^,/d' aux.csv > aux2.csv
+mv aux2.csv mujeres.csv
 
 wget -c http://datamx.io/dataset/2f4f2e93-fb20-423b-bf44-e68256bcc635/resource/56f84bf5-8255-4b15-949d-912fc79477ce/download/apellidos.csv
 sed '1d' apellidos.csv > aux.csv
-mv aux.csv apellidos.csv
+sed '/^,/d' aux.csv > aux2.csv
+mv aux2.csv apellidos.csv
 
 cd ..

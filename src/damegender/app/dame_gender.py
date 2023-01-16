@@ -275,8 +275,11 @@ class Gender(object):
         return "files/names/names_" + locale + "/" + locale + "surnames.csv"
 
     def males_list(self, corpus='es'):
+<<<<<<< HEAD
         #A function called males_list is defined. This function takes a corpus (default is "es") as a parameter and returns a list of masculine names.
         du = DameUtils()
+=======
+>>>>>>> d672f1ba0e1eee926d0f09de658db4abd0777a89
         dicc_males = du.dicc_dataset("male")
         path_males = dicc_males[corpus]
         m = []
@@ -290,8 +293,11 @@ class Gender(object):
         return m
 
     def females_list(self, corpus='es'):
+<<<<<<< HEAD
         #Defines a function called "females_list" that is used to create a list of women.
         du = DameUtils()
+=======
+>>>>>>> d672f1ba0e1eee926d0f09de658db4abd0777a89
         dicc_females = du.dicc_dataset("female")
         path_females = dicc_females[corpus]
         f = []
@@ -394,6 +400,20 @@ class Gender(object):
         file.writelines(str(string))
         file.close()
 
+    # def csv_names_check(self, filepath):
+    #     match_initials = re.search(r'([A-Z]\.| ){1,2}', str)
+    #     match_empty = re.search(r'', str)        
+    #     with open(path) as csvfile:        
+    #         sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    #         next(sexreader, None)
+    #     filepath="gpl-3.0.txt"
+    #     with open(filepath) as fp:
+    #         for cnt, line in enumerate(fp):
+    #             if (cnt <= 10):
+    #                 print("Line {}: {}".format(cnt, line)) # Imprime línea y número de línea
+
+
+                
     def name2gender_in_dataset(self, name, dataset=''):
         #This function is used to determine the gender of a noun in a specific data set.
         guess = 2
@@ -493,8 +513,7 @@ class Gender(object):
     def name_frec(self, name, *args, **kwargs):
         # guess list method
         dataset = kwargs.get('dataset', "us")
-        force_whitespaces = kwargs.get('force_whitespaces', False)        
-        du = DameUtils()
+        force_whitespaces = kwargs.get('force_whitespaces', False)
         name = du.drop_accents(name)
         if force_whitespaces:
             name = du.force_whitespaces(name)
@@ -535,8 +554,6 @@ class Gender(object):
     def inesurname_province_and_frec(self, surname, *args, **kwargs):
         # guess list method
         province = kwargs.get('province', 'madrid')
-        du = DameUtils()
-
         if (province == 'acorugna'):
             spath = 'files/inesurnames/provincias/residencia/acorugna.csv'
         elif (province == 'alava'):
@@ -655,8 +672,11 @@ class Gender(object):
         return quantity
 
     def name_prob_countries(self, name):
+<<<<<<< HEAD
         #Calculates the probability that a given name is used by men or women in some countries
         du = DameUtils()
+=======
+>>>>>>> d672f1ba0e1eee926d0f09de658db4abd0777a89
         es = self.name_frec(name, dataset="es")
         ie = self.name_frec(name, dataset="ie")
         isl = self.name_frec(name, dataset="is")
@@ -762,11 +782,13 @@ class Gender(object):
     def guess(self, name, binary=False, dataset='us', *args, **kwargs):
         # guess method to check names dictionary
         nonamerange = kwargs.get('nonamerange', 0)
-        force_whitespaces = kwargs.get('force_whitespaces', False)        
+        force_whitespaces = kwargs.get('force_whitespaces', False)
         guess = ''
         name = unidecode.unidecode(name).title()
         name.replace(name, "")
-        dicc = self.name_frec(name, dataset=dataset, force_whitespaces=force_whitespaces)
+        dicc = self.name_frec(name,
+                              dataset=dataset,
+                              force_whitespaces=force_whitespaces)
         m = int(dicc['males'])
         f = int(dicc['females'])
         # nonamerange must be greater than 500
@@ -829,7 +851,6 @@ class Gender(object):
 
     def string2gender(self, string):
         # TODO: take care with trash strings before the name
-        du = DameUtils()
         arr = du.string2array(string)
         name = ""
         i = 0
@@ -908,7 +929,7 @@ class Gender(object):
         api = kwargs.get('api', 'damegender')
         header = kwargs.get('header', True)
         gender_test_row = kwargs.get('gender_test_row', 4)
-        gender_guess_row = kwargs.get('gender_guess_row', 4)        
+        gender_guess_row = kwargs.get('gender_guess_row', 4)
         guess_f_chars = kwargs.get('guess_f_chars', 'f')
         guess_m_chars = kwargs.get('guess_m_chars', 'm')
         test_f_chars = kwargs.get('test_f_chars', 'f')
@@ -966,7 +987,7 @@ class Gender(object):
                                                                   csvf=guessf)
 
                 elif (du.is_csv(testf)):
-                    tl = self.csv2gender_list(path=testf, 
+                    tl = self.csv2gender_list(path=testf,
                                               gender_column=gender_test_row,
                                               gender_f_chars=test_f_chars,
                                               gender_m_chars=test_m_chars,
@@ -987,7 +1008,7 @@ class Gender(object):
             print(testf)
             print("a file for guessed file")
             print(guessf)
-            
+
         if difflen:
             print("Names in test file and guessed file are differents")
             print("%s names in test file" %

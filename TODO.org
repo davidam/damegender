@@ -1256,8 +1256,12 @@ https://github.com/mkozturk/turkishnames/
 * DONE Hacer trabajos técnicos a favor de la incorporación de China en DameGender
   - State "DONE"       from "TODO"       [2021-05-10 lun 08:54]
 Mirar el paquete de R ChineseNames
-* FUTURE Unifying criteria counting males and females
+* DONE Unifying criteria counting males and females
   SCHEDULED: <2021-10-09 sáb>
+  - State "DONE"       from "FUTURE"     [2023-01-06 vie 12:47]
+The criteria was unified: one person, one vote. So, we can choose borns or total, but not both.
+
+** Old description
 We have found 2 main criteria counting males and females: number of
 borns in a year and people using the name in a year. Both criteria are
 good indicators to understand how many people is using a name as male
@@ -1270,14 +1274,18 @@ not changed too much changing the method to count, the accuracy will be
 improved a little bit in some names, but the biases in the current
 state is happening due to lack of countries and alphabets.
 
-* TODO [#A] Usar csv o json debe ser una opción en base de verdad y comparación con respecto confusion y accuracy
-** TODO 1. Debemos unificar nombres de métodos
+* DONE [#A] Usar csv o json debe ser una opción en base de verdad y comparación con respecto confusion y accuracy
+  - State "DONE"       from "TODO"       [2023-01-06 vie 12:48]
+** DONE 1. Debemos unificar nombres de métodos
+   - State "DONE"       from "TODO"       [2023-01-06 vie 12:47]
 + [ ] gender_list by csv2gender_list
 + [ ] json2guess_list by json2gender_list
 
-** TODO 2. En confusion y accuracy deben reescribirse los argumentos --csv y --jsondownloaded a --csv-base-of-truth, --json-base-of-truth, --json-to-compare y --csv-to-compare
+** DONE 2. En confusion y accuracy deben reescribirse los argumentos --csv y --jsondownloaded a --csv-base-of-truth, --json-base-of-truth, --json-to-compare y --csv-to-compare
   SCHEDULED: <2021-05-08 sáb>
-** TODO 3. Escribir csv2json.py
+  - State "DONE"       from "TODO"       [2023-01-06 vie 12:47]
+** DONE 3. Escribir csv2json.py
+   - State "DONE"       from "TODO"       [2023-01-06 vie 12:48]
 Los campos de cada persona
 + name (obligatorio)
 + surname (opcional, por defecto vacío)
@@ -1335,7 +1343,11 @@ y ver que las desviaciones son razonables
   - State "DONE"       from "TODO"       [2022-03-07 lun 10:27]
   Tratar de reemplazar por librería nativa para evitar problemas de dependencias
   https://docs.python.org/3/library/xml.etree.elementtree.html
-* TODO Crear un método normalize_names_and_white_spaces
+* CANCELED Crear un método normalize_names_and_white_spaces
+  - State "CANCELED"   from "TODO"       [2023-01-06 vie 12:43]
+ESTA TAREA HA SIDO REESCRITA COMO "Checklist a cada csv de un país"
+
+
 La entrada es una cadena y si tiene cadenas de caracteres candidatas a nombres
 y espacios en blanco devuelve true
 
@@ -1359,6 +1371,8 @@ arbitraria.
 
 Quizás deba cancelar esta tarea y seguir abordándolo todo esto con los métodos que lo
 estaba haciendo
+
+
 * DONE Crear un script para descargar nombres desde wikidata especificando el país y el género
 - State "DONE"       from "TODO"       [2022-04-08 vie 23:56]
 * DONE Crear un script para desccarga apellidos desde Wikidata especificando el país
@@ -1369,8 +1383,10 @@ estaba haciendo
   - State "DONE"       from "TODO"       [2022-04-08 vie 23:59]
 * DONE Crear un script en bash para ejecutar los test python
   - State "DONE"       from "TODO"       [2022-04-09 sáb 00:01]
-* TODO Reproducibilidad en Datasets
-** TODO download.sh en todos los paises con estadísticas oficiales
+* DONE Reproducibilidad en Datasets
+  - State "DONE"       from "TODO"       [2023-01-06 vie 12:41]
+** DONE download.sh en todos los paises con estadísticas oficiales
+   - State "DONE"       from "TODO"       [2023-01-06 vie 12:41]
 + [X] "ar"
 + [X] "at"
 + [X] "au"
@@ -1392,7 +1408,8 @@ estaba haciendo
 + [X] "se"
 + [X] "uy"
 + [X] "us"
-** TODO orig2.py en todos los paises con estadísticas oficiales
+** DONE orig2.py en todos los paises con estadísticas oficiales
+   - State "DONE"       from "TODO"       [2023-01-06 vie 12:41]
 *** DONE "ar"
 - State "DONE"       from "TODO"       [2022-07-22 vie 03:46]
 *** DONE "at"
@@ -1466,7 +1483,8 @@ accuracy_score_dame had been used and tested only without undefined because in t
 * TODO Revisar a mano todas las medidas de precision y error de los tests: accuracy, precision, f1score, recall, errors, ...
 - State "DONE"       from "TODO"       [2022-10-04 mar 21:38]
 * DONE Comprobar que no se llama al dataset de Lucia&Helena desde los tests a menos que solicite descarga
-* TODO Introducir en orig2.py los procesamientos de files/names/names_tests que sean necesarios
+* DONE Introducir en orig2.py los procesamientos de files/names/names_tests que sean necesarios
+  - State "DONE"       from "TODO"       [2023-01-06 vie 12:57]
 Por ejemplo pasar un fichero de formato stata a csv:
      data = pd.io.stata.read_stata(path)
      data.to_csv(path+'.csv')
@@ -1522,3 +1540,100 @@ Por ejemplo, generar strings de consonantes sin sílabas, strings de una letra, 
 * TODO Mejorar nameincountries
 Ahora mismo solo funciona namdict
 Se podría usar name_frec de manera que para cada país investiga si es mayor que 0 y concatena el país con la frecuencia
+* TODO Escribir funcionalidades gitcoin
+Hay muchas funcionalidades de DameGender (python+bash) que pueden ser deseadas por los usuarios de la web (nodejs)
+Apuntamos unas cuantas para ponerles un precio por si hay gente interesada en pagar eso.
+** TODO nameincountries (1500€)
+Dado un nombre en el buscador desplegar países que lo usan y frecuencia de personas usándolo en cada país.
+** TODO Machine Learning (2000€)
+Dado un nombre no encontrado en el INTER forzar una respuesta DameGender al género utilizando Machine Learning
+** TODO CSV2GENDER (2000€)
+Dado un dataset csv con una columna de primer nombre y quizás otras columnas de segundos nombres y/o apellidos devolver un nuevo csv y/o json con género otorgado por Damegender
+** TODO Accuracy (2000€)
+Dado dos datasets que cada cual tiene al menos primer nombre y género y donde uno lo nombramos como test y otro como guess devolver:
++ Accuracy
++ Precision
++ F1Score
+** TODO Confusion Matrix (2000€)
+Dado dos datasets que cada cual tiene al menos primer nombre y género y donde uno lo nombramos como test y otro como guess devolver:
++ Matriz de Confusión
+** TODO git2gender (2000€)
+Dado una url de un repositorio GIT devolver el número de hombres y mujeres que tienes autoría en el código
+** TODO newspaper2gender (2000€)
+Dada una url de una noticia de periódico devolver el número de hombres y mujeres que tienen autoría
+** TODO top (5000 €)
+Sacar un listado de cada país con dataset oficiales dónde haya los 10-100-1000 nombres más utilizados pudiendo hacer filtrado de género (masculinos, femeninos, ambos)
+** TODO surname (3000 €)
+Crear una caja de búsqueda que dado un apellido detecte la presencia en países y el número de personas otorgando la fuente de datos (ej: Wikipedia, Estadísticas Oficiales)
+** TODO startwith con ajax (2000 €)
+Según va escribiendo en la caja de búsqueda ir autocompletando con posibles nombres al estilo Google
+** TODO csv2jsonapirest (2000€)
+Dado un csv, por ejemplo, el INTER dataset generar ficheros json con uno o más nombres cada uno y devolver ese conjuto de ficheros comprimido en un .zip
+** TODO percentage2names (2000€)
+Para personas que quieran conocer deminombres, esto es, buscar nombres en base a porcentajes de masculinidad y feminidad habría que crear un formulario dando como parámetros masculinidad máxima y mínima, feminidad máxima y mínima y origen nacional del nombre
+** TODO infofeatures o las reglas del lenguaje (10000€)
+Dado un origen nacional o lengua desplegar información estadística acerca de las reglas de ese conjunto de nombres. Debería dar la información explicativa de los n-gramas y las características más significativas con PCA
+* TODO Checklist a cada csv de un país
+** TODO Cada row es un nombre
++ [ ] Se han eliminado todo tipo de comentarios, cabeceras y footers
+*** TODO No hay nombres que tengan como primer nombre una inicial. Las iniciales pueden aparecer con punto o sin punto
+def initial_letters(self, s):
+*** TODO No hay nombres que no se puedan pronunciar. Debería haber al menos una vocal en casi todos los idiomas.
+a|e|i|o|u|y in string
+def only_consonants_in_string(self, s):
+*** TODO No hay rows con nombres vacíos
+*** TODO No hay dos veces el mismo nombre en un dataset
+def detect_duplicated
+** TODO Con respecto a columnas y filas
+*** TODO El número de columnas es el mismo en todas las filas
+def csv_with_same_columns
+*** TODO En cada row nombre y frecuencia aparecen en las mismas posiciones
+def only_string_in_column
+def only_integer_in_column
+*** TODO En cada row nombre y apellido están siempre en las mismas posiciones
+def num_surnames_know_in_list
+def num_names_know_in_list
+
+Un caso de interés para pruebas es files/names/names_tests/funcionarios.csv donde están realmente mezclados ocupando los nombres la posición de los apellidos y, al revés.
+
+* DONE Deploy most used names in damegender-web
+Visit https://damegender.davidam.com/top.html
+* TODO Make the accuracy between Portuguese language and Brazil country
+  SCHEDULED: <2023-01-10 mar>
+* TODO Tomando cada dataset oficial como dataset guess entender el sesgo nacional
+** TODO csv2gender con el dataset INTER
+** TODO accuracy pensando que INTER es guess y el dataset oficial es test
+
+* TODO HIPÓTESIS 1
+Los sesgos que se generan en idiomas o países (casos como Andrea, Jaime, ...) son de poco interés significativo respecto a utilizar un dataset INTER.
+
+* TODO HIPÓTESIS 2
+Los sesgos que se generan por efecto Lesley son también de poco interés significativo
+
+* TODO HIPÓTESIS 3
+El sesgo de error de utilizar un dataset INTER en vez de detectar y aplicar el idioma o nación local es del 10%
+
+* TODO HIPÓTESIS 4
+Un dataset INTER construido únicamente con datasets de WikiData tendría un menor acierto que uno construido con instituciones estadísticas Open Data. 
+Esto sería así por un menor número de nombres y no por un desacierto de género y nombre.
+
+* TODO HIPÓTESIS 5
+El dataset de Estados Unidos es el dataset-nación que mejor funciona debido al alto número de nombres y, no por cuestiones de calidad en el resto de instituciones estadísticas.
+
+* TODO HIPÓTESIS 6
+Haciendo crecer el dataset en número de nombres de, por ejemplo, Estados Unidos con otros países quizás incluso aleatoriamente la mejora del accuracy sería muy significativa hasta 200.000 nombres y, luego débilmente desde 300.000
+
+* TODO HIPÓTESIS 7
+Si el dataset tiene más de 1.000.000 nombres reales con el género bien asignado, las mejoras de accuracy no vendría de un mayor número de nombres con el género bien asignado.
+
+** Comentarios a la hipótesis
+Este principio, pararía posibles tendencias de la industria de hacer márketing aumentando número de nombres como indicador de calidad de la herramienta, en vez de accuracy. Puesto que pasado el millón de nombres tal vez hay un efecto contrario que se está asignando género a no nombres, incluso a veces strings impronunciables (solo consonantes). 
+
+En el caso que un cliente o usuario demande un género a una cadena de caracteres que no esté contenido en el millón de nombres podría decirse no está en la base de datos y, mediante ML inferir el género.
+
+* TODO HIPÓTESIS 8
+Las naciones con un mismo idioma tienen variaciones poco significativas con respecto a la asignación de género y nombre con respecto un dataset INTER de lengua específica construido con datasets de estadísticas oficiales o wikidata.
+
+** Comentarios a la hipótesis
+Este principio, permitiría medir la veracidad de un scraping a un dataset de fuente estadística oficial, por ejemplo.
+

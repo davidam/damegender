@@ -1,0 +1,7 @@
+Retrieved with Wikidata:
+Samoa
++ wssurnames.csv
++ wsfemales.csv
++ wsmales.csv
+
+Official Language: Samoan

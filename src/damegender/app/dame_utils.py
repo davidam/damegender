@@ -44,6 +44,7 @@ class DameUtils():
                     "be": "files/names/names_be/bemales.csv",
                     "ca": "files/names/names_ca/camales.csv",
                     "ch": "files/names/names_ch/chmales.csv",
+                    "cl": "files/names/names_cl/clmales.csv",
                     "cn": "files/names/names_cn/cnmales.csv",
                     "de": "files/names/names_de/demales.csv",
                     "dk": "files/names/names_dk/dkmales.csv",
@@ -76,6 +77,7 @@ class DameUtils():
                     "be": "files/names/names_be/befemales.csv",
                     "ca": "files/names/names_ca/cafemales.csv",
                     "ch": "files/names/names_ch/chfemales.csv",
+                    "cl": "files/names/names_cl/clfemales.csv",
                     "cn": "files/names/names_cn/cnfemales.csv",
                     "de": "files/names/names_de/defemales.csv",
                     "dk": "files/names/names_dk/dkfemales.csv",
@@ -107,6 +109,7 @@ class DameUtils():
                     "au": "files/names/names_au/auall.csv",
                     "be": "files/names/names_be/beall.csv",
                     "ca": "files/names/names_ca/caall.csv",
+                    "cl": "files/names/names_ca/clall.csv",
                     "cn": "files/names/names_cn/cnall.csv",
                     "de": "files/names/names_de/deall.csv",
                     "dk": "files/names/names_dk/dkall.csv",
@@ -276,7 +279,7 @@ class DameUtils():
             else:
                 aux = aux + c
         return aux
-    
+
     def single_hyphen_p(self, s):
         # given s returns true if exists only one -
         cnt = 0
@@ -420,8 +423,10 @@ class DameUtils():
                 l1.append(row[position])
         return l1
 
-    def find_max_and_min_in_column(self, path, column_position, *args, **kwargs):
-        # it's a column of integers and the maximum and minimum must be returned.
+    def find_max_and_min_in_column(self, path, column_position,
+                                   *args, **kwargs):
+        # path must contain a column of integers and
+        # the maximum and minimum must be returned.
         header = kwargs.get('header', True)
         delimiter = kwargs.get('delimiter', ',')
         l1 = []
@@ -440,7 +445,7 @@ class DameUtils():
         dicc["max"] = maxi
         return dicc
 
-    def csv2list(self, csvpath,  *args, **kwargs):
+    def csv2list(self, csvpath, *args, **kwargs):
         # make a list from a csv file
         header = kwargs.get('header', True)
         delimiter = kwargs.get('delimiter', ',')
@@ -458,18 +463,18 @@ class DameUtils():
             for row in sexreader:
                 if (row != []):
                     if ((noemptyfield is False) or (row[noemptyfield] != "")):
-                         i = 0
-                         while i < len(row):
-                             if deletewhitespaces:
-                                 row[i] = drop_white_spaces(row[i])
-                             if deletequotes:
-                                 row[i] = drop_quotes(row[i])
-                             i = i + 1
-                         l1.append(row)
+                        i = 0
+                        while (i < len(row)):
+                            if deletewhitespaces:
+                                row[i] = drop_white_spaces(row[i])
+                            if deletequotes:
+                                row[i] = drop_quotes(row[i])
+                            i = i + 1
+                        l1.append(row)
         return l1
 
     def reduce_csv_columns_to_name_and_freq(self, csvpath, *args, **kwargs):
-        #pass a csv to another csv with name and frequency
+        # pass a csv to another csv with name and frequency
         name = kwargs.get('name', 0)
         freq = kwargs.get('freq', 1)
         respath = kwargs.get('respath', 'files/tmp/respath.csv')
@@ -482,6 +487,20 @@ class DameUtils():
             fo.write(strname + "," + strfreq + "\n")
         fo.close()
         return 1
+
+    def csv_columns_to_dict_with_name_and_freq(self, csvpath, *args, **kwargs):
+        # to convert csv columns to dictionary with name and frequency
+        name = kwargs.get('name', 0)
+        freq = kwargs.get('freq', 1)
+        respath = kwargs.get('respath', 'files/tmp/respath.csv')
+        l1 = self.csv2list(csvpath, header=False)
+        dicc = {}
+        for i in l1:
+            strname = self.drop_quotes(str(i[name]))
+            strname = self.drop_white_space_around(strname)
+            strfreq = self.drop_white_space_around(str(i[freq]))
+            dicc[strname] = int(strfreq)
+        return dicc
 
     def lists2csvfile(self, listoflists, csvpath, *args, **kwargs):
         # given a list make a csv file
@@ -509,6 +528,18 @@ class DameUtils():
             fo.write(str(l1) + "," + str(dicc[l1]) + "\n")
         fo.close()
         return 1
+
+    def detect_duplicated(self, l1):
+        # given a list l1 returns a boolean as true if there are some element duplicated
+        if (len(l1) == 0):
+            return []
+        else:
+            nodup = []
+            for i in l1:
+                if (not (i in nodup)):
+                    nodup.append(i)
+        duplicated_bool = (l1 != nodup)
+        return duplicated_bool
 
     def delete_duplicated(self, l1):
         # given a list l1 returns a new list without duplicated elements
@@ -626,7 +657,8 @@ class DameUtils():
         csvfile.close()
         return dicc
 
-    def init_dicc_names_and_years(self, path, column_name, from_year, until_year):
+    def init_dicc_names_and_years(self, path, column_name,
+                                  from_year, until_year):
         # given a csv file, a column name position, and a range of years
         # returns a dictionary with values set to zero
         dicc = {}
@@ -641,8 +673,9 @@ class DameUtils():
                 i = i + 1
         return dicc
 
-    def fill_dicc_names_and_years(self, inputpath, year_position, name_position):
-        #a csv is dumped into a dictionary
+    def fill_dicc_names_and_years(self, inputpath,
+                                  year_position, name_position):
+        # a csv file is dumped in a dictionary
         d0 = self.find_max_and_min_in_column(inputpath, year_position)
         d1 = {}
         mi = d0["min"]

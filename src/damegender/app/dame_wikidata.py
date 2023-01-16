@@ -120,6 +120,7 @@ class DameWikidata():
                 "km": "Q970",
                 "kn": "Q763",
                 "kp": "Q423",
+                "kr": "Q9176",
                 "kw": "Q817",
                 "kz": "Q232",
                 "la": "Q819",

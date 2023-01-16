@@ -1,6 +1,8 @@
 Retrieved with Wikidata
 Indonesia
 
+Official language: Indonesian
+
 Other sources:
 + https://raw.githubusercontent.com/vck/indonesian-name-gender-dataset/master/name_gender.csv
 + https://arxiv.org/pdf/1707.07129.pdf

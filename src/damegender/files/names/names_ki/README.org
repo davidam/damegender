@@ -1,3 +1,12 @@
 Retrieved with Wikidata
 Kiribati
 
+Official languages:	
+English
+Gilbertese
+
+Other sources:
+Kiribati National Statistics Office is giving names and gender,
+but I can't see a free license about these data, but you can 
+to download these names in a pdf file
+(https://nso.gov.ki/statistics/population/births-and-deaths/)

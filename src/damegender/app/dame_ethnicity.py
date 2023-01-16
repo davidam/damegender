@@ -26,12 +26,14 @@
 import csv
 from app.dame_utils import DameUtils
 
+du = DameUtils()
+
 
 class DameEthnicity(object):
 
     def surname2ethnicity(self, surname):
-        #Given a surname returns the race of the surname according to the US dataset.
-        du = DameUtils()
+        # Given a surname returns the race of the surname according
+        # to the US dataset.
         surname = du.drop_accents(surname).upper()
         path = 'files/names/names_us/surnames.csv'
         boolean = False
@@ -72,8 +74,11 @@ class DameEthnicity(object):
         return res
 
     def locale_match(self, surname, path, locale):
+<<<<<<< HEAD
         #searches for a specific last name in a CSV file and returns the location value if found.
         du = DameUtils()
+=======
+>>>>>>> d672f1ba0e1eee926d0f09de658db4abd0777a89
         surname = du.drop_accents(surname).upper()
         string = ""
         with open(path) as csvfile:
@@ -86,8 +91,8 @@ class DameEthnicity(object):
         return string
 
     def inesurname2ethnicity(self, surname, locale):
-        # Given the INE.es surnames returns the countries where a specific surname is present
-        du = DameUtils()
+        # Given the INE.es surnames returns the countries
+        # where a specific surname is present
         surname = du.drop_accents(surname).upper()
         l1 = []
         # ISO 3166
@@ -674,7 +679,9 @@ class DameEthnicity(object):
         return l1
 
     def dicc_iso3166_to_eng(self):
-        # This dictionary implements iso3166 where the key is 2 letters and the value is a string that is the location in the english language
+        # This dictionary implements iso3166 where the key is
+        # 2 letters and the value is a string that is the location
+        # in the english language
         dicc = {"ad": "Andorra",
                 "ae": "United Arab Emirates",
                 "af": "Afghanistan",
@@ -767,6 +774,7 @@ class DameEthnicity(object):
                 "km": "Union of the Comoros",
                 "kn": "Saint Kitts and Nevis",
                 "kp": "Democratic Republic of Korea",
+                "kr": "People's Republic of Korea",                
                 "kw": "Kuwait",
                 "kz": "Kazakhstan",
                 "la": "Lao People's Democratic Republic",
