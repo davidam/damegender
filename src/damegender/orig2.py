@@ -394,6 +394,52 @@ elif (country == "ch"):
                                                     delimiter=",")
     du.simple_dicc_to_file(diccfemales, outfemales)
 
+elif (country == "cl"):
+
+    if (args.download):
+        print("Downloading Chile datasets ...")
+        print("Opps, this feature is not enable, yet ...")
+        print("You can to become the hacker developing this feature ...")
+        print("git pull request is our friend ...")                
+    #     subprocess.call(outpath + "download.sh", shell=True)
+
+    filefem2019 = origpath + 'females2019.csv'
+    filefem2020 = origpath + 'females2020.csv'
+    filefem2021 = origpath + 'females2021.csv'
+    filemal2019 = origpath + 'males2019.csv'
+    filemal2020 = origpath + 'males2020.csv'
+    filemal2021 = origpath + 'males2021.csv'
+    print("Chile names ...")
+    diccfemales = {}
+    diccmales = {}
+    diccmales = du.dump_name_and_quantity_in_dicc(filemal2019,
+                                                  0, 1,
+                                                  dicc=diccmales,
+                                                  delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(filemal2020,
+                                                  0, 1,
+                                                  dicc=diccmales,
+                                                  delimiter=",")
+    diccmales = du.dump_name_and_quantity_in_dicc(filemal2021,
+                                                  0, 1,
+                                                  dicc=diccmales,
+                                                  delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(filefem2019,
+                                                    0, 1,
+                                                    dicc=diccfemales,
+                                                    delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(filefem2020,
+                                                    0, 1,
+                                                    dicc=diccfemales,
+                                                    delimiter=",")
+    diccfemales = du.dump_name_and_quantity_in_dicc(filefem2021,
+                                                    0, 1,
+                                                    dicc=diccfemales,
+                                                    delimiter=",")
+    du.simple_dicc_to_file(diccmales, outmales)
+    du.simple_dicc_to_file(diccfemales, outfemales)
+
+    
 elif (country == "de"):
 
     if (args.download):
