@@ -7,8 +7,10 @@ Official Datasets:
      adding --outjson giving this wonderful feature: to export top names to websites
 
 + sh/languages:
-     adding german.sh and portuguese.sh
+     adding arabic.sh, german.sh and portuguese.sh
 
++ files/names/names_tests:
+     adding wta-players.csv, names_leagues.csv
 
 * v0.5.1
 
