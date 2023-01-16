@@ -60,3 +60,13 @@ python3 csv2gender.py files/names/names_tests/female-scientists.csv --first_name
 
 python3 csv2gender.py files/names/names_tests/fifa.csv --first_name_position=2 --dataset=inter --outcsv=files/names/names_tests/fifa.interguessed.csv --delimiter=';' --skip_header --guess_with_first_name_strict
 
+python3 csv2gender.py files/names/names_tests/wta_players.csv --first_name_position=1 --dataset=inter --outcsv=files/names/names_tests/wta_players.inter.firstnamestrict.csv --delimiter=',' --guess_with_first_name_strict
+
+python3 csv2gender.py files/names/names_tests/wta_players.csv --first_name_position=1 --dataset=inter --outcsv=files/names/names_tests/wta_players.inter.csv 
+
+# 60.000 us players
+python3 csv2gender.py files/names/names_tests/names_leagues.csv  --first_name_position=0 --dataset=inter --outcsv=files/names/names_tests/names_leagues.inter.csv
+
+# genderize
+python3 csv2gender.py files/names/names_tests/genderize/givenNamesDB_authorships.csv --outcsv=files/names/names_tests/genderize/givenNamesDB_authorships.inter.csv --first_name_position=1
+
