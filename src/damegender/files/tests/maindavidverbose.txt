@@ -10,7 +10,7 @@
 1 females for David from Canada statistics
 190241 males for David from Swiss statistics
 0 females for David from Swiss statistics
-341 males for David from Chile statistics
+1371 males for David from Chile statistics
 0 females for David from Chile statistics
 Warning: China option only runs with China alphabet
 0 males for David from China statistics
