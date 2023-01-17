@@ -35,7 +35,7 @@ du = DameUtils()
 class DameNamsor(Gender):
 
     def get(self, name, surname, binary=False):
-        # obtaining data from namsor
+        # obtaining data from namsor returning a vector
         fichero = open("files/apikeys/namsorpass.txt", "r+")
         contenido = fichero.readline().rstrip()
         url = 'https://v2.namsor.com/NamSorAPIv2/api2/json/gender/'
@@ -49,7 +49,8 @@ class DameNamsor(Gender):
         return v
 
     def getGeo(self, name, surname, locale, binary=False):
-        # obtaining data from namsor
+        # obtaining data from namsor taking into account
+        # geographical data
         fichero = open("files/apikeys/namsorpass.txt", "r+")
         contenido = fichero.readline().rstrip()
         url = 'https://v2.namsor.com/NamSorAPIv2/api2/json/genderGeo/'
@@ -63,7 +64,8 @@ class DameNamsor(Gender):
         return v
 
     def guess(self, name, surname, binary=False):
-        # guess method to check names dictionary
+        # guess gender from name and surname
+        # using get method 
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
         # ``0 as not know'',``1 as male'', ``2 as female''
         # and ``9 as not applicable''
@@ -84,7 +86,7 @@ class DameNamsor(Gender):
         return v[1]
 
     def guess_list(self, path='files/partial.csv', binary=False):
-        # guess list method
+        # returns a guess list from a CSV file
         slist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
