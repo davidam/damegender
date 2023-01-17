@@ -107,6 +107,8 @@ class DameNameapi(Gender):
         return [g, c]
 
     def download(self, path="files/names/partial.csv"):
+        # Create a JSON file from a CSV file. Read the CSV 
+        # file and extract the first and last names of the users.
         du = DameUtils()
         path1 = "files/names/nameapi" + du.path2file(path) + ".json"
         nameapijson = open(path1, "w+")
@@ -137,6 +139,7 @@ class DameNameapi(Gender):
         return v[0]
 
     def confidence(self, name, surname, binary=False):
+        # Gets the value of the get function with name, surname, and binary arguments.
         v = self.get(name, surname, binary)
         return v[1]
 
