@@ -46,6 +46,7 @@ class DameGenderize(Gender):
         return d
 
     def get2to10(self, l1):
+        # It constructs a URL and makes an HTTP GET request to the constructed URL and loads the returned data in JSON format into a dictionary called d
         string = 'https://api.genderize.io/'
 
         if ((len(l1) > 1) and (len(l1) <= 10)):
@@ -80,10 +81,14 @@ class DameGenderize(Gender):
         return gender
 
     def prob(self, name):
+        # Retrieves the dictionary associated with the 
+        # specified name and returns the value of the 
+        # "probability" key of the dictionary.
         d = self.get(name)
         return d['probability']
 
     def download(self, path='files/names/partial.csv', surnames=False):
+        # It is used to download the data from a CSV file specified in the path.
         du = DameUtils()
         new = []
         d = ""
@@ -134,6 +139,7 @@ class DameGenderize(Gender):
         return guesslist
 
     def apikey_limit_exceeded_p(self):
+        # Checks if the API limit has been exceeded.
         j = ""
         baseurl = 'https://api.genderize.io/'
         if (self.config['DEFAULT']['genderize'] == 'yes'):
