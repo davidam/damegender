@@ -37,7 +37,9 @@ from app.dame_utils import DameUtils
 class DameNameapi(Gender):
 
     def get(self, name, surname="", binary=False):
-        # guess method to check names dictionary
+        # from name, surname and binary arguments
+        # calls an API request and returns
+        # gender and probability
         nameapilist = []
         guess = ""
         confidence = ""
@@ -107,8 +109,10 @@ class DameNameapi(Gender):
         return [g, c]
 
     def download(self, path="files/names/partial.csv"):
-        # Create a JSON file from a CSV file. Read the CSV 
-        # file and extract the first and last names of the users.
+        # Create a JSON file from a CSV file.
+        # And to read the CSV file and to dump
+        # first name, last name, confidence and
+        # gender of the users.
         du = DameUtils()
         path1 = "files/names/nameapi" + du.path2file(path) + ".json"
         nameapijson = open(path1, "w+")
@@ -132,6 +136,8 @@ class DameNameapi(Gender):
         return 0
 
     def guess(self, name, surname, binary=False):
+        # guess a name using name, surname and binary as arguments
+        # returning the gender
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
         # ``0 as not know'',``1 as male'', ``2 as female''
         # and ``9 as not applicable''
@@ -139,12 +145,14 @@ class DameNameapi(Gender):
         return v[0]
 
     def confidence(self, name, surname, binary=False):
-        # Gets the value of the get function with name, surname, and binary arguments.
+        # guess a name using name, surname and binary as arguments
+        # returning the confidence
         v = self.get(name, surname, binary)
         return v[1]
 
     def guess_list(self, path='files/names/partial.csv', binary=False):
-        # guess list method
+        # giving a csv file as input returns
+        # a guess list as output
         slist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
