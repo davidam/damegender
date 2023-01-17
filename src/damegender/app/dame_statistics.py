@@ -474,6 +474,7 @@ class DameStatistics(object):
         return res
 
     def print_measures(self, gl1, gl2, measure, api_name):
+        # prints evaluation metrics for a given API
         if (measure == "accuracy"):
             gender_accuracy = self.accuracy_score_dame(gl1, gl2)
             print("%s accuracy: %s" % (api_name, gender_accuracy))
@@ -490,6 +491,7 @@ class DameStatistics(object):
             print("%s f1score: %s" % (api_name, gender_f1score))
 
     def pretty_cm(self, path, jsonf, *args, **kwargs):
+        # prints a confusion matrix for a specific CSV file
         api = kwargs.get('api', 'damegender')
         reverse = kwargs.get('reverse', False)
         dimensions = kwargs.get('dimensions', '3x2')
