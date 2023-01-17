@@ -46,7 +46,11 @@ class DameGenderize(Gender):
         return d
 
     def get2to10(self, l1):
-        # It constructs a URL and makes an HTTP GET request to the constructed URL and loads the returned data in JSON format into a dictionary called d
+        # It constructs a URL with a number of names between
+        # 2 and 10 and makes an HTTP GET request
+        # to the constructed URL.
+        # After, loads the returned data in JSON
+        # format into a dictionary called d
         string = 'https://api.genderize.io/'
 
         if ((len(l1) > 1) and (len(l1) <= 10)):
@@ -62,8 +66,9 @@ class DameGenderize(Gender):
         return d
 
     def guess(self, name, binary=False, *args, **kwargs):
-        # returning 0, 1, 2 as female, male or unknown
-        # if binary is false it returns female, male, or unknown
+        # guess a name using the method get
+        # and taking binary as argument
+        # and country as optional argument
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
         # ``0 as not know'',``1 as male'', ``2 as female''
         # and ``9 as not applicable''
@@ -88,7 +93,8 @@ class DameGenderize(Gender):
         return d['probability']
 
     def download(self, path='files/names/partial.csv', surnames=False):
-        # It is used to download the data from a CSV file specified in the path.
+        # It is used to download the data from a
+        # CSV file specified in the path.
         du = DameUtils()
         new = []
         d = ""
@@ -119,7 +125,8 @@ class DameGenderize(Gender):
         return res
 
     def json2gender_list(self, jsonf="", binary=False):
-        # generating a list of 0, 1, 2 as females, males and unknows
+        # from a json file, it generates a list
+        # of 0, 1, 2 as females, males and unknows
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
         # ``0 as not know'',``1 as male'', ``2 as female''
         # and ``9 as not applicable''
