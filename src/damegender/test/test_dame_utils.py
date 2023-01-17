@@ -339,6 +339,15 @@ class TddInPythonExample(unittest.TestCase):
                               "David Arroyo Menéndez <davidam@gnu.org>")
         self.assertTrue(s4)
 
+    def test_count_alfa(self):
+        du = DameUtils()
+        num = du.count_alfa("D ")
+        self.assertEqual(num, 1)
+        num = du.count_alfa("DA ")
+        self.assertEqual(num, 2)        
+        num = du.count_alfa("J.M.")
+        self.assertEqual(num, 2)        
+        
     def test_initial_letters(self):
         du = DameUtils()
         s = du.initial_letters("D ")
@@ -346,6 +355,8 @@ class TddInPythonExample(unittest.TestCase):
         s = du.initial_letters("D. ")
         self.assertTrue(s)
         s = du.initial_letters("David")
+        self.assertFalse(s)
+        s = du.initial_letters("DAVID")
         self.assertFalse(s)
         s = du.initial_letters("J.L.")
         self.assertTrue(s)

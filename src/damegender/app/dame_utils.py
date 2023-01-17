@@ -628,15 +628,32 @@ class DameUtils():
             division = x / y
             return (round(division, 2))
 
+    def count_alfa(self, s):
+        num = 0
+        for i in s:
+            char = i.isalpha()
+            if char:
+                num = num + 1
+        return num
+                
     def initial_letters(self, s):
         # returns true if the string seems initial from a full name
-        # s = s.capitalize()
-        match = re.search(r'(([A-Z][\.| ]){1,2})|([A-Z]{2})', s)
-        if match:
-            return True
+        # only considering initials with two letters
+        bool0 = False
+        if (self.count_alfa(s) <= 2):
+            match = re.search(r'(([A-Z][\.| ]){1,2})|([A-Z]{2})', s)
+            if match:
+                bool0 = True
+            else:
+                bool0 = False
         else:
-            return False
-
+            match = re.search(r'^[A-Z][\.| ]', s)
+            if match:
+                bool0 = True
+            else:
+                bool0 = False            
+        return bool0
+        
     def init_dicc_names_from_file(self, path, name_position):
         # first step processing orig files given a csv file
         # returns a dictionary with the names set in the file
