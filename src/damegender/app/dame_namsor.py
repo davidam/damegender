@@ -98,6 +98,9 @@ class DameNamsor(Gender):
         return slist
 
     def download(self, path="files/names/min.csv"):
+        # A JSON file is created from a CSV file. 
+        # It takes the first and last names from the CSV 
+        # file and uses them to get the gender and scale of each name.
         namsorpath = "files/names/namsor" + du.path2file(path) + ".json"
         namsorjson = open(namsorpath, "w+")
         surnames = True

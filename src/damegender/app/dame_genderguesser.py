@@ -74,6 +74,7 @@ class DameGenderGuesser(Gender):
             "83": "Vietnam", "84": "other countries"}
 
     def _parse(self, filename):
+        #Open a data file and for each line, call the _eat_name_line function.
         """Opens data file and for each line, calls _eat_name_line"""
         self.names = {}
         with codecs.open(filename, encoding="utf-8") as f:
@@ -81,6 +82,13 @@ class DameGenderGuesser(Gender):
                 self._eat_name_line(line.strip())
 
     def _eat_name_line(self, line):
+        # used to parse a line of data from a file. If the first letter of the line is not "#" or "=", 
+        # the code will split the line into parts and extract the country values ​​from the line from 
+        # character 30 to the last. Then the code will get the name of the second part and convert it to 
+        # lower case if it is not case sensitive. Depending on the gender value (the first part) 
+        # found on the line, the code will set a value for that name (eg "male", "female", etc.) 
+        # along with the corresponding country values. If the gender value is not recognized, 
+        # it will throw an error.
         """Parses one line of data file"""
         if line[0] not in "#=":
             parts = line.split()
@@ -181,6 +189,7 @@ class DameGenderGuesser(Gender):
         return slist
 
     def exists_in_country(self, num, arr):
+        #Checks if a given item exists in a given country.
         bool1 = (str(arr[num]) == "A") or (str(arr[num]) == "B")
         bool1 = bool1 or (str(arr[num]) == "C")
         bool1 = bool1 or (str(arr[num]) == "D")
