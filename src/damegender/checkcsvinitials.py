@@ -37,5 +37,7 @@ with open(filepath) as csvfile:
     sreader = csv.reader(csvfile, delimiter=',', quotechar='|')
     for row in sreader:
         if (du.initial_letters(row[0])):
+            count = count + 1
             print(row[0])
-        count = count + 1
+
+print("Rows with initials: %s" % str(count))
