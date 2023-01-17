@@ -54,6 +54,7 @@ from app.dame_statistics import DameStatistics
 
 class DameSexmachine(Gender):
     def __init__(self):
+        # defines the constructor
         self.males = 0
         self.females = 0
         self.unknown = 0
@@ -122,12 +123,14 @@ class DameSexmachine(Gender):
         return classifier
 
     def classifier_load(self):
+        # allows serializing objects
         pkl_file = open('files/datamodels/nltk_model.sav', 'rb')
         clf = pickle.load(pkl_file)
         pkl_file.close()
         return clf
 
     def adaboost(self):
+        # classify names by gender
         X = np.array(self.ds.features_list(path="files/names/all.csv"))
         y = self.csv2gender_list(path="files/names/all.csv")
         clf = AdaBoostClassifier(n_estimators=100)
@@ -137,6 +140,10 @@ class DameSexmachine(Gender):
         return clf
 
     def adaboost_load(self):
+
+        # Uses the pickle library to read the file 
+        # 'files/datamodels/adaboost_model.sav' and 
+        # returns the saved model as a clf object
         pkl_file = open('files/datamodels/adaboost_model.sav', 'rb')
         clf = pickle.load(pkl_file)
         pkl_file.close()
@@ -153,6 +160,7 @@ class DameSexmachine(Gender):
         return clf
 
     def svc_load(self):
+        # loads a support vector machine (SVC) classifier model
         pkl_file = open('files/datamodels/svc_model.sav', 'rb')
         clf = pickle.load(pkl_file)
         pkl_file.close()
@@ -186,6 +194,7 @@ class DameSexmachine(Gender):
         return model
 
     def gaussianNB_load(self):
+        # loads the model and returns it for further use
         pkl_file = open('files/datamodels/gaussianNB_model.sav', 'rb')
         clf = pickle.load(pkl_file)
         pkl_file.close()
@@ -202,6 +211,7 @@ class DameSexmachine(Gender):
         return model
 
     def multinomialNB_load(self):
+        # loads the model and returns it for further use
         pkl_file = open('files/datamodels/multinomialNB_model.sav', 'rb')
         clf = pickle.load(pkl_file)
         pkl_file.close()
@@ -218,6 +228,7 @@ class DameSexmachine(Gender):
         return model
 
     def bernoulliNB_load(self):
+        # loads the model and returns it for further use
         pkl_file = open('files/datamodels/bernoulliNB_model.sav', 'rb')
         clf = pickle.load(pkl_file)
         pkl_file.close()
@@ -240,6 +251,7 @@ class DameSexmachine(Gender):
         return rf
 
     def forest_load(self):
+         # loads the model and returns it for further use
         pkl_file = open('files/datamodels/forest_model.sav', 'rb')
         clf = pickle.load(pkl_file)
         pkl_file.close()
@@ -256,12 +268,14 @@ class DameSexmachine(Gender):
         return clf
 
     def tree_load(self):
+         # loads the model and returns it for further use
         clf_file = open('files/datamodels/tree_model.sav', 'rb')
         clf = pickle.load(clf_file)
         clf_file.close()
         return clf
 
     def mlp(self):
+        #returns the trained model as a result.
         X = np.array(self.features_list(path="files/names/all.csv"))
         y = np.array(self.csv2gender_list(path="files/names/all.csv"))
         clf = MLPClassifier(solver='lbfgs', alpha=1e-5,
@@ -272,6 +286,7 @@ class DameSexmachine(Gender):
         return clf
 
     def mlp_load(self):
+         # loads the model and returns it for further use
         clf_file = open('files/datamodels/mlp_model.sav', 'rb')
         clf = pickle.load(clf_file)
         clf_file.close()

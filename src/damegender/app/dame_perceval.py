@@ -124,6 +124,9 @@ class DamePerceval(object):
         return list_committers
 
     def list_mailers(self, url, directory="files/mbox"):
+        # uses the MBox class to read email messages in a specific URL and directory, 
+        # loop through each message, and add the sender to a list. 
+        # Finally, it returns the list of senders.
         repo = MBox(uri=url, dirpath=directory)
         count = 0
         list_mailers = []
@@ -144,6 +147,7 @@ class DamePerceval(object):
         return l1
 
     def count_gender_in_list(self, l1):
+        # Count the number of men and women on a list.
         g = Gender()
         males = 0
         females = 0
@@ -157,6 +161,7 @@ class DamePerceval(object):
         return [females, males]
 
     def get_github_json_user(self, nick):
+        # Returns a dictionary with the user's data in JSON format
         string = 'https://api.github.com/users/'
         string = string + nick
         r = requests.get(string)
