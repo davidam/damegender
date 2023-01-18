@@ -737,14 +737,14 @@ class DameUtils():
                     name = self.drop_all_external_symbols(name,
                                                           ["'", '"', ",", " "])
                     if (filter_char == ''):
-                        if (name in dicc.keys()):
+                        if ((name in dicc.keys()) and (self.initial_letters(name))):
                             val = dicc[name]
                             dicc[name] = int(val) + int(num)
                         else:
                             dicc[name] = int(num)
                     else:
                         if (row[filter_pos] == filter_char):
-                            if (name in dicc.keys()):
+                            if ((name in dicc.keys()) and (self.initial_letters(name))):
                                 val = dicc[name]
                                 dicc[name] = int(val) + int(num)
                             else:
