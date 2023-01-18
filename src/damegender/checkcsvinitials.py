@@ -25,19 +25,25 @@ import argparse
 from app.dame_utils import DameUtils
 
 parser = argparse.ArgumentParser()
+# Give me the path
 parser.add_argument("path", help="csv file")
+# Give me the first name position
+parser.add_argument('--first_name_position', required=True,
+                    type=int, choices=[0, 1, 2, 3, 4], default=0)
+# Is the csv separated by commas?
+parser.add_argument('--delimiter_csv', required=False,
+                    type=str, default=",")
+
 args = parser.parse_args()
-
 du = DameUtils()
-
 filepath=args.path
 
 count = 0
 with open(filepath) as csvfile:
-    sreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    sreader = csv.reader(csvfile, delimiter=args.delimiter_csv, quotechar='|')
     for row in sreader:
-        if (du.initial_letters(row[0])):
+        if (du.initial_letters(row[args.first_name_position])):
             count = count + 1
-            print(row[0])
+            print(row[args.first_name_position])
 
 print("Rows with initials: %s" % str(count))
