@@ -140,7 +140,6 @@ class DameSexmachine(Gender):
         return clf
 
     def adaboost_load(self):
-
         # Uses the pickle library to read the file 
         # 'files/datamodels/adaboost_model.sav' and 
         # returns the saved model as a clf object
@@ -167,7 +166,8 @@ class DameSexmachine(Gender):
         return clf
 
     def sgd(self):
-        # Scikit classifier
+        # classifies X (features list) and y (gender list)
+        # using SGD and returns a model
         X = np.array(self.features_list(path="files/names/all.csv"))
         y = self.csv2gender_list("files/names/all.csv")
         clf = SGDClassifier(loss="log").fit(X, y)
@@ -176,13 +176,15 @@ class DameSexmachine(Gender):
         return clf
 
     def sgd_load(self):
+        # loads a support vector machine (SGD) classifier model
         pkl_file = open('files/datamodels/sgd_model.sav', 'rb')
         clf = pickle.load(pkl_file)
         pkl_file.close()
         return clf
 
     def gaussianNB(self):
-        # Scikit bayesian classifier
+        # classifies X (features list) and y (gender list)
+        # using Gaussian NB and returns a model
         x = np.array(self.features_list(path="files/names/all.csv"))
         y = np.array(self.csv2gender_list(path="files/names/all.csv"))
         # Create a Gaussian Classifier
@@ -194,7 +196,7 @@ class DameSexmachine(Gender):
         return model
 
     def gaussianNB_load(self):
-        # loads the model and returns it for further use
+        # loads a support vector machine (GaussianNB) classifier model
         pkl_file = open('files/datamodels/gaussianNB_model.sav', 'rb')
         clf = pickle.load(pkl_file)
         pkl_file.close()
@@ -268,14 +270,14 @@ class DameSexmachine(Gender):
         return clf
 
     def tree_load(self):
-         # loads the model and returns it for further use
+        # loads the model and returns it for further use
         clf_file = open('files/datamodels/tree_model.sav', 'rb')
         clf = pickle.load(clf_file)
         clf_file.close()
         return clf
 
     def mlp(self):
-        #returns the trained model as a result.
+        # returns the trained model with MLP as a result.
         X = np.array(self.features_list(path="files/names/all.csv"))
         y = np.array(self.csv2gender_list(path="files/names/all.csv"))
         clf = MLPClassifier(solver='lbfgs', alpha=1e-5,
@@ -286,7 +288,7 @@ class DameSexmachine(Gender):
         return clf
 
     def mlp_load(self):
-         # loads the model and returns it for further use
+        # loads the model and returns it for further use
         clf_file = open('files/datamodels/mlp_model.sav', 'rb')
         clf = pickle.load(clf_file)
         clf_file.close()
@@ -403,28 +405,3 @@ class DameSexmachine(Gender):
         res = self.ds.confusion_matrix_table(truevector, guessvector)
         return res
 
-    def num_females(self, url, directory):
-        # Extracting females with perceval
-        gg = GenderGit()
-        r = gg.repo("https://github.com/grimoirelab/perceval.git",
-                    "/tmp/clonedir")
-        count = 0
-        for user in r.fetch():
-            name = gg.removeMail(user['data']['Author'])
-            sm = self.guess(name)
-            if (sm == 'female'):
-                count = count + 1
-        return count
-
-    def num_males(self, url, directory):
-        # Extracting males with perceval
-        gg = GenderGit()
-        r = gg.repo("https://github.com/grimoirelab/perceval.git",
-                    "/tmp/clonedir")
-        count = 0
-        for user in r.fetch():
-            name = gg.removeMail(user['data']['Author'])
-            sm = self.guess(name)
-            if (sm == 'male'):
-                count = count + 1
-        return count
