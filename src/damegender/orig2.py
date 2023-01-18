@@ -73,12 +73,12 @@ if (country == "ar"):
                 name = str(row[1])
             except IndexError:
                 print("The program has troubles with the array indexes")
-            if (gender == '1'):
+            if ((gender == '1') and not(du.initial_letters(name))):
                 if name in diccfemales.keys():
                     diccfemales[name] = int(diccfemales[name]) + 1
                 else:
                     diccfemales[name] = 1
-            elif (gender == '2'):
+            elif ((gender == '2') and not(du.initial_letters(name))):
                 if name in diccmales.keys():
                     diccmales[name] = int(diccmales[name]) + 1
                 else:
