@@ -212,24 +212,28 @@ class DameStatistics(object):
 # and ``9 as not applicable''
 
     def true_negative(self, testvector, guessvector, *args, **kwargs):
+        # math expression in confusion matrix
         dimension = kwargs.get('dimension', self.binary)
         if (dimension == self.binary):
             res = self.femalefemale(testvector, guessvector)
         return res
 
     def false_negative(self, testvector, guessvector, *args, **kwargs):
+        # math expression in confusion matrix
         dimension = kwargs.get('dimension', self.binary)
         if (dimension == self.binary):
             res = self.femalemale(testvector, guessvector)
         return res
 
     def false_positive(self, testvector, guessvector, *args, **kwargs):
+        # math expression in confusion matrix
         dimension = kwargs.get('dimension', self.binary)
         if (dimension == self.binary):
             res = self.malefemale(testvector, guessvector)
         return res
 
     def true_positive(self, testvector, guessvector, *args, **kwargs):
+        # math expression in confusion matrix
         withundefined = {"female": 0, "male": 1, "undefined": 2}
         dimension = kwargs.get('dimension', self.binary)
         if (dimension == self.binary):
