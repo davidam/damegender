@@ -280,12 +280,12 @@ elif (country == "ca"):
         for row3 in reader3:
             name = row3[1]
             symbols = [" ", "'", '"']
-            print(name)
+            # print(name)
             name = du.drop_all_external_symbols(name, symbols)
             name = name.capitalize()
-            if (row3[3] == 'Girl'):
+            if ((row3[3] == 'Girl') and not(du.initial_letters(name))):
                 dicc[name][int(row3[4])]["females"] = row3[2]
-            elif (row3[3] == 'Boy'):
+            elif ((row3[3] == 'Boy') and not(du.initial_letters(name))):
                 dicc[name][int(row3[4])]["males"] = row3[2]
 
     for i in dicc.keys():
