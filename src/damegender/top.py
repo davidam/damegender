@@ -102,6 +102,9 @@ def getKey0str(item):
 def getKey1(item):
     return int(item[1])
 
+dir0 = "files/tmp"
+if (not os.path.exists(dir0)):
+    print(os.makedirs(dir0))
 
 du = DameUtils()
 dicc_dataset_males = du.dicc_dataset("male")
