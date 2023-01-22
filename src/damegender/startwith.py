@@ -41,7 +41,7 @@ parser.add_argument('--total', default="us",
                              'ie', 'ine', 'inter', 'is', 'no',
                              'nz', 'mx', 'pt', 'ru', 'ru_ru',
                              'ru_en', 'se', 'si', 'us', 'uy'])
-parser.add_argument('--gender', default="female", choices=['male', 'female'])
+parser.add_argument('--gender', default="all", choices=['male', 'female', 'all'])
 parser.add_argument('--version', action='version', version='0.4')
 args = parser.parse_args()
 
@@ -50,6 +50,7 @@ g = Gender()
 du = DameUtils()
 dicc = du.dicc_dataset(args.gender)
 path = dicc[args.total]
+print(path)
 
 if (args.total == "cn"):
     print("Be careful")
