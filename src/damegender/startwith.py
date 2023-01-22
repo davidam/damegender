@@ -36,8 +36,8 @@ import csv
 parser = argparse.ArgumentParser()
 parser.add_argument("chars", help="display the gender")
 parser.add_argument('--total', default="us",
-                    choices=['ar', 'at', 'au', 'be', 'ca', 'ch', 'cn',
-                             'de', 'dk', 'es', 'fi', 'fr', 'gb',
+                    choices=['ar', 'at', 'au', 'be', 'ca', 'ch', 'cl',
+                             'cn', 'de', 'dk', 'es', 'fi', 'fr', 'gb',
                              'ie', 'ine', 'inter', 'is', 'no',
                              'nz', 'mx', 'pt', 'ru', 'ru_ru',
                              'ru_en', 'se', 'si', 'us', 'uy'])
