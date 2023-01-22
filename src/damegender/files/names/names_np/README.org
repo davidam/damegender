@@ -1,2 +1,9 @@
 Retrieved from wikidata
 Nepal
+
+Other sources:
++ https://raw.githubusercontent.com/amitness/Thar/master/surnames_en.csv
++ https://github.com/amitness/Thar/blob/master/surnames_np.csv
++ https://github.com/techgaun/nepali-names/blob/master/male.txt
++ https://github.com/techgaun/nepali-names/blob/master/female.txt
+
