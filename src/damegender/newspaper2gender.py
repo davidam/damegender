@@ -25,7 +25,18 @@
 
 import re
 import argparse
-from newspaper import Article
+try:
+    from newspaper import Article
+except ModuleNotFoundError:
+    print("module 'newspaper' is not installed")
+    print("try:")
+    print("$ pip3 install 'newspaper3k'")
+    exit()
+#    os.kill(os.getpid(), signal.SIGUSR1)
+    # or
+#    install("newspaper3k") # the install function from the question
+
+
 from app.dame_gender import Gender
 
 parser = argparse.ArgumentParser()
