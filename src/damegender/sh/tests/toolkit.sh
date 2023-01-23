@@ -29,6 +29,7 @@ NC='\033[0m' # No Color
 cd ../..
 
 rm -rf /tmp/clonedir
+mkdir -p /tmp/clonedir
 
 python3 git2gender.py https://github.com/davidam/orgguide-es.git --directory="/tmp/clonedir" > files/tests/git2gender1-$(date "+%Y-%m-%d-%H").txt
 
