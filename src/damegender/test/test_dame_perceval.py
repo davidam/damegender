@@ -36,7 +36,8 @@ class TddInPythonExample(unittest.TestCase):
     def test_numcommits_method_returns_correct_result(self):
         gg = DamePerceval()
         n = gg.numCommits("https://github.com/davidam/davidam.git",
-                          "/tmp/clonedir")
+                          "files/tmp/clonedir")
+
         self.assertTrue(50 < n)
 
     def test_removeMail_method_returns_correct_result(self):
@@ -59,7 +60,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(
             len(gg.list_committers(
                 "https://github.com/davidam/davidam.git",
-                "/tmp/clonedir")), 3)
+                "files/tmp/clonedir")), 3)
 
     def test_list_mailers_method_returns_correct_result(self):
         gg = DamePerceval()
@@ -83,7 +84,7 @@ class TddInPythonExample(unittest.TestCase):
         dp = DamePerceval()
         dicc = dp.dicc_authors_and_commits(
             "https://github.com/davidam/davidam.git",
-            "/tmp/clonedir")
+            "files/tmp/clonedir")
         num = dicc['David Arroyo Menéndez <davidam@es.gnu.org>']
         self.assertTrue(len(dicc) > 1)
 
