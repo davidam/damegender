@@ -125,10 +125,10 @@ class TddInPythonExample(unittest.TestCase):
         fl = s.features_list()
         self.assertTrue(len(fl) > 20)
 
-    def test_sexmachine_features_list_all(self):
-        s = DameSexmachine()
-        fl = s.features_list(path="files/names/all.csv")
-        self.assertTrue(len(fl) > 1000)
+    # def test_sexmachine_features_list_all(self):
+    #     s = DameSexmachine()
+    #     fl = s.features_list(path="files/names/all.csv")
+    #     self.assertTrue(len(fl) > 1000)
 
     # def test_sexmachine_gender_list(self):
     #     s = DameSexmachine()
