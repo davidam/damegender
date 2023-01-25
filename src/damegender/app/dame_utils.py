@@ -737,18 +737,20 @@ class DameUtils():
                     name = self.drop_all_external_symbols(name,
                                                           ["'", '"', ",", " "])
                     if (filter_char == ''):
-                        if ((name in dicc.keys()) and (self.initial_letters(name))):
-                            val = dicc[name]
-                            dicc[name] = int(val) + int(num)
-                        else:
-                            dicc[name] = int(num)
-                    else:
-                        if (row[filter_pos] == filter_char):
-                            if ((name in dicc.keys()) and (self.initial_letters(name))):
+                        if not(self.initial_letters(name)):
+                            if (name in dicc.keys()):
                                 val = dicc[name]
                                 dicc[name] = int(val) + int(num)
                             else:
                                 dicc[name] = int(num)
+                    else:
+                        if (row[filter_pos] == filter_char):
+                            if not(self.initial_letters(name)):
+                                if (name in dicc.keys()):
+                                    val = dicc[name]
+                                    dicc[name] = int(val) + int(num)
+                                else:
+                                    dicc[name] = int(num)
                 except IndexError:
                     print("The program has troubles with the array indexes")
         return dicc
