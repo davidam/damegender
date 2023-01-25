@@ -24,16 +24,29 @@ cd orig
 wget -c https://www.bfs.admin.ch/bfsstatic/dam/assets/18264297/master -O orig.xls
 ssconvert -S orig.xls orig.csv
 sed '1,6d' orig.csv.0 > aux.csv
-mv aux.csv orig.csv.0
+sed "s/^\,//g" aux.csv > aux1.csv
+sed "s/^\,//g" aux1.csv > aux2.csv
+mv aux2.csv orig.csv.0
 sed '1,6d' orig.csv.1 > aux.csv
-mv aux.csv orig.csv.1
+sed "s/^\,//g" aux.csv > aux1.csv
+sed "s/^\,//g" aux1.csv > aux2.csv
+mv aux2.csv orig.csv.1
 sed '1,6d' orig.csv.2 > aux.csv
-mv aux.csv orig.csv.2
+sed "s/^\,//g" aux.csv > aux1.csv
+sed "s/^\,//g" aux1.csv > aux2.csv
+mv aux2.csv orig.csv.2
 sed '1,6d' orig.csv.3 > aux.csv
-mv aux.csv orig.csv.3
+sed "s/^\,//g" aux.csv > aux1.csv
+sed "s/^\,//g" aux1.csv > aux2.csv
+mv aux2.csv orig.csv.3
 sed '1,6d' orig.csv.4 > aux.csv
-mv aux.csv orig.csv.4
+sed "s/^\,//g" aux.csv > aux1.csv
+sed "s/^\,//g" aux1.csv > aux2.csv
+mv aux2.csv orig.csv.4
 sed '1,6d' orig.csv.5 > aux.csv
-mv aux.csv orig.csv.5
+sed "s/^\,//g" aux.csv > aux1.csv
+sed "s/^\,//g" aux1.csv > aux2.csv
+mv aux2.csv orig.csv.5
+#sed -i 's/VORNAMEN DER BEVÖLKERUNG NACH GESCHLECHT, SCHWEIZ, 2016,0//g' orig.csv.5
 
 cd ..
