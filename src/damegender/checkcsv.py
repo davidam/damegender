@@ -39,11 +39,31 @@ du = DameUtils()
 filepath=args.path
 
 count = 0
+linitials = []
 with open(filepath) as csvfile:
     sreader = csv.reader(csvfile, delimiter=args.delimiter_csv, quotechar='|')
     for row in sreader:
         if (du.initial_letters(row[args.first_name_position])):
             count = count + 1
-            print(row[args.first_name_position])
+            linitials.append(row[args.first_name_position])
 
+print("####################################################")
+print("####################################################")
 print("Rows with initials: %s" % str(count))
+print("####################################################")
+print("####################################################")
+
+count = 0
+lnonames = []
+with open(filepath) as csvfile:
+    sreader = csv.reader(csvfile, delimiter=args.delimiter_csv, quotechar='|')
+    for row in sreader:
+        if (row[args.first_name_position] == ''):
+            count = count + 1
+            lnonames.append(row[args.first_name_position])
+
+print("####################################################")
+print("####################################################")
+print("Rows without names: %s" % str(count))
+print("####################################################")
+print("####################################################")
