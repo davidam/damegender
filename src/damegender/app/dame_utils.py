@@ -639,6 +639,8 @@ class DameUtils():
     def initial_letters(self, s):
         # returns true if the string seems initial from a full name
         # only considering initials with two letters
+        # WARNING: in some languages, for example, Chinese we can
+        # find names as Lv being a name and not initials
         bool0 = False
         if (self.count_alfa(s) <= 2):
             match = re.search(r'(([A-Z][\.| ]){1,2})|([A-Z]{2})', s)
