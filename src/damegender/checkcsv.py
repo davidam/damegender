@@ -32,6 +32,7 @@ parser.add_argument('--first_name_position', required=True,
 # Is the csv separated by commas?
 parser.add_argument('--delimiter_csv', required=False,
                     type=str, default=",")
+parser.add_argument('--verbose', default=False, action="store_true")
 
 args = parser.parse_args()
 du = DameUtils()
@@ -58,7 +59,12 @@ print("####################################################")
 print("Rows with initials: %s" % str(countinitials))
 print("####################################################")
 
+if (args.verbose):
+    print("Initials: %s" % linitials)
+
 print("####################################################")
 print("Rows without names: %s" % str(countnonames))
 print("####################################################")
 
+if (args.verbose):
+    print("No names: %s" % lnonames)
