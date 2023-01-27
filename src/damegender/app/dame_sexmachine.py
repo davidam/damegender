@@ -316,8 +316,8 @@ class DameSexmachine(Gender):
         # ``0 as not know'',``1 as male'', ``2 as female''
         # and ``9 as not applicable''
         dataset = kwargs.get('dataset', 'us')
-        guess = 2
-        guess = super().guess(name, binary, dataset)
+        guess = 2        
+        guess = super().guess(name, binary, dataset, force_whitespaces=True)
         vector = self.features_int(name)
         if ((guess == 'unknown') | (guess == 2)):
             classifier = self.classifier()
