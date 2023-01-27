@@ -55,6 +55,8 @@ python3 accuracy.py --dataset_guess=files/tmp/intermales+gender.csv --dataset_te
 
 python3 accuracy.py --dataset_guess=files/names/names_tests/conseil-departmental-haute-garonne.interguessed.csv --dataset_guess_position_gender=1 --dataset_guess_gender_chars="female,male" --dataset_test=files/names/names_tests/conseil-departmental-haute-garonne.csv --dataset_test_gender_chars="Féminin,Masculin" --dataset_test_position_gender=0 --dataset_test_delimiter=';' --api=damegender > files/logs/accuracy-conseil-departmental-$(date "+%Y-%m-%d").txt
 
+python3 accuracy.py --dataset_guess=files/names/names_tests/popular_baby_names_nyc_dohmh.interguessed.csv --dataset_guess_position_gender=1 --dataset_guess_gender_chars="female,male" --dataset_test=files/names/names_tests/popular_baby_names_nyc_dohmh.csv --dataset_test_gender_chars="FEMALE,MALE" --dataset_test_position_gender=1 --dataset_test_delimiter=';' --api=damegender > files/logs/popular_baby_names_nyc_dohmh-$(date "+%Y-%m-%d").txt
+
 ######## MLP ALGORITHM
 
 echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=f1score --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male'" > files/logs/accuracy-mlp-f1score-'$(date "+%Y-%m-%d")'.txt   > files/logs/accuracy-mlp-f1score-$(date "+%Y-%m-%d").txt
