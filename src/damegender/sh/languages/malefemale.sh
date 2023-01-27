@@ -35,3 +35,4 @@ python3 mergeinterfiles.py --file1="files/names/languages/germanmales.csv" --fil
 
 python3 mergeinterfiles.py --file1="files/names/languages/portuguesemales.csv" --file2="files/names/languages/portuguesefemales.csv" --output=files/names/languages/portugueseall.csv --malefemale
 
+python3 mergeinterfiles.py --file1="files/names/languages/spanishmales.csv" --file2="files/names/languages/spanishfemales.csv" --output=files/names/languages/spanishall.csv --malefemale
