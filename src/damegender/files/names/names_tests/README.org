@@ -28,12 +28,18 @@
 + [ ] File: liste_des_prenoms.csv
 + [ ] Source: https://opendata.paris.fr/explore/dataset/liste_des_prenoms/export/?disjunctive.annee&disjunctive.prenoms
 + [ ] License: https://opendatacommons.org/licenses/odbl/  
+
 * English
 ** Popular baby names provided by Department of Health and Mental Hygiene (DOHMH) (New York City)
 + [ ] File: popular_baby_names_nyc_dohmh.csv
 + [ ] Source: https://data.cityofnewyork.us/api/views/25th-nujf/rows.csv?accessType=DOWNLOAD
 + [ ] License: https://opendata.cityofnewyork.us/overview/#termsofuse
 
+** Popular National Leagues in USA
++ [ ] File: names_leagues.csv
++ [ ] Source: https://raw.githubusercontent.com/the-pudding/hyphenated-names/master/output/allCombinedNames.csv
++ [ ] License: MIT License (https://github.com/the-pudding/hyphenated-names/blob/master/LICENSE)
+  
 * International
 ** Performance of gender detection tools: a comparative study of name-to-gender inference services
 + [ ] File: gender_JMLA.dta
