@@ -59,12 +59,12 @@ print("####################################################")
 print("Rows with initials: %s" % str(countinitials))
 print("####################################################")
 
-if (args.verbose):
+if (args.verbose and (len(linitials) > 0)):
     print("Initials: %s" % linitials)
 
 print("####################################################")
 print("Rows without names: %s" % str(countnonames))
 print("####################################################")
 
-if (args.verbose):
+if (args.verbose and (len(lnonames) > 0)):
     print("No names: %s" % lnonames)
