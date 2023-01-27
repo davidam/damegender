@@ -53,6 +53,8 @@ sed "s/$/\,male/g" files/names/names_inter/intermales.csv > files/tmp/intermales
 
 python3 accuracy.py --dataset_guess=files/tmp/intermales+gender.csv --dataset_test=files/tmp/fifa+gender.csv --dataset_guess_position_name=3 --dataset_guess_position_gender=185 --dataset_guess_delimiter=";" --measure=accuracy --api=damegender > files/logs/accuracy-inter-males-$(date "+%Y-%m-%d").txt
 
+python3 accuracy.py --dataset_guess=files/names/names_tests/conseil-departmental-haute-garonne.interguessed.csv --dataset_guess_position_gender=1 --dataset_guess_gender_chars="female,male" --dataset_test=files/names/names_tests/conseil-departmental-haute-garonne.csv --dataset_test_gender_chars="Féminin,Masculin" --dataset_test_position_gender=0 --dataset_test_delimiter=';' --api=damegender > files/logs/accuracy-conseil-departmental-$(date "+%Y-%m-%d").txt
+
 ######## MLP ALGORITHM
 
 echo "python3 accuracy.py --dataset_guess=files/names/allnoundefined+header.csv --dataset_test=files/names/allnoundefined.csv.mlp.json --measure=f1score --api=damegender --dataset_guess_position_gender=4 --dataset_guess_gender_chars='f,m' --dataset_test_position_gender=4 --dataset_test_gender_chars='female,male'" > files/logs/accuracy-mlp-f1score-'$(date "+%Y-%m-%d")'.txt   > files/logs/accuracy-mlp-f1score-$(date "+%Y-%m-%d").txt
