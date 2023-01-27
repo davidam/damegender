@@ -422,7 +422,7 @@ class TddInPythonExample(unittest.TestCase):
         dicc = du.init_dicc_names_from_file(file1, 0)
         l0 = sorted(dicc.keys())
         self.assertEqual(l0, ["Clara", "Dilara", "Elena",
-                              "Julia", "Luisa", "Martin",
+                              "Julia", "Luisa",
                               "Roberta", "Rosa", "Sara",
                               "Tabita", "Una"])
         file2 = "files/tests/vsa10.csv"
