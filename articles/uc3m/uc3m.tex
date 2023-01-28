@@ -162,8 +162,7 @@ Project Gutenberg, Amazon, sport institutions, Forbes, ...
 \begin{figure}
   \centering
   \includegraphics[width=0.6\textwidth]{images/mapamundi-politico-mudo.pdf}
-  \caption[Caption for LOF]{Grey (Countries with Open Data provided by Statistical Institutions), White (Countries without Open D
-ata or don't reproduced by the author)}
+  \caption[Caption for LOF]{Grey (Countries with Open Data provided by Statistical Institutions), White (Countries without Open Data or don't reproduced by the author)}
 \end{figure}
 
 \section{State of the Art}
@@ -179,10 +178,11 @@ problems. However, there is a consensus determining gender, frequency
 and names with official statistics released by the institutions in the
 states.
 
-Measuring the gender gap requires set indicators. ~\cite{world2021global}
-has been proposed economy, health, education and politics. And in
-United Nations\footnote{https://www.unwomen.org/} there are indicators
-used to measure disparities such as laws, education, maternal mortality,
+Measuring the gender gap requires set indicators. Global Gender Gap
+Report~\cite{world2021global} has been proposed economy, health,
+education and politics. The United Nations
+site\footnote{https://www.unwomen.org/} is showing indicators
+to measure disparities such as laws, education, maternal mortality,
 political participation, poverty, domestic work, gender parity in
 the work, to access to the economy, youth issues (access to
 studies and/or work), violence against women, climate justice,
@@ -190,16 +190,13 @@ access to the justice, health, ...
 
 It's possible to make impactful decisions on an issue through research
 results that have taken these indicators into consideration. For example,
-~\cite{miyake2010reducing} concluded that making affirmations about
-ethical values reduced the gender achievement gap in colleges.
+Miyake and other authors ~\cite{miyake2010reducing} concluded that making
+affirmations about ethical values reduced the gender achievement gap in colleges.
 
-Measuring the gender gap in social research, such as the survey. For
-example, in ~\cite{bimber2000measuring} presented two factors affecting
+Related to measuring the gender gap in social research,
+Bimber~\cite{bimber2000measuring} presented two factors affecting
 the gender gap on the Internet (access and use) by socioeconomic and gender
-reasons in a survey that collect data over several years. Internet
-access is vital to today's in the economy, education.
-~\cite{10.1007/978-3-319-39225-7_13} is using a survey of 2000
-contributors.
+reasons in a survey that collect data over several years.
 
 \subsection{Counting males and females on the Internet. Why? Where?}
 
@@ -240,48 +237,52 @@ code may help to understand the gender gap in this field, which may
 have some importance to the economy. Public repositories can
 be used to build indicators about the economy in Computer Science with
 more factors, such as job positions, value of companies, etc.
-~\cite{zacchiroli2020gender} conducted the first large-scale
+Arjona and others~\cite{10.1007/978-3-319-39225-7_13} published in 2016
+a survey of 2000 contributors where showed that the female participation would be
+around 2_{\%} to 5_{\%}. Izquierdo and others~\cite{izquierdo2018openstack}
+revealed that few females contribute code or take political
+responsability in the OpenStack community.
+Recently, Zacchiroli~\cite{zacchiroli2020gender} conducted the first large-scale
 longitudinal study of gender imbalance among authors of
 collaboratively developed, publicly available code, where
 contributions by female authors remain scarce less that 8 \% of
 commits was able to be detected were from women, confirming decades of
 gender imbalance in Free/Open Source Software (FOSS). Steffano used
 to namdict~\footnote{https://raw.githubusercontent.com/lead-ratings/gender-guesser/master/gender\_guesser/data/nam\_dict.txt} dataset with genderguesser to infer gender from
-the name. ~\cite{vasilescu2015gender} determined that women programmers
-are in the minority in OSS and other technical fields, although increased
-gender and tenure diversity is associated with greater productivity.
+the name. Vasilescu and others~\cite{vasilescu2015gender} determined
+that women programmers are in the minority in OSS and other technical
+fields, although increased gender and tenure diversity is associated
+with greater productivity. Vasilescu~\cite{vasilescu2012gender}
+explored the popular Q\&A about technological issues called
+StackOverflow, which summarizes that the percentage of women engaged
+in SO is greatly imbalanced, and men represent the vast majority of
+contributors.
 
-~\cite{vasilescu2012gender} explored the popular Q\&A about
-technological issues called StackOverflow, which summarizes that the
-percentage of women engaged in SO is greatly imbalanced, and men
-represent the vast majority of contributors.
-
-~\cite{izquierdo2018openstack} revealed that data few females
-contribute code or take political responsability in the OpenStack community.
-
-Related to the gender gap in science, ~\cite{holman2018gender} presented a
-code in R using genderize API and provides a good approach about how to
-calculate gender gap inferring gender from an author names retrieved from
-arXiv.
+Related to the gender gap in science, Holman and others~\cite{holman2018gender}
+presented a code in R using genderize API and provides a good approach
+about how to calculate gender gap inferring gender from an author
+names retrieved from arXiv.
 
 \subsection{Automatic approaches to infer gender}
 
 There are several ways to infer gender from Internet
 sources: hand written, images, documents and names.
 
-~\cite{liwicki2011automatic} presents a method inferring gender from
-hand written texts with a 67.5 \% accuracy.
+Liwicki and others~\cite{liwicki2011automatic} presented a method
+inferring gender from hand written texts with a 67.5 \% accuracy.
 
-~\cite{gallagher2008estimating} combines image based gender and age
-classifiers with the cultural information provided by first
-names to recognize people with no labeled examples with results near
-to 60 \% accurate.
+Gallagher and others~\cite{gallagher2008estimating} combines
+image based gender and age classifiers with the cultural 
+information provided by first names to recognize people
+with no labeled examples with results near to 60 \% accurate.
 
-~\cite{argamon2003gender} explains that females use many more
-pronouns, while males use many more noun specifiers, in a large subset of
-the British National Corpus covering a range of genres. Therefore,
-~\cite{koppel2002automatically} presented a document classification
-system with accuracy of approximately 80 \%. ~\cite{cheng2011author}
+Argamon and others~\cite{argamon2003gender} explains that
+females use many more pronouns, while males use many more
+noun specifiers, in a large subset of the British National
+Corpus covering a range of genres. Therefore,
+Koppel and others~\cite{koppel2002automatically} presented
+a document classification system with accuracy of
+approximately 80 \%. Cheng and others ~\cite{cheng2011author}
 exposes a feature selection and a model built using machine learning
 resulting in 85.1 \% accurate rate for identifying gender from text.
 
@@ -290,29 +291,32 @@ resulting in 85.1 \% accurate rate for identifying gender from text.
 The tools used to infer gender from a name are tipically based on
 datasets that, at a minimum, is include gender and name as minimum.
 
-~\cite{liu2013s} presented a method to infer gender from
-first names in Twitter, the dataset was hand coded by agreement
+Liu and others~\cite{liu2013s} presented a method to infer gender
+from first names in Twitter, the dataset was hand coded by agreement
 between three Amazon workers with 50,000 Twitter users select at
 random with only 12,681 gender labels. The goal of this study was
 to determine the incremental value of using the user name as a feature
 in gender inference based on tweets.
 
-~\cite{mueller2016gender} presented how to infer gender in
-Twitter. They used namdict and the United States census as datasets. The
-features were 'number of consonants', 'number of vowels', 'number of
-syllables', 'number of bouba consonants', 'number of bouba vowels',
-'number of kiki consonants', 'number of kiki vowels'. The
-classification model was created using SVM.
+Mueller and others~\cite{mueller2016gender} presented how to
+infer gender in Twitter. They used namdict and the United States
+census as datasets. The features were 'number of consonants',
+'number of vowels', 'number of syllables', 'number of bouba
+consonants', 'number of bouba vowels', 'number of kiki consonants',
+'number of kiki vowels'. The classification model was created using SVM.
 
 \subsection{Related ideas}
 
-~\cite{ambekar2009name} presented a system to classify name
-and ethnicity from open sources using machine learning to
-extract a name list from Wikipedia. A more recent work is
-~\cite{nadri2021relationship}, in which presented NamPrism was
-applied to massive software repositories.
+Ambekar and others~\cite{ambekar2009name} presented a
+system to classify name and ethnicity from open sources
+using machine learning to extract a name list from Wikipedia.
+A more recent work is guided by Rodríguez
+Pérez and others~\cite{nadri2021relationship}, in
+which presented NamPrism giving fresh ideas classifying
+races and being applied to massive software repositories.
 
-~\cite{bollegala2010automatic} presented another approach that
+Bollegala and others~\cite{bollegala2010automatic} presented
+another approach that
 used a lexical-pattern-based approach to extract aliases of a
 given name, with a set of names and their aliases as training
 data to extract lexical patterns. The candidates are ranked
