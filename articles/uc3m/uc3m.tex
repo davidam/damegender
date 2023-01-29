@@ -428,14 +428,24 @@ Brazil or China that has been found scraped from statistical institutions,
 we are evaluating the quality of these datasets and will be included
 in the future if it possible demonstrate the quality of these datasets.
 
-Is has been developed several python commands to collect datasets,
-but the good idea is to make a single command unifying all efforts.
-Now it is called orig2.py and it calls a single sh script per country
-with statistical office using open data for names, gender and frequency
-and makes the preprocessing. The test datasets, wikidata sources
-and API sources must be unified with orig2.py in a
-single command, with a single interface, perhaps inspired in apt
-(debian command), or pip (python command).
+It has been developed several python commands to collect datasets
+(downloadjson.py, get-wikidata-names.py, get-wikidata-surnames.py,
+orig2.py)
+
+orig2.py calls a single sh script per country with statistical office
+using open data for names, gender and frequency and makes the preprocessing.
+
+downloadjson.py is to retrieve data from external API sources (genderapi,
+genderize, namsor, nameapi, ...) from a csv file.
+
+get-wikidata-names.py and get-wikidata-surnames.py is to retrieve names
+and surnames from wikidata giving the country. I have developed scripts
+to retrieve scientists from wikidata, so these scripts will give support to
+some ocupations in a near future.
+
+The test datasets, wikidata sources and API sources could be unified
+with orig2.py in a single command, with a single interface,
+perhaps inspired in apt (debian command), or pip (python command).
 
 It has been applied the criteria that one person usign a name is
 a gender vote (male or female)\footnote{On the future, laws about
@@ -514,6 +524,7 @@ similar and better results:
     Conseil Garonne & 0.97 \tabularnewline
     P Sebo\cite{sebo2021performance} & 0.88 \tabularnewline
     Santamaria \& Mihaljevic\cite{10.7717/peerj-cs.156} & 0.88 \tabularnewline
+    Average & 0.92 \tabularnewline    
   \end{tabular}
   \caption{Accuracies using several test datasets about the DameGender international dataset}
   \label{table:SeveralTests}
@@ -631,6 +642,14 @@ dependencies. There are many distributions, such as, Ubuntu or RedHat
 so it is not representative, but it's interesting to understand that
 the numbers are similar in Debian dividing the developers in 863 males
 (85.5\%), 44 females (4.4\%) and 102 unknowns (10.1\%).
+
+The researcher using Damegender finds the advantages of the Free Software
+for researchers. That is that they can to use, to read, to modify and
+to redistribute each step of trust in software or in data helping to the
+peer review, science reproducible, etc. Many researchers
+was trusting on US census, namdict (generally distributed in genderguesser),
+or commercial APIs. With the Damegender effort the researchers can obtain easily 
+many new datasources extending the base of truth of the research works.
 
 %% \includegraphics[width=0.9\textwidth]{images/debian.gender.pdf}
 
