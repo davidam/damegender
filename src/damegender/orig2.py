@@ -265,6 +265,23 @@ elif (country == "be"):
 
     du.simple_dicc_to_file(dicc, outpath + "befemales.csv")
 
+elif (country == "br"):
+
+    origfemales = origpath + "brfemales.csv"
+    origmales = origpath + "brmales.csv"
+    
+    if (args.download):
+        print("Downloading Brazil datasets ...")
+        subprocess.call(outpath + "download.sh", shell=True)
+
+    diccfemales = {}
+    diccfemales = du.dump_name_and_quantity_in_dicc(origfemales, posname=7, posquant=6, dicc=diccfemales, delimiter=',', sum_bool=False)
+    du.simple_dicc_to_file(diccfemales, outpath + "brfemales.csv")
+    
+    diccmales = {}
+    diccmales = du.dump_name_and_quantity_in_dicc(origmales, posname=7, posquant=6, dicc=diccmales, delimiter=',', sum_bool=False)
+    du.simple_dicc_to_file(diccmales, outpath + "brmales.csv")        
+    
 elif (country == "ca"):
     origfile = origpath + "baby-names-frequency.csv"
 
