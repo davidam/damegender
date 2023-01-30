@@ -38,9 +38,11 @@ args = parser.parse_args()
 du = DameUtils()
 filepath=args.path
 
+countemails = 0
 countinitials = 0
 countnonames = 0
 countnofreq = 0
+lemails = []
 linitials = []
 lnonames = []
 lfreq = []
@@ -48,13 +50,24 @@ lfreq = []
 with open(filepath) as csvfile:
     sreader = csv.reader(csvfile, delimiter=args.delimiter_csv, quotechar='|')
     for row in sreader:
-        if (du.initial_letters(row[args.first_name_position])):
+        content = row[args.first_name_position]
+        if (du.string_contains_email(content)):
+            countemails = countemails + 1
+            lemails.append(content)
+        if (du.initial_letters(content)):
             countinitials = countinitials + 1
-            linitials.append(row[args.first_name_position])
-        elif (row[args.first_name_position] == ''):
+            linitials.append(content)
+        elif (content == ''):
             countnonames = countnonames + 1
-            lnonames.append(row[args.first_name_position])
+            lnonames.append(content)
                 
+print("####################################################")
+print("Rows with emails: %s" % str(countemails))
+print("####################################################")
+
+if (args.verbose and (len(lemails) > 0)):
+    print("Emails: %s" % lemails)
+    
 print("####################################################")
 print("Rows with initials: %s" % str(countinitials))
 print("####################################################")
