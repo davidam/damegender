@@ -355,6 +355,16 @@ class DameUtils():
             result = re.sub(cwd+'/', '', s)
         return result
 
+    def string_contains_email(self, s):
+        # given the string s returns true if it seems an email
+        r1 = r"([\w+ ]*)<([\w\.\+\-]+\@[\w\.\+\-]+\.[a-z]{2,3})>"
+        r0 = re.match(r1, s)
+        if r0:
+            bool0 = True
+        else:
+            bool0 = False
+        return bool0
+        
     def identity2name_email(self, s):
         # given a string identify name and email in the string
         string1 = self.drop_accents(s)

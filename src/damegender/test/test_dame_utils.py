@@ -292,6 +292,16 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(du.round_and_not_zero_division(3, 2), 1.5)
         self.assertEqual(du.round_and_not_zero_division(8, 7), 1.14)
 
+    def test_string_contains_email(self):
+        du = DameUtils()
+        s0 = "David Arroyo Menéndez <davidam@gnu.org>"        
+        self.assertTrue(du.string_contains_email(s0))
+        s1 = "David"
+        self.assertFalse(du.string_contains_email(s1))
+        s2 = "davidam@gnu.org"
+        self.assertFalse(du.string_contains_email(s2))        
+
+        
     def test_identity2name_email(self):
         du = DameUtils()
         s = "David Arroyo Menéndez <davidam@gnu.org>"
