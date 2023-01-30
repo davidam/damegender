@@ -1,8 +1,16 @@
+
+* v0.5.3
+New script!
++ [X] checkcsv.py: to check possible problems in a csv file, such as, empty rows, initials, or emails
+  
+The accuracy average of INTER dataset continues augmenting! Now is 0.92.
+
 * v0.5.2
 
 Official Datasets:
 + [X] Chile: 7024 females, 5433 males
 
+Improvements in code:  
 + top.py:
      adding --outjson giving this wonderful feature: to export top names to websites
 
