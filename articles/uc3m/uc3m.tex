@@ -53,7 +53,7 @@ David Arroyo Menéndez, Madrid, Spain \\ \{davidam@gmail\}.com
   %% Results
 
   The dataset we used covers more than 20 countries in the occidental
-  world encompassing many names with an accuracy of approximately 90%
+  world encompassing many names with an accuracy greater than 90%
   with it. This will create to measure gender gap to students and
   academics interested on the phenomenon without costs and on a
   reproducible way and more people will be contributing to fix the
@@ -428,6 +428,20 @@ Brazil or China that has been found scraped from statistical institutions,
 we are evaluating the quality of these datasets and will be included
 in the future if it possible demonstrate the quality of these datasets.
 
+\begin{table}[t]
+\footnotesize
+\begin{tabular}[]{lcccc}
+  \hline
+  Dataset & SSA & namdict & NLTK & Damegender \tabularnewline
+  males & 91.320 & 48.821 & 2.943 & 257.925 \tabularnewline
+  females & 91.320 & 48.821 & 5.001 & 304.553 \tabularnewline
+  \hline
+\end{tabular}
+\caption{Comparison of the number of names between open data solutions}
+\label{table:DifferentNamesMeasures}
+\end{table}
+
+
 It has been developed several python commands to collect datasets
 (downloadjson.py, get-wikidata-names.py, get-wikidata-surnames.py,
 orig2.py)
@@ -468,19 +482,6 @@ When the work is finished, we could to rebuild machine learning models
 to predict new names and nicknames in any language and culture. The
 results is the longest list of public names with a scientific approach.
 
-\begin{table}[t]
-\footnotesize
-\begin{tabular}[]{lcccc}
-  \hline
-  Dataset & SSA & namdict & NLTK & Damegender \tabularnewline
-  males & 91.320 & 48.821 & 2.943 & 257.925 \tabularnewline
-  females & 91.320 & 48.821 & 5.001 & 304.553 \tabularnewline
-  \hline
-\end{tabular}
-\caption{Comparison of the number of names between open data solutions}
-\label{table:DifferentNamesMeasures}
-\end{table}
-
 A possible criticism about this approach is the Leslie
 Problem\cite{blevins2015jane}: the match between gender and name
 depends of the year. The solution to this problem is to introduce the
@@ -492,18 +493,6 @@ the most of used use cases. We can take into account other inputs,
 such as surname or age to improve the accuracy. There are many open
 datasets with names and frequencies that have been classified by years.
 Therefore, this problem can be fixed with open data, too.
-
-\begin{table}[t]
-\footnotesize
-\begin{tabular}[]{lcccc}
-  \hline
-  Dataset  & Accuracy & Precision & Recall & F1-Score  \tabularnewline
-  Damegender &  0.8756  & 0.9638    & 1.0    & 0.925  \tabularnewline
-  \hline
-\end{tabular}
-\caption{Several precision measures about the DameGender international dataset}
-\label{table:DifferentAccuracyMeasures}
-\end{table}
 
 We have measured about the international DameGender dataset,
 using the dataset test made by Santamaria and Mihaljevic
@@ -524,7 +513,7 @@ similar and better results:
     Conseil Garonne & 0.97 \tabularnewline
     P Sebo\cite{sebo2021performance} & 0.88 \tabularnewline
     Santamaria \& Mihaljevic\cite{10.7717/peerj-cs.156} & 0.88 \tabularnewline
-    Average & 0.92 \tabularnewline    
+    \textbf{Average} & \textbf{0.92} \tabularnewline    
   \end{tabular}
   \caption{Accuracies using several test datasets about the DameGender international dataset}
   \label{table:SeveralTests}
@@ -533,7 +522,7 @@ similar and better results:
 \subsection{Free APIs for free datasets?}
 \label{sec:freeapis}
 
-There area number of open data websites that allow the user to retrieve structured open data without cost. These sites include Wikipedia with SPARQL and OpenStreetMap with API rest, among others.
+There are a number of open data websites that allow the user to retrieve structured open data without cost. These sites include Wikipedia with SPARQL and OpenStreetMap with API rest, among others.
 
 The open datasets for names, gender, and frequency are being modified once a year, at most for each statistical institution.
 
@@ -655,6 +644,12 @@ many new datasources extending the base of truth of the research works.
 
 \section{Conclusions and Future Works}
 \label{sec:conclusions}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{images/flowchart.pdf}
+  \caption[Caption for flowchart]{Technologies and flowchart involved in the Damegender process}
+\end{figure}
 
 Data feminism\cite{d2020data} is an area of growing interest.
 It has been explained the DameGender application,
