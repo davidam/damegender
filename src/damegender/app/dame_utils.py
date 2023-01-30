@@ -739,6 +739,7 @@ class DameUtils():
         filter_pos = kwargs.get('filter_pos', 0)
         filter_char = kwargs.get('filter_char', '')
         quotechar = kwargs.get('quotechar', '"')
+        sum_bool = kwargs.get('sum_bool', True)        
         with open(inputpath) as csvfile:
             r = csv.reader(csvfile, delimiter=delimiter, quotechar=quotechar)
             for row in r:
@@ -750,7 +751,7 @@ class DameUtils():
                                                           ["'", '"', ",", " "])
                     if (filter_char == ''):
                         if not(self.initial_letters(name)):
-                            if (name in dicc.keys()):
+                            if (sum_bool and (name in dicc.keys())):
                                 val = dicc[name]
                                 dicc[name] = int(val) + int(num)
                             else:
