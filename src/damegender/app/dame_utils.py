@@ -357,7 +357,7 @@ class DameUtils():
 
     def string_contains_email(self, s):
         # given the string s returns true if it seems an email
-        r1 = r"([\w+ ]*)<([\w\.\+\-]+\@[\w\.\+\-]+\.[a-z]{2,3})>"
+        r1 = r"(.*)([\w\.\+\-]+\@[\w\.\+\-]+\.[a-z]{2,3})(.*)"
         r0 = re.match(r1, s)
         if r0:
             bool0 = True

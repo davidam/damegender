@@ -299,8 +299,11 @@ class TddInPythonExample(unittest.TestCase):
         s1 = "David"
         self.assertFalse(du.string_contains_email(s1))
         s2 = "davidam@gnu.org"
-        self.assertFalse(du.string_contains_email(s2))        
-
+        self.assertTrue(du.string_contains_email(s2))
+        s3 = "infinity0@freenetproject.org"
+        self.assertTrue(du.string_contains_email(s3))        
+        s4 = "david@davidam.name"
+        self.assertTrue(du.string_contains_email(s4))        
         
     def test_identity2name_email(self):
         du = DameUtils()
