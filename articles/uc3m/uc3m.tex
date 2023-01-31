@@ -4,6 +4,9 @@
 \usepackage{onecolceurws}
 \usepackage{xcolor}
 \usepackage{url}
+\usepackage{lineno}
+\linenumbers
+
 
 \def\infinity{\rotatebox{90}{8}}
 
@@ -158,25 +161,6 @@ related to Open Data, so this work is helping to look for datasets
 checking accuracies with several data sources in statistical
 institutions and other Open Data trust sources as Wikipedia,
 Project Gutenberg, Amazon, sport institutions, Forbes, etc.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.6\textwidth]{images/debian.gender.pretty.pdf}
-  \caption[Caption for LOF]{Blue (Males), Pink (Females), Black (Unknows)}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.6\textwidth]{images/gnu.gender.pretty.pdf}
-  \caption[Caption for LOF]{Blue (Males), Pink (Females), Black (Unknows)}  
-\end{figure}
-
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.6\textwidth]{images/linux.gender.pretty.pdf}
-  \caption[Caption for LOF]{Blue (Males), Pink (Females), Black (Unknows)}    
-\end{figure}
 
 \begin{figure}
   \centering
@@ -552,18 +536,38 @@ pages, or similar sites with free uploads.
 
 \begin{verbatim}
   $ cat DAVID_all.json
-  [{
-      "name": "DAVID",
+  [{  "name": "DAVID",
       "frequency": 4856689,
       "males": "99.73267796229078 %",
-      "females": "0.26732203770922947 %"
-  }]
+      "females": "0.26732203770922947 %" }]
 \end{verbatim}
 
 Therefore, it may be possible to have free API rest about names,
 gender, and frequency with reduced costs to fix the gender gap
 in a collaborative way similar to Wikipedia, OpenStreetMap or
 many free software projects.
+
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{images/debian.gender.pretty.pdf}
+  \caption[Caption for LOF]{Blue (Males), Pink (Females), Black (Unknows)}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{images/gnu.gender.pretty.pdf}
+  \caption[Caption for LOF]{Blue (Males), Pink (Females), Black (Unknows)}  
+\end{figure}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{images/linux.gender.pretty.pdf}
+  \caption[Caption for LOF]{Blue (Males), Pink (Females), Black (Unknows)}    
+\end{figure}
+
 
 \section{Measuring gender gap. GNU/Linux as use case}
 \label{sec:measuring}
@@ -592,11 +596,8 @@ scraping scripts has been downloaded the people and processed
 the people to csv files in this experiment.
 
 In DameGender, has been developed csv2gender, a software with a csv
-file as input and deployed a statistics graph and/or return the result
+file as input and deployed a statistics graph and/or returns the result
 of males, females and unknowns about the input.
-
-To make easy to reproduce the experiment we are pasting the commands
-used with a modern version of Damegender.
 
 \begin{verbatim}
 python3 csv2gender.py files/gnu.csv
@@ -605,22 +606,6 @@ python3 csv2gender.py files/gnu.csv
  --dataset="inter"
  --outcsv="files/gnu.gender.csv"
  --outimg="files/gnu.gender.png"
-
-python3 csv2gender.py files/linux.csv
- --first_name_position=0
- --title="Linux maintaners grouped by gender"
- --dataset="inter"
- --outcsv="files/linux.gender.csv"
- --outimg="files/linux.gender.png"
- --delete_duplicated
-
-python3 csv2gender.py files/debian.csv
- --first_name_position=0
- --title="Debian maintaners grouped by gender"
- --dataset="inter"
- --outcsv="files/debian.gender.csv"
- --outimg="files/debian.gender.png"
- --delete_duplicated
 \end{verbatim}
 
 %% \begin{figure}
