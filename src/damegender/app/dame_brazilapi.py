@@ -27,16 +27,28 @@ import requests
 import json
 import os
 from app.dame_gender import Gender
-from app.dame_utils import DameUtils
-du = DameUtils()
 
 class DameBrazilApi(Gender):
 
-    def get(self, name, sex):
+    def get(self, name):
         # it allows to download a name from Brazil API
+        v = {}
         string = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes/' + name
-        string = string + "?sexo='" + sex + "'"
+        string = string + "?sexo=F"
         r = requests.get(string)
         j = json.loads(r.text)
-        return j
+        count = 0
+        for i in j[0]['res']:
+            count = count + i['frequencia']
+        v['female'] = count
+        string2 = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes/' + name
+        string2 = string2 + "?sexo=M"
+        r2 = requests.get(string2)
+        j2 = json.loads(r2.text)
+        count = 0
+        for i in j2[0]['res']:
+            pprint(i)
+            count = count + i['frequencia']
+        v['male'] = count
+        return v
 
