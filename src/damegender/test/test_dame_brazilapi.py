@@ -39,3 +39,7 @@ class TddInPythonExample(unittest.TestCase):
         # pprint(v['female'])                
         self.assertTrue(v['female'] > 70000)
         self.assertTrue(v['male'] < 11000)        
+        v = dba.get("Jose")
+        # pprint(v['female'])                
+        self.assertTrue(v['male'] > 70000)
+        self.assertTrue(v['female'] < 30000)        
