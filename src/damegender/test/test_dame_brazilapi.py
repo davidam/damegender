@@ -37,11 +37,11 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_brazilapi_get(self):
         dba = DameBrazilApi()
         v = dba.get("Ana")
-        self.assertTrue(v['female'] > 70000)
-        self.assertTrue(v['male'] < 11000)        
+        self.assertTrue(v['females'] > 70000)
+        self.assertTrue(v['males'] < 11000)        
         v = dba.get("Jose")
-        self.assertTrue(v['male'] > 70000)
-        self.assertTrue(v['female'] < 30000)        
+        self.assertTrue(v['males'] > 70000)
+        self.assertTrue(v['females'] < 30000)        
 
     def test_dame_brazilapi_download(self):
         dba = DameBrazilApi()
