@@ -31,7 +31,7 @@ from app.dame_namsor import DameNamsor
 from app.dame_genderize import DameGenderize
 from app.dame_genderapi import DameGenderApi
 from app.dame_nameapi import DameNameapi
-
+from app.dame_brazilapi import DameBrazilApi
 
 import argparse
 import os
@@ -41,7 +41,7 @@ parser.add_argument('--csv', type=str, required=True,
 parser.add_argument('--name_position', type=int, required=False,
                     default=0, help='input file for names')
 parser.add_argument('--api', required=True,
-                    choices=['namsor', 'genderize', 'genderapi', 'nameapi'])
+                    choices=['brazilapi', 'genderapi', 'genderize', 'namsor', 'nameapi'])
 parser.add_argument("--surnames", default=False,
                     action="store_true", help="Flag to surnames")
 parser.add_argument('--outjson', type=str, required=False,
@@ -89,3 +89,9 @@ elif (args.api == 'nameapi'):
                              backup=args.outjson)
     else:
         print("You must enable nameapi in config.cfg")
+
+elif (args.api == 'brazilapi'):
+    dba = DameBrazilApi()
+    text1 = dba.download(path=args.csv,
+                         name_position=args.name_position,
+                         backup=args.outjson)
