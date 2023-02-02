@@ -5,6 +5,11 @@ New script!
   
 The accuracy average of INTER dataset continues augmenting! Now is 0.92.
 
+Brazil is another open data country!
++ [X] dame_brazilapi.py: has been implemented
++ [X] test_dame_brazilapi.py: has been implemented
++ [X] api2gender.py: updated    
+
 * v0.5.2
 
 Official Datasets:
