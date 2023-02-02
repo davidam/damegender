@@ -61,6 +61,12 @@
 + [ ] Source: https://www.kaggle.com/datasets/mateibejan/15000-gutenberg-books?select=gutenberg_metadata.csv
 + [ ] License: https://www.kaggle.com/datasets/mateibejan/15000-gutenberg-books?select=gutenberg_metadata.csv
 
+** Bible
++ [ ] File: BibleData-PersonLabel.csv
++ [ ] Source: https://data.world/bradys/bibledata-person/workspace/query?filename=BibleData-Person&newQueryType=SQL&selectedTable=person&tempId=1675355085942
+              https://data.world/bradys/bibledata-person/workspace/project-summary?agentid=bradys&datasetid=bibledata-person
++ [ ] License: CC BY-NC-SA
+
 * Sources to be verified
 An interesting task in the world of the datasets is about to discover if a dataset is valid.
 
