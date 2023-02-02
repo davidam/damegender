@@ -28,6 +28,7 @@
 from app.dame_gender import Gender
 from app.dame_genderguesser import DameGenderGuesser
 from app.dame_genderapi import DameGenderApi
+from app.dame_brazilapi import DameBrazilApi
 from app.dame_genderize import DameGenderize
 from app.dame_namsor import DameNamsor
 from app.dame_nameapi import DameNameapi
@@ -41,19 +42,24 @@ parser = argparse.ArgumentParser()
 parser.add_argument('name',  help="Name to be detected")
 parser.add_argument('--surname', help="Surname to be detected")
 parser.add_argument("--api",
-                    choices=['namsor', 'genderize', 'genderguesser',
-                             'genderapi', 'nameapi', 'wikidata',
-                             'wikipedia'],
+                    choices=['brazilapi', 'genderapi', 'genderize',
+                             'genderguesser', 'namsor', 'nameapi',
+                             'wikidata', 'wikipedia'],
                     required=True)
 parser.add_argument('--version', action='version', version='0.3')
 
 args = parser.parse_args()
 
+dba = DameBrazilApi()
 du = DameUtils()
 dg = Gender()
 
 if (len(sys.argv) > 1):
-    if (args.api == "genderguesser"):
+    if (args.api == "brazilapi"):
+        dga = DameBrazilApi()
+        print(dba.guess(args.name))
+        print("accuracy: " + str(dba.accuracy(args.name)))
+    elif (args.api == "genderguesser"):
         dgg = DameGenderGuesser()
         print(dgg.guess(args.name))
     elif (args.api == "genderapi"):
@@ -63,6 +69,10 @@ if (len(sys.argv) > 1):
             print("accuracy: " + str(dga.accuracy(args.name)))
         else:
             print("You must enable genderapi in config.cfg file")
+    elif (args.api == "genderapi"):
+        dba = DameBrazilApi()
+        print(dba.guess(args.name))
+        print("accuracy: " + str(dba.accuracy(args.name)))
     elif (args.api == "genderize"):
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
             dg = DameGenderize()
