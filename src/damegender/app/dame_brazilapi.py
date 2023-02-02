@@ -26,7 +26,6 @@
 import requests
 import json
 import os
-from pprint import pprint
 from app.dame_gender import Gender
 
 class DameBrazilApi(Gender):
@@ -46,7 +45,7 @@ class DameBrazilApi(Gender):
                     count = i['frequencia']
         except:
             count = 0
-        v['female'] = count
+        v['females'] = count
         string2 = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes/' + name
         string2 = string2 + "?sexo=M"
         r2 = requests.get(string2)
@@ -58,7 +57,11 @@ class DameBrazilApi(Gender):
                     count = i['frequencia']
         except:
             count = 0
-        v['male'] =  count        
+        v['males'] =  count
+        if (v['males'] > v['females']):
+            v['gender'] = 'male'
+        else:
+            v['gender'] = 'female'
         return v
 
     def download(self, path="files/names/partial.csv", *args, **kwargs):
@@ -77,3 +80,28 @@ class DameBrazilApi(Gender):
         backup.write(jsonv)
         backup.close()
         return 1
+
+    def guess(self, name, binary=False):
+        # returns a gender from a name
+        v = self.get(name)
+        guess = v['gender']
+        if (guess == 'male'):
+            if binary:
+                guess = 1
+        elif (guess == 'female'):
+            if binary:
+                guess = 0
+        else:
+            if binary:
+                guess = 2
+            else:
+                guess = 'unknown'
+        return guess
+
+    def accuracy(self, name):
+        v = self.get(name)
+        if (v['males'] > v['females']):
+            acc = v['males'] / (v['males'] + v['females'])
+        else:
+            acc = v['females'] / (v['males'] + v['females'])
+        return acc
