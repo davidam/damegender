@@ -34,6 +34,7 @@ class DameBrazilApi(Gender):
     def get(self, name):
         # it allows to download a name from Brazil API
         v = {}
+        v['name'] = name
         string = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes/' + name
         string = string + "?sexo=F"
         r = requests.get(string)
