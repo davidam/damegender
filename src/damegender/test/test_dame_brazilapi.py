@@ -38,5 +38,4 @@ class TddInPythonExample(unittest.TestCase):
         v = dba.get("Ana")
         # pprint(v['female'])                
         self.assertTrue(v['female'] > 70000)
-        pprint(v['male'])
         self.assertTrue(v['male'] < 11000)        

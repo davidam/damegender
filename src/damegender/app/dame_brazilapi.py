@@ -47,7 +47,6 @@ class DameBrazilApi(Gender):
         j2 = json.loads(r2.text)
         count = 0
         for i in j2[0]['res']:
-            pprint(i)
             count = count + i['frequencia']
         v['male'] = count
         return v
