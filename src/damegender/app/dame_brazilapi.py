@@ -26,6 +26,7 @@
 import requests
 import json
 import os
+from pprint import pprint
 from app.dame_gender import Gender
 
 class DameBrazilApi(Gender):
@@ -38,16 +39,40 @@ class DameBrazilApi(Gender):
         r = requests.get(string)
         j = json.loads(r.text)
         count = 0
-        for i in j[0]['res']:
-            count = count + i['frequencia']
+        try:
+            for i in j[0]['res']:
+                if (i['periodo'] == "[2000,2010["):
+                    count = i['frequencia']
+        except:
+            count = 0
         v['female'] = count
         string2 = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes/' + name
         string2 = string2 + "?sexo=M"
         r2 = requests.get(string2)
         j2 = json.loads(r2.text)
         count = 0
-        for i in j2[0]['res']:
-            count = count + i['frequencia']
-        v['male'] = count
+        try:        
+            for i in j2[0]['res']:
+                if (i['periodo'] == "[2000,2010["):
+                    count = i['frequencia']
+        except:
+            count = 0
+        v['male'] =  count        
         return v
 
+    def download(self, path="files/names/partial.csv", *args, **kwargs):
+        # download a json of people's names from a csv given
+        backup = kwargs.get('backup', 'files/names/brazilnames.json')
+        name_position = kwargs.get('name_position', 0)
+        names = self.csv2names(path, name_position=name_position)
+        jsondict = {}
+        jsondict['names'] = []
+        if backup:
+            backup = open(backup, "w+")
+        for i in names:
+            name = self.get(i)
+            jsondict['names'].append(name)
+        jsonv = json.dumps(jsondict)
+        backup.write(jsonv)
+        backup.close()
+        return 1
