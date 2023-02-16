@@ -418,7 +418,7 @@ class DameUtils():
             first_line = csvfile.readline()
             ncol = first_line.count(delimiter) + 1
         return ncol
-
+    
     def csvcolumn2list(self, csvpath,  *args, **kwargs):
         # make a list from a column in a csv file
         position = kwargs.get('position', 0)
@@ -436,6 +436,27 @@ class DameUtils():
                 l1.append(row[position])
         return l1
 
+    def eq_columns_in_csv(self, csvpath, *args, **kwargs):
+        delimiter = kwargs.get('delimiter', ',')
+        quotechar = kwargs.get('quotechar', '|')        
+        # returns the number of columns in a csv file
+        with open(csvpath, 'r') as csvfile:
+            first_line = csvfile.readline()
+            rowreader = csv.reader(csvfile,
+                                   delimiter=delimiter,
+                                   quotechar=quotechar)
+            ncol = first_line.count(delimiter) + 1
+        boolean = True
+        with open(csvpath) as csvfile:
+            rowreader = csv.reader(csvfile,
+                                   delimiter=delimiter,
+                                   quotechar=quotechar)
+            for row in rowreader:
+                ncoli = first_line.count(delimiter) + 1
+                if (boolean and (ncol == ncoli)):
+                    boolean = True
+        return boolean
+    
     def find_max_and_min_in_column(self, path, column_position,
                                    *args, **kwargs):
         # path must contain a column of integers and

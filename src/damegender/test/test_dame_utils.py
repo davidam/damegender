@@ -502,7 +502,19 @@ class TddInPythonExample(unittest.TestCase):
         file4 = "files/names/min.csv"
         self.assertTrue(du.is_csv(file4))
 
-
+    def test_eq_columns_in_csv(self):
+        du = DameUtils()
+        file1 = "files/names/min.csv"
+        self.assertTrue(du.eq_columns_in_csv(file1))
+        file2 = "files/names/names_tests/gutenberg_metadata.csv"
+        self.assertTrue(du.eq_columns_in_csv(file2))
+        file3 = "files/names/names_tests/2022_forbes_billionaires.csv"
+        self.assertTrue(du.eq_columns_in_csv(file3))
+        file4 = "files/names/min.commas.csv"
+        self.assertTrue(du.eq_columns_in_csv(file4))
+        file5 = "files/names/2017girlsnames-uk.csv"
+        self.assertTrue(du.eq_columns_in_csv(file5, quotechar=';'))        
+        
 # def test_fill_dictionary_names_and_years_from_file(self):
 #     du = DameUtils()
 #     file1 = "files/names/names_ie/orig/vsa10.csv"
