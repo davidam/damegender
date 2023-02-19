@@ -277,11 +277,11 @@ elif (country == "br"):
     if (args.download):
         print("Downloading Brazil datasets ...")
         dba = DameBrazilApi()
-        text1 = dba.download_csv(path=args.csv,
-                             name_position=args.name_position,
-                             backup_all=args.outcsv,
-                             backup_females="files/names/names_br/brfemales.csv",
-                             backup_males="files/names/names_br/brmales.csv")
+        text1 = dba.download_csv(path="files/names/names_inter/interall.csv",
+                                 name_position=0,
+                                 backup_all="files/names/names_br/brall.csv",
+                                 backup_females="files/names/names_br/brfemales.csv",
+                                 backup_males="files/names/names_br/brmales.csv")
 
     #     subprocess.call(outpath + "download.sh", shell=True)
 
