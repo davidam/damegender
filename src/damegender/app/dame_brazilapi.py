@@ -80,6 +80,22 @@ class DameBrazilApi(Gender):
         backup.write(jsonv)
         backup.close()
         return 1
+    
+    def download_csv(self, path="files/names/partial.csv", *args, **kwargs):
+        # download a csv of people's names from a csv given
+        backup = kwargs.get('backup', 'files/names/brazilnames.csv')
+        name_position = kwargs.get('name_position', 0)
+        names = self.csv2names(path, name_position=name_position)
+        if backup:
+            backup = open(backup, "w+")
+        for i in names:
+            name = self.get(i)
+            freq = name['males'] + name['females']
+            per_males = (name['males'] / freq) * 100
+            per_females = (name['females'] / freq) * 100
+            backup.write(i+","+str(freq)+","+str(per_males)+","+str(per_females))
+        backup.close()
+        return 1
 
     def guess(self, name, binary=False):
         # returns a gender from a name

@@ -52,3 +52,12 @@ class TddInPythonExample(unittest.TestCase):
             os.path.isfile(
                 "files/names/brazilnames.json"))
         
+    def test_dame_brazilapi_download_csv(self):
+        dba = DameBrazilApi()
+        du = DameUtils()
+        path1 = "files/names/min.csv"
+        g = dba.download_csv(path1)
+        self.assertTrue(
+            os.path.isfile(
+                "files/names/brazilnames.csv"))
+        
