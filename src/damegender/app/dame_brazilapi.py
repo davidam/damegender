@@ -83,18 +83,30 @@ class DameBrazilApi(Gender):
     
     def download_csv(self, path="files/names/partial.csv", *args, **kwargs):
         # download a csv of people's names from a csv given
-        backup = kwargs.get('backup', 'files/names/brazilnames.csv')
+        backup_all = kwargs.get('backup_all', 'files/tmp/brall.csv')
+        backup_females = kwargs.get('backup_females', 'files/tmp/brfemales.csv')
+        backup_males = kwargs.get('backup_males', 'files/tmp/brmales.csv')        
         name_position = kwargs.get('name_position', 0)
         names = self.csv2names(path, name_position=name_position)
-        if backup:
-            backup = open(backup, "w+")
+        if backup_all:
+            file_all = open(backup_all, "w+")
+        if backup_females:
+            file_females = open(backup_females, "w+")
+        if backup_males:
+            file_males = open(backup_males, "w+")
         for i in names:
             name = self.get(i)
+            if (name['females'] > 0):
+                file_females.write(str(i)+","+str(name['females'])+"\n")
+            if (name['males'] > 0):
+                file_males.write(str(i)+","+str(name['males'])+"\n")
             freq = name['males'] + name['females']
             per_males = (name['males'] / freq) * 100
             per_females = (name['females'] / freq) * 100
-            backup.write(i+","+str(freq)+","+str(per_males)+","+str(per_females))
-        backup.close()
+            file_all.write(i+","+str(freq)+","+str(per_males)+","+str(per_females)+"\n")
+        file_all.close()
+        file_females.close()
+        file_males.close()        
         return 1
 
     def guess(self, name, binary=False):
