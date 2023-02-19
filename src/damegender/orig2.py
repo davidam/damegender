@@ -28,6 +28,8 @@ import os
 
 from app.dame_utils import DameUtils
 from app.dame_wikidata import DameWikidata
+from app.dame_brazilapi import DameBrazilApi
+
 
 dw = DameWikidata()
 isocodes = dw.dicc_countries().keys()
@@ -166,7 +168,8 @@ elif (country == "au"):
                                                         delimiter=',')
     fo = open(outpath + "aufemales.csv", "w")
     for i in diccfemales.keys():
-        fo.write(str(i) + "," + str(diccfemales[i]) + "\n")
+        if not(du.initial_letters(i)):
+            fo.write(str(i) + "," + str(diccfemales[i]) + "\n")
     fo.close()
 
     # Males
@@ -188,7 +191,8 @@ elif (country == "au"):
 
     fo = open(outpath + "aumales.csv", "w")
     for i in diccmales.keys():
-        fo.write(str(i) + "," + str(diccmales[i]) + "\n")
+        if not(du.initial_letters(i)):        
+            fo.write(str(i) + "," + str(diccmales[i]) + "\n")
     fo.close()
 
 elif (country == "be"):
@@ -267,20 +271,27 @@ elif (country == "be"):
 
 elif (country == "br"):
 
-    origfemales = origpath + "brfemales.csv"
-    origmales = origpath + "brmales.csv"
+    # origfemales = origpath + "brfemales.csv"
+    # origmales = origpath + "brmales.csv"
     
     if (args.download):
         print("Downloading Brazil datasets ...")
-        subprocess.call(outpath + "download.sh", shell=True)
+        dba = DameBrazilApi()
+        text1 = dba.download_csv(path=args.csv,
+                             name_position=args.name_position,
+                             backup_all=args.outcsv,
+                             backup_females="files/names/names_br/brfemales.csv",
+                             backup_males="files/names/names_br/brmales.csv")
 
-    diccfemales = {}
-    diccfemales = du.dump_name_and_quantity_in_dicc(origfemales, posname=7, posquant=6, dicc=diccfemales, delimiter=',', sum_bool=False)
-    du.simple_dicc_to_file(diccfemales, outpath + "brfemales.csv")
+    #     subprocess.call(outpath + "download.sh", shell=True)
+
+    # diccfemales = {}
+    # diccfemales = du.dump_name_and_quantity_in_dicc(origfemales, posname=7, posquant=6, dicc=diccfemales, delimiter=',', sum_bool=False)
+    # du.simple_dicc_to_file(diccfemales, outpath + "brfemales.csv")
     
-    diccmales = {}
-    diccmales = du.dump_name_and_quantity_in_dicc(origmales, posname=7, posquant=6, dicc=diccmales, delimiter=',', sum_bool=False)
-    du.simple_dicc_to_file(diccmales, outpath + "brmales.csv")        
+    # diccmales = {}
+    # diccmales = du.dump_name_and_quantity_in_dicc(origmales, posname=7, posquant=6, dicc=diccmales, delimiter=',', sum_bool=False)
+    # du.simple_dicc_to_file(diccmales, outpath + "brmales.csv")        
     
 elif (country == "ca"):
     origfile = origpath + "baby-names-frequency.csv"
