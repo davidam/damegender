@@ -101,9 +101,10 @@ class DameBrazilApi(Gender):
             if (name['males'] > 0):
                 file_males.write(str(i)+","+str(name['males'])+"\n")
             freq = name['males'] + name['females']
-            per_males = (name['males'] / freq) * 100
-            per_females = (name['females'] / freq) * 100
-            file_all.write(i+","+str(freq)+","+str(per_males)+","+str(per_females)+"\n")
+            if (freq > 0):
+                per_males = (name['males'] / freq) * 100
+                per_females = (name['females'] / freq) * 100
+                file_all.write(i+","+str(freq)+","+str(per_males)+","+str(per_females)+"\n")
         file_all.close()
         file_females.close()
         file_males.close()        
