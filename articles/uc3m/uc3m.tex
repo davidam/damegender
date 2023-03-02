@@ -13,7 +13,7 @@
 \title{DameGender: Towards an international and free dataset about name, gender and frequency}
 
 \author{
-David Arroyo Menéndez, Madrid, Spain \\ \{davidam@gmail\}.com
+David Arroyo Menéndez, Madrid, Spain \\ \{davidam\@gmail\}.com
 }
 
 \newif\ifdraft
@@ -157,15 +157,17 @@ GNU/Linux.
 Many articles related are about to apply machine learning techniques,
 but using only Open Data is possible to acquire very good accuracies.
 So, this work is augmenting the base of truth of the state of art
-related to Open Data, so this work is helping to look for datasets
-checking accuracies with several data sources in statistical
-institutions and other Open Data trust sources as Wikipedia,
-Project Gutenberg, Amazon, sport institutions, Forbes, etc.
+related to Open Data (figure \ref{fig:mapamundi}), so this work is
+helping to look for datasets checking accuracies with several data
+sources in statistical institutions and other Open Data trust sources
+as Wikipedia, Project Gutenberg, IMDB, Amazon, sport institutions,
+Forbes, etc.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.6\textwidth]{images/Simple_world_map_edit.pdf}
   \caption[Caption for LOF]{Green (Countries with Open Data provided by Statistical Institutions), White (Countries without Open Data or don't reproduced by the author)}
+  \label{fig:mapamundi}
 \end{figure}
 
 \section{State of the Art}
@@ -426,10 +428,11 @@ and frequency from statistical offices of the following countries:
 Argentina, Austria, Australia, Belgium, Canada, Switzerland, Germany,
 Denmark, Spain, Finland, France, Great Britain, Ireland, Iceland,
 Norway, New Zealand, Mexico, Portugal, Russia, Slovenia, Sweden,
-the United States of America and Uruguay. There are datasets as Italy,
-Brazil or China that has been found scraped from statistical institutions,
-we are evaluating the quality of these datasets and will be included
-in the future if it possible demonstrate the quality of these datasets.
+the United States of America and Uruguay (figure ~\ref{fig:mapamundi}).
+There are datasets as Italy, Brazil or China that has been found
+scraped from statistical institutions, we are evaluating the quality
+of these datasets and will be included in the future if it's possible
+demonstrate the quality of these datasets.
 
 \begin{table}[t]
 \footnotesize
@@ -450,7 +453,8 @@ It has been developed several python commands to collect datasets
 orig2.py)
 
 orig2.py calls a single sh script per country with statistical office
-using open data for names, gender and frequency and makes the preprocessing.
+using open data for names, gender and frequency and makes the preprocessing
+(figure ~\ref{fig:flowchart}).
 
 downloadjson.py is to retrieve data from external API sources (genderapi,
 genderize, namsor, nameapi, ...) from a csv file.
@@ -497,11 +501,14 @@ such as surname or age to improve the accuracy. There are many open
 datasets with names and frequencies that have been classified by years.
 Therefore, this problem can be fixed with open data, too.
 
+Comparing DameGender open dataset with other open datasets released by
+scientists or in software packages (table ~\pageref{table:DifferentNamesMeasures}),
+DameGender is augmenting the public names significantly.
 We have measured about the international DameGender dataset,
 using the dataset test made by Santamaria and Mihaljevic
 \cite{10.7717/peerj-cs.156} reaching: accuracy (0.8756), precision
 (0.9638), recall (1.0) and f1-score (0.925). With other test datasets,
-similar and better results:
+similar and better results (table ~\ref{table:SeveralTests}):
 
 \begin{table}[t]
   \footnotesize
@@ -547,25 +554,26 @@ gender, and frequency with reduced costs to fix the gender gap
 in a collaborative way similar to Wikipedia, OpenStreetMap or
 many free software projects.
 
-
-
 \begin{figure}
   \centering
   \includegraphics[width=0.6\textwidth]{images/debian.gender.pretty.pdf}
   \caption[Caption for LOF]{Blue (Males), Pink (Females), Black (Unknows)}
+  \label{fig:debian}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.6\textwidth]{images/gnu.gender.pretty.pdf}
-  \caption[Caption for LOF]{Blue (Males), Pink (Females), Black (Unknows)}  
+  \caption[Caption for LOF]{Blue (Males), Pink (Females), Black (Unknows)}
+  \label{fig:gnu}
 \end{figure}
 
 
 \begin{figure}
   \centering
   \includegraphics[width=0.6\textwidth]{images/linux.gender.pretty.pdf}
-  \caption[Caption for LOF]{Blue (Males), Pink (Females), Black (Unknows)}    
+  \caption[Caption for LOF]{Blue (Males), Pink (Females), Black (Unknows)}
+  \label{fig:linux}  
 \end{figure}
 
 
@@ -579,7 +587,8 @@ Sustainable Development Objective of the United Nations,
 which is to erase the gender gap completely. 
 
 This section is divided into counting males and females using
-Debian, GNU, and Linux.
+Debian (figure ~\ref{fig:debian}), GNU (figure ~\ref{fig:gnu}),
+and Linux (figure ~\ref{fig:linux}).
 
 It has been obtained the csv files using different methods
 to determine the names about the people in these communities.
@@ -614,24 +623,27 @@ python3 csv2gender.py files/gnu.csv
 %%   \caption[Caption for LOF]{Males (blue), Females (orange) and Unknows (green) in Debian, GNU and Linux}
 %% \end{figure}
 
-The inter dataset was created by merging several open datasets
+The INTER dataset was created by merging several open datasets
 downloaded from official statistics sites from different nations,
 being a good representation of the Western World and the free
 software world is populating this world's area\cite{gonzalez2008geographic}.
 
-Linux divides the developers in 1891 males (90.1\%), 78 females
-(3.7\%) and 130 unknowns (6.2\%). The number of unknowns is due to
-different reasons, but it's so common in Linux that the developer is a
-company and not a name of a person.
+Linux (figure ~\ref{fig:linux} divides the developers in 1891
+males (90.1\%), 78 females (3.7\%) and 130 unknowns (6.2\%).
+The number of unknowns is due to different reasons, but it's so
+common in Linux that the developer is a company and not a name
+of a person.
 
-GNU divides the developers in 215 males (91.5\%), 12 females (5.1\%)
-and 8 unknowns (3.4\%) Richard Stallman, the GNU founder returned to
+GNU (figure ~\ref{fig:gnu}) divides the developers in 215
+males (91.5\%), 12 females (5.1\%) and 8 unknowns (3.4\%)
+Richard Stallman, the GNU founder returned to
 be president apologizing by his personal behaviour with the
 females.\footnote{https://www.fsf.org/news/rms-addresses-the-free-software-community}
 
-Debian is a distribution, the project who makes the CD/DVD and the
-software ready to be downloaded from Internet with the
-dependencies. There are many distributions, such as, Ubuntu or RedHat
+Debian (figure ~\ref{fig:debian} is a distribution, the
+project who makes the CD/DVD and the software ready to be
+downloaded from Internet with the dependencies. There are
+many distributions, such as, Ubuntu or RedHat
 so it is not representative, but it's interesting to understand that
 the numbers are similar in Debian dividing the developers in 863 males
 (85.5\%), 44 females (4.4\%) and 102 unknowns (10.1\%).
@@ -653,6 +665,7 @@ many new datasources extending the base of truth of the research works.
   \centering
   \includegraphics[width=0.6\textwidth]{images/flowchart.pdf}
   \caption[Caption for flowchart]{Technologies and flowchart involved in the Damegender process}
+  \label{fig:flowchart}
 \end{figure}
 
 Data feminism\cite{d2020data} is an area of growing interest.
