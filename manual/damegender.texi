@@ -196,14 +196,12 @@ $ python3 apikeyadd.py
 You must start to check tests to understand that all is OK:
 
 @example
-$ cd src/damegender
-$ ./testsbycommands.sh            # It must run for you
-$ ./testsbycommandsextralocal.sh  # You will need all dependencies
-                                  # with: $ pip3 install damegender[all]
-$ ./testsbycommandsperceval.sh    # Only about perceval
-$ ./testsbycommandsextraapis.sh   # You will need all dependencies
-$ ./testmergeinterfiles.sh        # Only about merge datasetes
-$ ./testsorig2.sh                 # Checking orig2.py in several countries
+$ cd src/damegender/sh/tests      # in the folder
+$ ./basics.sh                     # basics must run for you
+$ ./apis.sh                       # first, you have configured API keys
+$ ./extra.sh                      # with: $ pip3 install damegender[all] 
+$ ./mergeinterfiles.sh            # Merging files
+$ ./toolkit.sh                    # Perceval and other stuff 
 @end example
 
 You can continue checking python tests:
