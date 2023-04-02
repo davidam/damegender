@@ -96,6 +96,10 @@ freeely.
 
 # Speeches, Seminars, Expressions of Support
 
+## 2023
+
+-  [OpenDataDay with grant (Argentina Buenos Aires, 2023)](https://blog.okfn.org/2023/03/01/winners-open-data-days-2023-small-grants-programme/)
+
 ## 2021
 
 -   [Jornadas Online "Género y Ciencia de Datos en Deporte y Salud"
