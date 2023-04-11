@@ -42,11 +42,12 @@ from app.dame_gender import Gender
 parser = argparse.ArgumentParser()
 parser.add_argument("url", help="display the gender")
 parser.add_argument('--total', default="us",
-                    choices=['at', 'au', 'be', 'ca', 'ch',
-                             'cn', 'de', 'dk', 'es', 'fi',
-                             'fr', 'gb', 'ie', 'is', 'no', 'nz',
-                             'mx', 'pt', 'se', 'si', 'uy',
-                             'us', 'namdict', 'inter'])
+                    choices=['ar', 'at', 'au', 'be', 'ca', 'ch',
+                             'cl', 'cn', 'de', 'dk', 'es', 'fi',
+                             'fr', 'gb', 'ie', 'is', 'it', 'no', 'nz',
+                             'mx', 'pt', 'ru', 'ru_ru',
+                             'ru_en', 'se', 'si',
+                             'uy', 'us', 'inter'])
 # More about iso codes on https://www.iso.org/obp/ui/
 parser.add_argument('--version', action='version', version='0.1')
 parser.add_argument('--verbose', default=False, action="store_true")
