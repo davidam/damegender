@@ -36,9 +36,12 @@ parser = argparse.ArgumentParser()
 parser.add_argument("url", help="Uniform Resource Link")
 parser.add_argument('--directory', required=True)
 parser.add_argument('--language', default="us",
-                    choices=['au', 'ca', 'es', 'fi', 'ie',
-                             'ine', 'is', 'nz', 'pt',
-                             'uy', 'uk', 'us'])
+                    choices=['ar', 'at', 'au', 'be', 'ca', 'ch',
+                             'cl', 'cn', 'de', 'dk', 'es', 'fi',
+                             'fr', 'gb', 'ie', 'is', 'it', 'no',
+                             'nz', 'mx', 'pt', 'ru', 'ru_ru',
+                             'ru_en', 'se', 'si',
+                             'uy', 'us', 'inter'])
 parser.add_argument('--show', choices=['males', 'females', 'unknowns', 'all'])
 parser.add_argument('--ml', default='none',
                     choices=['none', 'nltk', 'svc', 'sgd', 'gaussianNB',
