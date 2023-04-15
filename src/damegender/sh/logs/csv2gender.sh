@@ -22,12 +22,6 @@
 
 cd ../..
 
-python3 csv2gender.py files/linux-maintainers.csv --first_name_position=0  --title="Linux maintaners grouped by gender" --dataset="inter"  --outcsv="files/logs/linux.gender.$(date "+%Y-%m-%d").csv"  --outimg="files/images/linux.gender.$(date "+%Y-%m-%d").png" --noshow --delete_duplicated
-
-python3 csv2gender.py files/gnu-maintainers.csv --first_name_position=0 --title="GNU maintainers grouped by gender" --dataset="inter" --outcsv="files/logs/gnu.gender.$(date "+%Y-%m-%d").csv" --outimg="files/images/gnu.gender.$(date "+%Y-%m-%d").png" --noshow --delete_duplicated 
-
-python3 csv2gender.py files/debian-maintainers-gpg-2020-04-01.csv --first_name_position=0 --title="Debian maintainers grouped by gender" --dataset="inter" --outcsv="files/logs/debian.gender.$(date "+%Y-%m-%d").csv" --outimg="files/images/debian.gender.$(date "+%Y-%m-%d").png" --noshow --delete_duplicated
-
 python3 csv2gender.py files/names/names_tests/autores.csv --first_name_position=2 --dataset=inter --noshow --outcsv=files/names/names_tests/autores.firstnamestrict.interguessed.csv --skip_header --guess_with_first_name_strict
 
 python3 csv2gender.py files/names/names_tests/autores.csv --first_name_position=2 --dataset=es --noshow --outcsv=files/names/names_tests/autores.esguessed.csv --skip_header --guess_with_first_name_strict
