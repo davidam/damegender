@@ -2,8 +2,8 @@
 
 #  Copyright (C) 2023 David Arroyo Menendez
 
-#  Author: David Arroyo Menendez <davidarroyomenendez@MacBook-Pro-de-David.local> 
-#  Maintainer: David Arroyo Menendez <davidarroyomenendez@MacBook-Pro-de-David.local> 
+#  Author: David Arroyo Menendez <davidam@gmail.com>
+#  Maintainer: David Arroyo Menendez <davidam@gmail.com>
 #  This file is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
 #  the Free Software Foundation; either version 3, or (at your option)
@@ -22,3 +22,5 @@
 cd ../..
 python3 git2gender.py https://github.com/ruby/ruby --directory="tmp/cloneruby" --language=inter --show=all --verbose > files/logs/git2gender_ruby-$(date "+%Y-%m-%d-%H").txt
 python3 git2gender.py https://github.com/python/cpython --language='inter' --directory="tmp/clonecpython" --show=all --verbose > files/logs/git2genderpython.txt
+python3 git2gender.py https://github.com/Perl/perl5 --language='inter' --directory="tmp/cloneperl" --show=all --verbose > files/logs/git2genderperl.txt
+python3 git2gender.py https://github.com/tcltk/tcl --language='inter' --directory="tmp/clonetcl" --show=all --verbose > files/logs/git2gendertcl.txt
