@@ -20,7 +20,9 @@
 #  Boston, MA 02110-1301 USA,
 
 cd ../..
-python3 git2gender.py https://github.com/ruby/ruby --directory="tmp/cloneruby" --language=inter --show=all --verbose > files/logs/git2gender_ruby-$(date "+%Y-%m-%d-%H").txt
-python3 git2gender.py https://github.com/python/cpython --language='inter' --directory="tmp/clonecpython" --show=all --verbose > files/logs/git2genderpython.txt
-python3 git2gender.py https://github.com/Perl/perl5 --language='inter' --directory="tmp/cloneperl" --show=all --verbose > files/logs/git2genderperl.txt
-python3 git2gender.py https://github.com/tcltk/tcl --language='inter' --directory="tmp/clonetcl" --show=all --verbose > files/logs/git2gendertcl.txt
+python3 git2gender.py https://github.com/ruby/ruby --directory="tmp/cloneruby" --country="inter" --show=all --verbose > files/logs/git2gender_ruby-$(date "+%Y-%m-%d-%H").txt
+python3 git2gender.py https://github.com/python/cpython --country='inter' --directory="tmp/clonecpython" --show=all --verbose > files/logs/git2genderpython-$(date "+%Y-%m-%d-%H").txt
+python3 git2gender.py https://github.com/Perl/perl5 --country='inter' --directory="tmp/cloneperl" --show=all --verbose > files/logs/git2genderperl-$(date "+%Y-%m-%d-%H").txt
+python3 git2gender.py https://github.com/tcltk/tcl --country='inter' --directory="tmp/clonetcl" --show=all --verbose > files/logs/git2gendertcl-$(date "+%Y-%m-%d-%H").txt
+python3 git2gender.py https://git.savannah.gnu.org/git/bash.git --country='inter' --directory="tmp/clonebash" --show=all --verbose > files/logs/git2genderbash-$(date "+%Y-%m-%d-%H").txt
+python3 git2gender.py https://github.com/r-devel/r-svn --country="inter" --directory="tmp/clonebash" --show=all --verbose > files/logs/git2genderbash-$(date "+%Y-%m-%d-%H").txt
