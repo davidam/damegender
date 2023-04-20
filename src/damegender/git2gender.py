@@ -35,7 +35,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("url", help="Uniform Resource Link")
 parser.add_argument('--directory', required=True)
-parser.add_argument('--language', default="us",
+parser.add_argument('--country', default="us",
                     choices=['ar', 'at', 'au', 'be', 'ca', 'ch',
                              'cl', 'cn', 'de', 'dk', 'es', 'fi',
                              'fr', 'gb', 'ie', 'is', 'it', 'no',
