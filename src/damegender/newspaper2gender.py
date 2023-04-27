@@ -54,13 +54,15 @@ parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
 
 article = Article(args.url)
-article.download()
-article.parse()
-
-g = Gender()
-for i in article.authors:
-    print("--------------------------------")
-    print(i)
-    l1 = re.split(r'\W+', i)
-    print(g.guess(l1[0], dataset=args.total))
-    print("--------------------------------")
+try:
+    article.download()
+    article.parse()
+    g = Gender()
+    for i in article.authors:
+        print("--------------------------------")
+        print(i)
+        l1 = re.split(r'\W+', i)
+        print(g.guess(l1[0], dataset=args.total))
+        print("--------------------------------")
+except:
+    print("Please, check the Internet connection")
