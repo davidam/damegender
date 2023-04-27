@@ -1,0 +1,51 @@
+
+You are not using ml the process is not very slow,
+but perhaps you are not finding good results
+The number of males sending commits is 17
+The list of males sending commits is:
+['thomas', 'paul', 'bates', 'guido', 'duncan', 'lyndon', 'mike', 'murrell', 'luke', 'martyn', 'murdoch', 'apache', 'plummer', 'falcon', 'lawrence', 'Jeroen Ooms', 'Michael Chirico']
+thomas <thomas@00db46b3-68df-0310-9c12-caf00c1e9a41> (35 commits)
+paul <paul@00db46b3-68df-0310-9c12-caf00c1e9a41> (41 commits)
+bates <bates@00db46b3-68df-0310-9c12-caf00c1e9a41> (254 commits)
+guido <guido@00db46b3-68df-0310-9c12-caf00c1e9a41> (15 commits)
+duncan <duncan@00db46b3-68df-0310-9c12-caf00c1e9a41> (167 commits)
+lyndon <lyndon@00db46b3-68df-0310-9c12-caf00c1e9a41> (40 commits)
+mike <mike@00db46b3-68df-0310-9c12-caf00c1e9a41> (2 commits)
+murrell <murrell@00db46b3-68df-0310-9c12-caf00c1e9a41> (688 commits)
+luke <luke@00db46b3-68df-0310-9c12-caf00c1e9a41> (1943 commits)
+martyn <martyn@00db46b3-68df-0310-9c12-caf00c1e9a41> (27 commits)
+murdoch <murdoch@00db46b3-68df-0310-9c12-caf00c1e9a41> (1816 commits)
+apache <apache@00db46b3-68df-0310-9c12-caf00c1e9a41> (270 commits)
+plummer <plummer@00db46b3-68df-0310-9c12-caf00c1e9a41> (90 commits)
+falcon <falcon@00db46b3-68df-0310-9c12-caf00c1e9a41> (41 commits)
+lawrence <lawrence@00db46b3-68df-0310-9c12-caf00c1e9a41> (295 commits)
+Jeroen Ooms <jeroenooms@gmail.com> (81 commits)
+Michael Chirico <michaelchirico4@gmail.com> (2 commits)
+The number of females sending commits is 2
+The list of females sending commits is:
+['ripley', 'morgan']
+ripley <ripley@00db46b3-68df-0310-9c12-caf00c1e9a41> (30379 commits)
+morgan <morgan@00db46b3-68df-0310-9c12-caf00c1e9a41> (72 commits)
+
+The number of people with unknown gender sending commits is 17
+
+
+The list of people with unknown gender sending commits is ['(no author)', 'ihaka', 'hornik', 'maechler', 'rgentlem', 'leisch', 'pd', 'tlumley', 'jmc', 'iacus', 'root', 'urbaneks', 'deepayan', 'ligges', 'kalibera', 'ltierney', 'smeyer']
+
+(no author) <(no author)@00db46b3-68df-0310-9c12-caf00c1e9a41> (16 commits)
+ihaka <ihaka@00db46b3-68df-0310-9c12-caf00c1e9a41> (473 commits)
+hornik <hornik@00db46b3-68df-0310-9c12-caf00c1e9a41> (8765 commits)
+maechler <maechler@00db46b3-68df-0310-9c12-caf00c1e9a41> (10011 commits)
+rgentlem <rgentlem@00db46b3-68df-0310-9c12-caf00c1e9a41> (285 commits)
+leisch <leisch@00db46b3-68df-0310-9c12-caf00c1e9a41> (652 commits)
+pd <pd@00db46b3-68df-0310-9c12-caf00c1e9a41> (2792 commits)
+tlumley <tlumley@00db46b3-68df-0310-9c12-caf00c1e9a41> (250 commits)
+jmc <jmc@00db46b3-68df-0310-9c12-caf00c1e9a41> (750 commits)
+iacus <iacus@00db46b3-68df-0310-9c12-caf00c1e9a41> (814 commits)
+root <root@00db46b3-68df-0310-9c12-caf00c1e9a41> (44 commits)
+urbaneks <urbaneks@00db46b3-68df-0310-9c12-caf00c1e9a41> (416 commits)
+deepayan <deepayan@00db46b3-68df-0310-9c12-caf00c1e9a41> (210 commits)
+ligges <ligges@00db46b3-68df-0310-9c12-caf00c1e9a41> (125 commits)
+kalibera <kalibera@00db46b3-68df-0310-9c12-caf00c1e9a41> (1885 commits)
+ltierney <luke-tierney@uiowa.edu> (2 commits)
+smeyer <smeyer@00db46b3-68df-0310-9c12-caf00c1e9a41> (423 commits)
