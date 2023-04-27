@@ -55,15 +55,18 @@ WHERE {
 ORDER BY DESC(?count)
 """
 
-r = requests.get(url, params={'format': 'json', 'query': query2})
-data = r.json()
+try:
+    r = requests.get(url, params={'format': 'json', 'query': query2})
+    data = r.json()
+    print("Dumping to %s" % args.outcsv)
+    fo = open(args.outcsv, "w")
+    for d in data["results"]["bindings"]:
+        # names as Q010234 is a wikidata identifier not a name
+        match1 = re.search(r'(Q[0-9]*)', d['surnameLabel']['value'])
+        if not(match1):
+            fo.write(d['surnameLabel']['value'] + "," + d['count']['value'] + "\n")
 
-print("Dumping to %s" % args.outcsv)
-fo = open(args.outcsv, "w")
-for d in data["results"]["bindings"]:
-    # names as Q010234 is a wikidata identifier not a name
-    match1 = re.search(r'(Q[0-9]*)', d['surnameLabel']['value'])
-    if not(match1):
-        fo.write(d['surnameLabel']['value'] + "," + d['count']['value'] + "\n")
+    fo.close()
 
-fo.close()
+except:
+    print("Please, check the Internet connection")
