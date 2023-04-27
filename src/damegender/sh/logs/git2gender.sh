@@ -25,4 +25,4 @@ python3 git2gender.py https://github.com/python/cpython --country='inter' --dire
 python3 git2gender.py https://github.com/Perl/perl5 --country='inter' --directory="tmp/cloneperl" --show=all --verbose > files/logs/git2genderperl-$(date "+%Y-%m-%d-%H").txt
 python3 git2gender.py https://github.com/tcltk/tcl --country='inter' --directory="tmp/clonetcl" --show=all --verbose > files/logs/git2gendertcl-$(date "+%Y-%m-%d-%H").txt
 python3 git2gender.py https://git.savannah.gnu.org/git/bash.git --country='inter' --directory="tmp/clonebash" --show=all --verbose > files/logs/git2genderbash-$(date "+%Y-%m-%d-%H").txt
-python3 git2gender.py https://github.com/r-devel/r-svn --country="inter" --directory="tmp/clonebash" --show=all --verbose > files/logs/git2genderbash-$(date "+%Y-%m-%d-%H").txt
+python3 git2gender.py https://github.com/r-devel/r-svn --country="inter" --directory="tmp/cloner" --show=all --verbose > files/logs/git2gender-r-devel-$(date "+%Y-%m-%d-%H").txt
