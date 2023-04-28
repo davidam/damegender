@@ -41,7 +41,7 @@ fi
 
 rm -rf /tmp/clonedrupal
 
-python3 git2gender.py  https://git.drupalcode.org/project/orgmode.git --directory="/tmp/clonedrupal" --language=us > files/tests/git2genderdrupal-$(date "+%Y-%m-%d-%H").txt
+python3 git2gender.py  https://git.drupalcode.org/project/orgmode.git --directory="/tmp/clonedrupal" --country=us > files/tests/git2genderdrupal-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/git2genderdrupal.txt files/tests/git2genderdrupal-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
@@ -50,7 +50,7 @@ else
 	echo -e "git2genderdrupal test is ${GREEN}ok${NC}"
 fi
 
-python3 git2gender.py  https://git.drupalcode.org/project/orgmode.git --directory="/tmp/clonedrupal" --show=all --verbose --language=es > files/tests/git2genderverbose-$(date "+%Y-%m-%d-%H").txt
+python3 git2gender.py  https://git.drupalcode.org/project/orgmode.git --directory="/tmp/clonedrupal" --show=all --verbose --country=es > files/tests/git2genderverbose-$(date "+%Y-%m-%d-%H").txt
 
 if ! diff files/tests/git2genderverbose.txt files/tests/git2genderverbose-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
 then
