@@ -69,10 +69,6 @@ if (len(sys.argv) > 1):
             print("accuracy: " + str(dga.accuracy(args.name)))
         else:
             print("You must enable genderapi in config.cfg file")
-    elif (args.api == "genderapi"):
-        dba = DameBrazilApi()
-        print(dba.guess(args.name))
-        print("accuracy: " + str(dba.accuracy(args.name)))
     elif (args.api == "genderize"):
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
             dg = DameGenderize()
