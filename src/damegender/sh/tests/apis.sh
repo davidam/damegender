@@ -42,12 +42,20 @@ else
     echo -e "api2genderwikidata test is ${GREEN}ok${NC}"
 fi
 
-python3 downloadjson.py --api=brazilapi --csv=files/names/min.csv --outjson=files/names/brazilapi.json
+python3 downloadjson.py --api=brazilapi --csv=files/names/min.csv --outjson=files/tmp/brazilapimin.json
 
-if [ -f files/names/brazilapi.json ]; then
-    echo -e "download brazilapi files names min is ${GREEN}ok${NC}"
+if [ -f files/tmp/brazilapimin.json ]; then
+    echo -e "download brazilapi json files names min is ${GREEN}ok${NC}"
 else
-    echo -e "download brazilapi files names min is ${RED}failing${NC}"
+    echo -e "download brazilapi json files names min is ${RED}failing${NC}"
+fi
+
+python3 downloadcsv.py --api=brazilapi --csv=files/names/min.csv --outcsv=files/tmp/brazilapimin.csv
+
+if [ -f files/tmp/brazilapimin.csv ]; then
+    echo -e "download brazilapi csv files names min is ${GREEN}ok${NC}"
+else
+    echo -e "download brazilapi csv files names min is ${RED}failing${NC}"
 fi
 
 
@@ -122,6 +130,7 @@ if [ -f files/apikeys/genderapipass.txt ]; then
     else
 	echo -e "download genderapi files names min is ${RED}failing${NC}"
     fi
+
     
     python3 api2gender.py Inés --api="genderapi" > files/tests/api2genderInésgenderapi-$(date "+%Y-%m-%d-%H").txt
 
