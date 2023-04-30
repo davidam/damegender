@@ -42,6 +42,15 @@ else
     echo -e "api2genderwikidata test is ${GREEN}ok${NC}"
 fi
 
+python3 downloadjson.py --api=brazilapi --csv=files/names/min.csv --outjson=files/names/brazilapi.json
+
+if [ -f files/names/brazilapi.json ]; then
+    echo -e "download brazilapi files names min is ${GREEN}ok${NC}"
+else
+    echo -e "download brazilapi files names min is ${RED}failing${NC}"
+fi
+
+
 # python3 api2gender.py David --api="wikipedia" > files/tests/api2genderwikipedia-$(date "+%Y-%m-%d-%H").txt
 
 # if ! diff files/tests/api2genderwikipedia.txt files/tests/api2genderwikipedia-$(date "+%Y-%m-%d-%H").txt >/dev/null 2>&1
