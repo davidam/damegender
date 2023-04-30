@@ -44,12 +44,23 @@ parser.add_argument('--api', required=True,
                     choices=['brazilapi', 'genderapi', 'genderize', 'namsor', 'nameapi'])
 parser.add_argument('--outcsv', type=str, required=False,
                     default="names.csv", help='output csv file for names')
+parser.add_argument('--format', type=str, required=False,
+                    default="all", choices=['all', 'males', 'females'])
 args = parser.parse_args()
 
 
 if (args.api == 'brazilapi'):
     dba = DameBrazilApi()
-    text2 = dba.download_csv(path=args.csv,
-                             name_position=args.name_position,
-                             backup_all=args.outcsv)
+    if (args.format=='all'):
+        text2 = dba.download_csv(path=args.csv,
+                                 name_position=args.name_position,
+                                 backup_all=args.outcsv)
+    elif (args.format=='females'):
+        text2 = dba.download_csv(path=args.csv,
+                                 name_position=args.name_position,
+                                 backup_females=args.outcsv)
+    elif (args.format=='males'):
+        text2 = dba.download_csv(path=args.csv,
+                                 name_position=args.name_position,
+                                 backup_males=args.outcsv)
         
