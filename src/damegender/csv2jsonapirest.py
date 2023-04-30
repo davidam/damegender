@@ -79,6 +79,7 @@ elif (args.gender == "male"):
     print(str3)
 # print(csvlist)
 
+#print(args.names_by_multiple_files)
 if (int(args.names_by_multiple_files) == 1):
     for i in csvlist:
         name = str(i[0].upper())
@@ -87,7 +88,10 @@ if (int(args.names_by_multiple_files) == 1):
         name = re.sub(r'\/', r'', name)
         jsonfile = args.outdir + "/" + name
         jsonfile = jsonfile + "_" + args.gender + ".json"
-        file = open(jsonfile, "w")
+        try:
+            file = open(jsonfile, "w")
+        except FileNotFoundError:
+            print("File Error")
         try:
             varname = str(i[0].upper())
             varfrequency = str(i[1])
@@ -105,10 +109,7 @@ if (int(args.names_by_multiple_files) == 1):
         file.write('"frequency": ' + str(i[1]) + ',\n')
         if (args.gender == "all"):
             file.write('"males": "' + str(i[2]) + ' %",\n')
-            if (args.names_in_countries):
-                file.write('"females": "' + str(i[3]) + ' %",\n')
-            else:
-                file.write('"females": "' + str(i[3]) + ' %"\n')
+            file.write('"females": "' + str(i[3]) + ' %",\n')
             if (args.names_in_countries):
                 official_names = ["ar", "at", "au", "be", "ca",
                                   "ch", "de", "dk", "es", "fi",
@@ -143,7 +144,6 @@ if (int(args.names_by_multiple_files) == 1):
 elif (int(args.names_by_multiple_files) > 1):
     cnt1 = 0
     n = len(csvlist)
-    print(n)
     while (cnt1 < n):
         cnt2 = 0
         jsonfile = args.outdir + "/" + str(cnt1) + "_" + args.gender + ".json"
@@ -153,17 +153,12 @@ elif (int(args.names_by_multiple_files) > 1):
             try:
                 i = cnt1 + cnt2
                 varname = str(csvlist[i][0].upper())
-                print(varname)
                 varfrequency = str(csvlist[i][1])
-                print(varfrequency)
                 if (args.gender == "all"):
                     varmales = str(csvlist[i][2])
-                    print(varmales)
                     varfemales = str(csvlist[i][3])
-                    print(varfemales)
                 else:
                     vargender = str(args.gender)
-                    print(vargender)
             except IndexError:
                 print("The program has troubles with the array: " + str(i))
             file.write('[\n')
