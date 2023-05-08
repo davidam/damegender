@@ -67,6 +67,14 @@ python3 mergeinterfiles.py --file1="files/names/names_be/bemales.csv" --file2="f
 python3 mergeinterfiles.py --file1="files/names/names_be/bemales.csv" --file2="files/names/names_be/befemales.csv" --output=files/names/names_be/beonlygender.csv --malefemale_onlygender
 echo "Belgium done"
 
+# sed '/^\,.*$/d' files/names/names_br/brmales.csv > files/tmp/brmales.csv
+# cp files/tmp/brmales.csv files/names/names_br/
+# sed '/^\,.*$/d' files/names/names_br/brfemales.csv > files/tmp/brfemales.csv
+# cp files/tmp/brfemales.csv files/names/names_br/
+# python3 mergeinterfiles.py --file1="files/names/names_br/brmales.csv" --file2="files/names/names_br/brfemales.csv" --output=files/names/names_br/brall.csv --malefemale
+# python3 mergeinterfiles.py --file1="files/names/names_br/brmales.csv" --file2="files/names/names_br/brfemales.csv" --output=files/names/names_br/bronlygender.csv --malefemale_onlygender
+# echo "Brazil done"
+
 sed '/^\,.*$/d' files/names/names_ca/camales.csv > files/tmp/camales.csv
 cp files/tmp/camales.csv files/names/names_ca/
 sed '/^\,.*$/d' files/names/names_ca/cafemales.csv > files/tmp/cafemales.csv
@@ -82,6 +90,16 @@ cp files/tmp/chfemales.csv files/names/names_ch/
 python3 mergeinterfiles.py --file1="files/names/names_ch/chmales.csv" --file2="files/names/names_ch/chfemales.csv" --output=files/names/names_ch/chall.csv --malefemale
 python3 mergeinterfiles.py --file1="files/names/names_ch/chmales.csv" --file2="files/names/names_ch/chfemales.csv" --output=files/names/names_ch/chonlygender.csv --malefemale_onlygender
 echo "Switzerland done"
+
+
+cd ../..
+sed '/^\,.*$/d' files/names/names_cl/clmales.csv > files/tmp/clmales.csv
+cp files/tmp/clmales.csv files/names/names_cl/
+sed '/^\,.*$/d' files/names/names_cl/clfemales.csv > files/tmp/clfemales.csv
+cp files/tmp/clfemales.csv files/names/names_cl/
+python3 mergeinterfiles.py --file1="files/names/names_cl/clmales.csv" --file2="files/names/names_cl/clfemales.csv" --output=files/names/names_cl/clall.csv --malefemale
+python3 mergeinterfiles.py --file1="files/names/names_cl/clmales.csv" --file2="files/names/names_cl/clfemales.csv" --output=files/names/names_cl/clonlygender.csv --malefemale_onlygender
+echo "Chile done"
 
 sed '/^\,.*$/d' files/names/names_de/demales.csv > files/tmp/demales.csv
 cp files/tmp/demales.csv files/names/names_de/
