@@ -247,6 +247,8 @@ elif ((args.verbose) or (args.total == "all")):
           % (n_males, args.name))
     print("%s females for %s from Italy statistics"
           % (n_females, args.name))
+    print("WARNING: Italy Open Dataset has few names,")
+    print("WARNING: please, take care with this dataset")    
     n_males = s.name_frec(
         args.name, dataset="fi",
         force_whitespaces=args.force_whitespaces)['males']
@@ -522,6 +524,8 @@ else:
               % (n_males, args.name))
         print("%s females for %s from Italy statistics"
               % (n_females, args.name))
+        print("WARNING: Italy Open Dataset has few names,")
+        print("WARNING: please, take care with this dataset")    
     elif ((args.total == "ine") or (args.total == "es")):
         print("%s males for %s from Spain statistics (INE.es)"
               % (n_males, args.name))
@@ -548,6 +552,14 @@ else:
               % (n_males, args.name, gb))
         print("%s females for %s from %s"
               % (n_females, args.name, gb))
+    elif (args.total == "it"):
+        it = "Italy statistics"
+        print("%s males for %s from %s"
+              % (n_males, args.name, it))
+        print("%s females for %s from %s"
+              % (n_females, args.name, it))
+        print("WARNING: Italy Open Dataset has few names,")
+        print("WARNING: please, take care with this dataset")        
     elif (args.total == "mx"):
         print("%s males for %s from Mexico statistics"
               % (n_males, args.name))
