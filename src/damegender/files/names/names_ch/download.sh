@@ -26,27 +26,40 @@ ssconvert -S orig.xls orig.csv
 sed '1,6d' orig.csv.0 > aux.csv
 sed "s/^\,//g" aux.csv > aux1.csv
 sed "s/^\,//g" aux1.csv > aux2.csv
-mv aux2.csv orig.csv.0
+sed '/^QUELLE.*/d' aux2.csv > aux3.csv
+sed '/^AUSKUNFT.*/d' aux3.csv > aux4.csv
+mv aux4.csv orig.csv.0
 sed '1,6d' orig.csv.1 > aux.csv
 sed "s/^\,//g" aux.csv > aux1.csv
 sed "s/^\,//g" aux1.csv > aux2.csv
-mv aux2.csv orig.csv.1
+sed '/^QUELLE.*/d' aux2.csv > aux3.csv
+sed '/^AUSKUNFT.*/d' aux3.csv > aux4.csv
+mv aux4.csv orig.csv.1
 sed '1,6d' orig.csv.2 > aux.csv
 sed "s/^\,//g" aux.csv > aux1.csv
 sed "s/^\,//g" aux1.csv > aux2.csv
-mv aux2.csv orig.csv.2
+sed '/^QUELLE.*/d' aux2.csv > aux3.csv
+sed '/^AUSKUNFT.*/d' aux3.csv > aux4.csv
+mv aux4.csv orig.csv.2
 sed '1,6d' orig.csv.3 > aux.csv
 sed "s/^\,//g" aux.csv > aux1.csv
 sed "s/^\,//g" aux1.csv > aux2.csv
-mv aux2.csv orig.csv.3
+sed '/^QUELLE.*/d' aux2.csv > aux3.csv
+sed '/^AUSKUNFT.*/d' aux3.csv > aux4.csv
+mv aux4.csv orig.csv.3
 sed '1,6d' orig.csv.4 > aux.csv
 sed "s/^\,//g" aux.csv > aux1.csv
 sed "s/^\,//g" aux1.csv > aux2.csv
-mv aux2.csv orig.csv.4
+sed '/^QUELLE.*/d' aux2.csv > aux3.csv
+sed '/^AUSKUNFT.*/d' aux3.csv > aux4.csv
+mv aux4.csv orig.csv.4
 sed '1,6d' orig.csv.5 > aux.csv
 sed "s/^\,//g" aux.csv > aux1.csv
 sed "s/^\,//g" aux1.csv > aux2.csv
-mv aux2.csv orig.csv.5
+sed '/^QUELLE.*/d' aux2.csv > aux3.csv
+sed '/^AUSKUNFT.*/d' aux3.csv > aux4.csv
+mv aux4.csv orig.csv.5
+rm aux.csv aux1.csv aux2.csv aux3.csv aux4.csv
 #sed -i 's/VORNAMEN DER BEVÖLKERUNG NACH GESCHLECHT, SCHWEIZ, 2016,0//g' orig.csv.5
 
 cd ..
