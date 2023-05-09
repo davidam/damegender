@@ -21,6 +21,10 @@
 
 mkdir -p orig
 cd orig
+wget -c https://www.insee.fr/fr/statistiques/fichier/3536630/noms2008nat_txt.zip
+unzip noms2008nat_txt.zip
+# wget -c https://www.insee.fr/fr/statistiques/fichier/3536630/noms2008dep_txt.zip
+# unzip noms2008dep_txt.zip
 wget -c https://www.insee.fr/fr/statistiques/fichier/2540004/dpt_2000_2021_csv.zip
 unzip dpt_2000_2021_csv.zip
 wget -c https://www.insee.fr/fr/statistiques/fichier/2540004/dpt2021_csv.zip
