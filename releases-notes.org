@@ -8,7 +8,9 @@ The accuracy average of INTER dataset continues augmenting! Now is 0.92.
 Brazil is another open data country!
 + [X] dame_brazilapi.py: has been implemented
 + [X] test_dame_brazilapi.py: has been implemented
-+ [X] api2gender.py: updated    
++ [X] api2gender.py: updated
++ [X] downloadjson.py: updated
++ [X] Brazil: 1322 males, 1539 females. We want download more names in a near future
 
 * v0.5.2
 
