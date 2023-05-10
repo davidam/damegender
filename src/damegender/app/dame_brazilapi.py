@@ -83,6 +83,9 @@ class DameBrazilApi(Gender):
     
     def download_csv(self, path="files/names/partial.csv", *args, **kwargs):
         # download a csv of people's names from a csv given
+        dir0 = 'files/tmp'
+        if (not os.path.exists(dir0)):
+            os.mkdir('files/tmp/');
         backup_all = kwargs.get('backup_all', 'files/tmp/brall.csv')
         backup_females = kwargs.get('backup_females', 'files/tmp/brfemales.csv')
         backup_males = kwargs.get('backup_males', 'files/tmp/brmales.csv')        
