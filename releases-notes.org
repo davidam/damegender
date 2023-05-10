@@ -3,7 +3,7 @@
 New script!
 + [X] checkcsv.py: to check possible problems in a csv file, such as, empty rows, initials, or emails
   
-The accuracy average of INTER dataset continues augmenting! Now is 0.92.
+The accuracy average of INTER dataset continues augmenting! Now is 0.92. More about it in https://easychair.org/publications/preprint/Klv8
 
 Brazil is another open data country!
 + [X] dame_brazilapi.py: has been implemented
