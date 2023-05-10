@@ -6,6 +6,8 @@
 7 females for David from Australia statistics
 343917 males for David from Belgium statistics
 0 females for David from Belgium statistics
+63869 males for David from Brazil statistics
+598 females for David from Brazil statistics
 8375 males for David from Canada statistics
 1 females for David from Canada statistics
 190241 males for David from Swiss statistics
@@ -27,7 +29,9 @@ Warning: China option only runs with China alphabet
 0 females for David from Iceland statistics
 0 males for David from Italy statistics
 0 females for David from Italy statistics
-4106 males for David from Finland statistics
+WARNING: Italy Open Dataset has few names,
+WARNING: please, take care with this dataset
+2053 males for David from Finland statistics
 0 females for David from Finland statistics
 314449 males for David from France statistics
 70 females for David from France statistics
