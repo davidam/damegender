@@ -18,9 +18,11 @@
 #  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 #  Boston, MA 02110-1301 USA,
 
-mkdir -p orig
-cd orig
-wget -c https://data.brasil.io/dataset/genero-nomes/nomes.csv.gz
-gunzip nomes.csv.gz
-grep ",F," nomes.csv > brfemales.csv
-grep ",M," nomes.csv > brmales.csv
+cd ../../..
+python3 downloadcsv.py --csv=files/names/names_br/brall.csv --api=brazilapi --outcsv=brall.csv --format=all
+python3 downloadcsv.py --csv=files/names/names_br/brmales.csv --api=brazilapi --outcsv=brmales.csv --format=males
+python3 downloadcsv.py --csv=files/names/names_br/brfemales.csv --api=brazilapi --outcsv=brfemales.csv --format=females
+# wget -c https://data.brasil.io/dataset/genero-nomes/nomes.csv.gz
+# gunzip nomes.csv.gz
+# grep ",F," nomes.csv > brfemales.csv
+# grep ",M," nomes.csv > brmales.csv
