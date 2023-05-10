@@ -123,6 +123,38 @@ class DameGenderize(Gender):
         backup.write(res)
         backup.close()
         return res
+    
+    def download_csv(self, path='files/names/partial.csv', surnames=False):
+        # It is used to download the data from a
+        # CSV file specified in the path.
+        du = DameUtils()
+        new = []
+        d = ""
+        lresult = []
+        res = ""
+        if (surnames is True):
+            l1 = self.csv2names(path, surnames=True)
+            for i in range(0, len(l1)):
+                d = self.get(l1[i][0], surname=l1[i][1])
+                d["surname"] = l1[i][1]
+                lresult.append(d)
+            res = str(lresult)
+        else:
+            l1 = self.csv2names(path)
+            # We must split the list in different lists with size 10
+            for i in range(0, len(l1), 10):
+                new.append(l1[i:i+10])
+            for j in new:
+                lresult.append(self.get2to10(j))
+            for k in lresult:
+                res = res + str(k)
+        res = str(res).replace("\'", "\"")
+        res = str(res).replace('None', '"unknown"')
+        path = "files/names/genderize" + du.path2file(path) + ".csv"
+        backup = open(path, "w+")
+        backup.write(res)
+        backup.close()
+        return res
 
     def json2gender_list(self, jsonf="", binary=False):
         # from a json file, it generates a list
