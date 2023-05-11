@@ -59,7 +59,7 @@ def drop_pwd(s):
 
 setup(name='damegender',
       python_requires='>3.6',
-      version='0.5.2.pre2',
+      version='0.5.3.pre3',
       description='Gender Detection Tool by David Arroyo MEnéndez',
       long_description=long_description,
       long_description_content_type='text/markdown',
@@ -97,8 +97,8 @@ setup(name='damegender',
       extras_require = {
           'mails_and_repositories' : ["perceval"],
           'apis': ["genderize"],
-          'all' : ["perceval", "genderize", "sklearn"],
-          'all_extended' : ["perceval", "gender_guesser", "genderize", "newspaper3k", "sklearn", "transliterate"]
+          'all' : ["perceval", "genderize"],
+          'all_extended' : ["perceval", "gender_guesser", "genderize", "newspaper3k", "transliterate"]
       },
       test_suite='nose.collector',
       tests_require=['nose', 'nose-cover3'],

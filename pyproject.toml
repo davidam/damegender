@@ -17,7 +17,7 @@ name = "damegender"  # Required
 #
 # For a discussion on single-sourcing the version, see
 # https://packaging.python.org/guides/single-sourcing-package-version/
-version = "0.5.2.pre2"  # Required
+version = "0.5.3.pre3"  # Required
 
 # This is a one-line description or tagline of what your project does. This
 # corresponds to the "Summary" metadata field:
@@ -126,8 +126,8 @@ dependencies = [ # Optional
 [project.optional-dependencies] # Optional
 mails_and_repositories = ["perceval"]
 apis = ["genderize"]
-all = ["perceval", "genderize", "sklearn"]
-all_extended = ["perceval", "gender_guesser", "genderize", "newspaper3k", "sklearn", "transliterate"]
+all = ["perceval", "genderize", "scikit-learn"]
+all_extended = ["perceval", "gender_guesser", "genderize", "newspaper3k", "scikit-learn", "transliterate"]
 
 # List URLs that are relevant to your project
 #
