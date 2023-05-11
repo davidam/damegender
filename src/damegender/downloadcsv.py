@@ -40,14 +40,15 @@ parser.add_argument('--csv', type=str, required=True,
                     default="files/names/min.csv", help='input file for names')
 parser.add_argument('--name_position', type=int, required=False,
                     default=0, help='input file for names')
-parser.add_argument('--api', required=True,
-                    choices=['brazilapi', 'genderapi', 'genderize', 'namsor', 'nameapi'])
+parser.add_argument('--api', required=False, default='brazilapi',
+                    choices=['brazilapi']) #, 'genderapi', 'genderize', 'namsor', 'nameapi'])
 parser.add_argument('--outcsv', type=str, required=False,
                     default="names.csv", help='output csv file for names')
 parser.add_argument('--format', type=str, required=False,
                     default="all", choices=['all', 'males', 'females'])
 args = parser.parse_args()
 
+print("This command is under construction, brazilapi is the unique option in this moment")
 
 if (args.api == 'brazilapi'):
     dba = DameBrazilApi()
