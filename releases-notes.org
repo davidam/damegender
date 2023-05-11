@@ -12,7 +12,9 @@ Brazil is another open data country!
 + [X] downloadjson.py: updated
 + [X] Brazil: 1322 males, 1539 females. We want download more names in a near future
 + [X] downloadcsv.py: has been created this script to download Brazil, but it will be replaced by source code in orig2.py in a near future.
-  
+
+Deploying some graphs about gender stats in programming languages interpreters and compilers: https://damegender.davidam.com/#stats
+
 * v0.5.2
 
 Official Datasets:
