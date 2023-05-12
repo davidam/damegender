@@ -248,6 +248,7 @@ elif ((args.verbose) or (args.total == "all")):
     print("%s females for %s from Italy statistics"
           % (n_females, args.name))
     print("WARNING: Italy Open Dataset has few names,")
+    print("WARNING: only the most used names,")    
     print("WARNING: please, take care with this dataset")    
     n_males = s.name_frec(
         args.name, dataset="fi",
@@ -525,6 +526,7 @@ else:
         print("%s females for %s from Italy statistics"
               % (n_females, args.name))
         print("WARNING: Italy Open Dataset has few names,")
+        print("WARNING: only the most used names,")
         print("WARNING: please, take care with this dataset")    
     elif ((args.total == "ine") or (args.total == "es")):
         print("%s males for %s from Spain statistics (INE.es)"
