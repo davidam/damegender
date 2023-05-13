@@ -108,8 +108,6 @@ if (int(args.names_by_multiple_files) == 1):
         file.write('"name": "' + str(i[0].upper()) + '",\n')
         file.write('"frequency": ' + str(i[1]) + ',\n')
         if (args.gender == "all"):
-            file.write('"males": "' + str(i[2]) + ' %",\n')
-            file.write('"females": "' + str(i[3]) + ' %",\n')
             if (args.names_in_countries):
                 official_names = ["ar", "at", "au", "be", "ca",
                                   "ch", "de", "dk", "es", "fi",
@@ -117,26 +115,36 @@ if (int(args.names_by_multiple_files) == 1):
                                   "nz", "mx", "pt", "ru", "se",
                                   "si", "us", "uy"]
                 iso3166_to_eng = de.dicc_iso3166_to_eng()
-                for i in official_names:
-                    dicc = g.name_frec(name, dataset=i)
+                last = None
+                for j in official_names:
+                    dicc = g.name_frec(name, dataset=j)
                     boolfemales = (int(dicc["females"]) > 10)
                     boolmales = (int(dicc["males"]) > 10)
                     if (boolfemales or boolmales):
-                        last = i
-                for i in official_names:
-                    dicc = g.name_frec(name, dataset=i)
-                    boolfemales = (int(dicc["females"]) > 10)
-                    boolmales = (int(dicc["males"]) > 10)
-                    if (boolfemales or boolmales):
-                        file.write('"'+str(i)+'": [\n')
-                        file.write('{ \n')
-                        file.write('"males": ' + str(dicc["males"]) + ',\n')
-                        file.write('"females": ' + str(dicc["females"]) + '\n')
-                        file.write('} \n')
-                        if (i == last):
-                            file.write('] \n')
-                        else:
-                            file.write('], \n')
+                        last = j
+                file.write('"males": ' + str(i[2]) + ' %,\n')
+                if (last == None):
+                    file.write('"females": ' + str(i[3]) + ' %\n')
+                else:
+                    file.write('"females": ' + str(i[3]) + ' %,\n')
+                    for k in official_names:
+                        dicc = g.name_frec(name, dataset=k)
+                        boolfemales = (int(dicc["females"]) > 10)
+                        boolmales = (int(dicc["males"]) > 10)
+                        if (boolfemales or boolmales):
+                            file.write('"'+str(k)+'": [\n')
+                            file.write('{ \n')
+                            freq = int(dicc["males"]) + int(dicc["females"])
+                            file.write('"frequency": ' + str(freq)  + ',\n')
+                            males_percentage = (int(dicc["males"]) / freq) * 100
+                            file.write('"males": ' + str(males_percentage) + ' % ,\n')
+                            females_percentage = (int(dicc["females"]) / freq) * 100                          
+                            file.write('"females": ' + str(females_percentage) + ' %\n')
+                            file.write('} \n')
+                            if (k == last):
+                                file.write('] \n')
+                            else:
+                                file.write('], \n')
         else:
             file.write('"gender": "' + str(args.gender) + '"\n')
         file.write('}]\n')
