@@ -29,7 +29,7 @@
 from app.dame_gender import Gender
 # from app.dame_namsor import DameNamsor
 # from app.dame_genderize import DameGenderize
-# from app.dame_genderapi import DameGenderApi
+from app.dame_genderapi import DameGenderApi
 # from app.dame_nameapi import DameNameapi
 from app.dame_brazilapi import DameBrazilApi
 
@@ -41,7 +41,7 @@ parser.add_argument('--csv', type=str, required=True,
 parser.add_argument('--name_position', type=int, required=False,
                     default=0, help='input file for names')
 parser.add_argument('--api', required=False, default='brazilapi',
-                    choices=['brazilapi']) #, 'genderapi', 'genderize', 'namsor', 'nameapi'])
+                    choices=['brazilapi', 'genderapi']) #, 'genderapi', 'genderize', 'namsor', 'nameapi'])
 parser.add_argument('--outcsv', type=str, required=False,
                     default="names.csv", help='output csv file for names')
 parser.add_argument('--format', type=str, required=False,
@@ -65,3 +65,14 @@ if (args.api == 'brazilapi'):
                                  name_position=args.name_position,
                                  backup_males=args.outcsv)
         
+elif (args.api == 'genderapi'):
+    dga = DameGenderApi()
+    if (args.format=='females'):
+        text2 = dga.download_csv(path=args.csv,
+                                 name_position=args.name_position,
+                                 backup_females=args.outcsv)
+    elif (args.format=='males'):
+        text2 = dga.download_csv(path=args.csv,
+                                 name_position=args.name_position,
+                                 backup_males=args.outcsv)
+    
