@@ -60,8 +60,12 @@ class DameBrazilApi(Gender):
         v['males'] =  count
         if (v['males'] > v['females']):
             v['gender'] = 'male'
-        else:
+        elif (v['females'] > v['males']):
             v['gender'] = 'female'
+        elif ((v['females'] == v['males']) and (v['females'] == 0)):
+            v['gender'] = 'unknow'
+        else:
+            v['gender'] = 'undefined'
         return v
 
     def download(self, path="files/names/partial.csv", *args, **kwargs):
@@ -134,6 +138,8 @@ class DameBrazilApi(Gender):
         v = self.get(name)
         if (v['males'] > v['females']):
             acc = v['males'] / (v['males'] + v['females'])
+        elif ((v['males'] == 0) and (v['females'] == 0)):
+            acc = 0
         else:
             acc = v['females'] / (v['males'] + v['females'])
         return acc
