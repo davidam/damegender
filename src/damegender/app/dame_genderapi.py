@@ -115,6 +115,33 @@ class DameGenderApi(Gender):
         backup.close()
         return 1
 
+    def download_csv(self, path="files/names/partial.csv", *args, **kwargs):
+        # download a csv of people's names from a csv given
+        dir0 = 'files/tmp/'
+        if (not os.path.exists(dir0)):
+            os.mkdir('files/tmp/');
+        backup_all = kwargs.get('backup_all', dir0 + 'genderapiall.csv')
+        backup_females = kwargs.get('backup_females', dir0 + 'genderapifemales.csv')
+        backup_males = kwargs.get('backup_males', dir0 + 'genderapimales.csv')        
+        name_position = kwargs.get('name_position', 0)
+        names = self.csv2names(path, name_position=name_position)
+        # if backup_all:
+        #     file_all = open(backup_all, "w+")
+        if backup_females:
+            file_females = open(backup_females, "w+")
+        if backup_males:
+            file_males = open(backup_males, "w+")
+        for i in names:
+            name = self.get(i)
+            guess = self.guess(i)
+            if (guess == "female"):
+                file_females.write(str(i)+","+str(name[2])+"\n")
+            if (guess == "male"):
+                file_males.write(str(i)+","+str(name[2])+"\n")
+        file_females.close()
+        file_males.close()        
+        return 1
+    
     def json2gender_list(self, jsonf="", binary=False):
         # transforms the json into a binary array of males and females
         jsondata = open(jsonf).read()
