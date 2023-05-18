@@ -1709,7 +1709,15 @@ development branch:
 # are David Arroyo Menéndez and you include this note.
 @end example
 
-This book has been developed with this license, too.
+In some moment in the future, will do workshops and hackatons to
+understand if this philosophy to improves the inclusion of the
+women in the technology. For now, I'm focused developing the software.
+
+I understand that if someone says ``Free Software'' or ``Open Source'' as
+possitive ethical values and there are very few women in these communities,
+we are giving possitive values to ``few women'', then there are a sexism.
+This problem requires many hackatons with women experimenting the best
+options looking for the solution.
 
 @section Multiculturalism, Interculturalism
 @cindex Interculturalism
