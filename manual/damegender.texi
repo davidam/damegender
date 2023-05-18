@@ -2244,6 +2244,12 @@ published by Science
 @end quotation 
 This paper describes the quality of papers for reproducibility.
 
+@quotation
+@cite{Data Feminism} by Catherine D'Ignazio and Lauren Klein
+published by MIT
+(@url{https://mitpress.mit.edu/9780262547185/data-feminism/})
+@end quotation
+Very good book about data science in the feminism.
 
 @node License 
 @appendix License
