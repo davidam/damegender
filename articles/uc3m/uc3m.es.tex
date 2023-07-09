@@ -1,0 +1,227 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{onecolceurws}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{lineno}
+\linenumbers
+
+
+\def\infinity{\rotatebox{90}{8}}
+
+\title{Un dataset internacional acerca de nombres, género y frecuencias en DameGender}
+
+\author{
+David Arroyo Menéndez, Madrid, Spain \\ \{davidam\@gmail\}.com
+}
+
+\newif\ifdraft
+\drafttrue
+%\draftfalse
+\input{macros}
+
+\institution{DAMEGENDER}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  %% Introduction
+
+  La igualdad de género es el quinto objetivo de desarrollo sostenible
+  (ODS) para Naciones Unidas\footnote{https://www.un.org/sustainabledevelopment/gender-equality/}.
+
+  Esta igualdad puede ser lograda midiendo, analizando datos y,
+  creando buenas políticas con los resultados. Muchos estudios
+  de género cuentan hombres y mujeres para explicar la posible
+  desigualdad, por ejemplo, artículos de investigación, puestos
+  de trabajo, calles, etc. El método tradicional de investigación
+  es usar APIs comerciales con datos propietarios sin idea acerca
+  de cómo los datos fueron recogidos. Los datos pueden también
+  ser recogidos desde Wikipedia, estudios lingüísticos, sitios
+  científicos, u oficinas estadísticas.
+
+  %% Methodology
+
+  Este enfoque está basado en recoger Datasets Abiertos (Open
+  Datasets) que incluyen nombre, género y frecuencia desde
+  muchas instituciones estadísticas. Así, las tareas abordadas
+  están basadas en unificar formatos, procesar datos y, crear
+  pruebas para medir la precisión de los nuevos datasets. 
+
+  %% Results
+
+
+  El dataset usado cubre más de 20 países en el mundo occidental
+  trayendo miles de nombres con una precisión de acierto mayor del
+  90\%. Esto permitirá medir brecha de género a estudiantes y
+  académicos interesados en el fenómeno sin costes y de una manera
+  reproducible y más personas estarán contribuyendo a eliminar la
+  brecha de género.
+
+  %% Conclusion
+
+  El Software Libre y los datos provistos por instituciones estadísticas
+  hacen posible producir investigación reproducible por pares.
+  
+\end{abstract}
+
+\section{Introducción}
+Naciones Unidas tiene como objetivo reducir la brecha de
+género\footnote{https://www.un.org/sustainabledevelopment/gender-equality/},
+para eso el primer paso es poder medir brecha de género
+(``if you cannot measure it, you cannot improve it"~\cite{thompson1833electrical})
+para medir brecha de género resulta económico utilizar ordenadores
+(``Software Engineering Economics is an invaluable guide to determining
+software costs, applying the fundamental concepts of microeconomics
+to software engineering~\cite{barry1981software}'').
+
+Además el software y los datos libres reducen más los costes, muchas personas
+e instituciones utilizan Software Libre como LibreOffice o Ubuntu
+GNU/Linux para evitar costes de licencias en productos similares
+como Microsoft Windows o Microsoft Word.
+
+Esto creará una competición en el mercado con algún ganador, evitando
+pagos y generando beneficios desde una marca, tal y como ocurre en los
+navegadores con Firefox y/o Chrome.
+
+A través del uso de los nombres personales, uno puede inferir el sexo
+o género de una persona en artículos académicos, libres, periódicos y muchas
+interacciones en Internet. Así, detectar género desde los nombres puede
+ser un camino estratégico para medir brecha de género, también.
+
+Muchos usuarios y usuarias están, hoy en día, usando APIs tal y como
+Genderize, GenderAPI, Namsor, NameApi, Wikipedia, u otras soluciones libres
+(NLTK\cite{loper2002nltk}, R Gender, Gender Detector and Gender
+Computer\footnote{https://github.com/tue-mdse/genderComputer}).
+
+Las soluciones libres tradicionales tienen un bajo número de nombres debido
+al uso de un solo fichero que quizás solo pertenece a un país siendo
+software no mantenido a través del tiempo. Por otro lado, Wikipedia
+almacena pocos nombres por país.
+
+Sin embargo, la brecha de género es un problema reconocido en Naciones
+Unidas y el mercado IT está liderando grandes desigualdades en economía
+y brecha de género. Este artículo presenta datos recogidos para asistir
+en la solución a un número de problemas (buscadores, inferiendo género en
+ficheros CSV, nombres en diferentes países, creación de nuevos datasets)
+encarados por la industria así como otros problemas que carecen de muchas
+soluciones industriales como contar hombres y mujeres en GitHub, listas
+de correo, etc.
+
+Un estudio previo~\cite{karimi2016inferring} mostraba una comparativa de
+datasets como un modo de mejorarla precisión, comparando herramientas que
+usan diferentes datasets públicos
+(SSA~\footnote{https://www.ssa.gov/oact/babynames/limits.html},
+IPUMS~\footnote{https://usa.ipums.org/usa-action/variables/NAMEFRST},
+namdict~\footnote{https://raw.githubusercontent.com/lead-ratings/gender-guesser/master/gender\_guesser/data/nam\_dict.txt},
+etc).
+
+Posibles aportaciones a este trabajo realizadas en este artículo
+serían aumentar el número de nombres y la atención a la diversidad en
+cuestiones como el género no binario o minorías culturales.
+
+El dataset o quizás más bien DameGender (el software para crear el dataset)
+podría ser aplicado en artículos de las diversas disciplinas donde operan
+las herramientas de detección de género a partir del nombre~\cite{sun2019mitigating}:
+ingeniería de software~\cite{vasilescu2012gender}, lingüística~\cite{hutson2016gender,al2009socio},
+ciencias sociales~\cite{holman2018gender,mislove2011understanding,niemi2017gendered,de2014genero}),
+... Con vocación de ser puntuados muchos de ellos como de ciencia
+reproducible\cite{peng2011reproducible} si se tienen las precacuciones
+correctas de la definición.
+
+La estructura de este artículo es la siguiente:
+La sección ~\ref{sec:stateofart} presenta la investigación principal midiendo brecha de género
+y herramientas de detección de género desde el nombre.
+La sección ~\ref{sec:design} da el vocabulario y la filosofía acerca de cómo elegir
+fuentes y encarar las problemáticas de diversidad construyendo un
+dataset
+La sección ~\ref{sec:measuring} explica una aplicación para este dataset: medir brecha de
+género en GNU/Linux
+La sección ~\ref{sec:conclusions} es un resumen acerca de este enfoque y apunta a posibles
+trabajos futuros.
+
+Las contribuciones de este artículo son
+1. Una solución integrada en los diferentes campos de aplicación relativos
+a inferir género desde el nombre.
+2. Una colección de datasets abiertos obtenidos desde fuentes estadísticas
+estandarizadas en un formato único.
+3. Un nuevo estudio para contar hombres y mujeres en GNU/Linux.
+4. Un enfoque basado en resultados reproducibles.
+
+Muchos artículos relacionados muestran técnicas de aprendizaje automático
+aplicado, pero usando nuestro dataset libre mejoraría seguramente la
+precisión de los resultados contrastada con diversas fuentes abiertas como Wikipedia,
+Proyecto Gutenberg, Amazon, Forbes, instituciones deportivas, ... 
+
+También recogidas en DameGender y, mejorando el Estado del Arte en lo que
+respecta a Open Data en herramientas de detección de género a partir del
+nombre de manera significativa al cubrir más de 20 países (figura \ref{fig:mapamundi})
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{images/Simple_world_map_edit.pdf}
+  \caption[Caption for LOF]{Green (Countries with Open Data provided by Statistical Institutions), White (Countries without Open Data or don't reproduced by the author). Thanks to wikimedia by the mapamundi base source \url{https://commons.wikimedia.org/wiki/File:Simple_world_map_edit.svg}}
+  \label{fig:mapamundi}
+\end{figure}
+
+\section{Estado del Arte}
+\label{sec:stateofart}
+
+\subsection{Acerca de la Brecha de Género}
+
+Reducir la brecha de género se refiere a igualdad entre hombres y mujeres
+y políticas de no discriminación. El género se refiere al sexo de la
+persona determinado en su nacimiento, aunque éste pueda cambiarse en
+algún momento de su vida. Las discusiones acerca de las definiciones
+de género se refieren a estos problemas. Sin embargo, hay un consenso
+determinando de género, frecuencia y nombres con estadísticas oficiales
+entregadas por las instituciones de los estados.
+
+Medir brecha de género requiere un conjunto de indicadores. Global Gender
+Gap Report~\cite{chancel2022world} han sido propuesto en economía, salud,
+educación y política. El sitio de Naciones Unidas\footnote{https://www.unwomen.org/}
+está mostrando indicadores para medir disparidades como leyes, educación,
+mortalidad maternal, participación política, pobreza, trabajo doméstico,
+paridad de género en el trabajo, acceso a la economía, acceso a estudios
+y/o trabajo, violencia contra las mujeres, justicia climática, acceso a
+justicia, salud, etc.
+
+Es posible crear decisiones de impacto en una cuestión a través de resultados
+de investigación que toman estos indicadores en consideración. Por ejemplo,
+Miyake y otros autores ~\cite{miyake2010reducing} concluyeron que creando
+afirmaciones acerca de valores éticos la brecha de género se reducía en
+los colegios.
+
+Relativo a medir brecha de género en investigación social,
+Bimber~\cite{bimber2000measuring} presentaba dos factores que afectan
+a la brecha de género en Internet (acceso y uso), razones de socioeconomía
+y género en una encuesta que recoge datos a través de varios años.
+
+\subsection{Contando hombres y mujeres en Internet. ¿Por qué? ¿Dónde?}
+
+El software DameGender focaliza en recuperar datos desde fuentes de datos
+diversas acerca de género y nombres. Lugares como GitHub, Wikipedia, APIs,
+periódicos, websites en general, listas de correo, ... Veamos cómo se
+estaban haciendo estos trabajos.
+
+Por ejemplo, un científico social estudiando brecha de género
+
+%% These data reveals that the situation has been improved with respect
+%% the long time. In \cite{10.1007/978-3-319-39225-7_13} speaks about a
+%% female participation of around 2 {\%} to 5 {\%}.
+
+\section*{Acknowledgments}
+
+We would like to thank: the statistical institutions by
+release of the open datasets about names, gender and frequency.
+Luz Galvis for the software contributions, Daniel Izquierdo and
+Laura Arjona for starting this research field at URJC all those
+working with Jesús González Barahona and Gregorio Robles. 
+
+\bibliographystyle{alpha}
+\bibliography{uc3m}
+
+\end{document}
