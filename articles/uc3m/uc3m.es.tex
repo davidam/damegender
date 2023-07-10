@@ -53,7 +53,6 @@ David Arroyo Menéndez, Madrid, Spain \\ \{davidam\@gmail\}.com
 
   %% Results
 
-
   El dataset usado cubre más de 20 países en el mundo occidental
   trayendo miles de nombres con una precisión de acierto mayor del
   90\%. Esto permitirá medir brecha de género a estudiantes y
@@ -207,7 +206,115 @@ diversas acerca de género y nombres. Lugares como GitHub, Wikipedia, APIs,
 periódicos, websites en general, listas de correo, ... Veamos cómo se
 estaban haciendo estos trabajos.
 
-Por ejemplo, un científico social estudiando brecha de género
+Por ejemplo, un científico social estudiando brecha de género en
+periodismo puede contar hombres y mujeres en Twitter. Mientras tanto,
+algún artículo de ciencias de la computación puede estar mejorando la
+detección de género en imágenes de caras, en nicknames, o simplemente
+en nombres.
+
+Burger y otros~\cite{burger2011discriminating} presentaron varias
+configuraciones de un clasificador independiente de lenguaje para
+predecir el género de usuarios Twitter. El dataset usado para la
+construcción y evaluación de estos clasificadores se crea con usuarios
+Twitter que llegaban a tener blog en su perfil.
+
+Este tipo de estudios permite analizar demografía de población
+Twitter~\cite{mislove2011understanding}, siendo del sexo una variable
+clave en cualquier estudio de demografía. En este caso, el dataset
+escogido fue el del censo de Estados Unidos que funciona razonablemente
+bien para nombres occidentales.
+
+Wagner y otros~\cite{wagner2015} analizaban la brecha de género en
+Wikipedia mostrando evidencia de pequeñas formas de desigualdad
+explicando cómo resolver estas evidencias. Para medir la desigualdad
+de género se han desarrollado las siguientes bias: visibilidad,
+léxico (ej: palabras discriminatorias para mujeres), estructural y
+de cobertura.
+
+Un buen número de personas billonarias puntúan en Forbes como de
+Ciencias de la Computación y los repositorios públicos nos permiten
+entender tendencias de inclusión o no de mujeres, así como listados
+públicos de puestos de trabajo, directivos, ... Las herramientas de
+detección de género a partir del nombre. Arjona y
+otros~\cite{10.1007/978-3-319-39225-7_13} publicaron en 2016 una
+encuesta de 2000 contribuidores en el que la participación feminina
+iría del 2\% al 5\%. Recientemente, Zacchiroli un estudio
+longitudinal acerca de hombres y mujeres, que revelaba que las
+mujeres podrían ser el 8\% en contribuciones de commits de código
+en repositorios públicos. Zacchiroli~\cite{zacchiroli2020gender}
+utilizó genderguesser para inferir género desde el nombre que a su
+vez usa namdict~\footnote{https://raw.githubusercontent.com/lead-ratings/gender-guesser/master/gender\_guesser/data/nam\_dict.txt}
+como dataset. Vasilescu y otros~\cite{vasilescu2015gender}
+exploraron StackOverflow un sitio muy popular de preguntas y
+respuestas concluyendo que los hombres representan la vasta
+mayoría de contribuciones.
+
+Relativo a la brecha de género en ciencia Cassidy R. Sugimoto
+y otros~\cite{lariviere2013bibliometrics} presenta un análisis
+bibliométrico confirmando que los desequilibrios de género
+persisten en investigación a través del mundo entero. Holman
+y otros~\cite{holman2018gender} presentaban un código en R
+usando la API de genderize y proporciona un buen enfoque
+acerca de cómo calcular brecha de género.
+
+\subsection{Enfoques Automáticos para Inferir Género}
+
+Hay varios caminos para inferir género desde fuentes de Internet:
+texto escrito a mano, imágenes, documentos y nombres.
+
+Liwicki y otros~\cite{liwicki2011automatic} presentaba un
+método de inferir género desde textos escritos a mano con
+un 67.5\%.
+
+Gallagher y otros~\cite{gallagher2008estimating} presentaba
+un trabajo que detecta género a partir de una combinación de
+imágenes, edad e información cultural provista por primeros
+nombres con ejemplos no etiquetados y con una precisión del
+60\%.
+
+Argamon y otros~\cite{argamon2003gender} explica que las
+mujeres usan muchos más pronombres que los hombres, mientras
+que los hombres usan más modificadores de nombres (determinantes,
+o adjetivos). Koppel y otros~\cite{koppel2002automatically}
+presentaban un sistema de clasificación de documentos con una
+precisión del 80 \% aproximadamente. Cheng y otros~\cite{cheng2011author}
+muestran una selección de características (features) y un
+modelo construido usando aprendizaje automático generando
+un acierto del 85.1 \% para identificar género desde el texto.
+
+\subsection{Infiriendo género desde nombres}
+
+Las herramientas usadas para inferir género desde un nombre
+están normalmente basados en datasets que, como mínimo, incluyen
+género.
+
+Liu y otros~\cite{liu2013s} presentaba un método para inferir
+género desde los primeros nombres en Twitter, el dataset estaba
+codificado a mano por acuerdo entre tres trabajadores de Amazon
+con 50.000 usuarios Twitter seleccionados aleatoriamente con
+solo 12681 etiquetas de género. El objetivo de este estudio
+era determinar el valor incremental de usar el nombre de
+usuario (username) como una característica (feature) en la
+inferencia de género basado en tweets.
+
+Mueller y otros~\cite{mueller2016gender} presentaban un trabajo
+de cómo inferir género en Twitter. Ellos usaban el dataset
+namdict y el censo de los Estados Unidos como datasets.
+Las características eran ``número de consonantes'', ``número de
+vocales'', ``número de sílabas'', ``número de vocales bouba'',
+``número de consonantes kiki'', ``número de vocales kiki''. El
+modelo de clasificación era creado usando SVM.
+
+\subsection{Ideas Relacionadas}
+
+Ambekar y otros~\cite{ambekar2009name} presentaban un sistema de
+software libre para clasificar nombre y etnicidad usando aprendizaje
+automático para extraer una lista de nombres desde Wikipedia.
+Un trabajo más reciente guiado por Rodríguez Pérez y
+otros~\cite{nadri2021relationship}, en el que fue presentado
+NamPrism dando ideas frescas acercar de clasificar razas y,
+siendo aplicado a repositorios de software masivos.
+
 
 %% These data reveals that the situation has been improved with respect
 %% the long time. In \cite{10.1007/978-3-319-39225-7_13} speaks about a
