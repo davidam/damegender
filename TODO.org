@@ -1637,3 +1637,8 @@ Las naciones con un mismo idioma tienen variaciones poco significativas con resp
 ** Comentarios a la hipótesis
 Este principio, permitiría medir la veracidad de un scraping a un dataset de fuente estadística oficial, por ejemplo.
 
+* TODO username2gender.py
+Esto se usa mucho en estudio tipo Twitter. Con DameGender se podría hacer de la siguiente manera:
+1. Eliminar todos los caracteres que no sean del alfabeto del lado izquierdo de la cadena dada como username
+2. Encontrar la cadena máxima de caracteres hacia la derecha de las posibles que hacen match con nombres del dataset de nombres
+3. Inferir el género
