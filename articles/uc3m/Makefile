@@ -14,4 +14,4 @@ uc3m.es.pdf:
 
 
 clean:
-	rm -f *dvi *.snm *.out *.nav *.log *.aux *.toc *.vrb *.pdf *~
+	rm -f *dvi *.snm *.out *.nav *.log *.aux *.toc *.vrb *.pdf *.bbl *~
