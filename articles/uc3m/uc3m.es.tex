@@ -410,20 +410,160 @@ Se han desarrollado diferentes scripts para la descarga de datasets:
 \item orig2.py: para la descarga de datasets desde instituciones estadísticas oficiales
 \end{itemize}
 
+En la figura de orig2.py se puede el flujo de datos e
+interacciones~\ref{fig:flowchart}.
+
 Una posible mejora a este diseño sería unificar todas estas funcionalidades
 en un solo comando, por ejemplo, orig2.py
 
+Para generar las frecuencias de nombres ha sido aplicado el criterio de una
+persona usando un nombre es un voto que, normalmente puntúa en masculino o
+femenino, pero que podría puntuar en clasificaciones no binarias si las
+instituciones estadísticas las quieren utilizar.
+
+Así cada país están entregando las frecuencias en nacimientos o totales
+construyendo un dataset internacional como una suma de frecuencias entregadas
+por países.
+
+También se ha construido un dataset internacional de apellidos, aunque
+hay menos instituciones estadísticas entregando datasets de apellidos
+(España, Rusia, Estados Unidos de América y Argentina) en este momento.
+Aunque Wikipedia podría haber sido una fuente interesante para los
+apellidos se comprobó que había pocos apellidos por nación y lenguaje.
+
+Una posible crítica al enfoque de nombre, género y frecuencia es el
+llamado problema Leslie\cite{blevins2015jane} que es problema que se
+genera cuando en un mismo país hay un nombre que cambia de género a
+partir de una fecha. Muchas instituciones estadísticas no dan los
+totales, sino los nacimientos de cada año para tener en cuenta ese
+problema. El dataset construido está diseñado para la mayoría de los
+casos de uso y permite incluir datasets que no dan el desglose de
+frecuencias por año, pero se guardan los datos de quienes sí dan esa
+información.
+
+Se ha medido la precisión del dataset internacional de DameGender
+contra el dataset de test diseñado por Santamaría y Mihaljevic\cite{10.7717/peerj-cs.156}
+logrando los siguientes resultados: accuracy (0.8756), precision
+(0.9638), recall (1.0) and f1-score (0.925). Con otros datasets
+de test encontramos resultados similares y mejores
+(ver tabla ~\ref{table:SeveralTests}):
+
+\begin{table}[t]
+  \footnotesize
+  \begin{tabular}[]{lc}
+    \hline
+    Dataset & Precisión  \tabularnewline
+    Scientists Wikipedia & 0.93 \tabularnewline
+    FIFA soccer & 0.93 \tabularnewline
+    WTA tenis & 0.91 \tabularnewline
+    National League & 0.91 \tabularnewline
+    Baby Names New York & 0.98 \tabularnewline    
+    Conseil Garonne & 0.97 \tabularnewline
+    P Sebo\cite{sebo2021performance} & 0.88 \tabularnewline
+    Santamaria \& Mihaljevic\cite{10.7717/peerj-cs.156} & 0.88 \tabularnewline
+    \textbf{Media} & \textbf{0.92} \tabularnewline    
+  \end{tabular}
+  \caption{Precisiones usando varios datasets de test acerca del dataset internacional de DameGender}
+  \label{table:SeveralTests}
+\end{table}
+
+\section{Midiendo Brecha de Género. GNU/Linux como caso}
+\label{sec:measuring}
+
+Con un dataset con un dataset confiable de nombres, género y frecuencia es
+fácil medir la brecha de género. Estudiantes y académicos podrían medir la
+brecha de género a bajo coste y encontrar el quinto objetivo de desarrollo
+sostenible que es la eliminación de la brecha de género.
+
+Esta sección está dividida en contar hombres y mujeres usando Debian, GNU y
+Linux. Se han obtenido los ficheros csv usando diferentes métodos para
+determinar los nombres de personas en estas comunidades.
+
+En la comunidad Debian todos los miembros deben colaborar con una clave gpg,
+así se pueden contar hombres y mujeres en el anillo de claves. El anillo de
+claves (gpg keyring) se importó con comandos gpg.
+
+Tanto GNU como Linux, tienen websites colaborativos para estos proyectos.
+De este modo, se ha hecho scraping para descargar las personas implicadas y,
+que queden volcadas en un fichero csv. Después, con el comando de DameGender
+csvgender.py se infieren las personas que son hombres y las que son mujeres.
+
+El dataset INTER fue creado sumando las frecuencias de los diferentes datasets
+de licencia libre otorgados por las instituciones estadísticas de diferentes
+naciones. El resultado es uno de los mejores datasets de nombres y frecuencias
+del mundo especialmente preciso en el mundo occidental que, es dónde hay más
+publicaciones académicas, software, ...
+
+En Linux podemos encontrar 1891 hombres desarrolladores (90,1 \%), 78 mujeres
+desarrolladoras (3,7 \%) y 130 desconocidos (6,2 \%). El número de
+desconocidos es debido a diferentes razones, pero es común en Linux que,
+las personas hagan commits con la identidad de una compañía y no con una
+identidad personal.
+
+En GNU se pueden encontrar 215 hombres desarrolladores (91,5 \%), 12 mujeres
+desarrolladoras (5,1 \%) y 8 identidades no clasificadas. Richard Stallman,
+el fundador de GNU y la FSF llegó a dimitir por su comportamiento con las
+mujeres durante unos meses.
+
+Debian es una distribución de software libre, el proyecto que crea el
+CD/DVD y, el software listo para ser descargado desde Internet con las
+dependencias. Hay muchas distribuciones, tales como, Ubuntu o RedHat así
+no es representativo, pero es interesante comprender que los números son
+similares 863 hombres desarrolladores (85,5 \%), 44 mujeres desarrolladoras
+(4,4 \%) y 102 personas que desarrollan sin ser clasificadas (10,1 \%).
+
+Así, quienes investigan usando DameGender encuentran las ventajas del
+Software Libre para la investigación. Esto es, que se puede usar, copiar,
+modificar y redistribuir el software, favoreciendo la confianza de la revisión
+por pares.
 %% These data reveals that the situation has been improved with respect
 %% the long time. In \cite{10.1007/978-3-319-39225-7_13} speaks about a
 %% female participation of around 2 {\%} to 5 {\%}.
 
+\section{Conclusiones and Future Works}
+\label{sec:conclusions}
+
+Data feminism\cite{d2020data} is an area of growing interest.
+It has been explained the DameGender application,
+the motivations (reproducible research, fix gender gap to solve the
+United Nations objective, fields of application, including linguistic,
+social sciences, software engineering, natural language processing and
+journalism).
+
+An improvement would be to build an international, universal, and free
+dataset of names, gender and frequency for the right design with
+the current state of the job, attending to the diversity (LGBT
+options, cultural minorities, etc.).
+
+This article has explained the technologies involved in reducing costs
+related to studying the gender gap (gender detection from the names,
+API rest, semantic web, etc.).
+
+Augmenting the number of countries with statistical institutions
+that provide names, gender, and frequencies with open data
+involved addresing these data and giving more attention to
+diversity.
+
+The current state of work is the longest open dataset about names,
+gender, and frequency with more than 20 countries representing the
+Western World. This data may provide an accurate real-world picture
+being a solution with a low number of unknowns.
+
+Future works will address changes in the big software industry,
+improving user experiences in search engines, software repositories,
+and match sites due to detect gender from the name.
+
+
 \section*{Acknowledgments}
 
-We would like to thank: the statistical institutions by
+We would like to thank: Clara Sainz de Baranda and Milagros Sainz
+Ibañez by the opportunities in the disemination. Catherine D'Ignazio
+by her wonderful social network. The statistical institutions by
 release of the open datasets about names, gender and frequency.
-Luz Galvis for the software contributions, Daniel Izquierdo and
+Luz Galvis for the software contributions. Daniel Izquierdo and
 Laura Arjona for starting this research field at URJC all those
-working with Jesús González Barahona and Gregorio Robles. 
+working with Gema Rodríguez Pérez, Jesús González Barahona and
+Gregorio Robles. 
 
 \bibliographystyle{alpha}
 \bibliography{uc3m}
