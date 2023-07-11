@@ -335,7 +335,7 @@ y ``9 como no aplicable''.
 El RFC 6350 (vCard) tiene estas categorías ``m como masculino'',
 ``f como femenino'', ``0 como otro'', ``n como no aplicable'' y
 ``u como indefinido (undefined)''. Basado en este estándar, con
-respecto a publicación web se puede usar el microformato h_card
+respecto a publicación web se puede usar el microformato h\_card
 en el contexto de escribir interfaces de formularios web considerando
 lecturas de w3.
 
@@ -394,7 +394,24 @@ cantidad de nombres una no muy buena calidad.
 
 \subsection{Obteniendo datos y datasets para DameGender}
 
+DameGender unificó los diferentes formatos descargados desde oficinas
+estadísticas oficiales para nombre, género y frecuencia en los siguientes
+países: Argentina, Austria, Australia, Bélgica, Canadá, Suiza, Alemania,
+Dinamarca, España, Finlandia, Francia, Gran Bretaña, Irlanda, Islandia,
+Noruega, Nueva Zelanda, Méjico, Portugal, Rusia, Eslovenia, Suecia,
+Estados Unidos de América y Uruguay.
 
+Se han desarrollado diferentes scripts para la descarga de datasets:
+\begin{itemize}[noitemsep]
+\item donwloadcsv.py: para la descarga de ficheros CSV desde las APIs
+\item donwloadjson.py: para la descarga de ficheros JSON desde las APIs
+\item get-wikidata-names.py: para la descarga de nombres desde Wikipedia
+\item get-wikidata-surnames.py: para la descarga de apellidos desde Wikipedia
+\item orig2.py: para la descarga de datasets desde instituciones estadísticas oficiales
+\end{itemize}
+
+Una posible mejora a este diseño sería unificar todas estas funcionalidades
+en un solo comando, por ejemplo, orig2.py
 
 %% These data reveals that the situation has been improved with respect
 %% the long time. In \cite{10.1007/978-3-319-39225-7_13} speaks about a
