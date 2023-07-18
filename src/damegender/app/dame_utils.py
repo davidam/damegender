@@ -30,7 +30,7 @@ import csv
 import sys
 import pdb
 import json
-
+from pprint import pprint
 
 class DameUtils():
 
@@ -367,7 +367,17 @@ class DameUtils():
         else:
             bool0 = False
         return bool0
-        
+
+    def email_string2username(self, s):
+        # given the string s returns the gender
+        if self.string_contains_email(s):
+            r1 = re.match(r"([\w\.\+\-]+)\@([\w]+\.[a-z]{2,3})", "davidam@gnu.org")
+            username = r1.group(1)
+            hostname = r1.group(2)
+        else:
+            username = s
+        return username
+    
     def identity2name_email(self, s):
         # given a string identify name and email in the string
         string1 = self.drop_accents(s)
