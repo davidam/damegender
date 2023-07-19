@@ -1055,6 +1055,7 @@ class Gender(object):
         return 1
 
     def pretty_cm(self, path, jsonf, *args, **kwargs):
+        # printing a confusion matrix on a pretty way
         api = kwargs.get('api', 'damegender')
         reverse = kwargs.get('reverse', False)
         dimensions = kwargs.get('dimensions', '3x2')
