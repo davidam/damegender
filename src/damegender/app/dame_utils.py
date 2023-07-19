@@ -673,6 +673,7 @@ class DameUtils():
             return (round(division, 2))
 
     def count_alfa(self, s):
+        # given s returns the number of alfanum chars
         num = 0
         for i in s:
             char = i.isalpha()
