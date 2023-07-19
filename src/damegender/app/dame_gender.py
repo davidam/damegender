@@ -852,24 +852,19 @@ class Gender(object):
                 guess = "unknown"
         return guess
 
-    def guess_surname(self, string, locale):
+    def guess_surname(self, string, dataset):
         # Searches the CSV files corresponding to the specified
-        # locale for the last name matching the given string.
+        # dataset for the last name matching the given string.
         counter = 0
-        if (locale == "ine"):
+        surname_position = 0
+        counter_position = 1
+        if ((dataset == "ine") or (dataset == "es")):
             path = 'files/names/names_es/essurnames.csv'
-            surname_position = 0
-            counter_position = 1
-        elif ((locale == "ru_en") or (locale == "ru_ru") or (locale == "ru")):
+        elif ((dataset == "ru_en") or (dataset == "ru_ru") or (dataset == "ru")):
             path = 'files/names/names_ru/rusurnames.csv'
-            surname_position = 0
-            counter_position = 1
         else:
-            path = 'files/names/names_' + locale + '/'
-            path = path + locale + 'surnames.csv'
-            surname_position = 0
-            counter_position = 1
-
+            path = 'files/names/names_' + dataset + '/'
+            path = path + dataset + 'surnames.csv'
         boolean = False
         with open(path) as csvfile:
             surnamereader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -880,17 +875,18 @@ class Gender(object):
                     counter = int(row[counter_position])
         return [boolean, counter]
 
-    def string2gender(self, string):
-        # TODO: take care with trash strings before the name
-        arr = du.string2array(string)
-        name = ""
-        i = 0
-        while ((name == "") and (len(arr) > i)):
-            bool1 = self.guess_surname(arr[i], locale="us")[0]
-            if (not (bool1) and (len(string) > 0)):
-                name = arr[i]
-            i = i + 1
-        return self.guess(name)
+    # def string2gender(self, string):
+    #     # TODO: take care with trash strings before the name
+    #     arr = du.string2array(string)
+    #     name = ""
+    #     i = 0
+    #     while ((name == "") and (len(arr) > i)):
+    #         bool1 = self.guess_surname(arr[i], dataset="inter")[0]
+    #         sex = self.guess(arr[i], dataset="inter")
+    #         if (not(bool1) and ((sex == 'male') or (sex == 'female')) and (len(string) > 0)):
+    #             name = arr[i]
+    #         i = i + 1
+    #     return self.guess(name)
 
     def guess_list(self, path='files/names/partial.csv',
                    binary=False, dataset='us', *args, **kwargs):
