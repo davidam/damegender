@@ -40,14 +40,16 @@ Por ahora valdría con llegar a migrar los métodos necesarios hasta ejecutar ac
 * DONE Estudiar las relaciones entre las variables escogidas
   - State "DONE"       from "TODO"       [2018-12-03 lun 15:58]
 Mirar python-examples/matplotlib/corr.py
-* TODO Crear un método que dada una cadena con varios substrings separados por espacios en blancos y quizás comas determinar nombre y apellido
-** TODO Una primera aproximación puede ser por número de ocurrencias y orden
+* DONE Crear un método que dada una cadena con varios substrings separados por espacios en blancos y quizás comas determinar nombre y apellido
+  - State "DONE"       from "TODO"       [2023-08-05 sáb 17:13]
+** DONE Escribir string2gender
+   - State "DONE"       from "TODO"       [2023-08-05 sáb 17:12]
 En español es frecuente encontrar:
 + [ ] nombre1 apellido1 apellido2
 + [ ] nombre1 nombre2 apellido1 apellido2
 + [ ] apellido1 apellido2, nombre1 
 + [ ] apellido1 apellido2, nombre1 nombre2
-** TODO Otra aproximación puede ser crear una tarea de aprendizaje y aplicar ML 
+** Otra aproximación puede ser crear una tarea de aprendizaje y aplicar ML 
 ** DONE Crear método guess_surname
    - State "DONE"       from "TODO"       [2018-11-22 jue 16:12]
 ** DONE Crear un dataset universal de apellidos
