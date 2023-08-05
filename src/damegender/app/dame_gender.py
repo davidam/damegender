@@ -875,18 +875,26 @@ class Gender(object):
                     counter = int(row[counter_position])
         return [boolean, counter]
 
-    # def string2gender(self, string):
-    #     # TODO: take care with trash strings before the name
-    #     arr = du.string2array(string)
-    #     name = ""
-    #     i = 0
-    #     while ((name == "") and (len(arr) > i)):
-    #         bool1 = self.guess_surname(arr[i], dataset="inter")[0]
-    #         sex = self.guess(arr[i], dataset="inter")
-    #         if (not(bool1) and ((sex == 'male') or (sex == 'female')) and (len(string) > 0)):
-    #             name = arr[i]
-    #         i = i + 1
-    #     return self.guess(name)
+    def string2gender(self, string):
+        # Given a string with name and surname returns the gender
+        arr = du.string2array(string)
+        name = ""
+        i = 0
+        while ((name == "") and (len(arr) > i)):
+            surname = self.guess_surname(arr[i], dataset="inter")
+            bool1 = surname[0]
+            surname_frec_total = int(surname[1])
+            print(surname_frec_total)
+            name_frec = self.name_frec(arr[i], dataset="inter")
+            name_frec_total = int(name_frec["males"]) + int(name_frec["females"])
+            print(name_frec_total)
+            sex = self.guess(arr[i], dataset="inter")
+            if (not(bool1) and ((sex == 'male') or (sex == 'female')) and (len(string) > 0)):
+                name = arr[i]
+            elif (bool1 and (name_frec_total > surname_frec_total)):
+                name = arr[i]
+            i = i + 1
+        return self.guess(name)
 
     def guess_list(self, path='files/names/partial.csv',
                    binary=False, dataset='us', *args, **kwargs):
