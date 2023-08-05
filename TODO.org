@@ -1,6 +1,7 @@
 #+TODO: TODO(t) POSIBLE(p) POSSIBLE(p) GOING(g) FUTURE(f) | DONE(d!) CANCELED(c!)
 
-* POSIBLE Plantearse poner estos footnotes al paper de uc3m
+* DONE Plantearse poner estos footnotes al paper de uc3m
+  - State "DONE"       from "POSIBLE"    [2023-08-05 sáb 03:03]
 Austria\footnote{https://www.wien.gv.at},
 Australia\footnote{https://data.sa.gov.au},
 Belgium\footnote{https://statbel.fgov.be/},
@@ -1186,7 +1187,8 @@ Hay idiomas que los nouns tienen género para llegar a esto es posible revisar l
 + [ ] GradientBoostingClassifier
 + [ ] GradientBoostingRegressor
 + [ ] KNeighborsClassifier
-* TODO Escribir delete_similar_in_list
+* CANCELED Escribir delete_similar_in_list
+  - State "CANCELED"   from "TODO"       [2023-08-05 sáb 03:05]
     # def delete_similar_in_list(self, l, degree):
     #     if (len(l) == 0):
     #         return l
@@ -1201,6 +1203,8 @@ Hay idiomas que los nouns tienen género para llegar a esto es posible revisar l
   #     dn = DameNLTK()
   #     degree = 0.7
   #     self.assertTrue(dn.delete_similar_in_list(["This is a good sentence".split(), "This is a bad sentence".split()], degree))
+
+No lo veo útil en este momento. Deberíamos incluso dejar de usar NLTK en la medida de lo posible. Cuantas menos librerías, más autonomía para DameGender.
 * DONE Escribir un método download_free_names
   SCHEDULED: <2020-05-14 jue>
   - State "DONE"       from "TODO"       [2021-12-21 mar 18:14]
@@ -1227,7 +1231,6 @@ Recuerda el repositorio de python-examples en la carpeta sparql los siguientes s
 
 * POSIBLE Plantearse descargar los nombres italianos con web scraping
 + [ ] https://www.istat.it/en/analysis-and-products/interactive-contents/baby-names
-
 
 * DONE Escribir count-scientifics.py
   - State "DONE"       from "TODO"       [2020-06-08 lun 12:31]
