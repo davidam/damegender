@@ -50,9 +50,13 @@ En español es frecuente encontrar:
 ** TODO Otra aproximación puede ser crear una tarea de aprendizaje y aplicar ML 
 ** DONE Crear método guess_surname
    - State "DONE"       from "TODO"       [2018-11-22 jue 16:12]
-** TODO Recuperar datasets universales de apellidos
-Mientras solo tengamos datasets de inglés y español, solo es posible
-hacer algo similar al primer artículo, pero con nombres y apellidos
+** DONE Crear un dataset universal de apellidos
+   - State "DONE"       from "TODO"       [2023-08-05 sáb 03:11]
+En este momento están las siguientes naciones dando apellidos desde fuentes oficiales:
++ [X] rusia
++ [X] españa
++ [X] argentina
++ [X] estados unidos
 * DONE Hacer los test requeridos para string2array
   - State "DONE"       from "TODO"       [2018-11-15 jue 11:52]
 * DONE Meter en guess todos los clasificadores
@@ -1378,7 +1382,6 @@ arbitraria.
 Quizás deba cancelar esta tarea y seguir abordándolo todo esto con los métodos que lo
 estaba haciendo
 
-
 * DONE Crear un script para descargar nombres desde wikidata especificando el país y el género
 - State "DONE"       from "TODO"       [2022-04-08 vie 23:56]
 * DONE Crear un script para desccarga apellidos desde Wikidata especificando el país
@@ -1554,29 +1557,9 @@ Apuntamos unas cuantas para ponerles un precio por si hay gente interesada en pa
 Las pruebas con gitcoin no han sido satisfactorias, se genera humo. Lo dejamos para más adelante la herramienta gitcoin promete, pero todavía le falta comunidad
 Ójala encontremos una herramienta buena de software libre para solicitar trabajos concretos por dinero.
 
-* TODO Checklist a cada csv de un país
-** TODO Cada row es un nombre
-+ [ ] Se han eliminado todo tipo de comentarios, cabeceras y footers
-*** TODO No hay nombres que tengan como primer nombre una inicial. Las iniciales pueden aparecer con punto o sin punto
-def initial_letters(self, s):
-*** TODO No hay nombres que no se puedan pronunciar. Debería haber al menos una vocal en casi todos los idiomas.
-a|e|i|o|u|y in string
-def only_consonants_in_string(self, s):
-*** TODO No hay rows con nombres vacíos
-*** TODO No hay dos veces el mismo nombre en un dataset
-def detect_duplicated
-** TODO Con respecto a columnas y filas
-*** TODO El número de columnas es el mismo en todas las filas
-def csv_with_same_columns
-*** TODO En cada row nombre y frecuencia aparecen en las mismas posiciones
-def only_string_in_column
-def only_integer_in_column
-*** TODO En cada row nombre y apellido están siempre en las mismas posiciones
-def num_surnames_know_in_list
-def num_names_know_in_list
-
-Un caso de interés para pruebas es files/names/names_tests/funcionarios.csv donde están realmente mezclados ocupando los nombres la posición de los apellidos y, al revés.
-
+* DONE Checklist a cada csv de un país
+  - State "DONE"       from "TODO"       [2023-08-05 sáb 03:15]
+Se ha creado un script checkcsv.py esta tarea como realizada
 * DONE Deploy most used names in damegender-web
 Visit https://damegender.davidam.com/top.html
 * TODO Make the accuracy between Portuguese language and Brazil country
