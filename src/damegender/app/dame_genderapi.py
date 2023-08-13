@@ -131,6 +131,9 @@ class DameGenderApi(Gender):
             file_females = open(backup_females, "w+")
         if backup_males:
             file_males = open(backup_males, "w+")
+        if backup_all:
+            file_all = open(backup_all, "w+")
+            
         for i in names:
             name = self.get(i)
             guess = self.guess(i)
@@ -138,8 +141,11 @@ class DameGenderApi(Gender):
                 file_females.write(str(i)+","+str(name[2])+"\n")
             if (guess == "male"):
                 file_males.write(str(i)+","+str(name[2])+"\n")
+            if ((guess == "male") or (guess == "female")):
+                file_all.write(str(i)+","+str(name[2])+"\n")
         file_females.close()
-        file_males.close()        
+        file_males.close()
+        file_all.close()
         return 1
     
     def json2gender_list(self, jsonf="", binary=False):
