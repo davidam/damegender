@@ -148,13 +148,12 @@ class DameGenderize(Gender):
                 new.append(l1[i:i+10])
             for j in new:
                 lresult.append(self.get2to10(j))
-            print(lresult)
             for k in lresult[0]:
                 if ((k['gender'] == "female") and (outformat == "females")):
                     res = res + str(k["name"])+","+str(k["count"])+"\n"
                 elif ((k['gender'] == "male") and (outformat == "males")):
                     res = res + str(k["name"])+","+str(k["count"])+"\n"
-                elif (((k['gender'] == "male") or (k["gender"] == "all")) and (outformat == "all")):
+                elif (((k['gender'] == "male") or (k["gender"] == "female")) and (outformat == "all")):
                     res = res + str(k["name"])+","+str(k["count"])+"\n"
         res = str(res).replace("\'", "\"")
         res = str(res).replace('None', '"unknown"')
