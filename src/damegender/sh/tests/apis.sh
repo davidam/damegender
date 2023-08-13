@@ -66,6 +66,31 @@ else
     echo -e "download genderapi csv files names min is ${RED}failing${NC}"
 fi
 
+python3 downloadcsv.py --api=genderapi --csv=files/names/min.csv --outcsv=files/tmp/genderapiminfemales.csv --outformat="females"
+
+if [ -f files/tmp/genderapiminfemales.csv ]; then
+    echo -e "download genderapi csv files names min is ${GREEN}ok${NC}"
+else
+    echo -e "download genderapi csv files names min is ${RED}failing${NC}"
+fi
+
+python3 downloadcsv.py --api=genderapi --csv=files/names/min.csv --outcsv=files/tmp/genderapiminmales.csv --outformat="males"
+
+if [ -f files/tmp/genderapiminmales.csv ]; then
+    echo -e "download genderapi csv files names min is ${GREEN}ok${NC}"
+else
+    echo -e "download genderapi csv files names min is ${RED}failing${NC}"
+fi
+
+python3 downloadcsv.py --api=genderapi --csv=files/names/min.csv --outcsv=files/tmp/genderapiminall.csv --outformat="all"
+
+if [ -f files/tmp/genderapiminall.csv ]; then
+    echo -e "download genderapi csv files names min is ${GREEN}ok${NC}"
+else
+    echo -e "download genderapi csv files names min is ${RED}failing${NC}"
+fi
+
+
 python3 downloadcsv.py --api=genderize --csv=files/names/min.csv --outcsv=files/tmp/genderizeminfemales.csv --outformat="females"
 
 if [ -f files/tmp/genderizeminfemales.csv ]; then
