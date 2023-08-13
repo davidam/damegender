@@ -68,7 +68,9 @@ if (args.api == 'brazilapi'):
 elif (args.api == 'genderapi'):
     dga = DameGenderApi()
     if (args.outformat=='all'):
-        print("option all only implemented in brazilapi")
+        text2 = dga.download_csv(path=args.csv,
+                                 name_position=args.name_position,
+                                 backup_all=args.outcsv)
     elif (args.outformat=='females'):
         text2 = dga.download_csv(path=args.csv,
                                  name_position=args.name_position,
