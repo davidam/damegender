@@ -28,7 +28,7 @@
 
 from app.dame_gender import Gender
 # from app.dame_namsor import DameNamsor
-# from app.dame_genderize import DameGenderize
+from app.dame_genderize import DameGenderize
 from app.dame_genderapi import DameGenderApi
 # from app.dame_nameapi import DameNameapi
 from app.dame_brazilapi import DameBrazilApi
@@ -41,38 +41,70 @@ parser.add_argument('--csv', type=str, required=True,
 parser.add_argument('--name_position', type=int, required=False,
                     default=0, help='input file for names')
 parser.add_argument('--api', required=False, default='brazilapi',
-                    choices=['brazilapi', 'genderapi']) #, 'genderapi', 'genderize', 'namsor', 'nameapi'])
+                    choices=['brazilapi', 'genderapi', 'genderize']) #, 'genderapi', 'genderize', 'namsor', 'nameapi'])
 parser.add_argument('--outcsv', type=str, required=False,
                     default="names.csv", help='output csv file for names')
-parser.add_argument('--format', type=str, required=False,
+parser.add_argument('--outformat', type=str, required=False,
                     default="all", choices=['all', 'males', 'females'])
 args = parser.parse_args()
 
-print("This command is under construction, brazilapi is the unique option in this moment")
+#print("This command is under construction, brazilapi is the unique option in this moment")
 
 if (args.api == 'brazilapi'):
     dba = DameBrazilApi()
-    if (args.format=='all'):
+    if (args.outformat=='all'):
         text2 = dba.download_csv(path=args.csv,
                                  name_position=args.name_position,
                                  backup_all=args.outcsv)
-    elif (args.format=='females'):
+    elif (args.outformat=='females'):
         text2 = dba.download_csv(path=args.csv,
                                  name_position=args.name_position,
                                  backup_females=args.outcsv)
-    elif (args.format=='males'):
+    elif (args.outformat=='males'):
         text2 = dba.download_csv(path=args.csv,
                                  name_position=args.name_position,
                                  backup_males=args.outcsv)
         
 elif (args.api == 'genderapi'):
     dga = DameGenderApi()
-    if (args.format=='females'):
+    if (args.outformat=='all'):
+        print("option all only implemented in brazilapi")
+    elif (args.outformat=='females'):
         text2 = dga.download_csv(path=args.csv,
                                  name_position=args.name_position,
                                  backup_females=args.outcsv)
-    elif (args.format=='males'):
+    elif (args.outformat=='males'):
         text2 = dga.download_csv(path=args.csv,
                                  name_position=args.name_position,
                                  backup_males=args.outcsv)
+    
+elif (args.api == 'genderize'):
+    dg = DameGenderize()
+    if (args.outformat=='all'):
+        print("option all only implemented in brazilapi")
+    elif (args.outformat=='females'):
+        text2 = dg.download_csv(path=args.csv,
+                                name_position=args.name_position,
+                                outpath=args.outcsv,
+                                outformat="females",                                
+                                backup_format=args.outformat)
+    elif (args.outformat=='males'):
+        text2 = dg.download_csv(path=args.csv,
+                                name_position=args.name_position,
+                                outpath=args.outcsv,
+                                outformat="males",
+                                backup_format=args.outformat)
+    
+# elif (args.api == 'namsor'):
+#     dn = DameNamsor()
+#     if (args.format=='all'):
+#         print("option all only implemented in brazilapi")
+#     elif (args.format=='females'):
+#         text2 = dn.download_csv(path=args.csv,
+#                                 name_position=args.name_position,
+#                                 backup_females=args.outcsv)
+#     elif (args.format=='males'):
+#         text2 = dn.download_csv(path=args.csv,
+#                                 name_position=args.name_position,
+#                                 backup_males=args.outcsv)
     

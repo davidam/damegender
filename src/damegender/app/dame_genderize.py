@@ -94,7 +94,7 @@ class DameGenderize(Gender):
 
     def download(self, path='files/names/partial.csv', surnames=False):
         # It is used to download the data from a
-        # CSV file specified in the path.
+        # CSV file specified in the path to a json file
         du = DameUtils()
         new = []
         d = ""
@@ -124,9 +124,11 @@ class DameGenderize(Gender):
         backup.close()
         return res
     
-    def download_csv(self, path='files/names/partial.csv', surnames=False):
+    def download_csv(self, path='files/names/partial.csv', surnames=False, *args, **kwargs):
         # It is used to download the data from a
-        # CSV file specified in the path.
+        # CSV file specified in the path to a csv file.
+        outpath = kwargs.get('outpath', 'files/tmp/downloadgenderize.csv')
+        outformat = kwargs.get('outformat', 'all')
         du = DameUtils()
         new = []
         d = ""
@@ -134,11 +136,11 @@ class DameGenderize(Gender):
         res = ""
         if (surnames is True):
             l1 = self.csv2names(path, surnames=True)
+            fo = open(outpath, "w")
             for i in range(0, len(l1)):
                 d = self.get(l1[i][0], surname=l1[i][1])
                 d["surname"] = l1[i][1]
-                lresult.append(d)
-            res = str(lresult)
+                res = res + d["name"]+","+d["count"]+"\n"
         else:
             l1 = self.csv2names(path)
             # We must split the list in different lists with size 10
@@ -146,12 +148,17 @@ class DameGenderize(Gender):
                 new.append(l1[i:i+10])
             for j in new:
                 lresult.append(self.get2to10(j))
-            for k in lresult:
-                res = res + str(k)
+            print(lresult)
+            for k in lresult[0]:
+                if ((k['gender'] == "female") and (outformat == "females")):
+                    res = res + str(k["name"])+","+str(k["count"])+"\n"
+                elif ((k['gender'] == "male") and (outformat == "males")):
+                    res = res + str(k["name"])+","+str(k["count"])+"\n"
+                elif (((k['gender'] == "male") or (k["gender"] == "all")) and (outformat == "all")):
+                    res = res + str(k["name"])+","+str(k["count"])+"\n"
         res = str(res).replace("\'", "\"")
         res = str(res).replace('None', '"unknown"')
-        path = "files/names/genderize" + du.path2file(path) + ".csv"
-        backup = open(path, "w+")
+        backup = open(outpath, "w+")
         backup.write(res)
         backup.close()
         return res
