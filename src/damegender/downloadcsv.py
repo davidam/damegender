@@ -81,7 +81,11 @@ elif (args.api == 'genderapi'):
 elif (args.api == 'genderize'):
     dg = DameGenderize()
     if (args.outformat=='all'):
-        print("option all only implemented in brazilapi")
+        text2 = dg.download_csv(path=args.csv,
+                                name_position=args.name_position,
+                                outpath=args.outcsv,
+                                outformat="all",
+                                backup_format=args.outformat)
     elif (args.outformat=='females'):
         text2 = dg.download_csv(path=args.csv,
                                 name_position=args.name_position,
