@@ -58,6 +58,38 @@ else
     echo -e "download brazilapi csv files names min is ${RED}failing${NC}"
 fi
 
+python3 downloadcsv.py --api=genderapi --csv=files/names/min.csv --outcsv=files/tmp/genderapimin.csv
+
+if [ -f files/tmp/genderapimin.csv ]; then
+    echo -e "download genderapi csv files names min is ${GREEN}ok${NC}"
+else
+    echo -e "download genderapi csv files names min is ${RED}failing${NC}"
+fi
+
+python3 downloadcsv.py --api=genderize --csv=files/names/min.csv --outcsv=files/tmp/genderizeminfemales.csv --outformat="females"
+
+if [ -f files/tmp/genderizeminfemales.csv ]; then
+    echo -e "download genderize csv files names min is ${GREEN}ok${NC}"
+else
+    echo -e "download genderize csv files names min is ${RED}failing${NC}"
+fi
+
+python3 downloadcsv.py --api=genderize --csv=files/names/min.csv --outcsv=files/tmp/genderizeminmales.csv --outformat='males'
+
+if [ -f files/tmp/genderizeminmales.csv ]; then
+    echo -e "download genderize csv files names min is ${GREEN}ok${NC}"
+else
+    echo -e "download genderize csv files names min is ${RED}failing${NC}"
+fi
+
+python3 downloadcsv.py --api=genderize --csv=files/names/min.csv --outcsv=files/tmp/genderizeminall.csv --outformat='all'
+
+if [ -f files/tmp/genderizeminall.csv ]; then
+    echo -e "download genderize csv files names min is ${GREEN}ok${NC}"
+else
+    echo -e "download genderize csv files names min is ${RED}failing${NC}"
+fi
+
 
 # python3 api2gender.py David --api="wikipedia" > files/tests/api2genderwikipedia-$(date "+%Y-%m-%d-%H").txt
 
