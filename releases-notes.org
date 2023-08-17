@@ -2,7 +2,7 @@
 * v0.5.4
 News in commands: 
 + [X] downloadcsv.py: added genderize and genderapi
-
++ [X] mergeinterfiles.py: adding --nosum argument
 * v0.5.3
 New script!
 + [X] checkcsv.py: to check possible problems in a csv file, such as, empty rows, initials, or emails
