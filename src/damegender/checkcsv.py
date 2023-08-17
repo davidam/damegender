@@ -42,10 +42,12 @@ countemails = 0
 countinitials = 0
 countnonames = 0
 countnofreq = 0
+countlong = 0
 lemails = []
 linitials = []
 lnonames = []
 lfreq = []
+llong = []
 
 with open(filepath) as csvfile:
     sreader = csv.reader(csvfile, delimiter=args.delimiter_csv, quotechar='|')
@@ -60,7 +62,10 @@ with open(filepath) as csvfile:
         elif (content == ''):
             countnonames = countnonames + 1
             lnonames.append(content)
-                
+        if (len(content) > 30):
+            countlong = countlong + 1
+            llong.append(content)
+            
 print("####################################################")
 print("Rows with emails: %s" % str(countemails))
 print("####################################################")
@@ -81,3 +86,11 @@ print("####################################################")
 
 if (args.verbose and (len(lnonames) > 0)):
     print("No names: %s" % lnonames)
+
+print("####################################################")
+print("Rows with long string: %s" % str(countlong))
+print("####################################################")
+
+if (args.verbose and (len(llong) > 0)):
+    print("Long strings: %s" % llong)
+    
