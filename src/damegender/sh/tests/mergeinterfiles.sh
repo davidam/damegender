@@ -91,6 +91,15 @@ else
     echo -e "dkmalesfemales5and10onlygender is ${GREEN}ok${NC}"
 fi
 
+python3 mergeinterfiles.py --file1=files/names/names_inter/dkfemales10.csv --file2=files/names/names_inter/dkfemales10.csv --output=files/tests/dkfemales10-nosum-$(date "+%Y-%m-%d-%H").csv --nosum
+# checking --nosum
+if ! cmp files/names/names_inter/dkfemales10.csv files/tests/dkfemales10-nosum-$(date "+%Y-%m-%d-%H").csv >/dev/null 2>&1
+then
+    echo -e "dkfemales10-nosum is ${RED}failing${NC}"
+else
+    echo -e "dkfemales10-nosum is ${GREEN}ok${NC}"
+fi
+
 
 
 rm files/tests/*-2021-*
