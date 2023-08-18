@@ -3,6 +3,10 @@
 News in commands: 
 + [X] downloadcsv.py: added genderize and genderapi
 + [X] mergeinterfiles.py: adding --nosum argument
++ [X] checkcsv.py: to enable counting long string
++ [X] get-wikidata-surnames.py: to avoid to download url as surnames
+
+
 * v0.5.3
 New script!
 + [X] checkcsv.py: to check possible problems in a csv file, such as, empty rows, initials, or emails
