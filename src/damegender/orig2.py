@@ -285,17 +285,24 @@ elif (country == "br"):
     #                              backup_all="files/names/names_br/brall.csv",
     #                              backup_females="files/names/names_br/brfemales.csv",
     #                              backup_males="files/names/names_br/brmales.csv")
-
     #     subprocess.call(outpath + "download.sh", shell=True)
-
     # diccfemales = {}
-    # diccfemales = du.dump_name_and_quantity_in_dicc(origfemales, posname=7, posquant=6, dicc=diccfemales, delimiter=',', sum_bool=False)
+    # diccfemales = du.dump_name_and_quantity_in_dicc(origfemales,
+    #                                                 posname=7,
+    #                                                 posquant=6,
+    #                                                 dicc=diccfemales,
+    #                                                 delimiter=',',
+    #                                                 sum_bool=False)
     # du.simple_dicc_to_file(diccfemales, outpath + "brfemales.csv")
-    
     # diccmales = {}
-    # diccmales = du.dump_name_and_quantity_in_dicc(origmales, posname=7, posquant=6, dicc=diccmales, delimiter=',', sum_bool=False)
-    # du.simple_dicc_to_file(diccmales, outpath + "brmales.csv")        
-    
+    # diccmales = du.dump_name_and_quantity_in_dicc(origmales,
+    #                                               posname=7,
+    #                                               posquant=6,
+    #                                               dicc=diccmales,
+    #                                               delimiter=',',
+    #                                               sum_bool=False)
+    # du.simple_dicc_to_file(diccmales, outpath + "brmales.csv")
+
 elif (country == "ca"):
     origfile = origpath + "baby-names-frequency.csv"
 
@@ -431,7 +438,7 @@ elif (country == "cl"):
         print("Downloading Chile datasets ...")
         print("Opps, this feature is not enable, yet ...")
         print("You can to become the hacker developing this feature ...")
-        print("git pull request is our friend ...")                
+        print("git pull request is our friend ...")
     #     subprocess.call(outpath + "download.sh", shell=True)
 
     filefem2019 = origpath + 'females2019.csv'
@@ -470,7 +477,6 @@ elif (country == "cl"):
     du.simple_dicc_to_file(diccmales, outmales)
     du.simple_dicc_to_file(diccfemales, outfemales)
 
-    
 elif (country == "de"):
 
     if (args.download):
