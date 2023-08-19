@@ -86,8 +86,8 @@ class DameGenderize(Gender):
         return gender
 
     def prob(self, name):
-        # Retrieves the dictionary associated with the 
-        # specified name and returns the value of the 
+        # Retrieves the dictionary associated with the
+        # specified name and returns the value of the
         # "probability" key of the dictionary.
         d = self.get(name)
         return d['probability']
@@ -123,8 +123,9 @@ class DameGenderize(Gender):
         backup.write(res)
         backup.close()
         return res
-    
-    def download_csv(self, path='files/names/partial.csv', surnames=False, *args, **kwargs):
+
+    def download_csv(self, path='files/names/partial.csv',
+                     surnames=False, *args, **kwargs):
         # It is used to download the data from a
         # CSV file specified in the path to a csv file.
         outpath = kwargs.get('outpath', 'files/tmp/downloadgenderize.csv')
@@ -153,7 +154,8 @@ class DameGenderize(Gender):
                     res = res + str(k["name"])+","+str(k["count"])+"\n"
                 elif ((k['gender'] == "male") and (outformat == "males")):
                     res = res + str(k["name"])+","+str(k["count"])+"\n"
-                elif (((k['gender'] == "male") or (k["gender"] == "female")) and (outformat == "all")):
+                elif (((k['gender'] == "male") or (k["gender"] == "female"))
+                      and (outformat == "all")):
                     res = res + str(k["name"])+","+str(k["count"])+"\n"
         res = str(res).replace("\'", "\"")
         res = str(res).replace('None', '"unknown"')
