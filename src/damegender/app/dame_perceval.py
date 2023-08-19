@@ -61,7 +61,7 @@ class DamePerceval(object):
         return result
 
     def firstName(self, s):
-        # It uses the regular expression (re) library 
+        # It uses the regular expression (re) library
         # to extract the first name from the string.
         result = ""
         m = re.match("(\\w+)", s)
@@ -72,7 +72,7 @@ class DamePerceval(object):
         return first
 
     def secondName(self, s):
-        # If there is a match, it returns the second word. 
+        # If there is a match, it returns the second word.
         # If there is no match, it returns an empty string.
         result = ""
         m = re.match("(\\w+) (\\w+)", s)
@@ -83,7 +83,7 @@ class DamePerceval(object):
         return second
 
     def dicc_authors_and_commits(self, url, directory, *args, **kwargs):
-        # creates a dictionary containing the authors and the number of 
+        # creates a dictionary containing the authors and the number of
         # commits made by each one.
         repo = Git(uri=url, gitpath=directory)
         authors = {}
@@ -95,10 +95,11 @@ class DamePerceval(object):
         return authors
 
     def dicc_authors_and_mails(self, url, directory="files/mbox"):
-        # creates an MBox object from the specified url and directory. 
-        # Then, create an empty dictionary called authors. 
-        # Finally, it walks through the messages in the MBox repository 
-        # and adds the senders to authors as keys with the number of messages sent as values.
+        # creates an MBox object from the specified url and directory.
+        # Then, create an empty dictionary called authors.
+        # Finally, it walks through the messages in the MBox repository
+        # and adds the senders to authors as keys with
+        # the number of messages sent as values.
         repo = MBox(uri=url, dirpath=directory)
         authors = {}
         for message in repo.fetch():
@@ -124,8 +125,9 @@ class DamePerceval(object):
         return list_committers
 
     def list_mailers(self, url, directory="files/mbox"):
-        # uses the MBox class to read email messages in a specific URL and directory, 
-        # loop through each message, and add the sender to a list. 
+        # uses the MBox class to read email
+        # messages in a specific URL and directory,
+        # loop through each message, and add the sender to a list.
         # Finally, it returns the list of senders.
         repo = MBox(uri=url, dirpath=directory)
         count = 0
