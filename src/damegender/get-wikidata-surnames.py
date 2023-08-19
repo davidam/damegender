@@ -64,11 +64,11 @@ try:
         # surnames as Q010234 is a wikidata identifier not a name
         match1 = re.search(r'(Q[0-9]*)', d['surnameLabel']['value'])
         # url is not a surname
-        match2 = re.search(r'(^http*)', d['surnameLabel']['value'])        
+        match2 = re.search(r'(^http*)', d['surnameLabel']['value'])
         if not(match2) and not(match1):
-            fo.write(d['surnameLabel']['value'] + "," + d['count']['value'] + "\n")
-
+            str0 = d['surnameLabel']['value'] + ","
+            str0 = str0 + d['count']['value'] + "\n"
+            fo.write(str0)
     fo.close()
-
-except:
+except ValueError:
     print("Please, check the Internet connection")
