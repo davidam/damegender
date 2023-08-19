@@ -102,6 +102,7 @@ def getKey0str(item):
 def getKey1(item):
     return int(item[1])
 
+
 dir0 = "files/tmp"
 if (not os.path.exists(dir0)):
     print(os.makedirs(dir0))
@@ -210,7 +211,7 @@ if args.outjson:
             str0 = str0 + "}"
             j = j + 1
         str0 = str0 + ']'
-        fo.write(str0);
+        fo.write(str0)
         fo.close()
 
     elif (args.sex == "male"):
@@ -227,7 +228,7 @@ if args.outjson:
             str0 = str0 + "}"
             j = j + 1
         str0 = str0 + ']'
-        fo.write(str0);
+        fo.write(str0)
         fo.close()
 
     elif (args.sex == "all"):
@@ -244,5 +245,5 @@ if args.outjson:
             str0 = str0 + "}"
             j = j + 1
         str0 = str0 + ']'
-        fo.write(str0);
+        fo.write(str0)
         fo.close()
