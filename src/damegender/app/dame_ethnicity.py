@@ -76,7 +76,7 @@ class DameEthnicity(object):
     def locale_match(self, surname, path, locale):
         # searches for a specific last name in a CSV file and
         # returns the value if found.
-        # it only runs with INE surnames files 
+        # it only runs with INE surnames files
         du = DameUtils()
         surname = du.drop_accents(surname).upper()
         string = ""
@@ -773,7 +773,7 @@ class DameEthnicity(object):
                 "km": "Union of the Comoros",
                 "kn": "Saint Kitts and Nevis",
                 "kp": "Democratic Republic of Korea",
-                "kr": "People's Republic of Korea",                
+                "kr": "People's Republic of Korea",
                 "kw": "Kuwait",
                 "kz": "Kazakhstan",
                 "la": "Lao People's Democratic Republic",
