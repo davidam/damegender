@@ -32,6 +32,7 @@ from app.dame_gender import Gender
 
 du = DameUtils()
 
+
 class DameNamsor(Gender):
 
     def get(self, name, surname, binary=False):
@@ -65,7 +66,7 @@ class DameNamsor(Gender):
 
     def guess(self, name, surname, binary=False):
         # guess gender from name and surname
-        # using get method 
+        # using get method
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
         # ``0 as not know'',``1 as male'', ``2 as female''
         # and ``9 as not applicable''
@@ -100,8 +101,8 @@ class DameNamsor(Gender):
         return slist
 
     def download(self, path="files/names/min.csv"):
-        # A JSON file is created from a CSV file. 
-        # It takes the first and last names from the CSV 
+        # A JSON file is created from a CSV file.
+        # It takes the first and last names from the CSV
         # file and uses them to get the gender and scale of each name.
         namsorpath = "files/names/namsor" + du.path2file(path) + ".json"
         namsorjson = open(namsorpath, "w+")
@@ -125,3 +126,38 @@ class DameNamsor(Gender):
             i = i + 1
         namsorjson.write("]")
         namsorjson.close()
+
+    def download_csv(self, path="files/names/min.csv", *args, **kwargs):
+        # A CSV file is created from a CSV file.
+        # It takes the first and last names from the CSV
+        # file and uses them to get the gender and scale of each name.
+        dir0 = "files/tmp/"
+        backup_all = kwargs.get('backup_all',
+                                dir0 + 'namsorall.csv')
+        backup_females = kwargs.get('backup_females',
+                                    dir0 + 'namsorfemales.csv')
+        backup_males = kwargs.get('backup_males',
+                                  dir0 + 'namsormales.csv')
+        name_position = kwargs.get('name_position', 0)
+        names = self.csv2names(path, name_position=name_position,
+                               surname_position=surname_position,
+                               surnames=True)
+        if backup_females:
+            file_females = open(backup_females, "w+")
+        if backup_males:
+            file_males = open(backup_males, "w+")
+        if backup_all:
+            file_all = open(backup_all, "w+")
+        for i in names:
+            name = self.get(i)
+            guess = self.guess(i)
+            if (guess == "female"):
+                file_females.write(str(i)+","+str(name[2])+"\n")
+            if (guess == "male"):
+                file_males.write(str(i)+","+str(name[2])+"\n")
+            if ((guess == "male") or (guess == "female")):
+                file_all.write(str(i)+","+str(name[2])+"\n")
+        file_females.close()
+        file_males.close()
+        file_all.close()
+        return 1
