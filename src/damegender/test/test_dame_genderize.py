@@ -34,42 +34,42 @@ class TddInPythonExample(unittest.TestCase):
         dg = DameGenderize()
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
             string1 = dg.get("peter")
-            self.assertEqual(string1, {'probability': 0.99, 'count': 165452,
+            self.assertEqual(string1, {'probability': 1.0, 'count': 1094417,
                                        'name': 'peter', 'gender': 'male'})
             string2 = dg.get(name="peter", surname="smith", country_id="US")
-            self.assertEqual(string2, {'count': 6521, 'country_id': 'US',
+            self.assertEqual(string2, {'count': 230056, 'country_id': 'US',
                                        'gender': 'male', 'name': 'peter',
-                                       'probability': 0.99})
+                                       'probability': 1.0})
 
     def test_dame_genderize_get2to10(self):
         dg = DameGenderize()
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
             string1 = dg.get2to10(["peter", "lois", "stevie"])
-            self.assertEqual(string1, [{'count': 165452, 'gender': 'male',
-                                        'name': 'peter', 'probability': 0.99},
-                                       {'count': 2510, 'gender': 'female',
-                                        'name': 'lois', 'probability': 0.58},
-                                       {'count': 2568, 'gender': 'male',
+            self.assertEqual(string1, [{'count': 1094417, 'gender': 'male',
+                                        'name': 'peter', 'probability': 1.0},
+                                       {'count': 50141, 'gender': 'female',
+                                        'name': 'lois', 'probability': 0.98},
+                                       {'count': 2840, 'gender': 'male',
                                         'name': 'stevie',
-                                        'probability': 0.87}])
+                                        'probability': 0.86}])
             string2 = dg.get2to10(["peter", "lois", "stevie", "john",
                                    "paul", "mike", "mary", "anna"])
             self.assertEqual(string2, [{"name": "peter", "gender": "male",
-                                        "probability": 0.99, "count": 165452},
-                                       {"name": "lois", "gender": "female",
-                                        "probability": 0.58, "count": 2510},
-                                       {"name": "stevie", "gender": "male",
-                                        "probability": 0.87, "count": 2568},
+                                        "probability": 1.0, "count": 1094417},
+                                       {'count': 50141, 'gender': 'female',
+                                        'name': 'lois', 'probability': 0.98},
+                                       {'count': 2840, 'gender': 'male',
+                                        'name': 'stevie', 'probability': 0.86},
                                        {"name": "john", "gender": "male",
-                                        "probability": 0.99, "count": 218952},
+                                        "probability": 1.0, "count": 2274744},
                                        {"name": "paul", "gender": "male",
-                                        "probability": 0.99, "count": 148099},
+                                        "probability": 1.0, "count": 1200479},
                                        {"name": "mike", "gender": "male",
-                                        "probability": 0.99, "count": 109844},
+                                        "probability": 1.0, "count": 970635},
                                        {"name": "mary", "gender": "female",
-                                        "probability": 0.99, "count": 142684},
+                                        "probability": 1.0, "count": 1011867},
                                        {"name": "anna", "gender": "female",
-                                        "probability": 0.98, "count": 383713}])
+                                        "probability": 0.99, "count": 1149231}])
 
     def test_dame_genderize_guess(self):
         dg = DameGenderize()
@@ -80,7 +80,7 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_genderize_prob(self):
         dg = DameGenderize()
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
-            self.assertEqual(dg.prob("David"), 0.99)
+            self.assertEqual(dg.prob("David"), 1.0)
 
     def test_dame_genderize_guess_list(self):
         dg = DameGenderize()
