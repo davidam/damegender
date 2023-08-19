@@ -41,7 +41,8 @@ parser.add_argument('--csv', type=str, required=True,
 parser.add_argument('--name_position', type=int, required=False,
                     default=0, help='input file for names')
 parser.add_argument('--api', required=True,
-                    choices=['brazilapi', 'genderapi', 'genderize', 'namsor', 'nameapi'])
+                    choices=['brazilapi', 'genderapi',
+                             'genderize', 'namsor', 'nameapi'])
 parser.add_argument("--surnames", default=False,
                     action="store_true", help="Flag to surnames")
 parser.add_argument('--outjson', type=str, required=False,
