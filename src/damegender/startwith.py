@@ -41,7 +41,8 @@ parser.add_argument('--total', default="us",
                              'ie', 'ine', 'inter', 'is', 'no',
                              'nz', 'mx', 'pt', 'ru', 'ru_ru',
                              'ru_en', 'se', 'si', 'us', 'uy'])
-parser.add_argument('--gender', default="all", choices=['male', 'female', 'all'])
+parser.add_argument('--gender', default="all",
+                    choices=['male', 'female', 'all'])
 parser.add_argument('--version', action='version', version='0.4')
 args = parser.parse_args()
 
