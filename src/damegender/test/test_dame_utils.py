@@ -294,17 +294,17 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_string_contains_email(self):
         du = DameUtils()
-        s0 = "David Arroyo Menéndez <davidam@gnu.org>"        
+        s0 = "David Arroyo Menéndez <davidam@gnu.org>"
         self.assertTrue(du.string_contains_email(s0))
         s1 = "David"
         self.assertFalse(du.string_contains_email(s1))
         s2 = "davidam@gnu.org"
         self.assertTrue(du.string_contains_email(s2))
         s3 = "infinity0@freenetproject.org"
-        self.assertTrue(du.string_contains_email(s3))        
+        self.assertTrue(du.string_contains_email(s3))
         s4 = "david@davidam.name"
-        self.assertTrue(du.string_contains_email(s4))        
-        
+        self.assertTrue(du.string_contains_email(s4))
+
     def test_identity2name_email(self):
         du = DameUtils()
         s = "David Arroyo Menéndez <davidam@gnu.org>"
@@ -339,17 +339,17 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_email_string2username(self):
         du = DameUtils()
-        s0 = "davidam@gnu.org"        
+        s0 = "davidam@gnu.org"
         e0 = du.email_string2username(s0)
         self.assertEqual("davidam", e0)
         s1 = "<davidam@gnu.org>"
-        e1 = du.email_string2username(s1)        
+        e1 = du.email_string2username(s1)
         self.assertEqual("davidam", e1)
-        self.assertNotEqual("<davidam", e1)        
+        self.assertNotEqual("<davidam", e1)
         s2 = "David Arroyo Menéndez <davidam@gnu.org>"
-        e2 = du.email_string2username(s2)        
-        self.assertEqual("davidam", e2)        
-        
+        e2 = du.email_string2username(s2)
+        self.assertEqual("davidam", e2)
+
     def test_same_identity(self):
         du = DameUtils()
         s = du.same_identity("David Arroyo Menendez <davidam@gnu.org>",
@@ -370,10 +370,10 @@ class TddInPythonExample(unittest.TestCase):
         num = du.count_alfa("D ")
         self.assertEqual(num, 1)
         num = du.count_alfa("DA ")
-        self.assertEqual(num, 2)        
+        self.assertEqual(num, 2)
         num = du.count_alfa("J.M.")
-        self.assertEqual(num, 2)        
-        
+        self.assertEqual(num, 2)
+
     def test_initial_letters(self):
         du = DameUtils()
         s = du.initial_letters("D ")
@@ -526,8 +526,8 @@ class TddInPythonExample(unittest.TestCase):
         file4 = "files/names/min.commas.csv"
         self.assertTrue(du.eq_columns_in_csv(file4))
         file5 = "files/names/2017girlsnames-uk.csv"
-        self.assertTrue(du.eq_columns_in_csv(file5, quotechar=';'))        
-        
+        self.assertTrue(du.eq_columns_in_csv(file5, quotechar=';'))
+
 # def test_fill_dictionary_names_and_years_from_file(self):
 #     du = DameUtils()
 #     file1 = "files/names/names_ie/orig/vsa10.csv"
