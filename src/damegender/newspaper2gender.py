@@ -64,5 +64,5 @@ try:
         l1 = re.split(r'\W+', i)
         print(g.guess(l1[0], dataset=args.total))
         print("--------------------------------")
-except:
+except ValueError:
     print("Please, check the Internet connection")
