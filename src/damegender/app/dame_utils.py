@@ -846,5 +846,3 @@ class DameUtils():
                 except csv.Error as e:
                     return False
         return boolean
-
-
