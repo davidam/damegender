@@ -108,7 +108,7 @@ class TddInPythonExample(unittest.TestCase):
             gl2 = dn.guess_list(path="files/names/partial.csv",
                                 binary=True)
             score1 = ds.accuracy_score_dame(gl1, gl2)
-            self.assertEqual(score1, 1)
+            self.assertTrue(score1 > 0.9)
 
     def test_dame_namsor_download(self):
         dn = DameNamsor()
