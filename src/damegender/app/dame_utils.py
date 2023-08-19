@@ -32,6 +32,7 @@ import pdb
 import json
 from pprint import pprint
 
+
 class DameUtils():
 
     def dicc_dataset(self, sex):
@@ -110,7 +111,7 @@ class DameUtils():
                     "at": "files/names/names_at/atall.csv",
                     "au": "files/names/names_au/auall.csv",
                     "be": "files/names/names_be/beall.csv",
-                    "br": "files/names/names_br/brall.csv",                    
+                    "br": "files/names/names_br/brall.csv",
                     "ca": "files/names/names_ca/caall.csv",
                     "cl": "files/names/names_cl/clall.csv",
                     "cn": "files/names/names_cn/cnall.csv",
@@ -371,13 +372,14 @@ class DameUtils():
     def email_string2username(self, s):
         # given the string s returns the gender
         if self.string_contains_email(s):
-            r1 = re.match(r"([\w\.\+\-]+)\@([\w]+\.[a-z]{2,3})", "davidam@gnu.org")
+            r1 = re.match(r"([\w\.\+\-]+)\@([\w]+\.[a-z]{2,3})",
+                          "davidam@gnu.org")
             username = r1.group(1)
             hostname = r1.group(2)
         else:
             username = s
         return username
-    
+
     def identity2name_email(self, s):
         # given a string identify name and email in the string
         string1 = self.drop_accents(s)
@@ -428,7 +430,7 @@ class DameUtils():
             first_line = csvfile.readline()
             ncol = first_line.count(delimiter) + 1
         return ncol
-    
+
     def csvcolumn2list(self, csvpath,  *args, **kwargs):
         # make a list from a column in a csv file
         position = kwargs.get('position', 0)
@@ -448,7 +450,7 @@ class DameUtils():
 
     def eq_columns_in_csv(self, csvpath, *args, **kwargs):
         delimiter = kwargs.get('delimiter', ',')
-        quotechar = kwargs.get('quotechar', '|')        
+        quotechar = kwargs.get('quotechar', '|')
         # returns the number of columns in a csv file
         with open(csvpath, 'r') as csvfile:
             first_line = csvfile.readline()
@@ -466,7 +468,7 @@ class DameUtils():
                 if (boolean and (ncol == ncoli)):
                     boolean = True
         return boolean
-    
+
     def find_max_and_min_in_column(self, path, column_position,
                                    *args, **kwargs):
         # path must contain a column of integers and
@@ -574,7 +576,8 @@ class DameUtils():
         return 1
 
     def detect_duplicated(self, l1):
-        # given a list l1 returns a boolean as true if there are some element duplicated
+        # given a list l1 returns a boolean as true
+        # if there are some element duplicated
         if (len(l1) == 0):
             return []
         else:
@@ -680,7 +683,7 @@ class DameUtils():
             if char:
                 num = num + 1
         return num
-                
+
     def initial_letters(self, s):
         # returns true if the string seems initial from a full name
         # only considering initials with two letters
@@ -698,9 +701,9 @@ class DameUtils():
             if match:
                 bool0 = True
             else:
-                bool0 = False            
+                bool0 = False
         return bool0
-        
+
     def init_dicc_names_from_file(self, path, name_position):
         # first step processing orig files given a csv file
         # returns a dictionary with the names set in the file
@@ -774,7 +777,7 @@ class DameUtils():
         filter_pos = kwargs.get('filter_pos', 0)
         filter_char = kwargs.get('filter_char', '')
         quotechar = kwargs.get('quotechar', '"')
-        sum_bool = kwargs.get('sum_bool', True)        
+        sum_bool = kwargs.get('sum_bool', True)
         with open(inputpath) as csvfile:
             r = csv.reader(csvfile, delimiter=delimiter, quotechar=quotechar)
             for row in r:
@@ -843,3 +846,5 @@ class DameUtils():
                 except csv.Error as e:
                     return False
         return boolean
+
+
