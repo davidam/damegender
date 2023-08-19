@@ -33,20 +33,21 @@ import urllib.request
 import collections
 collections.Callable = collections.abc.Callable
 
+
 class TddInPythonExample(unittest.TestCase):
 
     def test_dame_brazilapi_get(self):
         dba = DameBrazilApi()
         try:
             v = dba.get("Ana")
-            v = dba.get("Jose")            
+            v = dba.get("Jose")
             self.assertTrue(v['females'] > 70000)
-            self.assertTrue(v['males'] < 11000)        
+            self.assertTrue(v['males'] < 11000)
             self.assertTrue(v['males'] > 70000)
-            self.assertTrue(v['females'] < 30000)        
-        except:
+            self.assertTrue(v['females'] < 30000)
+        except ValueError:
             self.assertTrue(True)
-        
+
     def test_dame_brazilapi_download(self):
         dba = DameBrazilApi()
         du = DameUtils()
@@ -56,9 +57,9 @@ class TddInPythonExample(unittest.TestCase):
             self.assertTrue(
                 os.path.isfile(
                     "files/names/brazilnames.json"))
-        except:
+        except ValueError:
             self.assertTrue(True)
-            
+
     def test_dame_brazilapi_download_csv(self):
         dba = DameBrazilApi()
         du = DameUtils()
@@ -68,5 +69,5 @@ class TddInPythonExample(unittest.TestCase):
             self.assertTrue(
                 os.path.isfile(
                     "files/names/brazilnames.csv"))
-        except:
+        except ValueError:
             self.assertTrue(True)
