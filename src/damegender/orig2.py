@@ -191,7 +191,7 @@ elif (country == "au"):
 
     fo = open(outpath + "aumales.csv", "w")
     for i in diccmales.keys():
-        if not(du.initial_letters(i)):        
+        if not(du.initial_letters(i)):
             fo.write(str(i) + "," + str(diccmales[i]) + "\n")
     fo.close()
 
@@ -271,17 +271,20 @@ elif (country == "be"):
 
 elif (country == "br"):
 
+    print("There are troubles downloading Brazil with a single download")
+    print("We need developers to split the file and to create threads and")
+    print("to donwload all names")
     # origfemales = origpath + "brfemales.csv"
     # origmales = origpath + "brmales.csv"
-    
-    if (args.download):
-        print("Downloading Brazil datasets ...")
-        dba = DameBrazilApi()
-        text1 = dba.download_csv(path="files/names/names_inter/interall.csv",
-                                 name_position=0,
-                                 backup_all="files/names/names_br/brall.csv",
-                                 backup_females="files/names/names_br/brfemales.csv",
-                                 backup_males="files/names/names_br/brmales.csv")
+
+    # if (args.download):
+    #     print("Downloading Brazil datasets ...")
+    #     dba = DameBrazilApi()
+    #     text1 = dba.download_csv(path="files/names/names_inter/interall.csv",
+    #                              name_position=0,
+    #                              backup_all="files/names/names_br/brall.csv",
+    #                              backup_females="files/names/names_br/brfemales.csv",
+    #                              backup_males="files/names/names_br/brmales.csv")
 
     #     subprocess.call(outpath + "download.sh", shell=True)
 
