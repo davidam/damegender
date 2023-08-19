@@ -69,7 +69,8 @@ class TddInPythonExample(unittest.TestCase):
                                        {"name": "mary", "gender": "female",
                                         "probability": 1.0, "count": 1011867},
                                        {"name": "anna", "gender": "female",
-                                        "probability": 0.99, "count": 1149231}])
+                                        "probability": 0.99,
+                                        "count": 1149231}])
 
     def test_dame_genderize_guess(self):
         dg = DameGenderize()
