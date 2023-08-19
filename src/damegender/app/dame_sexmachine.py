@@ -140,8 +140,8 @@ class DameSexmachine(Gender):
         return clf
 
     def adaboost_load(self):
-        # Uses the pickle library to read the file 
-        # 'files/datamodels/adaboost_model.sav' and 
+        # Uses the pickle library to read the file
+        # 'files/datamodels/adaboost_model.sav' and
         # returns the saved model as a clf object
         pkl_file = open('files/datamodels/adaboost_model.sav', 'rb')
         clf = pickle.load(pkl_file)
@@ -253,7 +253,7 @@ class DameSexmachine(Gender):
         return rf
 
     def forest_load(self):
-         # loads the model and returns it for further use
+        # loads the model and returns it for further use
         pkl_file = open('files/datamodels/forest_model.sav', 'rb')
         clf = pickle.load(pkl_file)
         pkl_file.close()
@@ -316,7 +316,7 @@ class DameSexmachine(Gender):
         # ``0 as not know'',``1 as male'', ``2 as female''
         # and ``9 as not applicable''
         dataset = kwargs.get('dataset', 'us')
-        guess = 2        
+        guess = 2
         guess = super().guess(name, binary, dataset, force_whitespaces=True)
         vector = self.features_int(name)
         if ((guess == 'unknown') | (guess == 2)):
@@ -404,4 +404,3 @@ class DameSexmachine(Gender):
 
         res = self.ds.confusion_matrix_table(truevector, guessvector)
         return res
-
