@@ -27,7 +27,7 @@
 # with an api system
 
 from app.dame_gender import Gender
-# from app.dame_namsor import DameNamsor
+from app.dame_namsor import DameNamsor
 from app.dame_genderize import DameGenderize
 from app.dame_genderapi import DameGenderApi
 # from app.dame_nameapi import DameNameapi
@@ -40,77 +40,101 @@ parser.add_argument('--csv', type=str, required=True,
                     default="files/names/min.csv", help='input file for names')
 parser.add_argument('--name_position', type=int, required=False,
                     default=0, help='input file for names')
+parser.add_argument('--surname_position', type=int, required=False,
+                    default=0, help='input file for names')
 parser.add_argument('--api', required=False, default='brazilapi',
-                    choices=['brazilapi', 'genderapi', 'genderize']) #, 'genderapi', 'genderize', 'namsor', 'nameapi'])
+                    choices=['brazilapi', 'genderapi', 'genderize'])
 parser.add_argument('--outcsv', type=str, required=False,
                     default="names.csv", help='output csv file for names')
 parser.add_argument('--outformat', type=str, required=False,
                     default="all", choices=['all', 'males', 'females'])
 args = parser.parse_args()
 
-#print("This command is under construction, brazilapi is the unique option in this moment")
+g = Gender()
 
 if (args.api == 'brazilapi'):
     dba = DameBrazilApi()
-    if (args.outformat=='all'):
+    if (args.outformat == 'all'):
         text2 = dba.download_csv(path=args.csv,
                                  name_position=args.name_position,
                                  backup_all=args.outcsv)
-    elif (args.outformat=='females'):
+    elif (args.outformat == 'females'):
         text2 = dba.download_csv(path=args.csv,
                                  name_position=args.name_position,
                                  backup_females=args.outcsv)
-    elif (args.outformat=='males'):
+    elif (args.outformat == 'males'):
         text2 = dba.download_csv(path=args.csv,
                                  name_position=args.name_position,
                                  backup_males=args.outcsv)
-        
+
 elif (args.api == 'genderapi'):
-    dga = DameGenderApi()
-    if (args.outformat=='all'):
-        text2 = dga.download_csv(path=args.csv,
-                                 name_position=args.name_position,
-                                 backup_all=args.outcsv)
-    elif (args.outformat=='females'):
-        text2 = dga.download_csv(path=args.csv,
-                                 name_position=args.name_position,
-                                 backup_females=args.outcsv)
-    elif (args.outformat=='males'):
-        text2 = dga.download_csv(path=args.csv,
-                                 name_position=args.name_position,
-                                 backup_males=args.outcsv)
-    
+    if (g.config['DEFAULT']['genderapi'] == 'yes'):
+        dga = DameGenderApi()
+        if (args.outformat == 'all'):
+            text2 = dga.download_csv(path=args.csv,
+                                     name_position=args.name_position,
+                                     backup_all=args.outcsv)
+        elif (args.outformat == 'females'):
+            text2 = dga.download_csv(path=args.csv,
+                                     name_position=args.name_position,
+                                     backup_females=args.outcsv)
+        elif (args.outformat == 'males'):
+            text2 = dga.download_csv(path=args.csv,
+                                     name_position=args.name_position,
+                                     backup_males=args.outcsv)
+    else:
+        print("You must to enable genderapi in
+              config.cfg and to add the api key in files/apikeys")
+
 elif (args.api == 'genderize'):
-    dg = DameGenderize()
-    if (args.outformat=='all'):
-        text2 = dg.download_csv(path=args.csv,
-                                name_position=args.name_position,
-                                outpath=args.outcsv,
-                                outformat="all",
-                                backup_format=args.outformat)
-    elif (args.outformat=='females'):
-        text2 = dg.download_csv(path=args.csv,
-                                name_position=args.name_position,
-                                outpath=args.outcsv,
-                                outformat="females",                                
-                                backup_format=args.outformat)
-    elif (args.outformat=='males'):
-        text2 = dg.download_csv(path=args.csv,
-                                name_position=args.name_position,
-                                outpath=args.outcsv,
-                                outformat="males",
-                                backup_format=args.outformat)
-    
+    if (g.config['DEFAULT']['genderize'] == 'yes'):
+        dg = DameGenderize()
+        if (args.outformat == 'all'):
+            text2 = dg.download_csv(path=args.csv,
+                                    name_position=args.name_position,
+                                    outpath=args.outcsv,
+                                    outformat="all",
+                                    backup_format=args.outformat)
+        elif (args.outformat == 'females'):
+            text2 = dg.download_csv(path=args.csv,
+                                    name_position=args.name_position,
+                                    outpath=args.outcsv,
+                                    outformat="females",
+                                    backup_format=args.outformat)
+        elif (args.outformat == 'males'):
+            text2 = dg.download_csv(path=args.csv,
+                                    name_position=args.name_position,
+                                    outpath=args.outcsv,
+                                    outformat="males",
+                                    backup_format=args.outformat)
+    else:
+        print("You must to enable genderize in config.cfg
+              and to add the api key in files/apikeys")
 # elif (args.api == 'namsor'):
-#     dn = DameNamsor()
-#     if (args.format=='all'):
-#         print("option all only implemented in brazilapi")
-#     elif (args.format=='females'):
-#         text2 = dn.download_csv(path=args.csv,
-#                                 name_position=args.name_position,
-#                                 backup_females=args.outcsv)
-#     elif (args.format=='males'):
-#         text2 = dn.download_csv(path=args.csv,
-#                                 name_position=args.name_position,
-#                                 backup_males=args.outcsv)
-    
+#     if (g.config['DEFAULT']['namsor'] == 'yes'):
+#         dn = DameNamsor()
+#         print("Surname position is required using namsor")
+#         if (args.outformat=='all'):
+#             text2 = dn.download_csv(path=args.csv,
+#                                     name_position=args.name_position,
+#                                     surname_position=args.surname_position,
+#                                     outpath=args.outcsv,
+#                                     outformat="all",
+#                                     backup_format=args.outformat)
+#         elif (args.outformat=='females'):
+#             text2 = dn.download_csv(path=args.csv,
+#                                     name_position=args.name_position,
+#                                     surname_position=args.surname_position,
+#                                     outpath=args.outcsv,
+#                                     outformat="females",
+#                                     backup_format=args.outformat)
+#         elif (args.outformat=='males'):
+#             text2 = dn.download_csv(path=args.csv,
+#                                     name_position=args.name_position,
+#                                     surname_position=args.surname_position,
+#                                     outpath=args.outcsv,
+#                                     outformat="males",
+#                                     backup_format=args.outformat)
+#     else:
+#         print("You must to enable namsor in config.cfg
+#               and to add the api key in files/apikeys")
