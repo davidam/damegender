@@ -37,6 +37,8 @@ parser.add_argument('--output', default="interfemales.csv")
 # --nosum express that the merge doesn't sum the frequencies
 # the value saved is in the file2
 parser.add_argument('--nosum', default=False, action="store_true")
+# --allupcases express that in the merge all strings in upcase
+parser.add_argument('--allupcases', default=False, action="store_true")
 # To add --malefemale generates countryall.csv
 # a csv file with names, frequencies and percentages
 parser.add_argument('--malefemale', default=False, action="store_true")
@@ -118,10 +120,10 @@ for i in ll:
     if i[0].upper() in dicc.keys():
         try:
             if (args.nosum):
-            # nosum saves only the value of the file2
+                # nosum saves only the value of the file2
                 dicc[i[0].upper()] = int(i[1])
             else:
-            # sum saves the value from two files
+                # sum saves the value from two files
                 dicc[i[0].upper()] = int(dicc[i[0].upper()]) + int(i[1])
         except IndexError:
             print("The program has troubles with the array indexes")
