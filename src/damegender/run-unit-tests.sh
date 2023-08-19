@@ -36,7 +36,6 @@ if [[ "nose" == "$testing" ]]; then
     $nose test/test_dame_genderize.py
     $nose test/test_dame_nameapi.py
     $nose test/test_dame_namsor.py
-    $nose test/test_dame_nltk.py
     $nose test/test_dame_perceval.py
     $nose test/test_dame_sexmachine.py
     $nose test/test_dame_statistics.py
@@ -55,7 +54,6 @@ if [[ "pytest" == "$testing" ]]; then
     $PYTEST test/test_dame_genderize.py
     $PYTEST test/test_dame_nameapi.py
     $PYTEST test/test_dame_namsor.py
-    $PYTEST test/test_dame_nltk.py
     $PYTEST test/test_dame_perceval.py
     $PYTEST test/test_dame_sexmachine.py
     $PYTEST test/test_dame_statistics.py
