@@ -425,18 +425,17 @@ class Gender(object):
 
     # def csv_names_check(self, filepath):
     #     match_initials = re.search(r'([A-Z]\.| ){1,2}', str)
-    #     match_empty = re.search(r'', str)        
-    #     with open(path) as csvfile:        
+    #     match_empty = re.search(r'', str)
+    #     with open(path) as csvfile:
     #         sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
     #         next(sexreader, None)
     #     filepath="gpl-3.0.txt"
     #     with open(filepath) as fp:
     #         for cnt, line in enumerate(fp):
     #             if (cnt <= 10):
-    #                 print("Line {}: {}".format(cnt, line)) # Imprime línea y número de línea
+    #                 print("Line {}: {}".format(cnt, line))
+    # Imprime línea y número de línea
 
-
-                
     def name2gender_in_dataset(self, name, dataset=''):
         # This function is used to determine the gender
         # of a noun in a specific data set.
@@ -860,7 +859,9 @@ class Gender(object):
         counter_position = 1
         if ((dataset == "ine") or (dataset == "es")):
             path = 'files/names/names_es/essurnames.csv'
-        elif ((dataset == "ru_en") or (dataset == "ru_ru") or (dataset == "ru")):
+        elif ((dataset == "ru_en") or
+              (dataset == "ru_ru") or
+              (dataset == "ru")):
             path = 'files/names/names_ru/rusurnames.csv'
         else:
             path = 'files/names/names_' + dataset + '/'
@@ -884,12 +885,14 @@ class Gender(object):
             surname = self.guess_surname(arr[i], dataset="inter")
             bool1 = surname[0]
             surname_frec_total = int(surname[1])
-            print(surname_frec_total)
             name_frec = self.name_frec(arr[i], dataset="inter")
-            name_frec_total = int(name_frec["males"]) + int(name_frec["females"])
-            print(name_frec_total)
+            n_males = int(name_frec["males"])
+            n_females = int(name_frec["females"])
+            name_frec_total = n_males + n_females
             sex = self.guess(arr[i], dataset="inter")
-            if (not(bool1) and ((sex == 'male') or (sex == 'female')) and (len(string) > 0)):
+            if (not(bool1)
+               and ((sex == 'male') or (sex == 'female'))
+               and (len(string) > 0)):
                 name = arr[i]
             elif (bool1 and (name_frec_total > surname_frec_total)):
                 name = arr[i]
@@ -898,7 +901,7 @@ class Gender(object):
 
     def guess_list(self, path='files/names/partial.csv',
                    binary=False, dataset='us', *args, **kwargs):
-        # returns a list of gender chars using the guess method 
+        # returns a list of gender chars using the guess method
         header = kwargs.get('header', True)
         slist = []
         with open(path) as csvfile:
