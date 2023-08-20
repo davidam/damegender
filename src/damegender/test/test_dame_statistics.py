@@ -26,7 +26,6 @@ from app.dame_gender import Gender
 from app.dame_statistics import DameStatistics
 
 import unittest
-import numpy as np
 import os
 import collections
 collections.Callable = collections.abc.Callable

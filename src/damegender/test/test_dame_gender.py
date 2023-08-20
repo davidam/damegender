@@ -24,7 +24,6 @@
 
 
 import unittest
-import numpy as np
 import os
 from app.dame_gender import Gender
 import collections

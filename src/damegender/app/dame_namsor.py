@@ -25,7 +25,6 @@
 import csv
 import requests
 import json
-import numpy as np
 
 from app.dame_utils import DameUtils
 from app.dame_gender import Gender

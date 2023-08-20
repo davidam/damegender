@@ -26,7 +26,6 @@
 import csv
 import requests
 import json
-import numpy as np
 import requests
 import configparser
 import os

@@ -23,7 +23,6 @@
 # Boston, MA 02110-1301 USA,
 
 import unittest
-import numpy as np
 import os
 from app.dame_ethnicity import DameEthnicity
 import collections
