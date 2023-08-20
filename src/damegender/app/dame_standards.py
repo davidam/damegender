@@ -27,6 +27,13 @@
 
 class DameGenderStandards():
 
+    def dicc_old_damegender(self):
+        # before the standards DameGender was using a coding system, too
+        dicc = {0: "female",
+                1: "male",
+                2: "unknow"}
+        return dicc
+    
     def dicc_isoiec5218(self):
         # https://www.iso.org/standard/81682.html
         dicc = {0: "not know",
