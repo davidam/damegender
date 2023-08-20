@@ -83,8 +83,8 @@ elif (args.api == 'genderapi'):
                                      name_position=args.name_position,
                                      backup_males=args.outcsv)
     else:
-        print("You must to enable genderapi in
-              config.cfg and to add the api key in files/apikeys")
+        print("You must to enable genderapi in")
+        print("config.cfg and to add the api key in files/apikeys")
 
 elif (args.api == 'genderize'):
     if (g.config['DEFAULT']['genderize'] == 'yes'):
@@ -108,8 +108,9 @@ elif (args.api == 'genderize'):
                                     outformat="males",
                                     backup_format=args.outformat)
     else:
-        print("You must to enable genderize in config.cfg
-              and to add the api key in files/apikeys")
+        print("You must to enable genderize in config.cfg")
+        print("and to add the api key in files/apikeys")
+
 # elif (args.api == 'namsor'):
 #     if (g.config['DEFAULT']['namsor'] == 'yes'):
 #         dn = DameNamsor()
