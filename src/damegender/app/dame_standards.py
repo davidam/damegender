@@ -22,10 +22,13 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
+# This file is about Gender Standards: coding about males, females, ...
+# there are other file about ethnicity standards: dame_ethnicity.py
 
 class DameGenderStandards():
 
     def dicc_isoiec5218(self):
+        # https://www.iso.org/standard/81682.html
         dicc = {0: "not know",
                 1: "male",
                 2: "female",
@@ -33,6 +36,7 @@ class DameGenderStandards():
         return dicc
 
     def dicc_rfc6350(self):
+        # https://datatracker.ietf.org/doc/html/rfc6350#section-6.2.7
         dicc = {"m": "male",
                 "f": "female",
                 "o": "other",
