@@ -77,9 +77,7 @@ elif (args.gender == "male"):
     str3 = "You must use damegender csv files "
     str3 = str3 + "such as files/names/names_be/bemales.csv"
     print(str3)
-# print(csvlist)
 
-#print(args.names_by_multiple_files)
 if (int(args.names_by_multiple_files) == 1):
     for i in csvlist:
         name = str(i[0].upper())
@@ -115,7 +113,7 @@ if (int(args.names_by_multiple_files) == 1):
                                   "nz", "mx", "pt", "ru", "se",
                                   "si", "us", "uy"]
                 iso3166_to_eng = de.dicc_iso3166_to_eng()
-                last = None
+                last = ""
                 for j in official_names:
                     dicc = g.name_frec(name, dataset=j)
                     boolfemales = (int(dicc["females"]) > 10)
@@ -123,7 +121,7 @@ if (int(args.names_by_multiple_files) == 1):
                     if (boolfemales or boolmales):
                         last = j
                 file.write('"males": ' + str(i[2]) + ' %,\n')
-                if (last == None):
+                if (last == ""):
                     file.write('"females": ' + str(i[3]) + ' %\n')
                 else:
                     file.write('"females": ' + str(i[3]) + ' %,\n')
@@ -135,11 +133,13 @@ if (int(args.names_by_multiple_files) == 1):
                             file.write('"'+str(k)+'": [\n')
                             file.write('{ \n')
                             freq = int(dicc["males"]) + int(dicc["females"])
-                            file.write('"frequency": ' + str(freq)  + ',\n')
-                            males_percentage = (int(dicc["males"]) / freq) * 100
-                            file.write('"males": ' + str(males_percentage) + ' % ,\n')
-                            females_percentage = (int(dicc["females"]) / freq) * 100                          
-                            file.write('"females": ' + str(females_percentage) + ' %\n')
+                            file.write('"frequency": ' + str(freq) + ',\n')
+                            m_percentage = (int(dicc["males"]) / freq) * 100
+                            str_m = '"males": ' + str(m_percentage) + ' % ,\n'
+                            file.write(str_m)
+                            f_percentage = (int(dicc["females"]) / freq) * 100
+                            str_f = '"females": ' + str(f_percentage) + ' %\n'
+                            file.write(str_f)
                             file.write('} \n')
                             if (k == last):
                                 file.write('] \n')
