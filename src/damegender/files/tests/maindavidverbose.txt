@@ -17,7 +17,7 @@
 Warning: China option only runs with China alphabet
 0 males for David from China statistics
 0 females for David from China statistics
-373 males for David from Deutchsland statistics
+289 males for David from Deutchsland statistics
 1 females for David from Deutchsland statistics
 8625 males for David from Denmark statistics
 0 females for David from Denmark statistics
@@ -30,6 +30,7 @@ Warning: China option only runs with China alphabet
 0 males for David from Italy statistics
 0 females for David from Italy statistics
 WARNING: Italy Open Dataset has few names,
+WARNING: only the most used names,
 WARNING: please, take care with this dataset
 2053 males for David from Finland statistics
 0 females for David from Finland statistics
