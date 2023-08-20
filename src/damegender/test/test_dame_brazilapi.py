@@ -26,10 +26,8 @@ import unittest
 import os
 import requests
 import json
-from pprint import pprint
 from app.dame_brazilapi import DameBrazilApi
 from app.dame_utils import DameUtils
-import urllib.request
 import collections
 collections.Callable = collections.abc.Callable
 
@@ -39,13 +37,13 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_brazilapi_get(self):
         dba = DameBrazilApi()
         try:
-            v = dba.get("Ana")
-            v = dba.get("Jose")
-            self.assertTrue(v['females'] > 70000)
-            self.assertTrue(v['males'] < 11000)
-            self.assertTrue(v['males'] > 70000)
-            self.assertTrue(v['females'] < 30000)
-        except ValueError:
+            v0 = dba.get("Ana")
+            v1 = dba.get("Jose")
+            self.assertTrue(v0['females'] > 70000)
+            self.assertTrue(v0['males'] < 11000)
+            self.assertTrue(v1['males'] > 70000)
+            self.assertTrue(v1['females'] < 30000)
+        except requests.exceptions.Timeout:
             self.assertTrue(True)
 
     def test_dame_brazilapi_download(self):
@@ -56,8 +54,8 @@ class TddInPythonExample(unittest.TestCase):
             g = dba.download(path1)
             self.assertTrue(
                 os.path.isfile(
-                    "files/names/brazilnames.json"))
-        except ValueError:
+                    "files/tmp/brazilnames.json"))
+        except requests.exceptions.Timeout:
             self.assertTrue(True)
 
     def test_dame_brazilapi_download_csv(self):
@@ -66,8 +64,11 @@ class TddInPythonExample(unittest.TestCase):
         path1 = "files/names/min.csv"
         try:
             g = dba.download_csv(path1)
+            text2 = dba.download_csv(path=path1,
+                                     name_position=0,
+                                     backup_all="files/tmp/brazilnames.csv")
             self.assertTrue(
                 os.path.isfile(
-                    "files/names/brazilnames.csv"))
-        except ValueError:
+                    "files/tmp/brazilnames.csv"))
+        except requests.exceptions.Timeout:
             self.assertTrue(True)
