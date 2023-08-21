@@ -27,7 +27,7 @@
 
 class DameGenderStandards():
 
-    def dicc_old_damegender(self):
+    def dicc_damegender(self):
         # before the standards DameGender was using a coding system, too
         dicc = {0: "female",
                 1: "male",
