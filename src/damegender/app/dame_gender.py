@@ -36,11 +36,12 @@ import datetime
 from collections import OrderedDict
 from app.dame_utils import DameUtils
 from app.dame_statistics import DameStatistics
+from app.dame_standards import DameGenderStandards
 
 csv.field_size_limit(3000000)
 du = DameUtils()
 dst = DameStatistics()
-
+dgs = DameGenderStandards()
 
 class Gender(object):
     # That's the root class in the heritage,
@@ -812,6 +813,7 @@ class Gender(object):
         # guess method to check names dictionary
         nonamerange = kwargs.get('nonamerange', 0)
         force_whitespaces = kwargs.get('force_whitespaces', False)
+        standard = kwargs.get('standard', 'damegender')
         guess = ''
         name = unidecode.unidecode(name).title()
         name.replace(name, "")
@@ -826,29 +828,50 @@ class Gender(object):
         if ((m > nonamerange) or (f > nonamerange)):
             if ((m == 0) and (f == 0)):
                 if binary:
-                    guess = 2
+                    guess_damegender = 2
+                    guess_isoiec5218 = 0
                 else:
-                    guess = "unknown"
+                    guess_damegender = "unknow"
+                    guess_isoiec5218 = "not know"
+                    guess_rfc6350 = "undefined"
             elif (m > f):
                 if binary:
-                    guess = 1
+                    guess_damegender = 1
+                    guess_isoiec5218 = 1                    
                 else:
-                    guess = "male"
+                    guess_damegender = "male"
+                    guess_isoiec5218 = "male"
+                    guess_rfc6350 = "male"
             elif (f > m):
                 if binary:
-                    guess = 0
+                    guess_damegender = 0
+                    guess_isoiec5218 = 2
                 else:
-                    guess = "female"
+                    guess_damegender = "female"
+                    guess_isoiec5128 = "female"
+                    guess_rfc6350 = "female"
             else:
                 if binary:
-                    guess = 2
+                    guess_damegender = 2
+                    guess_isoiec5218 = 9
                 else:
-                    guess = "unknown"
+                    guess_damegender = "unknown"
+                    gues_isoiec5218 = "not applicable"
+                    guess_rfc6350 = "not applicable"
         else:
             if binary:
-                guess = 2
+                guess_damegender = 2
+                guess_isoiec5128 = 0
             else:
-                guess = "unknown"
+                guess_damegender = "unknow"
+                guess_isoiec5218 = "not know"
+                guess_rfc6350 = "undefined"
+        if (standard == "isoiec5218"):
+            guess = guess_isoiec5218
+        elif (standard == "rfc6350"):
+            guess = guess_rfc6350
+        else:
+            guess = guess_damegender
         return guess
 
     def guess_surname(self, string, dataset):
