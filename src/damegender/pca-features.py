@@ -79,13 +79,13 @@ if (args.components > 0):
     # STEP1: N COMPONENTS + 1 TARGET
     x = pd.read_csv(features)
     y = du.csvcolumn2list(fileallnoundefined, position=4, header=True)
-    ybinary = []
+    ynumeric = []
     for i in y:
         if (i == '"m"'):
-            ybinary = ybinary + [1]
+            ynumeric = ynumeric + [1]
         else:
-            ybinary = ybinary + [0]
-    y = ybinary
+            ynumeric = ynumeric + [0]
+    y = ynumeric
     # STEP2: ADDING TARGET
     target = pd.DataFrame(data=y, columns=['target component'])
     finalDf = x.join(target)

@@ -67,9 +67,9 @@ if (len(sys.argv) > 1):
         vector = fullname.split()
         name = vector[0]
         if (args.ml == 'none'):
-            sm = g.guess(name, binary=True, dataset=args.language)
+            sm = g.guess(name, numeric=True, dataset=args.language)
         else:
-            sm = g.guess(name, binary=True, dataset=args.language, ml=args.ml)
+            sm = g.guess(name, numeric=True, dataset=args.language, ml=args.ml)
         if (sm == 0):
             females = females + 1
             list_females.append(fullname)

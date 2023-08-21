@@ -40,13 +40,13 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_nameapi_gender_guess_method_returns_correct_result(self):
         g = DameNameapi()
         if (g.config['DEFAULT']['nameapi'] == 'yes'):
-            self.assertEqual(1, g.guess("David", "Arroyo", binary=True))
-            self.assertEqual(0, g.guess("Andrea", "Arroyo", binary=True))
+            self.assertEqual(1, g.guess("David", "Arroyo", numeric=True))
+            self.assertEqual(0, g.guess("Andrea", "Arroyo", numeric=True))
 
     def test_dame_nameapi_gender_prob_method_returns_correct_result(self):
         g = DameNameapi()
         if (g.config['DEFAULT']['nameapi'] == 'yes'):
-            self.assertTrue(0.8 < g.confidence("David", "Arroyo", binary=True))
+            self.assertTrue(0.8 < g.confidence("David", "Arroyo", numeric=True))
 
     def test_dame_nameapi_csv2gender_list_method_returns_correct_result(self):
         g = DameNameapi()
@@ -69,7 +69,7 @@ class TddInPythonExample(unittest.TestCase):
         dna = DameNameapi()
         if (dna.config['DEFAULT']['nameapi'] == 'yes'):
             jsonf1 = 'files/names/nameapifiles_names_partial.csv.json'
-            l1 = dna.json2gender_list(jsonf1, binary=True)
+            l1 = dna.json2gender_list(jsonf1, numeric=True)
             self.assertEqual(l1, [1, 1, 1, 1, 1, 1, 0, 0, 1, 1,
                                   1, 1, 1, 1, 2, 1, 1, 1, 0, 1, 1])
 
@@ -99,9 +99,9 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_nameapi_json2gender_list(self):
         dn = DameNameapi()
         nameapipath = "files/names/nameapifiles_names_min.csv.json"
-        j2gl = dn.json2gender_list(jsonf=nameapipath, binary=False)
+        j2gl = dn.json2gender_list(jsonf=nameapipath, numeric=False)
         l1 = ['male', 'male', 'male', 'male', 'male', 'female']
         self.assertEqual(l1, j2gl)
-        j2gl = dn.json2gender_list(jsonf=nameapipath, binary=True)
+        j2gl = dn.json2gender_list(jsonf=nameapipath, numeric=True)
         l2 = [1, 1, 1, 1, 1, 0]
         self.assertEqual(l2, j2gl)

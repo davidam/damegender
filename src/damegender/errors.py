@@ -66,10 +66,10 @@ elif ((args.api == 'genderguesser') and (args.jsondownloaded)):
 
 if (args.api == "genderguesser"):
     dg = DameGenderGuesser()
-    gl2 = dg.guess_list(path=args.csv, binary=True)
+    gl2 = dg.guess_list(path=args.csv, numeric=True)
     print("Gender Guesser with %s has: " % args.csv)
 else:
-    gl2 = dsex.json2gender_list(jsonf=args.jsondownloaded, binary=True)
+    gl2 = dsex.json2gender_list(jsonf=args.jsondownloaded, numeric=True)
     print("Damegender with %s has: " % args.csv)
 
 gl1 = dsex.csv2gender_list(path=args.csv)

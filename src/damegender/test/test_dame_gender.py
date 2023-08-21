@@ -103,22 +103,22 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_guess(self):
         g = Gender()
-        r = g.guess(name="David", binary=True, dataset="ine")
+        r = g.guess(name="David", numeric=True, dataset="ine")
         self.assertEqual(r, 1)
-        r = g.guess(name="Andrea", binary=True)
+        r = g.guess(name="Andrea", numeric=True)
         self.assertEqual(r, 0)
-        r = g.guess(name="David", binary=False)
+        r = g.guess(name="David", numeric=False)
         self.assertEqual(r, "male")
-        r = g.guess(name="Laura", binary=True)
+        r = g.guess(name="Laura", numeric=True)
         self.assertEqual(r, 0)
-        r = g.guess(name="Laura", binary=False)
+        r = g.guess(name="Laura", numeric=False)
         self.assertEqual(r, "female")
-        r = g.guess(name="Andrea", binary=True)
+        r = g.guess(name="Andrea", numeric=True)
         self.assertEqual(r, 0)
-        r = g.guess(name="ANA-MARIA", binary=True,
+        r = g.guess(name="ANA-MARIA", numeric=True,
                     dataset="inter")
         self.assertEqual(r, 0)
-        r = g.guess(name="ANA-MARIA", binary=True,
+        r = g.guess(name="ANA-MARIA", numeric=True,
                     dataset="inter", force_whitespaces=True)
         self.assertEqual(r, 0)
 
@@ -168,7 +168,7 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_gender_json2gender_list(self):
         g = Gender()
         path = "files/names/partial.csv.json"
-        gl = g.json2gender_list(jsonf=path, binary=True)
+        gl = g.json2gender_list(jsonf=path, numeric=True)
         l1 = [1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
         self.assertEqual(gl, l1)
 
@@ -179,15 +179,15 @@ class TddInPythonExample(unittest.TestCase):
                           'male', 'male', 'male', 'male', 'male',
                           'male', 'male', 'male', 'female', 'male', 'male'],
                          g.guess_list(path="files/names/partial.csv",
-                                      binary=False))
+                                      numeric=False))
         self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1,
                           1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
                          g.guess_list(path="files/names/partial.csv",
-                                      binary=True))
+                                      numeric=True))
         self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1,
                           1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
                          g.guess_list(path="files/names/partial.csv",
-                                      binary=True, dataset='inter'))
+                                      numeric=True, dataset='inter'))
 
     def test_dame_gender_confusion_matrix_gender(self):
         g = Gender()

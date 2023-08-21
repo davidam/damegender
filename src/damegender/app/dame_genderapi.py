@@ -46,24 +46,24 @@ class DameGenderApi(Gender):
             v = [j['gender'], j['accuracy'], j['samples']]
         return v
 
-    def guess(self, name, binary=False):
+    def guess(self, name, numeric=False):
         # returns a gender from a name
         v = self.get(name)
         if (self.config['DEFAULT']['genderapi'] == 'yes'):
             guess = v[0]
             if (guess == 'male'):
-                if binary:
+                if numeric:
                     guess = 1
             elif (guess == 'female'):
-                if binary:
+                if numeric:
                     guess = 0
             else:
-                if binary:
+                if numeric:
                     guess = 2
                 else:
                     guess = 'unknown'
         else:
-            if binary:
+            if numeric:
                 guess = 2
             else:
                 guess = 'unknown'
@@ -150,13 +150,13 @@ class DameGenderApi(Gender):
         file_all.close()
         return 1
 
-    def json2gender_list(self, jsonf="", binary=False):
-        # transforms the json into a binary array of males and females
+    def json2gender_list(self, jsonf="", numeric=False):
+        # transforms the json into a numeric array of males and females
         jsondata = open(jsonf).read()
         json_object = json.loads(jsondata)
         guesslist = []
         for i in json_object["names"][0]:
-            if binary:
+            if numeric:
                 if (i["gender"] == 'female'):
                     guesslist.append(0)
                 elif (i["gender"] == 'male'):
@@ -180,7 +180,7 @@ class DameGenderApi(Gender):
                     nameslist.append(i["name"])
         return nameslist
 
-    def guess_list(self, path="files/names/partial.csv", binary=False):
+    def guess_list(self, path="files/names/partial.csv", numeric=False):
         # returns a list of males, females
         fichero = open("files/apikeys/genderapipass.txt", "r+")
         contenido = fichero.readline()
@@ -204,18 +204,18 @@ class DameGenderApi(Gender):
             slist = []
             for item in d['result']:
                 if (((item['gender'] is None) or
-                     (item['gender'] == 'unknown')) & binary):
+                     (item['gender'] == 'unknown')) & numeric):
                     slist.append(2)
                 elif (((item['gender'] is None) or
-                       (item['gender'] == 'unknown')) & (not binary)):
+                       (item['gender'] == 'unknown')) & (not numeric)):
                     slist.append("unknown")
-                elif ((item['gender'] == "male") & binary):
+                elif ((item['gender'] == "male") & numeric):
                     slist.append(1)
-                elif ((item['gender'] == "male") & (not binary)):
+                elif ((item['gender'] == "male") & (not numeric)):
                     slist.append("male")
-                elif ((item['gender'] == "female") & binary):
+                elif ((item['gender'] == "female") & numeric):
                     slist.append(0)
-                elif ((item['gender'] == "female") & (not binary)):
+                elif ((item['gender'] == "female") & (not numeric)):
                     slist.append("female")
             # print("string: " + string)
             # print("slist: " + str(slist))

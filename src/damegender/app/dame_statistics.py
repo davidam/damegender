@@ -47,7 +47,7 @@ class DameStatistics(object):
     def __init__(self):
         self.config = configparser.RawConfigParser()
         self.config.read('config.cfg')
-        self.binary = {0: "female", 1: "male"}
+        self.numeric = {0: "female", 1: "male"}
         self.isoiec5218 = {0: "not know",
                            1: "male",
                            2: "female",
@@ -213,30 +213,30 @@ class DameStatistics(object):
 
     def true_negative(self, testvector, guessvector, *args, **kwargs):
         # math expression in confusion matrix
-        dimension = kwargs.get('dimension', self.binary)
-        if (dimension == self.binary):
+        dimension = kwargs.get('dimension', self.numeric)
+        if (dimension == self.numeric):
             res = self.femalefemale(testvector, guessvector)
         return res
 
     def false_negative(self, testvector, guessvector, *args, **kwargs):
         # math expression in confusion matrix
-        dimension = kwargs.get('dimension', self.binary)
-        if (dimension == self.binary):
+        dimension = kwargs.get('dimension', self.numeric)
+        if (dimension == self.numeric):
             res = self.femalemale(testvector, guessvector)
         return res
 
     def false_positive(self, testvector, guessvector, *args, **kwargs):
         # math expression in confusion matrix
-        dimension = kwargs.get('dimension', self.binary)
-        if (dimension == self.binary):
+        dimension = kwargs.get('dimension', self.numeric)
+        if (dimension == self.numeric):
             res = self.malefemale(testvector, guessvector)
         return res
 
     def true_positive(self, testvector, guessvector, *args, **kwargs):
         # math expression in confusion matrix
         withundefined = {"female": 0, "male": 1, "undefined": 2}
-        dimension = kwargs.get('dimension', self.binary)
-        if (dimension == self.binary):
+        dimension = kwargs.get('dimension', self.numeric)
+        if (dimension == self.numeric):
             res = self.malemale(testvector, guessvector)
         return res
 

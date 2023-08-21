@@ -57,19 +57,19 @@ class TddInPythonExample(unittest.TestCase):
         s = DameSexmachine()
         self.assertEqual(s.guess("David"), 'male')
         self.assertEqual(s.guess("Laura"), 'female')
-        self.assertEqual(s.guess("David", binary=True), 1)
-        self.assertEqual(s.guess("Laura", binary=True), 0)
-#         self.assertEqual(s.guess("David", binary=True, ml="svc"), 1)
-#         self.assertEqual(s.guess("Laura", binary=True, ml="svc"), 0)
-        self.assertEqual(s.guess("Laura", binary=True, ml="sgd"), 0)
-        self.assertEqual(s.guess("David", binary=True, ml="gaussianNB"), 1)
-        self.assertEqual(s.guess("David", binary=True, ml="multinomialNB"), 1)
-        self.assertEqual(s.guess("David", binary=True, ml="bernoulliNB"), 1)
-#         self.assertEqual(s.guess("Palabra", binary=True, ml="svc"), 1)
+        self.assertEqual(s.guess("David", numeric=True), 1)
+        self.assertEqual(s.guess("Laura", numeric=True), 0)
+#         self.assertEqual(s.guess("David", numeric=True, ml="svc"), 1)
+#         self.assertEqual(s.guess("Laura", numeric=True, ml="svc"), 0)
+        self.assertEqual(s.guess("Laura", numeric=True, ml="sgd"), 0)
+        self.assertEqual(s.guess("David", numeric=True, ml="gaussianNB"), 1)
+        self.assertEqual(s.guess("David", numeric=True, ml="multinomialNB"), 1)
+        self.assertEqual(s.guess("David", numeric=True, ml="bernoulliNB"), 1)
+#         self.assertEqual(s.guess("Palabra", numeric=True, ml="svc"), 1)
 
         # self.assertEqual(s.guess("Nodiccionario", ml="nltk"), 'male')
         # self.assertEqual(s.guess("Nodiccionaria", ml="nltk"), 'female')
-#         self.assertEqual(s.guess("Nadiccionaria", binary=True), 0)
+#         self.assertEqual(s.guess("Nadiccionaria", numeric=True), 0)
 #         self.assertEqual(s.guess("Nadiccionaria"), 'female')
 #        With accents:
         self.assertEqual(s.guess("Inés"), 'female')
@@ -83,20 +83,20 @@ class TddInPythonExample(unittest.TestCase):
     #                       'male', 'male', 'male', 'male', 'male', 'male',
     #                       'male', 'female', 'male', 'male'],
     #                      ds.guess_list(path="files/names/partial.csv",
-    #                                    binary=False))
+    #                                    numeric=False))
     #     self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1,
     #                       1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
     #                      ds.guess_list(path="files/names/partial.csv",
-    #                                    binary=True))
+    #                                    numeric=True))
     #     self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1,
     #                       1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
     #                      ds.guess_list(path="files/names/partial.csv",
-    #                                    binary=True,
+    #                                    numeric=True,
     #                                    ml="nltk"))
     #     self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1,
     #                       1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
     #                      ds.guess_list(path="files/names/partial.csv",
-    #                                    binary=True,
+    #                                    numeric=True,
     #                                   ml="svc"))
 
     def test_sexmachine_features_int(self):
@@ -284,15 +284,15 @@ class TddInPythonExample(unittest.TestCase):
         ds = DameSexmachine()
         path1 = "files/names/namsorfiles_names_min.csv.json"
         path2 = "files/names/min.csv.json"
-        j2gl = ds.json2gender_list(jsonf=path1, binary=False)
+        j2gl = ds.json2gender_list(jsonf=path1, numeric=False)
         l1 = ['male', 'male', 'male', 'male', 'male', 'female']
         l2 = [1, 1, 1, 1, 1, 0]
         self.assertEqual(l1, j2gl)
-        j2gl = ds.json2gender_list(jsonf=path1, binary=True)
+        j2gl = ds.json2gender_list(jsonf=path1, numeric=True)
         self.assertEqual(l2, j2gl)
-        j2gl = ds.json2gender_list(jsonf=path2, binary=False)
+        j2gl = ds.json2gender_list(jsonf=path2, numeric=False)
         self.assertEqual(l1, j2gl)
-        j2gl = ds.json2gender_list(jsonf=path2, binary=True)
+        j2gl = ds.json2gender_list(jsonf=path2, numeric=True)
         self.assertEqual(l2, j2gl)
 
 

@@ -34,7 +34,7 @@ du = DameUtils()
 
 class DameNamsor(Gender):
 
-    def get(self, name, surname, binary=False):
+    def get(self, name, surname, numeric=False):
         # obtaining data from namsor returning a vector
         fichero = open("files/apikeys/namsorpass.txt", "r+")
         contenido = fichero.readline().rstrip()
@@ -48,7 +48,7 @@ class DameNamsor(Gender):
         v = [d['likelyGender'], d['genderScale']]
         return v
 
-    def getGeo(self, name, surname, locale, binary=False):
+    def getGeo(self, name, surname, locale, numeric=False):
         # obtaining data from namsor taking into account
         # geographical data
         fichero = open("files/apikeys/namsorpass.txt", "r+")
@@ -63,18 +63,18 @@ class DameNamsor(Gender):
         v = [d['likelyGender'], d['genderScale']]
         return v
 
-    def guess(self, name, surname, binary=False):
+    def guess(self, name, surname, numeric=False):
         # guess gender from name and surname
         # using get method
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
         # ``0 as not know'',``1 as male'', ``2 as female''
         # and ``9 as not applicable''
         v = self.get(name, surname)
-        if ((v[0] == 'female') and binary):
+        if ((v[0] == 'female') and numeric):
             guess = 0
-        elif ((v[0] == 'male') and binary):
+        elif ((v[0] == 'male') and numeric):
             guess = 1
-        elif ((v[0] == 'unknown') and binary):
+        elif ((v[0] == 'unknown') and numeric):
             guess = 2
         else:
             guess = v[0]
@@ -85,7 +85,7 @@ class DameNamsor(Gender):
         v = self.get(name, surname)
         return v[1]
 
-    def guess_list(self, path='files/partial.csv', binary=False):
+    def guess_list(self, path='files/partial.csv', numeric=False):
         # returns a guess list from a CSV file
         slist = []
         with open(path) as csvfile:
@@ -96,7 +96,7 @@ class DameNamsor(Gender):
                 name = name.replace('\"', '')
                 surname = row[2].title()
                 surname = surname.replace('\"', '')
-                slist.append(self.guess(name, surname, binary))
+                slist.append(self.guess(name, surname, numeric))
         return slist
 
     def download(self, path="files/names/min.csv"):
@@ -115,7 +115,7 @@ class DameNamsor(Gender):
             namsorjson.write('{"name":"' + str(names[i][0]) + '",\n')
             surname = names[i][1]
             namsorjson.write('"surname":"' + str(names[i][1]) + '",\n')
-            dnget = self.get(name=name, surname=surname, binary=True)
+            dnget = self.get(name=name, surname=surname, numeric=True)
             namsorjson.write('"gender":"' + str(dnget[0]) + '",\n')
             namsorjson.write('"scale":' + str(dnget[1]) + '\n')
             if ((length - 1) == i):

@@ -46,7 +46,7 @@ parser.add_argument('--dataset', default="us",
                              'dk', 'es', 'fi', 'fr', 'gb', 'ie',
                              'ine', 'is', 'nz', 'mx', 'pt', 'si',
                              'uy', 'us', 'inter'])
-parser.add_argument('--binary', default=False, action="store_true")
+parser.add_argument('--numeric', default=False, action="store_true")
 parser.add_argument('--notoutput', default=False, action="store_true")
 parser.add_argument('--jsonoutput', type=str,
                     default="files/names/out.json", required=False,
@@ -60,13 +60,13 @@ args = parser.parse_args()
 ds = DameSexmachine()
 if args.notoutput:
     gl = ds.csv2gender_list(path=args.csv)
-    sl = ds.guess_list(path=args.csv, binary=args.binary,
+    sl = ds.guess_list(path=args.csv, numeric=args.numeric,
                        ml=args.ml, dataset=args.dataset)
 else:
     print("################### Dame Gender!!")
     gl = ds.csv2gender_list(path=args.csv)
     print("Gender list: " + str(gl))
-    sl = ds.guess_list(path=args.csv, binary=args.binary,
+    sl = ds.guess_list(path=args.csv, numeric=args.numeric,
                        ml=args.ml, dataset=args.dataset)
     print("Guess list:  " + str(sl))
 

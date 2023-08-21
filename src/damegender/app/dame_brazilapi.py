@@ -117,18 +117,18 @@ class DameBrazilApi(Gender):
         file_males.close()        
         return 1
 
-    def guess(self, name, binary=False):
+    def guess(self, name, numeric=False):
         # returns a gender from a name
         v = self.get(name)
         guess = v['gender']
         if (guess == 'male'):
-            if binary:
+            if numeric:
                 guess = 1
         elif (guess == 'female'):
-            if binary:
+            if numeric:
                 guess = 0
         else:
-            if binary:
+            if numeric:
                 guess = 2
             else:
                 guess = 'unknown'
