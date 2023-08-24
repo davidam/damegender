@@ -49,8 +49,11 @@ parser.add_argument('--total', default="us",
                              'ru_en', 'se', 'si',
                              'uy', 'us', 'inter'])
 # More about iso codes on https://www.iso.org/obp/ui/
+parser.add_argument('--gender_standard', default=False,
+                    choices=['damegender', 'isoiec5218', 'rfc6350'])
 parser.add_argument('--version', action='version', version='0.1')
 parser.add_argument('--verbose', default=False, action="store_true")
+
 args = parser.parse_args()
 
 article = Article(args.url)
@@ -62,7 +65,7 @@ try:
         print("--------------------------------")
         print(i)
         l1 = re.split(r'\W+', i)
-        print(g.guess(l1[0], dataset=args.total))
+        print(g.guess(l1[0], dataset=args.total, standard=args.gender_standard))
         print("--------------------------------")
 except ValueError:
     print("Please, check the Internet connection")
