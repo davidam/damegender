@@ -829,6 +829,7 @@ class Gender(object):
                 if gender_encoded:
                     guess_damegender = 2
                     guess_isoiec5218 = 0
+                    guess_rfc6350 = "u"                    
                 else:
                     guess_damegender = "unknow"
                     guess_isoiec5218 = "not know"
@@ -836,7 +837,8 @@ class Gender(object):
             elif (m > f):
                 if gender_encoded:
                     guess_damegender = 1
-                    guess_isoiec5218 = 1                    
+                    guess_isoiec5218 = 1
+                    guess_rfc6350 = "m"
                 else:
                     guess_damegender = "male"
                     guess_isoiec5218 = "male"
@@ -845,6 +847,7 @@ class Gender(object):
                 if gender_encoded:
                     guess_damegender = 0
                     guess_isoiec5218 = 2
+                    guess_rfc6350 = "f"
                 else:
                     guess_damegender = "female"
                     guess_isoiec5218 = "female"
@@ -853,14 +856,16 @@ class Gender(object):
                 if gender_encoded:
                     guess_damegender = 2
                     guess_isoiec5218 = 9
+                    guess_rfc6350 = "u"
                 else:
                     guess_damegender = "unknown"
                     gues_isoiec5218 = "not applicable"
-                    guess_rfc6350 = "not applicable"
+                    guess_rfc6350 = "undefined"
         else:
             if gender_encoded:
                 guess_damegender = 2
                 guess_isoiec5128 = 0
+                guess_rfc6350 = "u"                
             else:
                 guess_damegender = "unknow"
                 guess_isoiec5218 = "not know"
