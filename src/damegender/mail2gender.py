@@ -74,7 +74,7 @@ if (len(sys.argv) > 1):
         vector = g.split()
         firstname = du.drop_quotes(vector[0])
 #        print(firstname)
-        sm = s.guess(firstname, numeric=True)
+        sm = s.guess(firstname, gender_encoded=True)
 #        print(sm)
         if (sm == 0):
             list_females.append(g)

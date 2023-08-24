@@ -81,9 +81,9 @@ but perhaps you are not finding good results"""
         vector2 = fullname.split()
         name = vector2[0]
         if (args.ml == 'none'):
-            sm = g.guess(name, numeric=True, dataset=args.country)
+            sm = g.guess(name, gender_encoded=True, dataset=args.country)
         else:
-            sm = g.guess(name, numeric=True, dataset=args.country, ml=args.ml)
+            sm = g.guess(name, gender_encoded=True, dataset=args.country, ml=args.ml)
         if (sm == 0):
             females = females + 1
             list_females.append(fullname)

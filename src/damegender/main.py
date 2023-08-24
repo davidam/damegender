@@ -391,7 +391,7 @@ elif ((args.verbose) or (args.total == "all")):
           % (n_females, args.name))
 
     guess = s.guess(
-        args.name, numeric=True, ml="nltk",
+        args.name, gender_encoded=True, ml="nltk",
         force_whitespaces=args.force_whitespaces)
     print("%s gender predicted with nltk is %s"
           % (str(args.name), du.int2gender(guess)))
@@ -417,34 +417,34 @@ else:
 
     if (args.ml):
         if (args.ml == "nltk"):
-            guess = s.guess(args.name, numeric=True, ml="nltk",
+            guess = s.guess(args.name, gender_encoded=True, ml="nltk",
                             force_whitespaces=args.force_whitespaces)
         if (args.ml == "sgd"):
-            guess = s.guess(args.name, numeric=True, ml="sgd",
+            guess = s.guess(args.name, gender_encoded=True, ml="sgd",
                             force_whitespaces=args.force_whitespaces)
         elif (args.ml == "svc"):
-            guess = s.guess(args.name, numeric=True, ml="svc",
+            guess = s.guess(args.name, gender_encoded=True, ml="svc",
                             force_whitespaces=args.force_whitespaces)
         elif (args.ml == "gaussianNB"):
-            guess = s.guess(args.name, numeric=True, ml="gaussianNB",
+            guess = s.guess(args.name, gender_encoded=True, ml="gaussianNB",
                             force_whitespaces=args.force_whitespaces)
         elif (args.ml == "multinomialNB"):
-            guess = s.guess(args.name, numeric=True, ml="multinomialNB",
+            guess = s.guess(args.name, gender_encoded=True, ml="multinomialNB",
                             force_whitespaces=args.force_whitespaces)
         elif (args.ml == "bernoulliNB"):
-            guess = s.guess(args.name, numeric=True, ml="bernoulliNB",
+            guess = s.guess(args.name, gender_encoded=True, ml="bernoulliNB",
                             force_whitespaces=args.force_whitespaces)
         elif (args.ml == "forest"):
-            guess = s.guess(args.name, numeric=True, ml="forest",
+            guess = s.guess(args.name, gender_encoded=True, ml="forest",
                             force_whitespaces=args.force_whitespaces)
         elif (args.ml == "xgboost"):
-            guess = s.guess(args.name, numeric=True, ml="xgboost",
+            guess = s.guess(args.name, gender_encoded=True, ml="xgboost",
                             force_whitespaces=args.force_whitespaces)
         elif (args.ml == "tree"):
-            guess = s.guess(args.name, numeric=True, ml="tree",
+            guess = s.guess(args.name, gender_encoded=True, ml="tree",
                             force_whitespaces=args.force_whitespaces)
         elif (args.ml == "mlp"):
-            guess = s.guess(args.name, numeric=True, ml="mlp",
+            guess = s.guess(args.name, gender_encoded=True, ml="mlp",
                             force_whitespaces=args.force_whitespaces)
         if (guess == 1):
             sex = "male"

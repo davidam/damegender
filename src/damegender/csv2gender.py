@@ -125,14 +125,14 @@ for i in csvrowlist:
         if (args.respect_accents):
             sex = s.guess(
                 first_name_string.decode('utf-8'),
-                numeric=False,
+                gender_encoded=False,
                 drop_accents=False,
                 force_whitespaces=args.force_whitespaces,
                 dataset=args.dataset)
         else:
             sex = s.guess(
                 first_name_string.decode('utf-8'),
-                numeric=False,
+                gender_encoded=False,
                 force_whitespaces=args.force_whitespaces,
                 dataset=args.dataset)
         if (sex == "male"):
