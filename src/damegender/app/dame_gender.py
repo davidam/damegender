@@ -814,7 +814,6 @@ class Gender(object):
         nonamerange = kwargs.get('nonamerange', 0)
         force_whitespaces = kwargs.get('force_whitespaces', False)
         standard = kwargs.get('standard', 'damegender')
-        guess = ''
         name = unidecode.unidecode(name).title()
         name.replace(name, "")
         dicc = self.name_frec(name,
@@ -848,7 +847,7 @@ class Gender(object):
                     guess_isoiec5218 = 2
                 else:
                     guess_damegender = "female"
-                    guess_isoiec5128 = "female"
+                    guess_isoiec5218 = "female"
                     guess_rfc6350 = "female"
             else:
                 if numeric:
