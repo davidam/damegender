@@ -126,8 +126,8 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(r, "male")
         r = g.guess(name="Laura", gender_encoded=True, standard="isoiec5218")
         self.assertEqual(r, 2)
-        # r = g.guess(name="Laura", gender_encoded=True, standard="rfc6350")
-        # self.assertEqual(r, 0)
+        r = g.guess(name="Laura", gender_encoded=True, standard="rfc6350")
+        self.assertEqual(r, "f")
         r = g.guess(name="Laura", gender_encoded=False, standard="isoiec5218")
         self.assertEqual(r, "female")
 
