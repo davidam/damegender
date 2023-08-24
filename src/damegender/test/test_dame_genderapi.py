@@ -46,11 +46,11 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_genderapi_guess(self):
         dga = DameGenderApi()
         if (dga.config['DEFAULT']['genderapi'] == 'yes'):
-            g = dga.guess("Sara", numeric=False)
+            g = dga.guess("Sara", gender_encoded=False)
             self.assertEqual(g, "female")
-            g = dga.guess("Paula", numeric=False)
+            g = dga.guess("Paula", gender_encoded=False)
             self.assertEqual(g, "female")
-            g = dga.guess("Sara", numeric=True)
+            g = dga.guess("Sara", gender_encoded=True)
             self.assertEqual(g, 0)
 
     def test_dame_genderapi_download(self):
@@ -75,11 +75,11 @@ class TddInPythonExample(unittest.TestCase):
             l1 = ['male', 'male', 'male', 'male', 'male', 'female']
             self.assertEqual(l1,
                              dga.guess_list(path="files/names/min.csv",
-                                            numeric=False))
+                                            gender_encoded=False))
             l2 = [1, 1, 1, 1, 1, 0]
             self.assertEqual(l2,
                              dga.guess_list(path="files/names/min.csv",
-                                            numeric=True))
+                                            gender_encoded=True))
 
     def test_dame_genderapi_confusion_matrix_gender(self):
         dga = DameGenderApi()
@@ -103,4 +103,4 @@ class TddInPythonExample(unittest.TestCase):
             jsonf = "files/names/genderapifiles_names_min.csv.json"
             self.assertEqual(l1, dga.json2gender_list(jsonf=jsonf))
             self.assertEqual(l2, dga.json2gender_list(jsonf=jsonf,
-                                                      numeric=True))
+                                                      gender_encoded=True))

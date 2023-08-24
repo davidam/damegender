@@ -164,23 +164,23 @@ class DameGenderGuesser(Gender):
         else:
             raise NoCountryError("No such country: %s" % country)
 
-    def guess(self, name, numeric=False):
+    def guess(self, name, gender_encoded=False):
         # guess method to check names dictionary
         genderguesserlist = []
 #        d = gender.Detector()
         get = self.get_gender(name)
-        if (((get == 'female') or (get == 'mostly_female')) and numeric):
+        if (((get == 'female') or (get == 'mostly_female')) and gender_encoded):
             guess = 0
-        elif (((get == 'male') or (get == 'mostly_male')) and numeric):
+        elif (((get == 'male') or (get == 'mostly_male')) and gender_encoded):
             guess = 1
-        elif (((get == 'unknown') or (get == 'andy')) and numeric):
+        elif (((get == 'unknown') or (get == 'andy')) and gender_encoded):
             guess = 2
         else:
             guess = get
         return guess
 
     def guess_list(self, path='files/names/partial.csv',
-                   numeric=False, *args, **kwargs):
+                   gender_encoded=False, *args, **kwargs):
         # guess list method
         header = kwargs.get('header', True)
         slist = []
@@ -191,7 +191,7 @@ class DameGenderGuesser(Gender):
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
-                slist.append(self.guess(name, numeric))
+                slist.append(self.guess(name, gender_encoded))
         return slist
 
     def exists_in_country(self, num, arr):

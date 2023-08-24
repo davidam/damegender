@@ -369,7 +369,7 @@ class Gender(object):
         # csv to json file
         surnames = kwargs.get('surnames', False)
         header = kwargs.get('header', True)
-        numeric = kwargs.get('numeric', False)
+        gender_encoded = kwargs.get('gender_encoded', False)
         # l1 is a list, such as, guess_list or gender_list
         l1 = kwargs.get('l1', [])
         jsonf = kwargs.get('jsonf', 'files/names/csv2json.json')
@@ -394,13 +394,13 @@ class Gender(object):
                 gender = row[4]
                 gender = du.drop_quotes(gender)
                 if ((gender == "m") or (gender == "male") or (gender == 1)):
-                    if numeric:
+                    if gender_encoded:
                         gender = 1
                     else:
                         gender = "male"
                 elif ((gender == "f") or (gender == "female") or
                       (gender == 0)):
-                    if numeric:
+                    if gender_encoded:
                         gender = 0
                     else:
                         gender = "female"
@@ -809,7 +809,7 @@ class Gender(object):
 
 # GUESS #
 
-    def guess(self, name, numeric=False, dataset='us', *args, **kwargs):
+    def guess(self, name, gender_encoded=False, dataset='us', *args, **kwargs):
         # guess method to check names dictionary
         nonamerange = kwargs.get('nonamerange', 0)
         force_whitespaces = kwargs.get('force_whitespaces', False)
@@ -826,7 +826,7 @@ class Gender(object):
         # name is a nick
         if ((m > nonamerange) or (f > nonamerange)):
             if ((m == 0) and (f == 0)):
-                if numeric:
+                if gender_encoded:
                     guess_damegender = 2
                     guess_isoiec5218 = 0
                 else:
@@ -834,7 +834,7 @@ class Gender(object):
                     guess_isoiec5218 = "not know"
                     guess_rfc6350 = "undefined"
             elif (m > f):
-                if numeric:
+                if gender_encoded:
                     guess_damegender = 1
                     guess_isoiec5218 = 1                    
                 else:
@@ -842,7 +842,7 @@ class Gender(object):
                     guess_isoiec5218 = "male"
                     guess_rfc6350 = "male"
             elif (f > m):
-                if numeric:
+                if gender_encoded:
                     guess_damegender = 0
                     guess_isoiec5218 = 2
                 else:
@@ -850,7 +850,7 @@ class Gender(object):
                     guess_isoiec5218 = "female"
                     guess_rfc6350 = "female"
             else:
-                if numeric:
+                if gender_encoded:
                     guess_damegender = 2
                     guess_isoiec5218 = 9
                 else:
@@ -858,7 +858,7 @@ class Gender(object):
                     gues_isoiec5218 = "not applicable"
                     guess_rfc6350 = "not applicable"
         else:
-            if numeric:
+            if gender_encoded:
                 guess_damegender = 2
                 guess_isoiec5128 = 0
             else:
@@ -922,9 +922,10 @@ class Gender(object):
         return self.guess(name)
 
     def guess_list(self, path='files/names/partial.csv',
-                   numeric=False, dataset='us', *args, **kwargs):
+                   gender_encoded=False, dataset='us', *args, **kwargs):
         # returns a list of gender chars using the guess method
         header = kwargs.get('header', True)
+        standard = kwargs.get('standard', 'damegender')        
         slist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -933,7 +934,7 @@ class Gender(object):
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
-                slist.append(self.guess(name, numeric, dataset))
+                slist.append(self.guess(name, gender_encoded, dataset, standard=standard))
         return slist
 
     def csv2gender_list(self, path, *args, **kwargs):
@@ -984,7 +985,7 @@ class Gender(object):
         # from a guessed file (guess list)
         # and a gender test file as base of truth (gender list)
         measure = kwargs.get('measure', 'accuracy')
-        numeric = kwargs.get('numeric', True)
+        gender_encoded = kwargs.get('gender_encoded', True)
         ml = kwargs.get('ml', 'nltk')
         api = kwargs.get('api', 'damegender')
         header = kwargs.get('header', True)
@@ -999,9 +1000,9 @@ class Gender(object):
         difflen = False
         if ((os.path.isfile(guessf)) and (os.path.isfile(testf))):
             if (du.is_json(guessf)):
-                gl = self.json2gender_list(jsonf=guessf, numeric=True)
+                gl = self.json2gender_list(jsonf=guessf, gender_encoded=True)
                 if (du.is_json(testf)):
-                    tl = self.json2gender_list(jsonf=testf, numeric=True)
+                    tl = self.json2gender_list(jsonf=testf, gender_encoded=True)
                     if (len(gl) == len(tl)):
                         print("########################## " + api + "!!")
                         print("Gender Guess (guess list): " + str(gl))
@@ -1029,13 +1030,13 @@ class Gender(object):
                                                                   csvf=testf)
 
             elif (du.is_csv(guessf)):
-                gl = self.csv2gender_list(path=guessf, numeric=True,
+                gl = self.csv2gender_list(path=guessf, gender_encoded=True,
                                           gender_column=gender_guess_row,
                                           gender_f_chars=guess_f_chars,
                                           gender_m_chars=guess_m_chars,
                                           delimiter=delimiter_guessf)
                 if (du.is_json(testf)):
-                    tl = self.json2gender_list(jsonf=testf, numeric=True)
+                    tl = self.json2gender_list(jsonf=testf, gender_encoded=True)
                     if (len(gl) == len(tl)):
                         print("########################## " + api + "!!")
                         print("Gender Guess (guess list): " + str(gl))
@@ -1103,7 +1104,7 @@ class Gender(object):
         else:
             print("In the path %s doesn't exist file" % jsonf)
 
-    def json2gender_list(self, jsonf="", numeric=False):
+    def json2gender_list(self, jsonf="", gender_encoded=False):
         # generating a list of 0, 1, 2 as females, males and unknows
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
         # ``0 as not know'',``1 as male'', ``2 as female''
@@ -1114,7 +1115,7 @@ class Gender(object):
 
         for i in json_object:
             g = i['gender']
-            if numeric:
+            if gender_encoded:
                 if ((g == 'female') or (g == 'f') or (g == 0)):
                     guesslist.append(0)
                 elif ((g == 'male') or (g == 'm') or (g == 1)):
@@ -1248,9 +1249,9 @@ class Gender(object):
         # we must rewrite it to allow machine learning algorithm
         truevector = self.csv2gender_list(path)
         if (os.path.isfile(jsonf)):
-            guessvector = self.json2gender_list(jsonf=jsonf, numeric=True)
+            guessvector = self.json2gender_list(jsonf=jsonf, gender_encoded=True)
         else:
-            guessvector = self.guess_list(path, numeric=True)
+            guessvector = self.guess_list(path, gender_encoded=True)
         res = dst.confusion_matrix_table(truevector, guessvector)
         return res
 

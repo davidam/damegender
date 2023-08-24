@@ -65,16 +65,16 @@ class DameGenderize(Gender):
             d = ""
         return d
 
-    def guess(self, name, numeric=False, *args, **kwargs):
+    def guess(self, name, gender_encoded=False, *args, **kwargs):
         # guess a name using the method get
-        # and taking numeric as argument
+        # and taking gender_encoded as argument
         # and country as optional argument
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
         # ``0 as not know'',``1 as male'', ``2 as female''
         # and ``9 as not applicable''
         country_id = kwargs.get('dataset', 'us')
         d = self.get(name, country_id)
-        if (numeric is True):
+        if (gender_encoded is True):
             if (d['gender'] == 'female'):
                 gender = 0
             elif (d['gender'] == 'male'):
@@ -164,7 +164,7 @@ class DameGenderize(Gender):
         backup.close()
         return res
 
-    def json2gender_list(self, jsonf="", numeric=False):
+    def json2gender_list(self, jsonf="", gender_encoded=False):
         # from a json file, it generates a list
         # of 0, 1, 2 as females, males and unknows
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
@@ -174,7 +174,7 @@ class DameGenderize(Gender):
         json_object = json.loads(jsondata)
         guesslist = []
         for i in json_object:
-            if numeric:
+            if gender_encoded:
                 if (i["gender"] == 'female'):
                     guesslist.append(0)
                 elif (i["gender"] == 'male'):
@@ -206,7 +206,7 @@ class DameGenderize(Gender):
             p = False
         return p
 
-    # def guess(self, name, numeric=False):
+    # def guess(self, name, gender_encoded=False):
     #     # guess method to check names dictionary
     #     if (self.config['DEFAULT']['genderize'] == 'no'):
     #         v = Genderize().get([name])
@@ -217,15 +217,15 @@ class DameGenderize(Gender):
     #             user_agent='GenderizeDocs/0.0',
     #             api_key=apikey).get([name])
     #     g = v[0]['gender']
-    #     if ((g == 'female') and numeric):
+    #     if ((g == 'female') and gender_encoded):
     #         guess = 0
-    #     elif ((g == 'male') and numeric):
+    #     elif ((g == 'male') and gender_encoded):
     #         guess = 1
-    #     elif (not(numeric)):
+    #     elif (not(gender_encoded)):
     #         guess = g
     #     return guess
 
-    # def prob(self, name, numeric=False):
+    # def prob(self, name, gender_encoded=False):
     #     # guess method to check names dictionary
     #     if (self.config['DEFAULT']['genderize'] == 'no'):
     #         v = Genderize().get([name])
@@ -238,7 +238,7 @@ class DameGenderize(Gender):
     #     prob = v[0]['probability']
     #     return prob
 
-    # def guess_list(self, path='files/names/partial.csv', numeric=False):
+    # def guess_list(self, path='files/names/partial.csv', gender_encoded=False):
     #     # guess list method
     #     slist = []
     #     with open(path) as csvfile:
@@ -263,16 +263,16 @@ class DameGenderize(Gender):
     #             jsonlist = Genderize(user_agent='GenderizeDocs/0.0',
     #                                  api_key=apikey).get(i)
     #         for item in jsonlist:
-    #             if ((item['gender'] is None) & numeric):
+    #             if ((item['gender'] is None) & gender_encoded):
     #                 slist.append(2)
-    #             elif ((item['gender'] is None) & (not numeric)):
+    #             elif ((item['gender'] is None) & (not gender_encoded)):
     #                 slist.append("unknown")
-    #             elif ((item['gender'] == "male") & numeric):
+    #             elif ((item['gender'] == "male") & gender_encoded):
     #                 slist.append(1)
-    #             elif ((item['gender'] == "male") & (not numeric)):
+    #             elif ((item['gender'] == "male") & (not gender_encoded)):
     #                 slist.append("male")
-    #             elif ((item['gender'] == "female") & numeric):
+    #             elif ((item['gender'] == "female") & gender_encoded):
     #                 slist.append(0)
-    #             elif ((item['gender'] == "female") & (not numeric)):
+    #             elif ((item['gender'] == "female") & (not gender_encoded)):
     #                 slist.append("female")
     #     return slist

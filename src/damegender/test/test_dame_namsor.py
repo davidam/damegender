@@ -44,17 +44,17 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_namsor_get(self):
         dn = DameNamsor()
         if (dn.config['DEFAULT']['namsor'] == 'yes'):
-            l1 = dn.get("David", "Arroyo", numeric=False)
+            l1 = dn.get("David", "Arroyo", gender_encoded=False)
             self.assertEqual(['male', -1.0], [l1[0], round(l1[1])])
-            l2 = dn.get("David", "Arroyo", numeric=True)
+            l2 = dn.get("David", "Arroyo", gender_encoded=True)
             self.assertEqual(['male', -1.0], [l2[0], round(l2[1])])
-            l3 = dn.get("Karen", "Arroyo", numeric=True)
+            l3 = dn.get("Karen", "Arroyo", gender_encoded=True)
             self.assertEqual(['female', 1.0], [l3[0], round(l3[1])])
 
     def test_dame_namsor_getGeo(self):
         dn = DameNamsor()
         if (dn.config['DEFAULT']['namsor'] == 'yes'):
-            l1 = dn.get("David", "Arroyo", numeric=False)
+            l1 = dn.get("David", "Arroyo", gender_encoded=False)
             self.assertEqual(['male', -1.0], [l1[0], round(l1[1])])
 
     def test_dame_namsor_scale(self):
@@ -65,9 +65,9 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_namsor_gender_guess(self):
         dn = DameNamsor()
         if (dn.config['DEFAULT']['namsor'] == 'yes'):
-            self.assertEqual(1, dn.guess("David", "Arroyo", numeric=True))
-            self.assertEqual(0, dn.guess("Andrea", "Arroyo", numeric=True))
-            self.assertEqual(1, dn.guess("Asdf", "qwer", numeric=True))
+            self.assertEqual(1, dn.guess("David", "Arroyo", gender_encoded=True))
+            self.assertEqual(0, dn.guess("Andrea", "Arroyo", gender_encoded=True))
+            self.assertEqual(1, dn.guess("Asdf", "qwer", gender_encoded=True))
 
     def test_dame_namsor_csv2gender_list(self):
         dn = DameNamsor()
@@ -93,12 +93,12 @@ class TddInPythonExample(unittest.TestCase):
                               'male', 'male', 'male', 'male', 'male', 'male',
                               'male', 'female', 'male', 'male'],
                              dn.guess_list(path="files/names/partial.csv",
-                                           numeric=False))
+                                           gender_encoded=False))
             self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0,
                               1, 1, 1, 1, 1, 1, 1, 1,
                               1, 1, 0, 1, 1],
                              dn.guess_list(path="files/names/partial.csv",
-                                           numeric=True))
+                                           gender_encoded=True))
 
     def test_dame_namsor_accuracy_score_dame(self):
         dn = DameNamsor()
@@ -106,7 +106,7 @@ class TddInPythonExample(unittest.TestCase):
         if (dn.config['DEFAULT']['namsor'] == 'yes'):
             gl1 = dn.csv2gender_list(path="files/names/partial.csv")
             gl2 = dn.guess_list(path="files/names/partial.csv",
-                                numeric=True)
+                                gender_encoded=True)
             score1 = ds.accuracy_score_dame(gl1, gl2)
             self.assertTrue(score1 > 0.9)
 
@@ -123,10 +123,10 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_namsor_json2gender_list(self):
         dn = DameNamsor()
         namsorpath = "files/names/namsorfiles_names_min.csv.json"
-        j2gl = dn.json2gender_list(jsonf=namsorpath, numeric=False)
+        j2gl = dn.json2gender_list(jsonf=namsorpath, gender_encoded=False)
         l1 = ['male', 'male', 'male', 'male', 'male', 'female']
         self.assertEqual(l1, j2gl)
-        j2gl = dn.json2gender_list(jsonf=namsorpath, numeric=True)
+        j2gl = dn.json2gender_list(jsonf=namsorpath, gender_encoded=True)
         l2 = [1, 1, 1, 1, 1, 0]
         self.assertEqual(l2, j2gl)
 

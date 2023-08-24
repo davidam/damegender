@@ -35,8 +35,8 @@ from app.dame_utils import DameUtils
 
 class DameNameapi(Gender):
 
-    def get(self, name, surname="", numeric=False):
-        # from name, surname and numeric arguments
+    def get(self, name, surname="", gender_encoded=False):
+        # from name, surname and gender_encoded arguments
         # calls an API request and returns
         # gender and probability
         nameapilist = []
@@ -89,7 +89,7 @@ class DameNameapi(Gender):
                 g = respd['matches'][0]['parsedPerson']['gender']['gender']
                 g = g.lower()
                 c = respd['matches'][0]['parsedPerson']['gender']['confidence']
-                if (numeric is True):
+                if (gender_encoded is True):
                     if (g == 'female'):
                         g = 0
                     elif (g == 'male'):
@@ -101,7 +101,7 @@ class DameNameapi(Gender):
             except requests.exceptions.RequestException as e:
                 print("Network error:", e)
         else:
-            if (numeric is True):
+            if (gender_encoded is True):
                 g = 2
             else:
                 g = "unknown"
@@ -121,7 +121,7 @@ class DameNameapi(Gender):
         i = 0
         while (i < length):
             nameapijson.write('{"name":"'+names[i][0]+'",\n')
-            g = self.get(names[i][0], names[i][1], numeric=True)
+            g = self.get(names[i][0], names[i][1], gender_encoded=True)
             nameapijson.write('"surname":"'+names[i][1]+'",\n')
             nameapijson.write('"gender":'+str(g[0])+',\n')
             nameapijson.write('"confidence":'+str(g[1])+'\n')
@@ -134,22 +134,22 @@ class DameNameapi(Gender):
         nameapijson.close()
         return 0
 
-    def guess(self, name, surname, numeric=False):
-        # guess a name using name, surname and numeric as arguments
+    def guess(self, name, surname, gender_encoded=False):
+        # guess a name using name, surname and gender_encoded as arguments
         # returning the gender
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
         # ``0 as not know'',``1 as male'', ``2 as female''
         # and ``9 as not applicable''
-        v = self.get(name, surname, numeric)
+        v = self.get(name, surname, gender_encoded)
         return v[0]
 
-    def confidence(self, name, surname, numeric=False):
-        # guess a name using name, surname and numeric as arguments
+    def confidence(self, name, surname, gender_encoded=False):
+        # guess a name using name, surname and gender_encoded as arguments
         # returning the confidence
-        v = self.get(name, surname, numeric)
+        v = self.get(name, surname, gender_encoded)
         return v[1]
 
-    def guess_list(self, path='files/names/partial.csv', numeric=False):
+    def guess_list(self, path='files/names/partial.csv', gender_encoded=False):
         # giving a csv file as input returns
         # a guess list as output
         slist = []
@@ -161,5 +161,5 @@ class DameNameapi(Gender):
                 name = name.replace('\"', '')
                 surname = row[2].title()
                 surname = surname.replace('\"', '')
-                slist.append(self.guess(name, surname, numeric))
+                slist.append(self.guess(name, surname, gender_encoded))
         return slist

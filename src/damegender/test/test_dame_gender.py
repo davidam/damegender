@@ -103,32 +103,32 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_dame_gender_guess(self):
         g = Gender()
-        r = g.guess(name="David", numeric=True, dataset="ine")
+        r = g.guess(name="David", gender_encoded=True, dataset="ine")
         self.assertEqual(r, 1)
-        r = g.guess(name="Andrea", numeric=True)
+        r = g.guess(name="Andrea", gender_encoded=True)
         self.assertEqual(r, 0)
-        r = g.guess(name="David", numeric=False)
+        r = g.guess(name="David", gender_encoded=False)
         self.assertEqual(r, "male")
-        r = g.guess(name="Laura", numeric=True)
+        r = g.guess(name="Laura", gender_encoded=True)
         self.assertEqual(r, 0)
-        r = g.guess(name="Laura", numeric=False)
+        r = g.guess(name="Laura", gender_encoded=False)
         self.assertEqual(r, "female")
-        r = g.guess(name="Andrea", numeric=True)
+        r = g.guess(name="Andrea", gender_encoded=True)
         self.assertEqual(r, 0)
-        r = g.guess(name="ANA-MARIA", numeric=True,
+        r = g.guess(name="ANA-MARIA", gender_encoded=True,
                     dataset="inter")
         self.assertEqual(r, 0)
-        r = g.guess(name="ANA-MARIA", numeric=True,
+        r = g.guess(name="ANA-MARIA", gender_encoded=True,
                     dataset="inter", force_whitespaces=True)
         self.assertEqual(r, 0)
         # standards
-        r = g.guess(name="David", numeric=False, standard="rfc6350")
+        r = g.guess(name="David", gender_encoded=False, standard="rfc6350")
         self.assertEqual(r, "male")
-        r = g.guess(name="Laura", numeric=True, standard="isoiec5218")
+        r = g.guess(name="Laura", gender_encoded=True, standard="isoiec5218")
         self.assertEqual(r, 2)
-        # r = g.guess(name="Laura", numeric=True, standard="rfc6350")
+        # r = g.guess(name="Laura", gender_encoded=True, standard="rfc6350")
         # self.assertEqual(r, 0)
-        r = g.guess(name="Laura", numeric=False, standard="isoiec5218")
+        r = g.guess(name="Laura", gender_encoded=False, standard="isoiec5218")
         self.assertEqual(r, "female")
 
 
@@ -180,7 +180,7 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_gender_json2gender_list(self):
         g = Gender()
         path = "files/names/partial.csv.json"
-        gl = g.json2gender_list(jsonf=path, numeric=True)
+        gl = g.json2gender_list(jsonf=path, gender_encoded=True)
         l1 = [1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
         self.assertEqual(gl, l1)
 
@@ -191,16 +191,22 @@ class TddInPythonExample(unittest.TestCase):
                           'male', 'male', 'male', 'male', 'male',
                           'male', 'male', 'male', 'female', 'male', 'male'],
                          g.guess_list(path="files/names/partial.csv",
-                                      numeric=False))
+                                      gender_encoded=False))
         self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1,
                           1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
                          g.guess_list(path="files/names/partial.csv",
-                                      numeric=True))
+                                      gender_encoded=True))
         self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1,
                           1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1],
                          g.guess_list(path="files/names/partial.csv",
-                                      numeric=True, dataset='inter'))
+                                      gender_encoded=True, dataset='inter'))
+        self.assertEqual([1, 1, 1, 1, 1, 1, 2, 2, 1, 1,
+                          1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1],
+                         g.guess_list(path="files/names/partial.csv",
+                                      gender_encoded=True, standard="isoiec5218",
+                                      dataset='inter'))
 
+        
     def test_dame_gender_confusion_matrix_gender(self):
         g = Gender()
         cm = g.confusion_matrix_gender(path="files/names/min.csv")

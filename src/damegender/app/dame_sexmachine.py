@@ -310,14 +310,15 @@ class DameSexmachine(Gender):
     #     pkl_file.close()
     #     return clf
 
-    def guess(self, name, numeric=False, ml="nltk", *args, **kwargs):
+    def guess(self, name, gender_encoded=False, ml="nltk", *args, **kwargs):
         # guess method to check names dictionary and nltk classifier
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
         # ``0 as not know'',``1 as male'', ``2 as female''
         # and ``9 as not applicable''
         dataset = kwargs.get('dataset', 'us')
+        standard = kwargs.get('dataset', 'standard')
         guess = 2
-        guess = super().guess(name, numeric, dataset, force_whitespaces=True)
+        guess = super().guess(name, gender_encoded, dataset, force_whitespaces=True)
         vector = self.features_int(name)
         if ((guess == 'unknown') | (guess == 2)):
             classifier = self.classifier()
@@ -361,7 +362,7 @@ class DameSexmachine(Gender):
                 predicted = m.predict([vector])
                 guess = predicted[0]
 
-            if numeric:
+            if gender_encoded:
                 if (guess == 'female'):
                     guess = 0
                 elif (guess == 'male'):
@@ -378,9 +379,10 @@ class DameSexmachine(Gender):
         return guess
 
     def guess_list(self, path='files/names/partial.csv',
-                   numeric=False, ml="nltk", *args, **kwargs):
+                   gender_encoded=False, ml="nltk", *args, **kwargs):
         # guess list method
         dataset = kwargs.get('dataset', 'us')
+        standard = kwargs.get('standard', 'damegender')        
         slist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -388,7 +390,7 @@ class DameSexmachine(Gender):
             for row in sexreader:
                 name = row[0].title()
                 name = name.replace('\"', '')
-                slist.append(self.guess(name, numeric, ml=ml, dataset=dataset))
+                slist.append(self.guess(name, gender_encoded, standard=standard, ml=ml, dataset=dataset))
         return slist
 
     def confusion_matrix_gender(self, path='', jsonf='', ml='nltk'):
@@ -396,10 +398,10 @@ class DameSexmachine(Gender):
         # introduce a json file in dame_sexmachine
         truevector = self.csv2gender_list(path)
         if (os.path.isfile(jsonf)):
-            guessvector = self.json2gender_list(jsonf=jsonf, numeric=True)
+            guessvector = self.json2gender_list(jsonf=jsonf, gender_encoded=True)
         else:
             guessvector = self.guess_list(path,
-                                          numeric=True,
+                                          gender_encoded=True,
                                           ml=ml)
 
         res = self.ds.confusion_matrix_table(truevector, guessvector)
