@@ -205,6 +205,11 @@ class TddInPythonExample(unittest.TestCase):
                          g.guess_list(path="files/names/partial.csv",
                                       gender_encoded=True, standard="isoiec5218",
                                       dataset='inter'))
+        self.assertEqual(["m", "m", "m", "m", "m", "m", "f", "f", "m", "m",
+                          "m", "m", "m", "m", "m", "m", "m", "m", "f", "m", "m"],
+                         g.guess_list(path="files/names/partial.csv",
+                                      gender_encoded=True, standard="rfc6350",
+                                      dataset='inter'))
 
         
     def test_dame_gender_confusion_matrix_gender(self):
