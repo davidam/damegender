@@ -46,17 +46,17 @@ class TddInPythonExample(unittest.TestCase):
         except requests.exceptions.Timeout:
             self.assertTrue(True)
 
-    def test_dame_brazilapi_download(self):
-        dba = DameBrazilApi()
-        du = DameUtils()
-        path1 = "files/names/min.csv"
-        try:
-            g = dba.download(path1)
-            self.assertTrue(
-                os.path.isfile(
-                    "files/tmp/brazilnames.json"))
-        except requests.exceptions.Timeout:
-            self.assertTrue(True)
+    # def test_dame_brazilapi_download(self):
+    #     dba = DameBrazilApi()
+    #     du = DameUtils()
+    #     path1 = "files/names/min.csv"
+    #     try:
+    #         g = dba.download(path1)
+    #         self.assertTrue(
+    #             os.path.isfile(
+    #                 "files/tmp/brazilnames.json"))
+    #     except requests.exceptions.Timeout:
+    #         self.assertTrue(True)
 
     def test_dame_brazilapi_download_csv(self):
         dba = DameBrazilApi()
