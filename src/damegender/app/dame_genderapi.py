@@ -46,27 +46,49 @@ class DameGenderApi(Gender):
             v = [j['gender'], j['accuracy'], j['samples']]
         return v
 
-    def guess(self, name, gender_encoded=False):
+    def guess(self, name, gender_encoded=False, *args, **kwargs):
         # returns a gender from a name
+        standard = kwargs.get('standard', 'damegender')
         v = self.get(name)
         if (self.config['DEFAULT']['genderapi'] == 'yes'):
             guess = v[0]
             if (guess == 'male'):
                 if gender_encoded:
-                    guess = 1
+                    guess_damegender = 1
+                    guess_isoiec5218 = 1
+                    guess_rfc6350 = "m"
+                else:
+                    guess_damegender = "male"
+                    guess_isoiec5218 = "male"
+                    guess_rfc6350 = "male"                    
             elif (guess == 'female'):
                 if gender_encoded:
-                    guess = 0
+                    guess_damegender = 0
+                    guess_isoiec5218 = 2
+                    guess_rfc6350 = "f"
+                else:
+                    guess_damegender = "female"
+                    guess_isoiec5218 = "female"
+                    guess_rfc6350 = "female"
+
             else:
                 if gender_encoded:
-                    guess = 2
+                    guess_damegender = 2
+                    guess_isoiec5218 = 9
+                    guess_rfc6350 = "u"
                 else:
-                    guess = 'unknown'
+                    guess_damegender = "unknow"
+                    guess_isoiec5218 = "not know"
+                    guess_rfc6350 = "undefined"
         else:
             if gender_encoded:
-                guess = 2
+                guess_damegender = 2
+                guess_isoiec5218 = 9
+                guess_rfc6350 = "u"
             else:
-                guess = 'unknown'
+                guess_damegender = "unknow"
+                guess_isoiec5218 = "not know"
+                guess_rfc6350 = "undefined"
         return guess
 
     def accuracy(self, name):
