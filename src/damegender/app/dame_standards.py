@@ -28,7 +28,10 @@
 class DameGenderStandards():
 
     def dicc_damegender(self):
-        # before the standards DameGender was using a coding system, too
+        # Before the standards DameGender was using a coding system, too
+        # Sex has to do with people's genitals, men's penis looks like
+        # a one in numbers and the vagina, women's hole could be painted
+        # with a zero in numbers
         dicc = {0: "female",
                 1: "male",
                 2: "unknow"}
