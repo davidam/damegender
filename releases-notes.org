@@ -1,3 +1,13 @@
+* v0.5.5
+The standards has been implemented:
++ [X] RFC6350
++ [X] ISOIEC5218
++ [X] DameGender (a standard de facto)
+
+More about the standards:
++ https://www.iso.org/standard/81682.html
++ https://en.wikipedia.org/wiki/ISO/IEC_5218
++ https://datatracker.ietf.org/doc/html/rfc6350#section-6.2.7
 
 * v0.5.4
 News in commands: 
