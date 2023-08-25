@@ -89,6 +89,12 @@ class DameGenderApi(Gender):
                 guess_damegender = "unknow"
                 guess_isoiec5218 = "not know"
                 guess_rfc6350 = "undefined"
+        if (standard == "damegender"):
+            guess = guess_damegender
+        elif (standard == "rfc6350"):
+            guess = guess_rfc6350
+        elif (standard == "isoiec5218"):
+            guess = guess_isoiec5218
         return guess
 
     def accuracy(self, name):
@@ -202,8 +208,9 @@ class DameGenderApi(Gender):
                     nameslist.append(i["name"])
         return nameslist
 
-    def guess_list(self, path="files/names/partial.csv", gender_encoded=False):
+    def guess_list(self, path="files/names/partial.csv", gender_encoded=False, *args, **kwargs):
         # returns a list of males, females
+        standard = kwargs.get('standard', 'damegender')
         fichero = open("files/apikeys/genderapipass.txt", "r+")
         contenido = fichero.readline()
         string = ""
@@ -227,18 +234,38 @@ class DameGenderApi(Gender):
             for item in d['result']:
                 if (((item['gender'] is None) or
                      (item['gender'] == 'unknown')) & gender_encoded):
-                    slist.append(2)
+                    if (standard == "damegender"):
+                        slist.append(2)
+                    elif (standard == "isoiec5218"):
+                        slist.append(0)
+                    elif (standard == "rfc6350"):
+                        slist.append("u")
                 elif (((item['gender'] is None) or
-                       (item['gender'] == 'unknown')) & (not gender_encoded)):
-                    slist.append("unknown")
+                       (item['gender'] == 'unknown')) & (not(gender_encoded))):
+                    if (standard == "damegender"):
+                        slist.append("unknown")
+                    elif (standard == "isoiec5218"):
+                        slist.append("not know")
+                    elif (standard == "rfc6350"):
+                        slist.append("undefined")
                 elif ((item['gender'] == "male") & gender_encoded):
-                    slist.append(1)
-                elif ((item['gender'] == "male") & (not gender_encoded)):
+                    if (standard == "damegender"):
+                        slist.append(1)
+                    elif (standard == "isoiec5218"):
+                        slist.append(1)
+                    elif (standard == "rfc6350"):
+                        slist.append("m")
+                elif ((item['gender'] == "male") & (not(gender_encoded))):
                     slist.append("male")
                 elif ((item['gender'] == "female") & gender_encoded):
-                    slist.append(0)
-                elif ((item['gender'] == "female") & (not gender_encoded)):
-                    slist.append("female")
+                    if (standard == "damegender"):
+                        slist.append(0)
+                    elif (standard == "isoiec5218"):
+                        slist.append(2)
+                    elif (standard == "rfc6350"):
+                        slist.append("f")
+                elif ((item['gender'] == "female") & (not(gender_encoded))):
+                    slist.append("female")                    
             # print("string: " + string)
             # print("slist: " + str(slist))
             # print("slist len:" + str(len(slist)))

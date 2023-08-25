@@ -59,7 +59,7 @@ class TddInPythonExample(unittest.TestCase):
             g = dga.guess("Paula", gender_encoded=False, standard="isoiec5218")
             self.assertEqual(g, "female")
             g = dga.guess("Sara", gender_encoded=True, standard="isoiec5218")
-            self.assertEqual(g, 0)
+            self.assertEqual(g, 2)
 
     def test_dame_genderapi_download(self):
         dga = DameGenderApi()
@@ -87,6 +87,11 @@ class TddInPythonExample(unittest.TestCase):
             l2 = [1, 1, 1, 1, 1, 0]
             self.assertEqual(l2,
                              dga.guess_list(path="files/names/min.csv",
+                                            gender_encoded=True))
+            l3 = ["m", "m", "m", "m", "m", "f"]
+            self.assertEqual(l3,
+                             dga.guess_list(path="files/names/min.csv",
+                                            standard="rfc6350",
                                             gender_encoded=True))
 
     def test_dame_genderapi_confusion_matrix_gender(self):
