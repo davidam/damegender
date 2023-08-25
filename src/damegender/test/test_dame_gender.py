@@ -131,9 +131,6 @@ class TddInPythonExample(unittest.TestCase):
         r = g.guess(name="Laura", gender_encoded=False, standard="isoiec5218")
         self.assertEqual(r, "female")
 
-
-
-        
     def test_dame_gender_guess_surname(self):
         g = Gender()
         self.assertEqual(g.guess_surname("Smith", "us"), [True, 2376206])
@@ -203,15 +200,17 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual([1, 1, 1, 1, 1, 1, 2, 2, 1, 1,
                           1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1],
                          g.guess_list(path="files/names/partial.csv",
-                                      gender_encoded=True, standard="isoiec5218",
+                                      gender_encoded=True,
+                                      standard="isoiec5218",
                                       dataset='inter'))
-        self.assertEqual(["m", "m", "m", "m", "m", "m", "f", "f", "m", "m",
-                          "m", "m", "m", "m", "m", "m", "m", "m", "f", "m", "m"],
+        self.assertEqual(["m", "m", "m", "m", "m",
+                          "m", "f", "f", "m", "m",
+                          "m", "m", "m", "m", "m",
+                          "m", "m", "m", "f", "m", "m"],
                          g.guess_list(path="files/names/partial.csv",
                                       gender_encoded=True, standard="rfc6350",
                                       dataset='inter'))
 
-        
     def test_dame_gender_confusion_matrix_gender(self):
         g = Gender()
         cm = g.confusion_matrix_gender(path="files/names/min.csv")
