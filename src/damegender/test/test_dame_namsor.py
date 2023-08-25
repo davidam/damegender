@@ -68,6 +68,14 @@ class TddInPythonExample(unittest.TestCase):
             self.assertEqual(1, dn.guess("David", "Arroyo", gender_encoded=True))
             self.assertEqual(0, dn.guess("Andrea", "Arroyo", gender_encoded=True))
             self.assertEqual(1, dn.guess("Asdf", "qwer", gender_encoded=True))
+            # isoiec5218
+            self.assertEqual("male", dn.guess("David", "Arroyo", gender_encoded=False, standard="isoiec5218"))
+            self.assertEqual(2, dn.guess("Andrea", "Arroyo", gender_encoded=True, standard="isoiec5218"))
+            self.assertEqual(1, dn.guess("Asdf", "qwer", gender_encoded=True, standard="isoiec5218"))
+            # rfc6350
+            self.assertEqual("m", dn.guess("David", "Arroyo", gender_encoded=True, standard="rfc6350"))
+            self.assertEqual("f", dn.guess("Andrea", "Arroyo", gender_encoded=True, standard="rfc6350"))
+            self.assertEqual("m", dn.guess("Asdf", "qwer", gender_encoded=True, standard="rfc6350"))
 
     def test_dame_namsor_csv2gender_list(self):
         dn = DameNamsor()

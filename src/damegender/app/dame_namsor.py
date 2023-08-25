@@ -63,21 +63,43 @@ class DameNamsor(Gender):
         v = [d['likelyGender'], d['genderScale']]
         return v
 
-    def guess(self, name, surname, gender_encoded=False):
+    def guess(self, name, surname, gender_encoded=False, *args, **kwargs):
         # guess gender from name and surname
         # using get method
-        # TODO: ISO/IEC 5218 proposes a norm about coding gender:
-        # ``0 as not know'',``1 as male'', ``2 as female''
-        # and ``9 as not applicable''
+        standard = kwargs.get('standard', 'damegender')        
         v = self.get(name, surname)
         if ((v[0] == 'female') and gender_encoded):
-            guess = 0
+            guess_damegender = 0
+            guess_isoiec5218 = 2
+            guess_rfc6350 = "f"
+        elif ((v[0] == 'female') and not(gender_encoded)):
+            guess_damegender = "female"
+            guess_isoiec5218 = "female"
+            guess_rfc6350 = "female"
         elif ((v[0] == 'male') and gender_encoded):
-            guess = 1
+            guess_damegender = 1
+            guess_isoiec5218 = 1
+            guess_rfc6350 = "m"
+        elif ((v[0] == 'male') and not(gender_encoded)):
+            guess_damegender = "male"
+            guess_isoiec5218 = "male"
+            guess_rfc6350 = "male"                    
         elif ((v[0] == 'unknown') and gender_encoded):
-            guess = 2
+            guess_damegender = 2
+            guess_isoiec5218 = 9
+            guess_rfc6350 = "u"
+        elif ((v[0] == 'unknown') and not(gender_encoded)):
+            guess_damegender = "unknow"
+            guess_isoiec5218 = "not know"
+            guess_rfc6350 = "undefined"
         else:
-            guess = v[0]
+            guess_damegender, guess_isoiec5218, guess_rfc6350 = v[0]
+        if (standard == "damegender"):
+            guess = guess_damegender
+        elif (standard == "isoiec5218"):
+            guess = guess_isoiec5218
+        elif (standard == "rfc6350"):
+            guess = guess_rfc6350            
         return guess
 
     def scale(self, name, surname):
