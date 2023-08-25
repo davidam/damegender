@@ -944,10 +944,12 @@ class Gender(object):
 
     def csv2gender_list(self, path, *args, **kwargs):
         # generating a list of 0, 1, 2 as females, males and unknows
+        # NOT using guess, only reading numbers from the file
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
         # ``0 as not know'',``1 as male'', ``2 as female''
         # and ``9 as not applicable''
         header = kwargs.get('header', True)
+        standard = kwargs.get('standard', 'damegender')        
         gender_column = kwargs.get('gender_column', 4)
         gender_f_chars = kwargs.get('gender_f_chars', 'f')
         gender_m_chars = kwargs.get('gender_m_chars', 'm')
@@ -970,13 +972,28 @@ class Gender(object):
                     print("To review that gender row is set in the input")
                     os.kill(os.getpid(), signal.SIGUSR1)
                 if (gender == gender_f_chars):
-                    g = 0
+                    if (standard == 'damegender'):
+                        g = 0
+                    elif (standard == 'isoiec5218'):
+                        g = 2
+                    elif (standard == 'rfc6350'):
+                        g = "f"
                     count_females = count_females + 1
                 elif (gender == gender_m_chars):
-                    g = 1
+                    if (standard == 'damegender'):
+                        g = 1
+                    elif (standard == 'isoiec5218'):
+                        g = 1
+                    elif (standard == 'rfc6350'):
+                        g = "m"
                     count_males = count_males + 1
                 else:
-                    g = 2
+                    if (standard == 'damegender'):
+                        g = 2
+                    elif (standard == 'isoiec5218'):
+                        g = 0
+                    elif (standard == 'rfc6350'):
+                        g = "u"
                     count_unknown = count_unknown + 1
                 glist.append(g)
         self.females = count_females
