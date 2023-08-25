@@ -101,12 +101,13 @@ class TddInPythonExample(unittest.TestCase):
             am = [[1, 0, 0], [0, 5, 0], [0, 5, 0]]
             self.assertEqual(cm, am)
 
-    def test_dame_gender_check_names(self):
-        g = DameGenderApi()
-        jsonf = "files/names/genderapifiles_names_min.csv.json"
-        b = g.json_eq_csv_in_names(jsonf=jsonf,
-                                   path="files/names/min.csv")
-        self.assertTrue(b)
+    def test_dame_genderapi_json_eq_csv_in_names(self):
+        dga = DameGenderApi()
+        if (dga.config['DEFAULT']['genderapi'] == 'yes'):        
+            jsonf = "files/names/genderapifiles_names_min.csv.json"
+            b = dga.json_eq_csv_in_names(jsonf=jsonf,
+                                     path="files/names/min.csv")
+            self.assertTrue(b)
 
     def test_dame_genderapi_json2gender_list(self):
         dga = DameGenderApi()
