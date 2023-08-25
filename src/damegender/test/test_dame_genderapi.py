@@ -52,6 +52,14 @@ class TddInPythonExample(unittest.TestCase):
             self.assertEqual(g, "female")
             g = dga.guess("Sara", gender_encoded=True)
             self.assertEqual(g, 0)
+            g = dga.guess("Paula", gender_encoded=False, standard="rfc6350")
+            self.assertEqual(g, "female")
+            g = dga.guess("Sara", gender_encoded=True, standard="rfc6350")
+            self.assertEqual(g, "f")
+            g = dga.guess("Paula", gender_encoded=False, standard="isoiec5218")
+            self.assertEqual(g, "female")
+            g = dga.guess("Sara", gender_encoded=True, standard="isoiec5218")
+            self.assertEqual(g, 0)
 
     def test_dame_genderapi_download(self):
         dga = DameGenderApi()
