@@ -114,7 +114,15 @@ class TddInPythonExample(unittest.TestCase):
         if (dga.config['DEFAULT']['genderapi'] == 'yes'):
             l1 = ['male', 'male', 'male', 'male', 'male', 'female']
             l2 = [1, 1, 1, 1, 1, 0]
+            l3 = [1, 1, 1, 1, 1, 2]
+            l4 = ["m", "m", "m", "m", "m", "f"]            
             jsonf = "files/names/genderapifiles_names_min.csv.json"
             self.assertEqual(l1, dga.json2gender_list(jsonf=jsonf))
             self.assertEqual(l2, dga.json2gender_list(jsonf=jsonf,
                                                       gender_encoded=True))
+            self.assertEqual(l3, dga.json2gender_list(jsonf=jsonf,
+                                                      gender_encoded=True,
+                                                      standard="isoiec5218"))
+            self.assertEqual(l4, dga.json2gender_list(jsonf=jsonf,
+                                                      gender_encoded=True,
+                                                      standard="rfc6350"))

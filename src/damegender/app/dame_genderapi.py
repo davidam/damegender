@@ -178,19 +178,32 @@ class DameGenderApi(Gender):
         file_all.close()
         return 1
 
-    def json2gender_list(self, jsonf="", gender_encoded=False):
+    def json2gender_list(self, jsonf="", gender_encoded=False, *args, **kwargs):
         # transforms the json into a gender_encoded array of males and females
+        standard = kwargs.get('standard', 'damegender')        
         jsondata = open(jsonf).read()
         json_object = json.loads(jsondata)
         guesslist = []
         for i in json_object["names"][0]:
             if gender_encoded:
                 if (i["gender"] == 'female'):
-                    guesslist.append(0)
+                    guess_damegender = 0
+                    guess_isoiec5218 = 2
+                    guess_rfc6350 = "f"
                 elif (i["gender"] == 'male'):
-                    guesslist.append(1)
+                    guess_damegender = 1
+                    guess_isoiec5218 = 1
+                    guess_rfc6350 = "m"
                 else:
-                    guesslist.append(2)
+                    guess_damegender = 2
+                    guess_isoiec5218 = 0
+                    guess_rfc6350 = "u"
+                if (standard == "damegender"):
+                    guesslist.append(guess_damegender)
+                elif (standard == "isoiec5218"):
+                    guesslist.append(guess_isoiec5218)
+                elif (standard == "rfc6350"):
+                    guesslist.append(guess_rfc6350)
             else:
                 guesslist.append(i["gender"])
         return guesslist
