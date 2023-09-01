@@ -24,23 +24,18 @@ cd ../../
 mkdir -p files/tmp
 
 echo "Building portuguesefemales.csv"
-echo "Merging Portuguese and Canada"
-python3 mergeinterfiles.py --file1="files/names/names_pt/ptfemales.csv" --file2="files/names/names_ca/cafemales.csv" --output=files/tmp/ptcafemales.csv
-echo "Adding Angola"
-python3 mergeinterfiles.py --file1="files/tmp/ptcafemales.csv" --file2="files/names/names_st/stfemales.csv" --output=files/tmp/ptcaaofemales.csv
-echo "Adding Sao Tome and Principe"
-python3 mergeinterfiles.py --file1="files/tmp/ptcaaofemales.csv" --file2="files/names/names_st/stfemales.csv" --output=files/tmp/ptcaaoftfemales.csv
-cp files/tmp/ptcaaoftfemales.csv files/names/languages/portuguesefemales.csv
-
+echo "Merging Portuguese and Angola"
+python3 mergeinterfiles.py --file1="files/names/names_pt/ptfemales.csv" --file2="files/names/names_ao/aofemales.csv" --output=files/tmp/ptaofemales.csv
+echo "Adding Sao Tome e Principe"
+python3 mergeinterfiles.py --file1="files/tmp/ptaofemales.csv" --file2="files/names/names_st/stfemales.csv" --output=files/tmp/ptaostfemales.csv
+cp files/tmp/ptaostfemales.csv files/names/languages/portuguesefemales.csv
 
 echo "Building portuguesemales.csv"
-echo "Merging Portuguese and Canada"
-python3 mergeinterfiles.py --file1="files/names/names_pt/ptmales.csv" --file2="files/names/names_ca/camales.csv" --output=files/tmp/ptcamales.csv
-echo "Adding Angola"
-python3 mergeinterfiles.py --file1="files/tmp/ptcamales.csv" --file2="files/names/names_st/stmales.csv" --output=files/tmp/ptcaaomales.csv
-echo "Adding Sao Tome and Principe"
-python3 mergeinterfiles.py --file1="files/tmp/ptcaaomales.csv" --file2="files/names/names_st/stmales.csv" --output=files/tmp/ptcaaoftmales.csv
-cp files/tmp/ptcaaoftmales.csv files/names/languages/portuguesemales.csv
+echo "Merging Portuguese and Angola"
+python3 mergeinterfiles.py --file1="files/names/names_pt/ptmales.csv" --file2="files/names/names_ao/aomales.csv" --output=files/tmp/ptaomales.csv
+echo "Adding Sao Tome e Principe"
+python3 mergeinterfiles.py --file1="files/tmp/ptaomales.csv" --file2="files/names/names_st/stmales.csv" --output=files/tmp/ptaostmales.csv
+cp files/tmp/ptaostmales.csv files/names/languages/portuguesemales.csv
 
 
 echo "Cleaning temporal files"
