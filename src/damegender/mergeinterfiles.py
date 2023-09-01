@@ -31,9 +31,9 @@ from app.dame_utils import DameUtils
 from app.dame_gender import Gender
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--file1", help="display the gender")
-parser.add_argument("--file2", help="display the gender")
-parser.add_argument('--output', default="interfemales.csv")
+parser.add_argument("--file1", required=True, help="display the gender")
+parser.add_argument("--file2", required=True, help="display the gender")
+parser.add_argument('--output', required=True, default="interfemales.csv")
 # --nosum express that the merge doesn't sum the frequencies
 # the value saved is in the file2
 parser.add_argument('--nosum', default=False, action="store_true")
