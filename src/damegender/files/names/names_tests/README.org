@@ -18,6 +18,10 @@
 + [ ] File: autores.csv
 + [ ] Source: https://autores.uy/sites/default/files/datos/autores.csv.zip
 + [ ] License: https://creativecommons.org/licenses/by-sa/4.0/deed.es
+** Deportistas de Peru
++ [ ] File: data_deportistas_de_peru.csv
++ [ ] Source: https://www.datosabiertos.gob.pe/dataset/deportistas-beneficiados-por-el-programa-de-apoyo-al-deportista-instituto-peruano-del
++ [ ] License: http://opendefinition.org/licenses/odc-by/
 * French
 ** Prénoms des enfants nés dans le département de la Haute-Garonne - année 2019
 + [ ] File: conseil-departmental-haute-garonne.csv
