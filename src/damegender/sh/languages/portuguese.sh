@@ -23,6 +23,9 @@
 cd ../../
 mkdir -p files/tmp
 
+# https://en.wikipedia.org/wiki/Portuguese_language
+echo "Countries where portuguese is the majoritary language: Portugal, Sao Tome, Angola and Brazil"
+
 echo "Building portuguesefemales.csv"
 echo "Merging Portuguese and Angola"
 python3 mergeinterfiles.py --file1="files/names/names_pt/ptfemales.csv" --file2="files/names/names_ao/aofemales.csv" --output=files/tmp/ptaofemales.csv
