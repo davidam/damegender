@@ -21,6 +21,8 @@
 # Boston, MA 02110-1301 USA,
 
 echo "Making the json files"
+echo "This process can take many hours, please be patient"
+echo "If you are bored you can to use ls -l | wc -l to count if the number of files is augmenting"
 
 cd ../..
 
