@@ -27,18 +27,22 @@ mkdir -p files/tmp
 echo "Countries where portuguese is the majoritary language: Portugal, Sao Tome, Angola and Brazil"
 
 echo "Building portuguesefemales.csv"
-echo "Merging Portuguese and Angola"
+echo "Merging Portuguese (official statistics) and Angola (Wikipedia)"
 python3 mergeinterfiles.py --file1="files/names/names_pt/ptfemales.csv" --file2="files/names/names_ao/aofemales.csv" --output=files/tmp/ptaofemales.csv
-echo "Adding Sao Tome e Principe"
+echo "Adding Sao Tome e Principe (Wikipedia)"
 python3 mergeinterfiles.py --file1="files/tmp/ptaofemales.csv" --file2="files/names/names_st/stfemales.csv" --output=files/tmp/ptaostfemales.csv
-cp files/tmp/ptaostfemales.csv files/names/languages/portuguesefemales.csv
+echo "Adding Brazil (Official Statistics + Wikipedia)"
+python3 mergeinterfiles.py --file1="files/tmp/ptaostfemales.csv" --file2="files/names/names_br/brfemales.csv" --output=files/tmp/ptaostbrfemales.csv
+cp files/tmp/ptaostbrfemales.csv files/names/languages/portuguesefemales.csv
 
 echo "Building portuguesemales.csv"
-echo "Merging Portuguese and Angola"
+echo "Merging Portuguese (Official Statistics) and Angola (Wikipedia)"
 python3 mergeinterfiles.py --file1="files/names/names_pt/ptmales.csv" --file2="files/names/names_ao/aomales.csv" --output=files/tmp/ptaomales.csv
-echo "Adding Sao Tome e Principe"
+echo "Adding Sao Tome e Principe (Wikipedia)"
 python3 mergeinterfiles.py --file1="files/tmp/ptaomales.csv" --file2="files/names/names_st/stmales.csv" --output=files/tmp/ptaostmales.csv
-cp files/tmp/ptaostmales.csv files/names/languages/portuguesemales.csv
+echo "Adding Brazil (Official Statistics + Wikipedia)"
+python3 mergeinterfiles.py --file1="files/tmp/ptaostmales.csv" --file2="files/names/names_br/brmales.csv" --output=files/tmp/ptaostbrmales.csv
+cp files/tmp/ptaostbrmales.csv files/names/languages/portuguesemales.csv
 
 
 echo "Cleaning temporal files"
