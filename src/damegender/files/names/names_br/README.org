@@ -1,7 +1,14 @@
 * Official Sources:
 + Url: https://censo2010.ibge.gov.br/nomes/#/search
 + License: https://creativecommons.org/licenses/by-sa/4.0/
-+ Comments: It is not giving the full csv, but you can download the file scraped by other people (see the next section)  
++ Comments: Nowadays, the strong changes in the Brazil government, the names 
+downloaded with brazilapi is lacking names, such as, Lula. 
+So, I have merged the wikidata names with the other file downloaded from brazilapi. 
+From my point of view, Brazilapi could be a good work with the government more stable
+The current file has more than 5000 names, so by number is good and the sources are good.
+
+If you don't need frequencies, other option would be download the file scraped by 
+other people (see the next section)  
 
 * Brazil census scraped:
 + https://data.brasil.io/dataset/genero-nomes/nomes.csv.gz (brazil census scraped)
