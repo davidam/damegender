@@ -125,7 +125,7 @@ if (args.api == "all"):
                            guess_f_chars=guess_f_chars,
                            guess_m_chars=guess_m_chars,
                            test_f_chars=test_f_chars,
-                           xtest_m_chars=test_m_chars)
+                           test_m_chars=test_m_chars)
 
     if (dg.config['DEFAULT']['nameapi'] == 'yes'):
         dna = DameNameapi()
