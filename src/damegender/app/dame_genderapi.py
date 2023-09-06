@@ -205,7 +205,15 @@ class DameGenderApi(Gender):
                 elif (standard == "rfc6350"):
                     guesslist.append(guess_rfc6350)
             else:
-                guesslist.append(i["gender"])
+                if ((i["gender"] == "male") or (i["gender"] == "female")):
+                    guesslist.append(i["gender"])
+                else:
+                    if (standard == "damegender"):
+                        guesslist.append("unknown")
+                    elif (standard == "isoiec5218"):
+                        guesslist.append("not know")
+                    elif (standard == "rfc6350"):
+                        guesslist.append("undefined")
         return guesslist
 
     def json2names(self, jsonf="", surnames=False):
