@@ -83,6 +83,9 @@ if (len(sys.argv) > 1):
             dg = DameGenderize()
             print(dg.guess(args.name))
             print("probability: " + str(dg.prob(args.name)))
+            if (args.verbose):
+                n = dg.samples(args.name)
+                print("samples: %s" % str(n))
         else:
             print("You must enable genderize in config.cfg file")
     elif (args.api == "namsor"):
