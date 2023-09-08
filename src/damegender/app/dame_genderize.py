@@ -65,6 +65,11 @@ class DameGenderize(Gender):
             d = ""
         return d
 
+    def samples(self, name):
+        # returns the number of people using a name
+        v = self.get(name)
+        return v["count"]
+    
     def guess(self, name, gender_encoded=False, *args, **kwargs):
         # guess a name using the method get
         # and taking gender_encoded as argument
