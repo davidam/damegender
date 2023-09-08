@@ -72,6 +72,10 @@ if (len(sys.argv) > 1):
             dga = DameGenderApi()
             print(dga.guess(args.name))
             print("accuracy: " + str(dga.accuracy(args.name)))
+            if (args.verbose):
+                n = dga.samples(args.name)
+                print("samples: %s" % str(n))
+            
         else:
             print("You must enable genderapi in config.cfg file")
     elif (args.api == "genderize"):
