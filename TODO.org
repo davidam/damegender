@@ -1315,7 +1315,8 @@ Por ejemplo, con scientists:
 
 * TODO Cuestionarse separar la paquetería damegender en datos y código
 Ver: https://stackoverflow.com/questions/779495/access-data-in-package-subdirectory
-* TODO La representación de sexo de manera numérica debe ser más fiel a la norma ISO/IEC 5218
+* DONE Implementar la norma ISO/IEC 5218 y el RFC6350
+  - State "DONE"       from "TODO"       [2023-08-29 mar 05:17]
 + [ ] 0 <-> not know
 + [ ] 1 <-> male
 + [ ] 2 <-> female
@@ -1611,3 +1612,12 @@ Esto se usa mucho en estudio tipo Twitter. Con DameGender se podría hacer de la
 * DONE Translate the preprint (uc3m.tex) to spanish (uc3m.es.tex)
   SCHEDULED: <2023-07-17 lun>
   - State "DONE"       from "TODO"       [2023-07-17 lun 06:40]
+* DONE Permitir añadir la variable estandard cada vez que se use el métodoo guess
+  - State "DONE"       from "TODO"       [2023-09-02 sáb 05:54]
+* TODO csv2jsonapirest está construyendo mal los acentos en muchos casos tmp2/names/D�N�S_all.json
+1) Recrear cada idioma teniendo en cuenta este punto debe haber fallos por un mal tratamiento en la codificación de caracteres (propongo usar utf8 en todos)
+2) Recrear el interall.csv 
+3) Quizás sea necesario crear un nuevo repositorio, para no tener nombres sucios o crear un script para borrar nombres con incorrecta codificación en el fichero.
+* TODO Estaría bien que csv2jsonapirest incluyera apellidos
+Muchos nombres, por ejemplo, Gonzalo, son también apellidos, el json de cada string debería dar esa información.
+Hay que pensar si incluir apellidos wikidata o solo los oficiales, quizás se podría distinguir ese hecho en el json: dando la frecuencia y si es dataset oficial o no.
