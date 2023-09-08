@@ -46,6 +46,7 @@ parser.add_argument("--api",
                              'genderguesser', 'namsor', 'nameapi',
                              'wikidata', 'wikipedia'],
                     required=True)
+parser.add_argument('--verbose', default=False, action="store_true")
 parser.add_argument('--version', action='version', version='0.3')
 
 args = parser.parse_args()
@@ -56,9 +57,13 @@ dg = Gender()
 
 if (len(sys.argv) > 1):
     if (args.api == "brazilapi"):
-        dga = DameBrazilApi()
         print(dba.guess(args.name))
         print("accuracy: " + str(dba.accuracy(args.name)))
+        if (args.verbose):
+            v = dba.get(args.name)
+            print("males: " + str(v["males"]))
+            print("females: " + str(v["females"]))
+            print("total: " + str(v["females"] + v["males"]))
     elif (args.api == "genderguesser"):
         dgg = DameGenderGuesser()
         print(dgg.guess(args.name))
