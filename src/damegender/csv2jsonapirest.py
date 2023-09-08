@@ -120,11 +120,11 @@ if (int(args.names_by_multiple_files) == 1):
                     boolmales = (int(dicc["males"]) > 10)
                     if (boolfemales or boolmales):
                         last = j
-                file.write('"males": ' + str(i[2]) + ' %,\n')
+                file.write('"males": "' + str(i[2]) + ' %",\n')
                 if (last == ""):
-                    file.write('"females": ' + str(i[3]) + ' %\n')
+                    file.write('"females": "' + str(i[3]) + ' %"\n')
                 else:
-                    file.write('"females": ' + str(i[3]) + ' %,\n')
+                    file.write('"females": "' + str(i[3]) + ' %",\n')
                     for k in official_names:
                         dicc = g.name_frec(name, dataset=k)
                         boolfemales = (int(dicc["females"]) > 10)
@@ -132,13 +132,9 @@ if (int(args.names_by_multiple_files) == 1):
                         if (boolfemales or boolmales):
                             file.write('"'+str(k)+'": [\n')
                             file.write('{ \n')
-                            freq = int(dicc["males"]) + int(dicc["females"])
-                            file.write('"frequency": ' + str(freq) + ',\n')
-                            m_percentage = (int(dicc["males"]) / freq) * 100
-                            str_m = '"males": ' + str(m_percentage) + ' % ,\n'
+                            str_m = '"males": ' + str(dicc["males"]) + ',\n'
                             file.write(str_m)
-                            f_percentage = (int(dicc["females"]) / freq) * 100
-                            str_f = '"females": ' + str(f_percentage) + ' %\n'
+                            str_f = '"females": ' + str(dicc["females"]) + ' \n'
                             file.write(str_f)
                             file.write('} \n')
                             if (k == last):
