@@ -74,6 +74,21 @@ class DameGenderGuesser(Gender):
             "80": "India/Sri Lanka", "81": "Japan", "82": "Korea",
             "83": "Vietnam", "84": "other countries"}
 
+        self.keysfrequencies = {
+            "1": "rare",
+            "2": "there are very few elements",
+            "3": "there are few elements",
+            "4": "there are elements",
+            "5": "there are a bunch of elements",
+            "6": "common",
+            "7": "not very common",
+            "8": "very common",
+            "9": "not highly common",
+            "A": "highly common",
+            "B": "too much common",
+            "C": "not extremly common",
+            "D": "extremely common"}
+
     def _parse(self, filename):
         # Open a data file and for each line, call the _eat_name_line function.
         """Opens data file and for each line, calls _eat_name_line"""
@@ -163,25 +178,6 @@ class DameGenderGuesser(Gender):
             return self._most_popular_gender(name, counter)
         else:
             raise NoCountryError("No such country: %s" % country)
-
-    def dicc_genderguesser_frequencies(self):
-        dicc = {
-            "1": "rare",
-            "2": "there are very few elements",
-            "3": "there are few elements",
-            "4": "there are elements",
-            "5": "there are a bunch of elements",
-            "6": "common",
-            "7": "not very common",
-            "8": "very common",
-            "9": "not highly common",
-            "A": "highly common",
-            "B": "too much common",
-            "C": "not extremly common",
-            "D": "extremely common"
-            }
-        return dicc
-
 
     def guess(self, name, gender_encoded=False):
         # guess method to check names dictionary
