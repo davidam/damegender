@@ -78,3 +78,11 @@ class TddInPythonExample(unittest.TestCase):
         us = dgg.keyscountries["32"]
         self.assertEqual(gb, "Great Britain")
         self.assertEqual(us, "USA")
+
+    def test_dame_genderguesser_keysfrequencies(self):
+        dgg = DameGenderGuesser()
+        rare = dgg.keysfrequencies["1"]
+        extremely_common = dgg.keysfrequencies["D"]
+        self.assertEqual(rare, "rare")
+        self.assertEqual(extremely_common, "extremely common")
+        
