@@ -164,6 +164,25 @@ class DameGenderGuesser(Gender):
         else:
             raise NoCountryError("No such country: %s" % country)
 
+    def dicc_genderguesser_frequencies(self):
+        dicc = {
+            "1": "rare",
+            "2": "there are very few elements",
+            "3": "there are few elements",
+            "4": "there are elements",
+            "5": "there are a bunch of elements",
+            "6": "common",
+            "7": "not very common",
+            "8": "very common",
+            "9": "not highly common",
+            "A": "highly common",
+            "B": "too much common",
+            "C": "not extremly common",
+            "D": "extremely common"
+            }
+        return dicc
+
+
     def guess(self, name, gender_encoded=False):
         # guess method to check names dictionary
         genderguesserlist = []
