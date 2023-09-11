@@ -25,7 +25,9 @@ import requests
 import argparse
 import re
 from app.dame_wikidata import DameWikidata
+from app.dame_utils import DameUtils
 
+du = DameUtils()
 dw = DameWikidata()
 dicc = dw.dicc_countries()
 
@@ -37,7 +39,8 @@ parser.add_argument('--outcsv',
 args = parser.parse_args()
 
 url = 'https://query.wikidata.org/sparql'
-query2 = """
+if du.check_connection(url,timeout=5):
+    query2 = """
 SELECT ?surname ?surnameLabel ?count
 WITH {
   SELECT ?surname (count(?person) AS ?count) WHERE {
@@ -55,20 +58,20 @@ WHERE {
 ORDER BY DESC(?count)
 """
 
-try:
-    r = requests.get(url, params={'format': 'json', 'query': query2})
-    data = r.json()
-    print("Dumping to %s" % args.outcsv)
-    fo = open(args.outcsv, "w")
-    for d in data["results"]["bindings"]:
-        # surnames as Q010234 is a wikidata identifier not a name
-        match1 = re.search(r'(Q[0-9]*)', d['surnameLabel']['value'])
-        # url is not a surname
-        match2 = re.search(r'(^http*)', d['surnameLabel']['value'])
-        if not(match2) and not(match1):
-            str0 = d['surnameLabel']['value'] + ","
-            str0 = str0 + d['count']['value'] + "\n"
-            fo.write(str0)
-    fo.close()
-except ValueError:
-    print("Please, check the Internet connection")
+    try:
+        r = requests.get(url, params={'format': 'json', 'query': query2})
+        data = r.json()
+        print("Dumping to %s" % args.outcsv)
+        fo = open(args.outcsv, "w")
+        for d in data["results"]["bindings"]:
+            # surnames as Q010234 is a wikidata identifier not a name
+            match1 = re.search(r'(Q[0-9]*)', d['surnameLabel']['value'])
+            # url is not a surname
+            match2 = re.search(r'(^http*)', d['surnameLabel']['value'])
+            if not(match2) and not(match1):
+                str0 = d['surnameLabel']['value'] + ","
+                str0 = str0 + d['count']['value'] + "\n"
+                fo.write(str0)
+        fo.close()
+    except ValueError:
+        print("Please, check the Internet connection")
