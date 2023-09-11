@@ -41,20 +41,21 @@ args = parser.parse_args()
 
 url = 'https://query.wikidata.org/sparql'
 
-male = False
-female = False
-if (args.gender == "female"):
-    female = True
-elif (args.gender == "male"):
-    male = True
+if du.check_connection(url,timeout=5):
+    male = False
+    female = False
+    if (args.gender == "female"):
+        female = True
+    elif (args.gender == "male"):
+        male = True
 
-if female:
-    gender = "    ?person wdt:P21 wd:Q6581072 . "
-elif male:
-    gender = "    ?person wdt:P21 wd:Q6581097 . "
+    if female:
+        gender = "    ?person wdt:P21 wd:Q6581072 . "
+    elif male:
+        gender = "    ?person wdt:P21 wd:Q6581097 . "
 
 
-query2 = """
+    query2 = """
 SELECT ?name ?nameLabel ?count
 WITH {
   SELECT ?name (count(?person) AS ?count)
@@ -72,33 +73,33 @@ WHERE {
 }
 ORDER BY DESC(?count)
 """
-r = requests.get(url, params={'format': 'json', 'query': query2})
-data = r.json()
+    r = requests.get(url, params={'format': 'json', 'query': query2})
+    data = r.json()
 
-print("Dumping to %s" % args.outcsv)
+    print("Dumping to %s" % args.outcsv)
 
-dicc = {}
-for d in data["results"]["bindings"]:
-    # names as Q010234 is a wikidata identifier not a name
-    match1 = re.search(r'(Q[0-9]*)', d['nameLabel']['value'])
-    # names as J. is an intial of name and not a name
-    match2 = re.search(r'(^[A-Z]\.\,*)', d['nameLabel']['value'])
-    # some names as Yelena/Elena must splitted in two names
-    match3 = re.search(r'(.*)\/(.*)', d['nameLabel']['value'])
-    if (not (match1) and not (match2)):
-        if match3:
-            try:
-                key = du.drop_white_space_around(match3.group(1))
-                dicc[key] = dicc[key] + d['count']['value']
-            except KeyError:
-                dicc[key] = d['count']['value']
+    dicc = {}
+    for d in data["results"]["bindings"]:
+        # names as Q010234 is a wikidata identifier not a name
+        match1 = re.search(r'(Q[0-9]*)', d['nameLabel']['value'])
+        # names as J. is an intial of name and not a name
+        match2 = re.search(r'(^[A-Z]\.\,*)', d['nameLabel']['value'])
+        # some names as Yelena/Elena must splitted in two names
+        match3 = re.search(r'(.*)\/(.*)', d['nameLabel']['value'])
+        if (not (match1) and not (match2)):
+            if match3:
+                try:
+                    key = du.drop_white_space_around(match3.group(1))
+                    dicc[key] = dicc[key] + d['count']['value']
+                except KeyError:
+                    dicc[key] = d['count']['value']
 
-            try:
-                key = du.drop_white_space_around(match3.group(2))
-                dicc[key] = dicc[key] + d['count']['value']
-            except KeyError:
-                dicc[key] = d['count']['value']
-        else:
-            dicc[d['nameLabel']['value']] = d['count']['value']
+                try:
+                    key = du.drop_white_space_around(match3.group(2))
+                    dicc[key] = dicc[key] + d['count']['value']
+                except KeyError:
+                    dicc[key] = d['count']['value']
+            else:
+                dicc[d['nameLabel']['value']] = d['count']['value']
 
-du.diccnames2csvfile(dicc, args.outcsv)
+    du.diccnames2csvfile(dicc, args.outcsv)
