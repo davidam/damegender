@@ -850,13 +850,16 @@ class DameUtils():
 
     def check_connection(self, url, *args, **kwargs):
         # Check connection
-        timeout = kwargs.get('timeout', '3')        
+        timeout = kwargs.get('timeout', '3')
+        error_message = kwargs.get('error_message', True)        
+        bool0 = False
         try:
             r1 = requests.get(url, timeout=timeout)
             r1.raise_for_status()
             if r1.text:
-                print("There are network connection")
+                bool0 = True
         except requests.exceptions.ConnectionError as errc:
-            print("There are not network connection")
-
+            if error_message:
+                print("There are not network connection")
+        return bool0
     
