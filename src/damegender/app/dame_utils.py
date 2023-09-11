@@ -856,9 +856,7 @@ class DameUtils():
             r1.raise_for_status()
             if r1.text:
                 print("There are network connection")
-                print("request.get is your friend")
         except requests.exceptions.ConnectionError as errc:
             print("There are not network connection")
-            print("request.get is not helping you")
 
     
