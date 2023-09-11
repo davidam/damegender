@@ -51,7 +51,9 @@ parser.add_argument('--version', action='version', version='0.3')
 parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
 
-if (len(sys.argv) > 1):
+du = DameUtils()
+
+if ((len(sys.argv) > 1) and (du.check_connection(args.url, timeout=10))):
     if (args.ml == 'none'):
         g = Gender()
         string1 = """
@@ -60,7 +62,6 @@ but perhaps you are not finding good results"""
         print(string1)
     else:
         g = DameSexmachine()
-    du = DameUtils()
     dp = DamePerceval()
     l1 = dp.list_committers(args.url, args.directory, mail=True)
     l2 = du.delete_duplicated(l1)
