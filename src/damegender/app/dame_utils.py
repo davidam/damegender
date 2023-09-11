@@ -30,6 +30,7 @@ import csv
 import sys
 import pdb
 import json
+import requests
 from pprint import pprint
 
 
@@ -846,3 +847,18 @@ class DameUtils():
                 except csv.Error as e:
                     return False
         return boolean
+
+    def check_connection(self, url, *args, **kwargs):
+        # Check connection
+        timeout = kwargs.get('timeout', '3')        
+        try:
+            r1 = requests.get(url, timeout=timeout)
+            r1.raise_for_status()
+            if r1.text:
+                print("There are network connection")
+                print("request.get is your friend")
+        except requests.exceptions.ConnectionError as errc:
+            print("There are not network connection")
+            print("request.get is not helping you")
+
+    

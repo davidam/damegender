@@ -528,6 +528,10 @@ class TddInPythonExample(unittest.TestCase):
         file5 = "files/names/2017girlsnames-uk.csv"
         self.assertTrue(du.eq_columns_in_csv(file5, quotechar=';'))
 
+    def test_check_connection(self):
+        du = DameUtils()
+        self.assertFalse(du.check_connection('https://www', timeout=3))
+        
 # def test_fill_dictionary_names_and_years_from_file(self):
 #     du = DameUtils()
 #     file1 = "files/names/names_ie/orig/vsa10.csv"
