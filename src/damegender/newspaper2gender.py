@@ -38,6 +38,7 @@ except ModuleNotFoundError:
 
 
 from app.dame_gender import Gender
+from app.dame_utils import DameUtils
 
 parser = argparse.ArgumentParser()
 parser.add_argument("url", help="display the gender")
@@ -57,15 +58,19 @@ parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
 
 article = Article(args.url)
-try:
-    article.download()
-    article.parse()
-    g = Gender()
-    for i in article.authors:
-        print("--------------------------------")
-        print(i)
-        l1 = re.split(r'\W+', i)
-        print(g.guess(l1[0], dataset=args.total, standard=args.gender_standard))
-        print("--------------------------------")
-except ValueError:
-    print("Please, check the Internet connection")
+
+du = DameUtils()
+
+if du.check_connection(args.url,timeout=5):
+    try:
+        article.download()
+        article.parse()
+        g = Gender()
+        for i in article.authors:
+            print("--------------------------------")
+            print(i)
+            l1 = re.split(r'\W+', i)
+            print(g.guess(l1[0], dataset=args.total, standard=args.gender_standard))
+            print("--------------------------------")
+    except ValueError:
+        print("Please, check the Internet connection")
