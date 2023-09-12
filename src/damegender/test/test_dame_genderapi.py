@@ -30,12 +30,17 @@ from app.dame_genderapi import DameGenderApi
 from app.dame_utils import DameUtils
 import collections
 collections.Callable = collections.abc.Callable
+du = DameUtils()
+dga = DameGenderApi()
 
+if (dga.config['DEFAULT']['genderapi'] == 'yes'):
+    url = 'https://gender-api.com/'
+    if not(du.check_connection(url, error_message="", timeout=10)):
+        exit("We can't reach https://gender-api.com. You need Internet connection executing GenderApi tests")
 
 class TddInPythonExample(unittest.TestCase):
-
+    
     def test_dame_genderapi_get(self):
-        dga = DameGenderApi()
         if (dga.config['DEFAULT']['genderapi'] == 'yes'):
             v = dga.get("Diana")
             self.assertEqual(v[0], "female")
@@ -44,7 +49,6 @@ class TddInPythonExample(unittest.TestCase):
             self.assertEqual(len(v), 3)
 
     def test_dame_genderapi_guess(self):
-        dga = DameGenderApi()
         if (dga.config['DEFAULT']['genderapi'] == 'yes'):
             g = dga.guess("Sara", gender_encoded=False)
             self.assertEqual(g, "female")
@@ -62,8 +66,6 @@ class TddInPythonExample(unittest.TestCase):
             self.assertEqual(g, 2)
 
     def test_dame_genderapi_download(self):
-        dga = DameGenderApi()
-        du = DameUtils()
         path1 = "files/names/min.csv"
         if (dga.config['DEFAULT']['genderapi'] == 'yes'):
             g = dga.download(path1)
@@ -72,13 +74,11 @@ class TddInPythonExample(unittest.TestCase):
                     "files/names/genderapi"+du.path2file(path1)+".json"))
 
     def test_dame_genderapi_accuracy(self):
-        dga = DameGenderApi()
         if (dga.config['DEFAULT']['genderapi'] == 'yes'):
             acc = dga.accuracy("Diana")
             self.assertTrue(acc > 90)
 
     def test_dame_genderapi_guess_list(self):
-        dga = DameGenderApi()
         if (dga.config['DEFAULT']['genderapi'] == 'yes'):
             l1 = ['male', 'male', 'male', 'male', 'male', 'female']
             self.assertEqual(l1,
@@ -95,14 +95,12 @@ class TddInPythonExample(unittest.TestCase):
                                             gender_encoded=True))
 
     def test_dame_genderapi_confusion_matrix_gender(self):
-        dga = DameGenderApi()
         if (dga.config['DEFAULT']['genderapi'] == 'yes'):
             cm = dga.confusion_matrix_gender(path="files/names/min.csv")
             am = [[1, 0, 0], [0, 5, 0], [0, 5, 0]]
             self.assertEqual(cm, am)
 
     def test_dame_genderapi_json_eq_csv_in_names(self):
-        dga = DameGenderApi()
         if (dga.config['DEFAULT']['genderapi'] == 'yes'):        
             jsonf = "files/names/genderapifiles_names_min.csv.json"
             b = dga.json_eq_csv_in_names(jsonf=jsonf,
@@ -110,7 +108,6 @@ class TddInPythonExample(unittest.TestCase):
             self.assertTrue(b)
 
     def test_dame_genderapi_json2gender_list(self):
-        dga = DameGenderApi()
         if (dga.config['DEFAULT']['genderapi'] == 'yes'):
             l1 = ['male', 'male', 'male', 'male', 'male', 'female']
             l2 = [1, 1, 1, 1, 1, 0]
