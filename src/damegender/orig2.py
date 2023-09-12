@@ -56,6 +56,10 @@ outsurnames = outpath + country + "surnames.csv"
 
 origpath = outpath + "orig/"
 
+if not(du.check_connection("https://www.google.com")):
+    print("You can't to use this script without Internet")
+    exit()
+
 if (country == "ar"):
     origfile = origpath + "personas.csv"
     print(origfile)
