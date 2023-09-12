@@ -850,7 +850,7 @@ class DameUtils():
 
     def check_connection(self, url, *args, **kwargs):
         # Check connection
-        timeout = kwargs.get('timeout', '3')
+        timeout = kwargs.get('timeout', 3)
         error_message = kwargs.get('error_message', True)        
         bool0 = False
         try:
