@@ -55,6 +55,11 @@ dba = DameBrazilApi()
 du = DameUtils()
 dg = Gender()
 
+
+if not(du.check_connection("https://www.google.com")):
+    print("You can't to use this script without Internet")
+    exit()
+
 if (len(sys.argv) > 1):
     if (args.api == "brazilapi"):
         print(dba.guess(args.name))
