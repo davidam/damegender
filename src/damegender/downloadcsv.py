@@ -32,6 +32,7 @@ from app.dame_genderize import DameGenderize
 from app.dame_genderapi import DameGenderApi
 # from app.dame_nameapi import DameNameapi
 from app.dame_brazilapi import DameBrazilApi
+from app.dame_utils import DameUtils
 
 import argparse
 import os
@@ -51,6 +52,12 @@ parser.add_argument('--outformat', type=str, required=False,
 args = parser.parse_args()
 
 g = Gender()
+du = DameUtils()
+
+if not(du.check_connection("https://www.google.com")):
+    print("You can't to use this script without Internet")
+    exit()
+
 
 if (args.api == 'brazilapi'):
     dba = DameBrazilApi()
