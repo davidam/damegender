@@ -1,5 +1,6 @@
 * v0.5.6
-+ [X] Now the scripts are checking the Internet connection
+New features
++ [X] Now the scripts are checking the Internet connection, giving good error messages
 + [X] api2gender.py: adding --verbose
 + [X] app/dame_genderize.py: adding samples method
 + [X] files/names/names_tests/data_deportistas_de_peru.csv: creation
