@@ -34,7 +34,7 @@ class DameGenderStandards():
         # with a zero in numbers
         dicc = {0: "female",
                 1: "male",
-                2: "unknow"}
+                2: "unknown"}
         return dicc
     
     def dicc_isoiec5218(self):
