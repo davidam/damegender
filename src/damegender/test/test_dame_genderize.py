@@ -24,14 +24,22 @@
 
 import unittest
 from app.dame_genderize import DameGenderize
+from app.dame_utils import DameUtils
 import collections
 collections.Callable = collections.abc.Callable
+
+dg = DameGenderize()
+du = DameUtils()
+
+if (dg.config['DEFAULT']['genderize'] == 'yes'):
+    url = 'https://genderize.io'
+    if not(du.check_connection(url, error_message="", timeout=10)):
+        exit("We can't reach %s. You need Internet connection executing Genderize tests" % url)
 
 
 class TddInPythonExample(unittest.TestCase):
 
     def test_dame_genderize_get(self):
-        dg = DameGenderize()
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
             string1 = dg.get("peter")
             self.assertEqual(string1, {'probability': 1.0, 'count': 1094417,
@@ -42,7 +50,6 @@ class TddInPythonExample(unittest.TestCase):
                                        'probability': 1.0})
 
     def test_dame_genderize_get2to10(self):
-        dg = DameGenderize()
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
             string1 = dg.get2to10(["peter", "lois", "stevie"])
             self.assertEqual(string1, [{'count': 1094417, 'gender': 'male',
@@ -73,18 +80,15 @@ class TddInPythonExample(unittest.TestCase):
                                         "count": 1149231}])
 
     def test_dame_genderize_guess(self):
-        dg = DameGenderize()
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
             self.assertEqual(dg.guess("David"), "male")
             self.assertEqual(dg.guess("David", gender_encoded=True), 1)
 
     def test_dame_genderize_prob(self):
-        dg = DameGenderize()
         if (dg.config['DEFAULT']['genderize'] == 'yes'):
             self.assertEqual(dg.prob("David"), 1.0)
 
     def test_dame_genderize_guess_list(self):
-        dg = DameGenderize()
         path1 = "files/names/genderizefiles_names_min.csv.json"
         gl1 = dg.json2gender_list(jsonf=path1,
                                   gender_encoded=True)
@@ -138,7 +142,6 @@ class TddInPythonExample(unittest.TestCase):
     # #     self.assertEqual(dg.limit_exceeded_p(), 1)
 
     def test_dame_genderize_csv2gender_list(self):
-        dg = DameGenderize()
         gl = dg.csv2gender_list(path="files/names/partial.csv")
         self.assertEqual(gl, [1, 1, 1, 1, 2, 1, 0, 0, 1, 1,
                               2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1])
@@ -159,7 +162,6 @@ class TddInPythonExample(unittest.TestCase):
     #         self.assertEqual([1, 1, 1, 1, 1, 1, 0, 0, 1, 1], l2)
 
     def test_dame_genderize_json2names(self):
-        dg = DameGenderize()
         path = "files/names/genderizefiles_names_min.csv.json"
         l1 = dg.json2names(jsonf=path)
         self.assertEqual(['Pierre', 'Raul', 'Adriano', 'Ralf',
