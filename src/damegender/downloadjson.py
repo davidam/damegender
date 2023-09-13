@@ -50,6 +50,8 @@ parser.add_argument('--outjson', type=str, required=False,
                     default="names.json", help='output file for names')
 args = parser.parse_args()
 
+du = DameUtils()
+
 if not(du.check_connection("https://www.google.com")):
     print("You can't to use this script without Internet")
     exit()
