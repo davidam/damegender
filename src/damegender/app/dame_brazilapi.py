@@ -63,7 +63,7 @@ class DameBrazilApi(Gender):
         elif (v['females'] > v['males']):
             v['gender'] = 'female'
         elif ((v['females'] == v['males']) and (v['females'] == 0)):
-            v['gender'] = 'unknow'
+            v['gender'] = 'unknown'
         else:
             v['gender'] = 'undefined'
         return v
