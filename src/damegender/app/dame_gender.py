@@ -831,7 +831,7 @@ class Gender(object):
                     guess_isoiec5218 = 0
                     guess_rfc6350 = "u"                    
                 else:
-                    guess_damegender = "unknow"
+                    guess_damegender = "unknown"
                     guess_isoiec5218 = "not know"
                     guess_rfc6350 = "undefined"
             elif (m > f):
@@ -867,7 +867,7 @@ class Gender(object):
                 guess_isoiec5128 = 0
                 guess_rfc6350 = "u"                
             else:
-                guess_damegender = "unknow"
+                guess_damegender = "unknown"
                 guess_isoiec5218 = "not know"
                 guess_rfc6350 = "undefined"
         if (standard == "isoiec5218"):
@@ -943,7 +943,7 @@ class Gender(object):
         return slist
 
     def csv2gender_list(self, path, *args, **kwargs):
-        # generating a list of 0, 1, 2 as females, males and unknows
+        # generating a list of 0, 1, 2 as females, males and unknowns
         # NOT using guess, only reading numbers from the file
         # TODO: ISO/IEC 5218 proposes a norm about coding gender:
         # ``0 as not know'',``1 as male'', ``2 as female''
