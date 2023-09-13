@@ -89,7 +89,7 @@ class DameNamsor(Gender):
             guess_isoiec5218 = 9
             guess_rfc6350 = "u"
         elif ((v[0] == 'unknown') and not(gender_encoded)):
-            guess_damegender = "unknow"
+            guess_damegender = "unknown"
             guess_isoiec5218 = "not know"
             guess_rfc6350 = "undefined"
         else:
