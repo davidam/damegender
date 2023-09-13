@@ -77,7 +77,7 @@ class DameGenderApi(Gender):
                     guess_isoiec5218 = 9
                     guess_rfc6350 = "u"
                 else:
-                    guess_damegender = "unknow"
+                    guess_damegender = "unknown"
                     guess_isoiec5218 = "not know"
                     guess_rfc6350 = "undefined"
         else:
@@ -86,7 +86,7 @@ class DameGenderApi(Gender):
                 guess_isoiec5218 = 9
                 guess_rfc6350 = "u"
             else:
-                guess_damegender = "unknow"
+                guess_damegender = "unknown"
                 guess_isoiec5218 = "not know"
                 guess_rfc6350 = "undefined"
         if (standard == "damegender"):
