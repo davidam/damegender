@@ -33,6 +33,10 @@
 + [ ] Source: https://opendata.paris.fr/explore/dataset/liste_des_prenoms/export/?disjunctive.annee&disjunctive.prenoms
 + [ ] License: https://opendatacommons.org/licenses/odbl/  
 
+** Alberta (canada) baby names 
++ [ ] File: baby-names-alberta-frequency_1980_2020.csv
++ [ ] Source: https://www.alberta.ca/top-baby-names
++ [ ] License: https://open.alberta.ca/licence
 * English
 ** Popular baby names provided by Department of Health and Mental Hygiene (DOHMH) (New York City)
 + [ ] File: popular_baby_names_nyc_dohmh.csv
