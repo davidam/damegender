@@ -22,6 +22,13 @@
 + [ ] File: data_deportistas_de_peru.csv
 + [ ] Source: https://www.datosabiertos.gob.pe/dataset/deportistas-beneficiados-por-el-programa-de-apoyo-al-deportista-instituto-peruano-del
 + [ ] License: http://opendefinition.org/licenses/odc-by/
+** Desaparecidos Argentina
++ [ ] File: victimas-accionar-represivo-ilegal-argentina.csv
++ [ ] Source: https://datos.gob.ar/ko_KR/dataset/justicia-registro-unificado-victimas-terrorismo-estado--ruvte-/archivo/justicia_c6b674bc-e178-41f3-81f5-0f10038e1688
++ [ ] License: 
+https://datos.gob.ar/acerca/seccion/Marco%20legal
+https://datos.gob.ar/acerca/seccion/publica-datos
+
 * French
 ** Prénoms des enfants nés dans le département de la Haute-Garonne - année 2019
 + [ ] File: conseil-departmental-haute-garonne.csv
