@@ -31,6 +31,11 @@ from app.dame_utils import DameUtils
 import collections
 collections.Callable = collections.abc.Callable
 
+du = DameUtils()
+
+url = 'https://servicodados.ibge.gov.br'
+if not(du.check_connection(url, error_message="", timeout=10)):
+    exit("We can't reach https://servicodados.ibge.gov.br. You need Internet connection executing tests")
 
 class TddInPythonExample(unittest.TestCase):
 
