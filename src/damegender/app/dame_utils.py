@@ -370,6 +370,25 @@ class DameUtils():
             bool0 = False
         return bool0
 
+    def string_decoded(self, s):
+        # given the string s returns the string without accents
+        newstring = ""
+        latin = re.compile('[a-zA-Z]+')
+        for char in unicodedata.normalize('NFC', s):
+            newstring = newstring + unidecode.unidecode(char)
+        return newstring
+    
+    def string_contains_only_chars_and_white_spaces(self, s):
+        # given the string s returns true if it contains only chars
+        newstring = self.string_decoded(s)
+        r1 = r"^([A-Z]*|[a-z]*| )*$"
+        r0 = re.match(r1, newstring)
+        if r0:
+            bool0 = True
+        else:
+            bool0 = False
+        return bool0
+    
     def email_string2username(self, s):
         # given the string s returns the gender
         if self.string_contains_email(s):

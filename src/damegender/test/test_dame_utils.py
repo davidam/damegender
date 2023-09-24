@@ -305,6 +305,23 @@ class TddInPythonExample(unittest.TestCase):
         s4 = "david@davidam.name"
         self.assertTrue(du.string_contains_email(s4))
 
+    def test_string_decoded(self):
+        du = DameUtils()
+        s0 = "David Arroyo Menéndez"
+        str0 = du.string_decoded("David Arroyo Menéndez")
+        self.assertEqual("David Arroyo Menendez", str0)
+        
+    def test_string_contains_only_chars_and_white_spaces(self):
+        du = DameUtils()
+        s0 = "David Arroyo <davidam@gnu.org>"
+        self.assertFalse(du.string_contains_only_chars_and_white_spaces(s0))
+        s1 = "David Arroyo Menéndez"
+        self.assertTrue(du.string_contains_only_chars_and_white_spaces(s1))
+        s2 = "Thainara"
+        self.assertTrue(du.string_contains_only_chars_and_white_spaces(s2))
+        s3 = "S02En289"
+        self.assertFalse(du.string_contains_only_chars_and_white_spaces(s3))
+        
     def test_identity2name_email(self):
         du = DameUtils()
         s = "David Arroyo Menéndez <davidam@gnu.org>"
