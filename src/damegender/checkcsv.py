@@ -39,6 +39,7 @@ du = DameUtils()
 filepath = args.path
 countemails = 0
 countinitials = 0
+countonlychars = 0
 countnonames = 0
 countnofreq = 0
 countlong = 0
@@ -47,6 +48,7 @@ linitials = []
 lnonames = []
 lfreq = []
 llong = []
+lonly = []
 
 with open(filepath) as csvfile:
     sreader = csv.reader(csvfile, delimiter=args.delimiter_csv, quotechar='|')
@@ -55,6 +57,9 @@ with open(filepath) as csvfile:
         if (du.string_contains_email(content)):
             countemails = countemails + 1
             lemails.append(content)
+        if (not(du.string_contains_only_chars_and_white_spaces(content))):
+            countonlychars = countonlychars + 1
+            lonly.append(content)
         if (du.initial_letters(content)):
             countinitials = countinitials + 1
             linitials.append(content)
@@ -71,6 +76,13 @@ print("####################################################")
 
 if (args.verbose and (len(lemails) > 0)):
     print("Emails: %s" % lemails)
+
+print("####################################################")
+print("Rows where there are not only chars: %s" % str(countonlychars))
+print("####################################################")
+
+if (args.verbose and (len(lonly) > 0)):
+    print("Only chars: %s" % lonly)
 
 print("####################################################")
 print("Rows with initials: %s" % str(countinitials))
