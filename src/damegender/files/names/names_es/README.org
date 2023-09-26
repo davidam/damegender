@@ -1,5 +1,14 @@
 * Dataset retrieved from:
 + https://www.ine.es/tnombres/formGeneral.do?vista=4
 + https://www.ine.es/daco/daco42/nombyapel/apellidos_frecuencia.xls
+
+* Accuracies
+INE has a dataset of 54078 names with an accuracy of:
++ 0.8925814751286449 using INTER as base of truth
+
+There are 4665 spanish names retrieved from Wikidata with an accuracy of:
++ 0.8119639794168096 using INE as base of truth
++ 0.8927958833619211 using INTER as base of truth 
+
 * License:
 + See COPYING in this folder
