@@ -1,24 +1,24 @@
-Manuel,4087
+Manuel,4088
 Juan,310
 Antonio,3867
 Francisco,3743
 José,72
 Josep,2433
 Luis,1
-Pedro,2034
-Carlos,1731
+Pedro,2035
+Carlos,1732
 Fernando,1545
-Miguel,1523
+Miguel,1524
 Joan,6
 Rafael,1
 Jesús,1257
 Javier,1257
 Ramón,1254
 José María,1160
-Enrique,1144
+Enrique,1146
 Ángel,1030
-Vicente,1026
-Joaquín,969
+Vicente,1027
+Joaquín,970
 Jordi,879
 Francesc,874
 David,850
@@ -37,17 +37,17 @@ Pere,666
 Salvador,648
 Emilio,646
 Daniel,639
-Alfonso,626
+Alfonso,627
 Mariano,614
 Julio,607
-Andrés,592
-Alejandro,581
+Andrés,593
+Alejandro,580
 Ramon,570
 Lluís,563
-Jorge,542
+Jorge,543
 Miquel,541
 Francisco Javier,518
-Xavier,511
+Xavier,512
 Josep Maria,510
 Tomás,499
 Jaime,3
@@ -61,10 +61,10 @@ Félix,418
 Jose,410
 Sergio,408
 Gonzalo,398
-Miguel Ángel,392
-Carles,391
+Miguel Ángel,393
+Carles,392
 Albert,390
-Enric,386
+Enric,385
 Domingo,370
 Roberto,358
 Federico,1
@@ -88,7 +88,7 @@ Juan Manuel,253
 Marc,251
 Mario,1
 Alonso,1
-Rubén,234
+Rubén,233
 José Ramón,222
 Benito,220
 Bernardo,211
@@ -103,14 +103,14 @@ Jon,177
 Eduard,175
 Ferran,174
 Rodrigo,173
-Iván,172
-Ernesto,167
+Iván,173
 Jerónimo,167
+Ernesto,167
 Ricard,160
 Vicent,158
 Luís,155
-Gaspar,155
 Pascual,155
+Gaspar,155
 Bartolomé,154
 Xabier,151
 Andreu,151
@@ -123,8 +123,8 @@ Aitor,128
 Valentín,125
 Oriol,125
 Sergi,124
-Justo,122
 Guillem,122
+Justo,122
 Leopoldo,122
 Martí,1
 Jacinto,119
@@ -145,7 +145,7 @@ Jesus,106
 Isaac,105
 Dionisio,104
 Vicenç,104
-Baltasar,104
+SANTIAGO,104
 Aurelio,102
 Tomàs,102
 Emili,1
@@ -159,12 +159,12 @@ Ismael,94
 Narcís,91
 Pepe,90
 Claudio,90
-Carmelo,90
 Francisco José,90
+Carmelo,90
 Oscar,89
-Joseba,89
 Antón,89
 Marià,89
+Joseba,89
 Martin,89
 Toni,88
 José Ángel,88
@@ -172,8 +172,8 @@ Bernat,87
 José Ignacio,1
 Sebastià,86
 Faustino,85
-Augusto,84
 Llorenç,84
+Augusto,84
 Rogelio,84
 Luciano,83
 Modesto,1
@@ -187,9 +187,9 @@ Bernardino,76
 Cayetano,76
 José Miguel,76
 Camilo,75
-Roger,74
-Cándido,74
 Esteve,74
+Cándido,74
+Roger,74
 Victoriano,73
 Frederic,73
 Alexandre,73
@@ -199,42 +199,42 @@ Jesús María,1
 Juan Luis,72
 Iñigo,72
 Leonardo,71
-Román,68
 Isidre,68
+Román,68
 Emiliano,68
 Asier,68
 Domènec,66
-Eloy,66
 Francisco de Paula,66
-Florencio,65
+Eloy,66
 Evaristo,65
 Josu,65
+Florencio,65
 Gorka,65
 María,4
 Santos,63
 Manolo,63
-Leandro,63
 Íñigo,63
+Leandro,63
 Elías,63
 Raimundo,62
 Ernest,62
 Melchor,62
 Ildefonso,61
-Máximo,61
 Benigno,61
+Máximo,61
 Benjamín,61
 Alfred,60
 Cristian,60
-Alex,60
 Àlex,60
+Alex,60
 Abel,59
 Artur,59
 Constantino,58
 Felip,58
 Juan Ignacio,58
 Moisés,57
-Hugo,57
 Iker,57
+Hugo,57
 Casimiro,56
 Paulino,56
 Bruno,56
@@ -245,39 +245,39 @@ Robert,55
 Jacobo,55
 Eladio,55
 Darío,54
+Basilio,54
 José Carlos,54
 Demetrio,54
-Adrià,54
 Xesús,54
-Basilio,54
+Adrià,54
 Anselmo,54
 Joseph,1
 Saturnino,53
 Fidel,53
 Francesc Xavier,53
+Patricio,53
 Julen,1
 Dani,53
-Patricio,53
 Avelino,52
 Florentino,52
-Ander,52
 Andoni,1
+Ander,52
 Marcial,51
+Laureano,51
 Fran,51
 Rodolfo,51
-Laureano,51
 Álex,50
 Juan Pablo,49
 Bonaventura,49
 León,48
 Fèlix,48
+Marco,48
 Amador,48
 Unai,48
-Marco,48
 Víctor Manuel,48
-Mauricio,47
 Pol,47
 Feliciano,47
+Mauricio,47
 Segundo,47
 Ginés,46
 Pep,46
@@ -285,11 +285,11 @@ Santi,46
 Jonathan,46
 Mateu,45
 Octavio,45
+Arnau,45
 Ivan,1
 Serafín,45
-Jacint,45
-Arnau,45
 Felix,45
+Jacint,45
 Victor,44
 Cipriano,44
 Buenaventura,44
@@ -297,8 +297,8 @@ Estanislao,44
 Marcelo,44
 Celso,44
 Cosme,43
-Luis María,43
 Gumersindo,43
+Luis María,43
 Imanol,43
 Juan Miguel,43
 Juan Francisco,43
@@ -314,32 +314,32 @@ Josep Lluís,40
 Juli,3
 Horacio,38
 Benet,38
-Patxi,38
 Pío,38
+Patxi,38
 Lino,37
+Juan María,37
 Eusebi,37
 Ambrosio,37
-Juan María,37
-Ventura,7
 Abraham,37
+Ventura,7
 Julian,36
 Cesáreo,36
 Virgilio,1
 Marcel,36
 Néstor,36
 Wenceslao,35
-Baldomero,35
 Severino,35
+Baldomero,35
 Raul,35
-García,35
 Antonio María,35
+García,35
 Rufino,34
 Prudencio,34
 Alejo,26
 Eneko,34
-Joan Baptista,34
 Gil,34
 Abelardo,34
+Joan Baptista,34
 Fausto,34
 Claudi,33
 Magí,32
@@ -352,141 +352,141 @@ Roque,32
 Hilario,31
 José Francisco,1
 Venancio,31
+Eulogio,31
 Raimon,31
 Arsenio,31
+Damià,31
 Urbano,31
 Amadeo,31
 Plácido,31
-Damià,31
 Maximino,30
 Mauro,30
-Rafa,30
 Jeroni,30
+Rafa,30
 Anastasio,30
-Eulogio,30
 Valeriano,30
 Rosendo,30
 Koldo,30
 Bonifacio,30
 Andres,30
 Joaquín María,29
-Higinio,29
 Xavi,29
 Hipólito,29
+Higinio,29
 Tomas,28
 Joan Carles,28
 Victorino,28
 Òscar,28
-Eustaquio,28
 Eudald,28
+Eustaquio,28
 Valentí,28
 José Javier,28
 Anxo,28
 Francisco de Asís,28
 Maximiliano,27
 Genaro,27
-Hermenegildo,27
 Christian,27
+Teófilo,27
+Hermenegildo,27
+Eleuterio,27
 Kepa,27
+Aquilino,27
 Francisco Manuel,27
 Leoncio,27
-Aquilino,27
-Eleuterio,27
 Maria,4
 Lucio,1
 Nicasio,26
 Pelayo,26
 Israel,26
 Pedro José,1
-Teófilo,26
+Gabino,26
 Dámaso,26
 Joel,26
-Gabino,26
 Manuel María,26
-John,26
 Aritz,26
+John,26
 Ezequiel,26
 Jokin,25
 Màrius,25
+Silvestre,25
 Alvaro,25
-Toribio,25
 Eugeni,25
-Eric,25
-José Alberto,25
+Toribio,25
 Braulio,25
+José Alberto,25
+Eric,25
 Ciriaco,25
 Igor,1
 Lope,25
 Perfecto,1
-Casto,24
 Norberto,24
-Silvestre,24
 Ibon,24
+Casto,24
 Xosé María,23
 Xulio,23
 Agapito,23
-Aniceto,23
 Heliodoro,23
 Facundo,23
+Aniceto,23
+August,23
+Nicolas,23
 Dídac,23
-Melcior,23
 Luis Javier,23
 Josep Antoni,23
-Nicolas,23
 Marino,23
-August,23
+Melcior,23
 Pasqual,23
 Gaietà,22
 Joxe,22
 Omar,22
 Francesc de Paula,22
+Javi,22
 Sixto,22
-Juanjo,22
 Julià,22
+Juanjo,22
 Fabián,22
 Romà,22
-Javi,22
 Hernán,22
 Remigio,21
 Joan Maria,21
-Romualdo,21
 Cristòfol,21
+Romualdo,21
+Inocencio,21
 Viktor,2
 Herminio,21
 Ceferino,21
 Calixto,21
-Inocencio,21
 Pedro Antonio,21
-José Enrique,21
-Aníbal,21
 Beñat,21
+Aníbal,21
+José Enrique,21
+Iago,21
 Thomas,21
 Conrado,21
-Iago,21
-Sebastian,20
 José Fernando,1
+Sebastian,20
 Adolf,20
-Antolín,20
+Cirilo,20
 Gervais,20
 Modest,20
-Cirilo,20
 Alexander,20
 Manu,20
 Sabin,20
-Secundino,20
+Antolín,20
 Bienvenido,20
+Secundino,20
 Estanislau,19
 José Maria,19
 Henrique,19
 José Juan,19
 Armand,19
-Paul,19
 Sancho,19
-Nemesio,19
-Lois,6
-Jan,19
-Ion,19
 Saúl,19
+Ion,19
+Jan,19
+Lois,6
+Nemesio,19
+Paul,19
 Louis,19
 Antoni Maria,19
 Tony,19
@@ -494,32 +494,33 @@ Miquel Àngel,18
 Servando,18
 Julio César,18
 Lluis,18
-Karlos,18
 Edgar,18
+Karlos,18
 Mohamed,18
-Vidal,18
-Alexis,18
 Zacarías,18
-Francisco José (Kiko),18
-Sabino,18
-Edmundo,18
 Giovanni,18
+Alexis,18
+Francisco José (Kiko),18
+Edmundo,18
+Sabino,18
+Vidal,18
 Arcadio,18
-Pierre,18
 Aarón,18
 Jenaro,18
+Pierre,18
 Charles,18
 Nicolau,17
-Dimas,17
-Adriano,17
 Suso,17
+Dimas,17
+Raül,17
+Adriano,17
 Rossend,17
 Manuel Jesús,17
-Raül,17
+Nacho,17
 Aureliano,17
 Amado,17
-Agustin,17
 Albino,17
+Agustin,17
 Hector,1
 Conrad,17
 Amancio,17
@@ -527,135 +528,134 @@ Xaime,16
 Timoteo,16
 Antonino,16
 Primitivo,16
+Marcel·lí,16
 Xurxo,16
 Tino,16
-Marcel·lí,16
 Lázaro,16
-Nacho,16
-Txema,16
 Severiano,16
 Valentin,16
+Txema,16
 Max,16
 Tirso,16
 Humberto,15
-Eloi,15
-Celestí,15
 Balbino,15
+Celestí,15
+Eloi,15
 Genís,15
 Celedonio,15
 Isaías,15
 Michael,15
-Pedro María,15
 Nicanor,15
+Pedro María,15
 Joan Josep,15
-Indalecio,15
 José Vicente,15
 Oliver,15
-Arcadi,15
 Bautista,15
+Indalecio,15
+Arcadi,15
 Ubaldo,14
 Rafel,14
+Gonçal,14
 Adrian,14
+Tito,14
 Kevin,14
 Txomin,14
 Feliu,14
-Gonçal,14
-Tito,14
-Curro,14
 Salustiano,14
-Josef,14
 Michel,14
+Josef,14
 Gustau,14
-Oier,14
-Luismi,14
 Antton,14
+Oier,14
+Curro,14
+Luismi,14
 Fabio,14
 Józef,13
 Casimir,13
+Cesar,13
 Magín,13
 Atanasio,13
+Alain,13
 Fulgencio,13
-Cesar,13
 Climent,13
 Justino,13
+Leandre,13
 Nazario,13
 Noel,13
 Jairo,13
-Leandre,13
-Gotzon,13
-Fortunato,13
-Francisco Jesús,13
-Juan Ángel,13
 José Alfonso,13
 Telesforo,13
+Gotzon,13
+Fortunato,13
 Cèsar,13
-Amando,13
+Francisco Jesús,13
+Juan Ángel,13
+Nil,13
 Camil,13
-Gaizka,13
+Amando,13
 Gómez,13
 Delfín,13
-Nil,13
+Gaizka,13
 Manuel José,13
 Valero,13
 Castor,12
-Alain,12
-Paulo,12
 Chema,12
+Paulo,12
 Benedicto,12
 Onofre,12
-José Daniel,12
 Ángel Luis,12
+José Daniel,12
+Nicomedes,12
+Lisardo,12
+Matias,1
 Roc,1
 Miguel Antonio,12
-Lisardo,12
-Nicomedes,12
-Matias,1
 Blai,12
-Francisco de Borja,12
-Lander,12
 Casiano,12
+Francisco de Borja,12
 Carlos María,12
-Telmo,12
-Ángel María,12
-Gerónimo,12
+Lander,12
 Frank,12
+Telmo,12
+Gerónimo,12
+Ángel María,12
 Severo,12
 Xabi,12
+Ferrán,12
 Silverio,12
 Peter,12
-Ferrán,12
+Epifanio,12
 Carlo,12
 Markel,12
-Fadrique,12
-Epifanio,12
 Francis,12
 Torcuato,12
+Fadrique,12
 Xerardo,11
 Roman,1
 Fermí,11
 Rufo,11
 Lamberto,11
 Donato,11
-Pedro Luis,11
 Edelmiro,11
+Pedro Luis,11
 Jeronimo,11
 Salvi,11
 Antero,11
 Teodor,11
-Olegario,11
-Urko,11
 Ignacio María,11
+Urko,11
 Tadeo,11
+Olegario,11
+Gregori,11
 Marçal,11
 Ulpiano,11
-Gregori,11
 Yeray,11
 José Tomás,11
 Francesc d'Assís,11
+Heriberto,11
 Luis Manuel,11
 Cristino,11
 Francisco María,11
-Heriberto,11
 Juan Nepomuceno,11
 Joan Antoni,11
 Josué,11
@@ -668,56 +668,35 @@ Antonio José,10
 Bieito,10
 Tiburcio,10
 Pastor,10
-Eligio,10
 Erik,10
-Victorio,10
 Artemio,10
-François,10
+Eligio,10
 Peio,10
+Victorio,10
+François,10
 Aureli,10
+Cristobal,10
 Pello,10
-José Joaquín,10
+Richard,10
 Anthony,10
-Leopold,10
-Emeterio,10
+José Joaquín,10
 Alan,10
 Juan Jesús,10
-Joan Manuel,10
 Walter,10
-Richard,10
-Arkaitz,10
+Joan Manuel,10
+Emeterio,10
 Luis Alberto,10
-James,10
-Cristobal,10
+Arkaitz,10
 Simon,10
+James,10
+Leopold,10
 Simó,10
-Leon,2
 Ibán,10
-Benjamin,9
-Elias,9
-José Julián,9
-Jacob,9
-Oskar,9
-Gutierre,9
-Ian,9
-Galo,9
-Benjamí,9
-Antonio Jesús,9
-Francisco Antonio,9
-Apolinar,9
-Regino,9
-Pantaleón,9
-Ildefons,9
-Graciano,9
-Luis Carlos,9
-Melitón,9
-Anacleto,9
-Adam,9
-Amós,9
+Leon,2
 Josep Miquel,9
 Ramir,9
-Fernando José,9
 Josep Oriol,9
+Fernando José,9
 Yevgeni,9
 Joan Ramon,9
 Serafin,9
@@ -725,37 +704,59 @@ Ovidio,9
 Marciano,9
 Desiderio,9
 Biel,9
-Macario,9
-Joe,9
-Elio,9
 Florenci,9
+Joe,9
+Macario,9
+Elio,9
 Joaquim Maria,9
 Juanito,9
 Aimar,9
-Joan Francesc,9
 Asensio,9
+Joan Francesc,9
 Cristòfor,9
 Eliseu,9
-Orlando,9
-Carlos Alberto,9
 Teo,9
 Salva,9
-Odón,9
 Jorge Luis,9
 Natalio,9
 Maties,9
+Orlando,9
+Carlos Alberto,9
+Odón,9
+Ian,9
+Benjamin,9
+Gutierre,9
+Galo,9
+Luis Carlos,9
+Elias,9
+José Julián,9
+Francisco Antonio,9
+Benjamí,9
+Jacob,9
+Oskar,9
+Antonio Jesús,9
+Regino,9
+Apolinar,9
+Pantaleón,9
+Ildefons,9
+Graciano,9
+Melitón,9
+Amós,9
+Anacleto,9
+Adam,9
 Siro,8
 Silvino,8
 Brais,8
-Laureà,8
 Constante,8
+Laureà,8
 Millán,8
 José Agustín,8
-Serapio,8
 Maurici,8
+Serapio,8
 Ladizlao,8
 Arseni,8
 Luis Ignacio,8
+Argimiro,8
 Paulí,8
 Cleto,8
 Segimon,8
@@ -763,247 +764,246 @@ Frutos,8
 Policarpo,8
 Abdon,1
 Evelio,8
-Argimiro,8
-Jesús Ignacio,8
-Jofre,8
-Luis Felipe,8
-Aleix,8
-Víctor José,8
 Honorio,8
-Emmanuel,8
-José Pascual,8
+Jesús Ignacio,8
+Gilberto,8
 Cruz,8
 Baldomer,8
 Ciro,8
-Gilberto,8
-Amalio,8
-Antonio Juan,8
+Jofre,8
+Víctor José,8
+Luis Felipe,8
+Aleix,8
+Juan Alfonso,8
+Emmanuel,8
+José Pascual,8
 Ruperto,8
+Antonio Juan,8
+Amalio,8
 Juan de la Cruz,8
 Francisco Miguel,8
 Kike,8
+Philippe,8
+Guido,8
 Adán,8
 Pompeu,8
 Anicet,8
-Philippe,8
-Guido,8
 Ibai,8
 Zenón,8
 Juan Maria Daniel,8
 Llibert,7
-Frantzisko,7
+Fabian,7
 Plàcid,7
+Frantzisko,7
+Zigor,7
 Hilari,7
 Maximo,7
-Zigor,7
 Teodosio,7
-Lluc,7
 Lesmes,7
+Lluc,7
 Damaso,7
 Charly,7
 Franco,7
-José Felipe,7
-José Emilio,7
-Acisclo,7
-Àlvar,7
 Cristo,7
 Cebrià,7
+Acisclo,7
+Àlvar,7
 Honorato,7
-Arístides,7
+José Emilio,7
+José Felipe,7
 Damian,7
-José Julio,7
 Pio,1
 Pedro Jesús,7
-Franciszek,7
+Arístides,7
 Froilán,7
 René,7
+José Julio,7
+Franciszek,7
 Aitzol,7
 Gumersind,7
+Delfí,7
 Filippo,7
-Lluís Maria,7
 Manuel Antonio,7
-Juan Alfonso,7
+Lluís Maria,7
 Pietro,7
-Jimmy,7
-Egoitz,7
 José Eugenio,7
 Denis,1
-Delfí,7
+Egoitz,7
+Jimmy,7
 Lauro,7
 Oleguer,1
 António,7
 Amaro,7
-Miguel José,7
-Juan Andrés,7
-Macià,7
 Elies,7
-Philip,7
+Macià,7
+Mohammed,7
 Yago,7
 Moisès,7
+Philip,7
+Miguel José,7
+Juan Andrés,7
+Sigfrido,7
 Patrick,7
 Luis José,7
-Mohammed,7
+Ramón María,7
 George,7
 Luigi,7
-Ramón María,7
-Sigfrido,7
 Junior,6
 Pere Joan,6
 Afonso,6
-Fabian,6
-Silvio,6
 Miquel dels Sants,6
-Justiniano,6
 Victorià,6
+Silvio,6
 Josep Anton,6
-Trinidad,6
-Robustiano,6
+Justiniano,6
 Primo,6
+Robustiano,6
 Maximiano,6
-Manuel Ángel,6
-Luis Fernando,6
+Trinidad,6
 Otto,6
 Obdulio,6
 Noé,6
+Manuel Ángel,6
+Luis Fernando,6
 José Domingo,6
-Recaredo,6
 Guzmán,6
+Recaredo,6
+Francesc Josep,6
+Balbin,6
 Filiberto,6
 Carlos Luis,6
-Francesc Josep,6
 Andreu Avel·lí,6
 Andrés Avelino,6
-Balbin,6
 Joaquín José,6
+Octavi,6
+Julio Manuel,6
+Eladi,6
 Fructuoso,6
 Beltrán,6
-Eladi,6
-Julio Manuel,6
 André,6
 Sotero,6
 Carlos Javier,6
-Miki,5
 Nilo,6
+Dionís,6
+Miki,5
 Norbert,6
 José Félix,6
 Elpidio,6
 Fernán,6
-Ermengol,6
 Alvar,6
-Dionís,6
+Ermengol,6
 Simeón,6
 Marian,6
-Constantí,6
-Endika,6
-Pero,6
-Francesco,6
-Anselm,6
-Godofredo,6
-Melquíades,6
 Andrea,2
 Germinal,6
 Steve,6
+Constantí,6
+Melquíades,6
+Endika,6
+Francesco,6
+Anselm,6
+Pero,6
 Cayo,6
 Pelai,6
+Godofredo,6
+Onésimo,6
 Juan Crisóstomo,6
-Antoine,6
 Atilano,6
 Carlos Manuel,6
-Onésimo,6
+Dalmacio,6
 Juan Alberto,6
 Germà,6
-João,6
 Jacques,6
 José Benito,6
-Dalmacio,6
+João,6
+Antoine,6
 Segismundo,6
 Américo,6
 Adelardo,6
-Mirena,5
-Migel,5
 Zoilo,5
 Peru,5
 Ignazio,5
 Ramon Maria,5
+Mirena,5
+Migel,5
 Josep Manel,5
-José Alfredo,5
-Trifón,5
-Rómulo,5
-Llucià,5
-Wincenty,5
 Agapit,5
-Inazio,5
-Joanes,5
-José Jorge,5
-William,5
+José Alfredo,5
+Wincenty,5
 Vital,5
+Trifón,5
 Saulo,5
+Rómulo,5
+Joanes,5
+Llucià,5
+Inazio,5
 Porfirio,5
-Pedro Manuel,5
+William,5
 Pere Nolasc,5
-Pǐnruì,5
+José Jorge,5
+Pedro Manuel,5
 Amable,5
 Josep Manuel,5
 Jorge Juan,5
+Pǐnruì,5
 Constancio,5
+Avel·lí,5
 German,5
 Ánxel,5
-Avel·lí,5
 Evarist,5
-Octavi,5
-Freddy,5
-Hermenegild,5
-Carlos Miguel,5
 Óliver,5
 Alberto José,5
 Ekaitz,5
+Freddy,5
+Hermenegild,5
+Pancho,5
+Carlos Miguel,5
 Johan,5
 Waldo,5
+Tom,5
 Abilio,5
 Giuseppe,5
 Carlos José,5
-Pancho,5
+Pius,5
 Fulgenzio,5
+Belarmino,5
 Fermin,5
 Faustí,5
-Pius,5
-Tom,5
-Ignacio de Loyola,5
+Crisanto,5
 Nino,5
 Emanuel,5
-Luis Ángel,5
-Belarmino,5
-Melchior,5
 Joan Ignasi,5
-Leo,5
-Mamadou,5
-Iban,1
-Publio,5
-Pedro Agustín,5
-Nikanor,5
-Crisanto,5
+Ignacio de Loyola,5
 Daniel José,5
+Luis Ángel,5
 Maikel,5
+Iban,1
+Melchior,5
 Efrén,5
-Niceto,5
-Bernardí,5
+Leo,5
 Teodomiro,5
+Mamadou,5
 Gaetano,5
 Nikolas,5
 Juan Vicente,5
-José Rafael,5
-Bittor,5
+Publio,5
 Crisóstomo,5
-Alessandro,5
-Arnaldo,5
+Pedro Agustín,5
+Nikanor,5
+Niceto,5
+Bernardí,5
+Bittor,5
+José Rafael,5
 Vicente Luis,5
 Luis Francisco,5
-Franz,5
+Alessandro,5
+Arnaldo,5
 Christopher,5
+Franz,5
 Càndid,5
 Andreas,5
-Belisario,5
 Filipe,5
+Belisario,5
 Willy,5
 Bernard,5
 Roxelio,5
@@ -1013,644 +1013,643 @@ Brian,5
 Elisardo,5
 Pedro Pablo,5
 Pere Màrtir,5
-Víctor María,4
-Joan Enric,4
-Wolfgang,4
 José Jesús Francisco,4
 José Raúl,4
-Ferdinand,4
+Joan Enric,4
+Wolfgang,4
 Olivier,4
-Tristán,4
+Víctor María,4
 Pelegrin,4
-Luis Enrique,4
 Nicholas,4
+Ferdinand,4
+Luis Enrique,4
 Boris,1
-Lleonard,4
-Lalo,4
-Vicente Antonio,4
-Aldo,4
-Ayoze,4
-Ruy,4
-Leovigildo,4
 José Martín,4
 Oswaldo,4
+Vicente Antonio,4
+Lalo,4
+Lleonard,4
+Ruy,4
+Leovigildo,4
+Ayoze,4
 Sandro,4
-Jules,4
 Joshua,4
 Ferdinando,4
+Aldo,4
+Joachim,1
+Josep Ignasi,4
+Tristán,4
+Heribert,4
+Jules,4
+Marius,4
+Jonás,4
+Fulgenci,4
+Guillén,4
 Hans,4
+Doroteo,4
 Henri,4
 Mike,4
 Piotr,4
 Isacio,4
-Josep Ignasi,4
-Guillén,4
-Joachim,1
-Doroteo,4
-Heribert,4
-Marius,4
-Jonás,4
-Bonifazio,4
-Fulgenci,4
-Don,4
-Martiño,4
-Kilian,4
-de Todos los Santos,4
 Felicísimo,4
 Heraclio,4
-Liberto,4
+Bonifazio,4
 Mathieu,4
+Inigo,4
+de Todos los Santos,4
 Chusé,4
+Martiño,4
 Prudenci,4
 Lluís Miquel,4
-Inigo,4
-Silvano,4
-Chesús,4
+Don,4
 José Adolfo,4
+Chesús,4
+Kilian,4
 Antonio Miguel,4
 Pedro Juan,4
-Aaron,4
-Eustasio,4
+Liberto,4
 Francesc de Sales,4
-Canuto,4
 Kenny,4
-Hipòlit,4
 José Víctor,4
-Francisco Antonio Maria de Nieves,4
-Henry,4
-Luis Mariano,4
-Pedro Andrés,4
-José Gabriel,4
+Silvano,4
+Hipòlit,4
+Eustasio,4
+Canuto,4
+Aaron,4
 Pedro Nolasco,4
 Eder,4
-Luis Jesús,4
-Adonis,4
-Graciliano,4
+Francisco Antonio Maria de Nieves,4
+José Gabriel,4
 Elviro,4
+Adonis,4
+Henry,4
+Graciliano,4
+Pedro Andrés,4
 Custodio,4
-Kim,4
+Luis Mariano,4
+Luis Jesús,4
 Liborio,4
-Màxim,4
-Polo,4
-Sandalio,4
-Saturio,4
-Stefan,1
-Ricky,4
-Roland,4
+Kim,4
 Trinitario,4
 Urtzi,1
-Iu,4
+Ricky,4
+Sandalio,4
 Youssef,4
+Saturio,4
+Màxim,4
+Polo,4
+Roland,4
 Niko,4
 Pedro de Alcántara,4
-Edmon,4
+Stefan,1
+Trinitat,4
+Iu,4
+Valerià,4
 Jesús Maria,4
 Miro,4
-Valerià,4
-Trinitat,4
-Erasme,4
 Carmel,4
 Crescencio,4
-Montserrat,4
-Nadal,4
-Jose Antonio,4
 Gontzal,4
 Honorat,4
-Augustin,4
-Nestor,4
+Edmon,4
+Jose Antonio,4
+Erasme,4
+Montserrat,4
+Nadal,4
 Klaudio,4
-Xoaquín,4
+Nestor,4
+Augustin,4
 Olimpio,4
 Orencio,4
+Xoaquín,4
+José Pedro,4
 Crispin,4
 José Andrés,4
-José Pedro,4
+Joan Lluís,4
 Michele,4
 Eveli,4
-Joan Lluís,4
-Paolo,4
 Josep Carles,4
+Paolo,4
 Jack,4
 Antonio Luis,4
 Hèctor,4
 Miguel Angel,4
-Lionel,3
-Thiago,3
-Vasco,3
 Julio José,3
 Bertram,3
 Wilhelm,3
 Dávid,3
 Danny,3
-Carlos Antonio,3
-Johann,3
 Andrii,3
+Josep Fèlix,3
+Lionel,3
+Thiago,3
+Vasco,3
 Raymond,3
-Miguel Rafael,3
-Blasco,3
-Carlos Henrique,3
-Sócrates,3
-Fabricio,3
+Andy,3
 Mark,3
 János,3
+Sócrates,3
+Fabricio,3
+Ugo,3
+Carlos Antonio,3
+Johann,3
 Eufemiano,3
-Andy,3
 Angelino,3
 José Santiago,3
 Giulio,3
-Ugo,3
+Carlos Henrique,3
+Perico,3
 Darius,3
 Oreste,3
-Perico,3
+Miguel Rafael,3
+Moses,1
 Édgar,3
 Gabriel José,3
 Serge,3
-Josep Fèlix,3
-Moses,1
-Axel,3
 Ariel,3
 Lauren,3
 Petrus,3
-Juan Diego,3
-Acacio,3
-Ramón Luis,3
+Axel,3
 Dominique,3
+Acacio,3
 Miguel de los Santos,3
+Blasco,3
+Ramón Luis,3
 Arnoldo,3
+Jésus,3
+Jonay,3
+Vladimir,3
+Luis Alfonso,3
+José Amador,3
+Josh,3
+Domenico,3
+Valerio,3
+Zeferino,3
+Juan Diego,3
+Dino,3
+Nauzet,3
+Alberto Carlos,3
+Isabel,3
+Candido,3
+Abelard,3
+Judas,3
+Ray,3
+Benxamín,3
+Bibiano,3
+Airam,3
+Sinibaldo,3
+José Mariano,3
+Xuan,3
+Ignacio José,3
+Cástor,3
+Mari,3
+Pedro Alejandro,3
+Josep Vicenç,3
+Ulises,3
+Fructuós,3
+Oliverio,3
+Juan Santiago,3
+Luis de Gonzaga Joaquin Maria,3
+Dario,3
+Delfin,3
+Mustafa,3
+Cels,3
+Fruela,3
+Eleazar,3
+Ot,3
+Pascal,3
+Eliodoro,3
+Cassià,3
+Guifré,3
+Guille,3
+Flavio,3
+Adalberto,3
+Baldo,3
+Enrique Javier,3
+Helio,3
+Eddy,3
+Edmond,3
+Edward,3
+Florián,3
+Carmen,3
+Chico,3
+Gastón,3
+Ben,3
+Cornelio,3
+Hermann,3
+Hermógenes,3
+Ibrahim,3
+Juan Lucas,3
+Loreto,3
+Leocadio,3
+Jota,3
+Jean-Baptiste,3
+Pascasio,3
+Pepo,3
+Álvaro María,3
+Júlio,3
+Johnny,3
+Pedro Miguel,3
+Emigdio,3
+Rigoberto,3
+Estanis,3
+Étienne,3
+Felicià,3
+Marceliano,3
+Sigfrid,3
+Sixte,3
+Ton,3
+Joan Pau,3
+Mika,3
+Henryk,3
+Salomon,3
+Higini,3
+Karol,3
+Marcus,3
+Moises,3
+Dominik,3
+Ciril,3
+Ramón Ángel,3
 Josep Enric,3
-Manoel,3
+Duarte,3
+Josep Pau,3
+Joan Manel,3
+Jose Manuel,3
+Epifani,3
 Remigi,3
-Odei,3
-José Mari,3
-Simeó,3
-Joxe Mari,3
-Valeri,3
+Just,3
+Bertran,3
 Julien,3
 Maurizio,3
-Xacobe,3
-Xaquín,3
+Simeó,3
+Valeri,3
+Odei,3
+Manoel,3
+José Mari,3
+Joxe Mari,3
 Odilo,3
 Roi,3
-Rosario,3
+Xacobe,3
+Xaquín,3
+Adelino,3
 Armengol,3
 Amparo,3
+Rosario,3
 Levi,3
-Adelino,3
-Filibert,3
 Peregrin,3
-Laurentino paja,3
-Dennis,3
+Filibert,3
 José Guillermo,3
+Dennis,3
+Laurentino paja,3
 Lolo,3
 Emerenciano,3
 Joan Anton,3
 Luca,2
 Áureo,3
 Dacio,3
-Berenguer,3
 Rudesindo,3
+Berenguer,3
 Nahuel,3
 Jordan,3
 Eustoquio,3
 Joan Andreu,3
 Ivo,3
-Bryan,3
 Aniol,3
+Bryan,3
 Eufemio,3
 Pilar,3
 Marvin,3
 José Jesús,3
 Olmo,3
-Jésus,3
-José Amador,3
-Domenico,3
-Zeferino,3
-Jonay,3
-Ray,3
-Vladimir,3
-Luis Alfonso,3
-Airam,3
-Nauzet,3
-Alberto Carlos,3
-Valerio,3
-Isabel,3
-Candido,3
-Abelard,3
-Josh,3
-Judas,3
-Dino,3
-Cástor,3
-José Mariano,3
-Josep Vicenç,3
-Juan Santiago,3
-Mustafa,3
-Benxamín,3
-Bibiano,3
-Sinibaldo,3
-Xuan,3
-Pedro Alejandro,3
-Ignacio José,3
-Oliverio,3
-Ulises,3
-Mari,3
-Fructuós,3
-Pascal,3
-Luis de Gonzaga Joaquin Maria,3
-Flavio,3
-Baldo,3
-Dario,3
-Adalberto,3
-Cels,3
-Delfin,3
-Eleazar,3
-Ot,3
-Fruela,3
-Eliodoro,3
-Cassià,3
-Ben,3
-Guifré,3
-Guille,3
-Enrique Javier,3
-Helio,3
-Carmen,3
-Eddy,3
-Edmond,3
-Edward,3
-Gastón,3
-Chico,3
-Hermann,3
-Hermógenes,3
-Cornelio,3
-Florián,3
-Ibrahim,3
-Jota,3
-Jean-Baptiste,3
-Leocadio,3
-Loreto,3
-Juan Lucas,3
-Pepo,3
-Pascasio,3
-Pedro Miguel,3
-Johnny,3
-Ton,3
-Álvaro María,3
-Emigdio,3
-Rigoberto,3
-Júlio,3
-Estanis,3
-Étienne,3
-Felicià,3
-Marceliano,3
-Ramón Ángel,3
-Mika,3
-Duarte,3
-Joan Pau,3
-Henryk,3
-Salomon,3
-Josep Pau,3
-Marcus,3
-Moises,3
-Dominik,3
-Sigfrid,3
-Sixte,3
-Karol,3
-Higini,3
-Epifani,3
-Joan Manel,3
-Jose Manuel,3
-Ciril,3
-Just,3
-Bertran,3
-Fernand,2
 Théodore,2
+Karl,2
 Nikolaus,2
 Louis-Ferdinand,2
 Philipp,2
 Manfred,2
-Father,2
 Ronaldo,2
 Valeriu,2
-Karl,2
-Nikola,2
 Gérard,2
 Vítor,2
 Èric,2
 Carl,2
+Nikola,2
+Fernand,2
+Ambrogio,2
+Adolphe,2
 Bojan,2
 Bartolomeo,2
 María de los Dolores,2
 Marcos Antônio,2
-Ireneo,2
-Ambrogio,2
-Adolphe,2
-Maverick,2
+Stephen,2
+Práxedes,2
 Wellington,2
 Elemér,2
+Antonio Maria,2
+Ireneo,2
+José Nicolás,2
 Angelo,2
 Reyes,2
 Tommy,2
 Ellis,2
 Álvar,2
-Stephen,2
-Práxedes,2
-Lodovico,2
-José Nicolás,2
 Sergey,2
-Arthur,2
 Càstor,2
 Balthasar,2
+Arthur,2
 Kiko,2
 Rubèn,2
-Ascanio,2
 Garci,2
 Delio,2
 Baltazar Enrique,2
 José Celestino,2
+Ascanio,2
+Wilfredo,2
+Lodovico,2
 Ramón José,2
-Laudelino,2
 Jonatan,2
 Yehuda,2
-Wilfredo,2
-Beny,2
-Antonio Maria,2
-Giacomo,2
+Maxi,2
 Diosdado,2
 Diogo,2
+Léon,2
+Ione,2
+Jakob,2
+Beny,2
+Eberhard,2
+Edgardo,2
+Wifredo,2
+Edorta,2
+Andrés José,2
+Unax,2
+Maverick,2
+José Jerónimo,2
+Lupercio,2
+Laudelino,2
+Alphonse,2
+Sebastiano,2
+Ilie,2
+Ernst,2
+Karim,2
+Ferrer,2
+Maurice,2
+Niccolò,2
+Apel·les,2
+Rudy,2
+Rolando,2
+Ovidi,2
+Nuño,2
 Dave,2
+Stefano,2
 Davide,2
+Lúcio,2
+Eulalio,1
+Johannes,2
+Zacarias,2
+Giacomo,2
 Pablo de la Cruz,2
 Ponciano,2
 Miguel María,2
 Adalbert,2
-Lupercio,2
-Maxi,2
-Edgardo,2
-Wifredo,2
-Edorta,2
-Léon,2
-Ione,2
-Jakob,2
-Alphonse,2
-Sebastiano,2
-Ilie,2
-Andrés José,2
-Unax,2
-Apel·les,2
-Eberhard,2
-Karim,2
-José Jerónimo,2
-Niccolò,2
-Rudy,2
-Ernst,2
-Ovidi,2
-Rolando,2
-Nuño,2
-Bixente,2
-Eulalio,1
-Ferrer,2
-Maurice,2
-Zacarias,2
-Jamal,2
-Stefano,2
-Johannes,2
-Gabriel María,2
-Lúcio,2
-Claude,2
-Jozef,2
-Devin,2
 Miguel Anxo,2
 Domingos,2
 Harkaitz,2
 Xohán,2
 Manuel Ignacio,2
-Marcantonio,2
+Bixente,2
 Fred,2
+Jamal,2
 Raphaël,2
 Miguel Javier,2
+Guillaume,2
+Claude,2
 Thierry,2
 Galcerán,2
 Xoel,2
 Yoel,2
-Guillaume,2
-Olaf,2
-Fabià,2
-Romano,2
-Yannick,2
+Jozef,2
+Gabriel María,2
 Eñaut,2
 Agostino,2
-Hermínio,2
 Nicola,2
-Aquiles,2
-José Salvador,2
-Lambert,2
+Olaf,2
+Fabià,2
 Balthazar,2
 Chus,2
+Teddy,2
+José Salvador,2
+Lambert,2
 Dmitry,2
 Enrico,2
-Teddy,2
-Oleg,1
-Yury,1
-Ponç,2
-Carlos Jesús,2
-Abner,2
-Manrique,2
-Miguel Jerónimo,2
+Devin,2
+Marcantonio,2
 François-Xavier,2
 Homero,2
 Elijah,2
-Antonio Joaquín,2
+Romano,2
+Yannick,2
 Teobaldo,2
+Hermínio,2
 Alipio,2
 Romero,2
+Gualberto,2
+Aquiles,2
 Berni,2
 Terenci,2
 Joan Miquel,2
-Baptista,2
-Gualberto,2
-Erasmo,2
-Espartaco,2
-Jano,2
-Javier José,2
-Francisco de Sales,2
-Eutimio,2
+Ponç,2
+Miguel Jerónimo,2
+Carlos Jesús,2
+Manrique,2
+Oleg,1
+Yury,1
+Abner,2
 Fede,2
-Gabi,2
-Gabe,2
 Felipe Antonio,2
 Felipe Benicio,2
+Francisco de Sales,2
+Antonio Joaquín,2
 Felipe José,2
-Jesús Francisco,2
 Driss,2
+Gabi,2
+Gabe,2
 Efraín,2
 Gastó,2
 Giorgio,2
 Giraldo,2
+Baptista,2
 José Gregorio,2
-Hermes,2
-Joël,2
+Erasmo,2
+Espartaco,2
+Jesús Francisco,2
+Eutimio,2
 Críspulo,2
+Hermes,2
 Ilia,2
 Innocenci,2
 Inocente,2
 Isabelo,2
-Jun,2
-Manuel de Jesús,2
-Licinio,2
-Milo,2
-Misael,2
+Joël,2
 Juan Sebastián,2
-Pablo Antonio,2
-Percival,2
-Martiniano,2
+Jano,2
+Javier José,2
 Mamés,2
+Jun,2
 Manfredo,2
+Licinio,2
+Pablo Antonio,2
+Martiniano,2
+Tarek,2
+Manuel de Jesús,2
+Ursicino,2
+Reynaldo,2
 Medard,2
 Ireneu,2
-Jess,2
-Reynaldo,2
-Tarek,2
-Ursicino,2
+Maxence,2
 Illán,2
+Percival,2
+Milo,2
+Misael,2
+Judah,2
+Jess,2
+Isaak,2
 Michelino,2
 Naim,2
-Maxence,2
-Pere Lluís,2
-Petro,2
-Eli,2
-Judah,2
-Jorge Víctor,2
-Raphael,2
-Isaak,2
-Dionizy,2
-Ales,2
-Juan Gabriel,2
-Guillerme,2
-Otilio,2
-Rajmund,2
-Vittorio,2
-Guilherme,2
 Leonci,2
+Pere Lluís,2
+Llàtzer,2
+Petro,2
+Luka,2
+Eli,2
+Raphael,2
+Jorge Víctor,2
+Salomón,2
+Juan Gabriel,2
 Marcin,2
+Sean,2
+Otilio,2
+Dionizy,2
+Rajmund,2
 Próspero,2
 Pròsper,2
-Llàtzer,2
+Vittorio,2
+Guilherme,2
 Noe,2
-Salomón,2
-Sean,2
+Benvingut,2
+Berna,2
 Fredi,2
 Ambrosi,2
-Luka,2
+Frederico,2
+Humbert,2
+Ales,2
+Guillerme,2
 Elicio,2
 Josep Vicent,2
 José Eloy,2
-Benvingut,2
-Berna,2
-Frederico,2
-Lleó,2
-Victorí,2
-Vicente Javier,2
-Papa,2
-Pedro Ignacio,2
-Humbert,2
-Rafael José,2
 Rodolf,2
 Sadurní,2
+Lleó,2
+Papa,2
+Pedro Ignacio,2
+Juan Cruz,2
+Erramun,2
+Rafael José,2
+Serafí,2
+Victorí,2
 Pantxoa,2
 Patrizio,2
-Cristofer,2
-Erramun,2
-Jose Inazio,2
-Jose Migel,2
-Serafí,2
-Juan Cruz,2
-Herbert,2
-Martín José,2
+Vicente Javier,2
 Asdrúbal,2
+Jose Inazio,2
+Cristofer,2
+Jose Migel,2
+Martín José,2
+Herbert,2
+Garikoitz,2
+Guillermo José,2
+Aphrodisius,2
 Veremundo,2
-Narcis,2
-Joan Alfons,2
+Romuald,2
+Lazaro,2
 José Carmelo,2
 Anibal,2
-Aphrodisius,2
-Lazaro,2
-Guillermo José,2
-Garikoitz,2
+Narcis,2
+Joan Alfons,2
 Teofilo,2
+Josep-Ramon,2
+Hicham,2
 Jesús Ricardo,2
-Romuald,2
-Cristina,2
 Huberto,2
-Bertrand,2
-Emil,2
+Cristina,2
 Josep Francesc,2
+Emil,2
 Éder,2
 Dean,2
 Josep Melcior,2
-Hicham,2
-Nepomuceno,2
-Josep-Ramon,2
-Armindo,2
 Pere Jordi,2
+Nepomuceno,2
+Bertrand,2
+Armindo,2
 Federic,2
-Romeu,2
 Saturno,2
-Nick,2
 Emerencià,2
-Moussa,2
-Yerai,2
+Nick,2
 Càstul,2
+Yerai,2
+Romeu,2
 Avenir,2
-Anatolio,2
 Giordano,2
+Moussa,2
 Reinaldo,2
-Renato,2
-Bru,2
-Fernando Tomás,2
+Anatolio,2
 Juan Martín,2
 Adri,2
+Renato,2
 Vernon,2
-Crescente,2
 Agoney,2
 Plutarco,2
+Austin,2
 Jérôme,2
 Aniano,2
+Bru,2
+Fernando Tomás,2
 Arón,2
-Austin,2
 Jeremy,2
-Klaus,2
+Crescente,2
 Carlos Enrique,2
+Klaus,2
 Darwin,2
 Didier,2
-Eliezer,2
-José Luís,2
-Erundino,2
 Basili,2
 Xuban,2
-Josep Ildefons,2
 Ermelindo,2
 Aday,1
 Frans,2
+Josep Ildefons,2
 Rachid,2
+José Luís,2
+Erundino,2
+Eliezer,2
 Rubens,2
 Yayo,2
-José de Jesús María,2
 Alessio,2
-Marko,2
 Clodoaldo,2
 Kelly,2
-Pompilio,2
-Patricia,2
+José de Jesús María,2
+Marko,2
 Abílio,2
+Pompilio,2
 Kenneth,2
-Josep Domènec,2
 Ayax,2
+Josep Domènec,2
+Patricia,2
 Luc,2
-Josep Pere,2
 Andrew,2
-Joseph Maria Manuel,2
+Josep Pere,2
 Josefa,2
-Bernaldo,2
+Joseph Maria Manuel,2
 Senén,2
+Bernaldo,2
 Aser,2
 Guim,2
 Natxo,2
@@ -1658,38 +1657,97 @@ Concepción,2
 Teógenes,2
 Xan,2
 Sabiniano,2
-Sven,1
-Godwin,1
-Goran,1
-Bernal,1
-Academy Awards,1
-Hussein,1
+Fredrik,1
+Janusz,1
+Károly,1
+Juan-José,1
+Georgiy,1
+roe,1
+Albin,1
+Teubang Phui Mesjid,1
+Sercan,1
+Farid,1
+Helmut,1
+Juwan,1
+Moshe,1
+Pánfilo,1
+Pierre-Emerick,1
+Ferenc,1
+Sete,1
+Chuck,1
+Doménikos,1
+Pier,1
+Benicio,1
+Monserrate,1
+Haimar,1
+Gilipollas no tiene traducción,1
+Ikechukwu,1
+Colunga,1
+Hǎidōng,1
+Florian,1
+Ignacio de la Macarena,1
+Tote,1
+Valdo,1
+Vincenzo,1
+Lev,1
+Tonino,1
+Theodor,1
+Sisinnius,1
+Adrien,1
+Wander,1
+Veljko,1
+Friedrich,1
+Alexey,1
+Jeb,1
+Cândido,1
+Caspar,1
+Seraph,1
+Sixtus,1
+Hilarió,1
+Syarhey,1
+Darryl,1
+Elvis Presley,1
+Ignatius,1
+Payo,1
+Chester,1
+Grigori,1
+Gervasi,1
+Morten,1
+Eduardo Antonio,1
+Edwin,1
+Aristides,1
+Osmar,1
+Odorico,1
+Shlomo,1
+Uriel,1
+Árpád,1
+Arpad,1
+Pedro Francisco,1
+Amand,1
+Dragan,1
+Juan Fernando,1
+Mesi,1
+László,1
+Wespazjan,1
+Valery,1
+Casiodoro,1
+Pier Luigi,1
 Roldán,1
 Ayad,1
 Sem,1
 Grigory,1
-Georg,1
-Joey,1
-Colin,1
-Corey,1
-Henrike,1
+Bernal,1
+Academy Awards,1
+Magno,1
+Martínez,1
+Melvin,1
+Clifford,1
+Wayne,1
+Girolamo,1
+Russell,1
 de la Asunción,1
 Jorge José,1
 Sak,1
-Grégoire,1
-Kirill,1
-Phil,1
-Heinrich,1
-Heleno,1
-Vitaliano,1
-Bonifaz,1
-Ludwig,1
-Franz von Assisi,1
-Isabellus,1
-Evangelista,1
-Kiyoshi,1
-Sugoi,1
-Russell,1
 Predrag,1
 Gaston,1
 Igna,1
@@ -1698,379 +1756,371 @@ Innocent,1
 Innocenzo,1
 Luis Alfredo,1
 Maurus,1
+Barnabás,1
+Benedictus,1
+Jehuda,1
+Bodo,1
+Sven,1
+Godwin,1
+Goran,1
+Maarten,1
+Björn,1
+José Bernardo,1
+Paulo Roberto,1
+Joan Albert,1
+Solomon,1
+Matthäus,1
+José Dionisio Castillo-Ortiz,1
+happiness,1
+Kiyoshi,1
+Sugoi,1
+Enrique María,1
+Brad,1
+Francesco Maria,1
+Juan Rafael,1
+Keylor,1
+Enrique José,1
 Nedžad,1
 Rutyliusz,1
 Nicholas Matti,1
 Per-Ingvar,1
 Wladimiro,1
 Ken,1
-Solomon,1
-Matthäus,1
-Chang,1
-Joan Albert,1
-http://www.wikidata.org/.well-known/genid,111111111
-503ae0ab22ba11ea7e86cd7cc67c9d0a,1
-Manuel Joaquín,1
-Enrique José,1
-José Dionisio Castillo-Ortiz,1
-happiness,1
-Ysidro,1
-Brayan,1
-Juan Domingo,1
-Nasser,1
 Alfons Carles,1
 Gary,1
-Bart,1
-Elvis,1
+Hussein,1
 Yū,1
 Erwin,1
 Kenji,1
-Davit,1
-Francisco Xavier,1
-Munio,1
-Renier,1
+http://www.wikidata.org/.well-known/genid,111111111
+503ae0ab22ba11ea7e86cd7cc67c9d0a,1
+Manuel Joaquín,1
 Laurentius,1
 Lazzaro,1
 Juan de la Santísima Trinidad,1
 Ludovico,1
-Dejan,1
-75921891acc23269a764598f2a827b18,1
 Gomes,1
 Kílian,1
 Shemtob,1
-Justí,1
-Caio,1
-Beremundo,1
-Bertel,1
-Inda,1
-Landelin,1
 Manuel Francisco,1
 Egon,1
 Maximilian,1
-Miguel Pascual,1
+Brayan,1
+Juan Domingo,1
+Nasser,1
+Grégoire,1
+Colin,1
+Corey,1
+Silvester,1
+Davit,1
+Francisco Xavier,1
+Munio,1
+Renier,1
 Luis Eduardo,1
+Dejan,1
+75921891acc23269a764598f2a827b18,1
+Justí,1
+Caio,1
+Henrike,1
+Hektor,1
+Fortunio,1
+Oryol,1
+Landelin,1
+Phil,1
+Miguel Pascual,1
+Kyril,1
+Georg,1
 Ana,1
 Elisabeth,1
 Geronimo,1
 Tereso,1
-Caleb,1
-Ataúlfo,1
-Silvester,1
+Kirill,1
+Chang,1
 Rui,1
 Algis,1
 Venus,1
 Eufrazjusz,1
-Hektor,1
-Fortunio,1
-Kyril,1
-Oryol,1
-Deborah,1
+Ysidro,1
+Antonio de la Santísima Trinidad,1
+Emigdi,1
+Joey,1
+Heinrich,1
+Heleno,1
+Felices,1
+Ataúlfo,1
+Vitaliano,1
+Bonifaz,1
+Ludwig,1
+Franz von Assisi,1
+Isabellus,1
+Evangelista,1
+Eugene,1
+Sadrac,1
+Bart,1
+Elvis,1
+Évariste,1
+Ara,1
+Emanuele,1
+Joris,1
+Gonçalo,1
+Tamar,1
+Inaciu,1
+Beremundo,1
+Bertel,1
+Xavier de Paula,1
+Frédéric,1
+Georges,1
+Resurrección,1
+Nicolau Maria,1
+Martinho,1
+Matthieu,1
+Andrés Vicente,1
+Octave,1
+Inda,1
+Salazar,1
+Günther,1
+Frederik,1
+Caleb,1
 Chamaco,1
 Christophe,1
 Ciprià,1
 Simón de Rojas,1
-Felices,1
-Cyril,1
-Junio,1
-Laurent,1
-Antonio de la Santísima Trinidad,1
-Emigdi,1
-(El Az) Marco Antonio,1
-Évariste,1
-Eugene,1
-Sadrac,1
-Ara,1
-Gonçalo,1
-José Eduardo,1
-Acoran,1
-Lamont,1
-Emanuele,1
-Joris,1
-Xavier de Paula,1
-Nicolau Maria,1
-Martinho,1
-Matthieu,1
-Tamar,1
-Inaciu,1
-Mauri,1
-Aymeric,1
-Andrés Vicente,1
-Octave,1
-Frédéric,1
-Georges,1
-Resurrección,1
-Frederik,1
-Salazar,1
-Nuno,1
-Apeles,1
 Tenzin,1
 Víctor Francisco,1
 Garcia,1
+Jean-Charles,1
+Jean-Pierre,1
+Jerónimo José,1
 Francho Chabier,1
-Günther,1
-Eufrasio,1
-Rocco,1
+Cyril,1
+Deborah,1
 Aureli Maria,1
 Viki,1
 Poli,1
 Longinos,1
 Longí,1
 Asel,1
-Jean-Charles,1
-Jean-Pierre,1
-Jerónimo José,1
+Desideri,1
+Aires,1
+Eufrasio,1
 Risto,1
 Nazaret,1
 Joffre,1
-Desideri,1
-Aires,1
-Andrey,1
-José Augusto,1
-Yuri,1
 Nilda,1
 Orazio,1
-Gedeón,1
-Sadoc,1
+Junio,1
+Laurent,1
 Apolinário,1
 Arkád,1
 Augusto César,1
 Camille,1
 Cronwell,1
-Estêvão,1
+Gedeón,1
 Marcellino,1
 José Alejandro,1
 Pedro Felipe,1
-Evans,1
-Amat,1
+José Eduardo,1
+Acoran,1
+Lamont,1
+Sadoc,1
+Estêvão,1
+(El Az) Marco Antonio,1
+Mauri,1
+Aymeric,1
+Andor,1
+Jorge David,1
+Delfim,1
+Nuno,1
+Apeles,1
+Didacus,1
+Duncan,1
+Carlos Juan,1
+Balázs,1
+Baruch,1
+Benedict,1
+Frederick,1
+Eldin,1
+Aladino,1
+Albano,1
+Rocco,1
+Harri,1
+Evilásio,1
+Jorge Antonio,1
+Alfonsito,1
+Gerrit,1
+José Toribio,1
+Andrey,1
+José Augusto,1
+Yuri,1
+Juan Daniel,1
+Ibo,1
+Giorgi,1
+Ettore,1
+Luis Bernardo,1
+Joan Elies,1
+Bernardus,1
 Francés,1
+Hamed,1
+Maur,1
+Evans,1
+Endre,1
 Bill,1
 Brandon,1
 Brenton,1
 Bakari,1
+Alfi,1
+Amat,1
 Abd al-Rahman,1
 Adauto,1
-Hamed,1
-Maur,1
-Endre,1
 Alejandro Francisco,1
-Alfi,1
-Doménikos,1
-Fredrik,1
-Janusz,1
-Teubang Phui Mesjid,1
-Sercan,1
-Farid,1
-Helmut,1
-Pánfilo,1
-Pierre-Emerick,1
-Károly,1
-Juan-José,1
-Georgiy,1
-roe,1
-Albin,1
-Veljko,1
-Juwan,1
-Moshe,1
-Ferenc,1
-Sete,1
-Benicio,1
-Monserrate,1
-Maarten,1
-Björn,1
-José Bernardo,1
-Enrique María,1
-Brad,1
-Hilarió,1
-Valdo,1
-Pier,1
-Francesco Maria,1
-Juan Rafael,1
-Ignacio de la Macarena,1
-Tote,1
-Friedrich,1
-Alexey,1
-Jeb,1
-Cândido,1
-Haimar,1
-Gilipollas no tiene traducción,1
-Ikechukwu,1
-Colunga,1
-Hǎidōng,1
-Florian,1
-Eduardo Antonio,1
-Edwin,1
-Dragan,1
-Caspar,1
-Vincenzo,1
-Lev,1
-Tonino,1
-Theodor,1
-Sisinnius,1
-Adrien,1
-Wander,1
-Seraph,1
-Sixtus,1
-Syarhey,1
-Juan Fernando,1
-Mesi,1
-Magno,1
-Ignatius,1
-Payo,1
-Chester,1
-Grigori,1
-Elvis Presley,1
-Gervasi,1
-Morten,1
-Martínez,1
-Melvin,1
-Clifford,1
-Wayne,1
-Shlomo,1
-Uriel,1
-Aristides,1
-Osmar,1
-Odorico,1
-Casiodoro,1
-Darryl,1
-Paulo Roberto,1
-Pier Luigi,1
-László,1
-Wespazjan,1
-Valery,1
-Chuck,1
-Keylor,1
-Árpád,1
-Arpad,1
-Pedro Francisco,1
-Amand,1
-Girolamo,1
-Barnabás,1
-Benedictus,1
-Jehuda,1
-Bodo,1
-Kristian,1
-Jusepe,1
-Brice,1
-Llum,1
-Manuel Maria,1
-Cope,1
-Fabrizio,1
-Ritter,1
-Rolf,1
-Moritz,1
-Paweł,1
-Sadi,1
-Numa,1
-Prosper,1
-Manuel Joaquim,1
-Escolástico,1
-Macrino,1
-Antoni Josep,1
-Fenollosa,1
-Deogràcies,1
-Dionisi,1
-Swan,1
-Txumari,1
-Jauma,1
-Josep Víctor,1
-Jep,1
-Ester,1
-Isak,1
-Castelló d'Empúries,1
-Dafnis,1
-Damas,1
-Concepció,1
-Jovino,1
-Juli Maria,1
-Lama,1
-Leonel,1
-Vicenç de Paül,1
-Odiló,1
-Osvald,1
-Pacífic,1
-Pau Joan,1
-Gentil,1
-Yacine,1
-Aintzane,1
-Josep Narcís,1
-Glòria,1
-Gustavo Adolfo,1
-Inma,1
-Pere d'Alcàntara,1
-Pete,1
-Raimond,1
-Rosa,1
-Baleren,1
-Christoph,1
-Joakim,1
-Norman,1
-Patrice,1
-Piarres,1
-Richárd,1
-Etienne,1
-Fabien,1
-Saül,1
-Sebastiana,1
-Severí,1
-Tiberio,1
-Tirs,1
-Sauveur,1
-Seve,1
-Emilio José,1
-Emílio,1
-Fernando Ramón,1
-Gorgonio,1
-Gregoire,1
-Antono,1
-Lopo,1
-Karles,1
-Matthias,1
-Sidonio,1
-Émile,1
-Jose Ignazio,1
-Abe,1
-Markos,1
-Herberto,1
-Bartholomew,1
-Ígor,1
-Alifonso,1
-Chorche,1
-Mohamad,1
-Luis Jorge,1
-Pedro Luís,1
-Telésforo,1
-Equatorial Guinea,1
-Duru,1
-Neftali,1
-José Santos,1
-Oszkár,1
-Jim,1
-Lucho,1
-Reginaldo,1
-Manuel-Reyes,1
-Sidnei,1
-Sigfredo,1
-Sinesio,1
-Sofía,1
+Esra,1
+Franklin,1
+Joan Pere,1
+Adares,1
+Fahmi,1
+Salvino,1
+Antônio José,1
+Doménico,1
+Hilarión,1
+Edi,1
+Ekkehard,1
+Fido,1
+Floreal,1
+Florent,1
+Florentin,1
+Archie,1
+Aristeo,1
+Ely,1
+Carmina,1
+Gaby,1
+Don Germán,1
+Gino,1
+Gualtiero,1
+Everardo,1
+Beni,1
+Bermudo,1
+Gori,1
+Claro,1
+Cornelis,1
+Bobby,1
+Branislav,1
+Fritz,1
+Tonio,1
+Jorge Manuel,1
+Eusterio,1
+Juvencio,1
+César Ramón,1
+Hashim,1
+Heinz,1
+José Lino,1
+Jahangir,1
+Deogracias,1
+Diamantino,1
+Lola,1
+Juan Lorenzo,1
+Lothar,1
+Ludolfo,1
+Baltazar,1
+Juan de Mata,1
+4cff6f09d6a6fc666b6c51fcd83d0b4b,1
+Juan Pío,1
+Pinky,1
+Jarosław,1
+Juanma,1
+Bonawentura,1
+José de Jesús,1
+Eduardo José,1
+Nono,1
+Rafael Luis,1
+Octaviano,1
+Olav,1
+Magnus,1
+Olallo,1
+Ram,1
+Cristiano Ronaldo,1
+Marwan,1
+Paquito,1
 Teodorico,1
 Teodulfo,1
 Joseph August,1
 Timothy,1
+Tomi,1
+Ursi,1
+Ursycyn,1
+Reginaldo,1
+Manuel-Reyes,1
+Medardo,1
+Mendo,1
+Juan Enrique,1
+Riki,1
+Beto,1
+Roberto Andrés,1
+Víctor Hugo,1
+Rubén-Martín,1
+Jacobus,1
+Wally,1
+Ignacio Ángel,1
+José Santos,1
+Montero,1
+Father,1
+Joyce,1
+Polikarp,1
+Sidnei,1
+Sigfredo,1
+Sinesio,1
+Sofía,1
+Juan Jacobo,1
+Agustí Maria,1
+Ahmad,1
+Jurdan,1
+Kamal,1
+Karan,1
+Meir,1
+Bernhard,1
+Oszkár,1
+Jim,1
+Jhoao,1
+Amelio,1
+Consuelo,1
+Abrahan,1
+Asterio,1
+Marí,1
+Caco,1
+Arnaut,1
+Kristian,1
+Pavao,1
+Carlos Aurelio,1
+Carlus,1
+Celdoni,1
+Celestino Andrés,1
+Carlitos,1
+Lucho,1
+Gracián,1
+Herick,1
+Horácio,1
+Moritz,1
+Mansel,1
+Macrino,1
+Reggie,1
+Roberto Carlos,1
+Romeo,1
+Shmuel,1
+Estebán,1
+Manuel Joaquim,1
+Marcel·lià,1
+Ritter,1
+Rolf,1
+Sadi,1
 Santiago José,1
 Sigismundo,1
 Sueiro,1
 Tariq,1
 Thaddeus,1
 Tadeu,1
-Riki,1
-Beto,1
-Roberto Andrés,1
-Mansel,1
-Jhoao,1
-Ursi,1
-Ursycyn,1
-Rubén-Martín,1
-Tomi,1
+Ferrand,1
+Francho,1
+Swan,1
+Txumari,1
 Ubay,1
 Urbici,1
 Valentino,1
@@ -2079,56 +2129,18 @@ Vincente,1
 Yonathan,1
 Yousef,1
 Zephaniah,1
-Víctor Hugo,1
-Agustí Maria,1
-Ahmad,1
-Wally,1
-Ignacio Ángel,1
-Arnaut,1
-Celdoni,1
-Celestino Andrés,1
-Carlitos,1
-Amelio,1
-Pavao,1
-Joyce,1
-Juan Jacobo,1
-Romeo,1
-Shmuel,1
-Abrahan,1
-Asterio,1
-Marí,1
-Reggie,1
-Roberto Carlos,1
-Jurdan,1
-Kamal,1
-Karan,1
-Meir,1
-Bernhard,1
-Consuelo,1
-Estebán,1
-Caco,1
-Carlos Aurelio,1
-Carlus,1
-Marcel·lià,1
 Josep Xavier,1
 Xuacu,1
 Xurde,1
-Ferrand,1
-Francho,1
-Esaú,1
-Howard,1
-Bernát,1
-Ferdynand,1
-Giovanni Antonio,1
-Christina-Johanne,1
-Gracián,1
-Herick,1
-Horácio,1
-Hortensi,1
-Abdelaziz,1
 Yuchang,1
 Odo,1
+Numa,1
+Giovanni Antonio,1
+Christina-Johanne,1
 Patrocinio,1
+Escolástico,1
+Bernát,1
+Ferdynand,1
 Sergiusz,1
 Urban,1
 Amedeo,1
@@ -2136,781 +2148,769 @@ Zósimo,1
 motor scooter,1
 Giovan,1
 Hans-Heinrich,1
+Fenollosa,1
+Paweł,1
 Mário,1
 Ângelo,1
-Esra,1
-Franklin,1
-Joan Pere,1
-Carlos Juan,1
-Jorge David,1
-Adares,1
-Andor,1
-Delfim,1
-Didacus,1
-Balázs,1
-Aladino,1
-Albano,1
-Duncan,1
-Eldin,1
-Harri,1
-Evilásio,1
-Baruch,1
-Benedict,1
-Antônio José,1
-Jorge Antonio,1
-Alfonsito,1
-Frederick,1
-José Toribio,1
-Juan Daniel,1
-Ibo,1
-Gerrit,1
-Ettore,1
-Giorgi,1
-Luis Bernardo,1
-Joan Elies,1
-Bernardus,1
-Archie,1
-Aristeo,1
-Beni,1
-Bermudo,1
-Bobby,1
-Branislav,1
-Fritz,1
-Tonio,1
-Jorge Manuel,1
-Deogracias,1
-Diamantino,1
-Jarosław,1
-Eusterio,1
-Fahmi,1
-Salvino,1
-Carmina,1
-Doménico,1
-Hilarión,1
-Edi,1
-Ekkehard,1
-Gaby,1
-Don Germán,1
-Gino,1
-Claro,1
-Gori,1
-Fido,1
-Floreal,1
-Florent,1
-Ely,1
-César Ramón,1
-Hashim,1
-Heinz,1
-Cornelis,1
-Juvencio,1
-Gualtiero,1
-Florentin,1
-Pinky,1
-Everardo,1
-Jahangir,1
-Bonawentura,1
-José de Jesús,1
-José Lino,1
-Lola,1
-Juan Lorenzo,1
-Lothar,1
-Montero,1
-Eduardo José,1
-Ludolfo,1
-Baltazar,1
-Juan de Mata,1
-4cff6f09d6a6fc666b6c51fcd83d0b4b,1
-Nono,1
-Octaviano,1
-Olav,1
-Juan Pío,1
-Paquito,1
-Juanma,1
-Cristiano Ronaldo,1
-Marwan,1
-Medardo,1
-Mendo,1
-Juan Enrique,1
-Polikarp,1
-Jacobus,1
-Magnus,1
-Olallo,1
-Rafael Luis,1
-Ram,1
-Nikólaos,1
+Cope,1
+Fabrizio,1
+Isak,1
+Concepció,1
+Dafnis,1
+Damas,1
+Gentil,1
+Glòria,1
+Esaú,1
+Gustavo Adolfo,1
+Inma,1
+Prosper,1
+Antoni Josep,1
+Howard,1
+Hortensi,1
+Deogràcies,1
+Dionisi,1
+Jauma,1
+Jep,1
+Josep Narcís,1
+Abdelaziz,1
+Josep Víctor,1
+Jusepe,1
+Brice,1
+Llum,1
+Jovino,1
+Manuel Maria,1
+Odiló,1
+Osvald,1
+Ester,1
+Castelló d'Empúries,1
+Rosa,1
+Juli Maria,1
+Lama,1
+Leonel,1
+Christoph,1
+Pacífic,1
+Pau Joan,1
+Saül,1
+Sebastiana,1
+Etienne,1
+Fabien,1
+Gorgonio,1
+Gregoire,1
+Markos,1
+Pere d'Alcàntara,1
+Pete,1
+Raimond,1
+Severí,1
+Tiberio,1
+Tirs,1
+Vicenç de Paül,1
+Norman,1
+Patrice,1
+Piarres,1
+Richárd,1
+Yacine,1
+Bartholomew,1
+Joakim,1
+Sauveur,1
+Seve,1
+Antono,1
+Aintzane,1
+Baleren,1
+Karles,1
+Matthias,1
+Sidonio,1
+Émile,1
+Jose Ignazio,1
+Abe,1
+Lopo,1
+Emilio José,1
+Emílio,1
+Telésforo,1
+Fernando Ramón,1
+Herberto,1
+Equatorial Guinea,1
+Duru,1
+Adur,1
+Clodio,1
+Jay,1
+2ca4c693849751330da9b2312f11b26f,1
+José Evaristo,1
+Coloma,1
+Neftali,1
+Ígor,1
+Alifonso,1
+José Ciriaco,1
+Chorche,1
+Mohamad,1
+Dacjusz,1
+Kleber,1
+Issam,1
+Nelson,1
+Sigifredo,1
+Abdeslam,1
+Pedro Luís,1
+Luis Jorge,1
+Ampeliusz,1
+José Ricardo,1
+Alcides,1
+Eduardo Miguel,1
+Ángel Vicente,1
+Teódulo,1
+Ángeles,1
+Jesús Alberto,1
+Bizente,1
+Vladimiro,1
+Alfons Jaume,1
+Joaquim Josep,1
+Marina,1
+Adama,1
+Sinforoso,1
+Narcís-Jordi,1
+Rigobert,1
+Eduart,1
+Joaquín Manuel,1
+Praxedes,1
+Manuel Fernando,1
+Jason,1
+Blanxart,1
+Júlia,1
+Brauli,1
+Cecili,1
+Milagros,1
+Matt,1
+Jair,1
+Benedito,1
+XD,1
+Deogratias,1
+Hartmut,1
+Ioseba,1
+Onesimo,1
+Barthélémy,1
+Parker,1
+Víctor Eduardo,1
+Toribi,1
+Gildo,1
+Ayub,1
+Asdrubal,1
+Adel,1
+Nel,1
+Akim,1
+America,1
+Nando,1
+Leroy,1
+Amar,1
+Reimundo,1
+Mariam,1
+Sirio,1
+Mercè,1
+Jaume Cristòfol,1
+Jordi Vicenç,1
+Umberto,1
+Wilson,1
+Steingrímur,1
+YouTube,1
+Keita,1
+Gerard Martí,1
+Ovidia,1
+Einar,1
+Álvaro Alejandro,1
+Covadonga,1
+Noboru,1
+Fredy,1
+Wiktor,1
+Masumi,1
+Mac,1
+Óskar,1
+Ubald,1
+José Ernesto,1
+Ricki,1
+Robi,1
+Tato,1
+Gilbert,1
+Abdelkader,1
+Otho,1
+Franc,1
+Salah,1
+Iscle,1
+Doro,1
+Venerando,1
+Bort,1
+Ayoub,1
+Dragomir,1
+Inocêncio,1
+Marc Aureli,1
+José Patricio,1
+Kenan,1
+Agus,1
+Dariusz,1
+Boré,1
+Marie,1
+Anuar,1
+Umar,1
+Josepa,1
+Juvenal,1
+Alba,1
+Alguer,1
+Antxon,1
+Silvio José,1
+Luis Andrés,1
+Boni,1
+Caius,1
+Cástulo,1
+Clifton,1
+Larry,1
+Espartac,1
+Eugeni-Jesús,1
+Expedit,1
+Floro,1
+Fernando Manuel,1
+Silví,1
+Ager,1
+Paciano,1
+Hug,1
+Rupert,1
+Sixt,1
+Tian,1
+Jaume Manel,1
+Joan Crisòstom,1
+Tiberi,1
+Jeroen,1
+Ethan,1
+Mounir,1
+Gennaro,1
+Saša,1
+Hannibal,1
+Tautvydas,1
+Thibault,1
+Dalmiro,1
+František,1
+Massimo,1
+Dadi,1
+Príam,1
+Roderic,1
+Eliel,1
+Soufiane,1
+Hercules,1
+Taurino,1
+Trifon,1
+Inder,1
+Guy,1
+Arnald,1
+Leslie,1
+Lindsay,1
+Josue,1
+Eugénio,1
+José Leopoldo,1
+Neftalí,1
+Estacio,1
+Ercole,1
+Iain,1
+Juan Patricio,1
+Albano Dante,1
+Carlos Rafael,1
+Anxos,1
+Malcolm,1
+Jordi Joan,1
+Lo,1
+Artemi,1
 Xarim,1
 Caïm,1
+Estevo,1
 Agnes,1
 Joan Frederic,1
-Ayman,1
-Josip,1
+Micky,1
+Aristóteles,1
+Guillermo Antonio,1
 Felipe Guillermo,1
 Ilias,1
 Jordi Miquel,1
-Julius,1
+Eudoro,1
 Dionísio,1
+Ayman,1
+María de las Mercedes,1
 Fulgentius,1
 Micael,1
-María de las Mercedes,1
+Josip,1
+Julius,1
+Fortià,1
+Noah,1
+Tomasso,1
+Bibi,1
+Zoltán,1
+Scipione,1
+Evangelina,1
 Pape,1
 Miguel Juan,1
 Joni,1
 Halil,1
 Nicolò,1
-Marlon,1
-Noah,1
-Joan Arnau,1
-Scipione,1
-Evangelina,1
+Chakir,1
+Enoch,1
+Ángela,1
 Islam,1
 Ignacia,1
 Bong-hun,1
-Tova,1
-Douglas,1
-Clive,1
 Ogier,1
+Marlon,1
+Mira,1
+Paris,1
 Romário,1
-Gabri,1
+Nikólaos,1
+Ferrante,1
 Auguste,1
 Leonard,1
 Melchiorre,1
 Carmine,1
-Paris,1
-Mamerto,1
-Nan,1
-Mira,1
-Ferrante,1
-Otokar,1
-Gelu,1
-Kurt,1
-Lukas,1
-Xiao,1
-María José,1
-Virgil,1
 Mercedes,1
 José Bernardino,1
 France,1
+Otokar,1
+Gelu,1
+Xiao,1
+Joan Arnau,1
 Marjan,1
-Miloš,1
 Bea,1
 Lizardo,1
 Licinianus,1
 Mathías,1
-Aleksandar,1
+Tova,1
 Pau Maria,1
-Luis Rafael,1
-Woody,1
-Ike,1
-Amadou,1
 Girard,1
 Achraf,1
 Beda,1
+Mamerto,1
+Nan,1
+Douglas,1
+Clive,1
+María José,1
+Virgil,1
+Manuela,1
+Josetxo,1
+Vanesa,1
+Simone,1
+Gabri,1
 Sander,1
 Dimitris,1
 Dany,1
-King,1
-Manuela,1
-Josetxo,1
-Efe,1
-Simone,1
-Vanesa,1
 Bosco,1
-Jonatán,1
+Efe,1
 Adnan,1
 Robin,1
 Joaquín Miguel,1
 Lance,1
-Hélder,1
 Ayrton,1
 Joaquín Antonio,1
 Sacha,1
-Pencho,1
-Saïd,1
+Lukas,1
+Jonatán,1
+Kurt,1
 Sakarias,1
 Deividas,1
+Saïd,1
+Pickman,1
 Agusti,1
 Narek,1
-Pickman,1
+Miloš,1
+Aleksandar,1
+Obdulia,1
 Isidro Manuel,1
-Robi,1
-Tato,1
-Mounir,1
-Gennaro,1
-Saša,1
-José Patricio,1
-Franc,1
-Salah,1
-Abdelkader,1
-Otho,1
-Doro,1
-Venerando,1
-Masumi,1
-Mac,1
-Óskar,1
-Gilbert,1
-Anuar,1
-Umar,1
-Inocêncio,1
-Iscle,1
-Taurino,1
-Kenan,1
-Agus,1
-Antxon,1
-Arnald,1
-Josepa,1
-Juvenal,1
-Paciano,1
-Silvio José,1
-Marc Aureli,1
-Alba,1
-Tian,1
-Thibault,1
-Luis Andrés,1
-Hannibal,1
-Tautvydas,1
-Larry,1
-Alguer,1
-Dalmiro,1
-František,1
-Massimo,1
-Floro,1
-Boni,1
-Caius,1
-Cástulo,1
-Clifton,1
-Rupert,1
-Sixt,1
-Fernando Manuel,1
-Tiberi,1
-Espartac,1
-Eugeni-Jesús,1
-Expedit,1
-Dadi,1
-Lo,1
-Artemi,1
-Malcolm,1
-Jeroen,1
-Ethan,1
-Hug,1
-Jaume Manel,1
-Joan Crisòstom,1
-Príam,1
-Roderic,1
-Eliel,1
-Soufiane,1
-Estevo,1
-Hercules,1
-Trifon,1
-Inder,1
-Guy,1
-Eugénio,1
-Leslie,1
-Lindsay,1
-Iain,1
-Anxos,1
-Juan Patricio,1
-José Leopoldo,1
-Micky,1
-Josue,1
-Neftalí,1
-Aristóteles,1
-Guillermo Antonio,1
-Fortià,1
-Estacio,1
-Ercole,1
-Albano Dante,1
-Carlos Rafael,1
-Tomasso,1
-Bibi,1
-Zoltán,1
-Jordi Joan,1
-Eudoro,1
-Chakir,1
-Enoch,1
-Ángela,1
+Luis Rafael,1
+Dara,1
+King,1
+Woody,1
+Ike,1
+Amadou,1
+Vinícius,1
+Dolores,1
+Gustave,1
+Pencho,1
+Prince,1
+Heliodor,1
+Bedri,1
+Hibai,1
+Jabier,1
+Osvaldo,1
+Hélder,1
+Edoardo,1
+Izaro,1
+Lóránd,1
+Moreno,1
+Elvir,1
+Raymundo,1
+Sascha,1
+Alwin,1
+Ignacio Maria,1
+Ibourahima,1
+Steven,1
+Patrício,1
+Rodrygo,1
+Secondino,1
+Ranieri,1
+Copérnico,1
+Cristiano,1
+Charles Joseph,1
+Alfonso Tomás,1
+Elías Ramón,1
+Dimitry,1
+Juan Bernardo,1
+Virginio,1
+Pipo,1
+Gerbert,1
+Hugues,1
+Venceslao,1
+Inácio,1
+Martín Eusebio,1
+Seth,1
+Núria,1
+Gregório,1
+Margarida,1
+Anderson,1
+Marti,1
+Alberto Julio,1
+Elena,1
+Ronny,1
+Tranquilino,1
+Rai,1
+7659563cf8f2132240aa775a6895d4e1,1
+3bae0500b4baf4ac84fba2081f00b5c3,1
+Sasha,1
+Nikoloz,1
+Pantaleon,1
+Arona,1
+Moncho,1
+Custódio,1
+Clemens,1
+fd3b45fe25b9faaa411114940a52a03b,1
+Olímpio,1
+Milan,1
+Stéphane,1
+Nicolás de Jesús,1
+Franziskus,1
+Tomé,1
+Mario de Jesús,1
+Gaspard,1
+Cancio,1
+Florestan,1
+Andreu Joan,1
+Lito,1
+Tesifonte,1
+Tulio,1
+Géronimo,1
+Paula,1
+Mustapha,1
+Miguel Luis,1
+Ugaitz,1
+Arnaud,1
+Gervasio,1
+Sékou,1
+Wilmar,1
+Usman,1
+Shane,1
 Massimiliano,1
+Jean-Martin,1
+Lucas Silvano,1
+Itzan,1
+Benito Mariano,1
+Maria Jaume,1
 Aleksa,1
 Matthew,1
 Javad,1
-Gervasio,1
-de Jesús María,1
-Benito Mariano,1
-Wilmar,1
-Maria Jaume,1
 Vinny,1
+Hadrian,1
 Cole,1
 Marta,1
-Hadrian,1
 Mau,1
+Benilde,1
+Manfredi,1
+Cameron,1
+Thorsten,1
+de Jesús María,1
+Francesc Sergio,1
+Chaime,1
 Fidel Ángel,1
 Yosef,1
-Larbi,1
-Moïse,1
-Marc August,1
-Benilde,1
-Mohammad,1
-Manuel Ramón,1
-Josep Tomàs,1
-Francesc Sergio,1
-Jannick,1
-Egidio,1
-Luis Juan,1
-Rusty,1
-Alejandro Benito,1
-Francesc José,1
-Federic Iván,1
+Maria Fabiola,1
+Richard Alpidio,1
+Sagar,1
 Wilder,1
 Abraham Alberto,1
-Miel,1
-Joan Marc,1
-Èrik,1
-Felipe Juan,1
-Chaime,1
-Aitziber,1
-Artal,1
 Leandro Juan,1
 Tahir,1
 Yekutiel,1
-Maria Fabiola,1
-Richard Alpidio,1
-Merlin,1
 Ante,1
+Miel,1
+Aitziber,1
+Ástor,1
+Miguel Ernesto,1
+Vsevolod,1
+Piero,1
+Moriba,1
+Lain,1
+Àdam,1
+Maurilio,1
+Alistair,1
+Rosaura,1
+Adoración,1
+Larbi,1
+Moïse,1
+Marc August,1
+Luis Juan,1
+Mohammad,1
+Manuel Ramón,1
+Josep Tomàs,1
+Ataulfo,1
+Martino,1
+Lutgardo,1
+Jannick,1
+Egidio,1
 Napoléon,1
 Pierre-Jean,1
 Claude-François,1
 Tommaso,1
-Miguel Ernesto,1
-Vsevolod,1
-Piero,1
-Ástor,1
-Moriba,1
-Rosaura,1
-Lain,1
-Àdam,1
-Alistair,1
-Lutgardo,1
-Adoración,1
-Josep Abel,1
-Maurilio,1
-Ataulfo,1
-Martino,1
-Pompeyo,1
-Argemir,1
-Roberto Jonás,1
+Rusty,1
+Alejandro Benito,1
+Francesc José,1
+Federic Iván,1
 Raoul,1
+Joan Marc,1
+Artal,1
+Èrik,1
+Felipe Juan,1
+Pompeyo,1
+Carlos Salvador,1
 Metin,1
-Sergi-Girona,1
-Cristòbal,1
-Jesús David,1
-Ruven,1
-Diodoro,1
-Javier Esteban,1
-Javier Aureliano,1
-Juan Gerardo,1
-Sergi Andreu,1
-Àngel Mario,1
+Paola,1
 DeAndre,1
 Katja,1
 Raquel,1
-Tomás de Aquino,1
-Arias,1
-Andrés Félix,1
-Marius Lucien,1
-Carlos Salvador,1
-Zoe,1
-Angel Vicente,1
-Ascensi,1
-Clodio,1
-José Ciriaco,1
-Eduardo Miguel,1
-Jay,1
-Dacjusz,1
-Kleber,1
-Abdeslam,1
-Ángeles,1
-Teódulo,1
-Issam,1
-Vladimiro,1
-Adur,1
-José Evaristo,1
-José Ricardo,1
-Coloma,1
-2ca4c693849751330da9b2312f11b26f,1
-Joaquín Manuel,1
-Milagros,1
-Alcides,1
-Nelson,1
-Sigifredo,1
-Víctor Eduardo,1
-Ampeliusz,1
-Reimundo,1
-Mariam,1
-Ángel Vicente,1
-Benedito,1
-Deogratias,1
-Hartmut,1
-Ioseba,1
-Jesús Alberto,1
-Keita,1
-Barthélémy,1
-Bizente,1
-Alfons Jaume,1
-Joaquim Josep,1
-Marina,1
-Adama,1
-XD,1
-Parker,1
-Asdrubal,1
-Sinforoso,1
-Praxedes,1
-Nando,1
-Leroy,1
-Jason,1
-Toribi,1
-Gildo,1
-Ayub,1
-Sirio,1
-Onesimo,1
-America,1
-Narcís-Jordi,1
-Rigobert,1
-Matt,1
-Jair,1
-Steingrímur,1
-YouTube,1
-Adel,1
-Nel,1
-Akim,1
-Umberto,1
-Eduart,1
-Ovidia,1
-Manuel Fernando,1
-Blanxart,1
-Júlia,1
-Wilson,1
-Amar,1
-Einar,1
-Álvaro Alejandro,1
-Brauli,1
-Cecili,1
-Mercè,1
-Jaume Cristòfol,1
-Jordi Vicenç,1
-Dariusz,1
-Boré,1
-Marie,1
-Bort,1
-Ayoub,1
-Dragomir,1
-Gerard Martí,1
-Covadonga,1
-Ubald,1
-José Ernesto,1
-Silví,1
-Ager,1
-Fredy,1
-Wiktor,1
-Noboru,1
-Ricki,1
-Faust,1
-Andrei,1
-Paola,1
 Tono,1
+Andrei,1
+Merlin,1
+Jesús David,1
+Anna,1
+Javier Aureliano,1
 Theo,1
-Hamlet,1
-Jóannes,1
 Arturo Alejandro,1
 Augusto José,1
 Joaquim Xavier,1
-ʻAbd al-Laṭīf,1
-Anna,1
+Josep Abel,1
+Argemir,1
 Pantaléon,1
-Manex,1
-Nebojša,1
-Jose María,1
-Roy,1
-Tassilo,1
+Roberto Jonás,1
+Sergi-Girona,1
+Cristòbal,1
 Gonzaga,1
+Tassilo,1
+Diodoro,1
+ʻAbd al-Laṭīf,1
+Jose María,1
+Ruven,1
 Manuel Ismael,1
 Rodolfo Miguel,1
+Àngel Mario,1
+Jóannes,1
+Javier Esteban,1
+Juan Gerardo,1
 Vito Vicente,1
-Francisco Juan,1
-Gloria,1
+Sergi Andreu,1
+Zoe,1
+Angel Vicente,1
+Tomás de Aquino,1
+Arias,1
+Manex,1
+Nebojša,1
 Peter Ernest,1
+Ascensi,1
+Faust,1
+Hamlet,1
 Bashir,1
-Ernani,1
-Miquel Dídac,1
-Albert Magne,1
-Chris,1
-José Matías,1
-Celia,1
+Andrés Félix,1
+Marius Lucien,1
 Joan Victor,1
 Latino,1
-Fernando David,1
-Jose Vicente,1
-Xosé Manuel,1
+Roy,1
 Armando Agustin,1
-Josep-Lluís,1
-Servo,1
-Riccardo,1
-Anastasi,1
+Francisco Juan,1
+Gloria,1
+Ernani,1
 Afrodisio,1
 Pedro Pascual,1
-Khalid,1
-Emma Tomás,1
-Agrippinus,1
-Balvino,1
-Beata,1
-Francisco Pascual,1
-Salvador Maria,1
 Zamir,1
+Balvino,1
 Elia,1
 Rudolf,1
-Demian,1
-Enoc,1
+Chris,1
 Jose Santiago,1
-Antoni Tomàs,1
-Sándor,1
+Demian,1
 Joaquim Marià,1
-Gunther,1
+José Matías,1
+Antoni Tomàs,1
 Rutherford,1
-Rosa Maria,1
+Enoc,1
+Miquel Dídac,1
 Laura,1
 Gareth,1
 Jean-François,1
 Sol,1
 Maria Lluïsa,1
-Francisco Xabier,1
+Josep-Lluís,1
+Albert Magne,1
+Celia,1
 Ilai,1
 Ilay,1
-Flavio Augusto,1
-Santiago Jorge,1
-Yeremi,1
-Juan José,1
-Ricardo Manuel,1
 Joaquín Alberto,1
+Servo,1
+Riccardo,1
+Anastasi,1
+Emma Tomás,1
+Agrippinus,1
+Beata,1
+Fernando David,1
+Jose Vicente,1
+Xosé Manuel,1
+Khalid,1
+Rosa Maria,1
+Francisco Xabier,1
+Ricardo Manuel,1
+Salvador Maria,1
+Gunther,1
+Francisco Pascual,1
+Sándor,1
+Santiago Jorge,1
 Bartolomeu,1
-Rai,1
-Tonet,1
-Alaaddine,1
-Charlie,1
-Xián,1
+Miguel Domingo Fuertes Lorén diary.,1
+Engelbert,1
+Navid,1
 general secretary,1
 Hermán,1
+Ares,1
+María Pilar,1
+Flavio Augusto,1
+José Eusebio,1
+Elói,1
+Yeremi,1
+Bartolo,1
+Tonet,1
+Alaaddine,1
+Juan José,1
 Calisto,1
 Marc Enric,1
 Ángel Yoelín,1
-Giovanni Battista,1
-Danielo,1
-Bilal,1
-Miguel Domingo Fuertes Lorén diary.,1
-Engelbert,1
 Antonio Ramón,1
-Elói,1
-Ares,1
-María Pilar,1
-Navid,1
-José Eusebio,1
-Yolanda,1
-Bartolo,1
-Serigne,1
-Galdric,1
-Jeffrey,1
-Lu,1
-Ambròs,1
 Harley,1
-Suceso,1
+Charlie,1
+Xián,1
+Bilal,1
+Ambròs,1
+Itxaso,1
 Anthony Corey,1
 Pere Maria,1
-Ismaël,1
-Abundio,1
-Alen,1
-Itxaso,1
 Naím,1
+Jeffrey,1
+Lu,1
+Giovanni Battista,1
+Danielo,1
+Xisco,1
 Giacinto,1
 Tarik,1
-Xisco,1
 Xesc,1
-Courage,1
-Cisco,1
-Nader,1
-Dorian,1
+Yolanda,1
 Genis,1
-Nahum,1
+Courage,1
+Serigne,1
+Galdric,1
+Caetano,1
 Orestes,1
 Plinio,1
+Cisco,1
+Nader,1
+Abundio,1
+Ismaël,1
+Suceso,1
+Alen,1
+Dorian,1
+Iolanda,1
+Amarildo,1
+Zaid,1
+Ittai,1
+Nahum,1
 Eutiquio,1
-Caetano,1
+Luis Ramón,1
+CHC,1
+Marcio,1
+Tai,1
 Leire,1
 Generoso,1
+Javier Fernández,1
+Nils,1
 Rogeli,1
+Lamine Yamal,1
+Raimondo,1
 Petronilo,1
 Nuria,1
 Waldino,1
-José Mateo,1
-Raimondo,1
-c1dbdbc98ad64d02055a739ee02d5d46,1
 Francesc Joan,1
-José David,1
-Amarildo,1
-Iolanda,1
-Lamine Yamal,1
-Zaid,1
-Ittai,1
-Tai,1
-CHC,1
-Marcio,1
-Luis Ramón,1
-Javier Fernández,1
+José Mateo,1
+c1dbdbc98ad64d02055a739ee02d5d46,1
+Joseba Koldobika,1
+Jean-Noël,1
 Jesús-Angel,1
-Nils,1
+José David,1
+Juan Félix,1
+Clemente Pedro,1
+Alicia,1
+Rayco,1
+Jona,1
+Pako,1
+Pino,1
+Bartolomé Tomás,1
+Juanlu,1
+Kenai,1
+Iwan,1
+Maria Teresa,1
+Joseph Calasanz,1
+Sixto Mario,1
+Tomas Antonio,1
+Xosé Antón,1
+Alexandro,1
+Festus,1
+Neizan,1
+Yon,1
+Ka,1
+Kwan,1
+Ousman,1
+Xabat,1
+Gaudencio,1
+Cedrick,1
+Berto,1
+Owen,1
+Lucky,1
+Secundí,1
+Gael,1
 Feliciano Primo,1
 Alexandru,1
+Kaleb,1
+Madrid,1
+Caden,1
+Dieter,1
+José Fermin,1
+Lautaro,1
+Alassan,1
+Derek,1
+Osmani,1
+Mahamadou,1
+Pantxo,1
 Casimiro Pío,1
 Vicente Pascual Oliva,1
 Isaias,1
 Cristhian,1
 Noan,1
-Alassan,1
-Derek,1
-Gavino,1
-Osmani,1
-Alicia,1
-Rayco,1
-Fernández,1
-Floriano,1
-Danel,1
-Joseba Koldobika,1
-Jean-Noël,1
-Jona,1
-Pako,1
-Obdulia,1
-Dara,1
-Vinícius,1
-Dolores,1
-Gustave,1
-Cristiano,1
-Prince,1
-Heliodor,1
-Bedri,1
-Pipo,1
-Gerbert,1
-Hibai,1
-Edoardo,1
-Izaro,1
-Osvaldo,1
-Jabier,1
-Lóránd,1
-Alwin,1
-Elvir,1
-Moreno,1
-Venceslao,1
-Gregório,1
-Margarida,1
-Raymundo,1
-Sascha,1
-Ibourahima,1
-Steven,1
-Patrício,1
-Rodrygo,1
-Ignacio Maria,1
-Dimitry,1
-Copérnico,1
-Alfonso Tomás,1
-Secondino,1
-Ranieri,1
-Olímpio,1
-Milan,1
-Elías Ramón,1
-Juan Bernardo,1
-Seth,1
-Núria,1
-Moncho,1
-Nicolás de Jesús,1
-Franziskus,1
-Mario de Jesús,1
-Lito,1
-Charles Joseph,1
-Virginio,1
-Hugues,1
-Florestan,1
-Andreu Joan,1
-Inácio,1
-Anderson,1
-Marti,1
-Alberto Julio,1
-Elena,1
-Martín Eusebio,1
-Gaspard,1
-Ronny,1
-Tranquilino,1
-Tulio,1
-7659563cf8f2132240aa775a6895d4e1,1
-3bae0500b4baf4ac84fba2081f00b5c3,1
-Tesifonte,1
-Custódio,1
-Clemens,1
-Stéphane,1
-Sasha,1
-Nikoloz,1
-Pantaleon,1
-Arona,1
-fd3b45fe25b9faaa411114940a52a03b,1
-Tomé,1
-Cancio,1
-Jean-Martin,1
-Géronimo,1
-Cameron,1
-Thorsten,1
-Ugaitz,1
-Paula,1
-Mustapha,1
-Miguel Luis,1
-Manfredi,1
-Sékou,1
-Arnaud,1
-Lucas Silvano,1
-Itzan,1
-Sagar,1
-Usman,1
-Shane,1
-Pino,1
-Min,1
-Yon,1
-Xosé Antón,1
-Juan Félix,1
-Clemente Pedro,1
-Sixto Mario,1
-Tomas Antonio,1
-Xabat,1
-Ka,1
-Kwan,1
-Alexandro,1
-Festus,1
-Neizan,1
-Berto,1
-Owen,1
-Lucky,1
-Gaudencio,1
-Cedrick,1
-Kaleb,1
-Bartolomé Tomás,1
-Juanlu,1
-Kenai,1
-Maria Teresa,1
-Joseph Calasanz,1
-Ousman,1
-Mahamadou,1
-Secundí,1
-Gael,1
-Madrid,1
-Caden,1
-Dieter,1
-Iwan,1
 Eliud,1
-José Fermin,1
-Lautaro,1
-Pantxo,1
 Izan,1
 Gildas,1
+Fernández,1
+Gavino,1
+Danel,1
+Floriano,1
+Min,1
 52c27b00ab380c4aca6b220f76856298,1
