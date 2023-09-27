@@ -46,6 +46,7 @@ parser.add_argument('--malefemale', default=False, action="store_true")
 # a csv file with names and gender
 parser.add_argument('--malefemale_onlygender',
                     default=False, action="store_true")
+parser.add_argument('--skip_header', default=False, action="store_true")
 parser.add_argument('--verbose', default=False, action="store_true")
 parser.add_argument('--version', action='version', version='0.1')
 args = parser.parse_args()
@@ -58,7 +59,7 @@ ll = []
 du = DameUtils()
 dg = Gender()
 
-li = du.csv2list(args.file1, header=False)
+li = du.csv2list(args.file1, header=args.skip_header)
 if (args.verbose):
     print(li)
 
@@ -81,7 +82,7 @@ for i in li:
 if (args.verbose):
     print(lenli)
 
-lj = du.csv2list(args.file2, header=False)
+lj = du.csv2list(args.file2, header=args.skip_header)
 if (args.verbose):
     print(lj)
 
