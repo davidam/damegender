@@ -1,3 +1,13 @@
+* v0.5.7
+New features
++ [X] mergeinterfiles.py: adding argument --skip_header
++ [X] app/dame_utils.py: adding new methods (string_decoded and string_contains_only_chars_and_white_spaces)
++ [X] checkcsv.py: now checking if the column name has only characters or not.
+
+More test datasets:
++ [X] files/names/names_tests/victimas-accionar-represivo-ilegal-argentina.csv
++ [X] files/names/names_tests/baby-names-alberta-frequency_1980_2020.csv
+
 * v0.5.6
 New features
 + [X] Now the scripts are checking the Internet connection, giving good error messages
