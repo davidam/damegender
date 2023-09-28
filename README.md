@@ -94,6 +94,16 @@ freeely.
     >>> import nltk
     >>> nltk.download('names')
 
+# Papers
+
+## 2023
+
+-  [Un Dataset Internacional Acerca de Nombres, Género y Frecuencias en Damegender: Contando Hombres y Mujeres en Debian GNU/Linux](https://cgscholar.com/bookstore/works/un-dataset-internacional-acerca-de-nombres-genero-y-frecuencias-en-damegender)
+
+## 2020
+
+-  [Damegender: Writing and Comparing Gender Detection Tools](http://ceur-ws.org/Vol-2754/paper3.pdf)
+
 # Speeches, Seminars, Expressions of Support
 
 ## 2023
