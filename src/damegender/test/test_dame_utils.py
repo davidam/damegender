@@ -280,6 +280,13 @@ class TddInPythonExample(unittest.TestCase):
                           ["YIMI", "16"],
                           ["YONNY", "65"]],
                          l3[0:3])
+        l4 = du.csv2list('files/tests/csvbuggy.csv',
+                         delimiter=",",
+                         header=True,
+                         noemptyfield=0)
+        self.assertEqual([["YIMI", "16"],
+                          ["YONNY", "65"]],
+                         l4[0:2])
 
     def test_num_columns_in_csv(self):
         du = DameUtils()
