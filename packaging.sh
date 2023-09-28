@@ -20,4 +20,4 @@
 #  Boston, MA 02110-1301 USA,
 
 ./rm-orig.sh
-python3 setup.py register sdist
+python3 -m build
