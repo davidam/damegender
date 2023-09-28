@@ -1621,3 +1621,6 @@ Esto se usa mucho en estudio tipo Twitter. Con DameGender se podría hacer de la
 * TODO Estaría bien que csv2jsonapirest incluyera apellidos
 Muchos nombres, por ejemplo, Gonzalo, son también apellidos, el json de cada string debería dar esa información.
 Hay que pensar si incluir apellidos wikidata o solo los oficiales, quizás se podría distinguir ese hecho en el json: dando la frecuencia y si es dataset oficial o no.
+* TODO Resolver problemas de coherencias de nombrado de argumentos
+Revisar todos los argumentos y ver que se nombra todo de manera correcta, no puede ser que en un comando utilice el argumento total para llamar al dataset de un país, en otro lo llame dataset y en otro country
+Esto puede pasar en más comandos y argumentos hay que revisarlo todo y pasar muchos tests después, revisar llamadas a logs, todo eso.
