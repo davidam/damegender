@@ -39,7 +39,7 @@ parser.add_argument('--outcsv',
 args = parser.parse_args()
 
 url = 'https://query.wikidata.org/sparql'
-if du.check_connection(url,timeout=5):
+if du.check_connection(url,timeout=25):
     query2 = """
 SELECT ?surname ?surnameLabel ?count
 WITH {
