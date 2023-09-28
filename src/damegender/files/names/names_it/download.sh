@@ -58,3 +58,5 @@ sed '1,5d' 2008.csv.0 > 2008.csv
 
 echo "External sources"
 wget -c https://raw.githubusercontent.com/mrblasco/genderNamesITA/master/gender_firstnames_ITA.csv 
+awk -F, 'BEGIN {OFS=","} { print $1, $3 }' gender_firstnames_ITA.csv > itmales.gender_firstnames_ITA.csv 
+awk -F, 'BEGIN {OFS=","} { print $1, $4 }' gender_firstnames_ITA.csv > itfemales.gender_firstnames_ITA.csv 
