@@ -275,6 +275,15 @@ class DameUtils():
                 aux = aux + c
         return aux
 
+    def drop_numbers_in_string(self, s):
+        # given s removes white space symbols
+        aux = ""
+        for c in unicodedata.normalize('NFD', str(s)):
+            match = re.search(r'[0-9]', c)
+            if not(match):                      
+                aux = aux + c
+        return aux
+    
     def force_whitespaces(self, s):
         # replace underscore, hyphens, ... by white spaces
         aux = ""
@@ -807,6 +816,7 @@ class DameUtils():
                     name = name.upper()
                     name = self.drop_all_external_symbols(name,
                                                           ["'", '"', ",", " "])
+                    name = self.drop_numbers_in_string(name)
                     if (filter_char == ''):
                         if not(self.initial_letters(name)):
                             if (sum_bool and (name in dicc.keys())):
