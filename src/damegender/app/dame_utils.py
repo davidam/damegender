@@ -802,11 +802,14 @@ class DameUtils():
         delimiter = kwargs.get('delimiter', '|')
         # dictionary where the data are dumped
         dicc = kwargs.get('dicc', {})
-        # filter is about csv position and gender char (example: 'F')
+        # filter_pos is about csv position 
         filter_pos = kwargs.get('filter_pos', 0)
+        # filter_char is about the gender char (example: 'F')
         filter_char = kwargs.get('filter_char', '')
         quotechar = kwargs.get('quotechar', '"')
         sum_bool = kwargs.get('sum_bool', True)
+        # sometimes, we can find names such as, joh1n, we need remove the number
+        delete_numbers_in_name = kwargs.get('delete_numbers_in_name', False)
         with open(inputpath) as csvfile:
             r = csv.reader(csvfile, delimiter=delimiter, quotechar=quotechar)
             for row in r:
@@ -816,7 +819,8 @@ class DameUtils():
                     name = name.upper()
                     name = self.drop_all_external_symbols(name,
                                                           ["'", '"', ",", " "])
-                    name = self.drop_numbers_in_string(name)
+                    if (delete_numbers_in_name):
+                        name = self.drop_numbers_in_string(name)
                     if (filter_char == ''):
                         if not(self.initial_letters(name)):
                             if (sum_bool and (name in dicc.keys())):

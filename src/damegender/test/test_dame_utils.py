@@ -519,6 +519,15 @@ class TddInPythonExample(unittest.TestCase):
                                                       filter_pos=5,
                                                       filter_char='1')
         self.assertEqual(diccmales["DAVID"], 169)
+        fileuy = "files/tests/testuy.csv"
+        dicc1 = {}
+        dicc1 = du.dump_name_and_quantity_in_dicc(fileuy, 0, 1,
+                                                  dicc1=dicc1,
+                                                  delimiter=",",
+                                                  delete_numbers_in_name=True)
+        self.assertEqual(dicc1["JUAN"], 5)
+        self.assertEqual(dicc1["DAVID"], 3)
+        self.assertEqual(dicc1["ANA"], 5)        
 
     def test_is_json(self):
         du = DameUtils()
