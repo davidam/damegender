@@ -1,7 +1,15 @@
-Retrieved from: 
+* Retrieved from: 
 + https://catalogodatos.gub.uy/dataset/intendencia-montevideo-partidas-de-registro-civil-de-montevideo
 
-License: Licencia de Datos Abiertos de Uruguay
+* Accuracies
+Uruguay has a dataset of 22947 names with an accuracy of:
+
+
+There are 1601 names related to Uruguay retrieved from Wikidata with an accuracy of:
++ 0.876875 using Uruguay dataset from the statistical institution as base of truth
++ 0.970625 using INTER as base of truth
+
+* License: Licencia de Datos Abiertos de Uruguay
 + https://www.gub.uy/agencia-gobierno-electronico-sociedad-informacion-conocimiento/sites/agencia-gobierno-electronico-sociedad-informacion-conocimiento/files/documentos/publicaciones/licencia_de_datos_abiertos_0.pd
 
 Official Language: Spanish
