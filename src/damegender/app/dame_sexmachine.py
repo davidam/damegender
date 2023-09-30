@@ -27,30 +27,46 @@ from pprint import pprint
 import json
 import os
 import csv
-import nltk
 import re
 import unidecode
-import numpy as np
-from sklearn.naive_bayes import GaussianNB
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.naive_bayes import BernoulliNB
-from sklearn.linear_model import SGDClassifier
-from sklearn.ensemble import AdaBoostClassifier
-from sklearn.ensemble import RandomForestRegressor
-from sklearn import tree
-from sklearn.neural_network import MLPClassifier
-
-from sklearn.preprocessing import StandardScaler
-from sklearn.datasets import make_classification
-# from xgboost import XGBClassifier
-from sklearn import svm
-from sklearn.metrics import accuracy_score
-from sklearn.metrics import confusion_matrix
-import pickle
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
 from app.dame_statistics import DameStatistics
-
+try:
+    import numpy as np
+except ModuleNotFoundError:
+    print("module 'numpy' is not installed")
+    print("try:")
+    print("$ pip3 install numpy")
+    exit()
+try:
+    import nltk
+except ModuleNotFoundError:
+    print("module 'nltk' is not installed")
+    print("try:")
+    print("$ pip3 install nltk")
+    exit()
+try:
+    from sklearn.naive_bayes import GaussianNB
+    from sklearn.naive_bayes import MultinomialNB
+    from sklearn.naive_bayes import BernoulliNB
+    from sklearn.linear_model import SGDClassifier
+    from sklearn.ensemble import AdaBoostClassifier
+    from sklearn.ensemble import RandomForestRegressor
+    from sklearn import tree
+    from sklearn.neural_network import MLPClassifier
+    from sklearn.preprocessing import StandardScaler
+    from sklearn.datasets import make_classification
+    # from xgboost import XGBClassifier
+    from sklearn import svm
+    from sklearn.metrics import accuracy_score
+    from sklearn.metrics import confusion_matrix
+    import pickle
+except ModuleNotFoundError:
+    print("module scikit-learn is not installed")
+    print("try:")
+    print("$ pip3 install scikit-learn")
+    exit()
 
 class DameSexmachine(Gender):
     def __init__(self):
