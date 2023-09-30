@@ -24,12 +24,17 @@
 
 
 import csv
-import requests
 import json
 import configparser
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
-
+try:
+    import requests
+except:
+    print("module 'requests' is not installed")
+    print("try:")
+    print("$ pip3 install 'requests'")
+    exit()    
 
 class DameGenderize(Gender):
 
