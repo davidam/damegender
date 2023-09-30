@@ -23,11 +23,18 @@
 # Boston, MA 02110-1301 USA,
 
 
-import requests
 import json
 import os
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
+try:
+    import requests
+except:
+    print("module 'requests' is not installed")
+    print("try:")
+    print("$ pip3 install 'requests'")
+    exit()    
+
 du = DameUtils()
 
 
