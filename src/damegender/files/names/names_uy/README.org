@@ -3,7 +3,7 @@
 
 * Accuracies
 Uruguay has a dataset of 22947 names with an accuracy of:
-
++ 0.931622069 using INTER as base of truth
 
 There are 1601 names related to Uruguay retrieved from Wikidata with an accuracy of:
 + 0.876875 using Uruguay dataset from the statistical institution as base of truth
