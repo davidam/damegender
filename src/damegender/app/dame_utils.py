@@ -821,21 +821,22 @@ class DameUtils():
                                                           ["'", '"', ",", " ", "-", "<"])
                     if (delete_numbers_in_name):
                         name = self.drop_numbers_in_string(name)
-                    if (filter_char == ''):
-                        if not(self.initial_letters(name)):
-                            if (sum_bool and (name in dicc.keys())):
-                                val = dicc[name]
-                                dicc[name] = int(val) + int(num)
-                            else:
-                                dicc[name] = int(num)
-                    else:
-                        if (row[filter_pos] == filter_char):
+                    if not(name == ''):
+                        if (filter_char == ''):
                             if not(self.initial_letters(name)):
-                                if (name in dicc.keys()):
+                                if (sum_bool and (name in dicc.keys())):
                                     val = dicc[name]
                                     dicc[name] = int(val) + int(num)
                                 else:
                                     dicc[name] = int(num)
+                        else:
+                            if (row[filter_pos] == filter_char):
+                                if not(self.initial_letters(name)):
+                                    if (name in dicc.keys()):
+                                        val = dicc[name]
+                                        dicc[name] = int(val) + int(num)
+                                    else:
+                                        dicc[name] = int(num)
                 except IndexError:
                     print("The program has troubles with the array indexes")
         return dicc
