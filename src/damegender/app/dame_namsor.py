@@ -23,14 +23,19 @@
 # Boston, MA 02110-1301 USA,
 
 import csv
-import requests
 import json
-
 from app.dame_utils import DameUtils
 from app.dame_gender import Gender
+try:
+    import requests
+except:
+    print("module 'requests' is not installed")
+    print("try:")
+    print("$ pip3 install 'requests'")
+    exit()    
+
 
 du = DameUtils()
-
 
 class DameNamsor(Gender):
 
