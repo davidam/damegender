@@ -21,11 +21,17 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
-import requests
 import argparse
 import re
 from app.dame_wikidata import DameWikidata
 from app.dame_utils import DameUtils
+try:
+    import requests
+except:
+    print("module 'requests' is not installed")
+    print("try:")
+    print("$ pip3 install 'requests'")
+    exit()    
 
 du = DameUtils()
 dw = DameWikidata()
