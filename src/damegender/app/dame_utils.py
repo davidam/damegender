@@ -818,7 +818,7 @@ class DameUtils():
                     name = row[posname]
                     name = name.upper()
                     name = self.drop_all_external_symbols(name,
-                                                          ["'", '"', ",", " "])
+                                                          ["'", '"', ",", " ", "-", "<"])
                     if (delete_numbers_in_name):
                         name = self.drop_numbers_in_string(name)
                     if (filter_char == ''):
