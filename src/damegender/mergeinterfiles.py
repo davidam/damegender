@@ -60,6 +60,7 @@ du = DameUtils()
 dg = Gender()
 
 li = du.csv2list(args.file1, header=args.skip_header)
+li = sorted(li)
 if (args.verbose):
     print(li)
 
@@ -83,6 +84,7 @@ if (args.verbose):
     print(lenli)
 
 lj = du.csv2list(args.file2, header=args.skip_header)
+lj = sorted(lj)
 if (args.verbose):
     print(lj)
 
@@ -112,6 +114,7 @@ if (args.verbose):
     print(lenlj)
 
 ll = li + lj
+ll = sorted(ll)
 if (args.verbose):
     print(ll)
     print(len(ll))
