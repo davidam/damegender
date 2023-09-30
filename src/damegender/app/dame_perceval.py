@@ -28,11 +28,17 @@ import json
 import re
 import datetime
 from datetime import timedelta
-from perceval.backends.core.mbox import MBox
-from perceval.backends.core.git import Git
-from perceval.backends.core.launchpad import Launchpad
 from app.dame_utils import DameUtils
 from app.dame_gender import Gender
+try:
+    from perceval.backends.core.mbox import MBox
+    from perceval.backends.core.git import Git
+    from perceval.backends.core.launchpad import Launchpad
+except ModuleNotFoundError:
+    print("module 'perceval' is not installed")
+    print("try:")
+    print("$ pip3 install 'perceval'")
+    exit()
 
 
 class DamePerceval(object):
