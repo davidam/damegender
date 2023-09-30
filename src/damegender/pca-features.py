@@ -26,17 +26,33 @@
 # csv files given a number of components and a category
 
 import json
-import pandas as pd
-import matplotlib.pyplot as plt
 import argparse
-
-from json2html import *
-from pprint import pprint
 from sklearn.decomposition import PCA
 from app.dame_sexmachine import DameSexmachine
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
-
+try:
+    from json2html import *
+except:
+    print("module 'json2html' is not installed")
+    print("try:")
+    print("$ pip3 install 'json2html'")
+    exit()
+try:
+    import pandas as pd
+except:
+    print("module 'pandas' is not installed")
+    print("try:")
+    print("$ pip3 install 'pandas'")
+    exit()
+try:    
+    import matplotlib.pyplot as plt
+except:
+    print("module 'matplotlib' is not installed")
+    print("try:")
+    print("$ pip3 install 'matplotlib'")
+    exit()
+    
 # PARAMETERS
 parser = argparse.ArgumentParser()
 parser.add_argument("--categorical", default="both",
