@@ -23,10 +23,17 @@
 # Boston, MA 02110-1301 USA,
 
 
-import requests
 import json
 import os
 from app.dame_gender import Gender
+try:
+    import requests
+except ModuleNotFoundError:
+    print("module 'requests' is not installed")
+    print("try:")
+    print("$ pip3 install 'requests'")
+    exit()
+
 
 class DameBrazilApi(Gender):
 
