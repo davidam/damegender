@@ -159,7 +159,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual("Hola' 'Mexico",
                          u.drop_external_quotes("'Hola' 'Mexico'"))
 
-    def test_initialize_dictionary_drop_external_symbols(self):
+    def test_drop_external_symbols(self):
         du = DameUtils()
         self.assertEqual('',
                          du.drop_external_symbols('"', ['"']))
@@ -169,13 +169,19 @@ class TddInPythonExample(unittest.TestCase):
                          du.drop_external_symbols('-Hola+', ['-', '+']))
         self.assertEqual('Hola Mexico',
                          du.drop_external_symbols('-Hola Mexico+', ['-', '+']))
+        self.assertEqual('--Hola Mexico++',
+                         du.drop_external_symbols('---Hola Mexico+++', ['-', '+']))
+        self.assertEqual('-Hola Mexico++',
+                         du.drop_external_symbols('--Hola Mexico+++', ['-', '+']))
 
-    def test_initialize_dictionary_drop_all_external_symbols(self):
+    def test_drop_all_external_symbols(self):
         du = DameUtils()
         self.assertEqual('',
                          du.drop_all_external_symbols('', ['"']))
-        self.assertEqual('Hola "Mexico',
+        self.assertEqual('Hola "Mexico',        
                          du.drop_all_external_symbols('"Hola "Mexico', ['"']))
+        self.assertEqual('Hola "Mexico',
+                         du.drop_all_external_symbols('+++Hola "Mexico----', ['-', '+']))
 
     def test_delete_duplicated_identities(self):
         g = Gender()
