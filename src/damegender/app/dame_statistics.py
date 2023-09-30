@@ -24,8 +24,6 @@
 
 
 import csv
-import unidecode
-import unicodedata
 import configparser
 import os
 import re
