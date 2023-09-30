@@ -23,12 +23,10 @@
 # Boston, MA 02110-1301 USA,
 
 
-from pprint import pprint
 import json
 import os
 import csv
 import re
-import unidecode
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
 from app.dame_statistics import DameStatistics
