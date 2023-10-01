@@ -11,4 +11,7 @@ Surnames retrieved from Wikidata
 Source: https://raw.githubusercontent.com/mrblasco/genderNamesITA/master/gender_firstnames_ITA.csv
 These data is not correspondig with https://www.istat.it/it/dati-analisi-e-prodotti/contenuti-interattivi/contanomi
 There are an issue about it https://github.com/mrblasco/genderNamesITA/issues/1
+* Accuracies
+** gender_firstnames_ITA.csv has an accuracy of:
++ 0.8166 using INTER as base of truth
 
