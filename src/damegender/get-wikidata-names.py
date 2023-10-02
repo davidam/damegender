@@ -109,4 +109,8 @@ ORDER BY DESC(?count)
             else:
                 dicc[d['nameLabel']['value']] = d['count']['value']
 
-    du.diccnames2csvfile(dicc, args.outcsv)
+    l = sorted(dicc.items(), reverse=False)
+    dicc_sorted = {}
+    for name, count in l:
+        dicc_sorted[name] = count
+    du.diccnames2csvfile(dicc_sorted, args.outcsv)
