@@ -69,15 +69,23 @@ ORDER BY DESC(?count)
         data = r.json()
         print("Dumping to %s" % args.outcsv)
         fo = open(args.outcsv, "w")
+        dicc = {}
         for d in data["results"]["bindings"]:
             # surnames as Q010234 is a wikidata identifier not a name
             match1 = re.search(r'(Q[0-9]*)', d['surnameLabel']['value'])
             # url is not a surname
             match2 = re.search(r'(^http*)', d['surnameLabel']['value'])
             if not(match2) and not(match1):
-                str0 = d['surnameLabel']['value'] + ","
-                str0 = str0 + d['count']['value'] + "\n"
-                fo.write(str0)
+                dicc[d['surnameLabel']['value']] = d['count']['value']
+
+        l = sorted(dicc.items(), reverse=False)
+        dicc2 = {}
+        str0 = ""
+        for name, count in l:
+            str0 = str0 + name + "," + count + "\n"
+            
+        fo.writelines(str0)
         fo.close()
+        
     except ValueError:
         print("Please, check the Internet connection")
