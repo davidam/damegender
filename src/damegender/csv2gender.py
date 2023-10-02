@@ -45,7 +45,7 @@ parser.add_argument('--delimiter_csv', required=False,
 # Is the csv separated by commas?
 parser.add_argument('--dataset', default="us",
                     choices=['ar', 'at', 'au', 'be', 'br', 'ca', 'ch', 'cl',
-                             'cn', 'de', 'dk', 'es', 'fi', 'fr', 'gb',
+                             'cn', 'de', 'dk', 'es', 'fi', 'fr', 'gb', 'it',
                              'ie', 'ine', 'inter', 'is', 'mx', 'no',
                              'nz', 'pt', 'ru', 'ru_en', 'ru_ru',
                              'se', 'si', 'uy', 'us', 'genderguesser'])
