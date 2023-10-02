@@ -1,17 +1,22 @@
 * Retrieved from
 Names:
-+ [ ] https://demo.istat.it/altridati/IscrittiNascita/index.html
++ [ ] ISTAT: https://demo.istat.it/altridati/IscrittiNascita/index.html
++ [ ] Anagrafe amministratori locali: https://raw.githubusercontent.com/mrblasco/genderNamesITA/master/gender_firstnames_ITA.csv
 
 Surnames retrieved from Wikidata
 
 * License
 + [ ] https://www.istat.it/en/legal-notice
 
-* Other data sources and information related:
-Source: https://raw.githubusercontent.com/mrblasco/genderNamesITA/master/gender_firstnames_ITA.csv
-These data is not correspondig with https://www.istat.it/it/dati-analisi-e-prodotti/contenuti-interattivi/contanomi
 There are an issue about it https://github.com/mrblasco/genderNamesITA/issues/1
+
 * Accuracies
 ** gender_firstnames_ITA.csv has an accuracy of:
 + 0.8166 using INTER as base of truth
 
+** ISTAT (60 names most used) has an accuracy of
++ 0.9333 using INTER as base of truth
+
+* Issues
++ https://github.com/mrblasco/genderNamesITA/issues/1
++ https://github.com/davidam/damegender/issues/30
