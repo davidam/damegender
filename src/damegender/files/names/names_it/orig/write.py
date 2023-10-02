@@ -39,3 +39,24 @@ with open('gender_firstnames_ITA.csv') as csvfile:
 
 # Cerramos el archivo fichero.txt
 file0.close()
+
+
+with open('gender_firstnames_ITA.csv') as csvfile:
+    spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+
+    file1 = open('gender_firstnames_ITA.males.csv','w')
+    file2 = open('gender_firstnames_ITA.females.csv','w')
+    file3 = open('gender_firstnames_ITA.all.csv','w')     
+    for row in spamreader:
+        file1.write(row[0]+','+row[2]+'\n')
+        file2.write(row[0]+','+row[3]+'\n')        
+        total = int(row[2]) + int(row[3])
+        males_percentage = (int(row[2]) / total) * 100
+        females_percentage = (int(row[3]) / total) * 100        
+        file3.write(row[0]+','+ str(males_percentage) + ',' + str(females_percentage) + '\n')        
+
+# Cerramos el archivo fichero.txt
+
+file1.close()
+file2.close()
+file3.close()
