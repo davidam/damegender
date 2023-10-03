@@ -24,13 +24,31 @@
 
 # DESCRIPTION: Returns Principal Component Analysis (features)
 
-import numpy as np
-from sklearn.decomposition import PCA
-from sklearn.preprocessing import MinMaxScaler
-import matplotlib.pyplot as plt
 import argparse
 import sys
 from app.dame_utils import DameUtils
+try:
+    import numpy as np
+except:
+    print("module 'numpy' is not installed")
+    print("try:")
+    print("$ pip3 install 'numpy'")
+    exit()    
+try:
+    from sklearn.decomposition import PCA
+    from sklearn.preprocessing import MinMaxScaler
+except:
+    print("module 'scikit-learn' is not installed")
+    print("try:")
+    print("$ pip3 install 'scikit-learn'")
+    exit()    
+try:    
+    import matplotlib.pyplot as plt
+except:
+    print("module 'matplotlib' is not installed")
+    print("try:")
+    print("$ pip3 install 'matplotlib'")
+    exit()
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--csv')
