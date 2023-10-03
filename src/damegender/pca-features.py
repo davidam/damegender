@@ -27,10 +27,17 @@
 
 import json
 import argparse
-from sklearn.decomposition import PCA
-from app.dame_sexmachine import DameSexmachine
 from app.dame_gender import Gender
 from app.dame_utils import DameUtils
+
+try:
+    from sklearn.decomposition import PCA
+    from app.dame_sexmachine import DameSexmachine
+except:
+    print("module 'scikit-learn' is not installed")
+    print("try:")
+    print("$ pip3 install 'scikit-learn'")
+    exit()    
 try:
     from json2html import *
 except:
