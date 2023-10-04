@@ -14,3 +14,6 @@
 Dutch
 French
 German
+
+* Accuracies
++ 0.9352941176470588 using INTER as base of truth and Belgium dataset as guessed
