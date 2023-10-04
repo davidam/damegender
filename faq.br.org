@@ -6,42 +6,43 @@
 #+DATE: 15/07/2020
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/org.css" />
 
-* Ethical Values
-** Is Damegender reducing the gender gap? 
-We use say Damegender can reduce the gender gap. To reduce the gender
-gap is an [[https://www.un.org/sustainabledevelopment/gender-equality/][objective in United Nations]], so the states must help to this
-objective. To reduce the gender gap we must measure where it is
-happening. Damegender is Free Software with data extracted from the
-states, so we can measure about men and women with a critical point of
-view that can be reviewed by peers.
+* Valores éticos
+** ¿DameGender pode reduzir a injustiça do genero?
+DameGender pode reduzir a injustiça do genero. Reduzir a injustiça 
+do gênero é um [[https://www.un.org/sustainabledevelopment/gender-equality/][objetivo em Naçoes Unidas]] e os estados ajudam para 
+aquele objetivo. Para reduzir a injustiça do gênero podemos medir
+aonde faze. DameGender é Software Livre com os dados extraídos dos
+estados, podemos medir homens e mulheres com um ponto do vista 
+critico que pode ser revisado por pares.
 
-** Can I guess the sexual orientation with Damegender? 
-Not, you can't. You only guess the gender, such as the states is
-registering it. All states is using a binary ideology about the gender
-(male and female) and in Damegender too.
+** ¿Eu posso adivinhar a orientaçao sexual com DameGender?
+Não posso. Você adivinha sexo, ou gênero, como os estados estam
+registrando isso. Os estados tem uma ideologia binaria do genero
+(homens e mulheres) e em DameGender, tambem.
 
-** Is Damegender Free Software?
+** ¿É DameGender Software Livre?
 
-Yes, it's. We are distributing the software in Pypi with GPLv3. You
-can read the license in all files and the full text in GPL.txt file.
+Sim, isso é. Nós distribuimos o software em Pypi com GPLv3. Você
+pode ler a licenza em todos os arquivos e o texto completo em GPL.txt.
 
-** Why are you guessing male or female?
-Some aplications are guessing unknown, but in Damegender we are
-thinking that this option is ok if the name is not in database.
-We are providing a message about the problem with the dataset chosen
-and we are giving a guessed gender with machine learning giving intuitions
-to the user
+** ¿Por quê você vai a adivinhar homens ou mulheres?
+As aplicaçoes podem adivinhar "não conheço". Em DameGender estamos
+pensando que ista opçao é valida si o nome não está na base do dados.
 
-Some LGTB associations are claiming by non binary options about gender,
-when these associations or collectives earns this idea in some state,
-we will be interested on to receive issues about it.
+Nós estamos fornecendo um mensage do problema com o dataset e nós
+estamos adivinhando genero com aprendizaje automatico para ajudar
+a intuiçao do usuario.
 
-The standards has ideas about classifying male, female and other options.
-So, ISO/IEC 5218 proposes a norm about coding gender: ``0 as not know'',
-``1 as male'', ``2 as female'' and ``9 as not applicable''.
-The RFC 6350 where the section Gender has these categories: ``m as male'',
-``f as female'', ``o as other'', ``n as not applicable'' and ``u as
-undefined''. 
+As asociaçoes LGTB reclaman opçoes não binarias do genero, mais istas
+asociaços tem que ganhar a ideia em algum estado, nós estamos interesados
+em receber issues disto.
+
+Os estandares tem ideias de clasificar homens, mulheres e outras
+opçoes. ISO/IEC 5218 propone uma norma de codificar genero:
+``0 como não conozco'', ``1 como homen'', ``2 como mulher'' e
+``9 como não aplicável''.
+O RFC 6350 propone três categorias: ``m como homen'', ``f como mulher'',
+``o como otro'', ``n como no aplicavel'', e ``u como não aplicavel''.
 
 ** Are you predicting ethical problems using machine learning for guess names?
 Machine learning is similar than statistics, so you don't be afraid
