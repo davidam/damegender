@@ -9,3 +9,10 @@
 + https://datos.gob.ar/acerca/seccion/publica-datos
 
 * Official Language: Spanish
+
+* Accuracies
+
++ 0.9455948 using INTER dataset as base of truth and wikipedia as guessed using wikipedia names as dataset
++ 0.5611043 using INTER dataset as base of truth and argentina dataset as guessed using wikipedia names as dataset
+
+Wikipedia saved the popular people located in Argentina, not the popular names, so many european was migrated to Argentina due to the Second War and these names is not in the current dataset of names about people born in Argentina with a defined sex
