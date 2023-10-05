@@ -3,7 +3,7 @@
 #+LANGUAGE: es
 #+AUTHOR: David Arroyo Menéndez 
 #+EMAIL: davidam@gnu.org
-#+DATE: 15/07/2020
+#+DATE: 05/10/2023
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/org.css" />
 
 * Valores éticos
@@ -67,17 +67,17 @@ então você pode comprehender a identidade cultural. Os nomes e sobrenomes
 da Espanha podem ser achados em muitos países em Sur America
 
 ** Por que você usa a palavra DameGender?
-Damegender means *Gender* Detection Tool from the name coded by David
-Arroyo MEnéndez (*DAME*). There are problems in some communities that
-can be detected retrieving data from Internet. And the people can
-claim gender justice, dame in spanish is "give me" in english, so the
-word seems about give me gender justice in [[https://en.wikipedia.org/wiki/Spanglish][spanglish]] :D
+DameGender é "*Gender* Detection Tool from the name coded by David
+Arroyo MEnéndez (*DAME*)" e em português significa "Ferramenta de 
+Deteçao do Genero desenvolvida por David Arroyo Menéndez". 
+Tem problemas em comunidades que podem ser detectados recuperando
+dados do Internet. E as pessoas podem reclamar justiça, dame em 
+espanhol é "dar-me"
 
-I understand that the dame word in french or english is about a
-female, such as Notre Dame. But in Spain dame is a name about a
-male. So, the name damegender is an intelligence challenge about
-discover if the gender of dame is about a male or female. What's your
-country?. 
+Eu entendo que a palavra dame en francês ou inglês é acerca de mulher,
+também Notre Dame. Mais en espanhol dame é um nome de homen. O nome 
+damegender é um reto da inteligença para descover sem o genero de dame
+é acerca de un homen o uma mulher. Quál é o sou país?
 
 #+BEGIN_SRC bash
 $ python3 main.py dame --total=es
@@ -87,52 +87,55 @@ probability: 1.0
 0 females for dame from INE.es
 #+END_SRC
 
-If you are reading about a strict english the gender of the dame. It's
-ok for me, because there are an objective from United Nations to fix
-about gender gap in the world, so we must put the attention on females.
+Sem voê lê acerca de um inglês rígido o genero do dame. É bom para meu, 
+porque existe um objetivo de Naçoes Unidas para corregir a injustiça do
+genero em o mundo, nós debemos fixar a atençao em mulheres.
 
-** How can I pronounce Damegender?
+** Cómo posso pronunciar DameGender?
 
-I don't have not very fix rules about it, but please don't pronounce
-as de-mi-gen-der because there are another site with the name
-[[https://gender.wikia.org/wiki/Demigender][demigender]] with another subject and we don't want problems.
+Eu não tenho muitas reglas fixas acerca disso, mais por favor não 
+diga de-mi-gen-der porque há outro sitio com o nome 
+[[https://gender.wikia.org/wiki/Demigender][demigender]] para outras cousas.
 
-If you know read the hyphenate, you can choose *deym-gen-der*, but you
-can read it as in spanish *da-me-gen-der*. I understand that both ways
-to pronounce is helping me because, I'm happy with the english and the
-spanish culture about this software.
+Você pode dezir *deym-gen-der*, *da-me-gen-der*, ou outra cousa mais
+similar a sua lingua. 
 
-Different ways to pronounce the name of a software, express different
-ideas about the software. If you are expressing on a precise way, you
-are helping to the author about the original idea. If you are changing
-the expression you must know 
+As distintas formas para pronunciar o nome do software, dizem varias
+ideias do software. Sem você expresa en um modo preciso, você ajuda ao
+autor da ideia original. Sem você cambia a expresâo você poder conhecer.
 
-* Installation
-** How can I install it?
+* Instalaçao
+** Como posso instalar DameGender?
 
 #+BEGIN_SRC bash
 $ pip3 install damegender[all]
 #+END_SRC
 
-** Where is the scripts to execute Damegender?
+** Aonde os posso achar os scripts para executar DameGender?
 
-In my GNU/Linux installation you can access to Damegender from:
+Em meu instalaçao do GNU/Linux você pode acceder desta forma:
 
 #+BEGIN_SRC bash
 /usr/local/lib/python3.7/site-packages/damegender
 #+END_SRC
 
-You can guess a name with:
+Você pode adivinhar o nome com:
 
 #+BEGIN_SRC bash
 $ python3 main.py Clara
 #+END_SRC
-* Using it
-** Why must I use Damegender?
-+ If you want determine gender gap in csv datasets, free software
-  projects or mailing lists.
-+ If you don't know the gender about a name
+* Usando
+** ¿Por qué você pode usar Damegender?
+
++ If you have a csv file, a mbox file, or a repository and you want to know males and females.
++ If you want to download csv files about gender and names from any country
++ If you want to compare csv files about gender and names related to accuracies, precision, errors, ...	    
++ If you want see the most used names in different countries
 + If you want research with statistics about why a name is related with males or females.
++ If you want Free Software.
++ If you want check and use popular solutions in gender detection tools from the name 
+([[https://genderize.io/][genderize]], [[https://gender-api.com/][genderapi]], [[https://www.namsor.com/][namsor]], [[https://www.nameapi.org/][nameapi]] or [[https://github.com/lead-ratings/gender-guesser][gender guesser]]) from unified commands such as
+downloadcsv.py, api2gender.py, or downloadjson.py
 + If you want use a free gender detection tool from a name from a command with open data.
 + If you want use the main solutions in gender detection (genderize,
   genderapi, namsor, nameapi and gender guesser) from a command.
