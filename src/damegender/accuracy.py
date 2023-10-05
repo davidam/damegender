@@ -26,7 +26,6 @@
 # file downloaded from an api system with downloadjson.py
 
 from app.dame_gender import Gender
-from app.dame_sexmachine import DameSexmachine
 from app.dame_namsor import DameNamsor
 from app.dame_genderize import DameGenderize
 from app.dame_genderguesser import DameGenderGuesser
@@ -113,8 +112,8 @@ if (args.api == "all"):
                        test_f_chars=test_f_chars,
                        test_m_chars=test_m_chars)
 
-    ds = DameSexmachine()
-    ds.pretty_gg_list(guessf=args.dataset_guess, testf=args.dataset_test,
+    s = Gender()
+    s.pretty_gg_list(guessf=args.dataset_guess, testf=args.dataset_test,
                       measure=args.measure, api='Damegender',
                       guess_f_chars=guess_f_chars, guess_m_chars=guess_m_chars,
                       test_f_chars=test_f_chars, test_m_chars=test_m_chars)
@@ -175,19 +174,19 @@ elif (args.api == "genderguesser"):
                        test_m_chars=test_m_chars)
 
 elif (args.api == "damegender"):
-    ds = DameSexmachine()
-    ds.pretty_gg_list(guessf=args.dataset_guess,
-                      testf=args.dataset_test,
-                      measure=args.measure,
-                      api='Damegender',
-                      gender_test_row=args.dataset_test_position_gender,
-                      gender_guess_row=args.dataset_guess_position_gender,
-                      delimiter_guessf=args.dataset_guess_delimiter,
-                      delimiter_testf=args.dataset_test_delimiter,
-                      guess_f_chars=guess_f_chars,
-                      guess_m_chars=guess_m_chars,
-                      test_f_chars=test_f_chars,
-                      test_m_chars=test_m_chars)
+    s = Gender()
+    s.pretty_gg_list(guessf=args.dataset_guess,
+                     testf=args.dataset_test,
+                     measure=args.measure,
+                     api='Damegender',
+                     gender_test_row=args.dataset_test_position_gender,
+                     gender_guess_row=args.dataset_guess_position_gender,
+                     delimiter_guessf=args.dataset_guess_delimiter,
+                     delimiter_testf=args.dataset_test_delimiter,
+                     guess_f_chars=guess_f_chars,
+                     guess_m_chars=guess_m_chars,
+                     test_f_chars=test_f_chars,
+                     test_m_chars=test_m_chars)
 
 elif (args.api == "genderapi"):
     dga = DameGenderApi()
