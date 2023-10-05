@@ -1,3 +1,19 @@
+* v0.6
+After to publish the paper about INTER dataset
+(https://cgscholar.com/bookstore/works/un-dataset-internacional-acerca-de-nombres-genero-y-frecuencias-en-damegender), 
+the dream towards is arising in DameGender
+15 of 34 python commands is running without dependencies.
+
+$ pip3 install damegender
+
+Is now the option suggested, but if you want to execute
+all commands you can execute
+
+$ pip3 install damegender[all]
+
+Or, you will obtain a message to install the dependency 
+executing the command with dependencies.
+
 * v0.5.7
 New features
 + [X] mergeinterfiles.py: adding argument --skip_header
