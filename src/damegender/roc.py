@@ -24,22 +24,41 @@
 
 # DESCRIPTION: This file allows to compare machine learning algorithms
 
-import matplotlib.pyplot as plt
-import numpy as np
+try:
+    import matplotlib.pyplot as plt
+except ModuleNotFoundError:
+    print("module 'matplotlib' is not installed")
+    print("try:")
+    print("$ pip3 install matplotlib")
+    exit()
 
-from sklearn.svm import SVC
-from sklearn.linear_model import SGDClassifier
-from sklearn.naive_bayes import GaussianNB
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.naive_bayes import BernoulliNB
-from sklearn.linear_model import SGDClassifier
-from sklearn.ensemble import RandomForestClassifier
-from sklearn import tree, metrics
-from sklearn.neural_network import MLPClassifier
-from sklearn.model_selection import train_test_split
+try:
+    import numpy as np
+except ModuleNotFoundError:
+    print("module 'numpy' is not installed")
+    print("try:")
+    print("$ pip3 install numpy")
+    exit()
+
+try:
+    from sklearn.svm import SVC
+    from sklearn.linear_model import SGDClassifier
+    from sklearn.naive_bayes import GaussianNB
+    from sklearn.naive_bayes import MultinomialNB
+    from sklearn.naive_bayes import BernoulliNB
+    from sklearn.linear_model import SGDClassifier
+    from sklearn.ensemble import RandomForestClassifier
+    from sklearn import tree, metrics
+    from sklearn.neural_network import MLPClassifier
+    from sklearn.model_selection import train_test_split
+    from app.dame_sexmachine import DameSexmachine    
+except ModuleNotFoundError:
+    print("module 'scikit-learn' is not installed")
+    print("try:")
+    print("$ pip3 install scikit-learn")
+    exit()
 
 from app.dame_gender import Gender
-from app.dame_sexmachine import DameSexmachine
 from app.dame_utils import DameUtils
 
 import argparse
