@@ -27,7 +27,6 @@
 
 
 from app.dame_gender import Gender
-from app.dame_sexmachine import DameSexmachine
 from app.dame_statistics import DameStatistics
 from app.dame_namsor import DameNamsor
 from app.dame_genderguesser import DameGenderGuesser
@@ -47,7 +46,7 @@ parser.add_argument('--api', default='damegender',
                              'genderapi', 'nameapi', 'genderguesser'])
 args = parser.parse_args()
 
-dsex = DameSexmachine()
+dsex = Gender()
 
 
 if (args.api in ['damegender', 'namsor', 'genderize', 'genderapi', 'nameapi']):
