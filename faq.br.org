@@ -44,30 +44,29 @@ opçoes. ISO/IEC 5218 propone uma norma de codificar genero:
 O RFC 6350 propone três categorias: ``m como homen'', ``f como mulher'',
 ``o como otro'', ``n como no aplicavel'', e ``u como não aplicavel''.
 
-** Are you predicting ethical problems using machine learning for guess names?
-Machine learning is similar than statistics, so you don't be afraid
-using maths when you are coding. Damegender can be used on a laptop,
-so that you are not depending of a very big company as Amazon for use
-the machine learning. 
+** Qual é a sua opinão usando machine learning para adivinhar nomes?
+Machine learning é estadística, você não tenha medo de usar matematicas
+quando você desenvolve codigo. DameGender pode ser usado com machine 
+learning sem Internet em o laptop, DameGender não precisa de Big Data para
+ser usado, você não depende de corporaçoes como Amazon ou Google para
+usar machine learning, machine learning em DameGender são matematicas 
+sozinhas.
 
-If you introduce a word such as chair, table, etc. you could have a
-gender ethical problem because you are giving a gender to an object. In
-Afghanistan there are women with no names referenced as things, objects,
-..., so the problem is dangerous. You can use Damegender to understand
-if the person is talking about a male or a female, but you must understand
-that you must not self reference or reference to another people as
-things. Please be careful, it's your responsability.
+Sem você quer adivinhar uma palavra como uma cadena, tabla, ... você pode ter
+um problema etico pensando que os objetos tem gênero. Em Afghanistan muitas
+mulheres tem nomes de objetos, cousas, ... dando uma ruim visiâo das mulheres
+com issos nomes. Você pode usar DameGender para comprehender sem a pessoa 
+fala de um homen o uma mulher, mais há ruim intençoes dando nomes para pessoas.
 
-More about Afghanistan and names:
+Mais sobre Afghanistan e nomes:
 + https://www.afghanistan-analysts.org/en/reports/rights-freedom/whats-in-a-womans-name-no-name-no-public-persona/
 
-** Is Damegender helping to preserve the cultural identity?
-Yes it's. When you can find in what countries are being used names and
-surnames you can understand the cultural identity. For example,
-the spanish names and surnames can be find in many countries
-in South America, but don't with the same quantities. 
+** DameGender poder ajudar a preservar as identidades culturais?
+Sim. Quando você pode achar os países usando um nome ou um sobrenome,
+então você pode comprehender a identidade cultural. Os nomes e sobrenomes
+da Espanha podem ser achados em muitos países em Sur America
 
-** Why are you using the word Damegender?
+** Por que você usa a palavra DameGender?
 Damegender means *Gender* Detection Tool from the name coded by David
 Arroyo MEnéndez (*DAME*). There are problems in some communities that
 can be detected retrieving data from Internet. And the people can
@@ -265,7 +264,6 @@ If you need the list with french people, you can execute
 #+BEGIN_SRC bash
 python3 percentage2names.py 40 --percentage_until=70 --outcsv=files/tests/40-70.txt --total=fr
 #+END_SRC
-
 
 * Data
 ** What happens if I see chances between the original source and the dataset provided in Damegender?
