@@ -44,7 +44,7 @@ parser.add_argument('--total', default="inter",
                              'fr', 'gb', 'ie', 'is', 'it', 'no', 'nz',
                              'mx', 'pt', 'ru', 'ru_ru',
                              'ru_en', 'se', 'si',
-                             'uy', 'us', 'namdict', 'inter'])
+                             'uy', 'us', 'namdict', 'inter', 'all'])
 # More about iso codes on https://www.iso.org/obp/ui/
 # You can set alphabet with sufix:
 # So russian in latin alphabet would be ru_en
@@ -54,7 +54,7 @@ parser.add_argument('--verbose', default=False, action="store_true")
 args = parser.parse_args()
 
 results = []
-
+s = Gender()
 du = DameUtils()
 
 if (args.total == "namdict"):
@@ -389,21 +389,13 @@ elif ((args.verbose) or (args.total == "all")):
           % (n_females, args.name))
 
     guess = s.guess(
-        args.name, gender_encoded=True, ml="nltk",
+        args.name, gender_encoded=True,
         force_whitespaces=args.force_whitespaces)
-    print("%s gender predicted with nltk is %s"
-          % (str(args.name), du.int2gender(guess)))
-
-else:
-    try:
-        from app.dame_sexmachine import DameSexmachine
-        s = DameSexmachine()        
-    except ModuleNotFoundError:
-        print("there are modules not installed")
-        print("try:")
-        print("$ pip3 install damegeder[all]")
-        exit()
+    print("%s gender guessed is %s"
+              % (str(args.name), du.int2gender(guess)))
     
+        
+else:
     n_males = s.name_frec(
         args.name, dataset=args.total,
         force_whitespaces=args.force_whitespaces)['males']
@@ -420,45 +412,6 @@ else:
         print("probability: %s" % str(prob))
     elif ((int(n_males) == 0) and (int(n_females) == 0)):
         args.ml = 'nltk'
-
-    if (args.ml):
-        if (args.ml == "nltk"):
-            guess = s.guess(args.name, gender_encoded=True, ml="nltk",
-                            force_whitespaces=args.force_whitespaces)
-        if (args.ml == "sgd"):
-            guess = s.guess(args.name, gender_encoded=True, ml="sgd",
-                            force_whitespaces=args.force_whitespaces)
-        elif (args.ml == "svc"):
-            guess = s.guess(args.name, gender_encoded=True, ml="svc",
-                            force_whitespaces=args.force_whitespaces)
-        elif (args.ml == "gaussianNB"):
-            guess = s.guess(args.name, gender_encoded=True, ml="gaussianNB",
-                            force_whitespaces=args.force_whitespaces)
-        elif (args.ml == "multinomialNB"):
-            guess = s.guess(args.name, gender_encoded=True, ml="multinomialNB",
-                            force_whitespaces=args.force_whitespaces)
-        elif (args.ml == "bernoulliNB"):
-            guess = s.guess(args.name, gender_encoded=True, ml="bernoulliNB",
-                            force_whitespaces=args.force_whitespaces)
-        elif (args.ml == "forest"):
-            guess = s.guess(args.name, gender_encoded=True, ml="forest",
-                            force_whitespaces=args.force_whitespaces)
-        elif (args.ml == "xgboost"):
-            guess = s.guess(args.name, gender_encoded=True, ml="xgboost",
-                            force_whitespaces=args.force_whitespaces)
-        elif (args.ml == "tree"):
-            guess = s.guess(args.name, gender_encoded=True, ml="tree",
-                            force_whitespaces=args.force_whitespaces)
-        elif (args.ml == "mlp"):
-            guess = s.guess(args.name, gender_encoded=True, ml="mlp",
-                            force_whitespaces=args.force_whitespaces)
-        if (guess == 1):
-            sex = "male"
-        elif (guess == 0):
-            sex = "female"
-        elif (guess == 2):
-            sex = "unknown"
-        print("%s gender predicted is %s" % (str(args.name), sex))
 
     if (args.total == "ar"):
         print("%s males for %s from Argentina statistics"
@@ -625,3 +578,53 @@ else:
               % (n_males, args.name))
         print("%s females for %s from USA statistics"
               % (n_females, args.name))
+
+        
+    if (args.ml):
+        try:
+            from app.dame_sexmachine import DameSexmachine
+            s = DameSexmachine()        
+        except ModuleNotFoundError:
+            print("there are modules not installed")
+            print("try:")
+            print("$ pip3 install damegeder[all]")
+            exit()
+
+        if (args.ml == "nltk"):
+            guess = s.guess(args.name, gender_encoded=True, ml="nltk",
+                            force_whitespaces=args.force_whitespaces)
+        if (args.ml == "sgd"):
+            guess = s.guess(args.name, gender_encoded=True, ml="sgd",
+                            force_whitespaces=args.force_whitespaces)
+        elif (args.ml == "svc"):
+            guess = s.guess(args.name, gender_encoded=True, ml="svc",
+                            force_whitespaces=args.force_whitespaces)
+        elif (args.ml == "gaussianNB"):
+            guess = s.guess(args.name, gender_encoded=True, ml="gaussianNB",
+                            force_whitespaces=args.force_whitespaces)
+        elif (args.ml == "multinomialNB"):
+            guess = s.guess(args.name, gender_encoded=True, ml="multinomialNB",
+                            force_whitespaces=args.force_whitespaces)
+        elif (args.ml == "bernoulliNB"):
+            guess = s.guess(args.name, gender_encoded=True, ml="bernoulliNB",
+                            force_whitespaces=args.force_whitespaces)
+        elif (args.ml == "forest"):
+            guess = s.guess(args.name, gender_encoded=True, ml="forest",
+                            force_whitespaces=args.force_whitespaces)
+        elif (args.ml == "xgboost"):
+            guess = s.guess(args.name, gender_encoded=True, ml="xgboost",
+                            force_whitespaces=args.force_whitespaces)
+        elif (args.ml == "tree"):
+            guess = s.guess(args.name, gender_encoded=True, ml="tree",
+                            force_whitespaces=args.force_whitespaces)
+        elif (args.ml == "mlp"):
+            guess = s.guess(args.name, gender_encoded=True, ml="mlp",
+                            force_whitespaces=args.force_whitespaces)
+        if (guess == 1):
+            sex = "male"
+        elif (guess == 0):
+            sex = "female"
+        elif (guess == 2):
+            sex = "unknown"
+        print("%s gender predicted is %s" % (str(args.name), sex))
+
