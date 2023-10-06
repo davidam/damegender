@@ -240,60 +240,65 @@ $ python3 top.py es --position --number=5 --sex=female
 5) ANA MARIA: 273319
 #+END_SRC
 
-** How can I convert a csv file of names, gender and frequency to json?
+** Como posso converter um arquivo de nomes, gênero e frequência a um arquivo json?
+
 #+BEGIN_SRC bash
 python3 csv2jsonapirest.py files/names/names_inter/dkfemales10.csv --outdir="files/tmp" --gender=female --names_by_multiple_files=1
 #+END_SRC
 
-** How can I merge 2 csv files of names, gender and frequency?
+** Como posso fazer uma combinaçao dos dois arquivos csv dos nomes, genero e frequência?
 #+BEGIN_SRC bash
 python3 mergeinterfiles.py --file1=files/names/names_inter/dkmales5.csv --file2=files/names/names_inter/dkfemales10.csv --output=files/tests/dkmalesfemales5and10-$(date "+%Y-%m-%d-%H").csv --malefemale
 #+END_SRC
 
-** How can I dump a csv file applying a machine learning model in a json file?
+** Como posso despejar um arquivo CSV aplicando um modelo de aprendizado de máquina em um arquivo JSON?
 #+BEGIN_SRC bash
 python3 damegender2json.py --notoutput --csv=files/names/min.csv --jsonoutput=files/names/min.csv.today.json
 #+END_SRC
 
-** How can I make a list of people with names non binary?
+** Como posso crear uma lista de pessoas com nomes não binarios?
 
-For, example, give me names in a country with percentage about males and females, for instance, from 40 until 70
+Por exemplo, dê-me nomes em um país com porcentagem de homens e mulheres, por exemplo, de 40 a 70 anos.
 
 #+BEGIN_SRC bash
 python3 percentage2names.py 40 --percentage_until=70 --outcsv=files/tests/40-70.txt
 #+END_SRC
 
-If you need the list with french people, you can execute
+Sem você precisa a lista com pessoas da frança, você pode executar:
 
 #+BEGIN_SRC bash
 python3 percentage2names.py 40 --percentage_until=70 --outcsv=files/tests/40-70.txt --total=fr
 #+END_SRC
 
-* Data
-** What happens if I see chances between the original source and the dataset provided in Damegender?
-Please, open an issue in https://github.com/davidam/damegender/issues.
+* Dados
+** Que posso facer sem eu posso vir diferenças con os dados originais e os datasets em DameGender?
+Você pode escrever uma issue em https://github.com/davidam/damegender/issues.
 
-We have found some chance in INE.es, so we have a physical dataset
-provided with an official stamp from the offices. An official dataset
-must not be changed, but the data can vary slightly, sometimes due to
-errors or updates.
+Nós podem achar cambios em INE.es, assim nós temos um dataset 
+proporcionado com uma signatura oficial das oficinas. Os datasets
+oficiais não vai a ser trocados, mais os dados podem trocar um poco,
+por errores ou actualizaçoes.
 
-** Do you have a standard license for the datasets?
-Not, I don't. The datasets remains with the same license provided by
-the states. From src/damegender/files/names/ you can access to the
-folder for each country and you will find the license.
+** Você tem uma licença estandar para os datasets? 
+Não. Os datasets tem a mesma licença otorgado pelos estados.
+Em src/damegender/files/names/ você pode chegar a carpeta
+para cada país e assim você vai achar a licença.
 
-** What principles is being guided about to manage the datasets?
+** Quais são os principios para administrar os datasets? 
 
-In Damegender we are working on these principles:
-+ To be scientific: we want to publish and to disseminate in scientific events.
-+ To be usable: we want to allow retrieve data, easy as using a search engine.
-+ To be hacker: we want to allow distribute software and data in hacker networks: github, pypi, npm, ...
-+ To be legal: we must be clever with licenses as in the Free Software Foundation.
+Em DameGender nós estamos trabalhando em istos principios:
++ Para ser científico: nós quer publicar e diseminhar em eventos científicos.
++ Para ser usable: nós quer permitir recuperar dados, usando um buscador.
++ Para ser hacker: nós quer permitir distribuir software e dados en redes hacker: github, pypi, npm, ...
++ Para ser legal: nós precisamos ser intelligentes com licenças do software como a Fundaçao do Software Livre.
 
-** What means official dataset in Damegender?
+** O quê significado tem datasets oficiais em DameGender?
 
-We are selecting datasets open data with a good number of names retrieved from official statistical offices as official dataset
+Nós estamos tenhendo datasets do dados abertos com um bom numero do nomes logrados de estadísticas oficiales, isso sâo datasets oficiais.
 
-Although, we are evaluating to include datasets using free licecenses retrieved from other sources, so we want to verify the correctness of these data with external gender detection tools such as GenderAPI, Namsor, Genderize, ...
+Embora estejamos avaliando incluir conjuntos de dados usando licenças livres recuperadas de outras fontes, 
+primeiro queremos verificar a exatidão dissos dados com outros datasets oficiais da cidades ou com outras 
+ferramentas de deteçao do genero e nome: GenderApi, NamSor, Genderize, ...
+
+
 
