@@ -94,6 +94,22 @@ freeely.
     >>> import nltk
     >>> nltk.download('names')
 
+# Using
+
+## Hello! Guess a name!
+
+    $ python3 main.py Paula --total=es
+
+## Many commands! I want a faq!
+
+English...
+
+   $ firefox https://github.com/davidam/damegender/blob/master/faq.org &
+
+Português...
+
+    $ firefox https://github.com/davidam/damegender/blob/master/faq.br.org &
+
 # Papers
 
 ## 2023
