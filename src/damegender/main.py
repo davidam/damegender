@@ -27,7 +27,6 @@
 
 
 from app.dame_gender import Gender
-from app.dame_sexmachine import DameSexmachine
 from app.dame_utils import DameUtils
 import sys
 import os
@@ -56,7 +55,6 @@ args = parser.parse_args()
 
 results = []
 
-s = DameSexmachine()
 du = DameUtils()
 
 if (args.total == "namdict"):
@@ -397,7 +395,15 @@ elif ((args.verbose) or (args.total == "all")):
           % (str(args.name), du.int2gender(guess)))
 
 else:
-    s = DameSexmachine()
+    try:
+        from app.dame_sexmachine import DameSexmachine
+        s = DameSexmachine()        
+    except ModuleNotFoundError:
+        print("there are modules not installed")
+        print("try:")
+        print("$ pip3 install damegeder[all]")
+        exit()
+    
     n_males = s.name_frec(
         args.name, dataset=args.total,
         force_whitespaces=args.force_whitespaces)['males']
