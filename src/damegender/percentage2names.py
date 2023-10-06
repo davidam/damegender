@@ -34,9 +34,9 @@ parser = argparse.ArgumentParser()
 parser.add_argument("percentage_from")
 parser.add_argument("--percentage_until", default=-1)
 parser.add_argument('--total', default="inter",
-                    choices=['at', 'au', 'be', 'ca', 'ch',
-                             'cn', 'de', 'dk', 'es', 'fi',
-                             'fr', 'gb', 'ie', 'is', 'no',
+                    choices=['ar', 'at', 'au', 'be', 'br', 'ca',
+                             'ch', 'cn', 'de', 'dk', 'es', 'fi',
+                             'fr', 'gb', 'ie', 'is', 'it', 'no',
                              'nz', 'mx', 'pt', 'ru', 'se',
                              'si', 'uy', 'us', 'inter'])
 # More about iso codes on https://www.iso.org/obp/ui/
