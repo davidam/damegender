@@ -56,12 +56,16 @@ du = DameUtils()
 dg = Gender()
 
 
-if not(du.check_connection("https://www.google.com")):
-    print("You can't to use this script without Internet")
-    exit()
 
 if (len(sys.argv) > 1):
-    if (args.api == "brazilapi"):
+
+    if (args.api == "genderguesser"):
+        dgg = DameGenderGuesser()
+        print(dgg.guess(args.name))    
+    elif not(du.check_connection("https://www.google.com")):
+        print("You can't to use this script without Internet")
+        exit()
+    elif (args.api == "brazilapi"):
         print(dba.guess(args.name))
         print("accuracy: " + str(dba.accuracy(args.name)))
         if (args.verbose):
@@ -69,9 +73,6 @@ if (len(sys.argv) > 1):
             print("males: " + str(v["males"]))
             print("females: " + str(v["females"]))
             print("total: " + str(v["females"] + v["males"]))
-    elif (args.api == "genderguesser"):
-        dgg = DameGenderGuesser()
-        print(dgg.guess(args.name))
     elif (args.api == "genderapi"):
         if (dg.config['DEFAULT']['genderapi'] == 'yes'):
             dga = DameGenderApi()
