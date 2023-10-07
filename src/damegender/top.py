@@ -45,7 +45,7 @@ parser.add_argument("country", default="usa",
                              'ca', 'ch', 'cl',
                              'dk', 'de', 'es', 'fr', 'fi',
                              'gb', 'ie', 'ine', 'inter',
-                             'is', 'no', 'nz', 'mx', 'pt',
+                             'is', 'it', 'no', 'nz', 'mx', 'pt',
                              'ru', 'ru_en', 'ru_ru', 'se',
                              'si', 'uy', 'uk', 'us', 'usa'],
                     help="Countries with 2 letter, example, es is Spain")
