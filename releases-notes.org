@@ -14,6 +14,11 @@ $ pip3 install damegender[all]
 Or, you will obtain a message to install the dependency 
 executing the command with dependencies.
 
+** More about datasets:
++ [X] accuracies is being added to the README files for each country
++ [X] Italy dataset (top names) has been merged with the Wikipedia dataset of Italy 
+(now 1975 females and 3135 males)
+
 * v0.5.7
 New features
 + [X] mergeinterfiles.py: adding argument --skip_header
