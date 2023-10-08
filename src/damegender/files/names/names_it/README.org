@@ -16,6 +16,8 @@ There are an issue about it https://github.com/mrblasco/genderNamesITA/issues/1
 
 ** ISTAT (60 names most used) has an accuracy of
 + 0.9333 using INTER as base of truth
+** itall.csv (Wikidata + ISTAT) has an accuracy of:
++ 0.80575 using INTER as base of truth
 
 * Issues
 + https://github.com/mrblasco/genderNamesITA/issues/1
