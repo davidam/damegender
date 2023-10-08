@@ -18,6 +18,8 @@ executing the command with dependencies.
 + [X] accuracies is being added to the README files for each country
 + [X] Italy dataset (top names) has been merged with the Wikipedia dataset of Italy 
 (now 1975 females and 3135 males)
++ [X] Adding Netflix to test datasets
++ [X] Starting languages datasets (arabic, english, spanish, french, ...)  to some commands (main and csv2gender)
 
 * v0.5.7
 New features
