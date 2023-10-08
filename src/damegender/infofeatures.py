@@ -31,11 +31,11 @@ g = Gender()
 
 parser = argparse.ArgumentParser()
 parser.add_argument('corpus', default="es",
-                    choices=['at', 'au', 'be', 'ca', 'ch',
+                    choices=['ar', 'at', 'au', 'be', 'ca', 'ch',
                              'cn', 'de', 'dk', 'es', 'fi',
-                             'fr', 'gb', 'ie', 'is', 'no', 'nz',
-                             'mx', 'pt', 'ru', 'se', 'si',
-                             'uy', 'us', 'namdict', 'inter'])
+                             'fr', 'gb', 'ie', 'is', 'it',
+                             'no', 'nz', 'mx', 'pt', 'ru', 'se',
+                             'si', 'uy', 'us', 'namdict', 'inter'])
 args = parser.parse_args()
 
 
