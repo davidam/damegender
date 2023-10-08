@@ -39,12 +39,18 @@ parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB',
                                      'multinomialNB', 'bernoulliNB',
                                      'forest', 'tree', 'mlp'])
 parser.add_argument('--total', default="inter",
-                    choices=['ar', 'at', 'au', 'be', 'br', 'ca', 'ch',
+                    choices=[ # COUNTRIES
+                             'ar', 'at', 'au', 'be', 'br', 'ca', 'ch',
                              'cl', 'cn', 'de', 'dk', 'es', 'fi',
                              'fr', 'gb', 'ie', 'is', 'it', 'no', 'nz',
-                             'mx', 'pt', 'ru', 'ru_ru',
-                             'ru_en', 'se', 'si',
-                             'uy', 'us', 'namdict', 'inter', 'all'])
+                             'mx', 'pt', 'ru', 'ru_ru', 'ru_en', 'se',
+                             'si', 'uy', 'us',
+                              # GENERAL
+                             'namdict', 'inter', 'all',
+                              # LANGUAGES
+                             'arabic', 'english', 'finnish', 'french',
+                             'german', 'portuguese', 'spanish']
+                        )
 # More about iso codes on https://www.iso.org/obp/ui/
 # You can set alphabet with sufix:
 # So russian in latin alphabet would be ru_en
@@ -577,6 +583,26 @@ else:
         print("%s males for %s from USA statistics"
               % (n_males, args.name))
         print("%s females for %s from USA statistics"
+              % (n_females, args.name))
+    elif (args.total == "arabic"):
+        print("%s males for %s from Arabic DameGender Dataset"
+              % (n_males, args.name))
+        print("%s females for %s from Arabic DameGender Dataset"
+              % (n_females, args.name))
+    elif (args.total == "english"):
+        print("%s males for %s from English DameGender Dataset"
+              % (n_males, args.name))
+        print("%s females for %s from English DameGender Dataset"
+              % (n_females, args.name))
+    elif (args.total == "french"):
+        print("%s males for %s from French DameGender Dataset"
+              % (n_males, args.name))
+        print("%s females for %s from French DameGender Dataset"
+              % (n_females, args.name))
+    elif (args.total == "spanish"):
+        print("%s males for %s from Spanish statistics"
+              % (n_males, args.name))
+        print("%s females for %s from Spanish statistics"
               % (n_females, args.name))
 
         
