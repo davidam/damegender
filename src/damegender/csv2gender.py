@@ -48,7 +48,10 @@ parser.add_argument('--dataset', default="inter",
                              'cn', 'de', 'dk', 'es', 'fi', 'fr', 'gb', 'it',
                              'ie', 'ine', 'inter', 'is', 'mx', 'no',
                              'nz', 'pt', 'ru', 'ru_en', 'ru_ru',
-                             'se', 'si', 'uy', 'us', 'genderguesser'])
+                             'se', 'si', 'uy', 'us', 'genderguesser',
+                             'arabic', 'english', 'finnish', 'french',
+                             'german', 'portuguese', 'spanish'])
+                             
 parser.add_argument('--outcsv', default="files/names/out.csv")
 parser.add_argument('--outjson', default="files/names/out.json")
 parser.add_argument('--outimg', default="files/images/csv2gender.png")
