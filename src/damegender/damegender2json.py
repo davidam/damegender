@@ -42,10 +42,11 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--csv', type=str, required=True,
                     help="files/names/min.csv")
 parser.add_argument('--dataset', default="us",
-                    choices=['at', 'au', 'be', 'ca', 'cn', 'de',
-                             'dk', 'es', 'fi', 'fr', 'gb', 'ie',
-                             'ine', 'is', 'nz', 'mx', 'pt', 'si',
-                             'uy', 'us', 'inter'])
+                    choices=['ar', 'at', 'au', 'be', 'br', 'ca',
+                             'ch', 'cn', 'cl', 'de', 'dk', 'es',
+                             'fi', 'fr', 'gb', 'ie', 'ine', 'is',
+                             'no', 'nz', 'mx', 'pt', 'ru', 'se',
+                             'si', 'us', 'uy', 'inter'])
 parser.add_argument('--gender_encoded', default=False, action="store_true")
 parser.add_argument('--notoutput', default=False, action="store_true")
 parser.add_argument('--jsonoutput', type=str,
