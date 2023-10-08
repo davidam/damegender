@@ -40,7 +40,8 @@ class DameUtils():
         # given the gender (sex) returns a dictionary where the key is
         # the country and the value is the path with names and sex
         if ((sex == "male") or (sex == "males") or (sex == 1)):
-            path = {"ar": "files/names/names_ar/armales.csv",
+            path = {# COUNTRIES
+                    "ar": "files/names/names_ar/armales.csv",
                     "at": "files/names/names_at/atmales.csv",
                     "au": "files/names/names_au/aumales.csv",
                     "be": "files/names/names_be/bemales.csv",
@@ -72,7 +73,15 @@ class DameUtils():
                     # "tr": "files/names/names_tr/trmales.csv",
                     "us": "files/names/names_us/usmales.csv",
                     "usa": "files/names/names_us/usmales.csv",
-                    "uy": "files/names/names_uy/uymales.csv"}
+                    "uy": "files/names/names_uy/uymales.csv",
+                    # LANGUAGES
+                    "arabic": "files/names/languages/arabicmales.csv",
+                    "english": "files/names/languages/englishmales.csv",
+                    "finnish": "files/names/languages/finnishmales.csv",
+                    "french": "files/names/languages/frenchmales.csv",                
+                    "german": "files/names/languages/germanmales.csv",
+                    "portuguese": "files/names/languages/portuguesemales.csv",
+                    "spanish": "files/names/languages/spanishmales.csv"}
         elif ((sex == "female") or (sex == "females") or (sex == 0)):
             path = {"ar": "files/names/names_ar/arfemales.csv",
                     "at": "files/names/names_at/atfemales.csv",
@@ -106,7 +115,16 @@ class DameUtils():
                     # "tr": "files/names/names_tr/trfemales.csv",
                     "us": "files/names/names_us/usfemales.csv",
                     "usa": "files/names/names_us/usfemales.csv",
-                    "uy": "files/names/names_uy/uyfemales.csv"}
+                    "uy": "files/names/names_uy/uyfemales.csv",
+                    # LANGUAGES
+                    "arabic": "files/names/languages/arabicfemales.csv",
+                    "english": "files/names/languages/englishfemales.csv",
+                    "finnish": "files/names/languages/finnishfemales.csv",
+                    "french": "files/names/languages/frenchfemales.csv",                
+                    "german": "files/names/languages/germanfemales.csv",
+                    "portuguese": "files/names/languages/portuguesefemales.csv",
+                    "spanish": "files/names/languages/spanishfemales.csv"}
+                    
         elif ((sex == "all") or (sex == 2)):
             path = {"ar": "files/names/names_ar/arall.csv",
                     "at": "files/names/names_at/atall.csv",
@@ -139,7 +157,16 @@ class DameUtils():
                     # "tr": "files/names/names_tr/trall.csv",
                     "us": "files/names/names_us/usall.csv",
                     "usa": "files/names/names_us/usall.csv",
-                    "uy": "files/names/names_uy/uyall.csv"}
+                    "uy": "files/names/names_uy/uyall.csv",
+                    # LANGUAGES
+                    "arabic": "files/names/languages/arabicall.csv",
+                    "english": "files/names/languages/englishall.csv",
+                    "finnish": "files/names/languages/finnishall.csv",
+                    "french": "files/names/languages/frenchall.csv",                
+                    "german": "files/names/languages/germanall.csv",
+                    "portuguese": "files/names/languages/portugueseall.csv",
+                    "spanish": "files/names/languages/spanishall.csv"}
+                    
         return path
 
     def string2array(self, string):
