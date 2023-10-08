@@ -82,6 +82,10 @@ https://datos.gob.ar/acerca/seccion/publica-datos
               https://data.world/bradys/bibledata-person/workspace/project-summary?agentid=bradys&datasetid=bibledata-person
 + [ ] License: CC BY-NC-SA
 
+** Netflix
++ [ ] File: netflix_titles.csv
++ [ ] Source: https://www.kaggle.com/datasets/shivamb/netflix-shows/
++ [ ] License: https://www.kaggle.com/datasets/shivamb/netflix-shows/
 * Sources to be verified
 An interesting task in the world of the datasets is about to discover if a dataset is valid.
 
