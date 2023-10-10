@@ -577,6 +577,16 @@ else
 	echo -e  "percentage2names test is ${GREEN}ok${NC}"
 fi
 
+python3 main.py Samer --total=arabic > files/tests/samer-arabic-$(date "+%Y-%m-%d").txt
+
+if ! diff files/tests/samer-arabic.txt files/tests/samer-arabic-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
+then
+        echo -e "samer-arabic test is ${RED}failing${NC}"
+else
+        echo -e "samer-arabic test is ${GREEN}ok${NC}"
+fi
+
+
 
 
 echo "cleaning temporary files"
