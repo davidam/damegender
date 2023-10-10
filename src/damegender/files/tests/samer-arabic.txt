@@ -1,0 +1,4 @@
+Samer's gender is male
+probability: 1.0
+3 males for Samer from Arabic DameGender Dataset
+0 females for Samer from Arabic DameGender Dataset
