@@ -14,3 +14,7 @@
 * Criteria about how to count
 + Sum of baby borns from 1944 to 2013.
 + Source: baby-names-1944-2013/byyears2total.py
+
+* Accuracies
++ 0.9475086117119282 using Australia as base of truth and INTER as guessed
++ 0.9475086117119282 using INTER as base of truth and Australia as guessed
