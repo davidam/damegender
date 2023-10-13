@@ -16,6 +16,6 @@ The list about names given between 1984 and 2020
 
 * Accuracies
 Austria DameGender dataset:
-+ 0.8671625929861849 using INTER as base of truth and Austria as guessed file 
-
++ 0.86716 using INTER as base of truth and Austria as guessed file 
++ 0.92087 using Wikidata as base of truth and Austria as guessed file
 
