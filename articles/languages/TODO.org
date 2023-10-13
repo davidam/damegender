@@ -1,0 +1,17 @@
+
+* TODO Escribir una tabla latex de accuracies
+
+\begin{table}[t]
+\footnotesize
+\begin{tabular}[]{lcccc}
+  \hline
+  Dataset   & INTER     & WikiData \tabularnewline
+  Argentina & 0.5611043 & 0.9455948 \tabularnewline
+  Austria   & 0.8671625 & 0.5611043 \tabularnewline
+  Australia & 0.9475086 & ---       \tabularnewline
+  Belgium   & 0.9352941 & ---       \tabularnewline
+  \hline
+\end{tabular}
+\caption{Measuring accuracies of national datasets from statistical offices and Wikidata}
+\label{table:DifferentNamesMeasures}
+\end{table}
