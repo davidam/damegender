@@ -296,9 +296,11 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_num_columns_in_csv(self):
         du = DameUtils()
-        n = du.num_columns_in_csv('files/names/partial.csv')
-        self.assertEqual(n, 6)
-
+        n1 = du.num_columns_in_csv('files/names/partial.csv')
+        self.assertEqual(n1, 6)
+        n3 = du.num_columns_in_csv('files/tests/csvbuggy.csv')
+        self.assertEqual(n3, -1)
+        
     def test_round_and_not_zero_division(self):
         du = DameUtils()
         self.assertEqual(du.round_and_not_zero_division(4, 2), 2)
