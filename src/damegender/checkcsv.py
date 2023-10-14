@@ -104,3 +104,12 @@ print("####################################################")
 
 if (args.verbose and (len(llong) > 0)):
     print("Long strings: %s" % llong)
+
+columns = str(du.num_columns_in_csv(args.path))
+if (columns == "-1"):
+    columns = "Different columns per row in the file" 
+    
+print("####################################################")
+print("Columns in CSV: %s" % columns)
+print("####################################################")
+    
