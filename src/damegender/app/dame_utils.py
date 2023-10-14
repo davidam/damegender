@@ -485,6 +485,16 @@ class DameUtils():
         with open(csvpath, 'r') as csvfile:
             first_line = csvfile.readline()
             ncol = first_line.count(delimiter) + 1
+            sreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            eqcol = True
+            for row in sreader:
+                newcol = len(row)
+                if (newcol == ncol):
+                    eqcol = (eqcol and True)
+                else:
+                    eqcol = False
+        if not(eqcol):
+            ncol = -1
         return ncol
 
     def csvcolumn2list(self, csvpath,  *args, **kwargs):
