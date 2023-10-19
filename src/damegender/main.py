@@ -417,7 +417,7 @@ else:
         prob = int(n_females) / (int(n_females) + int(n_males))
         print("probability: %s" % str(prob))
     elif ((int(n_males) == 0) and (int(n_females) == 0)):
-        args.ml = 'nltk'
+        args.ml = 'svc'
 
     if (args.total == "ar"):
         print("%s males for %s from Argentina statistics"
