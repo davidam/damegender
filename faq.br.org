@@ -7,35 +7,32 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../css/org.css" />
 
 * Valores éticos
-** ¿DameGender pode reduzir a injustiça do genero?
-DameGender pode reduzir a injustiça do genero. Reduzir a injustiça 
-do gênero é um [[https://www.un.org/sustainabledevelopment/gender-equality/][objetivo em Naçoes Unidas]] e os estados ajudam para 
-aquele objetivo. Para reduzir a injustiça do gênero podemos medir
-aonde faze. DameGender é Software Livre com os dados extraídos dos
-estados, podemos medir homens e mulheres com um ponto do vista 
-critico que pode ser revisado por pares.
+** DameGender pode reduzir a disparidade de gênero?
+Reduzir a disparidade
+de gênero é um
+[[https://www.un.org/sustainabledevelopment/gender-equality/][objetivo
+em Naçoes Unidas]].
+DameGender é Software Livre com os dados extraídos dos
+Estados, podemos medir homens e mulheres com um ponto do vista
+crítico porque pode ser revisado por pares.
 
-** ¿Eu posso adivinhar a orientaçao sexual com DameGender?
-Não posso. Você adivinha sexo, ou gênero, como os estados estam
-registrando isso. Os estados tem uma ideologia binaria do genero
-(homens e mulheres) e em DameGender, tambem.
+** Eu posso inferir a orientação sexual com DameGender?
+Não posso. Você determina sexo, ou gênero, como os Estados estam
+registrando isso: clasificam o genero em homens e mulheres
+e em DameGender, também.
 
-** ¿É DameGender Software Livre?
+** É DameGender Software Livre?
 
-Sim, isso é. Nós distribuimos o software em Pypi com GPLv3. Você
+Sim. Nós distribuimos o software em Pypi com GPLv3. Você
 pode ler a licenza em todos os arquivos e o texto completo em GPL.txt.
 
-** ¿Por quê você vai a adivinhar homens ou mulheres?
-As aplicaçoes podem adivinhar "não conheço". Em DameGender estamos
-pensando que ista opçao é valida si o nome não está na base do dados.
+** Por quê você clasifica nomes em homens ou mulheres?
+As aplicaçoes podem inferir "não conheço". Em DameGender estamos
+pensando que ista opção é valida si o nome não está na base do dados.
 
-Nós estamos fornecendo um mensage do problema com o dataset e nós
+Nós estamos fornecendo um mensagem do problema com o dataset e nós
 estamos adivinhando genero com aprendizaje automatico para ajudar
-a intuiçao do usuario.
-
-As asociaçoes LGTB reclaman opçoes não binarias do genero, mais istas
-asociaços tem que ganhar a ideia em algum estado, nós estamos interesados
-em receber issues disto.
+a intuição do usuario.
 
 Os estandares tem ideias de clasificar homens, mulheres e outras
 opçoes. ISO/IEC 5218 propone uma norma de codificar genero:
@@ -47,7 +44,7 @@ O RFC 6350 propone três categorias: ``m como homen'', ``f como mulher'',
 ** Qual é a sua opinão usando machine learning para adivinhar nomes?
 Machine learning é estadística, você não tenha medo de usar matematicas
 quando você desenvolve codigo. DameGender pode ser usado com machine 
-learning sem Internet em o laptop, DameGender não precisa de Big Data para
+learning sem Internet em o laptop. DameGender não precisa de Big Data para
 ser usado, você não depende de corporaçoes como Amazon ou Google para
 usar machine learning, machine learning em DameGender são matematicas 
 sozinhas.
