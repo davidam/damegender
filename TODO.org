@@ -1624,3 +1624,10 @@ Hay que pensar si incluir apellidos wikidata o solo los oficiales, quizás se po
 * TODO Resolver problemas de coherencias de nombrado de argumentos
 Revisar todos los argumentos y ver que se nombra todo de manera correcta, no puede ser que en un comando utilice el argumento total para llamar al dataset de un país, en otro lo llame dataset y en otro country
 Esto puede pasar en más comandos y argumentos hay que revisarlo todo y pasar muchos tests después, revisar llamadas a logs, todo eso.
+* FUTURE Pensar en que sea más simpática la imagen del buscador
+Hay varias ideas y también podría ser un equilibrio entre diferentes posturas:
++ NameBerry propone un nombre del día con su propio criterio de nombres que resulta simpático en el día para nuevos bebes.
++ Wikipedia habla de un montón de eventos relacionados con un día (https://en.wikipedia.org/wiki/2024). Esto es similar a cómo lo piensa Google.
++ Solo científicas como una medida de expresar solidaridad visible a la brecha de género en las STEM.
++ En DameGender hay inercias de arte, científicas e ideas culturalistas propias de DameGender.
+
