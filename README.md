@@ -66,7 +66,7 @@ To install all possible dependencies
 ## Obtaining an api key
 
 Currently you can need an api key from:
--   [Genderize](https://store.genderize.io/)
+-   [Genderize](https://genderize.io/)
 -   [Gender API](https://gender-api.com)
 -   [NameAPI](https://www.nameapi.org/)
 -   [Namsor](https://namsor.app/api-documentation)
