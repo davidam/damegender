@@ -122,6 +122,10 @@ Português...
 
 # Speeches, Seminars, Expressions of Support
 
+## 2024
+
+- [Un Dataset Internacional Acerca de Nombres, Género y Frecuencias en Damegender: Contando Hombres y Mujeres en Debian GNU/Linux (Valencia, Common Grounds)](https://cgscholar.com/cg_event/events/T24es/schedule#2024-03-07)
+
 ## 2023
 
 -  [OpenDataDay with grant (Argentina Buenos Aires, 2023)](https://blog.okfn.org/2023/03/01/winners-open-data-days-2023-small-grants-programme/)
