@@ -27,11 +27,8 @@ import unicodedata
 import re
 import os
 import csv
-import sys
-import pdb
 import json
 import requests
-from pprint import pprint
 
 
 class DameUtils():
