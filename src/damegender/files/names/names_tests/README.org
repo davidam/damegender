@@ -85,7 +85,13 @@ https://datos.gob.ar/acerca/seccion/publica-datos
 ** Netflix
 + [ ] File: netflix_titles.csv
 + [ ] Source: https://www.kaggle.com/datasets/shivamb/netflix-shows/
-+ [ ] License: https://www.kaggle.com/datasets/shivamb/netflix-shows/
++ [ ] License: Public Domain
+
+** Athlete
++ [ ] File: athlete_events.csv
++ [ ] Source: https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results
++ [ ] License: Public Domain
+
 * Sources to be verified
 An interesting task in the world of the datasets is about to discover if a dataset is valid.
 
