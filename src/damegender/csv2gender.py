@@ -22,7 +22,7 @@
 # the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 # Boston, MA 02110-1301 USA,
 
-# DESCRIPTION: Given a csv file with a column of names returns a files
+# DESCRIPTION: Given a csv file with a column of names returns a file
 # with a new column with gender for each name
 
 
@@ -34,15 +34,17 @@ import matplotlib.pyplot as plt
 
 parser = argparse.ArgumentParser()
 parser.add_argument("path", help="csv file")
+# What is the position of the first name in the csv?
 parser.add_argument('--first_name_position', required=True,
                     type=int, choices=[0, 1, 2, 3, 4], default=0)
-# What is the position of the first name in the csv?
+# What is the position of the surname in the csv?
 parser.add_argument('--surname_position', required=False,
                     type=int, choices=[0, 1, 2, 3, 4], default=-99999)
-# What is the position of the surname in the csv?
+# Is the csv separated by commas?
 parser.add_argument('--delimiter_csv', required=False,
                     type=str, default=",")
-# Is the csv separated by commas?
+parser.add_argument('--quotechar_csv', required=False,
+                    type=str, default="'")
 parser.add_argument('--dataset', default="inter",
                     choices=['ar', 'at', 'au', 'be', 'br', 'ca', 'ch', 'cl',
                              'cn', 'de', 'dk', 'es', 'fi', 'fr', 'gb', 'it',
@@ -100,10 +102,11 @@ if (first_name_position == surname_position):
 
 
 if (args.skip_header):
-    csvrowlist = du.csv2list(args.path, quotechar=args.delimiter_csv)
+    csvrowlist = du.csv2list(args.path, delimiter=args.delimiter_csv, quotechar=args.quotechar_csv)
 else:
     csvrowlist = du.csv2list(args.path,
-                             quotechar=args.delimiter_csv,
+                             quotechar=args.quotechar_csv,
+                             delimiter=args.delimiter_csv,
                              header=False)
 
 l1 = []
