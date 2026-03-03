@@ -268,16 +268,16 @@ class TddInPythonExample(unittest.TestCase):
 
     def test_csv2list(self):
         du = DameUtils()
-        l1 = du.csv2list('files/names/min.csv')
+        l1 = du.csv2list('files/names/min.csv', delimiter=",", quotechar="'")
         self.assertEqual(['"pierre"', '"paul"', '"grivel"',
                           '"pierre paul grivel"', '"m"', '"zbmath"'], l1[0])
         self.assertEqual(['"raul"', '""', '"serapioni"',
                           '"raul serapioni"', '"m"', '"zbmath"'], l1[1])
-        l2 = du.csv2list('files/names/min.commas.csv', delimiter=";")
-        self.assertEqual(['"pierre"', '"paul"', '"grivel"',
-                          '"pierre paul grivel"', '"m"', '"zbmath"'], l2[0])
-        self.assertEqual(['"raul"', '""', '"serapioni"',
-                          '"raul serapioni"', '"m"', '"zbmath"'], l2[1])
+        l2 = du.csv2list('files/names/min.commas.csv', delimiter=";", quotechar='"')
+        self.assertEqual(["pierre", "paul", "grivel",
+                          "pierre paul grivel", "m", "zbmath"], l2[0])
+        self.assertEqual(["raul", "", "serapioni",
+                          "raul serapioni", "m", "zbmath"], l2[1])
         l3 = du.csv2list('files/tests/csvbuggy.csv',
                          delimiter=",",
                          header=False,
