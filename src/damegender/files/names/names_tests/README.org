@@ -54,7 +54,13 @@ https://datos.gob.ar/acerca/seccion/publica-datos
 + [ ] File: names_leagues.csv
 + [ ] Source: https://raw.githubusercontent.com/the-pudding/hyphenated-names/master/output/allCombinedNames.csv
 + [ ] License: MIT License (https://github.com/the-pudding/hyphenated-names/blob/master/LICENSE)
-  
+
+* Arabic
+** Palestine Datasets
++ [ ] File: killed-in-gaza.csv
++ [ ] Source: https://raw.githubusercontent.com/TechForPalestine/palestine-datasets/refs/heads/main/scripts/data/common/killed-in-gaza/data/raw.csv
++ [ ] License: Public Domain (https://github.com/TechForPalestine/palestine-datasets/tree/main?tab=License-1-ov-file)
+    
 * International
 ** Performance of gender detection tools: a comparative study of name-to-gender inference services
 + [ ] File: gender_JMLA.dta
