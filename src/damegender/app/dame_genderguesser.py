@@ -93,7 +93,7 @@ class DameGenderGuesser(Gender):
         # Open a data file and for each line, call the _eat_name_line function.
         """Opens data file and for each line, calls _eat_name_line"""
         self.names = {}
-        with codecs.open(filename, encoding="utf-8") as f:
+        with open(filename, encoding="utf-8") as f:
             for line in f:
                 self._eat_name_line(line.strip())
 
