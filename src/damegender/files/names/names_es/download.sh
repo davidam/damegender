@@ -21,7 +21,9 @@
 
 mkdir -p orig
 cd orig
+echo "Downloading https://www.ine.es/daco/daco42/nombyapel/nombres_por_edad_media.xls"
 wget -c https://www.ine.es/daco/daco42/nombyapel/nombres_por_edad_media.xls
+echo "Transforming xls to csv, you could need install gnumeric"
 ssconvert -S nombres_por_edad_media.xls nombres_por_edad_media.csv
 cp nombres_por_edad_media.csv.0 masculinos_original.csv
 mv nombres_por_edad_media.csv.0 esmasculinos.csv
