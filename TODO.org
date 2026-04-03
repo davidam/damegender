@@ -1,5 +1,8 @@
 #+TODO: TODO(t) POSIBLE(p) POSSIBLE(p) GOING(g) FUTURE(f) | DONE(d!) CANCELED(c!)
 
+* TODO Regenerar modelos
+Es complejo abrir modelos creados con versiones antiguas de scikit
+Hay que regenerar los modelos
 * DONE Plantearse poner estos footnotes al paper de uc3m
   - State "DONE"       from "POSIBLE"    [2023-08-05 sáb 03:03]
 Austria\footnote{https://www.wien.gv.at},
@@ -1354,8 +1357,11 @@ y ver que las desviaciones son razonables
 
 * DONE Ahora mismo damegender no se instala en macos debido a lxml
   - State "DONE"       from "TODO"       [2022-03-07 lun 10:27]
-  Tratar de reemplazar por librería nativa para evitar problemas de dependencias
+  Tratar de reemplazar por librería nativa para evitar
+  problemas de dependencias
   https://docs.python.org/3/library/xml.etree.elementtree.html
+  Esto no es del todo factible en cuanto que html no es xml estricto
+  
 * CANCELED Crear un método normalize_names_and_white_spaces
   - State "CANCELED"   from "TODO"       [2023-01-06 vie 12:43]
 ESTA TAREA HA SIDO REESCRITA COMO "Checklist a cada csv de un país"
