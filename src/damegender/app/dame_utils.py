@@ -561,7 +561,7 @@ class DameUtils():
         noemptyfield = kwargs.get('noemptyfield', False)
         deletewhitespaces = kwargs.get('deletewhitespaces', False)
         deletequotes = kwargs.get('deletequotes', False)
-        quotechar = kwargs.get('quotechar', ",")
+        quotechar = kwargs.get('quotechar', None)
         l1 = []
         with open(csvpath) as csvfile:
             sexreader = csv.reader(csvfile,
