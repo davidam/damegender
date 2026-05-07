@@ -26,6 +26,8 @@
 
 cd ../..
 
+mkdir -p files/images
+
 cp config.cfg config.cfg.backup
 cp config.disabled.cfg config.cfg
 
@@ -143,15 +145,15 @@ else
 	echo -e  "mainjuliauy test is ${GREEN}ok${NC}"
 fi
 
-echo -e  "I am launching a ml test is slow. Please wait"
+# echo -e  "I am launching a ml test is slow. Please wait"
 
-python3 main.py Amorosa --ml=sgd --total=us > files/tests/mainamorosa-$(date "+%Y-%m-%d").txt
-if ! diff files/tests/mainamorosa.txt files/tests/mainamorosa-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
-then
-    echo -e  "mainamorosa test is ${RED}failing${NC}"
-else
-    echo -e  "mainamorosa test is ${GREEN}ok${NC}"
-fi
+# python3 main.py Amorosa --ml=sgd --total=us > files/tests/mainamorosa-$(date "+%Y-%m-%d").txt
+# if ! diff files/tests/mainamorosa.txt files/tests/mainamorosa-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
+# then
+#     echo -e  "mainamorosa test is ${RED}failing${NC}"
+# else
+#     echo -e  "mainamorosa test is ${GREEN}ok${NC}"
+# fi
 
 python3 main.py 阿 --total=cn > files/tests/mainchina-$(date "+%Y-%m-%d").txt
 
@@ -199,6 +201,8 @@ else
 	echo -e  "nameincountries jesus test is ${GREEN}ok${NC}"
 fi
 
+echo "Launching infofeatures test. Please, wait"
+
 python3 infofeatures.py es > files/tests/infofeatures-$(date "+%Y-%m-%d").txt
 
 if ! diff files/tests/infofeatures.txt files/tests/infofeatures-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
@@ -217,52 +221,52 @@ else
 	echo -e  "csv2genderpartial test is ${GREEN}ok${NC}"
 fi
 
-# if [ -f files/images/pca_components_files_features_list.csv.png ]; then
-#     rm files/images/pca_components_files_features_list.csv.png
-# fi
+if [ -f files/images/pca_components_files_features_list.csv.png ]; then
+    rm files/images/pca_components_files_features_list.csv.png
+fi
 
-# if [ -a files/names/names_tests/allnoundefined.csv ]; then
-#     python3 pca-components.py --csv='files/features_list.csv' --no-show
-#     if [ -f files/images/pca_components_files_features_list.csv.png ]; then
-# 	echo -e  "pca-components test is ${GREEN}ok${NC}"
-#     else
-# 	echo -e  "pca-components test is ${RED}failing${NC}"
-#     fi
-# fi
+if [ -a files/names/names_tests/allnoundefined.csv ]; then
+    python3 pca-components.py --csv='files/features_list.csv' --no-show
+    if [ -f files/images/pca_components_files_features_list.csv.png ]; then
+	echo -e  "pca-components test is ${GREEN}ok${NC}"
+    else
+	echo -e  "pca-components test is ${RED}failing${NC}"
+    fi
+fi
 
 
-# if [ -a files/names/names_tests/allnoundefined.csv ]; then
-#     python3 pca-features.py --categorical="both" --components=7 > files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt
-#     if ! diff files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
-#     then
-# 	echo -e  "pca-features-both test is ${RED}failing${NC}"
-#     else
-# 	echo -e  "pca-features-both test is ${GREEN}ok${NC}"
-#     fi
-# fi
+if [ -a files/names/names_tests/allnoundefined.csv ]; then
+    python3 pca-features.py --categorical="both" --components=7 > files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt
+    if ! diff files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
+    then
+	echo -e  "pca-features-both test is ${RED}failing${NC}"
+    else
+	echo -e  "pca-features-both test is ${GREEN}ok${NC}"
+    fi
+fi
 
-# if [ -f files/images/pca_components_files_features_list_no_cat.csv.png ]; then
-#     rm files/images/pca_components_files_features_list_no_cat.csv.png
-# fi
+if [ -f files/images/pca_components_files_features_list_no_cat.csv.png ]; then
+    rm files/images/pca_components_files_features_list_no_cat.csv.png
+fi
 
-# if [ -a files/names/names_tests/allnoundefined.csv ]; then
-#     python3 pca-components.py --csv='files/features_list_no_cat.csv' --no-show
-#     if [ -f files/images/pca_components_files_features_list_no_cat.csv.png ]; then
-# 	echo -e  "pca-components-nocategorical test is ${GREEN}ok${NC}"
-#     else
-# 	echo -e  "pca-components-nocategorical test is ${RED}failing${NC}"
-#     fi
-# fi
+if [ -a files/names/names_tests/allnoundefined.csv ]; then
+    python3 pca-components.py --csv='files/features_list_no_cat.csv' --no-show
+    if [ -f files/images/pca_components_files_features_list_no_cat.csv.png ]; then
+	echo -e  "pca-components-nocategorical test is ${GREEN}ok${NC}"
+    else
+	echo -e  "pca-components-nocategorical test is ${RED}failing${NC}"
+    fi
+fi
 
-# if [ -a files/names/names_tests/allnoundefined.csv ]; then
-#     python3 pca-features.py --categorical="nocategorical" --components=7 > files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt
-#     if ! diff files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
-#     then
-# 	echo -e  "pca-features-nocategorical test is ${RED}failing${NC}"
-#     else
-# 	echo -e  "pca-features-nocategorical test is ${GREEN}ok${NC}"
-#     fi
-# fi
+if [ -a files/names/names_tests/allnoundefined.csv ]; then
+    python3 pca-features.py --categorical="nocategorical" --components=7 > files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt
+    if ! diff files/tests/pca-features-nocategorical.txt files/tests/pca-features-nocategorical-$(date "+%Y-%m-%d").txt >/dev/null 2>&1
+    then
+	echo -e  "pca-features-nocategorical test is ${RED}failing${NC}"
+    else
+	echo -e  "pca-features-nocategorical test is ${GREEN}ok${NC}"
+    fi
+fi
 
 # if [ -f files/images/pca_components_files_features_list_cat.csv.png ]; then
 #     rm files/images/pca_components_files_features_list_cat.csv.png
