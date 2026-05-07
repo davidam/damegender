@@ -6,7 +6,7 @@
 7 females for David from Australia statistics
 343917 males for David from Belgium statistics
 0 females for David from Belgium statistics
-63869 males for David from Brazil statistics
+63987 males for David from Brazil statistics
 598 females for David from Brazil statistics
 8375 males for David from Canada statistics
 1 females for David from Canada statistics
@@ -27,7 +27,7 @@ Warning: China option only runs with China alphabet
 0 females for David from Ireland statistics
 0 males for David from Iceland statistics
 0 females for David from Iceland statistics
-0 males for David from Italy statistics
+121 males for David from Italy statistics
 0 females for David from Italy statistics
 WARNING: Italy Open Dataset has few names,
 WARNING: only the most used names,
@@ -59,4 +59,4 @@ Warning: russian option only runs with russian alphabet
 4 females for David from Uruguay statistics
 4956646 males for David from international statistics
 12997 females for David from international statistics
-David gender predicted with nltk is male
+David gender guessed is male
