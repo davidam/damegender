@@ -133,7 +133,7 @@ freeely.
 
 # Beautiful Snakes
 
-![img](https://raw.githubusercontent.com/davidam/damegender/master/src/damegender/files/images/violet-snake3.png)
+![img](https://raw.githubusercontent.com/davidam/damegender/master/src/damegender/files/images/violet-snake.png)
 
 # Dame Music
 
