@@ -278,21 +278,23 @@ class TddInPythonExample(unittest.TestCase):
                           "pierre paul grivel", "m", "zbmath"], l2[0])
         self.assertEqual(["raul", "", "serapioni",
                           "raul serapioni", "m", "zbmath"], l2[1])
-        # l3 = du.csv2list('files/tests/csvbuggy.csv',
-        #                  delimiter=",",
-        #                  header=False,
-        #                  noemptyfield=0)
-        # self.assertEqual([["WLATER", "1"],
-        #                   ["YIMI", "16"],
-        #                   ["YONNY", "65"]],
-        #                  l3[0:3])
-        # l4 = du.csv2list('files/tests/csvbuggy.csv',
-        #                  delimiter=",",
-        #                  header=True,
-        #                  noemptyfield=0)
-        # self.assertEqual([["YIMI", "16"],
-        #                   ["YONNY", "65"]],
-        #                  l4[0:2])
+        l3 = du.csv2list('files/tests/csvbuggy.csv',
+                         delimiter=",",
+                         quotechar=None,
+                         header=False,
+                         noemptyfield=0)
+        self.assertEqual([["WLATER", "1"],
+                          ["YIMI", "16"],
+                          ["YONNY", "65"]],
+                         l3[0:3])
+        l4 = du.csv2list('files/tests/csvbuggy.csv',
+                         delimiter=",",
+                         header=True,
+                         quotechar=None,
+                         noemptyfield=0)
+        self.assertEqual([["YIMI", "16"],
+                          ["YONNY", "65"]],
+                         l4[0:2])
 
     def test_num_columns_in_csv(self):
         du = DameUtils()
