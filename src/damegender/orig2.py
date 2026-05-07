@@ -681,7 +681,7 @@ elif (country == "it"):
                                                   delimiter=",",
                                                   dicc=diccmales)
 
-    du.simple_dicc_to_file(dicc, outmales, dicc=diccmales)
+    du.simple_dicc_to_file(diccmales, outmales)
 
     diccfemales = {}
     diccfemales = du.dump_name_and_quantity_in_dicc(origfile2008,
@@ -729,7 +729,7 @@ elif (country == "it"):
                                                     delimiter=",",
                                                     dicc=diccfemales)
 
-    du.simple_dicc_to_file(dicc, outfemales)
+    du.simple_dicc_to_file(diccfemales, outfemales)
 
 elif (country == "mx"):
     origmales = origpath + "hombres.csv"
