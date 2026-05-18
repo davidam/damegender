@@ -93,6 +93,22 @@ for i in g.males_list(corpus=args.corpus):
 nmales = (males / len(g.males_list(corpus=args.corpus)))
 print("Males with last letter o: %s " % nmales)
 
+# LAST LETTER E
+print("---------------------------------------------------------------")
+females = 0
+for i in g.females_list(corpus=args.corpus):
+    if (g.features_int(i)["last_letter_e"] == 1):
+        females = females + 1
+nfemales = (females / len(g.females_list(corpus=args.corpus)))
+print("Females with last letter e: %s " % nfemales)
+
+males = 0
+for i in g.males_list(corpus=args.corpus):
+    if (g.features_int(i)["last_letter_e"] == 1):
+        males = males + 1
+nmales = (males / len(g.males_list(corpus=args.corpus)))
+print("Males with last letter e: %s " % nmales)
+
 # LAST LETTER CONSONANT
 print("---------------------------------------------------------------")
 females = 0

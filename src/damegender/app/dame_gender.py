@@ -111,6 +111,10 @@ class Gender(object):
             features_int["last_letter_o"] = 1
         else:
             features_int["last_letter_o"] = 0
+        if (name[-1].lower() == "e"):
+            features_int["last_letter_e"] = 1
+        else:
+            features_int["last_letter_e"] = 0
         return features_int
 
     def features_list(self, path='files/names/partial.csv', sexdataset=''):
@@ -257,7 +261,7 @@ class Gender(object):
                          "consonants, first_letter_vocal," \
                          "last_letter_vocal, first_letter_consonant, " \
                          "last_letter_consonant," \
-                         "last_letter_a, last_letter_o"
+                         "last_letter_a, last_letter_o, last_letter_e"
             f = open('files/features_list_no_letters.csv', 'w')
         elif (categorical == "noundefined"):
             fl = self.features_list_no_undefined(path)
@@ -266,7 +270,7 @@ class Gender(object):
                          "t, u, v, w, x, y, z, vocals, consonants, " \
                          "first_letter_vocal, last_letter_vocal, " \
                          "first_letter_consonant, last_letter_consonant, " \
-                         "last_letter_a, last_letter_o"
+                         "last_letter_a, last_letter_o, last_letter_e"
             f = open('files/features_list_no_undefined.csv', 'w')
         else:
             fl = self.features_list(path)
@@ -275,7 +279,7 @@ class Gender(object):
                          "v, w, x, y, z, vocals, consonants, " \
                          "first_letter_vocal, last_letter_vocal, " \
                          "first_letter_consonant, last_letter_consonant, " \
-                         "last_letter_a, last_letter_o"
+                         "last_letter_a, last_letter_o, last_letter_e"
             f = open('files/features_list.csv', 'w')
         f.write(first_line+"\n")
         for i in fl:
