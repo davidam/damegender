@@ -35,7 +35,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="display the gender")
-parser.add_argument('--ml', choices=['nltk', 'svc', 'sgd', 'gaussianNB',
+parser.add_argument('--ml', default=None, choices=['nltk', 'svc', 'sgd', 'gaussianNB',
                                      'multinomialNB', 'bernoulliNB',
                                      'forest', 'tree', 'mlp'])
 parser.add_argument('--total', default="inter",
@@ -599,6 +599,11 @@ else:
               % (n_males, args.name))
         print("%s females for %s from French DameGender Dataset"
               % (n_females, args.name))
+    elif (args.total == "german"):
+        print("%s males for %s from German DameGender Dataset"
+              % (n_males, args.name))
+        print("%s females for %s from German DameGender Dataset"
+              % (n_females, args.name))
     elif (args.total == "spanish"):
         print("%s males for %s from Spanish statistics"
               % (n_males, args.name))
@@ -619,7 +624,7 @@ else:
         if (args.ml == "nltk"):
             guess = s.guess(args.name, gender_encoded=True, ml="nltk",
                             force_whitespaces=args.force_whitespaces)
-        if (args.ml == "sgd"):
+        elif (args.ml == "sgd"):
             guess = s.guess(args.name, gender_encoded=True, ml="sgd",
                             force_whitespaces=args.force_whitespaces)
         elif (args.ml == "svc"):
