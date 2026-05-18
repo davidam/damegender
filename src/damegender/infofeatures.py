@@ -35,10 +35,14 @@ parser.add_argument('corpus', default="es",
                              'cn', 'de', 'dk', 'es', 'fi',
                              'fr', 'gb', 'ie', 'is', 'it',
                              'no', 'nz', 'mx', 'pt', 'ru', 'se',
-                             'si', 'uy', 'us', 'namdict', 'inter'])
+                             'si', 'uy', 'us',
+                              # GENERAL
+                             'namdict', 'inter', 'all',
+                              # LANGUAGES
+                             'english', 'finnish', 'french',
+                             'portuguese', 'spanish'])
+
 args = parser.parse_args()
-
-
 # LETTER A
 print("---------------------------------------------------------------")
 females = 0
