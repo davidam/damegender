@@ -53,7 +53,7 @@ class TddInPythonExample(unittest.TestCase):
 #        self.assertTrue(features_int["first_letter_consonant"] == 1)
         self.assertTrue(features_int["last_letter_consonant"] == 1)
         self.assertTrue(features_int["last_letter_a"] == 0)
-        self.assertEqual(len(features_int), 36)
+        self.assertEqual(len(features_int), 37)
 
     def test_dame_gender_males_list(self):
         g = Gender()
