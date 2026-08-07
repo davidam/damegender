@@ -72,6 +72,11 @@ https://datos.gob.ar/acerca/seccion/publica-datos
 + [ ] Source: https://www.kaggle.com/datasets/thec03u5/fifa-18-demo-player-dataset
 + [ ] License: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
+** FIFA 2026
++ [ ] File: fifa_world_cup_2026_player_performance.csv
++ [ ] Source: https://www.kaggle.com/datasets/rauffauzanrambe/fifa-world-cup-2026-player-performance-dataset
++ [ ] License: MIT https://www.mit.edu/~amini/LICENSE.md
+
 ** Amazon Best Sellers
 + [ ] File: amazon-bestsellers-with-categories.csv
 + [ ] Source: https://www.kaggle.com/datasets/sootersaalu/amazon-top-50-bestselling-books-2009-2019?select=bestsellers+with+categories.csv
