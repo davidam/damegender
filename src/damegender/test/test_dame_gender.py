@@ -44,16 +44,14 @@ class TddInPythonExample(unittest.TestCase):
     def test_dame_gender_features_int(self):
         g = Gender()
         features_int = g.features_int("David")
-#        self.assertTrue(features_int["first_letter"] == 100)
-        self.assertTrue(features_int["last_letter"] == 100)
         self.assertTrue(features_int["vocals"] == 2)
         self.assertTrue(features_int["consonants"] == 2)
-#        self.assertTrue(features_int["first_letter_vocal"] == 0)
+        self.assertTrue(features_int["first_letter_vocal"] == 0)
         self.assertTrue(features_int["last_letter_vocal"] == 0)
-#        self.assertTrue(features_int["first_letter_consonant"] == 1)
+        self.assertTrue(features_int["first_letter_consonant"] == 1)
         self.assertTrue(features_int["last_letter_consonant"] == 1)
         self.assertTrue(features_int["last_letter_a"] == 0)
-        self.assertEqual(len(features_int), 37)
+        self.assertEqual(len(features_int), 35)
 
     def test_dame_gender_males_list(self):
         g = Gender()
@@ -267,7 +265,7 @@ class TddInPythonExample(unittest.TestCase):
         self.assertEqual(g.males, 16)
         self.assertEqual(g.unknown, 2)
 
-        
+
     def test_dame_gender_features_list(self):
         g = Gender()
         fl = g.features_list()
