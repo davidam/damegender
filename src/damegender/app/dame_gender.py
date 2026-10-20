@@ -68,8 +68,6 @@ class Gender(object):
     def features_int(self, name):
         # features method created to check the scikit classifiers
         features_int = {}
-        features_int["first_letter"] = ord(name[0].lower())
-        features_int["last_letter"] = ord(name[-1].lower())
         for letter in 'abcdefghijklmnopqrstuvwxyz':
             num = name.lower().count(letter)
             features_int["count({})".format(letter)] = num
@@ -833,7 +831,7 @@ class Gender(object):
                 if gender_encoded:
                     guess_damegender = 2
                     guess_isoiec5218 = 0
-                    guess_rfc6350 = "u"                    
+                    guess_rfc6350 = "u"
                 else:
                     guess_damegender = "unknown"
                     guess_isoiec5218 = "not know"
@@ -869,7 +867,7 @@ class Gender(object):
             if gender_encoded:
                 guess_damegender = 2
                 guess_isoiec5128 = 0
-                guess_rfc6350 = "u"                
+                guess_rfc6350 = "u"
             else:
                 guess_damegender = "unknown"
                 guess_isoiec5218 = "not know"
@@ -934,7 +932,7 @@ class Gender(object):
                    gender_encoded=False, dataset='us', *args, **kwargs):
         # returns a list of gender chars using the guess method
         header = kwargs.get('header', True)
-        standard = kwargs.get('standard', 'damegender')        
+        standard = kwargs.get('standard', 'damegender')
         slist = []
         with open(path) as csvfile:
             sexreader = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -953,7 +951,7 @@ class Gender(object):
         # ``0 as not know'',``1 as male'', ``2 as female''
         # and ``9 as not applicable''
         header = kwargs.get('header', True)
-        standard = kwargs.get('standard', 'damegender')        
+        standard = kwargs.get('standard', 'damegender')
         gender_column = kwargs.get('gender_column', 4)
         gender_f_chars = kwargs.get('gender_f_chars', 'f')
         gender_m_chars = kwargs.get('gender_m_chars', 'm')
