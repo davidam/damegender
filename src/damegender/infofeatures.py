@@ -34,7 +34,7 @@ parser.add_argument('corpus', default="es",
                     choices=['ar', 'at', 'au', 'be', 'ca', 'ch',
                              'cn', 'de', 'dk', 'es', 'fi',
                              'fr', 'gb', 'ie', 'is', 'it',
-                             'no', 'nz', 'mx', 'pt', 'ru', 'se',
+                             'no', 'nz', 'mx', 'pt', 'ru_en', 'se',
                              'si', 'uy', 'us',
                               # GENERAL
                              'namdict', 'inter', 'all',
