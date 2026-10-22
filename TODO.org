@@ -3,6 +3,16 @@
 * TODO Regenerar modelos
 Es complejo abrir modelos creados con versiones antiguas de scikit
 Hay que regenerar los modelos
+** TODO Elegir features
+Usar infofeatures.py para ello
+** TODO Elegir datasets de pruebas
+** TODO Reescribir pca-components
+** TODO Ejecutar confusion.py
+** TODO Ejecutar roc.py
+
+* TODO Rehacer el dataset suizo
++ [ ] https://www.bfs.admin.ch/bfs/en/home/statistics/population/births-deaths/names-switzerland.assetdetail.36752504.html
+
 * DONE Plantearse poner estos footnotes al paper de uc3m
   - State "DONE"       from "POSIBLE"    [2023-08-05 sáb 03:03]
 Austria\footnote{https://www.wien.gv.at},
@@ -50,9 +60,9 @@ Mirar python-examples/matplotlib/corr.py
 En español es frecuente encontrar:
 + [ ] nombre1 apellido1 apellido2
 + [ ] nombre1 nombre2 apellido1 apellido2
-+ [ ] apellido1 apellido2, nombre1 
++ [ ] apellido1 apellido2, nombre1
 + [ ] apellido1 apellido2, nombre1 nombre2
-** Otra aproximación puede ser crear una tarea de aprendizaje y aplicar ML 
+** Otra aproximación puede ser crear una tarea de aprendizaje y aplicar ML
 ** DONE Crear método guess_surname
    - State "DONE"       from "TODO"       [2018-11-22 jue 16:12]
 ** DONE Crear un dataset universal de apellidos
@@ -166,7 +176,7 @@ Para esto lo mejor es devolver una probabilidad. Usar INE.es puede ser una opci�
 * DONE En csv
   - State "DONE"       from "TODO"       [2018-12-03 lun 15:57]
   first_letter; last_letter; a; b; c; d; e; f; g; h; i; j; k; l; m; n; o; p; q; r; s; t; u; v; w; x; y; z; vocals; consonants; first_letter_vocal; last_letter_vocal; syllables
-_* TODO Mejora corr.py para determinar si las variables son independientes
+* TODO Mejora corr.py para determinar si las variables son independientes
 + [X] Separar variables categóricas y no categóricas
 + [ ] Crear una gráfica para variables categóricas
 + [ ] Crear una gráfica para variables no categóricas
@@ -400,7 +410,7 @@ Sexmachine confusion matrix:
 
 * CANCELED Escribir y probar average para api2gender
   - State "CANCELED"   from "TODO"       [2023-08-05 sáb 01:32]
-api2gender no es para hacer medias aritméticas downloadjson o download csv tendría más sentido y tampoco. 
+api2gender no es para hacer medias aritméticas downloadjson o download csv tendría más sentido y tampoco.
 Con api2gender simplemente descargamos un solo nombre y no lo vamos a cambiar ya ese comportamiento.
 * TODO Escribir la desviación típica en la elección de male or female
   SCHEDULED: <2019-02-24 dom>
@@ -1222,7 +1232,7 @@ Recuerda el repositorio de python-examples en la carpeta sparql los siguientes s
 + [X] wikidata-female-scientists.py
 + [X] wikidata-male-scientists.py
 + [X] wikidata-male-artists.py
-+ [X] wikidata-female-artists.py 
++ [X] wikidata-female-artists.py
 * DONE Escribir el comando top para mostrar, por ejemplo, los 10 nombres más utilizados en USA
   - State "DONE"       from "TODO"       [2020-07-06 lun 16:57]
 ** Parámetros
@@ -1310,7 +1320,7 @@ Los campos de cada persona
 + gender (obligatorio)
 * DONE Rehacer los experimentos de Machine Learning con alguna profesión divertida de wikidata
   - State "DONE"       from "TODO"       [2022-03-07 lun 10:44]
-Por ejemplo, con scientists: 
+Por ejemplo, con scientists:
 + [ ] python-examples/sparql/wikidata-male-scientists.py
 + [ ] python-examples/sparql/male-scientists.csv
 + [ ] python-examples/sparql/wikidata-female-scientists.py
@@ -1361,7 +1371,7 @@ y ver que las desviaciones son razonables
   problemas de dependencias
   https://docs.python.org/3/library/xml.etree.elementtree.html
   Esto no es del todo factible en cuanto que html no es xml estricto
-  
+
 * CANCELED Crear un método normalize_names_and_white_spaces
   - State "CANCELED"   from "TODO"       [2023-01-06 vie 12:43]
 ESTA TAREA HA SIDO REESCRITA COMO "Checklist a cada csv de un país"
@@ -1487,11 +1497,11 @@ En sintonía con el Objetivo de Desarrollo Sostenible 5 de Naciones Unidas
 y, anticipándonos a la versión 0.5 de Damegender se ha elegido el logo
 de Equidad de Género como logo oficial del proyecto Damegender.
 Generando un listado de canciones que se considera en sintonía
-con la nueva línea del proyecto. 
+con la nueva línea del proyecto.
 * DONE Echar un vistazo a este accuracy mal calculado tras reescribir pretty_gg_list
 SCHEDULED: <2022-08-14 dom>
 - State "DONE"       from "TODO"       [2022-08-19 vie 19:13]
-% python3 accuracy.py --dataset_test=files/names/partial.csv --measure=accuracy --api=damegender --dataset_true=files/names/partial.csv.json 
+% python3 accuracy.py --dataset_test=files/names/partial.csv --measure=accuracy --api=damegender --dataset_true=files/names/partial.csv.json
 ################### Damegender!!
 Guess list:       [1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
 Gender Test list: [1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]
@@ -1506,7 +1516,7 @@ accuracy_score_dame had been used and tested only without undefined because in t
 Por ejemplo pasar un fichero de formato stata a csv:
      data = pd.io.stata.read_stata(path)
      data.to_csv(path+'.csv')
-     
+
 * DONE Eliminar de los dataset inter las iniciales.
 - State "DONE"       from "TODO"       [2022-10-22 sáb 08:12]
 
@@ -1536,12 +1546,12 @@ Podría ser ya la versión 0.5. Puedes buscar en el paper:
 "To make easy to reproduce the experiment we are pasting the commands
 used with the version 0.3.4 of Damegender."
 * TODO Corroborar que los nombres escrapeados están bien con alguna api de género
-** TODO Brazil 
+** TODO Brazil
 Dataset situado en:
 + [ ] files/names/names_br/nomes2.csv
 Licencia:
 + [ ] BY-SA: https://creativecommons.org/licenses/by-sa/4.0/
-+ [ ] Extraida de: https://brasil.io/dataset/genero-nomes/nomes/ 
++ [ ] Extraida de: https://brasil.io/dataset/genero-nomes/nomes/
 ** TODO China
 *** TODO Aprender a transformar caracteres chinos a latinos
 * TODO Repensar el regenerate-inter-files.sh
@@ -1587,7 +1597,7 @@ Los sesgos que se generan por efecto Lesley son también de poco interés signif
 El sesgo de error de utilizar un dataset INTER en vez de detectar y aplicar el idioma o nación local es del 10%
 
 * TODO HIPÓTESIS 4
-Un dataset INTER construido únicamente con datasets de WikiData tendría un menor acierto que uno construido con instituciones estadísticas Open Data. 
+Un dataset INTER construido únicamente con datasets de WikiData tendría un menor acierto que uno construido con instituciones estadísticas Open Data.
 Esto sería así por un menor número de nombres y no por un desacierto de género y nombre.
 
 * TODO HIPÓTESIS 5
@@ -1600,7 +1610,7 @@ Haciendo crecer el dataset en número de nombres de, por ejemplo, Estados Unidos
 Si el dataset tiene más de 1.000.000 nombres reales con el género bien asignado, las mejoras de accuracy no vendría de un mayor número de nombres con el género bien asignado.
 
 ** Comentarios a la hipótesis
-Este principio, pararía posibles tendencias de la industria de hacer márketing aumentando número de nombres como indicador de calidad de la herramienta, en vez de accuracy. Puesto que pasado el millón de nombres tal vez hay un efecto contrario que se está asignando género a no nombres, incluso a veces strings impronunciables (solo consonantes). 
+Este principio, pararía posibles tendencias de la industria de hacer márketing aumentando número de nombres como indicador de calidad de la herramienta, en vez de accuracy. Puesto que pasado el millón de nombres tal vez hay un efecto contrario que se está asignando género a no nombres, incluso a veces strings impronunciables (solo consonantes).
 
 En el caso que un cliente o usuario demande un género a una cadena de caracteres que no esté contenido en el millón de nombres podría decirse no está en la base de datos y, mediante ML inferir el género.
 
@@ -1622,7 +1632,7 @@ Esto se usa mucho en estudio tipo Twitter. Con DameGender se podría hacer de la
   - State "DONE"       from "TODO"       [2023-09-02 sáb 05:54]
 * TODO csv2jsonapirest está construyendo mal los acentos en muchos casos tmp2/names/D�N�S_all.json
 1) Recrear cada idioma teniendo en cuenta este punto debe haber fallos por un mal tratamiento en la codificación de caracteres (propongo usar utf8 en todos)
-2) Recrear el interall.csv 
+2) Recrear el interall.csv
 3) Quizás sea necesario crear un nuevo repositorio, para no tener nombres sucios o crear un script para borrar nombres con incorrecta codificación en el fichero.
 * TODO Estaría bien que csv2jsonapirest incluyera apellidos
 Muchos nombres, por ejemplo, Gonzalo, son también apellidos, el json de cada string debería dar esa información.
@@ -1636,4 +1646,3 @@ Hay varias ideas y también podría ser un equilibrio entre diferentes posturas:
 + Wikipedia habla de un montón de eventos relacionados con un día (https://en.wikipedia.org/wiki/2024). Esto es similar a cómo lo piensa Google.
 + Solo científicas como una medida de expresar solidaridad visible a la brecha de género en las STEM.
 + En DameGender hay inercias de arte, científicas e ideas culturalistas propias de DameGender.
-
