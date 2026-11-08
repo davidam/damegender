@@ -1,0 +1,25 @@
+---------------------------------------------------------------
+Females with letter/s a: 0.8820754716981132 
+Males with letter/s a: 0.8 
+---------------------------------------------------------------
+Females with last letter a: 0.5141509433962265 
+Males with last letter a: 0.06227544910179641 
+---------------------------------------------------------------
+Females with last letter o: 0.0 
+Males with last letter o: 0.05269461077844311 
+---------------------------------------------------------------
+Females with last letter e: 0.09669811320754718 
+Males with last letter e: 0.0407185628742515 
+---------------------------------------------------------------
+Females with last letter consonant: 0.3561320754716981
+Males with last letter consonant: 0.7676646706586826
+---------------------------------------------------------------
+Females with last letter vocal: 0.6415094339622641
+Males with last letter vocal: 0.2275449101796407
+---------------------------------------------------------------
+---------------------------------------------------------------
+Females with first letter consonant: 0.7830188679245284
+Males with first letter consonant: 0.7149700598802395
+---------------------------------------------------------------
+Females with first letter vocal: 0.21462264150943397
+Males with first letter vocal: 0.2718562874251497
